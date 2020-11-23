@@ -1,5 +1,5 @@
-import { Flex, Button, Stack, Text } from '@chakra-ui/react'
-import { BiShareAlt, BiUpArrowAlt  } from 'react-icons/bi'
+import { Flex, Stack, Text, Icon } from '@chakra-ui/react'
+import { BiUpArrowAlt  } from 'react-icons/bi'
 import { Link as ScrollLink } from "react-scroll";
 import Container from './Container'
 import ShareButton from './ShareButton';
@@ -10,7 +10,7 @@ const ShareFooter: React.FC = () => {
       as="div"
       w="100%"
       h="64px"
-      p={["4px 16px"]}
+      p={["4px 0"]}
       justifyContent="center"
       alignItems="center"
       fontFamily="Barlow"
@@ -42,16 +42,28 @@ const ShareFooter: React.FC = () => {
           offset={-70}
           duration={500}
         >
-          <Button 
-            rightIcon={<BiUpArrowAlt width="16px" height="16px" />}
-            colorScheme="black" 
-            variant="link"
-            _focus={{outline: "none"}}
+          <Flex 
+            direction="row" 
+            w="100%"
+            justifyContent="flex-end"
+            alignItems="center"
+            cursor="pointer"
           >
-            <Text display={{base: "none", sm: "none", md: "none", lg: "inherit"}}  >
+            <Text 
+              display={{base: "none", sm: "none", md: "none", lg: "inherit"}}
+              _focus={{outline: "none"}}
+              minW="130px"
+              fontWeight="700"
+            >
               Voltar para o topo
             </Text>
-          </Button>
+            <Icon 
+              as={BiUpArrowAlt} 
+              fontWeight="700"
+              width="16px"
+              height="16px"
+            />
+          </Flex>
         </ScrollLink>
       </Container>
     </Flex>

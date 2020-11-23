@@ -1,17 +1,13 @@
-import { Button } from '@chakra-ui/react'
+import { Button, useStyleConfig } from '@chakra-ui/react'
 import { BiShareAlt  } from 'react-icons/bi'
 
 const ShareButton: React.FC = () => {
+  const variant = "white"
+  const styles = useStyleConfig("Button", {variant})
   return (
     <Button 
       leftIcon={<BiShareAlt />} 
-      colorScheme="black" 
-      radii="md"
-      border="2px"
-      variant="outline"
-      w="100%"
-      maxW="220px"
-      fontSize="15px"
+      sx={styles}
       >
       Divulgar o AppJusto
     </Button>

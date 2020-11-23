@@ -1,11 +1,15 @@
 import { extendTheme } from "@chakra-ui/react"
 
+import Select from './select'
+import Input from './input'
+import Button from './button'
+
 const customTheme = extendTheme({
   //breakpoints: ["700px", "1024px", "1440px", "2560px"],
   fonts: {
     body: 'Barlow, system-ui, sans-serif',
     heading: 'Barlow, system-ui, sans-serif',
-    mono: 'monospace, system-ui, sans-serif'
+    mono: 'Barlow, system-ui, sans-serif'
   },
   fontWeights: {
     normal: 400,
@@ -23,8 +27,14 @@ const customTheme = extendTheme({
   colors: {
     primary: "#78E08F",
     primaryLight: "#B8E994",
-    secondary: "#FFBE00"
+    secondary: "#FFBE00",
+    secondaryLight: "#FFE493"
   },
+  components: {
+    Select,
+    Input,
+    Button,
+  }
 })
 
 export default customTheme;

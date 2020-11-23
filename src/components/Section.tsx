@@ -6,7 +6,9 @@ const Section: React.FC<FlexProps> = (props) => {
       as="section"
       w="100%"
       h="100vh"
-      p="0 16px"
+      flexDir="column"
+      alignItems="center"
+      position="relative"
       {...props}
     >
       {props.children}

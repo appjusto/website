@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     <Flex
       as="footer"
       w="100%"
-      p={["33px 16px 9px", "42px 0"]}
+      p={["33px 0 9px", "42px 0"]}
       justifyContent="center"
       alignItems="center"
       bg="black"
