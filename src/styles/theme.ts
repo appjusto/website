@@ -1,7 +1,7 @@
 import { extendTheme } from "@chakra-ui/react"
 
 const customTheme = extendTheme({
-  breakpoints: ["700px", "1024px", "1440px", "2560px"],
+  //breakpoints: ["700px", "1024px", "1440px", "2560px"],
   fonts: {
     body: 'Barlow, system-ui, sans-serif',
     heading: 'Barlow, system-ui, sans-serif',

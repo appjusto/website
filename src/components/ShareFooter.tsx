@@ -1,0 +1,61 @@
+import { Flex, Button, Stack, Text } from '@chakra-ui/react'
+import { BiShareAlt, BiUpArrowAlt  } from 'react-icons/bi'
+import { Link as ScrollLink } from "react-scroll";
+import Container from './Container'
+import ShareButton from './ShareButton';
+
+const ShareFooter: React.FC = () => {
+  return (
+    <Flex
+      as="div"
+      w="100%"
+      h="64px"
+      p={["4px 16px"]}
+      justifyContent="center"
+      alignItems="center"
+      fontFamily="Barlow"
+    >
+      <Container
+        flexDir="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Stack 
+          direction="row"
+          w="100%" 
+          spacing={4} 
+          align="center">
+          <ShareButton />
+          <Text 
+            fontSize="15px"
+            fontWeight="500"
+            display={{base: "none", sm: "none", md: "none", lg: "inherit"}}  
+          >
+            Quanto mais você divulgar, mais rápido o AppJusto chegará até você!
+          </Text>
+        </Stack>
+        <ScrollLink
+          activeClass="active"
+          to="hero"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          <Button 
+            rightIcon={<BiUpArrowAlt width="16px" height="16px" />}
+            colorScheme="black" 
+            variant="link"
+            _focus={{outline: "none"}}
+          >
+            <Text display={{base: "none", sm: "none", md: "none", lg: "inherit"}}  >
+              Voltar para o topo
+            </Text>
+          </Button>
+        </ScrollLink>
+      </Container>
+    </Flex>
+  );
+}
+
+export default ShareFooter;

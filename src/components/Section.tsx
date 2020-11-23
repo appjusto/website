@@ -1,6 +1,6 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, FlexProps } from '@chakra-ui/react'
 
-const Section: React.FC = (props) => {
+const Section: React.FC<FlexProps> = (props) => {
   return (
     <Flex
       as="section"
