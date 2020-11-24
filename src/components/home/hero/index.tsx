@@ -52,7 +52,8 @@ const Hero: React.FC = () => {
             src="/mobile-hero.png" 
             width={360} 
             height={482} 
-            layout="responsive" 
+            layout="responsive"
+            loading="eager" 
           />
         </Box>
         <Box
@@ -65,6 +66,7 @@ const Hero: React.FC = () => {
             width={1440} 
             height={600} 
             layout="responsive" 
+            loading="eager"
           />
         </Box>
       </Box>

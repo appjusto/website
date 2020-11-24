@@ -8,6 +8,7 @@ import Main from '../components/Main'
 import ShareFooter from '../components/ShareFooter'
 import Numbers from '../components/home/numbers'
 import Monopoly from '../components/home/monopoly'
+import Section from '../components/Section'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Hero />
         <Numbers />
         <Monopoly />
+        <Section bg="white" h="100vh" />
       </Main>
       <Footer />
       <ShareFooter />
