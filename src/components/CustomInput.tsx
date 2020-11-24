@@ -4,9 +4,10 @@ import { useMultiStyleConfig } from "@chakra-ui/react"
 
 interface InputProps {
   label: string
+  placeholder: string
 }
 
-const CustomInput: React.FC<InputProps> = ({label}) => {
+const CustomInput: React.FC<InputProps> = ({label, placeholder}) => {
   const styles = useMultiStyleConfig("Input", {})
   return (
     <FormControl 
@@ -18,7 +19,7 @@ const CustomInput: React.FC<InputProps> = ({label}) => {
         {label}
       </FormLabel>
       <Input 
-        placeholder="Digite seu e-mail"
+        placeholder={placeholder}
         sx={styles.input}
       />
     </FormControl>

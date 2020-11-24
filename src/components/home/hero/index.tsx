@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
     >
       <Container 
         flexDir="column"
-        pt="120px"
+        pt={["120px", "120px", "120px", "260px"]}
         zIndex="10"  
       >
         <Heading 
@@ -59,6 +59,8 @@ const Hero: React.FC = () => {
         <Box
           position="relative"
           w="100%"
+          h="600px"
+          overflow="hidden"
           display={{base: "none", sm: "none", md: "none", lg: "inherit"}}
         >
           <Image 
