@@ -1,13 +1,17 @@
 import Image from 'next/image'
-import { baseStyle, Box, Heading } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 
-import Section from "./Section";
-import Container from './Container';
+import Section from "../../Section";
+import Container from '../../Container';
 import RegistrationBox from './RegistrationBox';
 
 const Hero: React.FC = () => {
   return (
-    <Section bgColor="primary" id="hero">
+    <Section 
+      id="hero"
+      bgColor="primary" 
+      h="100vh"
+    >
       <Container 
         flexDir="column"
         pt="120px"

@@ -1,7 +1,7 @@
-import { Flex, Heading, Text, FormControl, FormLabel, Select, Button } from "@chakra-ui/react";
-import CustomInput from "./CustomInput";
-import CustomSelect from "./CustomSelect";
-import CustomButton from './CustomButton'
+import { Flex, Heading, Text } from "@chakra-ui/react";
+import CustomInput from "../../CustomInput";
+import CustomSelect from "../../CustomSelect";
+import CustomButton from '../../CustomButton'
 
 
 const components: React.FC = () => {
