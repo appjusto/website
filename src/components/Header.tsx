@@ -28,7 +28,11 @@ const Header: React.FC = () => {
           >
             <Link href="/">
               <a>
-                <Image src="/logo-home.svg" width={272} height={116} />
+                <Image 
+                  src="/logo-home.svg" 
+                  width={272} 
+                  height={116} 
+                  loading="eager" />
               </a>
             </Link>
           </Box>

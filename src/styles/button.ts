@@ -21,7 +21,8 @@ export default {
     secondaryLight: {
       bg: "secondaryLight",
       h: "48px",
-      fontSize: "15px"
+      fontSize: "15px",
+      padding: "0"
     },
   },
   defaultProps: {

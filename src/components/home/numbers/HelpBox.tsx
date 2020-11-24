@@ -83,7 +83,7 @@ const HelpBox: React.FC<HelpBoxProps> = ({
               href={link2href}
               isExternal
               w="100%"
-              ml="16px"
+              ml="8px"
             >
               <CustomButton label={link2Label} variant="secondaryLight"/>
             </Link>
