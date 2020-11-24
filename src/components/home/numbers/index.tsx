@@ -60,14 +60,14 @@ const Hero: React.FC = () => {
           </Flex>
         </Flex>
         <Heading
-          mt="32px"  
+          mt="32px"
+          mb={["8px", "8px", "8px", "30px"]}  
           as="h1" 
           fontSize={["24px", "24px", "24px", "32px"]}
         >
           Formas de ajudar
         </Heading>
         <Text 
-          mt="30px" 
           textStyle="p"
           fontSize={["16px", "16px", "16px", "18px"]}>
           Entenda como você pode ajudar o AppJusto a chegar mais longe:
