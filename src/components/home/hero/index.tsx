@@ -13,8 +13,11 @@ const Hero: React.FC = () => {
       h="100vh"
     >
       <Container 
+        h={["auto", "auto", "auto", "100vh"]}
         flexDir="column"
-        pt={["120px", "120px", "120px", "260px"]}
+        justifyContent="flex-end"
+        pt={["132px", "132px", "132px", "0"]}
+        pb={["24px", "24px", "24px", "60px"]}
         zIndex="10"  
       >
         <Heading 
