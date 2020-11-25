@@ -15,7 +15,6 @@ const Commitment: React.FC = () => {
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        pt={["80px", "80px", "80px", "54px"]} 
         pb={["62px", "62px", "62px", "64px"]} 
       >
         <Heading 

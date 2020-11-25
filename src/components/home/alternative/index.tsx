@@ -18,7 +18,7 @@ const Alternative: React.FC = () => {
         justifyContent="flex-start"
         alignItems="flex-start"
         pt={["80px", "80px", "80px", "54px"]} 
-        pb={["62px", "62px", "62px", "53px"]} 
+        pb={["64px", "64px", "64px", "53px"]} 
       >
         <Flex
           flexDir="row"

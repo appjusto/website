@@ -18,7 +18,6 @@ const Partners: React.FC = () => {
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        pt={["16px", "16px", "16px", "54px"]} 
         pb={["62px", "62px", "62px", "64px"]} 
       >
         <Heading 
