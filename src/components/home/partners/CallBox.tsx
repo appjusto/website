@@ -17,11 +17,16 @@ const CallBox: React.FC = () => {
     >
       <Box
         position="relative"
-        w="70px"
-        h="70px"
+        minW="72px"
+        h="72px"
         mr="13px"
       >
-        <Image src="/illustration-delivery.svg" width={70} height={70} />
+        <Image 
+          src="/illustration-delivery.svg" 
+          width={72} 
+          height={72} 
+          layout="responsive"
+        />
       </Box>
       <Flex
         flexDir="column"

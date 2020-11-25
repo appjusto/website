@@ -48,15 +48,15 @@ const Hero: React.FC = () => {
             w="100%"
             flexDir="row"
           >
-            <NumberBox icon="/shield.svg" number={500} label="Cidades" />
-            <NumberBox icon="/bike.svg" number={800} label="Entregadores" />
+            <NumberBox icon="/icon-shield.svg" number={500} label="Cidades" />
+            <NumberBox icon="/icon-bike.svg" number={800} label="Entregadores" />
           </Flex>
           <Flex
             w="100%"
             flexDir="row"
           >
-            <NumberBox icon="/cutlery.svg" number={500} label="Restaurantes" />
-            <NumberBox icon="/happy.svg" number={800} label="Consumidores" />
+            <NumberBox icon="/icon-cutlery.svg" number={500} label="Restaurantes" />
+            <NumberBox icon="/icon-happy.svg" number={800} label="Consumidores" />
           </Flex>
         </Flex>
         <Heading

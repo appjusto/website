@@ -11,6 +11,7 @@ import Monopoly from '../components/home/monopoly'
 import Section from '../components/Section'
 import Alternative from '../components/home/alternative'
 import Partners from '../components/home/partners'
+import Commitment from '../components/home/commitment'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Numbers />
         <Monopoly />
         <Alternative />
+        <Commitment />
         <Partners />
       </Main>
       <Footer />
