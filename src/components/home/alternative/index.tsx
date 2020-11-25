@@ -52,7 +52,8 @@ const Alternative: React.FC = () => {
           spacing={2}
           //overflow="hidden"
           w="100%"
-          overflowX="scroll"
+          overflowX="auto"
+          p="8px 0"
           mb="38px"
         >
           <InfoBox 

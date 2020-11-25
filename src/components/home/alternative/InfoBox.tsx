@@ -16,6 +16,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, title, text }) => {
       p="24px"
       border="1px solid #F2F6EA"
       borderRadius="8px"
+      boxShadow="0 5px 20px -5px #F7FAFC"
       minW="320px"
     >
       <Box

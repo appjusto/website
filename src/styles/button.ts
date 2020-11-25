@@ -11,7 +11,6 @@ export default {
       bg: "white",
       fontSize: "15px",
       h: "48px",
-      maxW: "220px"
     },
     secondary: {
       bg: "secondary",

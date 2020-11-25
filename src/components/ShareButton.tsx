@@ -8,6 +8,7 @@ const ShareButton: React.FC = () => {
     <Button 
       leftIcon={<BiShareAlt />} 
       sx={styles}
+      maxW="220px"
       >
       Divulgar o AppJusto
     </Button>

@@ -7,7 +7,7 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
       flexDir="column"
       w="100%"
       minH="90px"
-      alignItems="flex-end"
+      alignItems={["flex-start", "flex-start", "flex-start", "flex-end"]}
       {...props}
     >
       <Flex 
