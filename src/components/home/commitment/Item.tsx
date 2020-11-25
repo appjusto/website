@@ -75,7 +75,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods8.svg" width={466} height={466} quality={100}/>
+                <Image src="/ods8.svg" width={64} height={64} quality={100}/>
               </Box>
               <Box 
                 borderRadius="4px" 
@@ -83,7 +83,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods10.svg" width={466} height={466} quality={100}/>
+                <Image src="/ods10.svg" width={64} height={64} quality={100}/>
               </Box>
               <Box 
                 borderRadius="4px" 
@@ -91,7 +91,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods11.svg" width={466} height={466} quality={100}/>
+                <Image src="/ods11.svg" width={64} height={64} quality={100}/>
               </Box>
               <Box 
                 borderRadius="4px" 
@@ -99,7 +99,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods17.svg" width={466} height={466} quality={100}/>
+                <Image src="/ods17.svg" width={64} height={64} quality={100}/>
               </Box>
             </Stack>
           )
