@@ -9,20 +9,19 @@ import ShareFooter from '../components/ShareFooter'
 import Numbers from '../components/home/numbers'
 import Monopoly from '../components/home/monopoly'
 import Section from '../components/Section'
+import Alternative from '../components/home/alternative'
+import Partners from '../components/home/partners'
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Header />
       <Main>
         <Hero />
         <Numbers />
         <Monopoly />
-        <Section bg="white" h="100vh" />
+        <Alternative />
+        <Partners />
       </Main>
       <Footer />
       <ShareFooter />
