@@ -53,6 +53,7 @@ const Alternative: React.FC = () => {
           w="100%"
           overflowX="auto"
           p="8px 0"
+          mb={["38px", "38px", "38px", "0"]}
         >
           <InfoBox 
             image="/infobox-entregadores.png"
