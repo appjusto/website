@@ -11,7 +11,6 @@ const Alternative: React.FC = () => {
   return (
     <Section
       id="alternative"
-      minH="100vh" 
     >
       <Container
         flexDir="column"
@@ -54,7 +53,6 @@ const Alternative: React.FC = () => {
           w="100%"
           overflowX="auto"
           p="8px 0"
-          mb="38px"
         >
           <InfoBox 
             image="/infobox-entregadores.png"

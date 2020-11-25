@@ -12,7 +12,6 @@ const Partners: React.FC = () => {
   return (
     <Section
       id="alternative"
-      minH="100vh" 
     >
       <Container
         flexDir="column"
