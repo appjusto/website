@@ -1,17 +1,10 @@
 import Image from 'next/image'
-import { Flex, Heading, Text, Link } from '@chakra-ui/react'
-
-import CustomButton from '../../CustomButton'
+import { Flex, Heading, Stack, Text } from '@chakra-ui/react'
 
 interface HelpBoxProps {
   icon: string
   title: string
   text: string
-  singleLink: boolean
-  link1Label: string
-  link1href: string
-  link2Label?: string
-  link2href?: string
   isLast: boolean
 }
 
@@ -19,12 +12,8 @@ const HelpBox: React.FC<HelpBoxProps> = ({
   icon,
   title,
   text,
-  singleLink,
-  link1Label,
-  link1href,
-  link2Label,
-  link2href,
-  isLast
+  isLast, 
+  children
 }) => {
   return (
     <Flex 
@@ -66,32 +55,13 @@ const HelpBox: React.FC<HelpBoxProps> = ({
       >
         {text}
       </Text>
-      <Flex
-        flexDir="row"
+      <Stack
+        direction="row"
         w="100%"
+        spacing={3}
       >
-        <Link 
-          href={link1href}
-          isExternal
-          w="100%"
-          _hover={{textDecoration: "none"}}
-        >
-          <CustomButton label={link1Label} variant="secondaryLight"/>
-        </Link>
-        {
-          !singleLink && (
-            <Link 
-              href={link2href}
-              isExternal
-              w="100%"
-              ml="8px"
-              _hover={{textDecoration: "none"}}
-            >
-              <CustomButton label={link2Label} variant="secondaryLight"/>
-            </Link>
-          )
-        }
-      </Flex>
+        {children}
+      </Stack>
     </Flex>
   );
 }

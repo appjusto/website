@@ -1,12 +1,17 @@
 import Image from 'next/image'
-import { Flex, Heading, Text } from '@chakra-ui/react'
+import { Flex, Heading, Text, Link } from '@chakra-ui/react'
+import { useStyleConfig } from "@chakra-ui/react"
 
 import Section from "../../Section";
 import Container from '../../Container';
 import NumberBox from './NumberBox';
 import HelpBox from './HelpBox'
+import Button from "../../CustomButton" 
+
+const variant = "secondaryLight"
 
 const Hero: React.FC = () => {
+  const styles = useStyleConfig("Button", {variant})
   return (
     <Section 
       id="numbers"
@@ -79,31 +84,45 @@ const Hero: React.FC = () => {
             icon="/icon-promotion.svg"
             title="Indique o AppJusto"
             text="Indique o AppJusto para amigos, entregadores, restaurantes, e todos que desejam um modelo mais justo."
-            singleLink={true}
-            link1Label="Indicar o AppJusto"
-            link1href="/"
             isLast={false}
-          />
+          >
+            <Button label="Indicar o AppJusto" variant="secondaryLight"/>
+          </HelpBox>
           <HelpBox 
             icon="/icon-high-five.svg"
             title="Faça parte do AppJusto"
             text="Estamos em busca de voluntários, empresas parceiras, investidores, e todos que podem colaborar ativamente com esse movimento."
-            singleLink={true}
-            link1Label="Quero ser um parceiro"
-            link1href="/"
             isLast={false}
-          />
+          >
+            <Button label="Quero ser parceiro" variant="secondaryLight"/>
+          </HelpBox>
           <HelpBox 
             icon="/icon-chat-bubble.svg"
             title="Responda a pesquisa"
             text="Estamos ouvindo entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
-            singleLink={false}
-            link1Label="Sou Entregador"
-            link1href="/"
-            link2Label="Sou Restaurante"
-            link2href="/"
             isLast={true}
-          />
+          >
+            <Link 
+              href="/"
+              isExternal
+              sx={styles}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              Sou Entregador
+            </Link>
+            <Link 
+              href="/"
+              isExternal
+              sx={styles}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              Sou Restaurante
+            </Link>
+          </HelpBox>
         </Flex>
       </Container>
     </Section>
