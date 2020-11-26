@@ -74,6 +74,7 @@ const HelpBox: React.FC<HelpBoxProps> = ({
           href={link1href}
           isExternal
           w="100%"
+          _hover={{textDecoration: "none"}}
         >
           <CustomButton label={link1Label} variant="secondaryLight"/>
         </Link>
@@ -84,6 +85,7 @@ const HelpBox: React.FC<HelpBoxProps> = ({
               isExternal
               w="100%"
               ml="8px"
+              _hover={{textDecoration: "none"}}
             >
               <CustomButton label={link2Label} variant="secondaryLight"/>
             </Link>

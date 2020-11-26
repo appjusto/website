@@ -11,17 +11,20 @@ export default {
       bg: "white",
       fontSize: "15px",
       h: "48px",
+      _hover: {bg: "#F2F6EA"}
     },
     secondary: {
       bg: "secondary",
       h: "60px",
       fontSize: "18px",
+      _hover: {bg: "#FF7F22"}
     },
     secondaryLight: {
       bg: "secondaryLight",
       h: "48px",
       fontSize: "15px",
-      padding: "0"
+      padding: "0",
+      _hover: {bg: "#FFC093"}
     },
   },
   defaultProps: {
