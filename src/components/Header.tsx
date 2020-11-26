@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({
     w="100%"
     justifyContent="center"
     position="absolute"
-    top={top}
+    top={[top, null, null, "0"]}
     left="0"
     zIndex="100" 
     >

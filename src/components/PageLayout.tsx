@@ -33,6 +33,7 @@ const PageLayout: React.FC<PageProps> = ({
             alignItems="center"
             position="relative"
             h="48px"
+            display={["flex", null, null, "none"]}
           >
             <NextLink href="/" passHref>
               <Link 

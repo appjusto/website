@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import NextLink from 'next/link'
-import { Flex, Box, Text, Link } from '@chakra-ui/react'
+import { Flex, Box, Text } from '@chakra-ui/react'
+import Link from '../../CustomInternalLink'
 
 const CallBox: React.FC = () => {
   return (
@@ -43,17 +43,13 @@ const CallBox: React.FC = () => {
           Seja um parceiro <br/>
           do AppJusto
         </Text>
-        <NextLink href="/" passHref>
-          <Link 
-            fontSize="15px"
-            lineHeight="22px"
-            fontWeight="700"
-            textDecoration="underline"
-            _hover={{opacity: 0.9}}
-          >
-            Entre em contato
-          </Link>
-        </NextLink>
+        <Link 
+          link="/"
+          linkLabel="Entre em contato"
+          fontSize="15px"
+          lineHeight="22px"
+          fontWeight="700"
+        />
       </Flex>
     </Flex>
   );
