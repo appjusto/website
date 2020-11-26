@@ -26,7 +26,7 @@ const customTheme = extendTheme({
   },
   colors: {
     primary: "#78E08F",
-    primaryDark: "#4EA031",
+    primaryDark: "#22543D",
     primaryLight: "#B8E994",
     secondary: "#FFBE00",
     secondaryLight: "#FFE493"

@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
         flexDir="column"
         justifyContent="flex-end"
         pt={["132px", null, null, "0"]}
-        pb={["24px", null, null, "60px"]}
+        pb={["24px", null, null, "10.6rem"]}
         zIndex="10"  
       >
         <Heading 
