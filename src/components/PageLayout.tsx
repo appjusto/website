@@ -77,12 +77,13 @@ const PageLayout: React.FC<PageProps> = ({
           pageName !== "Home" && (
             <Container 
               flexDir="column"
-              m="124px 0 64px"
+              m="124px"
+              mb="64px"
+              display={[ "none", null, null, "flex"]}
             >
               <Stack 
                 direction="row"
-                spacing={2}
-                display={[ "none", null, null, "flex"]}
+                spacing={2} 
                 color="#697667"
                 fontSize="16px"
                 lineHeight="22px"
@@ -112,7 +113,15 @@ const PageLayout: React.FC<PageProps> = ({
             </Container>
           )
         }
-        {children}
+        {
+          pageName === "Home" ? children : (
+            <Container
+              mt={["100px", null, null, "0"]}
+            >
+              {children}
+            </Container>
+          )
+        }
         </Section>
       </Main>
       <Footer />

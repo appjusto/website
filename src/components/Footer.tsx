@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
           color="white"
         >
           <InternalLink 
-            link="/"
+            link="/politica-de-privacidade"
             linkLabel="Política de privacidade"
             mb={["22px", null, null, "0"]} 
             fontSize="15px"
