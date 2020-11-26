@@ -16,14 +16,14 @@ const Alternative: React.FC = () => {
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        pt={["80px", "80px", "80px", "54px"]} 
-        pb={["64px", "64px", "64px", "53px"]} 
+        pt={["80px", null, null, "54px"]} 
+        pb={["64px", null, null, "53px"]} 
       >
         <Flex
           flexDir="row"
           justifyContent="space-between"
           alignItems="flex-end" 
-          mb={["42px", "42px", "42px", "51px"]}  
+          mb={["42px", null, null, "51px"]}  
         >
           <Flex
             flexDir="column"
@@ -38,13 +38,13 @@ const Alternative: React.FC = () => {
             </Box>
             <Heading 
               as="h1" 
-              fontSize={["24px", "24px", "24px", "48px"]}  
-              lineHeight={["28,8px", "28,8px", "28,8px", "48px"]} 
+              fontSize={["24px", null, null, "48px"]}  
+              lineHeight={["28,8px", null, null, "48px"]} 
             >
               Uma plataforma onde o ganho é compartilhado.
             </Heading>
           </Flex>
-          <InfoButtons display={["none", "none", "none", "flex"]}/>
+          <InfoButtons display={["none", null, null, "flex"]}/>
         </Flex>
         <Stack
           direction="row"
@@ -53,7 +53,7 @@ const Alternative: React.FC = () => {
           w="100%"
           overflowX="auto"
           p="8px 0"
-          mb={["38px", "38px", "38px", "0"]}
+          mb={["38px", null, null, "0"]}
         >
           <InfoBox 
             image="/infobox-entregadores.png"
@@ -77,7 +77,7 @@ const Alternative: React.FC = () => {
               mais justa."
           />
         </Stack>
-        <InfoButtons display={["flex", "flex", "flex", "none"]}/>
+        <InfoButtons display={["flex", null, null, "none"]}/>
       </Container>
     </Section>
   );

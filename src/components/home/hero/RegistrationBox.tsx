@@ -18,7 +18,7 @@ const components: React.FC = () => {
         Quanto mais pré-cadastros na sua cidade, mais rápido chegaremos nela.
       </Text>
       <Flex
-        flexDir={{base: "column", sm: "column", md: "column", lg: "row"}}
+        flexDir={["column", null, null, "row"]}
       >
         <CustomSelect />
         <CustomInput label="E-mail" placeholder="Digite seu e-mail."/>

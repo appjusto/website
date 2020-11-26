@@ -18,13 +18,13 @@ const Monopoly: React.FC = () => {
         justifyContent="flex-end"
         alignItems="flex-start"
         minH="100vh"
-        pb={["62px", "62px", "62px", "53px"]} 
+        pb={["62px", null, null, "53px"]} 
       >
         <Heading 
           as="h1" 
-          fontSize={["24px", "24px", "24px", "56px"]} 
-          mb={["16px", "16px", "16px", "42px"]}  
-          lineHeight={["28,8px", "28,8px", "28,8px", "67,2px"]} 
+          fontSize={["24px", null, null, "56px"]} 
+          mb={["16px", null, null, "42px"]}  
+          lineHeight={["28,8px", null, null, "67,2px"]} 
           maxW="944px"
         >
           Os apps atuais criam monopólios, controlam o mercado, impondo suas 
@@ -32,9 +32,9 @@ const Monopoly: React.FC = () => {
         </Heading>
         <Heading 
           as="h3" 
-          fontSize={["16px", "16px", "16px", "20px"]}  
+          fontSize={["16px", null, null, "20px"]}  
           fontWeight="500" 
-          lineHeight={["22px", "22px", "22px", "32px"]} 
+          lineHeight={["22px", null, null, "32px"]} 
           maxW="944px"
         >
           Hoje, os apps são fonte de renda para 3.8 milhões de autônomos no Brasil. 
@@ -53,7 +53,7 @@ const Monopoly: React.FC = () => {
         <Box
           position="relative"
           w="100%"
-          display={{base: "inherit", sm: "inherit", md: "inherit", lg: "none"}}
+          display={["inherit", null, null, "none"]}
         >
           <Image 
             src="/mobile-bg-monopoly.png" 
@@ -65,7 +65,7 @@ const Monopoly: React.FC = () => {
         <Box
           position="relative"
           w="100%"
-          display={{base: "none", sm: "none", md: "none", lg: "inherit"}}
+          display={["none", null, null, "inherit"]}
         >
           <Image 
             src="/bg-monopoly.png" 

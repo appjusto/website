@@ -8,13 +8,13 @@ import Item from './Item';
 const Commitment: React.FC = () => {
   return (
     <Section
-      id="alternative"
+      id="commitment"
     >
       <Container
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        pb={["62px", "62px", "62px", "64px"]} 
+        pb={["62px", null, null, "64px"]} 
       >
         <Heading 
           as="h2"
@@ -85,7 +85,7 @@ const Commitment: React.FC = () => {
           </Flex>
           <Box
             position="relative"
-            display={["none", "none", "none", "block"]}
+            display={["none", null, null, "block"]}
           >
             <Image src="/commitment-route.svg" width={368} height={669} />
           </Box>

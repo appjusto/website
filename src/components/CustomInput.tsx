@@ -13,7 +13,7 @@ const CustomInput: React.FC<InputProps> = ({label, placeholder}) => {
     <FormControl 
       id="c-input" 
       mt="24px"
-      mr={["0", "0", "0", "16px"]}
+      mr={["0", null, null, "16px"]}
     >
       <FormLabel sx={styles.label}>
         {label}

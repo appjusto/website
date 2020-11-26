@@ -8,7 +8,7 @@ const CustomSelect: React.FC = () => {
     <FormControl 
       id="role" 
       mt="24px"
-      mr={["0", "0", "0", "16px"]}
+      mr={["0", null, null, "16px"]}
     >
       <FormLabel sx={styles.label}>
         Perfil

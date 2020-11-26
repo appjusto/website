@@ -15,21 +15,21 @@ const Hero: React.FC = () => {
     >
       <Container 
         flexDir="column"
-        pt={["220px", "220px", "220px", "20px"]}
+        pt={["220px", null, null, "20px"]}
         pb="64px"
       >
         <Heading 
           as="h1" 
           fontSize="24px"
-          display={["block", "block", "block", "none"]}
+          display={["block", null, null, "none"]}
         >
           Se todos colaborarem, este projeto vai dar certo e será melhor a todos. 
           Faça a sua parte divulgando agora.
         </Heading>
         <Heading 
           as="h1" 
-          fontSize={["24px", "24px", "24px", "32px"]}
-          display={["none", "none", "none", "block"]}
+          fontSize={["24px", null, null, "32px"]}
+          display={["none", null, null, "block"]}
         >
           Se todos colaborarem, este projeto vai dar certo e será melhor a todos. <br/> 
           Faça a sua parte divulgando agora.
@@ -37,12 +37,12 @@ const Hero: React.FC = () => {
         <Text 
           mt="30px" 
           textStyle="p"
-          fontSize={["16px", "16px", "16px", "18px"]}>
+          fontSize={["16px", null, null, "18px"]}>
           Pré-cadastros até o momento:
         </Text>
         <Flex
           w="100%"
-          flexDir={["column", "column", "column", "row"]}
+          flexDir={["column", null, null, "row"]}
         >
           <Flex
             w="100%"
@@ -61,19 +61,19 @@ const Hero: React.FC = () => {
         </Flex>
         <Heading
           mt="32px"
-          mb={["8px", "8px", "8px", "30px"]}  
+          mb={["8px", null, null, "30px"]}  
           as="h1" 
-          fontSize={["24px", "24px", "24px", "32px"]}
+          fontSize={["24px", null, null, "32px"]}
         >
           Formas de ajudar
         </Heading>
         <Text 
           textStyle="p"
-          fontSize={["16px", "16px", "16px", "18px"]}>
+          fontSize={["16px", null, null, "18px"]}>
           Entenda como você pode ajudar o AppJusto a chegar mais longe:
         </Text>
         <Flex
-          flexDir={["column", "column", "column", "row"]}
+          flexDir={["column", null, null, "row"]}
         >
           <HelpBox 
             icon="/icon-promotion.svg"

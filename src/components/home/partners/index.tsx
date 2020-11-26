@@ -11,13 +11,13 @@ import CallBox from './CallBox';
 const Partners: React.FC = () => {
   return (
     <Section
-      id="alternative"
+      id="partners"
     >
       <Container
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        pb={["62px", "62px", "62px", "64px"]} 
+        pb={["62px", null, null, "64px"]} 
       >
         <Heading 
           as="h2"
@@ -73,25 +73,25 @@ const Partners: React.FC = () => {
           de apoiadores por todo país. Quer nos ajudar nessa missão?
         </Text>
         <Flex
-          flexDir={["column", "column", "column", "row"]}
+          flexDir={["column", null, null, "row"]}
           w="100%"
         >
           <CustomButton 
             label="Entre em contato" 
             variant="secondaryLight"
-            maxW={["100%", "100%", "220px", "220px"]}
+            maxW={["100%", null, "220px"]}
             mr={["0", "0", "0", "16px"]}
           />
           <CustomButton 
             label="Quero ser um parceiro" 
             variant="white"    
-            maxW={["100%", "100%", "220px", "220px"]}
+            maxW={["100%", null, "220px"]}
             mr={["0", "0", "0", "16px"]}
           />
           <CustomButton 
             label="Quero trabalhar com vocês" 
             variant="white"    
-            maxW={["100%", "100%", "220px", "220px"]}
+            maxW={["100%", null, "220px"]}
           />
         </Flex>
       </Container>

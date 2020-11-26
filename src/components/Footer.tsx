@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     <Flex
       as="footer"
       w="100%"
-      p={["33px 0 9px", "42px 0"]}
+      p={["33px 0 9px", null, null, "42px 0"]}
       justifyContent="center"
       alignItems="center"
       bg="black"
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
       textDecoration="underline"
     >
       <Container
-        flexDir={["column", "column", "column", "row"]}
+        flexDir={["column", null, null, "row"]}
         justifyContent="space-between"
         alignItems="center"
       >
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           w="100%"
           m="0"
           p="0"
-          flexDir={["column", "column", "column", "row"]}
+          flexDir={["column", null, null, "row"]}
           justifyContent="flex-start"
           alignItems="flex-start"
           mb={["50px", "50px", "50px", "0"]}
@@ -35,8 +35,8 @@ const Footer: React.FC = () => {
             justifyContent="space-between"
             alignItems="center"
             color="white"
-            mb={{base: "22px", sm: "22px", md: "22px", lg: "0"}}
-            mr={["0", "26px"]}
+            mb={["22px", null, null, "0"]}
+            mr={["0", null, null, "26px"]}
           >
             <Icon as={MdMailOutline} 
               color="primary" 
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
             justifyContent="space-between"
             alignItems="center"
             color="white"
-            mb={{base: "22px", sm: "22px", md: "22px", lg: "0"}}
+            mb={["22px", null, null, "0"]}
           >
             <Icon as={FaLinkedin} 
               color="primary" 
@@ -70,29 +70,29 @@ const Footer: React.FC = () => {
           w="100%"
           m="0"
           p="0"
-          flexDir={["column", "column", "column", "row"]}
-          justifyContent={["flex-start", "flex-start", "flex-start", "flex-end"]}
-          alignItems={["flex-start", "flex-start", "flex-start", "flex-end"]}
+          flexDir={["column", null, null, "row"]}
+          justifyContent={["flex-start", null, null, "flex-end"]}
+          alignItems={["flex-start", null, null, "flex-end"]}
           color="white"
         >
           <NextLink href="/" passHref>
             <Link 
-              mb={{base: "22px", sm: "22px", md: "22px", lg: "0"}} 
+              mb={["22px", null, null, "0"]} 
               fontSize="15px"
-              mr={["0", "16px"]}
+              mr={["0", null, null, "16px"]}
               _hover={{opacity: 0.9}} 
               >Política de privacidade</Link>
           </NextLink>
-          <NextLink href="/" passHref>
+          <NextLink href="/termos-de-uso" passHref>
             <Link 
-              mb={{base: "22px", sm: "22px", md: "22px", lg: "0"}} 
+              mb={["22px", null, null, "0"]} 
               fontSize="15px"
-              mr={["0", "16px"]}
+              mr={["0", null, null, "16px"]}
               _hover={{opacity: 0.9}}  
               >Termos de uso</Link>
           </NextLink>
           <Text 
-            mb={{base: "22px", sm: "22px", md: "22px", lg: "0"}} 
+            mb={["22px", null, null, "0"]} 
             fontSize="15px"
             >
             © {new Date().getFullYear()} AppJusto. Marca Registrada.

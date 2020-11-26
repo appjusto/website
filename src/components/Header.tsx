@@ -3,8 +3,12 @@ import Image from 'next/image'
 import { Flex, Box, Text } from "@chakra-ui/react";
 import Container from './Container';
 
+interface HeaderProps {
+  logo: string
+  isHome?: boolean
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({logo, isHome = true}) => {
   return (
     <Flex
     as="header"
@@ -29,7 +33,7 @@ const Header: React.FC = () => {
             <Link href="/">
               <a>
                 <Image 
-                  src="/logo-home.svg" 
+                  src={logo}
                   width={272} 
                   height={116} 
                   loading="eager" />
@@ -39,10 +43,10 @@ const Header: React.FC = () => {
           <Flex
             justifyContent="flex-end"
             alignItems="center"
-            display={["none", "none", "none", "flex"]}
+            display={["none", null, null, "flex"]}
           >
             <Text
-              color="white"
+              color={ isHome ? "white" : "black"}
               fontFamily="Barlow"
               fontWeight="700"
               fontSize="15px"

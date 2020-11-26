@@ -38,7 +38,7 @@ const HelpBox: React.FC<HelpBoxProps> = ({
       bg="white"
       border="2px solid black"
       borderRadius="8px"
-      mr={["0", "0", "0", `${isLast ? "0" : "16px"}`]}
+      mr={["0", null, null, `${isLast ? "0" : "16px"}`]}
     >
       <Flex
         w="90px"

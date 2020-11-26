@@ -10,7 +10,7 @@ const ShareFooter: React.FC = () => {
       as="div"
       w="100%"
       h="64px"
-      p={["4px 0"]}
+      p="4px 0"
       justifyContent="center"
       alignItems="center"
       fontFamily="Barlow"
@@ -29,7 +29,7 @@ const ShareFooter: React.FC = () => {
           <Text 
             fontSize="15px"
             fontWeight="500"
-            display={{base: "none", sm: "none", md: "none", lg: "inherit"}}  
+            display={["none", null, null, "inherit"]}  
           >
             Quanto mais você divulgar, mais rápido o AppJusto chegará até você!
           </Text>
@@ -50,7 +50,7 @@ const ShareFooter: React.FC = () => {
             cursor="pointer"
           >
             <Text 
-              display={{base: "none", sm: "none", md: "none", lg: "inherit"}}
+              display={["none", null, null, "inherit"]}
               _focus={{outline: "none"}}
               minW="130px"
               fontWeight="700"

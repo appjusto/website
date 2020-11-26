@@ -53,7 +53,6 @@ const Seo: React.FC<SeoProps> = ({
   ]
   return (
     <>
-      <title>{title}</title>
       <link rel="icon" href="/favicon.ico" />
       <link rel="canonical" href={canonical_url} />
       {
