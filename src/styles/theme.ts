@@ -1,11 +1,20 @@
 import { extendTheme } from "@chakra-ui/react"
+import { createBreakpoints } from "@chakra-ui/theme-tools"
 
 import Select from './select'
 import Input from './input'
 import Button from './button'
 
+const breakpoints = createBreakpoints({
+  sm: "30em",
+  md: "48em",
+  lg: "62em",
+  xl: "80em",
+  xxl: "100em"
+})
+
 const customTheme = extendTheme({
-  //breakpoints: ["700px", "1024px", "1440px", "2560px"],
+  breakpoints,
   fonts: {
     body: 'Barlow, system-ui, sans-serif',
     heading: 'Barlow, system-ui, sans-serif',
