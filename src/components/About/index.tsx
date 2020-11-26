@@ -143,12 +143,6 @@ const About: React.FC = () => {
         bem coletivo.
       </Text>
       <SectionTitle mt="22px" text="Como contribuir com o AppJusto" />
-      <Title text="1. Chame amigos!" />
-      <Text textStyle="p" mb="26px">
-        Pode ser cliente, restaurante ou entregador. Quanto mais pré-cadastros 
-        tivermos na sua cidade ou bairro, mais rápido o AppJusto pode chegar até 
-        você.
-      </Text>
       <Title text="Isso pode ser feito de várias maneiras:" mb="26px"/>
       <Title text="1. Chame amigos!" />
       <Text textStyle="p" mb="26px">
