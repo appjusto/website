@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import NextLink from 'next/link'
-import { Flex, Box, Heading, Stack, Text, Link } from "@chakra-ui/react";
+import { Flex, Box, Heading, Stack, Text } from "@chakra-ui/react";
+import Link from '../../CustomInternalLink'
 
 interface ItemProps {
   image: string
@@ -53,17 +53,13 @@ const Item: React.FC<ItemProps> = ({
         </Text>
         {
           link && (
-            <NextLink href={link} passHref>
-              <Link 
-                fontSize="15px"
-                lineHeight="22px"
-                fontWeight="700"
-                textDecoration="underline"
-                _hover={{opacity: 0.9}}
-              >
-                {linkLabel}
-              </Link>
-            </NextLink>
+            <Link 
+              link={link}
+              linkLabel={linkLabel}
+              fontSize="15px"
+              lineHeight="22px"
+              fontWeight="700"
+            />
           )
         }
         {

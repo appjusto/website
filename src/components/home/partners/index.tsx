@@ -1,9 +1,8 @@
-import Image from 'next/image'
-import NextLink from 'next/link'
-import { Flex, Box, Heading, Stack, Text, Link } from "@chakra-ui/react";
+import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import CustomButton from '../../CustomButton'
+import Link from '../../CustomInternalLink'
 import PartnerBox from './PartnerBox';
 import CallBox from './CallBox';
 
@@ -46,17 +45,13 @@ const Partners: React.FC = () => {
           Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas, 
           entre sócios, colaboradores e voluntários.
         </Text>
-        <NextLink href="/conheca-a-rede" passHref>
-          <Link 
-            fontSize="18px"
-            lineHeight="26px"
-            fontWeight="700"
-            textDecoration="underline"
-            _hover={{opacity: 0.9}}
-          >
-            Conheça a nossa rede completa
-          </Link>
-        </NextLink>
+        <Link 
+          link="/conheca-a-rede"
+          linkLabel="Conheça a nossa rede completa"
+          fontSize="18px"
+          lineHeight="26px"
+          fontWeight="700"
+        />
         <Heading 
           as="h2"
           m="66px 0 48px"

@@ -1,8 +1,8 @@
-import NextLink from 'next/link'
-import { Flex, Icon, Link, Text } from '@chakra-ui/react'
+import { Flex, Icon, Text, Link } from '@chakra-ui/react'
 import { MdMailOutline  } from 'react-icons/md'
 import { FaLinkedin  } from 'react-icons/fa'
 import Container from './Container'
+import InternalLink from './CustomInternalLink'
 
 const Footer: React.FC = () => {
   return (
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
             <Link
               href="mailto:contato@appjusto.com.br" 
               isExternal 
-              _hover={{opacity: 0.9}}
+              _hover={{color: "#055AFF"}}
             >
               contato@appjusto.com.br
             </Link>
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
             <Link
               href="https://www.linkedin.com/company/appjusto/" 
               isExternal 
-              _hover={{opacity: 0.9}}>
+              _hover={{color: "#055AFF"}}>
               /appjusto
             </Link>
           </Flex>
@@ -82,22 +82,20 @@ const Footer: React.FC = () => {
           alignItems={["flex-start", null, null, "flex-end"]}
           color="white"
         >
-          <NextLink href="/" passHref>
-            <Link 
-              mb={["22px", null, null, "0"]} 
-              fontSize="15px"
-              mr={["0", null, null, "16px"]}
-              _hover={{opacity: 0.9}} 
-              >Política de privacidade</Link>
-          </NextLink>
-          <NextLink href="/termos-de-uso" passHref>
-            <Link 
-              mb={["22px", null, null, "0"]} 
-              fontSize="15px"
-              mr={["0", null, null, "16px"]}
-              _hover={{opacity: 0.9}}  
-              >Termos de uso</Link>
-          </NextLink>
+          <InternalLink 
+            link="/"
+            linkLabel="Política de privacidade"
+            mb={["22px", null, null, "0"]} 
+            fontSize="15px"
+            mr={["0", null, null, "16px"]}
+          />
+          <InternalLink 
+            link="/termos-de-uso"
+            linkLabel="Termos de uso"
+            mb={["22px", null, null, "0"]} 
+            fontSize="15px"
+            mr={["0", null, null, "16px"]}
+          />
           <Text 
             mb={["22px", null, null, "0"]} 
             fontSize="15px"
