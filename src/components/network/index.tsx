@@ -1,59 +1,9 @@
-import { Flex, Heading, Text } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 
-interface TextProps {
-  text: string
-}
-
-const Column: React.FC = ({children}) => {
-  return (
-    <Flex
-      w="100%"
-      flexDir="column"
-      justifyContent="flex-start"
-      alignItems="flex-start"
-    >
-      {children}
-    </Flex> 
-  );
-}
-
-const NamesBox: React.FC = ({children}) => {
-  return (
-    <Flex
-      w="100%"
-      flexDir="column"
-      justifyContent="flex-start"
-      alignItems="flex-start"
-      mb="16px"
-    >
-      {children}
-    </Flex> 
-  );
-}
-
-const RoleTitle: React.FC<TextProps> = ({text}) => {
-  return (
-    <Heading 
-      as="h3"
-      fontSize="16px"
-      lineHeight="22px"
-    >
-      {text}
-    </Heading> 
-  );
-}
-
-const NetworkNames: React.FC<TextProps> = ({text}) => {
-  return (
-    <Text 
-      textStyle="p"
-      fontSize="16px"
-      lineHeight="22px"
-    >
-      {text}
-    </Text> 
-  );
-}
+import Column from './Column'
+import NamesBox from './NamesBox'
+import RoleTitle from './RoleTitle'
+import NetworkNames from './NetworkNames'
 
 const founders = [
   "Pedro Saulo de Andrade",
