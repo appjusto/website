@@ -11,7 +11,7 @@ export default {
       bg: "white",
       fontSize: "15px",
       h: "48px",
-      _hover: {bg: "primary", color: "primaryDark", borderColor: "primaryDark"}
+      _hover: {bg: "#F2F6EA"}
     },
     secondary: {
       bg: "secondary",
