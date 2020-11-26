@@ -11,20 +11,20 @@ export default {
       bg: "white",
       fontSize: "15px",
       h: "48px",
-      _hover: {bg: "primary", color: "white"}
+      _hover: {bg: "primary", color: "white", borderColor: "primaryDark"}
     },
     secondary: {
       bg: "secondary",
       h: "60px",
       fontSize: "18px",
-      _hover: {bg: "primary", color: "white"}
+      _hover: {bg: "primary", color: "white", borderColor: "primaryDark"}
     },
     secondaryLight: {
       bg: "secondaryLight",
       h: "48px",
       fontSize: "15px",
       padding: "0",
-      _hover: {bg: "primary", color: "white"}
+      _hover: {bg: "primary", color: "white", borderColor: "primaryDark"}
     },
   },
   defaultProps: {
