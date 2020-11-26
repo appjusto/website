@@ -46,7 +46,7 @@ const Partners: React.FC = () => {
           Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas, 
           entre sócios, colaboradores e voluntários.
         </Text>
-        <NextLink href="/" passHref>
+        <NextLink href="/conheca-a-rede" passHref>
           <Link 
             fontSize="18px"
             lineHeight="26px"

@@ -60,7 +60,7 @@ const Commitment: React.FC = () => {
               image="/item-thumb.svg" 
               title="Eficiência e sustentabilidade financeira" 
               text="O nosso crescimento está atrelado ao crescimento da rede"
-              link="/"
+              link="/sobre-o-appjusto"
               linkLabel="Saiba mais sobre o AppJusto"
             />
             <Item 
@@ -73,7 +73,7 @@ const Commitment: React.FC = () => {
               image="/item-blur.svg" 
               title="Transparência em toda a plataforma" 
               text="Desde a definiação das regras até os preços cobrados"
-              link="/"
+              link="/transparencia"
               linkLabel="Saiba mais sobre Transparência"
             />
             <Item 

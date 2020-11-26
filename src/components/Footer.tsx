@@ -44,9 +44,13 @@ const Footer: React.FC = () => {
               w="20px"
               h="20px"
             />
-            <NextLink href="/" passHref>
-              <Link _hover={{opacity: 0.9}}>contato@appjusto.com.br</Link>
-            </NextLink>
+            <Link
+              href="mailto:contato@appjusto.com.br" 
+              isExternal 
+              _hover={{opacity: 0.9}}
+            >
+              contato@appjusto.com.br
+            </Link>
           </Flex>
           <Flex
             flexDir="row"
@@ -61,9 +65,12 @@ const Footer: React.FC = () => {
               w="20px"
               h="20px"
             />
-            <NextLink href="/" passHref>
-              <Link _hover={{opacity: 0.9}}>/appjusto</Link>
-            </NextLink>
+            <Link
+              href="https://www.linkedin.com/company/appjusto/" 
+              isExternal 
+              _hover={{opacity: 0.9}}>
+              /appjusto
+            </Link>
           </Flex>
         </Flex>
         <Flex

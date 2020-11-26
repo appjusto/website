@@ -35,6 +35,7 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
             <CustomButton 
             variant="secondaryLight" 
             label="Sobre o AppJusto"
+            link="/sobre-o-appjusto"
           />
           </Box>
           <Box

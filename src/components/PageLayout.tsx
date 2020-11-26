@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import NextLink from 'next/link'
-import { Flex, Stack, Heading, Text, Link, Icon } from "@chakra-ui/react";
+import { Stack, Heading, Text, Link, Icon } from "@chakra-ui/react";
 import { MdFiberManualRecord as Dot  } from 'react-icons/md'
 import Container from "./Container";
 import Header from './Header';
