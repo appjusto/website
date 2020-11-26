@@ -8,6 +8,7 @@ const NetworkNames: React.FC<TextProps> = ({text}) => {
   return (
     <Text 
       as="h3"
+      textStyle="p"
       fontSize="16px"
       lineHeight="22px"
     >
