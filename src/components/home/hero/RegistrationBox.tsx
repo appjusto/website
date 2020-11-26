@@ -21,8 +21,8 @@ const components: React.FC = () => {
         flexDir={["column", null, null, "row"]}
       >
         <CustomSelect />
-        <CustomInput label="E-mail" placeholder="Digite seu e-mail."/>
-        <CustomInput label="Cidade" placeholder="Digite sua cidade."/>
+        <CustomInput id="email" label="E-mail" placeholder="Digite seu e-mail."/>
+        <CustomInput id="city" label="Cidade" placeholder="Digite sua cidade."/>
         <CustomButton label="Fazer pré-cadastro" variant="secondary" />
       </Flex>
     </Flex>

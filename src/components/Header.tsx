@@ -5,17 +5,26 @@ import Container from './Container';
 
 interface HeaderProps {
   logo: string
+  logoW: string
+  logoH: string
   isHome?: boolean
+  top: string
 }
 
-const Header: React.FC<HeaderProps> = ({logo, isHome = true}) => {
+const Header: React.FC<HeaderProps> = ({
+  logo, 
+  logoW,
+  logoH,
+  isHome = true,
+  top
+}) => {
   return (
     <Flex
     as="header"
     w="100%"
     justifyContent="center"
     position="absolute"
-    top="0"
+    top={top}
     left="0"
     zIndex="100" 
     >
@@ -27,8 +36,8 @@ const Header: React.FC<HeaderProps> = ({logo, isHome = true}) => {
           alignItems="center"
         >
           <Box
-          width="140px"
-          height="60px"
+          w={logoW}
+          h={logoH}
           >
             <Link href="/">
               <a>
