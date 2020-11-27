@@ -19,10 +19,14 @@ import CustomSelect from './CustomSelect'
 import CustomButton from './CustomButton'
 
 const ModalConfirmation: React.FC = () => {
-  const { showModalRecommendation, handleModals } = useContext(PageContext)
+  const { 
+    showModalRecommendation,
+    handleModalConfirmation, 
+    handleModalRecommendation 
+  } = useContext(PageContext)
   function handleSubmit() {
-    handleModals("confirmation")
-    return handleModals("recommendation")
+    handleModalConfirmation("recommendation")
+    return handleModalRecommendation()
   }
   return (
     <Modal 
@@ -30,7 +34,7 @@ const ModalConfirmation: React.FC = () => {
       size="full"
       blockScrollOnMount={true} 
       isOpen={showModalRecommendation} 
-      onClose={() => handleModals("recommendation")}
+      onClose={handleModalRecommendation}
       closeOnOverlayClick={true}
       isCentered
       >

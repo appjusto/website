@@ -13,7 +13,7 @@ import PageContext from '../../../context'
 const variant = "secondaryLight"
 
 const Hero: React.FC = () => {
-  const { handleModals } = useContext(PageContext)
+  const { handleModalRecommendation } = useContext(PageContext)
   const styles = useStyleConfig("Button", {variant})
   return (
     <Section 
@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
             <Button 
               label="Indicar o AppJusto" 
               variant="secondaryLight"
-              handleClick={() => handleModals("recommendation")}
+              handleClick={() => handleModalRecommendation()}
             />
           </HelpBox>
           <HelpBox 

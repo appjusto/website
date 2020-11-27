@@ -12,9 +12,9 @@ import PageContext from '../../../context'
 
 
 const RegistrationBox: React.FC = () => {
-  const { handleModals } = useContext(PageContext)
+  const { handleModalConfirmation } = useContext(PageContext)
   function handleSubmit() {
-    return handleModals("confirmation")
+    return handleModalConfirmation("subscribe")
   }
   return (
     <Flex 

@@ -1,9 +1,10 @@
 import React from 'react'
 
 interface PageContext {
-  showModalConfirmation: boolean
+  showModalConfirmation: {show: boolean, type: string}
   showModalRecommendation: boolean
-  handleModals: (modal: string)  => void
+  handleModalConfirmation: (type: string)  => void
+  handleModalRecommendation: ()  => void
 }
 
 export default React.createContext<PageContext>({} as PageContext)
