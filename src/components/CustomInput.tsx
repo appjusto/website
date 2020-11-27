@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react'
 import { FormControl, FormLabel, Input, InputProps } from '@chakra-ui/react'
 
 import { useMultiStyleConfig } from "@chakra-ui/react"
@@ -6,9 +7,13 @@ interface CustomInputProps extends InputProps {
   id: string
   label: string
   placeholder: string
+  type?: string
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({id, label, placeholder}) => {
+const CustomInput: React.FC<CustomInputProps> = ({
+  id, label, placeholder, type = "text", handleChange
+}) => {
   const styles = useMultiStyleConfig("Input", {})
   return (
     <FormControl 
@@ -20,8 +25,10 @@ const CustomInput: React.FC<CustomInputProps> = ({id, label, placeholder}) => {
         {label}
       </FormLabel>
       <Input 
+        type={type}
         placeholder={placeholder}
         sx={styles.input}
+        onChange={handleChange}
       />
     </FormControl>
   );

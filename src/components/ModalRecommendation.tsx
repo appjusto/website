@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -17,12 +17,20 @@ import CustomInput from './CustomInput'
 import CustomSelect from './CustomSelect'
 import CustomButton from './CustomButton'
 
+import { profileOptions } from './home/hero/RegistrationBox'
+
 const ModalRecommendation: React.FC = () => {
   const { 
     showModalRecommendation,
     handleModalConfirmation, 
     handleModalRecommendation 
   } = useContext(PageContext)
+
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [recommendedProfile, setRecommendedProfile] = useState("")
+  const [recommendedEmail, setRecommendedEmail] = useState("")
+
   function handleSubmit() {
     handleModalConfirmation("recommendation")
     return handleModalRecommendation()
@@ -95,11 +103,15 @@ const ModalRecommendation: React.FC = () => {
                   label="Seu nome" 
                   placeholder="Digite seu nome"
                   m={["0 0 16px 0", null, null, "0 16px 0 0"]}
+                  value={name}
+                  handleChange={(event) => setName(event.target.value)}
                 />
                 <CustomInput 
                   id="recommendation-email"
                   label="Seu e-mail" 
                   placeholder="Digite seu e-mail"
+                  value={email}
+                  handleChange={(event) => setEmail(event.target.value)}
                 />
               </Flex>
               <Text 
@@ -110,15 +122,20 @@ const ModalRecommendation: React.FC = () => {
                 Indicar para:
               </Text>
               <CustomSelect 
-                id="recommended-role"
+                id="recommended-profile"
                 label="Selecione o perfil"
                 placeholder="Restaurante ou entregador"
-                mb="16px" 
+                mb="16px"
+                value={recommendedProfile} 
+                options={profileOptions}
+                handleChange={(event) => setRecommendedProfile(event.target.value)}
               />
               <CustomInput 
                   id="recommended-email"
                   label="E-mail da indicação" 
                   placeholder="Digite o e-mail da sua indicação"
+                  value={recommendedEmail}
+                  handleChange={(event) => setRecommendedEmail(event.target.value)}
                 />
               <CustomButton 
                 label="Indicar agora"

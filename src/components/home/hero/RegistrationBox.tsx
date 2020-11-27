@@ -1,8 +1,8 @@
-import { useContext }from 'react'
+import { useState, useContext }from 'react'
 import { 
   Flex, 
   Heading, 
-  Text, 
+  Text,
 } from "@chakra-ui/react";
 import CustomInput from "../../CustomInput";
 import CustomSelect from "../../CustomSelect";
@@ -10,9 +10,48 @@ import CustomButton from '../../CustomButton'
 
 import PageContext from '../../../context'
 
+import Ufs from '../../../services/ufs'
+import IBGEUrl from '../../../services/ApiIBGE'
+
+export const profileOptions = [
+  { value: "client", label: "Cliente"},
+  { value: "deliveryman", label: "Entregador"},
+  { value: "restaurant", label: "Restaurante"}
+]
+
+const ufsList = Ufs.map(uf => ({
+  value: uf.sigla, label: uf.sigla
+}))
+
+type citiesProps = {value: string, label:string}[]
 
 const RegistrationBox: React.FC = () => {
+  const [profile, setProfile] = useState("")
+  const [email, setEmail] = useState("")
+  const [uf, setUf] = useState("")
+  const [city, setCity] = useState("")
+  const [citiesList, setCitiesList] = useState<citiesProps>([])
+
+  const getCities = async (uf: string) => {
+    const response = await fetch(`${IBGEUrl}/${uf}/municipios`)
+    const cities = await response.json()
+    const newState = cities.map(city => (
+      { value: city.nome, label: city.nome}
+    ))
+    return setCitiesList(newState)
+  }
+
   const { handleModalConfirmation } = useContext(PageContext)
+
+  const handleProfile = (event) => setProfile(event.target.value)
+  const handleEmail = (event) => setEmail(event.target.value)
+  const handleUf = (event) => {
+    const uf = event.target.value
+    getCities(uf)
+    return setUf(uf)
+  }
+  const handleCity = (event) => setCity(event.target.value)
+
   function handleSubmit() {
     return handleModalConfirmation("subscribe")
   }
@@ -32,12 +71,38 @@ const RegistrationBox: React.FC = () => {
         flexDir={["column", null, null, "row"]}
       >
         <CustomSelect 
-          id="subscribe-role"
+          id="subscribe-profile"
           label="Perfil"
           placeholder="Selecione seu perfil"
+          value={profile}
+          handleChange={handleProfile}
+          options={profileOptions}
         />
-        <CustomInput id="subscribe-email" label="E-mail" placeholder="Digite seu e-mail."/>
-        <CustomInput id="subscribe-city" label="Cidade" placeholder="Digite sua cidade."/>
+        <CustomInput 
+          id="subscribe-email"
+          type="email" 
+          label="E-mail" 
+          placeholder="Digite seu e-mail."
+          value={email}
+          handleChange={handleEmail}
+        />
+        <CustomSelect 
+          id="subscribe-uf"
+          label="UF"
+          placeholder="..."
+          value={uf}
+          handleChange={handleUf}
+          options={ufsList}
+          maxW="100px"
+        />
+        <CustomSelect 
+          id="subscribe-city"
+          label="Cidade"
+          placeholder={uf !== "" ? "Selecione sua cidade" : "..."}
+          value={city}
+          handleChange={handleCity}
+          options={citiesList}
+        />
         <CustomButton 
           label="Fazer pré-cadastro" 
           variant="secondary" 

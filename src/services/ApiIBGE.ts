@@ -1,0 +1,1 @@
+export default "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
