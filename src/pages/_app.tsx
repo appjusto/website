@@ -6,7 +6,7 @@ import theme from '../styles/theme';
 
 function MyApp({ Component, pageProps }) {
   const [showModalConfirmation, setShowModalConfirmation] = useState({
-    show: false, type: "subscribe"
+    show: false, type: ""
   })
   const [showModalRecommendation, setShowModalRecommendation] = useState(false)
 
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
   const handleModalRecommendation = () => {
     return setShowModalRecommendation(!showModalRecommendation)
   }
-  
+
   return (
     <PageContex.Provider value={{
       showModalConfirmation,

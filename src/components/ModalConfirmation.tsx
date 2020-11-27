@@ -35,6 +35,7 @@ const ModalConfirmation: React.FC = () => {
           <ModalCloseButton 
             border="2px solid black"
             borderRadius="8px"
+            zIndex="100"
           />
           <ModalBody pt="0" pb="60px">
             <Flex

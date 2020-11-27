@@ -3,7 +3,6 @@ import Image from 'next/image'
 import {
   Flex,
   Box,
-  Stack,
   Heading,
   Text, 
   Modal, 
@@ -18,7 +17,7 @@ import CustomInput from './CustomInput'
 import CustomSelect from './CustomSelect'
 import CustomButton from './CustomButton'
 
-const ModalConfirmation: React.FC = () => {
+const ModalRecommendation: React.FC = () => {
   const { 
     showModalRecommendation,
     handleModalConfirmation, 
@@ -30,7 +29,7 @@ const ModalConfirmation: React.FC = () => {
   }
   return (
     <Modal 
-      id="ModalConfirmation"
+      id="ModalRecommendation"
       size="full"
       blockScrollOnMount={true} 
       isOpen={showModalRecommendation} 
@@ -135,4 +134,4 @@ const ModalConfirmation: React.FC = () => {
   );
 }
 
-export default ModalConfirmation;
+export default ModalRecommendation;
