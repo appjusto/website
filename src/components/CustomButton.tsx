@@ -10,7 +10,7 @@ interface Props extends ButtonProps {
   handleClick?: () => void
 }
 
-const CustomInput: React.FC<Props> = ({ 
+const CustomButton: React.FC<Props> = ({ 
   label, variant, link, handleClick, ...props 
 }) => {
   const styles = useStyleConfig("Button", {variant})
@@ -40,4 +40,4 @@ const CustomInput: React.FC<Props> = ({
   );
 }
 
-export default CustomInput;
+export default CustomButton;

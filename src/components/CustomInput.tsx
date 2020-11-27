@@ -1,14 +1,14 @@
-import { FormControl, FormLabel, Input } from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, InputProps } from '@chakra-ui/react'
 
 import { useMultiStyleConfig } from "@chakra-ui/react"
 
-interface InputProps {
+interface CustomInputProps extends InputProps {
   id: string
   label: string
   placeholder: string
 }
 
-const CustomInput: React.FC<InputProps> = ({id, label, placeholder}) => {
+const CustomInput: React.FC<CustomInputProps> = ({id, label, placeholder}) => {
   const styles = useMultiStyleConfig("Input", {})
   return (
     <FormControl 

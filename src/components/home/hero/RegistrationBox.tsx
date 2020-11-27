@@ -31,9 +31,13 @@ const RegistrationBox: React.FC = () => {
       <Flex
         flexDir={["column", null, null, "row"]}
       >
-        <CustomSelect />
-        <CustomInput id="email" label="E-mail" placeholder="Digite seu e-mail."/>
-        <CustomInput id="city" label="Cidade" placeholder="Digite sua cidade."/>
+        <CustomSelect 
+          id="subscribe-role"
+          label="Perfil"
+          placeholder="Selecione seu perfil"
+        />
+        <CustomInput id="subscribe-email" label="E-mail" placeholder="Digite seu e-mail."/>
+        <CustomInput id="subscribe-city" label="Cidade" placeholder="Digite sua cidade."/>
         <CustomButton 
           label="Fazer pré-cadastro" 
           variant="secondary" 

@@ -9,13 +9,13 @@ function MyApp({ Component, pageProps }) {
   const [showModalRecommendation, setShowModalRecommendation] = useState(false)
   const handleModals = (modal: string) => {
     if(modal === "confirmation") {
-      console.log("chamou")
       return setShowModalConfirmation(!showModalConfirmation)
     } else {
+      console.log("chamou")
       return setShowModalRecommendation(!showModalRecommendation)
     }
   }
-  console.log(showModalConfirmation)
+  console.log(showModalRecommendation)
   return (
     <PageContex.Provider value={{
       showModalConfirmation,

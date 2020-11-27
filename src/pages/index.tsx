@@ -6,6 +6,7 @@ import Alternative from '../components/home/alternative'
 import Partners from '../components/home/partners'
 import Commitment from '../components/home/commitment'
 import ModalConfirmation from '../components/ModalConfirmation'
+import ModalRecommendation from '../components/ModalRecommendation'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Commitment />
       <Partners />
       <ModalConfirmation />
+      <ModalRecommendation />
     </PageLayout>
   )
 }

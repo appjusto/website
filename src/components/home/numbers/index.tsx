@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { useContext } from 'react'
 import { Flex, Heading, Text, Link } from '@chakra-ui/react'
 import { useStyleConfig } from "@chakra-ui/react"
 
@@ -8,9 +8,12 @@ import NumberBox from './NumberBox';
 import HelpBox from './HelpBox'
 import Button from "../../CustomButton" 
 
+import PageContext from '../../../context'
+
 const variant = "secondaryLight"
 
 const Hero: React.FC = () => {
+  const { handleModals } = useContext(PageContext)
   const styles = useStyleConfig("Button", {variant})
   return (
     <Section 
@@ -86,7 +89,11 @@ const Hero: React.FC = () => {
             text="Indique o AppJusto para amigos, entregadores, restaurantes, e todos que desejam um modelo mais justo."
             isLast={false}
           >
-            <Button label="Indicar o AppJusto" variant="secondaryLight"/>
+            <Button 
+              label="Indicar o AppJusto" 
+              variant="secondaryLight"
+              handleClick={() => handleModals("recommendation")}
+            />
           </HelpBox>
           <HelpBox 
             icon="/icon-high-five.svg"

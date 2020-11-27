@@ -1,20 +1,29 @@
-import { FormControl, FormLabel, Select } from '@chakra-ui/react'
+import { FormControl, FormLabel, Select, SelectProps } from '@chakra-ui/react'
 
 import { useMultiStyleConfig } from "@chakra-ui/react"
 
-const CustomSelect: React.FC = () => {
+interface CustomSelectProps extends SelectProps {
+  id: string
+  label: string
+  placeholder: string
+}
+
+
+const CustomSelect: React.FC<CustomSelectProps> = ({
+  id, label, placeholder
+}) => {
   const styles = useMultiStyleConfig("Select", {})
   return (
     <FormControl 
-      id="role" 
+      id={id} 
       mt="24px"
       mr={["0", null, null, "16px"]}
     >
       <FormLabel sx={styles.label}>
-        Perfil
+        {label}
       </FormLabel>
       <Select 
-        placeholder="Selecione seu perfil"
+        placeholder={placeholder}
         sx={styles.select}
       >
         <option>Entregador</option>
