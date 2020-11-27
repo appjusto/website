@@ -7,9 +7,12 @@ interface Props extends ButtonProps {
   label: string
   variant: string
   link?: string
+  handleClick?: () => void
 }
 
-const CustomInput: React.FC<Props> = ({ label, variant, link, ...props }) => {
+const CustomInput: React.FC<Props> = ({ 
+  label, variant, link, handleClick, ...props 
+}) => {
   const styles = useStyleConfig("Button", {variant})
   if(link) {
     return (
@@ -17,6 +20,7 @@ const CustomInput: React.FC<Props> = ({ label, variant, link, ...props }) => {
           <Button
           sx={styles}
           mt="16px"
+          onClick={handleClick}
           {...props}
           >
           {label}
@@ -28,6 +32,7 @@ const CustomInput: React.FC<Props> = ({ label, variant, link, ...props }) => {
     <Button
       sx={styles}
       mt="16px"
+      onClick={handleClick}
       {...props}
       >
       {label}

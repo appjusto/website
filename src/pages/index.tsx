@@ -5,6 +5,7 @@ import Monopoly from '../components/home/monopoly'
 import Alternative from '../components/home/alternative'
 import Partners from '../components/home/partners'
 import Commitment from '../components/home/commitment'
+import ModalConfirmation from '../components/ModalConfirmation'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Alternative />
       <Commitment />
       <Partners />
+      <ModalConfirmation />
     </PageLayout>
   )
 }

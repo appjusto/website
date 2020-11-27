@@ -6,7 +6,8 @@ export default {
       fontSize: "16px",
       color: "primary",
       ml: "16px",
-      mb: "-32px"
+      mb: "-32px",
+      zIndex: "100"
     },
     input: {
       fontFamily: "Barlow",
@@ -16,7 +17,8 @@ export default {
       color: "#697667",
       borderColor: "#C8D7CB",
       pt: "30px",
-      pb: "9px"
+      pb: "9px",
+      zIndex: "0"
     } 
   },
 }

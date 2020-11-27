@@ -1,10 +1,21 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { useContext }from 'react'
+import { 
+  Flex, 
+  Heading, 
+  Text, 
+} from "@chakra-ui/react";
 import CustomInput from "../../CustomInput";
 import CustomSelect from "../../CustomSelect";
 import CustomButton from '../../CustomButton'
 
+import PageContext from '../../../context'
 
-const components: React.FC = () => {
+
+const RegistrationBox: React.FC = () => {
+  const { handleModals } = useContext(PageContext)
+  function handleSubmit() {
+    return handleModals("confirmation")
+  }
   return (
     <Flex 
       flexDir="column"
@@ -23,10 +34,14 @@ const components: React.FC = () => {
         <CustomSelect />
         <CustomInput id="email" label="E-mail" placeholder="Digite seu e-mail."/>
         <CustomInput id="city" label="Cidade" placeholder="Digite sua cidade."/>
-        <CustomButton label="Fazer pré-cadastro" variant="secondary" />
+        <CustomButton 
+          label="Fazer pré-cadastro" 
+          variant="secondary" 
+          handleClick={handleSubmit}  
+        />
       </Flex>
     </Flex>
   );
 }
 
-export default components;
+export default RegistrationBox;
