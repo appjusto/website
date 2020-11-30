@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Flex, Box, Heading, Stack, Text } from "@chakra-ui/react";
-import Link from '../../CustomInternalLink'
+import Link from '../../CustomLink'
 
 interface ItemProps {
   image: string
@@ -56,6 +56,7 @@ const Item: React.FC<ItemProps> = ({
             <Link 
               link={link}
               linkLabel={linkLabel}
+              internal={true}
               fontSize="15px"
               lineHeight="22px"
               fontWeight="700"

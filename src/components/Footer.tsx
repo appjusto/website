@@ -1,8 +1,8 @@
-import { Flex, Icon, Text, Link } from '@chakra-ui/react'
+import { Flex, Icon, Text } from '@chakra-ui/react'
 import { MdMailOutline  } from 'react-icons/md'
 import { FaLinkedin  } from 'react-icons/fa'
 import Container from './Container'
-import InternalLink from './CustomInternalLink'
+import Link from './CustomLink'
 
 const Footer: React.FC = () => {
   return (
@@ -45,12 +45,10 @@ const Footer: React.FC = () => {
               h="20px"
             />
             <Link
-              href="mailto:contato@appjusto.com.br" 
-              isExternal 
-              _hover={{color: "#055AFF"}}
-            >
-              contato@appjusto.com.br
-            </Link>
+              link="mailto:contato@appjusto.com.br"
+              linkLabel="contato@appjusto.com.br"
+              internal={false}
+            />
           </Flex>
           <Flex
             flexDir="row"
@@ -66,11 +64,10 @@ const Footer: React.FC = () => {
               h="20px"
             />
             <Link
-              href="https://www.linkedin.com/company/appjusto/" 
-              isExternal 
-              _hover={{color: "#055AFF"}}>
-              /appjusto
-            </Link>
+              link="https://www.linkedin.com/company/appjusto/"
+              linkLabel="/appjusto"
+              internal={false}
+            />
           </Flex>
         </Flex>
         <Flex
@@ -82,16 +79,18 @@ const Footer: React.FC = () => {
           alignItems={["flex-start", null, null, "flex-end"]}
           color="white"
         >
-          <InternalLink 
+          <Link 
             link="/politica-de-privacidade"
             linkLabel="Política de privacidade"
+            internal={true}
             mb={["22px", null, null, "0"]} 
             fontSize="15px"
             mr={["0", null, null, "16px"]}
           />
-          <InternalLink 
+          <Link 
             link="/termos-de-uso"
             linkLabel="Termos de uso"
+            internal={true}
             mb={["22px", null, null, "0"]} 
             fontSize="15px"
             mr={["0", null, null, "16px"]}

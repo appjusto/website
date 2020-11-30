@@ -1,4 +1,5 @@
-import { Flex, Heading, Text, Link, HeadingProps } from '@chakra-ui/react'
+import { Flex, Heading, Text, HeadingProps } from '@chakra-ui/react'
+import Link from '../CustomLink'
 
 interface TextProps extends HeadingProps {
   text: string
@@ -71,32 +72,68 @@ const About: React.FC = () => {
       <Title text="Pedro Saulo de Andrade" />
       <Text textStyle="p" mb="26px">
         Cientista da computação e Desenvolvedor Full Stack, co-fundador de diversas 
-        startups - Linkedin
+        startups - <Link
+          link="https://www.linkedin.com/in/pedro-saulo-andrade-brito-3664949/"
+          linkLabel="Linkedin"
+          internal={false}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        />
       </Text>
       <Title text="Rogério A. Nogueira" />
       <Text textStyle="p" mb="26px">
         Co-fundador de startups premiadas, atua no planejamento estratégico, 
-        desenvolvimento de softwares e projetos de tecnologia - Linkedin
+        desenvolvimento de softwares e projetos de tecnologia - <Link
+          link="https://www.linkedin.com/in/rognog/"
+          linkLabel="Linkedin"
+          internal={false}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        />
       </Text>
       <Title text="Kellen Ribas" />
       <Text textStyle="p" mb="26px">
         Empreendedora social, co-fundadora e co-autora de negócios e projetos 
         premiados, atua com foco em inovação social, impacto e sustentabilidade 
-        - Linkedin
+        - <Link
+          link="https://www.linkedin.com/in/kellenribas/"
+          linkLabel="Linkedin"
+          internal={false}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        />
       </Text>
       <Title text="Italo Monteiro" />
       <Text textStyle="p" mb="26px">
         Designer de produto com foco na experiência do usuário e construção de 
-        interfaces visuais - Linkedin
+        interfaces visuais - <Link
+          link="https://www.linkedin.com/in/rognog/"
+          linkLabel="Linkedin"
+          internal={false}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        /><span style={{color: "red"}}>*</span>
       </Text>
       <Title text="Eduardo Araújo" />
       <Text textStyle="p" mb="26px">
         Advogado com experiência em consultoria e contencioso em diversas áreas 
-        do direito - Linkedin
+        do direito - <Link
+          link="https://www.linkedin.com/in/rognog/"
+          linkLabel="Linkedin"
+          internal={false}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        /><span style={{color: "red"}}>*</span>
       </Text>
       <Title text="Daniel Lima" />
       <Text textStyle="p" mb="26px">
-        Desenvolvedor Full Stack - Linkedin
+        Desenvolvedor Full Stack - <Link
+          link="https://www.linkedin.com/in/daniel-lima-0b714510b/"
+          linkLabel="Linkedin"
+          internal={false}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        />
       </Text>
       <SectionTitle mt="22px" text="Quais são os compromissos e valores do AppJusto" mb="0"/>
       <Text textStyle="p" mb="26px">
@@ -148,7 +185,7 @@ const About: React.FC = () => {
       <Text textStyle="p" mb="26px">
         Pode ser cliente, restaurante ou entregador. Quanto mais pré-cadastros 
         tivermos na sua cidade ou bairro, mais rápido o AppJusto pode chegar até 
-        você.
+        você. <span style={{color: "red"}}>(Colocar Link para form de indicação?)</span>
       </Text>
       <Title text="2. Prefira o AppJusto" />
       <Text textStyle="p" mb="26px">
@@ -156,19 +193,36 @@ const About: React.FC = () => {
       </Text>
       <Title text="3. Faça parte do nosso time" />
       <Text textStyle="p" mb="26px">
-        Venha trabalhar conosco como colaborador ou voluntário! Acesse nosso 
-        Linkedin e confira as vagas disponíveis.
+        Venha trabalhar conosco como colaborador ou voluntário! <Link
+          link="https://www.linkedin.com/company/appjusto/"
+          linkLabel="Acesse nosso Linkedin"
+          internal={false}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        /> e confira as vagas disponíveis.
       </Text>
       <Title text="4. Investindo no projeto" />
       <Text textStyle="p" mb="26px">
         Estamos buscando investidores para transformar esse sonho em realidade. 
-        Se tiver interesse em saber mais, entre em contato.
+        Se tiver interesse em saber mais, <Link
+          link="/"
+          linkLabel="entre em contato"
+          internal={true}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        />.<span style={{color: "red"}}>*</span>
       </Text>
       <Title text="5. Sendo uma empresa parceira ou organização aliada" />
       <Text textStyle="p" mb="26px">
         Empresas e organizações que apoiam oferecendo produtos ou serviços a condições
         especiais para os envolvidos na rede ou somando esforços em projetos em comum
-        também são muito importantes. Entre em contato se quiser fazer parte.
+        também são muito importantes. <Link
+          link="/"
+          linkLabel="Entre em contato"
+          internal={true}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+        /> se quiser fazer parte.<span style={{color: "red"}}>*</span>
       </Text>
       <SectionTitle mt="22px" text="Saiba mais sobre o AppJusto" />
       <Title text="Quem faz parte da rede do AppJusto?" />

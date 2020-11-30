@@ -2,7 +2,7 @@ import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import CustomButton from '../../CustomButton'
-import Link from '../../CustomInternalLink'
+import Link from '../../CustomLink'
 import PartnerBox from './PartnerBox';
 import CallBox from './CallBox';
 
@@ -48,6 +48,7 @@ const Partners: React.FC = () => {
         <Link 
           link="/conheca-a-rede"
           linkLabel="Conheça a nossa rede completa"
+          internal={true}
           fontSize="18px"
           lineHeight="26px"
           fontWeight="700"

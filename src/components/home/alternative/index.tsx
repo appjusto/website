@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { Flex, Box, Heading, Stack } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
-import CustomButton from '../../CustomButton'
 import InfoBox from './InfoBox';
 import InfoButtons from './InfoButtons';
 
@@ -49,7 +48,6 @@ const Alternative: React.FC = () => {
         <Stack
           direction="row"
           spacing={2}
-          //overflow="hidden"
           w="100%"
           overflowX="auto"
           p="8px 0"

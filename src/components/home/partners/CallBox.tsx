@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Flex, Box, Text } from '@chakra-ui/react'
-import Link from '../../CustomInternalLink'
+import Link from '../../CustomLink'
 
 const CallBox: React.FC = () => {
   return (
@@ -46,6 +46,7 @@ const CallBox: React.FC = () => {
         <Link 
           link="/"
           linkLabel="Entre em contato"
+          internal={true}
           fontSize="15px"
           lineHeight="22px"
           fontWeight="700"
