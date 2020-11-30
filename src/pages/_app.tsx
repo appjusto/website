@@ -31,8 +31,8 @@ function MyApp({ Component, pageProps }) {
     ) => {
     const batch = db.batch()
     const dbRef = db.collection(`${type}`).doc() 
-    const docToUpdateRef = db.collection("summary").doc("data")
-    const oldSummary = (await docToUpdateRef.get()).data()
+    const sumaryRef = db.collection("summary").doc("data")
+    const oldSummary = (await sumaryRef.get()).data()
     const newSummary = {
       ...oldSummary,
       [`${type}`]: oldSummary[`${type}`] + 1
@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }) {
     console.log(oldSummary)
     console.log(newSummary)
     batch.set(dbRef, newDoc);
-    batch.update(docToUpdateRef, newSummary)
+    batch.update(sumaryRef, newSummary)
     return batch.commit()
   }
 
