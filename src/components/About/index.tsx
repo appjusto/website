@@ -107,12 +107,12 @@ const About: React.FC = () => {
       <Text textStyle="p" mb="26px">
         Designer de produto com foco na experiência do usuário e construção de 
         interfaces visuais - <Link
-          link="https://www.linkedin.com/in/rognog/"
+          link="https://www.linkedin.com/in/italomonteiro/"
           linkLabel="Linkedin"
           internal={false}
           color="#055AFF"
           _hover={{color: "#003EB8"}}
-        /><span style={{color: "red"}}>*</span>
+        />
       </Text>
       <Title text="Eduardo Araújo" />
       <Text textStyle="p" mb="26px">
