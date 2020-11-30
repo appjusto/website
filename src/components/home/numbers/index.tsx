@@ -12,7 +12,16 @@ import PageContext from '../../../context'
 
 const variant = "secondaryLight"
 
-const Hero: React.FC = () => {
+interface NumbersProps {
+  summary: {
+    cities: number
+    consumers: number
+    couriers: number
+    restaurants: number
+  }
+}
+
+const Numbers: React.FC<NumbersProps> = ({summary}) => {
   const { handleModalRecommendation } = useContext(PageContext)
   const styles = useStyleConfig("Button", {variant})
   return (
@@ -56,15 +65,15 @@ const Hero: React.FC = () => {
             w="100%"
             flexDir="row"
           >
-            <NumberBox icon="/icon-shield.svg" number={500} label="Cidades" />
-            <NumberBox icon="/icon-bike.svg" number={800} label="Entregadores" />
+            <NumberBox icon="/icon-shield.svg" number={summary?.cities ?? 0} label="Cidades" />
+            <NumberBox icon="/icon-bike.svg" number={summary?.couriers ?? 0} label="Entregadores" />
           </Flex>
           <Flex
             w="100%"
             flexDir="row"
           >
-            <NumberBox icon="/icon-cutlery.svg" number={500} label="Restaurantes" />
-            <NumberBox icon="/icon-happy.svg" number={800} label="Consumidores" />
+            <NumberBox icon="/icon-cutlery.svg" number={summary?.restaurants ?? 0} label="Restaurantes" />
+            <NumberBox icon="/icon-happy.svg" number={summary?.consumers ?? 0} label="Consumidores" />
           </Flex>
         </Flex>
         <Heading
@@ -136,4 +145,4 @@ const Hero: React.FC = () => {
   );
 }
 
-export default Hero;
+export default Numbers;

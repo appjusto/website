@@ -41,7 +41,7 @@ const RegistrationBox: React.FC = () => {
     return setCitiesList(newState)
   }
 
-  const { handleModalConfirmation } = useContext(PageContext)
+  const { handleModalConfirmation, handleSubscription } = useContext(PageContext)
 
   const handleProfile = (event: ChangeEvent<HTMLSelectElement>) => 
     setProfile(event.target.value)
@@ -56,6 +56,7 @@ const RegistrationBox: React.FC = () => {
     setCity(event.target.value)
 
   function handleSubmit() {
+    handleSubscription(profile, email, city, uf, "" )
     return handleModalConfirmation("subscribe")
   }
   return (
