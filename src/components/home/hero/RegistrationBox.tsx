@@ -1,4 +1,4 @@
-import { useState, useContext }from 'react'
+import { useState, useContext, ChangeEvent }from 'react'
 import { 
   Flex, 
   Heading, 
@@ -14,9 +14,9 @@ import Ufs from '../../../services/ufs'
 import IBGEUrl from '../../../services/ApiIBGE'
 
 export const profileOptions = [
-  { value: "client", label: "Cliente"},
-  { value: "deliveryman", label: "Entregador"},
-  { value: "restaurant", label: "Restaurante"}
+  { value: "consumers", label: "Cliente"},
+  { value: "couriers", label: "Entregador"},
+  { value: "restaurants", label: "Restaurante"}
 ]
 
 const ufsList = Ufs.map(uf => ({
@@ -43,14 +43,17 @@ const RegistrationBox: React.FC = () => {
 
   const { handleModalConfirmation } = useContext(PageContext)
 
-  const handleProfile = (event) => setProfile(event.target.value)
-  const handleEmail = (event) => setEmail(event.target.value)
-  const handleUf = (event) => {
+  const handleProfile = (event: ChangeEvent<HTMLSelectElement>) => 
+    setProfile(event.target.value)
+  const handleEmail = (event: ChangeEvent<HTMLInputElement>) => 
+    setEmail(event.target.value)
+  const handleUf = (event: ChangeEvent<HTMLSelectElement>) => {
     const uf = event.target.value
     getCities(uf)
     return setUf(uf)
   }
-  const handleCity = (event) => setCity(event.target.value)
+  const handleCity = (event: ChangeEvent<HTMLSelectElement>) => 
+    setCity(event.target.value)
 
   function handleSubmit() {
     return handleModalConfirmation("subscribe")

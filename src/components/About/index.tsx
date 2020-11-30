@@ -1,5 +1,8 @@
-import { Flex, Heading, Text, HeadingProps } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { Flex, Heading, Text, Button, HeadingProps } from '@chakra-ui/react'
 import Link from '../CustomLink'
+
+import PageContext from '../../context'
 
 interface TextProps extends HeadingProps {
   text: string
@@ -32,19 +35,8 @@ const Title: React.FC<TextProps> = ({text, ...props}) => {
   )
 } 
 
-const CustomSpan: React.FC<TextProps> = ({text, ...props}) => {
-  return (
-    <Text 
-      textStyle="p"
-      fontWeight="700"
-      {...props}
-    >
-      {text}
-    </Text>
-  )
-} 
-
 const About: React.FC = () => {
+  const { handleModalRecommendation } = useContext(PageContext)
   return (
     <Flex
       flexDir="column"
@@ -185,7 +177,16 @@ const About: React.FC = () => {
       <Text textStyle="p" mb="26px">
         Pode ser cliente, restaurante ou entregador. Quanto mais pré-cadastros 
         tivermos na sua cidade ou bairro, mais rápido o AppJusto pode chegar até 
-        você. <span style={{color: "red"}}>(Colocar Link para form de indicação?)</span>
+        você. <Text 
+          as="span" 
+          onClick={handleModalRecommendation}
+          color="#055AFF"
+          _hover={{color: "#003EB8"}}
+          cursor="pointer"
+          textDecoration="underline"
+        >
+          Indique o AppJusto agora.
+        </Text>
       </Text>
       <Title text="2. Prefira o AppJusto" />
       <Text textStyle="p" mb="26px">

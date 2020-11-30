@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
           <HelpBox 
             icon="/icon-chat-bubble.svg"
             title="Responda a pesquisa"
-            text="Estamos ouvindo entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
+            text="Estamos ouvindo clientes, entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
             isLast={true}
           >
             <Link 
