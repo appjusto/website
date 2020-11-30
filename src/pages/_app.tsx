@@ -4,7 +4,7 @@ import PageContex from '../context/'
 
 import theme from '../styles/theme';
 
-  import { db } from '../../firebaseApp'
+  import { db } from '../../firebase'
 
 function MyApp({ Component, pageProps }) {
   const [showModalConfirmation, setShowModalConfirmation] = useState({

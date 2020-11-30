@@ -10,7 +10,7 @@ import Commitment from '../components/home/commitment'
 import ModalConfirmation from '../components/ModalConfirmation'
 import ModalRecommendation from '../components/ModalRecommendation'
 
-import { db } from '../../firebaseApp'
+import { db } from '../../firebase'
 
 interface HomeProps {
   data: {
