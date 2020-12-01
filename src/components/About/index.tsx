@@ -110,7 +110,7 @@ const About: React.FC = () => {
       <Text textStyle="p" mb="26px">
         Advogado com experiência em consultoria e contencioso em diversas áreas 
         do direito - <Link
-          link="https://www.linkedin.com/in/rognog/"
+          link="https://www.linkedin.com/in/eduardo-araújo-jr-0189a534/"
           linkLabel="Linkedin"
           internal={false}
           color="#055AFF"
