@@ -30,7 +30,18 @@ const RegistrationBox: React.FC = () => {
   const [email, setEmail] = useState("")
   const [uf, setUf] = useState("")
   const [city, setCity] = useState("")
+  const [isLoadingCities, setIsLoadingCities] = useState(false)
   const [citiesList, setCitiesList] = useState<citiesProps>([])
+  const [isSubmiting, setIsSubmiting] = useState(false)
+
+  const clearForm = () => {
+    setProfile("")
+    setEmail("")  
+    setUf("")
+    setCity("")
+    setCitiesList([])
+    return console.log("Chamou")
+  }
 
   const getCities = async (uf: string) => {
     const response = await fetch(`${IBGEUrl}/${uf}/municipios`)
@@ -38,7 +49,8 @@ const RegistrationBox: React.FC = () => {
     const newState = cities.map(city => (
       { value: city.nome, label: city.nome}
     ))
-    return setCitiesList(newState)
+    setCitiesList(newState)
+    return setIsLoadingCities(false)
   }
 
   const { handleModalConfirmation, handleSubscription } = useContext(PageContext)
@@ -48,6 +60,7 @@ const RegistrationBox: React.FC = () => {
   const handleEmail = (event: ChangeEvent<HTMLInputElement>) => 
     setEmail(event.target.value)
   const handleUf = (event: ChangeEvent<HTMLSelectElement>) => {
+    setIsLoadingCities(true)
     const uf = event.target.value
     getCities(uf)
     return setUf(uf)
@@ -55,8 +68,12 @@ const RegistrationBox: React.FC = () => {
   const handleCity = (event: ChangeEvent<HTMLSelectElement>) => 
     setCity(event.target.value)
 
-  function handleSubmit() {
-    handleSubscription(profile, email, city, uf, "" )
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setIsSubmiting(true)
+    await handleSubscription(profile, email, city, uf, "" )
+    setIsSubmiting(false)
+    clearForm()
     return handleModalConfirmation("subscribe")
   }
   return (
@@ -72,7 +89,9 @@ const RegistrationBox: React.FC = () => {
         Quanto mais pré-cadastros na sua cidade, mais rápido chegaremos nela.
       </Text>
       <Flex
+        as="form"
         flexDir={["column", null, null, "row"]}
+        onSubmit={(event) => handleSubmit(event)}
       >
         <CustomSelect 
           id="subscribe-profile"
@@ -99,7 +118,8 @@ const RegistrationBox: React.FC = () => {
           options={ufsList}
           maxW="100px"
         />
-        <CustomSelect 
+        <CustomSelect
+          isLoading={isLoadingCities} 
           id="subscribe-city"
           label="Cidade"
           placeholder={uf !== "" ? "Selecione sua cidade" : "..."}
@@ -108,9 +128,11 @@ const RegistrationBox: React.FC = () => {
           options={citiesList}
         />
         <CustomButton 
+          type="submit"
           label="Fazer pré-cadastro" 
           variant="secondary" 
-          handleClick={handleSubmit}  
+          //handleClick={handleSubmit}
+          isSubmiting={isSubmiting}  
         />
       </Flex>
     </Flex>

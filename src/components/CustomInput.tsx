@@ -7,12 +7,13 @@ interface CustomInputProps extends InputProps {
   id: string
   label: string
   placeholder: string
+  value: string
   type?: string
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
-  id, label, placeholder, type = "text", handleChange
+  id, label, placeholder, value, type = "text", handleChange
 }) => {
   const styles = useMultiStyleConfig("Input", {})
   return (
@@ -24,9 +25,11 @@ const CustomInput: React.FC<CustomInputProps> = ({
       <FormLabel sx={styles.label}>
         {label}
       </FormLabel>
-      <Input 
+      <Input
+        isRequired 
         type={type}
         placeholder={placeholder}
+        value={value}
         sx={styles.input}
         onChange={handleChange}
       />

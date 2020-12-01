@@ -7,11 +7,17 @@ interface Props extends ButtonProps {
   label: string
   variant: string
   link?: string
+  isSubmiting?: boolean
   handleClick?: () => void
 }
 
 const CustomButton: React.FC<Props> = ({ 
-  label, variant, link, handleClick, ...props 
+  label, 
+  variant, 
+  link,
+  isSubmiting, 
+  handleClick, 
+  ...props 
 }) => {
   const styles = useStyleConfig("Button", {variant})
   if(link) {
@@ -26,6 +32,19 @@ const CustomButton: React.FC<Props> = ({
           {label}
         </Button>
       </Link>
+    )
+  }
+  if(isSubmiting) {
+    return (
+      <Button
+      sx={styles}
+      mt="16px"
+      isLoading
+      loadingText="Enviando"
+      {...props}
+      >
+      {label}
+    </Button>
     )
   }
   return (

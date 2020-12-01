@@ -43,8 +43,6 @@ function MyApp({ Component, pageProps }) {
       uf, 
       indicated_by
     }
-    console.log(oldSummary)
-    console.log(newSummary)
     batch.set(dbRef, newDoc);
     batch.update(sumaryRef, newSummary)
     return batch.commit()
