@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useMemo } from 'react'
 import { ThemeProvider, CSSReset } from '@chakra-ui/react';
 import PageContex from '../context/'
 
@@ -11,7 +11,9 @@ function MyApp({ Component, pageProps }) {
     show: false, type: ""
   })
   const [showModalRecommendation, setShowModalRecommendation] = useState(false)
-
+  const [registrationMsg, setRegistrationMsg] = useState({status: false, message: ""})
+  const dbRef = useMemo(() => db.collection('registrations'),[])
+  const sumaryRef = useMemo(() => db.collection("summary").doc("data"), [])
   const handleModalConfirmation = (type: string) => {
     return setShowModalConfirmation({
       show: !showModalConfirmation.show, type
@@ -22,39 +24,89 @@ function MyApp({ Component, pageProps }) {
     return setShowModalRecommendation(!showModalRecommendation)
   }
 
-  const handleSubscription = async (
+  const findEmail = (email: string) => {
+    const query = dbRef.where('email', '==', email).get()
+      .then(snapshot => {
+        console.log(snapshot.docs.length)
+        if (snapshot.empty) {
+          console.log("vazio")
+          return true;
+        } else {
+          console.log("encontrado")
+          return false
+        }
+      })
+      .catch(err => {
+        console.log('Error getting documents', err)
+        return false;
+      });
+      return query
+  }
+
+  const findCity = (city: string) => {
+    const query = dbRef.where('city', '==', city).get()
+      .then(snapshot => {
+        console.log(snapshot.docs.length)
+        if (snapshot.empty) {
+          console.log("vazio")
+          return true;
+        } else {
+          console.log("encontrada")
+          return false
+        }
+      })
+      .catch(err => {
+        console.log('Error getting documents', err)
+        return false;
+      });
+      return query
+  }
+
+  const handleRegistration = async (
     type: string, 
     email: string, 
     city: string, 
     uf: string, 
     indicated_by: string
     ) => {
+    const isNewEmail = await findEmail(email)
+    if(!isNewEmail) {
+      setRegistrationMsg({
+        status: true, message: "O e-mail informado já foi cadastrado."
+      })
+      return false
+    }
     const batch = db.batch()
-    const dbRef = db.collection(`${type}`).doc() 
-    const sumaryRef = db.collection("summary").doc("data")
+    const isNewCity = await findCity(`${city}-${uf}`)
     const oldSummary = (await sumaryRef.get()).data()
+    const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
     const newSummary = {
       ...oldSummary,
+      cities: newCitiesValue, 
       [`${type}`]: oldSummary[`${type}`] + 1
     }
     const newDoc = {
+      type,
       email, 
       city: `${city}-${uf}`, 
       uf, 
       indicated_by
     }
-    batch.set(dbRef, newDoc);
+    batch.set(dbRef.doc(), newDoc);
     batch.update(sumaryRef, newSummary)
-    return batch.commit()
+    batch.commit()
+    return true
   }
 
   return (
     <PageContex.Provider value={{
       showModalConfirmation,
       showModalRecommendation,
+      registrationMsg,
+      setRegistrationMsg,
       handleModalConfirmation,
       handleModalRecommendation,
-      handleSubscription
+      handleRegistration
     }}>
       <ThemeProvider theme={theme}>
         <CSSReset />

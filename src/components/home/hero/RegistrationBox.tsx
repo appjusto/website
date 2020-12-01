@@ -3,25 +3,15 @@ import {
   Flex, 
   Heading, 
   Text,
-} from "@chakra-ui/react";
-import CustomInput from "../../CustomInput";
-import CustomSelect from "../../CustomSelect";
+} from "@chakra-ui/react"
+import CustomInput from "../../CustomInput"
+import CustomSelect from "../../CustomSelect"
 import CustomButton from '../../CustomButton'
+import FormMessage from '../../FormMessage'
 
 import PageContext from '../../../context'
 
-import Ufs from '../../../services/ufs'
-import IBGEUrl from '../../../services/ApiIBGE'
-
-export const profileOptions = [
-  { value: "consumers", label: "Cliente"},
-  { value: "couriers", label: "Entregador"},
-  { value: "restaurants", label: "Restaurante"}
-]
-
-const ufsList = Ufs.map(uf => ({
-  value: uf.sigla, label: uf.sigla
-}))
+import { ufsList, getCities, profileOptions } from '../../../utils'
 
 type citiesProps = {value: string, label:string}[]
 
@@ -33,6 +23,11 @@ const RegistrationBox: React.FC = () => {
   const [isLoadingCities, setIsLoadingCities] = useState(false)
   const [citiesList, setCitiesList] = useState<citiesProps>([])
   const [isSubmiting, setIsSubmiting] = useState(false)
+  const { 
+    handleModalConfirmation, 
+    handleRegistration, 
+    registrationMsg
+  } = useContext(PageContext)
 
   const clearForm = () => {
     setProfile("")
@@ -40,42 +35,39 @@ const RegistrationBox: React.FC = () => {
     setUf("")
     setCity("")
     setCitiesList([])
-    return console.log("Chamou")
+    return null
   }
-
-  const getCities = async (uf: string) => {
-    const response = await fetch(`${IBGEUrl}/${uf}/municipios`)
-    const cities = await response.json()
-    const newState = cities.map(city => (
-      { value: city.nome, label: city.nome}
-    ))
-    setCitiesList(newState)
-    return setIsLoadingCities(false)
-  }
-
-  const { handleModalConfirmation, handleSubscription } = useContext(PageContext)
 
   const handleProfile = (event: ChangeEvent<HTMLSelectElement>) => 
     setProfile(event.target.value)
+
   const handleEmail = (event: ChangeEvent<HTMLInputElement>) => 
     setEmail(event.target.value)
-  const handleUf = (event: ChangeEvent<HTMLSelectElement>) => {
+
+  const handleUf = async (event: ChangeEvent<HTMLSelectElement>) => {
     setIsLoadingCities(true)
     const uf = event.target.value
-    getCities(uf)
+    const citiesList = await getCities(uf)
+    setCitiesList(citiesList)
+    setIsLoadingCities(false)
     return setUf(uf)
   }
+
   const handleCity = (event: ChangeEvent<HTMLSelectElement>) => 
     setCity(event.target.value)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     setIsSubmiting(true)
-    await handleSubscription(profile, email, city, uf, "" )
+    const registrationStatus = await handleRegistration(profile, email, city, uf, "" )
     setIsSubmiting(false)
+    if(!registrationStatus) {
+      return null
+    }
     clearForm()
     return handleModalConfirmation("subscribe")
   }
+
   return (
     <Flex 
       flexDir="column"
@@ -131,10 +123,14 @@ const RegistrationBox: React.FC = () => {
           type="submit"
           label="Fazer pré-cadastro" 
           variant="secondary" 
-          //handleClick={handleSubmit}
           isSubmiting={isSubmiting}  
         />
       </Flex>
+      {
+        registrationMsg.status && (
+         <FormMessage />
+        )
+      }
     </Flex>
   );
 }

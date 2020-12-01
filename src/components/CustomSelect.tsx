@@ -9,6 +9,7 @@ interface CustomSelectProps extends SelectProps {
   placeholder: string
   value: string
   maxW?: string
+  isLast?: boolean
   isLoading?: boolean
   options: {value: string, label: string}[]
   handleChange: (event: ChangeEvent<HTMLSelectElement>) => void
@@ -21,9 +22,11 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   placeholder,
   value,
   maxW = "100%",
+  isLast,
   isLoading, 
   options, 
-  handleChange
+  handleChange,
+  ...props
 }) => {
   const styles = useMultiStyleConfig("Select", {})
   if(isLoading) {
@@ -31,7 +34,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       <FormControl 
       id={id} 
       mt="24px"
-      mr={["0", null, null, "16px"]}
+      mr={["0", null, null, isLast ? "0" : "16px"]}
       maxW={maxW}
     >
       <FormLabel sx={styles.label}>
@@ -50,7 +53,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     <FormControl 
       id={id} 
       mt="24px"
-      mr={["0", null, null, "16px"]}
+      mr={["0", null, null, isLast ? "0" : "16px"]}
       maxW={maxW}
     >
       <FormLabel sx={styles.label}>
@@ -62,6 +65,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
         value={value}
         sx={styles.select}
         onChange={handleChange}
+        {...props}
       >
         {
           options.map( option => (
