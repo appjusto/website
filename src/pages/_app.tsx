@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }) {
   const findEmail = (email: string) => {
     const query = dbRef.where('email', '==', email).get()
       .then(snapshot => {
-        console.log(snapshot.docs.length)
         if (snapshot.empty) {
           return true;
         } else {
@@ -44,7 +43,6 @@ function MyApp({ Component, pageProps }) {
   const findCity = (city: string) => {
     const query = dbRef.where('city', '==', city).get()
       .then(snapshot => {
-        console.log(snapshot.docs.length)
         if (snapshot.empty) {
           return true;
         } else {
