@@ -24,6 +24,7 @@ const Research: React.FC = () => {
     } else if (profile === "couriers") {
       makeForm("https://form.typeform.com/to/x4GHkfQ6")
     } else if (profile === "restaurants") {
+      //falta link correto para restaurantes
       makeForm("https://form.typeform.com/to/x4GHkfQ6")
     }
   }
@@ -64,7 +65,4 @@ const Research: React.FC = () => {
 }
 
 export default Research;
-
-//couriers
-//data-url="https://form.typeform.com/to/x4GHkfQ6" 
   
