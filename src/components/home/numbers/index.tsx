@@ -118,26 +118,10 @@ const Numbers: React.FC<NumbersProps> = ({summary}) => {
             text="Estamos ouvindo clientes, entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
             isLast={true}
           >
-            <Link 
-              href="/"
-              isExternal
-              sx={styles}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              Sou Entregador
-            </Link>
-            <Link 
-              href="/"
-              isExternal
-              sx={styles}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              Sou Restaurante
-            </Link>
+            <Button
+              link="/pesquisa" 
+              label="Responder pesquisa" 
+              variant="secondaryLight"/>
           </HelpBox>
         </Flex>
       </Container>

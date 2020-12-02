@@ -1,5 +1,3 @@
-import Head from 'next/head'
-
 import PageLayout from '../components/PageLayout'
 
 export default function TermsOfUse() {

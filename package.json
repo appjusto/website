@@ -11,6 +11,7 @@
     "@chakra-ui/react": "^1.0.0",
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
+    "@typeform/embed": "^0.29.1",
     "firebase": "^8.1.1",
     "firebase-admin": "^9.4.1",
     "framer-motion": "^2.9.4",
