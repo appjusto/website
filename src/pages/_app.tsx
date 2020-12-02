@@ -69,33 +69,43 @@ function MyApp({ Component, pageProps }) {
     uf: string, 
     indicated_by: string
     ) => {
-    const isNewEmail = await findEmail(email)
-    if(!isNewEmail) {
+    setRegistrationMsg({status: false, message: ""})
+    try {
+      const isNewEmail = await findEmail(email)
+      if(!isNewEmail) {
+        setRegistrationMsg({
+          status: true, message: "O e-mail informado já foi cadastrado."
+        })
+        return false
+      }
+      const batch = db.batch()
+      const isNewCity = await findCity(`${city}-${uf}`)
+      const oldSummary = (await sumaryRef.get()).data()
+      const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
+      const newSummary = {
+        ...oldSummary,
+        cities: newCitiesValue, 
+        [`${type}`]: oldSummary[`${type}`] + 1
+      }
+      const newDoc = {
+        type,
+        email, 
+        city: `${city}-${uf}`, 
+        uf, 
+        indicated_by
+      }
+      batch.set(dbRef.doc(), newDoc);
+      batch.update(sumaryRef, newSummary)
+      batch.commit()
+      return true
+    } catch (error) {
       setRegistrationMsg({
-        status: true, message: "O e-mail informado já foi cadastrado."
+        status: true, 
+        message: 
+          "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes."
       })
       return false
     }
-    const batch = db.batch()
-    const isNewCity = await findCity(`${city}-${uf}`)
-    const oldSummary = (await sumaryRef.get()).data()
-    const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
-    const newSummary = {
-      ...oldSummary,
-      cities: newCitiesValue, 
-      [`${type}`]: oldSummary[`${type}`] + 1
-    }
-    const newDoc = {
-      type,
-      email, 
-      city: `${city}-${uf}`, 
-      uf, 
-      indicated_by
-    }
-    batch.set(dbRef.doc(), newDoc);
-    batch.update(sumaryRef, newSummary)
-    batch.commit()
-    return true
   }
 
   return (
