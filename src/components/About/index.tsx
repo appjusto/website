@@ -85,7 +85,7 @@ const About: React.FC = () => {
           internal={false}
           color="#055AFF"
           _hover={{color: "#003EB8"}}
-        /><span style={{color: "red"}}>*</span>
+        />
       </Text>
       <Title text="Daniel Lima" />
       <Text textStyle="p" mb="26px">

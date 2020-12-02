@@ -1,5 +1,9 @@
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Flex, Text } from '@chakra-ui/react'
+
+import { useCountUp } from 'react-countup';
+import VisibilitySensor  from 'react-visibility-sensor';
 
 interface NumberBoxProps {
   icon: string
@@ -8,6 +12,27 @@ interface NumberBoxProps {
 }
 
 const NumberBox: React.FC<NumberBoxProps> = ({ icon, number, label }) => {
+  const [countUpActive, setCountUpActive] = useState(false)
+  const { countUp, start, update } = useCountUp({
+    start: 0,
+    end: number,
+    delay: 1000,
+    duration: 5,
+    onStart: () => setCountUpActive(true),
+  });
+
+  useEffect(() => {
+    if(countUpActive) {
+      update(number)
+    }
+  }, [number])
+
+  const handleVisibilityChange = () => {
+    if(number > 0 && !countUpActive) {
+      return start()
+    }
+  }
+  
   return (
     <Flex 
       w="100%"
@@ -17,14 +42,16 @@ const NumberBox: React.FC<NumberBoxProps> = ({ icon, number, label }) => {
       mt="22px"
     >
       <Image src={icon} width={24} height={24} />
-      <Text
-        fontFamily="Barlow"
-        fontSize="40px"
-        fontWeight="700"
-        h="auto"
-      >
-        +{number}
-      </Text>
+      <VisibilitySensor onChange={handleVisibilityChange}>
+        <Text
+          fontFamily="Barlow"
+          fontSize="40px"
+          fontWeight="700"
+          h="auto"
+        >
+          +{countUp}
+        </Text>
+      </VisibilitySensor>
       <Text textStyle="p" opacity="0.6">
         {label}
       </Text>

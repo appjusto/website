@@ -29,10 +29,8 @@ function MyApp({ Component, pageProps }) {
       .then(snapshot => {
         console.log(snapshot.docs.length)
         if (snapshot.empty) {
-          console.log("vazio")
           return true;
         } else {
-          console.log("encontrado")
           return false
         }
       })
@@ -48,10 +46,8 @@ function MyApp({ Component, pageProps }) {
       .then(snapshot => {
         console.log(snapshot.docs.length)
         if (snapshot.empty) {
-          console.log("vazio")
           return true;
         } else {
-          console.log("encontrada")
           return false
         }
       })

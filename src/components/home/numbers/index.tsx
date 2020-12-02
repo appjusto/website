@@ -1,6 +1,5 @@
-import { useContext } from 'react'
-import { Flex, Heading, Text, Link } from '@chakra-ui/react'
-import { useStyleConfig } from "@chakra-ui/react"
+import { useState, useEffect, useMemo, useContext } from 'react'
+import { Flex, Heading, Text } from '@chakra-ui/react'
 
 import Section from "../../Section";
 import Container from '../../Container';
@@ -10,20 +9,32 @@ import Button from "../../CustomButton"
 
 import PageContext from '../../../context'
 
-const variant = "secondaryLight"
+import { db } from '../../../../firebase'
 
-interface NumbersProps {
-  summary: {
-    cities: number
-    consumers: number
-    couriers: number
-    restaurants: number
-  }
+interface SummaryProps {
+  cities: number
+  consumers: number
+  couriers: number
+  restaurants: number
 }
 
-const Numbers: React.FC<NumbersProps> = ({summary}) => {
+const Numbers: React.FC = () => {
+  const [summary, setSummary] = useState<SummaryProps>({
+    cities: 0,
+    consumers: 0,
+    couriers: 0,
+    restaurants: 0
+  })
+  const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
   const { handleModalRecommendation } = useContext(PageContext)
-  const styles = useStyleConfig("Button", {variant})
+
+  useEffect(() => {
+    dbRef.onSnapshot(snaptshop => {
+      const newSummary = snaptshop.data()
+      setSummary(newSummary as SummaryProps)
+    })
+  }, [])
+
   return (
     <Section 
       id="numbers"
@@ -65,15 +76,15 @@ const Numbers: React.FC<NumbersProps> = ({summary}) => {
             w="100%"
             flexDir="row"
           >
-            <NumberBox icon="/icon-shield.svg" number={summary?.cities ?? 0} label="Cidades" />
-            <NumberBox icon="/icon-bike.svg" number={summary?.couriers ?? 0} label="Entregadores" />
+            <NumberBox key="nb-cities" icon="/icon-shield.svg" number={summary.cities} label="Cidades" />
+            <NumberBox key="nb-couriers" icon="/icon-bike.svg" number={summary.couriers} label="Entregadores" />
           </Flex>
           <Flex
             w="100%"
             flexDir="row"
           >
-            <NumberBox icon="/icon-cutlery.svg" number={summary?.restaurants ?? 0} label="Restaurantes" />
-            <NumberBox icon="/icon-happy.svg" number={summary?.consumers ?? 0} label="Consumidores" />
+            <NumberBox key="nb-restaurants" icon="/icon-cutlery.svg" number={summary.restaurants} label="Restaurantes" />
+            <NumberBox key="nb-consumers" icon="/icon-happy.svg" number={summary.consumers} label="Consumidores" />
           </Flex>
         </Flex>
         <Heading
