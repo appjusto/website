@@ -41,6 +41,19 @@ const Alternative: React.FC = () => {
               lineHeight={["28,8px", null, null, "48px"]} 
             >
               Uma plataforma onde o ganho é compartilhado.
+              <Box 
+                position="relative"
+                maxW={["164px", null, null, "330px"]}
+                mt="-24px"
+                ml={["0", null, "340px", "170px"]}
+                color="white"
+              >
+                <Image 
+                  src="/line-vector-g.svg" 
+                  width={544} 
+                  height={20} 
+                />
+              </Box>
             </Heading>
           </Flex>
           <InfoButtons display={["none", null, null, "flex"]}/>
