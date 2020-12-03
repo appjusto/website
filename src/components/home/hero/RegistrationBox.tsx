@@ -71,7 +71,7 @@ const RegistrationBox: React.FC = () => {
   return (
     <Flex 
       flexDir="column"
-      p="24px 16px"
+      p="24px"
       bg="white"
     >
       <Heading as="h2" fontSize="24px" mb="4px">
@@ -97,24 +97,25 @@ const RegistrationBox: React.FC = () => {
           id="subscribe-email"
           type="email" 
           label="E-mail" 
-          placeholder="Digite seu e-mail."
+          placeholder="Digite seu e-mail"
           value={email}
           handleChange={handleEmail}
         />
         <CustomSelect 
           id="subscribe-uf"
           label="UF"
-          placeholder="..."
+          placeholder="UF"
           value={uf}
           handleChange={handleUf}
           options={ufsList}
           maxW="100px"
         />
         <CustomSelect
+          isDisabled={uf === "" ? true : false}
           isLoading={isLoadingCities} 
           id="subscribe-city"
           label="Cidade"
-          placeholder={uf !== "" ? "Selecione sua cidade" : "..."}
+          placeholder="Selecione sua cidade"
           value={city}
           handleChange={handleCity}
           options={citiesList}

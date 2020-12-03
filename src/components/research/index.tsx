@@ -1,5 +1,5 @@
 import { useState, useRef, ChangeEvent } from 'react';
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Text } from "@chakra-ui/react";
 import * as typeformEmbed from "@typeform/embed";
 
 import CustomSelect from "../CustomSelect";
@@ -34,11 +34,19 @@ const Research: React.FC = () => {
       position="relative"
       w="100%"
       minH="100vh"
-      mt={["-30px", null, null, "-60px"]}
+      //mt={["-30px", null, null, "-60px"]}
       flexDir="column"
       justifyContent="flex-start"
       alignItems="flex-start"
     >
+      <Text
+        textStyle="p"
+        mb="24px"
+      >
+        Estamos ouvindo clientes, entregadores e restaurantes para criar uma 
+        plataforma pensada desde o início para todos. Escolha o seu perfil para 
+        responder a pesquisa e depois compartilhe com seus amigos :)
+      </Text>
       <CustomSelect 
         id="research-select"
         maxW="360px"

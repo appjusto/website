@@ -45,7 +45,8 @@ const NumberBox: React.FC<NumberBoxProps> = ({ icon, number, label }) => {
       <VisibilitySensor onChange={handleVisibilityChange}>
         <Text
           fontFamily="Barlow"
-          fontSize="40px"
+          fontSize="64px"
+          lineHeight="76,8px"
           fontWeight="700"
           h="auto"
         >

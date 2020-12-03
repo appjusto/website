@@ -88,8 +88,7 @@ const Numbers: React.FC = () => {
           </Flex>
         </Flex>
         <Heading
-          mt="32px"
-          mb={["8px", null, null, "30px"]}  
+          mt="32px" 
           as="h1" 
           fontSize={["24px", null, null, "32px"]}
         >

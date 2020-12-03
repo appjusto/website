@@ -37,8 +37,9 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, title, text }) => {
         {title}
       </Heading>
       <Text
+        textStyle="p"
         textAlign="center"
-        fontSize="18px"
+        fontSize="16px"
         lineHeight="26px"
       >
         {text}

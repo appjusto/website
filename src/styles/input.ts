@@ -4,7 +4,7 @@ export default {
     label: {
       fontFamily: "Barlow",
       fontSize: "16px",
-      color: "primary",
+      color: "#2F855A",
       ml: "16px",
       mb: "-32px",
       zIndex: "100"

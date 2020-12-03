@@ -73,8 +73,8 @@ const Commitment: React.FC = () => {
               image="/item-blur.svg" 
               title="Transparência em toda a plataforma" 
               text="Desde a definiação das regras até os preços cobrados"
-              link="/transparencia"
-              linkLabel="Saiba mais sobre Transparência"
+              //link="/transparencia"
+              //linkLabel="Saiba mais sobre Transparência"
             />
             <Item 
               image="/item-world.svg" 

@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
       const isNewEmail = await findEmail(email)
       if(!isNewEmail) {
         setRegistrationMsg({
-          status: true, message: "O e-mail informado já foi cadastrado."
+          status: true, message: "O e-mail informado já foi cadastrado. Agora aproveite para indicar seu amigos."
         })
         return false
       }

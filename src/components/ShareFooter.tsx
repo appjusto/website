@@ -11,6 +11,7 @@ const ShareFooter: React.FC = () => {
       w="100%"
       h="64px"
       p="4px 0"
+      bg="primary"
       justifyContent="center"
       alignItems="center"
       fontFamily="Barlow"
