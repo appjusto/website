@@ -101,25 +101,32 @@ const RegistrationBox: React.FC = () => {
           value={email}
           handleChange={handleEmail}
         />
-        <CustomSelect 
-          id="subscribe-uf"
-          label="UF"
-          placeholder="UF"
-          value={uf}
-          handleChange={handleUf}
-          options={ufsList}
-          maxW="100px"
-        />
-        <CustomSelect
-          isDisabled={uf === "" ? true : false}
-          isLoading={isLoadingCities} 
-          id="subscribe-city"
-          label="Cidade"
-          placeholder="Selecione sua cidade"
-          value={city}
-          handleChange={handleCity}
-          options={citiesList}
-        />
+        <Flex
+          w="100%"
+          minW={["auto", null, null, "360px"]}
+          flexDir={["column", null, "row"]}
+        >
+          <CustomSelect 
+            id="subscribe-uf"
+            label="UF"
+            placeholder="UF"
+            value={uf}
+            handleChange={handleUf}
+            options={ufsList}
+            maxW={["auto", null, "100px"]}
+          />
+          <CustomSelect
+            isDisabled={uf === "" ? true : false}
+            isLoading={isLoadingCities} 
+            id="subscribe-city"
+            label="Cidade"
+            placeholder="Selecione sua cidade"
+            value={city}
+            handleChange={handleCity}
+            options={citiesList}
+            marginLeft={["0", null, "16px", "0"]}
+          />
+        </Flex>
         <CustomButton 
           type="submit"
           label="Fazer pré-cadastro" 

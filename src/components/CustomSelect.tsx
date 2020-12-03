@@ -8,7 +8,8 @@ interface CustomSelectProps extends SelectProps {
   label: string
   placeholder: string
   value: string
-  maxW?: string
+  maxW?: string[]
+  marginLeft?: string[]
   isLast?: boolean
   isLoading?: boolean
   options: {value: string, label: string}[]
@@ -22,6 +23,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   placeholder,
   value,
   maxW = "100%",
+  marginLeft = ["0"],
   isLast,
   isLoading, 
   options, 
@@ -55,6 +57,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       mt="24px"
       mr={["0", null, null, isLast ? "0" : "16px"]}
       maxW={maxW}
+      ml={marginLeft}
     >
       <FormLabel sx={styles.label}>
         {label}
