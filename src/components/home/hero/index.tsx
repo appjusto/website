@@ -30,8 +30,20 @@ const Hero: React.FC = () => {
           lineHeight={["48px", null, null, "62px"]}   
         >
           Mais do que um app de entregas.
+          <Box 
+          display={["block", null, "none"]}
+          maxW="300px"
+          mt="-34px"
+        >
+          <Image 
+            src="/line-vector.svg" 
+            width={544} 
+            height={20} 
+          />
+        </Box>
         </Heading>
         <Heading 
+          position="relative"
           as="h2" 
           color="white"
           fontSize={["24px", null, null, "52px"]}
@@ -39,6 +51,19 @@ const Hero: React.FC = () => {
           mb="36px"   
         >
         Somos um movimento por relações mais justas e transparentes.
+        <Box 
+          display={["none", null, "block"]}
+          position="absolute"
+          top={[null, "12px", null, "20px"]}
+          left="0"
+          maxW={[null, "240px", null, "510px"]}
+        >
+          <Image 
+            src="/line-vector.svg" 
+            width={544} 
+            height={20} 
+          />
+        </Box>
         </Heading>
         <RegistrationBox />
       </Container>
