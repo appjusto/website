@@ -9,7 +9,6 @@ const Monopoly: React.FC = () => {
     <Section
       id="monopoly"
       bgColor="black"
-      minH="100vh" 
     >
       <Container
         flexDir="column"
@@ -17,7 +16,7 @@ const Monopoly: React.FC = () => {
         color="white"
         justifyContent="flex-end"
         alignItems="flex-start"
-        minH="100vh"
+        minH="600px"
         pb={["62px", null, null, "53px"]} 
       >
         <Heading 

@@ -10,14 +10,13 @@ const Hero: React.FC = () => {
     <Section 
       id="hero"
       bgColor="primary" 
-      h="100vh"
     >
       <Container 
-        h={["auto", null, null, "100vh"]}
+        h={["auto", null, null, "600px"]}
         flexDir="column"
         justifyContent="flex-end"
         pt={["132px", null, null, "0"]}
-        pb={["24px", null, null, "2.6rem", null,"16rem"]}
+        pb="16px"
         zIndex="10"  
       >
         <Heading 

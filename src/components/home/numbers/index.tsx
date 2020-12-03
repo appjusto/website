@@ -43,7 +43,7 @@ const Numbers: React.FC = () => {
     >
       <Container 
         flexDir="column"
-        pt={["220px", null, null, "20px"]}
+        pt="64px"
         pb="64px"
       >
         <Heading 
