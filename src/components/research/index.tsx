@@ -49,7 +49,7 @@ const Research: React.FC = () => {
       </Text>
       <CustomSelect 
         id="research-select"
-        maxW="360px"
+        maxW={["360px"]}
         label="Perfil"
         options={profileOptions}
         placeholder="Selecione seu perfil"
