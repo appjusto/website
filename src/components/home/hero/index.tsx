@@ -9,10 +9,11 @@ const Hero: React.FC = () => {
   return (
     <Section 
       id="hero"
-      bgColor="primary" 
+      bgColor="black"
+      h={["auto", null, null, "560px", "560px", "600px"]} 
     >
       <Container 
-        h={["auto", null, null, "600px"]}
+        h="100%"
         flexDir="column"
         justifyContent="flex-end"
         pt={["132px", null, null, "0"]}
@@ -22,17 +23,17 @@ const Hero: React.FC = () => {
         <Heading 
           as="h1" 
           color="white" 
-          fontSize={["40px", null, null, "56px"]}
-          lineHeight={["48px", null, null, "68px"]}   
+          fontSize={["40px", null, null, "52px"]}
+          lineHeight={["48px", null, null, "62px"]}   
         >
           Mais do que um app de entregas.
         </Heading>
         <Heading 
           as="h2" 
           color="white"
-          fontSize={["24px", null, null, "56px"]}
-          lineHeight={["28,8px", null, null, "68px"]} 
-          mb="48px"   
+          fontSize={["24px", null, null, "52px"]}
+          lineHeight={["28,8px", null, null, "62px"]} 
+          mb="36px"   
         >
         Somos um movimento por relações mais justas e transparentes.
         </Heading>

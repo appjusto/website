@@ -72,57 +72,53 @@ const PageLayout: React.FC<PageProps> = ({
         top={pageName === "Home" ? "0" : "48px"}
       />
       <Main>
-        <Section>
-        {
-          pageName !== "Home" && (
-            <Container 
-              flexDir="column"
-              m="124px"
-              mb="64px"
-              display={[ "none", null, null, "flex"]}
-            >
-              <Stack 
-                direction="row"
-                spacing={2} 
-                color="#697667"
-                fontSize="16px"
-                lineHeight="22px"
-              >
-                <NextLink href="/" passHref>
-                  <Link 
-                    _hover={{textDecoration: "underline"}}
-                  >
-                    Home
-                  </Link>
-                </NextLink>
-                <Text>
-                  <Icon as={Dot} 
-                    w="6px"
-                    h="6px"
-                  />
-                </Text>
-                <Text>{pageName}</Text>
-              </Stack>
-              <Heading 
-                as="h1"
-                fontSize="56px"
-                lineHeight="67,2px"
-              >
-                {pageName}
-              </Heading>
-            </Container>
-          )
-        }
         {
           pageName === "Home" ? children : (
-            <Container
-              mt={["100px", null, null, "0"]}
-            >
-              {children}
-            </Container>
+            <Section>
+              <Container 
+                flexDir="column"
+                m="124px"
+                mb="64px"
+                display={[ "none", null, null, "flex"]}
+              >
+                <Stack 
+                  direction="row"
+                  spacing={2} 
+                  color="#697667"
+                  fontSize="16px"
+                  lineHeight="22px"
+                >
+                  <NextLink href="/" passHref>
+                    <Link 
+                      _hover={{textDecoration: "underline"}}
+                    >
+                      Home
+                    </Link>
+                  </NextLink>
+                  <Text>
+                    <Icon as={Dot} 
+                      w="6px"
+                      h="6px"
+                    />
+                  </Text>
+                  <Text>{pageName}</Text>
+                </Stack>
+                <Heading 
+                  as="h1"
+                  fontSize="56px"
+                  lineHeight="67,2px"
+                >
+                  {pageName}
+                </Heading>
+              </Container>
+              <Container
+                mt={["100px", null, null, "0"]}
+              >
+                {children}
+              </Container>
+            </Section>
           )
         }
-        </Section>
       </Main>
       <Footer />
       {
