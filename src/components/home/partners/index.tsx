@@ -1,4 +1,5 @@
-import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Flex, Box, Stack, Heading, Text } from "@chakra-ui/react";
+import Image from 'next/image'
 import Container from "../../Container";
 import Section from "../../Section";
 import CustomButton from '../../CustomButton'
@@ -58,6 +59,19 @@ const Partners: React.FC = () => {
           m="66px 0 48px"
         >
           Estamos em busca de mais apoio.
+          <Box 
+            position="relative"
+            maxW={["164px", null, "200px", "360px"]}
+            mt={["-26px", null, "-30px", "-26px"]}
+            ml={["0", null, "340px", "180px"]}
+            color="white"
+          >
+            <Image 
+              src="/line-vector-g.svg" 
+              width={544} 
+              height={20} 
+            />
+          </Box>
         </Heading>
         <Text 
           fontSize="18px"
