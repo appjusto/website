@@ -25,7 +25,7 @@ const Monopoly: React.FC = () => {
           as="h1" 
           fontSize={["24px", null, null, "56px"]} 
           mb={["16px", null, null, "42px"]}  
-          lineHeight={["28,8px", null, null, "67,2px"]} 
+          lineHeight={["28,8px", null, null, "62px"]} 
           maxW="944px"
         >
           Os apps atuais criam monopólios, controlam o mercado, impondo suas 
