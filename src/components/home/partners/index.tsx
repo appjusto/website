@@ -56,7 +56,7 @@ const Partners: React.FC = () => {
         />
         <Heading 
           as="h2"
-          m="66px 0 48px"
+          m="66px 0 8px"
         >
           Estamos em busca de mais apoio.
           <Box 

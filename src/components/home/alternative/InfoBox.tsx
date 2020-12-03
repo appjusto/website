@@ -23,8 +23,6 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, title, text }) => {
         position="relative"
         w="96px"
         h="96px"
-        border="2px solid black"
-        borderRadius="48px"
       >
         <Image src={image} width={96} height={96} />
       </Box>
