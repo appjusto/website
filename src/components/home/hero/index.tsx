@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
           mt="-34px"
         >
           <Image 
-            src="/line-vector.svg" 
+            src="/line-vector-y.svg" 
             width={544} 
             height={20} 
           />
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
           maxW={[null, "240px", null, "510px"]}
         >
           <Image 
-            src="/line-vector.svg" 
+            src="/line-vector-y.svg" 
             width={544} 
             height={20} 
           />
@@ -87,6 +87,7 @@ const Hero: React.FC = () => {
             showArrows={false}
             showStatus={false}
             showIndicators={false}
+            showThumbs={false}
           >
             <Box as="div" w="100%" h="100%">
               <Image 
@@ -132,6 +133,7 @@ const Hero: React.FC = () => {
             showArrows={false}
             showStatus={false}
             showIndicators={false}
+            showThumbs={false}
           >
             <Box as="div" w="100%" h="100%">
               <Image 

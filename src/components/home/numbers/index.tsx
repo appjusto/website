@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useContext } from 'react'
-import { Flex, Heading, Text } from '@chakra-ui/react'
+import { Flex, Heading, Text, Box } from '@chakra-ui/react'
+import Image from 'next/image'
 
 import Section from "../../Section";
 import Container from '../../Container';
@@ -53,6 +54,19 @@ const Numbers: React.FC = () => {
         >
           Se todos colaborarem, este projeto vai dar certo e será melhor a todos. 
           Faça a sua parte divulgando agora.
+          <Box 
+            position="relative"
+            maxW="200px"
+            mt="-22px"
+            ml={["0", null, "340px"]}
+            color="white"
+          >
+            <Image 
+              src="/line-vector-w.svg" 
+              width={544} 
+              height={20} 
+            />
+          </Box>
         </Heading>
         <Heading 
           as="h1" 
@@ -61,6 +75,18 @@ const Numbers: React.FC = () => {
         >
           Se todos colaborarem, este projeto vai dar certo e será melhor a todos. <br/> 
           Faça a sua parte divulgando agora.
+          <Box 
+            position="relative"
+            maxW="500px"
+            mt="-16px"
+            color="white"
+          >
+            <Image 
+              src="/line-vector-w.svg" 
+              width={544} 
+              height={20} 
+            />
+          </Box>
         </Heading>
         <Text 
           mt="30px" 
