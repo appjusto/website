@@ -26,7 +26,7 @@ const ShareFooter: React.FC = () => {
           w="100%" 
           spacing={4} 
           align="center">
-          <ShareButton />
+          <ShareButton bg="primary" />
           <Text 
             fontSize="15px"
             fontWeight="500"
@@ -58,11 +58,19 @@ const ShareFooter: React.FC = () => {
             >
               Voltar para o topo
             </Text>
+            <Text 
+              display={["inherit", null, null, "none"]}
+              _focus={{outline: "none"}}
+              fontWeight="700"
+              mr="4px"
+            >
+              Topo
+            </Text>
             <Icon 
               as={BiUpArrowAlt} 
               fontWeight="700"
-              width="16px"
-              height="16px"
+              width={["32px", null, null, "16px"]}
+              height={["32px", null, null, "16px"]}
             />
           </Flex>
         </ScrollLink>

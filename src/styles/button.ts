@@ -8,7 +8,6 @@ export default {
   },
   variants: {
     white:{
-      bg: "white",
       fontSize: "15px",
       h: "48px",
       _hover: {bg: "#F2F6EA"}
