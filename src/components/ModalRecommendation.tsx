@@ -168,7 +168,7 @@ const ModalRecommendation: React.FC = () => {
                   id="recommended-uf"
                   label="UF"
                   placeholder="..."
-                  maxW="100px"
+                  maxW={["100px"]}
                   value={uf} 
                   options={ufsList}
                   handleChange={(event) => handleUf(event)}
