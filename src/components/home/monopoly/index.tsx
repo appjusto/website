@@ -22,7 +22,8 @@ const Monopoly: React.FC = () => {
         pb={["62px", null, null, "53px"]} 
       >
         <Heading 
-          as="h1" 
+          as="h1"
+          position="relative" 
           fontSize={["24px", null, null, "56px"]} 
           mb={["16px", null, null, "42px"]}  
           lineHeight={["28,8px", null, null, "62px"]} 
@@ -30,6 +31,18 @@ const Monopoly: React.FC = () => {
         >
           Os apps atuais criam monopólios, controlam o mercado, impondo suas 
           próprias taxas e regras.
+          <Box 
+            position="absolute"
+            maxW={["130px", null, null, "460px"]}
+            top={["48px", null, "12px", "26px"]}
+            left={["0", null, "220px", "360px"]}
+          >
+            <Image 
+              src="/line-vector-y.svg" 
+              width={544} 
+              height={20} 
+            />
+          </Box>
         </Heading>
         <Heading 
           as="h3" 

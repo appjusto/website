@@ -31,16 +31,16 @@ const Hero: React.FC = () => {
         >
           Mais do que um app de entregas.
           <Box 
-          display={["block", null, "none"]}
-          maxW="300px"
-          mt="-34px"
-        >
-          <Image 
-            src="/line-vector-y.svg" 
-            width={544} 
-            height={20} 
-          />
-        </Box>
+            display={["block", null, "none"]}
+            maxW="300px"
+            mt="-34px"
+          >
+            <Image 
+              src="/line-vector-y.svg" 
+              width={544} 
+              height={20} 
+            />
+          </Box>
         </Heading>
         <Heading 
           position="relative"
