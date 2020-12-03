@@ -55,7 +55,7 @@ const Monopoly: React.FC = () => {
           display={["inherit", null, null, "none"]}
         >
           <Image 
-            src="/mobile-bg-monopoly.png" 
+            src="/bg-mobile-monopoly.png" 
             width={360} 
             height={240} 
             layout="responsive" 

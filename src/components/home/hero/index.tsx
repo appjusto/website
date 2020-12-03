@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import { Box, Heading } from '@chakra-ui/react'
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 import Section from "../../Section";
 import Container from '../../Container';
 import RegistrationBox from './RegistrationBox';
@@ -51,13 +54,43 @@ const Hero: React.FC = () => {
           w="100%"
           display={["inherit", null, null, "none"]}
         >
-          <Image 
-            src="/mobile-hero.png" 
-            width={360} 
-            height={482} 
-            layout="responsive"
-            loading="eager" 
-          />
+          <Carousel 
+            autoPlay
+            infiniteLoop
+            interval={2000}
+            transitionTime={1000}
+            showArrows={false}
+            showStatus={false}
+            showIndicators={false}
+          >
+            <Box as="div" w="100%" h="100%">
+              <Image 
+              src="/bg-mobile-hero1.png" 
+              width={360} 
+              height={482}  
+              layout="responsive" 
+              loading="eager"
+            />
+            </Box>
+            <Box as="div" w="100%" h="100%">
+              <Image 
+              src="/bg-mobile-hero2.png" 
+              width={360} 
+              height={482}  
+              layout="responsive" 
+              loading="eager"
+            />
+            </Box>
+            <Box as="div" w="100%" h="100%">
+              <Image 
+              src="/bg-mobile-hero3.png" 
+              width={360} 
+              height={482}  
+              layout="responsive" 
+              loading="eager"
+            />
+            </Box>
+          </Carousel>
         </Box>
         <Box
           position="relative"
@@ -66,13 +99,43 @@ const Hero: React.FC = () => {
           overflow="hidden"
           display={["none", null, null, "inherit"]}
         >
-          <Image 
-            src="/hero.png" 
-            width={1440} 
-            height={600} 
-            layout="responsive" 
-            loading="eager"
-          />
+          <Carousel 
+            autoPlay
+            infiniteLoop
+            interval={2500}
+            transitionTime={1000}
+            showArrows={false}
+            showStatus={false}
+            showIndicators={false}
+          >
+            <Box as="div" w="100%" h="100%">
+              <Image 
+              src="/bg-hero1.png" 
+              width={1440} 
+              height={600} 
+              layout="responsive" 
+              loading="eager"
+            />
+            </Box>
+            <Box as="div" w="100%" h="100%">
+              <Image 
+              src="/bg-hero2.png" 
+              width={1440} 
+              height={600} 
+              layout="responsive" 
+              loading="eager"
+            />
+            </Box>
+            <Box as="div" w="100%" h="100%">
+              <Image 
+              src="/bg-hero3.png" 
+              width={1440} 
+              height={600} 
+              layout="responsive" 
+              loading="eager"
+            />
+            </Box>
+          </Carousel>
         </Box>
       </Box>
     </Section>
