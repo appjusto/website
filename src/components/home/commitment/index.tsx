@@ -22,7 +22,7 @@ const Commitment: React.FC = () => {
           lineHeight="48px"
           mb="24px"
         >
-          Nosso compromisso é com a sociedade
+          Nosso compromisso é com a sociedade.
         </Heading>
         <Text 
           fontSize="20px"

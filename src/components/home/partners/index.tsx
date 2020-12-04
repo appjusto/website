@@ -53,6 +53,7 @@ const Partners: React.FC = () => {
           fontSize="18px"
           lineHeight="26px"
           fontWeight="700"
+          width="100%"
         />
         <Heading 
           as="h2"
