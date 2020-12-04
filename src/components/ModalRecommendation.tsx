@@ -36,7 +36,8 @@ const ModalRecommendation: React.FC = () => {
     handleModalConfirmation, 
     handleModalRecommendation,
     handleRegistration,
-    registrationMsg 
+    registrationMsg,
+    setRegistrationMsg, 
   } = useContext(PageContext)
 
   const clearForm = () => {
@@ -70,13 +71,20 @@ const ModalRecommendation: React.FC = () => {
     handleModalConfirmation("recommendation")
     return handleModalRecommendation()
   }
+
+  const handleClose = () => {
+    clearForm()
+    setRegistrationMsg({status: false, message: ""})
+    return handleModalRecommendation()
+  }
+
   return (
     <Modal 
       id="ModalRecommendation"
       size="full"
       blockScrollOnMount={true} 
       isOpen={showModalRecommendation} 
-      onClose={handleModalRecommendation}
+      onClose={handleClose}
       closeOnOverlayClick={true}
       isCentered
       >
@@ -147,8 +155,8 @@ const ModalRecommendation: React.FC = () => {
               </Text>
               <CustomSelect 
                 id="recommended-profile"
-                label="Selecione o perfil"
-                placeholder="Restaurante ou entregador"
+                label="Perfil"
+                placeholder="Selecione o perfil"
                 value={profile} 
                 options={profileOptions}
                 handleChange={(event) => setProfile(event.target.value)}
