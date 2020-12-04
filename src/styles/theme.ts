@@ -4,6 +4,7 @@ import { createBreakpoints } from "@chakra-ui/theme-tools"
 import Select from './select'
 import Input from './input'
 import Button from './button'
+import Carousel from "./carousel"
 
 const breakpoints = createBreakpoints({
   sm: "30em",
@@ -44,6 +45,7 @@ const customTheme = extendTheme({
     Select,
     Input,
     Button,
+    Carousel
   },
   textStyles: {
     p: {
