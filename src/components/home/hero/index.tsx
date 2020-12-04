@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
     <Section
       position="relative" 
       id="hero"
-      bgColor="black"
+      bgColor="primary"
       h={["auto", null, null, "560px", "560px", "600px"]} 
     >
       <Container 
