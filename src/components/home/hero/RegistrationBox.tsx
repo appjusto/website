@@ -73,6 +73,7 @@ const RegistrationBox: React.FC = () => {
       flexDir="column"
       p="24px"
       bg="white"
+      mb="24px"
     >
       <Heading as="h2" fontSize="24px" mb="4px">
         Faça o pré-cadastro agora!
