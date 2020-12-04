@@ -167,16 +167,17 @@ const ModalRecommendation: React.FC = () => {
                 <CustomSelect 
                   id="recommended-uf"
                   label="UF"
-                  placeholder="..."
+                  placeholder="UF"
                   maxW={["100px"]}
                   value={uf} 
                   options={ufsList}
                   handleChange={(event) => handleUf(event)}
                 />
-                <CustomSelect 
+                <CustomSelect
+                  isDisabled={uf === "" ? true : false} 
                   id="recommended-city"
                   label="Cidade"
-                  placeholder="..."
+                  placeholder="Selecione sua cidade"
                   isLoading={isLoadingCities}
                   isLast={true}
                   value={city} 
