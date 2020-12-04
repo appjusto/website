@@ -94,13 +94,15 @@ const Partners: React.FC = () => {
           />
           <CustomButton 
             label="Quero ser um parceiro" 
-            variant="white"    
+            variant="basic"
+            bg="white"    
             maxW={["100%", null, "220px"]}
             mr={["0", "0", "0", "16px"]}
           />
           <CustomButton 
             label="Quero trabalhar com vocês" 
-            variant="white"    
+            variant="basic"
+            bg="white"      
             maxW={["100%", null, "220px"]}
           />
         </Flex>

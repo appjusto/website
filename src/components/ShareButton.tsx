@@ -2,7 +2,7 @@ import { Button, useStyleConfig, ButtonProps } from '@chakra-ui/react'
 import { BiShareAlt  } from 'react-icons/bi'
 
 const ShareButton: React.FC<ButtonProps> = ({...props}) => {
-  const variant = "white"
+  const variant = "basic"
   const styles = useStyleConfig("Button", {variant})
   return (
     <Button 

@@ -130,7 +130,7 @@ const RegistrationBox: React.FC = () => {
         <CustomButton 
           type="submit"
           label="Fazer pré-cadastro" 
-          variant="secondary" 
+          variant="secondaryRegistration" 
           isSubmiting={isSubmiting}  
         />
       </Flex>

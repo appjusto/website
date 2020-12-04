@@ -32,7 +32,10 @@ const Numbers: React.FC = () => {
   useEffect(() => {
     dbRef.onSnapshot(snaptshop => {
       const newSummary = snaptshop.data()
-      setSummary(newSummary as SummaryProps)
+      console.log(newSummary)
+      if(newSummary) {
+        setSummary(newSummary as SummaryProps)
+      }
     })
   }, [])
 

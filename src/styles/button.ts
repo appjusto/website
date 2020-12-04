@@ -3,11 +3,11 @@ export default {
     fontFamily: "Barlow",
     fontSize: "16px",
     border: "2px solid black",
-    radii: "md",
+    borderRadius: "8px",
     w: "100%",
   },
   variants: {
-    white:{
+    basic:{
       fontSize: "15px",
       h: "48px",
       _hover: {bg: "#F2F6EA"}
@@ -22,35 +22,18 @@ export default {
       bg: "secondaryLight",
       h: "48px",
       fontSize: "15px",
-      padding: "0",
+      padding: "0 8px",
+      _hover: {bg: "#FFC093"}
+    },
+    secondaryRegistration: {
+      bg: "secondaryLight",
+      h: "60px",
+      fontSize: "18px",
+      lineHeight: "26px",
       _hover: {bg: "#FFC093"}
     },
   },
   defaultProps: {
-    variants: "white"
+    variants: "basic"
   },
 }
-
-/*
- variants: {
-  white:{
-    bg: "white",
-    fontSize: "15px",
-    h: "48px",
-    _hover: {bg: "primary", color: "primaryDark", borderColor: "primaryDark"}
-  },
-  secondary: {
-    bg: "secondary",
-    h: "60px",
-    fontSize: "18px",
-    _hover: {bg: "primary", color: "primaryDark", borderColor: "primaryDark"}
-  },
-  secondaryLight: {
-    bg: "secondaryLight",
-    h: "48px",
-    fontSize: "15px",
-    padding: "0",
-    _hover: {bg: "primary", color: "primaryDark", borderColor: "primaryDark"}
-  },
-},
-*/

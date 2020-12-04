@@ -85,7 +85,7 @@ const ModalConfirmation: React.FC = () => {
                 Agora chegou a hora de divulgar. Quanto mais você divulgar, mais 
                 rápido o AppJusto chegará até você!
               </Text>
-              <ShareButton />
+              <ShareButton bg="#fff"/>
             </Flex>
           </ModalBody>
         </ModalContent>

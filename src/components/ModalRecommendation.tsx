@@ -187,7 +187,7 @@ const ModalRecommendation: React.FC = () => {
               <CustomButton 
                   type="submit"
                   label="Indicar agora"
-                  variant="secondary"
+                  variant="secondaryRegistration"
                   maxW="260px"
                   mt="26px"
                   isSubmiting={isSubmiting} 
