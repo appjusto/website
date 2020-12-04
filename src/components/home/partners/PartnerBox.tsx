@@ -20,6 +20,7 @@ const PartnerBox: React.FC<PartnerBoxProps> = ({ image, width, height }) => {
       boxShadow="0 8px 16px -4px rgba(105, 118, 103, 0.1)"
       minW="268px"
       h="160px"
+      m="0 8px"
     >
       <Image src={image} width={width} height={height} />
     </Flex>

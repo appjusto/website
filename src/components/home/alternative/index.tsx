@@ -60,7 +60,7 @@ const Alternative: React.FC = () => {
         </Flex>
         <Stack
           direction="row"
-          spacing={2}
+          spacing={0}
           w="100%"
           overflowX="auto"
           p="8px 0"

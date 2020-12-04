@@ -28,7 +28,7 @@ const Partners: React.FC = () => {
         <Stack 
           w="100%"
           direction="row"
-          spacing={2}
+          spacing={0}
           overflowX="auto"
           p="8px 0"
           mb="24px"

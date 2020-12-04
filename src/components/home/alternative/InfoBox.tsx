@@ -14,6 +14,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, title, text }) => {
       justifyContent="space-between"
       alignItems="center"
       p="24px"
+      m="0 8px"
       border="1px solid #F2F6EA"
       borderRadius="8px"
       boxShadow="0 8px 16px -4px rgba(105, 118, 103, 0.1)"
