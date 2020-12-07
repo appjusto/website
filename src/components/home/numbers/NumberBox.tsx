@@ -7,11 +7,12 @@ import VisibilitySensor  from 'react-visibility-sensor';
 
 interface NumberBoxProps {
   icon: string
+  altImg: string
   number: number
   label: string
 }
 
-const NumberBox: React.FC<NumberBoxProps> = ({ icon, number, label }) => {
+const NumberBox: React.FC<NumberBoxProps> = ({ icon, altImg, number, label }) => {
   const [countUpActive, setCountUpActive] = useState(false)
   const { countUp, start, update } = useCountUp({
     start: 0,
@@ -41,7 +42,7 @@ const NumberBox: React.FC<NumberBoxProps> = ({ icon, number, label }) => {
       alignItems="center"
       mt="22px"
     >
-      <Image src={icon} width={24} height={24} />
+      <Image src={icon} width={24} height={24} alt={altImg} />
       <VisibilitySensor onChange={handleVisibilityChange}>
         <Text
           fontFamily="Barlow"

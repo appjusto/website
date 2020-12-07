@@ -3,11 +3,12 @@ import { Flex } from '@chakra-ui/react'
 
 interface PartnerBoxProps{
   image: string
+  altImg: string
   width: number
   height: number
 }
 
-const PartnerBox: React.FC<PartnerBoxProps> = ({ image, width, height }) => {
+const PartnerBox: React.FC<PartnerBoxProps> = ({ image, altImg, width, height }) => {
   return (
     <Flex
       position="relative"
@@ -22,7 +23,7 @@ const PartnerBox: React.FC<PartnerBoxProps> = ({ image, width, height }) => {
       h="160px"
       m="0 8px"
     >
-      <Image src={image} width={width} height={height} />
+      <Image src={image} width={width} height={height} alt={altImg} />
     </Flex>
   );
 }

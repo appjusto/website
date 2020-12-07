@@ -28,7 +28,8 @@ const HeroSlider: React.FC = () => {
           opacity={active === 1 ? 1 : 0}
         >
           <Image 
-          src="/bg-mobile-hero1.png" 
+          src="/bg-mobile-hero1.png"
+          alt="Entregador numa bicicleta" 
           width={360} 
           height={482} 
           layout="responsive" 
@@ -40,7 +41,8 @@ const HeroSlider: React.FC = () => {
           opacity={active === 2 ? 1 : 0}
         >
           <Image 
-          src="/bg-mobile-hero2.png" 
+          src="/bg-mobile-hero2.png"
+          alt="Vários pratos de comida" 
           width={360} 
           height={482} 
           layout="responsive" 
@@ -52,7 +54,8 @@ const HeroSlider: React.FC = () => {
           opacity={active === 3 ? 1 : 0}
         >
           <Image 
-          src="/bg-mobile-hero3.png" 
+          src="/bg-mobile-hero3.png"
+          alt="Pessoa recebendo uma caixa" 
           width={360} 
           height={482} 
           layout="responsive" 
@@ -69,7 +72,8 @@ const HeroSlider: React.FC = () => {
           opacity={active === 1 ? 1 : 0}
         >
           <Image 
-          src="/bg-hero1.png" 
+          src="/bg-hero1.png"
+          alt="Entregador numa bicicleta"  
           width={1440} 
           height={600} 
           layout="responsive" 
@@ -82,6 +86,7 @@ const HeroSlider: React.FC = () => {
         >
           <Image 
           src="/bg-hero2.png" 
+          alt="Vários pratos de comida" 
           width={1440} 
           height={600} 
           layout="responsive" 
@@ -93,7 +98,8 @@ const HeroSlider: React.FC = () => {
           opacity={active === 3 ? 1 : 0}
         >
           <Image 
-          src="/bg-hero3.png" 
+          src="/bg-hero3.png"
+          alt="Pessoa recebendo uma caixa"  
           width={1440} 
           height={600} 
           layout="responsive" 

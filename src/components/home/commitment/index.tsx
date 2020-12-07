@@ -46,18 +46,21 @@ const Commitment: React.FC = () => {
           >
             <Item 
               image="/icon-bike.svg" 
+              altImg="Ícone de entregador numa moto"
               title="Autonomia e participação" 
               text="Entregador e restaurantes ditam as regras e tem mais controle 
                 do seu trabalho com a criação de frotas próprias"
             />
             <Item 
               image="/item-monetization.svg" 
+              altImg="Ícone de moeda"
               title="Compromisso de preço justo para todos" 
               text="Restaurantes, entregadores e clientes ganham mais, tanto no 
                 bolso, quanto em qualidade"
             />
             <Item 
               image="/item-thumb.svg" 
+              altImg="Ícone de curtir"
               title="Eficiência e sustentabilidade financeira" 
               text="O nosso crescimento está atrelado ao crescimento da rede"
               link="/sobre-o-appjusto"
@@ -65,12 +68,14 @@ const Commitment: React.FC = () => {
             />
             <Item 
               image="/item-domain.svg" 
+              altImg="Ícone de prédios"
               title="Criação de um bem coletivo" 
               text="Permitimos que os participantes não estejam presos à plataforma 
                 e tornamos livre qualquer código produzido"
             />
             <Item 
               image="/item-blur.svg" 
+              altImg="Ícone de pontos"
               title="Transparência em toda a plataforma" 
               text="Desde a definiação das regras até os preços cobrados"
               //link="/transparencia"
@@ -78,6 +83,7 @@ const Commitment: React.FC = () => {
             />
             <Item 
               image="/item-world.svg" 
+              altImg="Ícone de planeta"
               title="Objetivos de Desenvolvimento Sustentáveis" 
               text="Seguimos os Objetivos de Desenvolvimento Sustentáveis da ONU"
               ods={true}
@@ -87,7 +93,12 @@ const Commitment: React.FC = () => {
             position="relative"
             display={["none", null, null, "block"]}
           >
-            <Image src="/commitment-route.svg" width={368} height={669} />
+            <Image 
+              src="/commitment-route.svg" 
+              alt="Rota do pedido" 
+              width={368} 
+              height={669} 
+            />
           </Box>
         </Flex>
       </Container>

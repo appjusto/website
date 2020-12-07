@@ -23,6 +23,7 @@ const CallBox: React.FC = () => {
       >
         <Image 
           src="/illustration-delivery.svg" 
+          alt="Ilustração de motocicleta de delivery"
           width={72} 
           height={72} 
           layout="responsive"

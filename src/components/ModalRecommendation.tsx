@@ -121,7 +121,12 @@ const ModalRecommendation: React.FC = () => {
                   position="relative"
                   mr="16px"
                 >
-                  <Image src="/icon-promotion.svg" width={48} height={48} />
+                  <Image 
+                    src="/icon-promotion.svg"
+                    alt="Ilustração de auto-falante" 
+                    width={48} 
+                    height={48} 
+                  />
                 </Box>
                 <Heading 
                   as="h2"

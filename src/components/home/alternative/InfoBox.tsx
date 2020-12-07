@@ -3,11 +3,12 @@ import { Flex, Box, Heading, Text } from '@chakra-ui/react'
 
 interface InfoBoxProps{
   image: string
+  altImg: string
   title: string
   text: string
 }
 
-const InfoBox: React.FC<InfoBoxProps> = ({ image, title, text }) => {
+const InfoBox: React.FC<InfoBoxProps> = ({ image, altImg, title, text }) => {
   return (
     <Flex
       flexDir="column"
@@ -25,7 +26,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, title, text }) => {
         w="96px"
         h="96px"
       >
-        <Image src={image} width={96} height={96} />
+        <Image src={image} width={96} height={96} alt={altImg}/>
       </Box>
       <Heading 
         as="h3"

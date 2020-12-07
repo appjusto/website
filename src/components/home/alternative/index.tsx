@@ -33,7 +33,12 @@ const Alternative: React.FC = () => {
               w="100%"
               mb="-12px"  
             >
-              <Image src="/alternativa.svg" width={429} height={43} />
+              <Image 
+                src="/alternativa.svg" 
+                width={429} 
+                height={43} 
+                alt="Nós somos a alternativa"  
+              />
             </Box>
             <Heading 
               as="h1" 
@@ -51,7 +56,8 @@ const Alternative: React.FC = () => {
                 <Image 
                   src="/line-vector-g.svg" 
                   width={544} 
-                  height={20} 
+                  height={20}
+                  alt="Linha verde"  
                 />
               </Box>
             </Heading>
@@ -68,6 +74,7 @@ const Alternative: React.FC = () => {
         >
           <InfoBox 
             image="/infobox-entregadores.png"
+            altImg="Entregador numa bicicleta"
             title="Entregadores"
             text="Maiores ganhos nas corridas, regras transparentes, atendimento 
               direto, sem suspensões injustas, autonomia na criação de frotas com 
@@ -75,6 +82,7 @@ const Alternative: React.FC = () => {
           />
           <InfoBox 
             image="/infobox-restaurantes.png"
+            altImg="Mãos segurando um pode de comida"
             title="Restaurantes"
             text="Menores taxas que a concorrência, logística inclusa, acesso ao 
               cliente, exibição igualitária, gestão de frotas próprias, participação 
@@ -82,6 +90,7 @@ const Alternative: React.FC = () => {
           />
           <InfoBox 
             image="/infobox-clientes.png"
+            altImg="Pessoa segurando um hamburguer"
             title="Clientes"
             text="Pagar o preço do cardápio, sem entregas roteirizadas, entrega de 
               encomendas mais baratas, consciência de fazer parte de uma economia 

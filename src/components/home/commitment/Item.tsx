@@ -4,6 +4,7 @@ import Link from '../../CustomLink'
 
 interface ItemProps {
   image: string
+  altImg: string
   title: string
   text: string
   linkLabel?: string
@@ -12,7 +13,7 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ 
-    image, title, text, linkLabel, link, ods = false 
+    image, altImg, title, text, linkLabel, link, ods = false 
   }) => {
   return (
     <Flex
@@ -29,7 +30,7 @@ const Item: React.FC<ItemProps> = ({
         h="80px"
         mr="16px"
       >
-        <Image src={image} width={30} height={30} />
+        <Image src={image} width={30} height={30} alt={altImg}/>
       </Flex>
       <Flex
         flexDir="column"
@@ -72,7 +73,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods8.svg" width={64} height={64} quality={100}/>
+                <Image src="/ods8.svg" alt="ODS8" width={64} height={64} quality={100}/>
               </Box>
               <Box 
                 borderRadius="4px" 
@@ -80,7 +81,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods10.svg" width={64} height={64} quality={100}/>
+                <Image src="/ods10.svg" alt="ODS10" width={64} height={64} quality={100}/>
               </Box>
               <Box 
                 borderRadius="4px" 
@@ -88,7 +89,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods11.svg" width={64} height={64} quality={100}/>
+                <Image src="/ods11.svg" alt="ODS11" width={64} height={64} quality={100}/>
               </Box>
               <Box 
                 borderRadius="4px" 
@@ -96,7 +97,7 @@ const Item: React.FC<ItemProps> = ({
                 maxW="64px"
                 h="64px"
                 >
-                <Image src="/ods17.svg" width={64} height={64} quality={100}/>
+                <Image src="/ods17.svg" alt="ODS17" width={64} height={64} quality={100}/>
               </Box>
             </Stack>
           )

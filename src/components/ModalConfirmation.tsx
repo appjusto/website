@@ -49,7 +49,8 @@ const ModalConfirmation: React.FC = () => {
                 mr="-120px"
               >
                 <Image 
-                  src="/illustration-big-user.svg" 
+                  src="/illustration-big-user.svg"
+                  alt="Ilustração de uma mão entregando uma caixa para outra mão" 
                   width={275} 
                   height={200}
                 />
@@ -58,7 +59,8 @@ const ModalConfirmation: React.FC = () => {
                 position="relative"
               >
                 <Image 
-                  src="/obrigado.svg" 
+                  src="/obrigado.svg"
+                  alt="Obrigado!" 
                   width={213} 
                   height={53}
                 />

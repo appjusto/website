@@ -39,6 +39,7 @@ const Monopoly: React.FC = () => {
           >
             <Image 
               src="/line-vector-y.svg" 
+              alt="Linha amarela"
               width={544} 
               height={20} 
             />
@@ -70,7 +71,8 @@ const Monopoly: React.FC = () => {
           display={["inherit", null, null, "none"]}
         >
           <Image 
-            src="/bg-mobile-monopoly.png" 
+            src="/bg-mobile-monopoly.png"
+            alt="Entregador de capacete, retirando um pedido no balcão de um restaurante" 
             width={360} 
             height={240} 
             layout="responsive" 
@@ -83,6 +85,7 @@ const Monopoly: React.FC = () => {
         >
           <Image 
             src="/bg-monopoly.png" 
+            alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
             width={1440} 
             height={600} 
             layout="responsive" 

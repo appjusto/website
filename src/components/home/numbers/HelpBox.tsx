@@ -3,6 +3,7 @@ import { Flex, Heading, Stack, Text } from '@chakra-ui/react'
 
 interface HelpBoxProps {
   icon: string
+  altImg: string
   title: string
   text: string
   isLast: boolean
@@ -10,6 +11,7 @@ interface HelpBoxProps {
 
 const HelpBox: React.FC<HelpBoxProps> = ({
   icon,
+  altImg,
   title,
   text,
   isLast, 
@@ -39,7 +41,7 @@ const HelpBox: React.FC<HelpBoxProps> = ({
         justifyContent="center"
         mt="-60px"
       >
-        <Image src={icon} width={48} height={48} />
+        <Image src={icon} width={48} height={48} alt={altImg}/>
       </Flex>
       <Heading 
         as="h2"

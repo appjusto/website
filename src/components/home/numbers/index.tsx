@@ -104,15 +104,35 @@ const Numbers: React.FC = () => {
             w="100%"
             flexDir="row"
           >
-            <NumberBox key="nb-cities" icon="/icon-shield.svg" number={summary.cities} label="Cidades" />
-            <NumberBox key="nb-couriers" icon="/icon-bike.svg" number={summary.couriers} label="Entregadores" />
+            <NumberBox 
+              key="nb-cities" 
+              icon="/icon-shield.svg" 
+              altImg="Ícone de escudo"
+              number={summary.cities} 
+              label="Cidades" />
+            <NumberBox 
+              key="nb-couriers" 
+              icon="/icon-bike.svg" 
+              altImg="Ícone de entregador numa moto"
+              number={summary.couriers} 
+              label="Entregadores" />
           </Flex>
           <Flex
             w="100%"
             flexDir="row"
           >
-            <NumberBox key="nb-restaurants" icon="/icon-cutlery.svg" number={summary.restaurants} label="Restaurantes" />
-            <NumberBox key="nb-consumers" icon="/icon-happy.svg" number={summary.consumers} label="Consumidores" />
+            <NumberBox 
+              key="nb-restaurants" 
+              icon="/icon-cutlery.svg" 
+              altImg="Ícone de talhares"
+              number={summary.restaurants} 
+              label="Restaurantes" />
+            <NumberBox 
+              key="nb-consumers" 
+              icon="/icon-happy.svg" 
+              altImg="Ícone de carinha feliz"
+              number={summary.consumers} 
+              label="Consumidores" />
           </Flex>
         </Flex>
         <Heading
@@ -132,6 +152,7 @@ const Numbers: React.FC = () => {
         >
           <HelpBox 
             icon="/icon-promotion.svg"
+            altImg="Ilustração de auto-falante"
             title="Indique o AppJusto"
             text="Indique o AppJusto para amigos, entregadores, restaurantes, e todos que desejam um modelo mais justo."
             isLast={false}
@@ -144,6 +165,7 @@ const Numbers: React.FC = () => {
           </HelpBox>
           <HelpBox 
             icon="/icon-high-five.svg"
+            altImg="Ilustração de mãos se cumprimentando"
             title="Faça parte do AppJusto"
             text="Estamos em busca de voluntários, empresas parceiras, investidores, e todos que podem colaborar ativamente com esse movimento."
             isLast={false}
@@ -152,6 +174,7 @@ const Numbers: React.FC = () => {
           </HelpBox>
           <HelpBox 
             icon="/icon-chat-bubble.svg"
+            altImg="Ilustração de caixa de mensagens com um check e um x"
             title="Responda a pesquisa"
             text="Estamos ouvindo clientes, entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
             isLast={true}

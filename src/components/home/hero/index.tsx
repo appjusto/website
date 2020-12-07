@@ -46,7 +46,8 @@ const Hero: React.FC = () => {
             mt="-34px"
           >
             <Image 
-              src="/line-vector-y.svg" 
+              src="/line-vector-y.svg"
+              alt="Linha amarela" 
               width={544} 
               height={20} 
             />
@@ -70,6 +71,7 @@ const Hero: React.FC = () => {
         >
           <Image 
             src="/line-vector-y.svg" 
+            alt="Linha amarela" 
             width={544} 
             height={20} 
           />
