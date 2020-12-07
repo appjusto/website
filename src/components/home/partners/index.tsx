@@ -83,7 +83,8 @@ const Partners: React.FC = () => {
             color="white"
           >
             <Image 
-              src="/line-vector-g.svg" 
+              src="/line-vector-g.svg"
+              alt="Linha verde" 
               width={544} 
               height={20} 
             />

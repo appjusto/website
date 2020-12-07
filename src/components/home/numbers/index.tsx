@@ -85,6 +85,7 @@ const Numbers: React.FC = () => {
           >
             <Image 
               src="/line-vector-w.svg" 
+              alt="Linha branca"
               width={544} 
               height={20} 
             />

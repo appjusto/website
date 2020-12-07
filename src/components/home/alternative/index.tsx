@@ -55,9 +55,9 @@ const Alternative: React.FC = () => {
               >
                 <Image 
                   src="/line-vector-g.svg" 
+                  alt="Linha verde"
                   width={544} 
-                  height={20}
-                  alt="Linha verde"  
+                  height={20}  
                 />
               </Box>
             </Heading>
