@@ -46,6 +46,7 @@ const HelpBox: React.FC<HelpBoxProps> = ({
       <Heading 
         as="h2"
         fontSize="24px"
+        textAlign="center"
         mt="16px"
       >
         {title}

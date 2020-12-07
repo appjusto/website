@@ -46,7 +46,7 @@ const Monopoly: React.FC = () => {
           </Box>
         </Heading>
         <Heading 
-          as="h3" 
+          as="h4" 
           fontSize={["16px", null, null, "20px"]}  
           fontWeight="500" 
           lineHeight={["22px", null, null, "32px"]} 

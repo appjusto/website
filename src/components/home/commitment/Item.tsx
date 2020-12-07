@@ -37,7 +37,7 @@ const Item: React.FC<ItemProps> = ({
         mt="4px"
       >
         <Heading 
-          as="h3"
+          as="h4"
           fontSize="20px"
           lineHeight="26px"
           fontWeight="500" 
