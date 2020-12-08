@@ -94,7 +94,7 @@ const ModalSharing: React.FC = () => {
                 alignItems="center"
               >
                 <ShareLink 
-                  link={`https://api.whatsapp.com/send?text=${window.location.href}`}>
+                  link="https://api.whatsapp.com/send?text=https://appjusto-ladingpage.vercel.app/">
                   <Icon as={FaWhatsappSquare}  
                     w="60px"
                     h="60px"
