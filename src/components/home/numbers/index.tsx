@@ -26,16 +26,17 @@ const Numbers: React.FC = () => {
     couriers: 0,
     restaurants: 0
   })
-  const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
   const { handleModalRecommendation, setRegistrationMsg } = useContext(PageContext)
+  const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
 
   useEffect(() => {
-    dbRef.onSnapshot(snaptshop => {
+    const observer = dbRef.onSnapshot(snaptshop => {
       const newSummary = snaptshop.data()
       if(newSummary) {
         setSummary(newSummary as SummaryProps)
       }
     })
+    return observer
   }, [])
 
   const handleRecommendation = () => {

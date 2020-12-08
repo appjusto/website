@@ -15,7 +15,7 @@ export const getCities = async (uf: string) => {
 }
 
 export const profileOptions = [
-  { value: "consumers", label: "Cliente"},
+  { value: "consumers", label: "Consumidor"},
   { value: "couriers", label: "Entregador"},
   { value: "restaurants", label: "Restaurante"}
 ]

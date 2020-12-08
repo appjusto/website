@@ -7,6 +7,7 @@ import Partners from '../components/home/partners'
 import Commitment from '../components/home/commitment'
 import ModalConfirmation from '../components/ModalConfirmation'
 import ModalRecommendation from '../components/ModalRecommendation'
+import ModalSharing from '../components/ModalSharing'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Partners />
       <ModalConfirmation />
       <ModalRecommendation />
+      <ModalSharing />
     </PageLayout>
   )
 }

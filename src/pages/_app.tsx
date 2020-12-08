@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
     show: false, type: ""
   })
   const [showModalRecommendation, setShowModalRecommendation] = useState(false)
+  const [showModalSharing, setShowModalSharing] = useState(false)
   const [registrationMsg, setRegistrationMsg] = useState({status: false, message: ""})
   const dbRef = useMemo(() => db.collection('registrations'),[])
   const sumaryRef = useMemo(() => db.collection("summary").doc("data"), [])
@@ -22,6 +23,10 @@ function MyApp({ Component, pageProps }) {
 
   const handleModalRecommendation = () => {
     return setShowModalRecommendation(!showModalRecommendation)
+  }
+
+  const handleModalSharing = () => {
+    return setShowModalSharing(!showModalSharing)
   }
 
   const findEmail = (email: string) => {
@@ -106,10 +111,12 @@ function MyApp({ Component, pageProps }) {
     <PageContex.Provider value={{
       showModalConfirmation,
       showModalRecommendation,
+      showModalSharing,
       registrationMsg,
       setRegistrationMsg,
       handleModalConfirmation,
       handleModalRecommendation,
+      handleModalSharing,
       handleRegistration
     }}>
       <ThemeProvider theme={theme}>
