@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -20,7 +20,12 @@ import PageContext from '../context/'
 import ShareLink from './ShareLink'
 
 const ModalSharing: React.FC = () => {
+  const [mainUrl, setMainUrl] = useState("")
   const { showModalSharing, handleModalSharing } = useContext(PageContext)
+  useEffect(() => {
+    const url = window.location.href
+    setMainUrl(url)
+  }, [])
   return (
     <Modal 
       id="ModalSharing"
@@ -94,7 +99,7 @@ const ModalSharing: React.FC = () => {
                 alignItems="center"
               >
                 <ShareLink 
-                  link="https://api.whatsapp.com/send?text=https://appjusto-ladingpage.vercel.app/">
+                  link={`https://api.whatsapp.com/send?text=${mainUrl}`}>
                   <Icon as={FaWhatsappSquare}  
                     w="60px"
                     h="60px"
