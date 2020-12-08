@@ -27,7 +27,7 @@ const Numbers: React.FC = () => {
     restaurants: 0
   })
   const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
-  const { handleModalRecommendation } = useContext(PageContext)
+  const { handleModalRecommendation, setRegistrationMsg } = useContext(PageContext)
 
   useEffect(() => {
     dbRef.onSnapshot(snaptshop => {
@@ -37,6 +37,11 @@ const Numbers: React.FC = () => {
       }
     })
   }, [])
+
+  const handleRecommendation = () => {
+    setRegistrationMsg({status: false, message: ""})
+    return handleModalRecommendation()
+  }
 
   return (
     <Section 
@@ -161,7 +166,7 @@ const Numbers: React.FC = () => {
             <Button 
               label="Indicar o AppJusto" 
               variant="secondaryLight"
-              handleClick={() => handleModalRecommendation()}
+              handleClick={handleRecommendation}
             />
           </HelpBox>
           <HelpBox 

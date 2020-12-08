@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent } from 'react'
+import { useState, useContext, ChangeEvent, FormEvent } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -59,7 +59,7 @@ const ModalRecommendation: React.FC = () => {
     return setUf(uf)
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
     const registrationStatus = await handleRegistration(profile, email, city, uf, indicatorEmail )
@@ -184,7 +184,7 @@ const ModalRecommendation: React.FC = () => {
                   maxW={["100px"]}
                   value={uf} 
                   options={ufsList}
-                  handleChange={(event) => handleUf(event)}
+                  handleChange={handleUf}
                 />
                 <CustomSelect
                   isDisabled={uf === "" ? true : false} 

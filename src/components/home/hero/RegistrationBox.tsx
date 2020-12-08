@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent }from 'react'
+import { useState, useContext, ChangeEvent, FormEvent }from 'react'
 import { 
   Flex, 
   Heading, 
@@ -56,7 +56,7 @@ const RegistrationBox: React.FC = () => {
   const handleCity = (event: ChangeEvent<HTMLSelectElement>) => 
     setCity(event.target.value)
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
     const registrationStatus = await handleRegistration(profile, email, city, uf, "" )
@@ -84,7 +84,7 @@ const RegistrationBox: React.FC = () => {
       <Flex
         as="form"
         flexDir={["column", null, null, "row"]}
-        onSubmit={(event) => handleSubmit(event)}
+        onSubmit={handleSubmit}
       >
         <CustomSelect 
           id="subscribe-profile"
