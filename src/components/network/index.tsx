@@ -33,11 +33,11 @@ const partnerAssociations = [
 ]
 
 const volunteers = [
-  "Fernando Fuzzi",
+  "Fernando Fuzii",
   "Fábio Borges",
   "Cassio Horita",
   "Arthur Rufino",
-  "Danilo Andradre",
+  "Danilo Andrade",
   "Monica Charoux",
   "Luis Coelho",
   "Emiliano Graziano ",

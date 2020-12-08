@@ -56,11 +56,11 @@ const Seo: React.FC<SeoProps> = ({
       <link rel="icon" href="/favicon.ico" />
       <link rel="canonical" href={canonical_url} />
       {
-          metaTags.map( (meta, index) => {
+          metaTags.map(meta => {
             if(meta.name) {
-              return <meta key={index} name={meta.name} content={meta.content} />
+              return <meta key={meta.name} name={meta.name} content={meta.content} />
             } else {
-              return <meta key={index} property={meta.property} content={meta.content} />
+              return <meta key={meta.property} property={meta.property} content={meta.content} />
             }
           })
         }

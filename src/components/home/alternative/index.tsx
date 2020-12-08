@@ -78,7 +78,7 @@ const Alternative: React.FC = () => {
             title="Entregadores"
             text="Maiores ganhos nas corridas, regras transparentes, atendimento 
               direto, sem suspensões injustas, autonomia na criação de frotas com 
-              taxas e próprias."
+              taxas próprias."
           />
           <InfoBox 
             image="/infobox-restaurantes.png"

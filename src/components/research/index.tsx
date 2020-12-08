@@ -24,8 +24,7 @@ const Research: React.FC = () => {
     } else if (profile === "couriers") {
       makeForm("https://form.typeform.com/to/x4GHkfQ6")
     } else if (profile === "restaurants") {
-      //falta link correto para restaurantes
-      makeForm("https://form.typeform.com/to/x4GHkfQ6")
+      makeForm("https://form.typeform.com/to/TCJFIwUe")
     }
   }
 
@@ -34,7 +33,6 @@ const Research: React.FC = () => {
       position="relative"
       w="100%"
       minH="100vh"
-      //mt={["-30px", null, null, "-60px"]}
       flexDir="column"
       justifyContent="flex-start"
       alignItems="flex-start"
@@ -64,6 +62,7 @@ const Research: React.FC = () => {
         w="100%"
         h="500px"
         mt="16px"
+        mb="64px"
         bg="#F2F6EA"
         ref={formBoxRef}
         display={profile !== "" ? "block" : "none"}
