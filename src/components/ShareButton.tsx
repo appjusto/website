@@ -5,12 +5,16 @@ import { BiShareAlt  } from 'react-icons/bi'
 import PageContext from '../context'
 
 const ShareButton: React.FC<ButtonProps> = ({...props}) => {
-  const { handleModalSharing, handleModalConfirmation } = useContext(PageContext)
+  const { 
+    handleModalSharing, handleModalConfirmation, showModalConfirmation 
+  } = useContext(PageContext)
   const variant = "basic"
   const styles = useStyleConfig("Button", {variant})
   const handleClick = () => {
-    handleModalSharing()
-    return handleModalConfirmation("")
+    if(showModalConfirmation.show) {
+      handleModalConfirmation("")
+    }
+    return handleModalSharing()
   }
   return (
     <Button 
