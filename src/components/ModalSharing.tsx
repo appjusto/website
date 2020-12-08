@@ -24,7 +24,8 @@ const ModalSharing: React.FC = () => {
   const { showModalSharing, handleModalSharing } = useContext(PageContext)
   useEffect(() => {
     const url = window.location.href
-    setMainUrl(url)
+    const main = url.split("//")[1].split("/")[0]
+    setMainUrl(`https://${main}`)
   }, [])
   return (
     <Modal 
