@@ -21,11 +21,18 @@ import ShareLink from './ShareLink'
 
 const ModalSharing: React.FC = () => {
   const [mainUrl, setMainUrl] = useState("")
+  const [sharingMsg, setSharingMsg] = useState("")
   const { showModalSharing, handleModalSharing } = useContext(PageContext)
   useEffect(() => {
-    const url = window.location.href
-    const main = url.split("//")[1].split("/")[0]
-    setMainUrl(`https://${main}`)
+    let url = "https://appjusto-ladingpage.vercel.app/"
+    if(process.env.NODE_ENV === "production") {
+      const newUrl = window.location.href
+      const main = newUrl.split("//")[1].split("/")[0]
+      url = `https://${main}`
+    }
+    const message = encodeURIComponent("Appjusto - Mais do que um App, somos um movimento!")
+    setMainUrl(url)
+    setSharingMsg(message)
   }, [])
   return (
     <Modal 
@@ -100,25 +107,25 @@ const ModalSharing: React.FC = () => {
                 alignItems="center"
               >
                 <ShareLink 
-                  link={`https://api.whatsapp.com/send?text=${mainUrl}`}>
+                  link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}>
                   <Icon as={FaWhatsappSquare}  
                     w="60px"
                     h="60px"
                   />
                 </ShareLink>
-                <ShareLink link="/">
+                <ShareLink link={`https://www.facebook.com/sharer/sharer.php?u=${mainUrl}%3Fsource%3Dsocial.fb&display=page&facebook%2Fclose`}>
                   <Icon as={FaFacebookSquare}  
                     w="60px"
                     h="60px"
                   />
                 </ShareLink>
-                <ShareLink link="/">
+                <ShareLink link={`https://www.linkedin.com/shareArticle?mini=true&url=${mainUrl}&source=AppJusto`}>
                   <Icon as={FaLinkedin}  
                     w="60px"
                     h="60px"
                   />
                 </ShareLink>
-                <ShareLink link="/">
+                <ShareLink link={`https://twitter.com/intent/tweet?url=${mainUrl}&text=${sharingMsg}`}>
                   <Icon as={FaTwitterSquare}  
                     w="60px"
                     h="60px"
@@ -133,3 +140,5 @@ const ModalSharing: React.FC = () => {
 }
 
 export default ModalSharing;
+
+//https://www.facebook.com/v5.0/dialog/share?app_id=542599432471018&href=${mainUrl}%3Fsource%3Dsocial.fb&display=page&facebook%2Fclose`
