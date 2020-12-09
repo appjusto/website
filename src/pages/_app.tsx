@@ -29,8 +29,8 @@ function MyApp({ Component, pageProps }) {
     return setShowModalSharing(!showModalSharing)
   }
 
-  const findEmail = (email: string) => {
-    const query = dbRef.where('email', '==', email).get()
+  const findPhone = (phone: string) => {
+    const query = dbRef.where('phone', '==', phone).get()
       .then(snapshot => {
         if (snapshot.empty) {
           return true;
@@ -70,8 +70,8 @@ function MyApp({ Component, pageProps }) {
     ) => {
     setRegistrationMsg({status: false, message: ""})
     try {
-      const isNewEmail = await findEmail(phone)
-      if(!isNewEmail) {
+      const isNewPhone = await findPhone(phone)
+      if(!isNewPhone) {
         setRegistrationMsg({
           status: true, message: "O número de celular informado já foi cadastrado. Agora aproveite para indicar seu amigos."
         })

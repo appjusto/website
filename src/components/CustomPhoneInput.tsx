@@ -62,7 +62,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
       </FormLabel>
         <Input
           isRequired 
-          type="text"
+          type="tel"
           placeholder="(__) _____-____"
           maxLength={15}
           value={phoneFormater(valueToDisplay)}
