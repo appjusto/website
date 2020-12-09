@@ -6,6 +6,7 @@ import { useMultiStyleConfig } from "@chakra-ui/react"
 interface CustomPhoneInput extends InputProps {
   id: string
   label: string
+  placeHolder: string
   value: string
   handleChange: (value: string) => void
 }
@@ -37,11 +38,15 @@ function phoneFormater(value: string) {
 }
 
 const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
-  id, label, value, handleChange, ...props
+  id, label, value, placeHolder, handleChange, ...props
 }) => {
   const [valueToDisplay, setValueToDisplay] = useState("")
+  const [placeholderText, setPlaceholderText] = useState("")
   const styles = useMultiStyleConfig("Input", {})
 
+  useEffect(() => {
+    setPlaceholderText(placeHolder)
+  }, [])
   useEffect(() => {
     setValueToDisplay(value)
   }, [value])
@@ -63,11 +68,13 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
         <Input
           isRequired 
           type="tel"
-          placeholder="(__) _____-____"
+          placeholder={placeholderText}
           maxLength={15}
           value={phoneFormater(valueToDisplay)}
           sx={styles.input}
           onChange={onInputChange}
+          onFocus={() => setPlaceholderText("(__) _____-____")}
+          onBlur={() => setPlaceholderText(placeHolder)}
           {...props}
         />
     </FormControl>

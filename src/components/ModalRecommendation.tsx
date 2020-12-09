@@ -147,6 +147,7 @@ const ModalRecommendation: React.FC = () => {
               <CustomPhoneInput 
                 id="recommendation-phone"
                 label="Seu celular" 
+                placeHolder="Digite seu celular"
                 value={indicatorPhone}
                 handleChange={(value: string) => setIndicatorPhone(value)}
               />
@@ -168,7 +169,8 @@ const ModalRecommendation: React.FC = () => {
               />
               <CustomPhoneInput 
                 id="recommended-phone"
-                label="Celular do indicado" 
+                label="Celular do indicado"
+                placeHolder="Digite o celular do indicado" 
                 value={phone}
                 handleChange={(value: string) => setPhone(value)}
               />

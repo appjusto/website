@@ -95,6 +95,7 @@ const RegistrationBox: React.FC = () => {
         <CustomPhoneInput 
           id="subscribe-phone"
           label="Celular" 
+          placeHolder="Digite seu celular"
           value={phone}
           handleChange={(value: string) => setPhone(value)}
         />
