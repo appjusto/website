@@ -20,7 +20,12 @@ export default class MyDocument extends Document {
             canonical_url="https://appjusto.vercel.app/"
           />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&display=swap" rel="stylesheet" />
+          <link 
+            href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&display=swap" 
+            rel="stylesheet" 
+            media="print"
+            onLoad="this.media='all'"
+          />
         </Head>
         <body>
           <Main />
