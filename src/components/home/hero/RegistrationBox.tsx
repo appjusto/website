@@ -4,7 +4,8 @@ import {
   Heading, 
   Text,
 } from "@chakra-ui/react"
-import CustomInput from "../../CustomInput"
+
+import CustomPhoneInput from '../../CustomPhoneInput'
 import CustomSelect from "../../CustomSelect"
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
@@ -17,7 +18,7 @@ type citiesProps = {value: string, label:string}[]
 
 const RegistrationBox: React.FC = () => {
   const [profile, setProfile] = useState("")
-  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
   const [uf, setUf] = useState("")
   const [city, setCity] = useState("")
   const [isLoadingCities, setIsLoadingCities] = useState(false)
@@ -31,18 +32,12 @@ const RegistrationBox: React.FC = () => {
 
   const clearForm = () => {
     setProfile("")
-    setEmail("")  
+    setPhone("")  
     setUf("")
     setCity("")
     setCitiesList([])
     return null
   }
-
-  const handleProfile = (event: ChangeEvent<HTMLSelectElement>) => 
-    setProfile(event.target.value)
-
-  const handleEmail = (event: ChangeEvent<HTMLInputElement>) => 
-    setEmail(event.target.value)
 
   const handleUf = async (event: ChangeEvent<HTMLSelectElement>) => {
     setIsLoadingCities(true)
@@ -59,7 +54,7 @@ const RegistrationBox: React.FC = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, email, city, uf, "" )
+    const registrationStatus = await handleRegistration(profile, phone, city, uf, "" )
     setIsSubmiting(false)
     if(!registrationStatus) {
       return null
@@ -79,7 +74,7 @@ const RegistrationBox: React.FC = () => {
         Faça o pré-cadastro agora!
       </Heading>
       <Text fontSize="16px" fontFamily="Barlow">
-        Quanto mais pré-cadastros na sua cidade, mais rápido chegaremos nela.
+        E ajude a levar esse movimento para perto de você.
       </Text>
       <Flex
         as="form"
@@ -91,16 +86,17 @@ const RegistrationBox: React.FC = () => {
           label="Perfil"
           placeholder="Selecione seu perfil"
           value={profile}
-          handleChange={handleProfile}
+          handleChange={
+            (event: ChangeEvent<HTMLSelectElement>) => 
+              setProfile(event.target.value
+            )}
           options={profileOptions}
         />
-        <CustomInput 
-          id="subscribe-email"
-          type="email" 
-          label="E-mail" 
-          placeholder="Digite seu e-mail"
-          value={email}
-          handleChange={handleEmail}
+        <CustomPhoneInput 
+          id="subscribe-phone"
+          label="Celular" 
+          value={phone}
+          handleChange={(value: string) => setPhone(value)}
         />
         <Flex
           w="100%"

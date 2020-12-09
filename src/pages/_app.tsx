@@ -63,17 +63,17 @@ function MyApp({ Component, pageProps }) {
 
   const handleRegistration = async (
     type: string, 
-    email: string, 
+    phone: string, 
     city: string, 
     uf: string, 
     indicated_by: string
     ) => {
     setRegistrationMsg({status: false, message: ""})
     try {
-      const isNewEmail = await findEmail(email)
+      const isNewEmail = await findEmail(phone)
       if(!isNewEmail) {
         setRegistrationMsg({
-          status: true, message: "O e-mail informado já foi cadastrado. Agora aproveite para indicar seu amigos."
+          status: true, message: "O número de celular informado já foi cadastrado. Agora aproveite para indicar seu amigos."
         })
         return false
       }
@@ -88,7 +88,7 @@ function MyApp({ Component, pageProps }) {
       }
       const newDoc = {
         type,
-        email, 
+        phone, 
         city: `${city}-${uf}`, 
         uf, 
         indicated_by

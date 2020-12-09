@@ -64,25 +64,6 @@ const Header: React.FC<HeaderProps> = ({
             >
               Em breve para Android e iOS
             </Text>
-              <Box 
-                mr="16px"
-                h="40px"
-              >
-                <Image 
-                  src="/googleplay.png" 
-                  alt="Google Play Store"
-                  width={135} 
-                  height={40} 
-                />
-              </Box>
-              <Box h="40px">
-                <Image 
-                  src="/appstore.png" 
-                  alt="Apple App Store"
-                  width={120} 
-                  height={40} 
-                />
-              </Box>
           </Flex>
         </Flex>
       </Container>
@@ -91,3 +72,25 @@ const Header: React.FC<HeaderProps> = ({
 }
 
 export default Header;
+
+/*
+<Box 
+  mr="16px"
+  h="40px"
+>
+  <Image 
+    src="/googleplay.png" 
+    alt="Google Play Store"
+    width={135} 
+    height={40} 
+  />
+</Box>
+<Box h="40px">
+  <Image 
+    src="/appstore.png" 
+    alt="Apple App Store"
+    width={120} 
+    height={40} 
+  />
+</Box>
+*/

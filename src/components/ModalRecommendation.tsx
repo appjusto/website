@@ -14,6 +14,7 @@ import {
 
 import PageContext from '../context/'
 import CustomInput from './CustomInput'
+import CustomPhoneInput from './CustomPhoneInput'
 import CustomSelect from './CustomSelect'
 import CustomButton from './CustomButton'
 import FormMessage from './FormMessage';
@@ -23,9 +24,9 @@ import { ufsList, getCities, profileOptions } from '../utils'
 type citiesProps = {value: string, label:string}[]
 
 const ModalRecommendation: React.FC = () => {
-  const [indicatorEmail, setIndicatorEmail] = useState("")
+  const [indicatorPhone, setIndicatorPhone] = useState("")
   const [profile, setProfile] = useState("")
-  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
   const [uf, setUf] = useState("")
   const [city, setCity] = useState("")
   const [isLoadingCities, setIsLoadingCities] = useState(false)
@@ -41,9 +42,9 @@ const ModalRecommendation: React.FC = () => {
   } = useContext(PageContext)
 
   const clearForm = () => {
-    setIndicatorEmail("")
+    setIndicatorPhone("")
     setProfile("")
-    setEmail("")  
+    setPhone("")  
     setUf("")
     setCity("")
     setCitiesList([])
@@ -62,7 +63,7 @@ const ModalRecommendation: React.FC = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, email, city, uf, indicatorEmail )
+    const registrationStatus = await handleRegistration(profile, phone, city, uf, indicatorPhone )
     setIsSubmiting(false)
     if(!registrationStatus) {
       return null
@@ -143,13 +144,12 @@ const ModalRecommendation: React.FC = () => {
                 Agora chegou a hora de divulgar. Quanto mais você divulgar, mais 
                 rápido o AppJusto chegará até você!
               </Text>
-              <CustomInput 
-                  id="recommendation-email"
-                  label="Seu e-mail" 
-                  placeholder="Digite seu e-mail"
-                  value={indicatorEmail}
-                  handleChange={(event) => setIndicatorEmail(event.target.value)}
-                />
+              <CustomPhoneInput 
+                id="recommendation-phone"
+                label="Seu celular" 
+                value={indicatorPhone}
+                handleChange={(value: string) => setIndicatorPhone(value)}
+              />
               <Text 
                 mt="16px"
                 textStyle="p"
@@ -166,12 +166,11 @@ const ModalRecommendation: React.FC = () => {
                 options={profileOptions}
                 handleChange={(event) => setProfile(event.target.value)}
               />
-              <CustomInput 
-                id="recommended-email"
-                label="E-mail da indicação" 
-                placeholder="Digite o e-mail da sua indicação"
-                value={email}
-                handleChange={(event) => setEmail(event.target.value)}
+              <CustomPhoneInput 
+                id="recommended-phone"
+                label="Celular do indicado" 
+                value={phone}
+                handleChange={(value: string) => setPhone(value)}
               />
               <Flex
                 w="100%"
