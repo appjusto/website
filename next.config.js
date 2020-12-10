@@ -8,6 +8,7 @@ module.exports = {
     FIREBASE_MESSAGING_SENDER_ID: "739460379065",
     FIREBASE_APP_ID: "1:739460379065:web:74f042f9542dc3192f8668",
     FIREBASE_MEASUREMENT_ID: "G-YMQSFEMP21",
+    GOOGLE_PLACES_API_KEY: "AIzaSyAGQnQ-ZdGbstevMNxwjYB3K_v--ENrPY8",
   },
   experimental: {
     sprFlushToDisk: false,

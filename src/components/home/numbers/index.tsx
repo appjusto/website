@@ -56,53 +56,31 @@ const Numbers: React.FC = () => {
         pt="64px"
         pb="64px"
       >
-        <Heading 
-          as="h1" 
-          fontSize="24px"
-          display={["block", null, null, "none"]}
-        >
-          Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade. 
-          Faça a sua parte divulgando agora.
-          <Box 
-            position="relative"
-            maxW="200px"
-            mt="-22px"
-            ml={["0", null, "340px"]}
-            color="white"
-          >
-            <Image 
-              src="/line-vector-w.svg" 
-              width={544} 
-              height={20} 
-            />
-          </Box>
-        </Heading>
-        <Heading 
-          as="h1" 
-          fontSize={["24px", null, null, "32px"]}
-          display={["none", null, null, "block"]}
-        >
-          Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade. <br/> 
-          Faça a sua parte divulgando agora.
-          <Box 
-            position="relative"
-            maxW="500px"
-            mt="-16px"
-            color="white"
-          >
-            <Image 
-              src="/line-vector-w.svg" 
-              alt="Linha branca"
-              width={544} 
-              height={20} 
-            />
-          </Box>
-        </Heading>
         {
           summary?.couriers > 99 && summary.restaurants > 99 && (
             <>
+              <Heading 
+                as="h1" 
+                fontSize={["24px", null, null, "32px"]}
+              >
+                Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade.
+                <Box 
+                  position="relative"
+                  maxW={["240px", null, null, "320px"]}
+                  ml={["24px", null, "350px", "480px"]}
+                  mt={["-58px", null, "-64px", "-22px"]}
+                  color="white"
+                >
+                  <Image 
+                    src="/line-vector-w.svg" 
+                    alt="Linha branca"
+                    width={544} 
+                    height={20} 
+                  />
+                </Box>
+              </Heading>
               <Text 
-                mt="30px" 
+                mt="16px" 
                 textStyle="p"
                 fontSize={["16px", null, null, "18px"]}>
                 Pré-cadastros até o momento:
@@ -150,7 +128,7 @@ const Numbers: React.FC = () => {
           )
         }
         <Heading
-          mt="32px" 
+          mt="64px" 
           as="h1" 
           fontSize={["24px", null, null, "32px"]}
         >

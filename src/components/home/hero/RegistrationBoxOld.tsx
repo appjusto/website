@@ -13,14 +13,16 @@ import FormMessage from '../../FormMessage'
 import PageContext from '../../../context'
 
 import { ufsList, getCities, profileOptions, getCorrectDimension } from '../../../utils'
-import CustomCityInput from '../../CustomCityInput'
 
 type citiesProps = {value: string, label:string}[]
 
 const RegistrationBox: React.FC = () => {
   const [profile, setProfile] = useState("")
   const [phone, setPhone] = useState("")
+  const [uf, setUf] = useState("")
   const [city, setCity] = useState("")
+  const [isLoadingCities, setIsLoadingCities] = useState(false)
+  const [citiesList, setCitiesList] = useState<citiesProps>([])
   const [isSubmiting, setIsSubmiting] = useState(false)
   const [fixedHeader, setFixedHeader] = useState(false)
   const isMountedRef = useRef(null);
@@ -33,16 +35,28 @@ const RegistrationBox: React.FC = () => {
   const clearForm = () => {
     setProfile("")
     setPhone("")  
+    setUf("")
     setCity("")
+    setCitiesList([])
     return null
   }
 
-  const handleCity = () => setCity("")
+  const handleUf = async (event: ChangeEvent<HTMLSelectElement>) => {
+    setIsLoadingCities(true)
+    const uf = event.target.value
+    const citiesList = await getCities(uf)
+    setCitiesList(citiesList)
+    setIsLoadingCities(false)
+    return setUf(uf)
+  }
+
+  const handleCity = (event: ChangeEvent<HTMLSelectElement>) => 
+    setCity(event.target.value)
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, phone, city, "", "" )
+    const registrationStatus = await handleRegistration(profile, phone, city, uf, "" )
     setIsSubmiting(false)
     if(!registrationStatus) {
       return null
@@ -138,14 +152,32 @@ const RegistrationBox: React.FC = () => {
             value={phone}
             handleChange={(value: string) => setPhone(value)}
           />
-          <CustomCityInput
-            id="subscribe-city"
-            label="Cidade"
-            placeholder="Selecione sua cidade"
-            //value={city}
-            notifyParentWithValue={handleCity}
-            //marginLeft={["0", null, "16px", "0"]}
-          />
+          <Flex
+            w="100%"
+            minW={["auto", null, null, "360px"]}
+            flexDir={["column", null, "row"]}
+          >
+            <CustomSelect 
+              id="subscribe-uf"
+              label="UF"
+              placeholder="UF"
+              value={uf}
+              handleChange={handleUf}
+              options={ufsList}
+              maxW={["auto", null, "100px"]}
+            />
+            <CustomSelect
+              isDisabled={uf === "" ? true : false}
+              isLoading={isLoadingCities} 
+              id="subscribe-city"
+              label="Cidade"
+              placeholder="Selecione sua cidade"
+              value={city}
+              handleChange={handleCity}
+              options={citiesList}
+              marginLeft={["0", null, "16px", "0"]}
+            />
+          </Flex>
           <CustomButton 
             type="submit"
             label="Fazer pré-cadastro" 
