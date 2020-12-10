@@ -98,51 +98,57 @@ const Numbers: React.FC = () => {
             />
           </Box>
         </Heading>
-        <Text 
-          mt="30px" 
-          textStyle="p"
-          fontSize={["16px", null, null, "18px"]}>
-          Pré-cadastros até o momento:
-        </Text>
-        <Flex
-          w="100%"
-          flexDir={["column", null, null, "row"]}
-        >
-          <Flex
-            w="100%"
-            flexDir="row"
-          >
-            <NumberBox 
-              key="nb-cities" 
-              icon="/icon-shield.svg" 
-              altImg="Ícone de escudo"
-              number={summary.cities} 
-              label="Cidades" />
-            <NumberBox 
-              key="nb-couriers" 
-              icon="/icon-bike.svg" 
-              altImg="Ícone de entregador numa moto"
-              number={summary.couriers} 
-              label="Entregadores" />
-          </Flex>
-          <Flex
-            w="100%"
-            flexDir="row"
-          >
-            <NumberBox 
-              key="nb-restaurants" 
-              icon="/icon-cutlery.svg" 
-              altImg="Ícone de talhares"
-              number={summary.restaurants} 
-              label="Restaurantes" />
-            <NumberBox 
-              key="nb-consumers" 
-              icon="/icon-happy.svg" 
-              altImg="Ícone de carinha feliz"
-              number={summary.consumers} 
-              label="Consumidores" />
-          </Flex>
-        </Flex>
+        {
+          summary?.couriers > 99 && summary.restaurants > 99 && (
+            <>
+              <Text 
+                mt="30px" 
+                textStyle="p"
+                fontSize={["16px", null, null, "18px"]}>
+                Pré-cadastros até o momento:
+              </Text>
+              <Flex
+                w="100%"
+                flexDir={["column", null, null, "row"]}
+              >
+                <Flex
+                  w="100%"
+                  flexDir="row"
+                >
+                  <NumberBox 
+                    key="nb-cities" 
+                    icon="/icon-shield.svg" 
+                    altImg="Ícone de escudo"
+                    number={summary.cities} 
+                    label="Cidades" />
+                  <NumberBox 
+                    key="nb-couriers" 
+                    icon="/icon-bike.svg" 
+                    altImg="Ícone de entregador numa moto"
+                    number={summary.couriers} 
+                    label="Entregadores" />
+                </Flex>
+                <Flex
+                  w="100%"
+                  flexDir="row"
+                >
+                  <NumberBox 
+                    key="nb-restaurants" 
+                    icon="/icon-cutlery.svg" 
+                    altImg="Ícone de talhares"
+                    number={summary.restaurants} 
+                    label="Restaurantes" />
+                  <NumberBox 
+                    key="nb-consumers" 
+                    icon="/icon-happy.svg" 
+                    altImg="Ícone de carinha feliz"
+                    number={summary.consumers} 
+                    label="Consumidores" />
+                </Flex>
+              </Flex>
+            </>
+          )
+        }
         <Heading
           mt="32px" 
           as="h1" 
