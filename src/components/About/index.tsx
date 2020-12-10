@@ -176,24 +176,24 @@ const About: React.FC = () => {
       <Text textStyle="p" mb="26px">
         Estamos buscando investidores para transformar esse sonho em realidade. 
         Se tiver interesse em saber mais, <Link
-          link="/"
+          link="mailto:parceiros@appjusto.com.br"
           linkLabel="entre em contato"
           internal={true}
           color="#055AFF"
           _hover={{color: "#003EB8"}}
-        />.<span style={{color: "red"}}>*</span>
+        />.
       </Text>
       <Title text="5. Sendo uma empresa parceira ou organização aliada" />
       <Text textStyle="p" mb="26px">
         Empresas e organizações que apoiam oferecendo produtos ou serviços a condições
         especiais para os envolvidos na rede ou somando esforços em projetos em comum
         também são muito importantes. <Link
-          link="/"
+          link="mailto:parceiros@appjusto.com.br"
           linkLabel="Entre em contato"
           internal={true}
           color="#055AFF"
           _hover={{color: "#003EB8"}}
-        /> se quiser fazer parte.<span style={{color: "red"}}>*</span>
+        /> se quiser fazer parte.
       </Text>
       <SectionTitle mt="22px" text="Saiba mais sobre o AppJusto" />
       <Title text="Quem faz parte da rede do AppJusto?" />
