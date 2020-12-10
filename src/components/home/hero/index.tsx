@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
         justifyContent="flex-end"
         pt={["132px", null, null, "0"]}
         pb="16px"
-        zIndex="10"  
+        zIndex="100"  
       >
         <Heading 
           as="h1" 

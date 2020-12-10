@@ -1,8 +1,8 @@
-import { useState, useContext, ChangeEvent, FormEvent }from 'react'
 import { 
-  Flex, 
-  Heading, 
-  Text,
+  useState, useEffect, useContext, useRef, ChangeEvent, FormEvent 
+}from 'react'
+import { 
+  Flex, Heading, Text,
 } from "@chakra-ui/react"
 
 import CustomPhoneInput from '../../CustomPhoneInput'
@@ -12,7 +12,7 @@ import FormMessage from '../../FormMessage'
 
 import PageContext from '../../../context'
 
-import { ufsList, getCities, profileOptions } from '../../../utils'
+import { ufsList, getCities, profileOptions, getCorrectDimension } from '../../../utils'
 
 type citiesProps = {value: string, label:string}[]
 
@@ -24,6 +24,8 @@ const RegistrationBox: React.FC = () => {
   const [isLoadingCities, setIsLoadingCities] = useState(false)
   const [citiesList, setCitiesList] = useState<citiesProps>([])
   const [isSubmiting, setIsSubmiting] = useState(false)
+  const [fixedHeader, setFixedHeader] = useState(false)
+  const isMountedRef = useRef(null);
   const { 
     handleModalConfirmation, 
     handleRegistration, 
@@ -63,80 +65,132 @@ const RegistrationBox: React.FC = () => {
     return handleModalConfirmation("subscribe")
   }
 
+  function handleResizing() {
+    if(isMountedRef) {
+      return setFixedHeader(false)
+    } 
+  }
+
+  async function handleScroll() {
+    const width = await getCorrectDimension("width")
+    if(width > 1000) {
+      if (document.documentElement.scrollTop > 350) {
+        setFixedHeader(true)
+      } else {
+        setFixedHeader(false)
+      }
+    }
+  }
+  useEffect(() => {
+    isMountedRef.current = true
+    return () => isMountedRef.current = false
+  }, [])
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, true);
+    return window.removeEventListener("scroll", handleScroll)
+  }, [])
+  useEffect(() => {
+    window.addEventListener('resize', handleResizing, true);
+    return window.removeEventListener("resize", handleResizing)
+  }, [])
   return (
     <Flex 
+      position={fixedHeader ? "fixed" : "relative"}
+      top={fixedHeader ? "0" : null}
+      left={fixedHeader ? "0" : null}
+      w={fixedHeader ? "100%" : "auto"}
+      borderBottom={fixedHeader ? "1px solid #C8D7CB" : "none"}
+      transition="all 1s ease"
       flexDir="column"
-      p="24px"
+      justifyContent="center"
+      alignItems="center"
       bg="white"
       mb="24px"
     >
-      <Heading as="h2" fontSize="24px" mb="4px">
-        Faça o pré-cadastro agora!
-      </Heading>
-      <Text fontSize="16px" fontFamily="Barlow">
-        E ajude a levar esse movimento para perto de você.
-      </Text>
       <Flex
-        as="form"
-        flexDir={["column", null, null, "row"]}
-        onSubmit={handleSubmit}
+        flexDir="column"
+        w="100%"
+        maxW="1104px"
+        //transition="all 1s ease"
+        p={fixedHeader ? "0 24px 16px" : "24px"}
       >
-        <CustomSelect 
-          id="subscribe-profile"
-          label="Perfil"
-          placeholder="Selecione seu perfil"
-          value={profile}
-          handleChange={
-            (event: ChangeEvent<HTMLSelectElement>) => 
-              setProfile(event.target.value
-            )}
-          options={profileOptions}
-        />
-        <CustomPhoneInput 
-          id="subscribe-phone"
-          label="Celular" 
-          placeHolder="Digite seu celular"
-          value={phone}
-          handleChange={(value: string) => setPhone(value)}
-        />
+        <Heading 
+          as="h2" 
+          fontSize="24px" 
+          mb="4px"
+          display={fixedHeader ? "none" : "block"}  
+        >
+          Faça o pré-cadastro agora!
+        </Heading>
+        <Text 
+          fontSize="16px" 
+          fontFamily="Barlow"
+          display={fixedHeader ? "none" : "block"}
+        >
+          E ajude a levar esse movimento para perto de você.
+        </Text>
         <Flex
-          w="100%"
-          minW={["auto", null, null, "360px"]}
-          flexDir={["column", null, "row"]}
+          as="form"
+          flexDir={["column", null, null, "row"]}
+          onSubmit={handleSubmit}
         >
           <CustomSelect 
-            id="subscribe-uf"
-            label="UF"
-            placeholder="UF"
-            value={uf}
-            handleChange={handleUf}
-            options={ufsList}
-            maxW={["auto", null, "100px"]}
+            id="subscribe-profile"
+            label="Perfil"
+            placeholder="Selecione seu perfil"
+            value={profile}
+            handleChange={
+              (event: ChangeEvent<HTMLSelectElement>) => 
+                setProfile(event.target.value
+              )}
+            options={profileOptions}
           />
-          <CustomSelect
-            isDisabled={uf === "" ? true : false}
-            isLoading={isLoadingCities} 
-            id="subscribe-city"
-            label="Cidade"
-            placeholder="Selecione sua cidade"
-            value={city}
-            handleChange={handleCity}
-            options={citiesList}
-            marginLeft={["0", null, "16px", "0"]}
+          <CustomPhoneInput 
+            id="subscribe-phone"
+            label="Celular" 
+            placeHolder="Digite seu celular"
+            value={phone}
+            handleChange={(value: string) => setPhone(value)}
+          />
+          <Flex
+            w="100%"
+            minW={["auto", null, null, "360px"]}
+            flexDir={["column", null, "row"]}
+          >
+            <CustomSelect 
+              id="subscribe-uf"
+              label="UF"
+              placeholder="UF"
+              value={uf}
+              handleChange={handleUf}
+              options={ufsList}
+              maxW={["auto", null, "100px"]}
+            />
+            <CustomSelect
+              isDisabled={uf === "" ? true : false}
+              isLoading={isLoadingCities} 
+              id="subscribe-city"
+              label="Cidade"
+              placeholder="Selecione sua cidade"
+              value={city}
+              handleChange={handleCity}
+              options={citiesList}
+              marginLeft={["0", null, "16px", "0"]}
+            />
+          </Flex>
+          <CustomButton 
+            type="submit"
+            label="Fazer pré-cadastro" 
+            variant="secondaryRegistration" 
+            isSubmiting={isSubmiting}  
           />
         </Flex>
-        <CustomButton 
-          type="submit"
-          label="Fazer pré-cadastro" 
-          variant="secondaryRegistration" 
-          isSubmiting={isSubmiting}  
-        />
+        {
+          registrationMsg.status && (
+          <FormMessage />
+          )
+        }
       </Flex>
-      {
-        registrationMsg.status && (
-         <FormMessage />
-        )
-      }
     </Flex>
   );
 }
