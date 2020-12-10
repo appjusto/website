@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent, FormEvent } from 'react'
+import { useState, useContext, FormEvent } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -13,24 +13,19 @@ import {
 } from '@chakra-ui/react'
 
 import PageContext from '../context/'
-import CustomInput from './CustomInput'
 import CustomPhoneInput from './CustomPhoneInput'
 import CustomSelect from './CustomSelect'
 import CustomButton from './CustomButton'
 import FormMessage from './FormMessage';
 
-import { ufsList, getCities, profileOptions } from '../utils'
-
-type citiesProps = {value: string, label:string}[]
+import { profileOptions } from '../utils'
+import CustomCityInput from './CustomCityInput'
 
 const ModalRecommendation: React.FC = () => {
   const [indicatorPhone, setIndicatorPhone] = useState("")
   const [profile, setProfile] = useState("")
   const [phone, setPhone] = useState("")
-  const [uf, setUf] = useState("")
   const [city, setCity] = useState("")
-  const [isLoadingCities, setIsLoadingCities] = useState(false)
-  const [citiesList, setCitiesList] = useState<citiesProps>([])
   const [isSubmiting, setIsSubmiting] = useState(false)
   const { 
     showModalRecommendation,
@@ -45,25 +40,14 @@ const ModalRecommendation: React.FC = () => {
     setIndicatorPhone("")
     setProfile("")
     setPhone("")  
-    setUf("")
     setCity("")
-    setCitiesList([])
     return null
-  }
-
-  const handleUf = async (event: ChangeEvent<HTMLSelectElement>) => {
-    setIsLoadingCities(true)
-    const uf = event.target.value
-    const citiesList = await getCities(uf)
-    setCitiesList(citiesList)
-    setIsLoadingCities(false)
-    return setUf(uf)
   }
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, phone, city, uf, indicatorPhone )
+    const registrationStatus = await handleRegistration(profile, phone, city, indicatorPhone )
     setIsSubmiting(false)
     if(!registrationStatus) {
       return null
@@ -174,31 +158,13 @@ const ModalRecommendation: React.FC = () => {
                 value={phone}
                 handleChange={(value: string) => setPhone(value)}
               />
-              <Flex
-                w="100%"
-                flexDir="row"
-              >
-                <CustomSelect 
-                  id="recommended-uf"
-                  label="UF"
-                  placeholder="UF"
-                  maxW={["100px"]}
-                  value={uf} 
-                  options={ufsList}
-                  handleChange={handleUf}
-                />
-                <CustomSelect
-                  isDisabled={uf === "" ? true : false} 
-                  id="recommended-city"
-                  label="Cidade"
-                  placeholder="Selecione sua cidade"
-                  isLoading={isLoadingCities}
-                  isLast={true}
-                  value={city} 
-                  options={citiesList}
-                  handleChange={(event) => setCity(event.target.value)}
-                />
-              </Flex>
+              <CustomCityInput
+                id="recommended-city"
+                label="Cidade do indicado"
+                placeholder="Digite e selecione a cidade" 
+                parentValue={city}
+                notifyParentWithValue={(value: string) => setCity(value)}
+              />
               <CustomButton 
                   type="submit"
                   label="Indicar agora"

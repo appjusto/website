@@ -12,10 +12,8 @@ import FormMessage from '../../FormMessage'
 
 import PageContext from '../../../context'
 
-import { ufsList, getCities, profileOptions, getCorrectDimension } from '../../../utils'
+import { profileOptions, getCorrectDimension } from '../../../utils'
 import CustomCityInput from '../../CustomCityInput'
-
-type citiesProps = {value: string, label:string}[]
 
 const RegistrationBox: React.FC = () => {
   const [profile, setProfile] = useState("")
@@ -27,8 +25,13 @@ const RegistrationBox: React.FC = () => {
   const { 
     handleModalConfirmation, 
     handleRegistration, 
-    registrationMsg
+    registrationMsg,
   } = useContext(PageContext)
+
+  useEffect(() => {
+    isMountedRef.current = true
+    return () => isMountedRef.current = false
+  }, [])
 
   const clearForm = () => {
     setProfile("")
@@ -37,12 +40,10 @@ const RegistrationBox: React.FC = () => {
     return null
   }
 
-  const handleCity = () => setCity("")
-
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, phone, city, "", "" )
+    const registrationStatus = await handleRegistration(profile, phone, city, "" )
     setIsSubmiting(false)
     if(!registrationStatus) {
       return null
@@ -67,10 +68,6 @@ const RegistrationBox: React.FC = () => {
       }
     }
   }
-  useEffect(() => {
-    isMountedRef.current = true
-    return () => isMountedRef.current = false
-  }, [])
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, true);
     return window.removeEventListener("scroll", handleScroll)
@@ -97,7 +94,6 @@ const RegistrationBox: React.FC = () => {
         flexDir="column"
         w="100%"
         maxW="1104px"
-        //transition="all 1s ease"
         p={fixedHeader ? "0 24px 16px" : "24px"}
       >
         <Heading 
@@ -141,10 +137,9 @@ const RegistrationBox: React.FC = () => {
           <CustomCityInput
             id="subscribe-city"
             label="Cidade"
-            placeholder="Selecione sua cidade"
-            //value={city}
-            notifyParentWithValue={handleCity}
-            //marginLeft={["0", null, "16px", "0"]}
+            placeholder="Digite e selecione sua cidade"
+            parentValue={city}
+            notifyParentWithValue={(value: string) => setCity(value)}
           />
           <CustomButton 
             type="submit"

@@ -4,7 +4,9 @@ import PageContex from '../context/'
 
 import theme from '../styles/theme';
 
-  import { db } from '../../firebase'
+import { db } from '../../firebase'
+
+import '../styles/googleAutocomplete.css'
 
 function MyApp({ Component, pageProps }) {
   const [showModalConfirmation, setShowModalConfirmation] = useState({
@@ -13,6 +15,7 @@ function MyApp({ Component, pageProps }) {
   const [showModalRecommendation, setShowModalRecommendation] = useState(false)
   const [showModalSharing, setShowModalSharing] = useState(false)
   const [registrationMsg, setRegistrationMsg] = useState({status: false, message: ""})
+  const [googlePlacesScript, setGooglePlacesScript] = useState(false)
   const dbRef = useMemo(() => db.collection('registrations'),[])
   const sumaryRef = useMemo(() => db.collection("summary").doc("data"), [])
   const handleModalConfirmation = (type: string) => {
@@ -68,7 +71,6 @@ function MyApp({ Component, pageProps }) {
     type: string, 
     phone: string, 
     city: string, 
-    uf: string, 
     indicated_by: string
     ) => {
     setRegistrationMsg({status: false, message: ""})
@@ -82,7 +84,7 @@ function MyApp({ Component, pageProps }) {
         return false
       }
       const batch = db.batch()
-      const isNewCity = await findCity(`${city}-${uf}`)
+      const isNewCity = await findCity(city)
       const oldSummary = (await sumaryRef.get()).data()
       const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
       const newSummary = {
@@ -93,8 +95,7 @@ function MyApp({ Component, pageProps }) {
       const newDoc = {
         type,
         phone, 
-        city: `${city}-${uf}`, 
-        uf, 
+        city,
         indicated_by
       }
       batch.set(dbRef.doc(), newDoc);
@@ -117,6 +118,8 @@ function MyApp({ Component, pageProps }) {
       showModalRecommendation,
       showModalSharing,
       registrationMsg,
+      googlePlacesScript, 
+      setGooglePlacesScript,
       setRegistrationMsg,
       handleModalConfirmation,
       handleModalRecommendation,
