@@ -45,12 +45,12 @@ const Alternative: React.FC = () => {
               fontSize={["24px", null, null, "48px"]}  
               lineHeight={["28,8px", null, null, "48px"]} 
             >
-              Uma plataforma onde o ganho é compartilhado.
+              Uma plataforma onde todos ganham.
               <Box 
                 position="relative"
-                maxW={["164px", null, null, "330px"]}
+                maxW={["90px", null, "164px", "330px"]}
                 mt="-24px"
-                ml={["0", null, "340px", "170px"]}
+                ml={["0", null, "220px", "0px"]}
                 color="white"
               >
                 <Image 

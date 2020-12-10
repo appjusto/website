@@ -38,7 +38,7 @@ const volunteers = [
   "Cassio Horita",
   "Arthur Rufino",
   "Danilo Andrade",
-  "Monica Charoux",
+  "Mônica Charoux",
   "Luis Coelho",
   "Emiliano Graziano ",
   "Rafael Ucha",

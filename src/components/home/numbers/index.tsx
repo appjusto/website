@@ -11,6 +11,7 @@ import Button from "../../CustomButton"
 import PageContext from '../../../context'
 
 import { db } from '../../../../firebase'
+import CustomLinkButton from '../../CustomLinkButton';
 
 interface SummaryProps {
   cities: number
@@ -60,7 +61,7 @@ const Numbers: React.FC = () => {
           fontSize="24px"
           display={["block", null, null, "none"]}
         >
-          Se todos colaborarem, este projeto vai dar certo e será melhor a todos. 
+          Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade. 
           Faça a sua parte divulgando agora.
           <Box 
             position="relative"
@@ -81,7 +82,7 @@ const Numbers: React.FC = () => {
           fontSize={["24px", null, null, "32px"]}
           display={["none", null, null, "block"]}
         >
-          Se todos colaborarem, este projeto vai dar certo e será melhor a todos. <br/> 
+          Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade. <br/> 
           Faça a sua parte divulgando agora.
           <Box 
             position="relative"
@@ -147,12 +148,12 @@ const Numbers: React.FC = () => {
           as="h1" 
           fontSize={["24px", null, null, "32px"]}
         >
-          Formas de ajudar
+          Ajude este movimento a crescer!
         </Heading>
         <Text 
           textStyle="p"
           fontSize={["16px", null, null, "18px"]}>
-          Entenda como você pode ajudar o AppJusto a chegar mais longe:
+          Entenda como você pode colaborar para que o AppJusto chegue mais longe:
         </Text>
         <Flex
           flexDir={["column", null, null, "row"]}
@@ -161,7 +162,7 @@ const Numbers: React.FC = () => {
             icon="/icon-promotion.svg"
             altImg="Ilustração de auto-falante"
             title="Indique o AppJusto"
-            text="Indique o AppJusto para amigos, entregadores, restaurantes, e todos que desejam um modelo mais justo."
+            text="Espalhe a notícia para seus amigos! Convide possíveis clientes, entregadores e donos de restaurantes, e ajude esta rede a crescer."
             isLast={false}
           >
             <Button 
@@ -173,11 +174,15 @@ const Numbers: React.FC = () => {
           <HelpBox 
             icon="/icon-high-five.svg"
             altImg="Ilustração de mãos se cumprimentando"
-            title="Faça parte do AppJusto"
-            text="Estamos em busca de voluntários, empresas parceiras, investidores, e todos que podem colaborar ativamente com esse movimento."
+            title="Seja um parceiro"
+            text="Tem interesse em atuar como voluntário, ser uma empresa parceira, investidor, ou acredita que pode colaborar de alguma outra maneira? Fale com a gente!"
             isLast={false}
           >
-            <Button label="Quero ser parceiro" variant="secondaryLight"/>
+            <CustomLinkButton 
+              link="mailto:parceiros@appjusto.com.br"
+              linkLabel="Quero ser parceiro"
+              variant="secondaryLight"
+            />
           </HelpBox>
           <HelpBox 
             icon="/icon-chat-bubble.svg"

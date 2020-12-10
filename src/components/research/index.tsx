@@ -41,9 +41,8 @@ const Research: React.FC = () => {
         textStyle="p"
         mb="24px"
       >
-        Estamos ouvindo clientes, entregadores e restaurantes para criar uma 
-        plataforma pensada desde o início para todos. Escolha o seu perfil para 
-        responder a pesquisa e depois compartilhe com seus amigos :)
+        Escolha o seu perfil e responda a pesquisa. <br/>
+        Ahhh, e fique à vontade para compartilhar com os amigos! ;)
       </Text>
       <CustomSelect 
         id="research-select"

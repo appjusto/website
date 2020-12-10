@@ -6,6 +6,7 @@ import CustomButton from '../../CustomButton'
 import Link from '../../CustomLink'
 import PartnerBox from './PartnerBox';
 import CallBox from './CallBox';
+import CustomLinkButton from "../../CustomLinkButton";
 
 
 const Partners: React.FC = () => {
@@ -51,7 +52,6 @@ const Partners: React.FC = () => {
             width={107} 
             height={105} 
           />
-          <CallBox />
         </Stack>
         <Text
           fontSize="18px"
@@ -96,28 +96,26 @@ const Partners: React.FC = () => {
           textStyle="p"
           mb="32px"
         >
-          O AppJusto está em fase de captação de investimentos e montando uma rede 
-          de apoiadores por todo país. Quer nos ajudar nessa missão?
+          O AppJusto está em fase de captação de investimentos e montando uma 
+          rede de apoiadores por todo país. Associações que querem unir forças, 
+          ou empresas que querem patrocinar, ou que tenham algum benefício para 
+          entregadores ou restaurantes, nós queremos conhecer vocês.
         </Text>
         <Flex
           flexDir={["column", null, null, "row"]}
           w="100%"
         >
-          <CustomButton 
-            label="Entre em contato" 
-            variant="secondaryLight"
-            maxW={["100%", null, "220px"]}
-            mr={["0", "0", "0", "16px"]}
-          />
-          <CustomButton 
-            label="Quero ser um parceiro" 
+          <CustomLinkButton 
+            link="mailto:parceiros@appjusto.com.br"
+            linkLabel="Quero ser um parceiro" 
             variant="basic"
             bg="white"    
             maxW={["100%", null, "220px"]}
             mr={["0", "0", "0", "16px"]}
           />
-          <CustomButton 
-            label="Quero trabalhar com vocês" 
+          <CustomLinkButton
+            link="mailto:vagas@appjusto.com.br" 
+            linkLabel="Quero trabalhar com vocês" 
             variant="basic"
             bg="white"      
             maxW={["100%", null, "220px"]}
