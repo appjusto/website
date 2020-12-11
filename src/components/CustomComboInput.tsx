@@ -40,7 +40,8 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   }, [parentValue])
   const {
     isOpen,
-    //getToggleButtonProps,
+    getToggleButtonProps,
+    getLabelProps,
     closeMenu,
     getMenuProps,
     getInputProps,
@@ -95,7 +96,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
             placeholder={isLoading ? "Carregando..." : placeholder}
             sx={styles.input}
             {...getInputProps()}
-            onBlur={handleLeave}
+            //onBlur={handleLeave}
             value={inputValue}
             maxLength={maxLength ? maxLength : null}
           />
@@ -123,12 +124,12 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
                       highlightedIndex === index ? {backgroundColor: '#C8D7CB'} : {}
                     }
                     key={`${item}${index}`}
-                    {...getItemProps({item, index})}
                     display="flex"
                     flexDir="row"
                     alignItems="center"
                     p="0 8px"
                     cursor="pointer"
+                    {...getItemProps({item, index})}
                   >
                     <Icon 
                       as={FaMapMarkerAlt} 
