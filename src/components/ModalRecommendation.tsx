@@ -1,4 +1,4 @@
-import { useState, useContext, FormEvent, ChangeEvent } from 'react'
+import { useState, useContext, useReducer, FormEvent, ChangeEvent } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -21,15 +21,21 @@ import FormMessage from './FormMessage';
 
 import { ufsList, profileOptions, getCities } from '../utils'
 
+import { registrationReducer } from '../reducers/registrationReducer'
+
+const initialState = {
+  indicatorPhone: "",
+  profile: "",
+  phone: "",
+  uf: "",
+  city: "",
+  isLoadingCities: false,
+  citiesList: [],
+  isSubmiting: false,
+}
+
 const ModalRecommendation: React.FC = () => {
-  const [indicatorPhone, setIndicatorPhone] = useState("")
-  const [profile, setProfile] = useState("")
-  const [phone, setPhone] = useState("")
-  const [uf, setUf] = useState("")
-  const [city, setCity] = useState("")
-  const [isLoadingCities, setIsLoadingCities] = useState(false)
-  const [citiesList, setCitiesList] = useState([])
-  const [isSubmiting, setIsSubmiting] = useState(false)
+  const [state, dispatch] = useReducer(registrationReducer, initialState)
   const { 
     showModalRecommendation,
     handleModalConfirmation, 
@@ -38,33 +44,37 @@ const ModalRecommendation: React.FC = () => {
     registrationMsg,
     setRegistrationMsg, 
   } = useContext(PageContext)
+  const {
+    indicatorPhone,
+    profile,
+    phone,
+    uf,
+    city,
+    isLoadingCities,
+    citiesList,
+    isSubmiting,
+  } = state
 
   const clearForm = () => {
-    setIndicatorPhone("")
-    setProfile("")
-    setPhone("")
-    setUf("")  
-    setCity("")
-    return null
+    dispatch({type: "clear_state", payload: initialState})
   }
 
-  const handleUf = async (event: ChangeEvent<HTMLSelectElement>) => {
-    setCity("")
-    setIsLoadingCities(true)
-    const uf = event.target.value
-    const citiesList = await getCities(uf)
-    setCitiesList(citiesList)
-    setIsLoadingCities(false)
-    return setUf(uf)
+  const handleUf = async (uf: string) => {
+    dispatch({type: "update_uf", payload: uf})
+    const cities = await getCities(uf)
+    dispatch({type: "populate_cities", payload: cities})
   }
 
-  const handleCity = (value: string) => setCity(value)
+  const handleCity = (value: string) => 
+    dispatch({type: "update_city", payload: value})
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, phone, `${city}-${uf}`, indicatorPhone )
-    setIsSubmiting(false)
+    dispatch({type: "update_isSubmiting", payload: true})
+    const registrationStatus = await handleRegistration(
+      profile, phone, `${city}-${uf}`, indicatorPhone 
+    )
+    dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
       return null
     }
@@ -149,7 +159,11 @@ const ModalRecommendation: React.FC = () => {
                 label="Seu celular" 
                 placeHolder="Digite seu celular"
                 value={indicatorPhone}
-                handleChange={(value: string) => setIndicatorPhone(value)}
+                handleChange={
+                  (value: string) => dispatch(
+                    {type: "update_indicatorPhone", payload: value}
+                  )
+                }
               />
               <Text 
                 mt="16px"
@@ -165,27 +179,35 @@ const ModalRecommendation: React.FC = () => {
                 placeholder="Selecione o perfil"
                 value={profile} 
                 options={profileOptions}
-                handleChange={(event) => setProfile(event.target.value)}
+                handleChange={
+                  (event) => dispatch(
+                    {type: "update_profile", payload: event.target.value}
+                  )
+                }
               />
               <CustomPhoneInput 
                 id="recommended-phone"
                 label="Celular do indicado"
                 placeHolder="Digite o celular do indicado" 
                 value={phone}
-                handleChange={(value: string) => setPhone(value)}
+                handleChange={
+                  (value: string) => 
+                    dispatch({type: "update_phone", payload: value})
+                }
               />
                <Flex
                   w="100%"
                   flexDir={["column", null, "row"]}
                 >
-                  <CustomSelect 
-                    id="subscribe-uf"
+                  <CustomComboInput 
+                    id="recommended-uf"
                     label="UF"
                     placeholder="UF"
-                    value={uf}
-                    handleChange={handleUf}
-                    options={[{value: "teste", label: "teste"}]}
+                    parentValue={uf}
+                    setParentValue={handleUf}
+                    items={ufsList}
                     maxW={["auto", null, "100px"]}
+                    maxLength={2}
                   />
                   <CustomComboInput 
                     isDisabled={uf === "" ? true : false}
