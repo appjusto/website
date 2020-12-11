@@ -1,4 +1,4 @@
-import { useState, useContext, FormEvent } from 'react'
+import { useState, useContext, FormEvent, ChangeEvent } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -15,17 +15,20 @@ import {
 import PageContext from '../context/'
 import CustomPhoneInput from './CustomPhoneInput'
 import CustomSelect from './CustomSelect'
+import CustomComboInput from './CustomComboInput'
 import CustomButton from './CustomButton'
 import FormMessage from './FormMessage';
 
-import { profileOptions } from '../utils'
-import CustomCityInput from './CustomCityInput'
+import { ufsList, profileOptions, getCities } from '../utils'
 
 const ModalRecommendation: React.FC = () => {
   const [indicatorPhone, setIndicatorPhone] = useState("")
   const [profile, setProfile] = useState("")
   const [phone, setPhone] = useState("")
+  const [uf, setUf] = useState("")
   const [city, setCity] = useState("")
+  const [isLoadingCities, setIsLoadingCities] = useState(false)
+  const [citiesList, setCitiesList] = useState([])
   const [isSubmiting, setIsSubmiting] = useState(false)
   const { 
     showModalRecommendation,
@@ -39,15 +42,28 @@ const ModalRecommendation: React.FC = () => {
   const clearForm = () => {
     setIndicatorPhone("")
     setProfile("")
-    setPhone("")  
+    setPhone("")
+    setUf("")  
     setCity("")
     return null
   }
 
+  const handleUf = async (event: ChangeEvent<HTMLSelectElement>) => {
+    setCity("")
+    setIsLoadingCities(true)
+    const uf = event.target.value
+    const citiesList = await getCities(uf)
+    setCitiesList(citiesList)
+    setIsLoadingCities(false)
+    return setUf(uf)
+  }
+
+  const handleCity = (value: string) => setCity(value)
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, phone, city, indicatorPhone )
+    const registrationStatus = await handleRegistration(profile, phone, `${city}-${uf}`, indicatorPhone )
     setIsSubmiting(false)
     if(!registrationStatus) {
       return null
@@ -76,7 +92,7 @@ const ModalRecommendation: React.FC = () => {
         <ModalOverlay />
         <ModalContent
           maxW="752px"
-          maxH={["620px", null, null, "600px"]}
+          maxH={["100%", null, "600px"]}
         >
           <ModalCloseButton 
             border="2px solid black"
@@ -158,13 +174,30 @@ const ModalRecommendation: React.FC = () => {
                 value={phone}
                 handleChange={(value: string) => setPhone(value)}
               />
-              <CustomCityInput
-                id="recommended-city"
-                label="Cidade do indicado"
-                placeholder="Digite e selecione a cidade" 
-                parentValue={city}
-                notifyParentWithValue={(value: string) => setCity(value)}
-              />
+               <Flex
+                  w="100%"
+                  flexDir={["column", null, "row"]}
+                >
+                  <CustomSelect 
+                    id="subscribe-uf"
+                    label="UF"
+                    placeholder="UF"
+                    value={uf}
+                    handleChange={handleUf}
+                    options={[{value: "teste", label: "teste"}]}
+                    maxW={["auto", null, "100px"]}
+                  />
+                  <CustomComboInput 
+                    isDisabled={uf === "" ? true : false}
+                    isLoading={isLoadingCities} 
+                    id="subscribe-city"
+                    label="Cidade"
+                    placeholder="Selecione sua cidade"
+                    parentValue={city}
+                    setParentValue={handleCity}
+                    items={citiesList}
+                  />
+                </Flex>
               <CustomButton 
                   type="submit"
                   label="Indicar agora"

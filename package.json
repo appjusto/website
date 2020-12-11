@@ -12,6 +12,7 @@
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
     "@typeform/embed": "^0.29.1",
+    "downshift": "^6.0.7",
     "firebase": "^8.1.1",
     "firebase-admin": "^9.4.1",
     "framer-motion": "^2.9.4",

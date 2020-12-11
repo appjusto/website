@@ -1,16 +1,12 @@
 import IBGEUrl from '../services/ApiIBGE'
 import Ufs from '../services/ufs'
 
-export const ufsList = Ufs.map(uf => ({
-  value: uf.sigla, label: uf.sigla
-}))
+export const ufsList = Ufs.map(uf => uf.sigla)
 
 export const getCities = async (uf: string) => {
   const response = await fetch(`${IBGEUrl}/${uf}/municipios`)
   const cities = await response.json()
-  const citiesList = cities.map(city => (
-    { value: city.nome, label: city.nome}
-  ))
+  const citiesList = cities.map(city => city.nome)
   return citiesList
 }
 

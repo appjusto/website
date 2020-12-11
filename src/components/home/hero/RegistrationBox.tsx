@@ -1,5 +1,5 @@
 import { 
-  useState, useEffect, useContext, useRef, ChangeEvent, FormEvent 
+  useReducer, useEffect, useContext, useRef, ChangeEvent, FormEvent 
 }from 'react'
 import { 
   Flex, Heading, Text,
@@ -7,75 +7,105 @@ import {
 
 import CustomPhoneInput from '../../CustomPhoneInput'
 import CustomSelect from "../../CustomSelect"
+import CustomComboInput from '../../CustomComboInput'
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
 
 import PageContext from '../../../context'
 
-import { profileOptions, getCorrectDimension } from '../../../utils'
-import CustomCityInput from '../../CustomCityInput'
+import { ufsList, getCities, profileOptions, getCorrectDimension } from '../../../utils'
+
+import { registrationReducer } from '../../../reducers/registrationReducer'
+
+const initialState = {
+  profile: "",
+  phone: "",
+  uf: "",
+  city: "",
+  isLoadingCities: false,
+  citiesList: [],
+  isSubmiting: false,
+  fixedHeader: false,
+}
 
 const RegistrationBox: React.FC = () => {
-  const [profile, setProfile] = useState("")
-  const [phone, setPhone] = useState("")
-  const [city, setCity] = useState("")
-  const [isSubmiting, setIsSubmiting] = useState(false)
-  const [fixedHeader, setFixedHeader] = useState(false)
-  const isMountedRef = useRef(null);
+  const [state, dispatch] = useReducer(registrationReducer, initialState)
+  const {
+    profile,
+    phone,
+    uf,
+    city,
+    isLoadingCities,
+    citiesList,
+    isSubmiting,
+    fixedHeader,
+  } = state
   const { 
     handleModalConfirmation, 
     handleRegistration, 
-    registrationMsg,
+    registrationMsg
   } = useContext(PageContext)
-
-  useEffect(() => {
-    isMountedRef.current = true
-    return () => isMountedRef.current = false
-  }, [])
+  const isMountedRef = useRef(null);
 
   const clearForm = () => {
-    setProfile("")
-    setPhone("")  
-    setCity("")
-    return null
+    dispatch({type: "clear_state", payload: initialState})
   }
 
+  const handleUf = async (uf: string) => {
+    dispatch({type: "update_uf", payload: uf})
+    const cities = await getCities(uf)
+    dispatch({type: "populate_cities", payload: cities})
+  }
+  
+  const handleCity = (value: string) => 
+    dispatch({type: "update_city", payload: value})
+  
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    setIsSubmiting(true)
-    const registrationStatus = await handleRegistration(profile, phone, city, "" )
-    setIsSubmiting(false)
+    dispatch({type: "update_isSubmiting", payload: true})
+    const registrationStatus = await handleRegistration(
+        profile, phone, `${city}-${uf}`, "" 
+    )
+    dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
       return null
     }
     clearForm()
     return handleModalConfirmation("subscribe")
   }
-
+  
   function handleResizing() {
     if(isMountedRef) {
-      return setFixedHeader(false)
+      return dispatch({type: "update_fixedHeader", payload: false})
     } 
   }
-
+  
   async function handleScroll() {
     const width = await getCorrectDimension("width")
     if(width > 1000) {
       if (document.documentElement.scrollTop > 400) {
-        setFixedHeader(true)
+        dispatch({type: "update_fixedHeader", payload: true})
       } else {
-        setFixedHeader(false)
+        dispatch({type: "update_fixedHeader", payload: false})
       }
     }
   }
+
+  useEffect(() => {
+    isMountedRef.current = true
+    return () => isMountedRef.current = false
+  }, [])
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, true);
     return window.removeEventListener("scroll", handleScroll)
   }, [])
+
   useEffect(() => {
     window.addEventListener('resize', handleResizing, true);
     return window.removeEventListener("resize", handleResizing)
   }, [])
+
   return (
     <Flex 
       position={fixedHeader ? "fixed" : "relative"}
@@ -123,8 +153,8 @@ const RegistrationBox: React.FC = () => {
             value={profile}
             handleChange={
               (event: ChangeEvent<HTMLSelectElement>) => 
-                setProfile(event.target.value
-              )}
+                dispatch({type: "update_profile", payload: event.target.value})
+            }
             options={profileOptions}
           />
           <CustomPhoneInput 
@@ -132,15 +162,35 @@ const RegistrationBox: React.FC = () => {
             label="Celular" 
             placeHolder="Digite seu celular"
             value={phone}
-            handleChange={(value: string) => setPhone(value)}
+            handleChange={(value: string) => 
+              dispatch({type: "update_phone", payload: value})}
           />
-          <CustomCityInput
-            id="subscribe-city"
-            label="Cidade"
-            placeholder="Digite e selecione sua cidade"
-            parentValue={city}
-            notifyParentWithValue={(value: string) => setCity(value)}
-          />
+          <Flex
+            w="100%"
+            minW={["auto", null, null, "360px"]}
+            flexDir={["column", null, "row"]}
+          >
+            <CustomComboInput 
+              id="subscribe-uf"
+              label="UF"
+              placeholder="UF"
+              parentValue={uf}
+              setParentValue={handleUf}
+              items={ufsList}
+              maxW={["auto", null, "100px"]}
+              maxLength={2}
+            />
+            <CustomComboInput 
+              isDisabled={uf === "" ? true : false}
+              isLoading={isLoadingCities} 
+              id="subscribe-city"
+              label="Cidade"
+              placeholder="Selecione sua cidade"
+              parentValue={city}
+              setParentValue={handleCity}
+              items={citiesList}
+            />
+          </Flex>
           <CustomButton 
             type="submit"
             label="Fazer pré-cadastro" 
