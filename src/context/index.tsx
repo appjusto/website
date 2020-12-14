@@ -5,12 +5,13 @@ interface PageContextProps {
   showModalConfirmation: {show: boolean, type: string}
   showModalRecommendation: boolean
   showModalSharing: boolean
-  registrationMsg: {status: boolean, message: string}
-  handleMessage: (message: string) => void
+  registrationMsg: {status: boolean, form: string, message: string}
+  handleMessage: (message: string, form?: string) => void
   handleModalConfirmation: (type: string)  => void
   handleModalRecommendation: ()  => void
   handleModalSharing: ()  => void
   handleRegistration: (
+    form: string,
     type: string, 
     phone: string, 
     city: string, 
@@ -25,7 +26,9 @@ export const PageContextProvider = (props) => {
   })
   const [showModalRecommendation, setShowModalRecommendation] = useState(false)
   const [showModalSharing, setShowModalSharing] = useState(false)
-  const [registrationMsg, setRegistrationMsg] = useState({status: false, message: ""})
+  const [registrationMsg, setRegistrationMsg] = useState({
+    status: false, form: "", message: ""
+  })
   const dbRef = useMemo(() => db.collection('registrations'),[])
   const sumaryRef = useMemo(() => db.collection("summary").doc("data"), [])
   const handleModalConfirmation = (type: string) => {
@@ -42,12 +45,12 @@ export const PageContextProvider = (props) => {
     return setShowModalSharing(!showModalSharing)
   }
 
-  const handleMessage = (message: string) => {
+  const handleMessage = (message: string, form: string = "") => {
     if(message !== "") {
-      setRegistrationMsg({ status: true, message })
-      setTimeout(() => setRegistrationMsg({status: false, message: ""}), 5000)
+      setRegistrationMsg({ status: true, form, message })
+      setTimeout(() => setRegistrationMsg({status: false, form, message: ""}), 5000)
     } else {
-      setRegistrationMsg({ status: false, message: "" })
+      setRegistrationMsg({ status: false, form, message: "" })
     }
   }
 
@@ -86,6 +89,7 @@ export const PageContextProvider = (props) => {
       return query
   }
   const handleRegistration = async (
+    form: string,
     type: string, 
     phone: string, 
     city: string, 
@@ -95,7 +99,7 @@ export const PageContextProvider = (props) => {
     try {
       const isNewPhone = await findPhone(phone, type)
       if(!isNewPhone) {
-        handleMessage("O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil.")
+        handleMessage("O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil.", form)
         return false
       }
       const batch = db.batch()
@@ -118,7 +122,7 @@ export const PageContextProvider = (props) => {
       batch.commit()
       return true
     } catch (error) {
-      handleMessage("Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.")
+      handleMessage("Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.", form)
       return false
     }
   }

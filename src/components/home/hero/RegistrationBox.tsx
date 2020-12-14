@@ -113,11 +113,11 @@ const RegistrationBox: React.FC = () => {
       || !state.fieldsAreValid.uf 
       || !state.fieldsAreValid.city
       ) {
-      return handleMessage("Favor preencher corretamente os campos acima.")
+      return handleMessage("Favor preencher corretamente os campos acima.", "registration")
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
-        profile, phone, `${city}-${uf}`, "" 
+      "registration", profile, phone, `${city}-${uf}`, "" 
     )
     dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
@@ -225,7 +225,7 @@ const RegistrationBox: React.FC = () => {
           />
         </Flex>
         {
-          registrationMsg.status && (
+          registrationMsg.status && registrationMsg.form === "registration" &&(
           <FormMessage />
           )
         }

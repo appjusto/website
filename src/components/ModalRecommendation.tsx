@@ -89,11 +89,11 @@ const ModalRecommendation: React.FC = () => {
       || !state.fieldsAreValid.uf 
       || !state.fieldsAreValid.city
       ) {
-      return handleMessage("Favor preencher corretamente os campos acima.")
+      return handleMessage("Favor preencher corretamente os campos acima.", "recommendation")
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
-      profile, phone, `${city}-${uf}`, indicatorPhone 
+      "recommendation", profile, phone, `${city}-${uf}`, indicatorPhone 
     )
     dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
@@ -258,7 +258,7 @@ const ModalRecommendation: React.FC = () => {
                   isSubmiting={isSubmiting} 
                 />
                 {
-                  registrationMsg.status && (
+                  registrationMsg.status && registrationMsg.form === "recommendation" && (
                   <FormMessage />
                   )
                 }
