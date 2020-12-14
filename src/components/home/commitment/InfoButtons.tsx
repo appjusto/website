@@ -8,7 +8,8 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
       flexDir="column"
       w="100%"
       minH="90px"
-      alignItems={["flex-start", null, null, "flex-end"]}
+      alignItems="flex-start"
+      mb="64px"
       {...props}
     >
       <Flex 
@@ -19,8 +20,9 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
       >
         <Heading 
           as="h3"
-          fontSize="18px"
-          lineHeight="26px"  
+          fontSize="20px"
+          lineHeight="26px"
+          fontWeight="500"  
         >
           Saiba mais como vamos funcionar:
         </Heading>
@@ -34,22 +36,22 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
             maxW="224px"
           >
             <CustomButton 
-            variant="secondaryLight" 
-            label="Sobre o AppJusto"
-            link="/sobre-o-appjusto"
-          />
+              variant="secondaryLight" 
+              label="Sobre o AppJusto"
+              link="/sobre-o-appjusto"
+            />
           </Box>
           <Box
             w="100%"
             h="48px"
             maxW="224px"
           >
-          <CustomLinkButton
-            variant="secondaryLight" 
-            linkLabel="Baixar apresentação"
-            link="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"
-            isDownload={true}
-          />
+            <CustomLinkButton
+              variant="secondaryLight" 
+              linkLabel="Baixar apresentação"
+              link="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"
+              isDownload={true}
+            />
           </Box>
         </Stack>
       </Flex>

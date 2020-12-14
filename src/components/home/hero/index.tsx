@@ -23,6 +23,7 @@ const Hero: React.FC = () => {
       position="relative" 
       id="hero"
       bgColor="black"
+      overflow="hidden"
       h={["auto", null, null, "560px", "560px", "600px"]} 
     >
       <Container 

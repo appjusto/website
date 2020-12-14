@@ -143,6 +143,18 @@ const Numbers: React.FC = () => {
           flexDir={["column", null, null, "row"]}
         >
           <HelpBox 
+            icon="/icon-chat-bubble.svg"
+            altImg="Ilustração de caixa de mensagens com um check e um x"
+            title="Responda a pesquisa"
+            text="Estamos ouvindo clientes, entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
+            isLast={false}
+          >
+            <Button
+              link="/pesquisa" 
+              label="Responder pesquisa" 
+              variant="secondaryLight"/>
+          </HelpBox>
+          <HelpBox 
             icon="/icon-promotion.svg"
             altImg="Ilustração de auto-falante"
             title="Indique o AppJusto"
@@ -160,25 +172,13 @@ const Numbers: React.FC = () => {
             altImg="Ilustração de mãos se cumprimentando"
             title="Seja um parceiro"
             text="Tem interesse em atuar como voluntário, ser uma empresa parceira, investidor, ou acredita que pode colaborar de alguma outra maneira? Fale com a gente!"
-            isLast={false}
+            isLast={true}
           >
             <CustomLinkButton 
               link="mailto:parceiros@appjusto.com.br"
               linkLabel="Quero ser parceiro"
               variant="secondaryLight"
             />
-          </HelpBox>
-          <HelpBox 
-            icon="/icon-chat-bubble.svg"
-            altImg="Ilustração de caixa de mensagens com um check e um x"
-            title="Responda a pesquisa"
-            text="Estamos ouvindo clientes, entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
-            isLast={true}
-          >
-            <Button
-              link="/pesquisa" 
-              label="Responder pesquisa" 
-              variant="secondaryLight"/>
           </HelpBox>
         </Flex>
       </Container>

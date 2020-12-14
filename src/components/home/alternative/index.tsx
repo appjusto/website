@@ -1,10 +1,8 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import { Flex, Box, Heading, Stack } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import InfoBox from './InfoBox';
-import InfoButtons from './InfoButtons';
-
 
 const Alternative: React.FC = () => {
   return (
@@ -15,8 +13,8 @@ const Alternative: React.FC = () => {
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        pt={["80px", null, null, "54px"]} 
-        pb={["64px", null, null, "53px"]} 
+        pt={["48px", null, null, "64px"]} 
+        pb="64px" 
       >
         <Flex
           flexDir="row"
@@ -49,8 +47,8 @@ const Alternative: React.FC = () => {
               <Box 
                 position="relative"
                 maxW={["90px", null, "164px", "330px"]}
-                mt="-24px"
-                ml={["0", null, "220px", "0px"]}
+                mt="-26px"
+                ml={["0", null, "220px", "456px"]}
                 color="white"
               >
                 <Image 
@@ -62,42 +60,34 @@ const Alternative: React.FC = () => {
               </Box>
             </Heading>
           </Flex>
-          <InfoButtons display={["none", null, null, "flex"]}/>
         </Flex>
         <Stack
           direction="row"
           spacing={0}
           w="100%"
           overflowX="auto"
-          p="8px 0"
+          p="48px 0 8px"
           mb={["38px", null, null, "0"]}
         >
           <InfoBox 
             image="/infobox-entregadores.png"
             altImg="Entregador numa bicicleta"
             title="Entregadores"
-            text="Maiores ganhos nas corridas, regras transparentes, atendimento 
-              direto, sem suspensões injustas, autonomia na criação de frotas com 
-              taxas próprias."
+            textArray={["Regras transparentes", "Atendimento direto", "Sem suspensões injustas", "Autonomia para criar frotas", "Definição de taxas e regras próprias"]}
           />
           <InfoBox 
             image="/infobox-restaurantes.png"
             altImg="Mãos segurando um pode de comida"
             title="Restaurantes"
-            text="Menores taxas que a concorrência, logística inclusa, acesso ao 
-              cliente, exibição igualitária, gestão de frotas próprias, participação 
-              na  plataforma."
+            textArray={["Menores taxas do mercado", "Logística inclusa", "Acesso direto ao cliente", "Visualização igualitária", "Gestão de frotas próprias"]} 
           />
           <InfoBox 
             image="/infobox-clientes.png"
             altImg="Pessoa segurando um hamburguer"
             title="Clientes"
-            text="Pagar o preço do cardápio, sem entregas roteirizadas, entrega de 
-              encomendas mais baratas, consciência de fazer parte de uma economia 
-              mais justa."
+            textArray={["Pagar o preço do cardápio", "Entrega mais barata de encomendas", "Consciência de apoiar um modelo mais justo"]}
           />
         </Stack>
-        <InfoButtons display={["flex", null, null, "none"]}/>
       </Container>
     </Section>
   );

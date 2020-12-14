@@ -1,49 +1,88 @@
 import Image from 'next/image'
-import { Flex, Box, Heading, Text } from '@chakra-ui/react'
+import { Flex, Box, Heading, Text, Icon } from '@chakra-ui/react'
+import { BiDownArrowAlt  } from 'react-icons/bi';
 
 interface InfoBoxProps{
   image: string
   altImg: string
   title: string
-  text: string
+  textArray: string[]
 }
 
-const InfoBox: React.FC<InfoBoxProps> = ({ image, altImg, title, text }) => {
+const InfoBox: React.FC<InfoBoxProps> = ({ image, altImg, title, textArray }) => {
   return (
     <Flex
       flexDir="column"
-      justifyContent="space-between"
+      justifyContent="flex-start"
       alignItems="center"
-      p="24px"
+      p="0 24px 64px"
       m="0 8px"
       border="1px solid #F2F6EA"
       borderRadius="8px"
       boxShadow="0 8px 16px -4px rgba(105, 118, 103, 0.1)"
-      minW="320px"
+      w="100%"
+      minW="288px"
+      minH="462px"
     >
       <Box
         position="relative"
         w="96px"
         h="96px"
+        mt="-46px"
       >
         <Image src={image} width={96} height={96} alt={altImg}/>
       </Box>
       <Heading 
         as="h3"
+        display="flex"
+        flexDir="column"
+        justifyContent="center"
+        alignItems="center"
         fontSize="24px"
         lineHeight="30px"
         p="16px 0"
       >
         {title}
+        <Icon as={BiDownArrowAlt} m="18px 0 21px"/>
       </Heading>
-      <Text
-        textStyle="p"
-        textAlign="center"
-        fontSize="16px"
-        lineHeight="26px"
+      <Flex
+        flexDir="column"
+        justifyContent="center"
+        alignItems="center"
       >
-        {text}
-      </Text>
+        {
+          textArray?.map( (text, index) => (
+              <Box w="100%" key={index}>
+                <Text
+                  textStyle="p"
+                  textAlign="center"
+                  fontSize="18px"
+                  lineHeight="26px"
+                  fontWeight="500"
+                  color="#697667"
+                >
+                  {text}
+                </Text>
+                {
+                  textArray.length !== index + 1 && (
+                    <Text
+                      textStyle="p"
+                      textAlign="center"
+                      fontSize="24px"
+                      lineHeight="26px"
+                      fontWeight="500"
+                      color="primary"
+                    >
+                      -
+                    </Text>
+                  )
+                }
+              </Box>
+            )
+          )
+        }
+        
+      </Flex>
     </Flex>
   );
 }

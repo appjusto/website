@@ -3,6 +3,7 @@ import { Flex, Box, Heading, Text } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import Item from './Item';
+import InfoButtons from './InfoButtons';
 
 
 const Commitment: React.FC = () => {
@@ -14,92 +15,86 @@ const Commitment: React.FC = () => {
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
+        pt={["52px", null, null, "54px"]}
         pb={["62px", null, null, "64px"]} 
       >
         <Heading 
           as="h2"
-          fontSize="32px"
-          lineHeight="48px"
+          fontSize={["24px", null, null, "56px"]}
+          lineHeight={["28,8px", null, null, "67,2px"]}
           mb="24px"
         >
           Nosso compromisso é com a sociedade.
+          <Box 
+            position="relative"
+            maxW={[null, null, null,"520px"]}
+            mt="-58px"
+            color="white"
+            display={["none", null, null, "block"]}
+          >
+            <Image 
+              src="/line-vector-g.svg"
+              alt="Linha verde" 
+              width={544} 
+              height={20} 
+            />
+          </Box>
         </Heading>
-        <Text 
-          fontSize="20px"
-          lineHeight="26px"
-          textStyle="p"
-          maxW="656px"
-          mb="32px"
-        >
-          Nosso propósito é impactar positivamente a sociedade para pensar e
-          agir de maneira mais coletiva, onde todos ganham mais. Descubra como:
-        </Text>
         <Flex
           w="100%"
           flexDir="row"
           justifyContent="space-between"
         >
+          <Box
+            position="relative"
+            w="100%"
+            display={["none", null, null, "block"]}
+          >
+            <Image 
+              src="/bg-commitment.svg" 
+              alt="Celular com appjusto na tela" 
+              width={499} 
+              height={480} 
+            />
+          </Box>
           <Flex
             w="100%"
             flexDir="column"
             maxW="656px"
           >
+            <InfoButtons />
             <Item 
               image="/icon-bike.svg" 
               altImg="Ícone de entregador numa moto"
               title="Autonomia e participação" 
-              text="Entregador e restaurantes ditam as regras e tem mais controle 
-                do seu trabalho com a criação de frotas próprias"
             />
             <Item 
               image="/item-monetization.svg" 
               altImg="Ícone de moeda"
-              title="Compromisso de preço justo para todos" 
-              text="Restaurantes, entregadores e clientes ganham mais, tanto no 
-                bolso, quanto em qualidade"
+              title="Preço justo para todos" 
             />
             <Item 
               image="/item-thumb.svg" 
               altImg="Ícone de curtir"
               title="Eficiência e sustentabilidade financeira" 
-              text="O nosso crescimento está atrelado ao crescimento da rede"
-              link="/sobre-o-appjusto"
-              linkLabel="Saiba mais sobre o AppJusto"
             />
             <Item 
               image="/item-domain.svg" 
               altImg="Ícone de prédios"
               title="Criação de um bem coletivo" 
-              text="Permitimos que os participantes não estejam presos à plataforma 
-                e tornamos livre qualquer código produzido"
             />
             <Item 
               image="/item-blur.svg" 
               altImg="Ícone de pontos"
               title="Transparência em toda a plataforma" 
-              text="Desde a definiação das regras até os preços cobrados"
-              //link="/transparencia"
-              //linkLabel="Saiba mais sobre Transparência"
             />
             <Item 
               image="/item-world.svg" 
               altImg="Ícone de planeta"
               title="Objetivos de Desenvolvimento Sustentáveis" 
-              text="Seguimos os Objetivos de Desenvolvimento Sustentáveis da ONU"
               ods={true}
             />
           </Flex>
-          <Box
-            position="relative"
-            display={["none", null, null, "block"]}
-          >
-            <Image 
-              src="/commitment-route.svg" 
-              alt="Rota do pedido" 
-              width={368} 
-              height={669} 
-            />
-          </Box>
         </Flex>
       </Container>
     </Section>

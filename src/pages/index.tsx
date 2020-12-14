@@ -14,9 +14,9 @@ export default function Home() {
   return (
     <PageLayout pageName="Home" logo="/logo-home.svg">
       <Hero />
+      <Alternative />
       <Numbers />
       <Monopoly />
-      <Alternative />
       <Commitment />
       <Partners />
       <Support />
