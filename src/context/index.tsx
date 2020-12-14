@@ -42,6 +42,11 @@ export const PageContextProvider = (props) => {
     return setShowModalSharing(!showModalSharing)
   }
 
+  const handleMessage = (message: string) => {
+    setRegistrationMsg({ status: true, message })
+    setTimeout(() => setRegistrationMsg({status: false, message: ""}), 6000)
+  }
+
   const findPhone = (phone: string, type: string) => {
     const query = dbRef
       .where('phone', '==', phone)
@@ -86,10 +91,7 @@ export const PageContextProvider = (props) => {
     try {
       const isNewPhone = await findPhone(phone, type)
       if(!isNewPhone) {
-        setRegistrationMsg({
-          status: true, 
-          message: "O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil."
-        })
+        handleMessage("O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil.")
         return false
       }
       const batch = db.batch()
@@ -112,11 +114,7 @@ export const PageContextProvider = (props) => {
       batch.commit()
       return true
     } catch (error) {
-      setRegistrationMsg({
-        status: true, 
-        message: 
-          "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes."
-      })
+      handleMessage("Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.")
       return false
     }
   }

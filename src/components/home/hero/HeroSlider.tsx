@@ -2,11 +2,40 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Box, useMultiStyleConfig } from '@chakra-ui/react'
 
+interface SliderImageProps {
+  index: number 
+  active: number 
+  image: string 
+  altImg: string 
+  isMobile?: boolean 
+}
+
+const SliderImage: React.FC<SliderImageProps> = ({
+  index, active, image, altImg, isMobile
+}) => {
+  const styles = useMultiStyleConfig("Carousel", {})
+  return (
+    <Box 
+      sx={styles.imgBox}
+      opacity={active === index ? 1 : 0}
+    >
+      <Image 
+      src={image}
+      alt={altImg} 
+      width={isMobile ? 360 : 1440} 
+      height={isMobile ? 482 : 600} 
+      layout="responsive" 
+      loading="eager"
+    />
+    </Box>
+  )
+}
+
 const HeroSlider: React.FC = () => {
   const [active, setActive] = useState(1)
   const styles = useMultiStyleConfig("Carousel", {})
   useEffect(() => {
-    let sliderInterval = setInterval(() => {
+    const sliderInterval = setInterval(() => {
       setActive(prevState => {
         if(prevState < 3) {
           return prevState + 1
@@ -23,89 +52,50 @@ const HeroSlider: React.FC = () => {
         sx={styles.container}
         display={["block", null, null, "none"]}
       >
-        <Box 
-          sx={styles.imgBox}
-          opacity={active === 1 ? 1 : 0}
-        >
-          <Image 
-          src="/bg-mobile-hero1.png"
-          alt="Entregador numa bicicleta" 
-          width={360} 
-          height={482} 
-          layout="responsive" 
-          loading="eager"
+        <SliderImage 
+          isMobile
+          index={1}
+          active={active}
+          image="/bg-mobile-hero1.png"
+          altImg="Entregador numa bicicleta"
         />
-        </Box>
-        <Box 
-          sx={styles.imgBox}
-          opacity={active === 2 ? 1 : 0}
-        >
-          <Image 
-          src="/bg-mobile-hero2.png"
-          alt="Vários pratos de comida" 
-          width={360} 
-          height={482} 
-          layout="responsive" 
-          loading="eager"
+        <SliderImage
+          isMobile
+          index={2}
+          active={active}
+          image="/bg-mobile-hero2.png"
+          altImg="Vários pratos de comida"
         />
-        </Box>
-        <Box 
-          sx={styles.imgBox}
-          opacity={active === 3 ? 1 : 0}
-        >
-          <Image 
-          src="/bg-mobile-hero3.png"
-          alt="Pessoa recebendo uma caixa" 
-          width={360} 
-          height={482} 
-          layout="responsive" 
-          loading="eager"
+        <SliderImage
+          isMobile
+          index={3}
+          active={active}
+          image="/bg-mobile-hero3.png"
+          altImg="Pessoa recebendo uma caixa"
         />
-        </Box>
       </Box>
       <Box
         sx={styles.container}
         display={["none", null, null, "block"]}
       >
-        <Box 
-          sx={styles.imgBox}
-          opacity={active === 1 ? 1 : 0}
-        >
-          <Image 
-          src="/bg-hero1.png"
-          alt="Entregador numa bicicleta"  
-          width={1440} 
-          height={600} 
-          layout="responsive" 
-          loading="eager"
+        <SliderImage
+          index={1}
+          active={active}
+          image="/bg-hero1.png"
+          altImg="Entregador numa bicicleta"
         />
-        </Box>
-        <Box 
-          sx={styles.imgBox}
-          opacity={active === 2 ? 1 : 0}
-        >
-          <Image 
-          src="/bg-hero2.png" 
-          alt="Vários pratos de comida" 
-          width={1440} 
-          height={600} 
-          layout="responsive" 
-          loading="eager"
+        <SliderImage
+          index={2}
+          active={active}
+          image="/bg-hero2.png"
+          altImg="Vários pratos de comida"
         />
-        </Box>
-        <Box 
-          sx={styles.imgBox}
-          opacity={active === 3 ? 1 : 0}
-        >
-          <Image 
-          src="/bg-hero3.png"
-          alt="Pessoa recebendo uma caixa"  
-          width={1440} 
-          height={600} 
-          layout="responsive" 
-          loading="eager"
+        <SliderImage
+          index={3}
+          active={active}
+          image="/bg-hero3.png"
+          altImg="Pessoa recebendo uma caixa"
         />
-        </Box>
       </Box>
     </>
   );
