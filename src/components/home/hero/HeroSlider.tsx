@@ -4,8 +4,8 @@ import {
   Children, 
   cloneElement, 
   memo, 
-  useLayoutEffect,
-  SetStateAction
+  SetStateAction,
+  ReactElement
 } from 'react'
 import Image from 'next/image'
 import { Box, useMultiStyleConfig } from '@chakra-ui/react'
@@ -13,7 +13,7 @@ import { Box, useMultiStyleConfig } from '@chakra-ui/react'
 import { getCorrectDimension } from '../../../utils'
 
 interface SliderImageProps {
-  isActive?: number
+  isActive?: boolean
   clientWidth?: number 
   image: string 
   altImg: string 
@@ -25,10 +25,13 @@ const SliderImage: React.FC<SliderImageProps> = memo(({
 }) => {
   const styles = useMultiStyleConfig("Carousel", {})
   if(isMobile && clientWidth > 1000) {
-    return <Box />
+    return <Box as="div"/>
   }
   if(!isMobile && clientWidth < 1000) {
-    return <Box />
+    return <Box as="div"/>
+  }
+  if(clientWidth === 0) {
+    return <Box as="div"/>
   }
   console.log(image)
   return (
@@ -56,7 +59,7 @@ const SliderContainer = ({isMobile, children}) => {
     const width = await getCorrectDimension("width")
     setClientWidth(width as SetStateAction<number>)
   }
-  useLayoutEffect(() => {
+  useEffect(() => {
     getWidth()
   }, [])
   useEffect(() => {
@@ -83,7 +86,7 @@ const SliderContainer = ({isMobile, children}) => {
       }
     >
       {
-        Children.map(children, (child, index) => {
+        Children.map(children, (child: ReactElement<SliderImageProps>, index: number) => {
           return typeof child.type === 'string'
             ? child
             : cloneElement(child, 

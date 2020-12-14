@@ -62,6 +62,25 @@ const RegistrationBox: React.FC = () => {
     return window.removeEventListener("resize", handleResizing)
   }, [])
 
+  function handleResizing() {
+    if(isMountedRef) {
+      return dispatch({type: "update_fixedHeader", payload: false})
+    } 
+  }
+  
+  async function handleScroll() {
+    if(isMountedRef) {
+      const width = await getCorrectDimension("width")
+      if(width > 1000) {
+        if (document.documentElement.scrollTop > 400) {
+          dispatch({type: "update_fixedHeader", payload: true})
+        } else {
+          dispatch({type: "update_fixedHeader", payload: false})
+        }
+      }
+    }
+  }
+
   const clearForm = () => {
     dispatch({type: "clear_state", payload: initialState})
   }
@@ -87,25 +106,6 @@ const RegistrationBox: React.FC = () => {
     }
     clearForm()
     return handleModalConfirmation("subscribe")
-  }
-  
-  function handleResizing() {
-    if(isMountedRef) {
-      return dispatch({type: "update_fixedHeader", payload: false})
-    } 
-  }
-  
-  async function handleScroll() {
-    if(isMountedRef) {
-      const width = await getCorrectDimension("width")
-      if(width > 1000) {
-        if (document.documentElement.scrollTop > 400) {
-          dispatch({type: "update_fixedHeader", payload: true})
-        } else {
-          dispatch({type: "update_fixedHeader", payload: false})
-        }
-      }
-    }
   }
 
   return (
