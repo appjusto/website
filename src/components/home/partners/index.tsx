@@ -1,10 +1,8 @@
-import { Flex, Box, Stack, Heading, Text } from "@chakra-ui/react";
-import Image from 'next/image'
+import { Stack, Heading, Text } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
-import Link from '../../CustomLink'
+import Link from '../../CustomLink';
 import PartnerBox from './PartnerBox';
-import CustomLinkButton from "../../CustomLinkButton";
 
 
 const Partners: React.FC = () => {
@@ -68,57 +66,6 @@ const Partners: React.FC = () => {
           fontWeight="700"
           width="100%"
         />
-        <Heading 
-          as="h2"
-          m="66px 0 8px"
-        >
-          Estamos em busca de mais apoio.
-          <Box 
-            position="relative"
-            maxW={["164px", null, "200px", "360px"]}
-            mt={["-26px", null, "-30px", "-26px"]}
-            ml={["0", null, "340px", "180px"]}
-            color="white"
-          >
-            <Image 
-              src="/line-vector-g.svg"
-              alt="Linha verde" 
-              width={544} 
-              height={20} 
-            />
-          </Box>
-        </Heading>
-        <Text 
-          fontSize="18px"
-          lineHeight="26px"
-          textStyle="p"
-          mb="32px"
-        >
-          O AppJusto está em fase de captação de investimentos e montando uma 
-          rede de apoiadores por todo país. Associações que querem unir forças, 
-          ou empresas que querem patrocinar, ou que tenham algum benefício para 
-          entregadores ou restaurantes, nós queremos conhecer vocês.
-        </Text>
-        <Flex
-          flexDir={["column", null, null, "row"]}
-          w="100%"
-        >
-          <CustomLinkButton 
-            link="mailto:parceiros@appjusto.com.br"
-            linkLabel="Quero ser um parceiro" 
-            variant="basic"
-            bg="white"    
-            maxW={["100%", null, "220px"]}
-            mr={["0", "0", "0", "16px"]}
-          />
-          <CustomLinkButton
-            link="mailto:vagas@appjusto.com.br" 
-            linkLabel="Quero trabalhar com vocês" 
-            variant="basic"
-            bg="white"      
-            maxW={["100%", null, "220px"]}
-          />
-        </Flex>
       </Container>
     </Section>
   );

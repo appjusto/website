@@ -3,12 +3,12 @@ import { Link, LinkProps } from '@chakra-ui/react'
 
 interface CustomLinkProps extends LinkProps {
   link: string
-  linkLabel: string
-  internal: boolean
+  linkLabel?: string
+  internal?: boolean
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
-  link, linkLabel, internal, ...props
+  link, linkLabel, internal, children, ...props
 }) => {
   if(internal) {
     return (
@@ -28,10 +28,13 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       href={link}
       textDecoration="underline"
       _hover={{color: "#055AFF"}}
+      _focus={{outline: "none"}}
       {...props}
       isExternal
     >
-      {linkLabel}
+      {
+        linkLabel ? linkLabel : children
+      }
     </Link>
   );
 }

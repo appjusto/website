@@ -1,5 +1,6 @@
 import { Flex, Heading, Stack, Box, BoxProps } from '@chakra-ui/react'
 import CustomButton from '../../CustomButton'
+import CustomLinkButton from '../../CustomLinkButton'
 
 const InfoButtons: React.FC<BoxProps> = (props) => {
   return (
@@ -43,9 +44,11 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
             h="48px"
             maxW="224px"
           >
-            <CustomButton 
+          <CustomLinkButton
             variant="secondaryLight" 
-            label="Baixar apresentação"
+            linkLabel="Baixar apresentação"
+            link="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"
+            isDownload={true}
           />
           </Box>
         </Stack>

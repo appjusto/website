@@ -1,6 +1,6 @@
 import { Flex, Icon, Text } from '@chakra-ui/react'
 import { MdMailOutline  } from 'react-icons/md'
-import { FaLinkedin  } from 'react-icons/fa'
+import { FaFacebookSquare, FaInstagram, FaLinkedin  } from 'react-icons/fa'
 import Container from './Container'
 import Link from './CustomLink'
 
@@ -57,17 +57,39 @@ const Footer: React.FC = () => {
             color="white"
             mb={["22px", null, null, "0"]}
           >
-            <Icon as={FaLinkedin} 
-              color="primary" 
-              mr="12px"
-              w="20px"
-              h="20px"
-            />
             <Link
               link="https://www.linkedin.com/company/appjusto/"
-              linkLabel="/appjusto"
-              internal={false}
-            />
+              isExternal
+              mr="28px"
+              color="primary"
+            >
+              <Icon as={FaLinkedin} 
+                w="20px"
+                h="20px"
+              />
+            </Link>
+            <Link
+              link="https://www.facebook.com/appjusto"
+              isExternal
+              mr="28px"
+              color="primary"
+            >
+              <Icon as={FaFacebookSquare} 
+                w="20px"
+                h="20px"
+              />
+            </Link>
+            <Link
+              link="https://www.instagram.com/appjusto/"
+              isExternal
+              mr="28px"
+              color="primary"
+            >
+              <Icon as={FaInstagram} 
+                w="20px"
+                h="20px"
+              />
+            </Link>
           </Flex>
         </Flex>
         <Flex

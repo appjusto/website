@@ -5,10 +5,12 @@ interface CustomLinkButtonProps extends LinkProps {
   link: string
   linkLabel: string
   variant: string
+  isExternal?: boolean
+  isDownload?: boolean
 }
 
 const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
-  link, linkLabel, variant, ...props
+  link, linkLabel, variant, isExternal = true, isDownload = false, ...props
 }) => {
   const styles = useStyleConfig("Button", {variant})
   return (
@@ -20,7 +22,8 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
       alignItems="center"
       mt="16px"
       {...props}
-      isExternal
+      isExternal={isExternal}
+      download={isDownload}
     >
       {linkLabel}
     </Link>
