@@ -40,7 +40,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   }, [parentValue])
   const {
     isOpen,
-    getToggleButtonProps,
+    //getToggleButtonProps,
     getLabelProps,
     closeMenu,
     getMenuProps,
@@ -49,7 +49,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
     highlightedIndex,
     getItemProps,
   } = useCombobox({
-    id: `input-${id}`,
+    id,
     items: inputItems,
     onInputValueChange: ({inputValue}) => {
       setParentValue(inputValue)
@@ -85,7 +85,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
       mr={["0", null, null, "16px"]}
       maxW={maxW ? maxW : null}
     >
-      <FormLabel sx={styles.label}>
+      <FormLabel sx={styles.label} {...getLabelProps()}>
         {label}
       </FormLabel>
         <Box {...getComboboxProps()}>

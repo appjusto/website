@@ -47,7 +47,7 @@ const RegistrationBox: React.FC = () => {
   } = usePageContext()
   const isMountedRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     isMountedRef.current = true
     return () => isMountedRef.current = false
   }, [])
