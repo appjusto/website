@@ -36,6 +36,48 @@ const Footer: React.FC = () => {
             alignItems="center"
             color="white"
             mb={["22px", null, null, "0"]}
+            display={["block", null, null, "none"]}
+          >
+            <Link
+              link="https://www.linkedin.com/company/appjusto/"
+              isExternal
+              mr="28px"
+              color="primary"
+            >
+              <Icon as={FaLinkedin} 
+                w="20px"
+                h="20px"
+              />
+            </Link>
+            <Link
+              link="https://www.facebook.com/appjusto"
+              isExternal
+              mr="28px"
+              color="primary"
+            >
+              <Icon as={FaFacebookSquare} 
+                w="20px"
+                h="20px"
+              />
+            </Link>
+            <Link
+              link="https://www.instagram.com/appjusto/"
+              isExternal
+              mr="28px"
+              color="primary"
+            >
+              <Icon as={FaInstagram} 
+                w="20px"
+                h="20px"
+              />
+            </Link>
+          </Flex>
+          <Flex
+            flexDir="row"
+            justifyContent="space-between"
+            alignItems="center"
+            color="white"
+            mb={["22px", null, null, "0"]}
             mr={["0", null, null, "26px"]}
           >
             <Icon as={MdMailOutline} 
@@ -55,7 +97,8 @@ const Footer: React.FC = () => {
             justifyContent="space-between"
             alignItems="center"
             color="white"
-            mb={["22px", null, null, "0"]}
+            mb={["26px", null, null, "0"]}
+            display={["none", null, null, "block"]}
           >
             <Link
               link="https://www.linkedin.com/company/appjusto/"

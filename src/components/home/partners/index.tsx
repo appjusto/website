@@ -18,6 +18,8 @@ const Partners: React.FC = () => {
       >
         <Heading 
           as="h2"
+          fontSize={["24px", null, null, "32px"]}
+          lineHeight={["28,8px", null, null, "48px"]}
           mb="24px"
         >
           Quem está com a gente nessa:
