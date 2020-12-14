@@ -1,5 +1,5 @@
 import { 
-  useReducer, useLayoutEffect, useEffect, useRef, ChangeEvent, FormEvent 
+  useReducer, useEffect, useRef, ChangeEvent, FormEvent 
 }from 'react'
 import { 
   Flex, Heading, Text,
@@ -26,7 +26,7 @@ const initialState = {
   citiesList: [],
   isSubmiting: false,
   fixedHeader: false,
-  fieldAreValid: true
+  fieldsAreValid: { phone: true, uf: true, city: true }
 }
 
 const RegistrationBox: React.FC = () => {
@@ -96,16 +96,20 @@ const RegistrationBox: React.FC = () => {
   const handleCity = (value: string) => 
     dispatch({type: "update_city", payload: value})
 
-  const handleValidation = (isValid: boolean) => {
-    if(!isValid && state.fieldAreValid || isValid && !state.fieldAreValid) {
-      console.log("updateSate", isValid)
-      dispatch({type: "validation", payload: isValid})
+  const handleValidation = (field: string, value: boolean) => {
+    if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
+      console.log("updateSate", value)
+      dispatch({type: "validation", payload: { field, value}})
     }
   }
   
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    if(!state.fieldAreValid) {
+    if(
+      !state.fieldsAreValid.phone 
+      || !state.fieldsAreValid.uf 
+      || !state.fieldsAreValid.city
+      ) {
       return setRegistrationMsg({
         status: true, message: "Favor preencher corretamente os campos acima."
       })
@@ -174,19 +178,22 @@ const RegistrationBox: React.FC = () => {
             options={profileOptions}
           />
           <CustomPhoneInput 
+            name="phone"
             id="subscribe-phone"
             label="Celular" 
             placeHolder="Digite seu celular"
             value={phone}
             handleChange={(value: string) => 
               dispatch({type: "update_phone", payload: value})}
+            notifyValidation={handleValidation}
           />
           <Flex
             w="100%"
             minW={["auto", null, null, "360px"]}
             flexDir={["column", null, "row"]}
           >
-            <CustomComboInput 
+            <CustomComboInput
+              name="uf" 
               id="subscribe-uf"
               label="UF"
               placeholder="UF"
@@ -199,7 +206,8 @@ const RegistrationBox: React.FC = () => {
             />
             <CustomComboInput 
               isDisabled={uf === "" ? true : false}
-              isLoading={isLoadingCities} 
+              isLoading={isLoadingCities}
+              name="city" 
               id="subscribe-city"
               label="Cidade"
               placeholder="Selecione sua cidade"

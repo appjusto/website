@@ -9,6 +9,7 @@ import { useCombobox } from 'downshift'
 interface CustomComboInputProps extends InputProps {
   isDisabled?: boolean
   isLoading?: boolean
+  name: string
   id: string
   label: string
   placeholder: string
@@ -17,12 +18,13 @@ interface CustomComboInputProps extends InputProps {
   maxLength?: number
   items: string[]
   setParentValue: (value: string) => void
-  notifyValidation: (isValid: boolean) => void
+  notifyValidation: (field: string, isValid: boolean) => void
 }
 
 const CustomComboInput: React.FC<CustomComboInputProps> = ({
   isDisabled = false,
   isLoading = false,
+  name,
   id, 
   label,
   placeholder, 
@@ -42,9 +44,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   }, [parentValue])
   const {
     isOpen,
-    //getToggleButtonProps,
     getLabelProps,
-    closeMenu,
     getMenuProps,
     getInputProps,
     getComboboxProps,
@@ -68,11 +68,11 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
     const isValid = items.includes(value)
     if(isValid) {
       setIsValid(true)
-      notifyValidation(true)
+      notifyValidation(name, true)
       return console.log("Válido")
     } else {
       setIsValid(false)
-      notifyValidation(false)
+      notifyValidation(name, false)
       return console.log("Inválido")
     }
   }
@@ -83,12 +83,6 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
     }
   }, [inputValue])
 
-  /*const handleLeave = async (event) => {
-    const { onBlur } = getInputProps()
-    await onBlur(event)
-    console.log(inputValue)
-    validation(inputValue)
-  }*/
   return (
     <FormControl 
       id={id}
@@ -108,7 +102,6 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
             placeholder={isLoading ? "Carregando..." : placeholder}
             sx={styles.input}
             {...getInputProps()}
-            //onBlur={handleLeave}
             value={inputValue}
             maxLength={maxLength ? maxLength : null}
           />

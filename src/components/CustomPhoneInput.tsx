@@ -4,11 +4,13 @@ import { FormControl, FormLabel, Input, InputProps } from '@chakra-ui/react'
 import { useMultiStyleConfig } from "@chakra-ui/react"
 
 interface CustomPhoneInput extends InputProps {
+  name: string
   id: string
   label: string
   placeHolder: string
   value: string
   handleChange: (value: string) => void
+  notifyValidation: (field: string, isValid: boolean) => void
 }
 
 function getRawValue(value: string) {
@@ -38,23 +40,44 @@ function phoneFormater(value: string) {
 }
 
 const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
-  id, label, value, placeHolder, handleChange, ...props
+  name, id, label, value, placeHolder, handleChange, notifyValidation, ...props
 }) => {
   const [valueToDisplay, setValueToDisplay] = useState("")
   const [placeholderText, setPlaceholderText] = useState("")
+  const [isValid, setIsValid] = useState(true)
   const styles = useMultiStyleConfig("Input", {})
 
   useEffect(() => {
     setPlaceholderText(placeHolder)
   }, [])
+
   useEffect(() => {
     setValueToDisplay(value)
+    validation(value)
   }, [value])
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value
     const rawValue = getRawValue(inputValue)
     handleChange(rawValue)
+  }
+
+  const validation = (value: string) => {
+    if(value.length !== 11 && valueToDisplay !== "") {
+      setIsValid(false)
+      console.log("phone invalid")
+      return notifyValidation(name, false)
+    } else {
+      setIsValid(true)
+      console.log("phone valid")
+      return notifyValidation(name, true)
+    }
+  }
+
+  const handleLeave = () => {
+    if(valueToDisplay === "") {
+      setPlaceholderText(placeHolder)
+    }
   }
   return (
     <FormControl 
@@ -66,7 +89,8 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
         {label}
       </FormLabel>
         <Input
-          isRequired 
+          isRequired
+          isInvalid={!isValid ? true : false} 
           type="tel"
           placeholder={placeholderText}
           maxLength={15}
@@ -74,7 +98,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
           sx={styles.input}
           onChange={onInputChange}
           onFocus={() => setPlaceholderText("(__) _____-____")}
-          onBlur={() => setPlaceholderText(placeHolder)}
+          onBlur={handleLeave}
           {...props}
         />
     </FormControl>

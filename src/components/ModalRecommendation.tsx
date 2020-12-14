@@ -33,7 +33,12 @@ const initialState = {
   isLoadingCities: false,
   citiesList: [],
   isSubmiting: false,
-  fieldAreValid: false
+  fieldsAreValid: {
+    indicatorPhone: true,
+    phone: true,
+    uf: true,
+    city: true
+  }
 }
 
 const ModalRecommendation: React.FC = () => {
@@ -70,14 +75,25 @@ const ModalRecommendation: React.FC = () => {
   const handleCity = (value: string) => 
     dispatch({type: "update_city", payload: value})
 
-  const handleValidation = (isValid: boolean) => {
-    if(!isValid && !state.fieldAreValid) {
-      dispatch({type: "validation", payload: false})
+  const handleValidation = (field: string, value: boolean) => {
+    if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
+      console.log("updateSate", value)
+      dispatch({type: "validation", payload: { field, value}})
     }
   }
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    if(
+      !state.fieldsAreValid.indicatorPhone
+      || !state.fieldsAreValid.phone 
+      || !state.fieldsAreValid.uf 
+      || !state.fieldsAreValid.city
+      ) {
+      return setRegistrationMsg({
+        status: true, message: "Favor preencher corretamente os campos acima."
+      })
+    }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
       profile, phone, `${city}-${uf}`, indicatorPhone 
@@ -162,7 +178,8 @@ const ModalRecommendation: React.FC = () => {
                 Agora chegou a hora de divulgar. Quanto mais você divulgar, mais 
                 rápido o AppJusto chegará até você!
               </Text>
-              <CustomPhoneInput 
+              <CustomPhoneInput
+                name="indicatorPhone" 
                 id="recommendation-phone"
                 label="Seu celular" 
                 placeHolder="Digite seu celular"
@@ -172,6 +189,7 @@ const ModalRecommendation: React.FC = () => {
                     {type: "update_indicatorPhone", payload: value}
                   )
                 }
+                notifyValidation={handleValidation}
               />
               <Text 
                 mt="16px"
@@ -193,7 +211,8 @@ const ModalRecommendation: React.FC = () => {
                   )
                 }
               />
-              <CustomPhoneInput 
+              <CustomPhoneInput
+                name="phone" 
                 id="recommended-phone"
                 label="Celular do indicado"
                 placeHolder="Digite o celular do indicado" 
@@ -202,12 +221,14 @@ const ModalRecommendation: React.FC = () => {
                   (value: string) => 
                     dispatch({type: "update_phone", payload: value})
                 }
+                notifyValidation={handleValidation}
               />
                <Flex
                   w="100%"
                   flexDir={["column", null, "row"]}
                 >
-                  <CustomComboInput 
+                  <CustomComboInput
+                    name="uf" 
                     id="recommended-uf"
                     label="UF"
                     placeholder="UF"
@@ -220,7 +241,8 @@ const ModalRecommendation: React.FC = () => {
                   />
                   <CustomComboInput 
                     isDisabled={uf === "" ? true : false}
-                    isLoading={isLoadingCities} 
+                    isLoading={isLoadingCities}
+                    name="city" 
                     id="subscribe-city"
                     label="Cidade"
                     placeholder="Selecione sua cidade"
