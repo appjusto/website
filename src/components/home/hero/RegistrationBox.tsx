@@ -1,5 +1,5 @@
 import { 
-  useReducer, useEffect, useRef, ChangeEvent, FormEvent 
+  useReducer, useEffect, useLayoutEffect, useRef, ChangeEvent, FormEvent 
 }from 'react'
 import { 
   Flex, Heading, Text,
@@ -49,7 +49,7 @@ const RegistrationBox: React.FC = () => {
   } = usePageContext()
   const isMountedRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     isMountedRef.current = true
     return () => isMountedRef.current = false
   }, [])
