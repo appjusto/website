@@ -124,14 +124,15 @@ const ModalRecommendation: React.FC = () => {
         <ModalContent
           maxW="752px"
           maxH={["100%", null, "600px"]}
+          overflow="auto"
         >
           <ModalCloseButton 
             border="2px solid black"
             borderRadius="8px"
           />
           <ModalBody 
-            pt="32px" 
-            pb="32px"
+            pt={["16px", null, null, "32px"]} 
+            pb={["16px", null, null, "32px"]}
             display="flex"
             flexDir="column"
             alignItems="center"  
@@ -152,6 +153,8 @@ const ModalRecommendation: React.FC = () => {
                 <Box
                   position="relative"
                   mr="16px"
+                  w={["36px", null, null, "48px"]}
+                  h={["36px", null, null, "48px"]}
                 >
                   <Image 
                     src="/icon-promotion.svg"
@@ -162,14 +165,15 @@ const ModalRecommendation: React.FC = () => {
                 </Box>
                 <Heading 
                   as="h2"
-                  fontSize="24px"
-                  lineHeight="30px"  
+                  fontSize={["20px", null, null, "24px"]}
+                  lineHeight={["22px", null, null, "30px"]}  
                 >
                   Indique o AppJusto
                 </Heading> 
               </Flex>
               <Text 
                 textStyle="p" 
+                fontSize={["14px", null, null, "16px"]}
                 maxW="560px"
               >
                 Agora chegou a hora de divulgar. Quanto mais você divulgar, mais 
