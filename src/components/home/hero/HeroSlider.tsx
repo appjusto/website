@@ -33,7 +33,6 @@ const SliderImage: React.FC<SliderImageProps> = memo(({
   if(clientWidth === 0) {
     return <Box as="div"/>
   }
-  console.log(image)
   return (
     <Box 
       sx={styles.imgBox}

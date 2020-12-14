@@ -10,6 +10,7 @@ interface StateProps {
   citiesList: string[],
   isSubmiting: boolean,
   fixedHeader?: boolean,
+  fieldAreValid: boolean
 }
 
 type Actions = 
@@ -21,7 +22,8 @@ type Actions =
   | { type: 'update_city'; payload: string } 
   | { type: 'update_isSubmiting'; payload: boolean }
   | { type: 'update_fixedHeader'; payload: boolean }
-  | { type: 'clear_state', payload: StateProps }      
+  | { type: 'clear_state', payload: StateProps }  
+  | { type: 'validation', payload: boolean }      
 
 export const registrationReducer = (state: StateProps, action: Actions): StateProps => {
   switch (action.type) {
@@ -67,6 +69,12 @@ export const registrationReducer = (state: StateProps, action: Actions): StatePr
       return {
         ...state,
         fixedHeader: action.payload,
+      };
+    case 'validation':
+      console.log("action", action.payload)
+      return {
+        ...state,
+        fieldAreValid: action.payload,
       };
     case 'clear_state':
       return {...action.payload};

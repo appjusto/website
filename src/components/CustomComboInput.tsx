@@ -15,8 +15,9 @@ interface CustomComboInputProps extends InputProps {
   parentValue: string
   maxW?: string[]
   maxLength?: number
-  setParentValue: (value: string) => void
   items: string[]
+  setParentValue: (value: string) => void
+  notifyValidation: (isValid: boolean) => void
 }
 
 const CustomComboInput: React.FC<CustomComboInputProps> = ({
@@ -28,8 +29,9 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   parentValue, 
   maxW,
   maxLength,
-  setParentValue, 
   items,
+  setParentValue,
+  notifyValidation 
 }) => {
   const styles = useMultiStyleConfig("Input", {})
   const [inputValue, setInputValue] = useState(parentValue)
@@ -48,6 +50,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
     getComboboxProps,
     highlightedIndex,
     getItemProps,
+
   } = useCombobox({
     id,
     items: inputItems,
@@ -61,22 +64,31 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
     },
   })
 
-  const handleLeave = (event) => {
-    closeMenu()
-    validation(event.target.value)
-  }
-
   const validation = (value: string) => {
     const isValid = items.includes(value)
     if(isValid) {
       setIsValid(true)
+      notifyValidation(true)
       return console.log("Válido")
     } else {
       setIsValid(false)
+      notifyValidation(false)
       return console.log("Inválido")
     }
   }
 
+  useEffect(() => {
+    if(inputValue !== "") {
+      validation(inputValue)
+    }
+  }, [inputValue])
+
+  /*const handleLeave = async (event) => {
+    const { onBlur } = getInputProps()
+    await onBlur(event)
+    console.log(inputValue)
+    validation(inputValue)
+  }*/
   return (
     <FormControl 
       id={id}

@@ -26,6 +26,7 @@ const initialState = {
   citiesList: [],
   isSubmiting: false,
   fixedHeader: false,
+  fieldAreValid: true
 }
 
 const RegistrationBox: React.FC = () => {
@@ -43,7 +44,8 @@ const RegistrationBox: React.FC = () => {
   const { 
     handleModalConfirmation, 
     handleRegistration, 
-    registrationMsg
+    registrationMsg,
+    setRegistrationMsg
   } = usePageContext()
   const isMountedRef = useRef(null);
 
@@ -93,9 +95,21 @@ const RegistrationBox: React.FC = () => {
   
   const handleCity = (value: string) => 
     dispatch({type: "update_city", payload: value})
+
+  const handleValidation = (isValid: boolean) => {
+    if(!isValid && state.fieldAreValid || isValid && !state.fieldAreValid) {
+      console.log("updateSate", isValid)
+      dispatch({type: "validation", payload: isValid})
+    }
+  }
   
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    if(!state.fieldAreValid) {
+      return setRegistrationMsg({
+        status: true, message: "Favor preencher corretamente os campos acima."
+      })
+    }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
         profile, phone, `${city}-${uf}`, "" 
@@ -181,6 +195,7 @@ const RegistrationBox: React.FC = () => {
               items={ufsList}
               maxW={["auto", null, "100px"]}
               maxLength={2}
+              notifyValidation={handleValidation}
             />
             <CustomComboInput 
               isDisabled={uf === "" ? true : false}
@@ -191,6 +206,7 @@ const RegistrationBox: React.FC = () => {
               parentValue={city}
               setParentValue={handleCity}
               items={citiesList}
+              notifyValidation={handleValidation}
             />
           </Flex>
           <CustomButton 

@@ -33,6 +33,7 @@ const initialState = {
   isLoadingCities: false,
   citiesList: [],
   isSubmiting: false,
+  fieldAreValid: false
 }
 
 const ModalRecommendation: React.FC = () => {
@@ -68,6 +69,12 @@ const ModalRecommendation: React.FC = () => {
 
   const handleCity = (value: string) => 
     dispatch({type: "update_city", payload: value})
+
+  const handleValidation = (isValid: boolean) => {
+    if(!isValid && !state.fieldAreValid) {
+      dispatch({type: "validation", payload: false})
+    }
+  }
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
@@ -209,6 +216,7 @@ const ModalRecommendation: React.FC = () => {
                     items={ufsList}
                     maxW={["auto", null, "100px"]}
                     maxLength={2}
+                    notifyValidation={handleValidation}
                   />
                   <CustomComboInput 
                     isDisabled={uf === "" ? true : false}
@@ -219,6 +227,7 @@ const ModalRecommendation: React.FC = () => {
                     parentValue={city}
                     setParentValue={handleCity}
                     items={citiesList}
+                    notifyValidation={handleValidation}
                   />
                 </Flex>
               <CustomButton 
