@@ -27,7 +27,7 @@ const Numbers: React.FC = () => {
     couriers: 0,
     restaurants: 0
   })
-  const { handleModalRecommendation, setRegistrationMsg } = usePageContext()
+  const { handleModalRecommendation, handleMessage } = usePageContext()
   const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Numbers: React.FC = () => {
   }, [])
 
   const handleRecommendation = () => {
-    setRegistrationMsg({status: false, message: ""})
+    handleMessage("")
     return handleModalRecommendation()
   }
 

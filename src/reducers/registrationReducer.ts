@@ -23,6 +23,7 @@ type Actions =
   | { type: 'update_profile'; payload: string }
   | { type: 'update_phone'; payload: string }
   | { type: 'update_uf'; payload: string }
+  | { type: 'fetch_cities' }
   | { type: 'populate_cities'; payload: string[] } 
   | { type: 'update_city'; payload: string } 
   | { type: 'update_isSubmiting'; payload: boolean }
@@ -50,10 +51,16 @@ export const registrationReducer = (state: StateProps, action: Actions): StatePr
     case 'update_uf':
       return {
         ...state,
-        uf: action.payload.toUpperCase(),
         city: "",
-        isLoadingCities: true,
+        citiesList: [],
+        uf: action.payload.toUpperCase(),
       };
+    case 'fetch_cities':
+      return {
+        ...state,
+        city: "",
+        isLoadingCities: true
+      }
     case 'populate_cities':
       return {
         ...state,
@@ -76,7 +83,6 @@ export const registrationReducer = (state: StateProps, action: Actions): StatePr
         fixedHeader: action.payload,
       };
     case 'validation':
-      console.log("action", action.payload)
       return {
         ...state,
         fieldsAreValid: {

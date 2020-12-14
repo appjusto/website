@@ -49,7 +49,7 @@ const ModalRecommendation: React.FC = () => {
     handleModalRecommendation,
     handleRegistration,
     registrationMsg,
-    setRegistrationMsg, 
+    handleMessage, 
   } = usePageContext()
   const {
     indicatorPhone,
@@ -77,7 +77,6 @@ const ModalRecommendation: React.FC = () => {
 
   const handleValidation = (field: string, value: boolean) => {
     if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
-      console.log("updateSate", value)
       dispatch({type: "validation", payload: { field, value}})
     }
   }
@@ -90,9 +89,7 @@ const ModalRecommendation: React.FC = () => {
       || !state.fieldsAreValid.uf 
       || !state.fieldsAreValid.city
       ) {
-      return setRegistrationMsg({
-        status: true, message: "Favor preencher corretamente os campos acima."
-      })
+      return handleMessage("Favor preencher corretamente os campos acima.")
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
@@ -109,7 +106,7 @@ const ModalRecommendation: React.FC = () => {
 
   const handleClose = () => {
     clearForm()
-    setRegistrationMsg({status: false, message: ""})
+    handleMessage("")
     return handleModalRecommendation()
   }
 
@@ -240,7 +237,7 @@ const ModalRecommendation: React.FC = () => {
                     notifyValidation={handleValidation}
                   />
                   <CustomComboInput 
-                    isDisabled={uf === "" ? true : false}
+                    isDisabled={citiesList.length > 0 ? false : true}
                     isLoading={isLoadingCities}
                     name="city" 
                     id="subscribe-city"

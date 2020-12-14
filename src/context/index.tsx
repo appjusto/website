@@ -6,7 +6,7 @@ interface PageContextProps {
   showModalRecommendation: boolean
   showModalSharing: boolean
   registrationMsg: {status: boolean, message: string}
-  setRegistrationMsg: ({status: boolean, message: string}) => void
+  handleMessage: (message: string) => void
   handleModalConfirmation: (type: string)  => void
   handleModalRecommendation: ()  => void
   handleModalSharing: ()  => void
@@ -43,8 +43,12 @@ export const PageContextProvider = (props) => {
   }
 
   const handleMessage = (message: string) => {
-    setRegistrationMsg({ status: true, message })
-    setTimeout(() => setRegistrationMsg({status: false, message: ""}), 6000)
+    if(message !== "") {
+      setRegistrationMsg({ status: true, message })
+      setTimeout(() => setRegistrationMsg({status: false, message: ""}), 5000)
+    } else {
+      setRegistrationMsg({ status: false, message: "" })
+    }
   }
 
   const findPhone = (phone: string, type: string) => {
@@ -87,7 +91,7 @@ export const PageContextProvider = (props) => {
     city: string, 
     indicated_by: string
     ) => {
-    setRegistrationMsg({status: false, message: ""})
+    handleMessage("")
     try {
       const isNewPhone = await findPhone(phone, type)
       if(!isNewPhone) {
@@ -123,7 +127,7 @@ export const PageContextProvider = (props) => {
     showModalRecommendation,
     showModalSharing,
     registrationMsg,
-    setRegistrationMsg,
+    handleMessage,
     handleModalConfirmation,
     handleModalRecommendation,
     handleModalSharing,

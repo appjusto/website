@@ -39,9 +39,12 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   const [inputValue, setInputValue] = useState(parentValue)
   const [inputItems, setInputItems] = useState(items)
   const [isValid, setIsValid] = useState(true)
+
   useEffect(() => {
     setInputValue(parentValue)
+    validation(parentValue)
   }, [parentValue])
+
   const {
     isOpen,
     getLabelProps,
@@ -66,22 +69,14 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
 
   const validation = (value: string) => {
     const isValid = items.includes(value)
-    if(isValid) {
-      setIsValid(true)
-      notifyValidation(name, true)
-      return console.log("Válido")
-    } else {
+    if(value !== "" && !isValid) {
       setIsValid(false)
-      notifyValidation(name, false)
-      return console.log("Inválido")
+      return notifyValidation(name, false)
+    } else {
+      setIsValid(true)
+      return notifyValidation(name, true)
     }
   }
-
-  useEffect(() => {
-    if(inputValue !== "") {
-      validation(inputValue)
-    }
-  }, [inputValue])
 
   return (
     <FormControl 

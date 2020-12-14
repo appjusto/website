@@ -45,7 +45,7 @@ const RegistrationBox: React.FC = () => {
     handleModalConfirmation, 
     handleRegistration, 
     registrationMsg,
-    setRegistrationMsg
+    handleMessage
   } = usePageContext()
   const isMountedRef = useRef(null);
 
@@ -87,19 +87,22 @@ const RegistrationBox: React.FC = () => {
     dispatch({type: "clear_state", payload: initialState})
   }
 
-  const handleUf = async (uf: string) => {
+  const handleUf = (uf: string) => {
     dispatch({type: "update_uf", payload: uf})
-    const cities = await getCities(uf)
-    dispatch({type: "populate_cities", payload: cities})
   }
   
   const handleCity = (value: string) => 
     dispatch({type: "update_city", payload: value})
 
-  const handleValidation = (field: string, value: boolean) => {
+  const handleValidation = async (field: string, value: boolean) => {
     if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
       console.log("updateSate", value)
       dispatch({type: "validation", payload: { field, value}})
+    }
+    if(field === "uf" && value === true) {
+      dispatch({type: "fetch_cities"})
+      const cities = await getCities(uf)
+      dispatch({type: "populate_cities", payload: cities})
     }
   }
   
@@ -110,9 +113,7 @@ const RegistrationBox: React.FC = () => {
       || !state.fieldsAreValid.uf 
       || !state.fieldsAreValid.city
       ) {
-      return setRegistrationMsg({
-        status: true, message: "Favor preencher corretamente os campos acima."
-      })
+      return handleMessage("Favor preencher corretamente os campos acima.")
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
@@ -125,7 +126,6 @@ const RegistrationBox: React.FC = () => {
     clearForm()
     return handleModalConfirmation("subscribe")
   }
-
   return (
     <Flex 
       position={fixedHeader ? "fixed" : "relative"}
@@ -205,7 +205,7 @@ const RegistrationBox: React.FC = () => {
               notifyValidation={handleValidation}
             />
             <CustomComboInput 
-              isDisabled={uf === "" ? true : false}
+              isDisabled={citiesList.length > 0 ? false : true}
               isLoading={isLoadingCities}
               name="city" 
               id="subscribe-city"

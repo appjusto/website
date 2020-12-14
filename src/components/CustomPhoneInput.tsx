@@ -63,13 +63,11 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
   }
 
   const validation = (value: string) => {
-    if(value.length !== 11 && valueToDisplay !== "") {
+    if(value !== "" && value.length !== 11) {
       setIsValid(false)
-      console.log("phone invalid")
       return notifyValidation(name, false)
     } else {
       setIsValid(true)
-      console.log("phone valid")
       return notifyValidation(name, true)
     }
   }
