@@ -1,23 +1,40 @@
-import { useState, useEffect } from 'react'
+import { 
+  useState, 
+  useEffect, 
+  Children, 
+  cloneElement, 
+  memo, 
+  useLayoutEffect,
+  SetStateAction
+} from 'react'
 import Image from 'next/image'
 import { Box, useMultiStyleConfig } from '@chakra-ui/react'
 
+import { getCorrectDimension } from '../../../utils'
+
 interface SliderImageProps {
-  index: number 
-  active: number 
+  isActive?: number
+  clientWidth?: number 
   image: string 
   altImg: string 
   isMobile?: boolean 
 }
 
-const SliderImage: React.FC<SliderImageProps> = ({
-  index, active, image, altImg, isMobile
+const SliderImage: React.FC<SliderImageProps> = memo(({
+  isActive, clientWidth, image, altImg, isMobile
 }) => {
   const styles = useMultiStyleConfig("Carousel", {})
+  if(isMobile && clientWidth > 1000) {
+    return <Box />
+  }
+  if(!isMobile && clientWidth < 1000) {
+    return <Box />
+  }
+  console.log(image)
   return (
     <Box 
       sx={styles.imgBox}
-      opacity={active === index ? 1 : 0}
+      opacity={isActive ? 1 : 0}
     >
       <Image 
       src={image}
@@ -29,11 +46,19 @@ const SliderImage: React.FC<SliderImageProps> = ({
     />
     </Box>
   )
-}
+})
 
-const HeroSlider: React.FC = () => {
+const SliderContainer = ({isMobile, children}) => {
   const [active, setActive] = useState(1)
+  const [clientWidth, setClientWidth] = useState(0)
   const styles = useMultiStyleConfig("Carousel", {})
+  async function getWidth() {
+    const width = await getCorrectDimension("width")
+    setClientWidth(width as SetStateAction<number>)
+  }
+  useLayoutEffect(() => {
+    getWidth()
+  }, [])
   useEffect(() => {
     const sliderInterval = setInterval(() => {
       setActive(prevState => {
@@ -46,59 +71,67 @@ const HeroSlider: React.FC = () => {
     }, 3000)
     return () => clearInterval(sliderInterval)
   }, [])
+  useEffect(() => {
+    window.addEventListener('resize', getWidth)
+    return () => window.removeEventListener('resize', getWidth)
+  }, [])
+  return (
+    <Box
+      sx={styles.container}
+      display={
+        isMobile ? ["block", null, null, "none"]: ["none", null, null, "block"]
+      }
+    >
+      {
+        Children.map(children, (child, index) => {
+          return typeof child.type === 'string'
+            ? child
+            : cloneElement(child, 
+              {isActive: active === index +1 ? true: false, clientWidth}
+            )
+        })
+      }
+    </Box>
+  )
+}
+
+const HeroSlider: React.FC = () => {
   return (
     <>
-      <Box
-        sx={styles.container}
-        display={["block", null, null, "none"]}
-      >
+      <SliderContainer isMobile={true}>
         <SliderImage 
           isMobile
-          index={1}
-          active={active}
           image="/bg-mobile-hero1.png"
           altImg="Entregador numa bicicleta"
         />
         <SliderImage
           isMobile
-          index={2}
-          active={active}
           image="/bg-mobile-hero2.png"
           altImg="Vários pratos de comida"
         />
         <SliderImage
           isMobile
-          index={3}
-          active={active}
           image="/bg-mobile-hero3.png"
           altImg="Pessoa recebendo uma caixa"
         />
-      </Box>
-      <Box
-        sx={styles.container}
-        display={["none", null, null, "block"]}
-      >
+      </SliderContainer>
+      <SliderContainer isMobile={false}>
         <SliderImage
-          index={1}
-          active={active}
           image="/bg-hero1.png"
           altImg="Entregador numa bicicleta"
         />
         <SliderImage
-          index={2}
-          active={active}
           image="/bg-hero2.png"
           altImg="Vários pratos de comida"
         />
         <SliderImage
-          index={3}
-          active={active}
           image="/bg-hero3.png"
           altImg="Pessoa recebendo uma caixa"
         />
-      </Box>
+      </SliderContainer>
     </>
   );
-}
+} 
 
 export default HeroSlider;
+

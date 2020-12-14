@@ -1,5 +1,5 @@
 import { 
-  useReducer, useEffect, useRef, ChangeEvent, FormEvent 
+  useReducer, useLayoutEffect, useEffect, useRef, ChangeEvent, FormEvent 
 }from 'react'
 import { 
   Flex, Heading, Text,
@@ -47,6 +47,21 @@ const RegistrationBox: React.FC = () => {
   } = usePageContext()
   const isMountedRef = useRef(null);
 
+  useLayoutEffect(() => {
+    isMountedRef.current = true
+    return () => isMountedRef.current = false
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, true);
+    return window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResizing, true);
+    return window.removeEventListener("resize", handleResizing)
+  }, [])
+
   const clearForm = () => {
     dispatch({type: "clear_state", payload: initialState})
   }
@@ -81,30 +96,17 @@ const RegistrationBox: React.FC = () => {
   }
   
   async function handleScroll() {
-    const width = await getCorrectDimension("width")
-    if(width > 1000) {
-      if (document.documentElement.scrollTop > 400) {
-        dispatch({type: "update_fixedHeader", payload: true})
-      } else {
-        dispatch({type: "update_fixedHeader", payload: false})
+    if(isMountedRef) {
+      const width = await getCorrectDimension("width")
+      if(width > 1000) {
+        if (document.documentElement.scrollTop > 400) {
+          dispatch({type: "update_fixedHeader", payload: true})
+        } else {
+          dispatch({type: "update_fixedHeader", payload: false})
+        }
       }
     }
   }
-
-  useEffect(() => {
-    isMountedRef.current = true
-    return () => isMountedRef.current = false
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, true);
-    return window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResizing, true);
-    return window.removeEventListener("resize", handleResizing)
-  }, [])
 
   return (
     <Flex 
