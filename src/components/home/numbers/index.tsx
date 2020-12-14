@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useContext } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Flex, Heading, Text, Box } from '@chakra-ui/react'
 import Image from 'next/image'
 
@@ -6,12 +6,12 @@ import Section from "../../Section";
 import Container from '../../Container';
 import NumberBox from './NumberBox';
 import HelpBox from './HelpBox'
-import Button from "../../CustomButton" 
+import Button from "../../CustomButton"
+import CustomLinkButton from '../../CustomLinkButton'; 
 
-import PageContext from '../../../context'
+import { usePageContext } from '../../../context'
 
 import { db } from '../../../../firebase'
-import CustomLinkButton from '../../CustomLinkButton';
 
 interface SummaryProps {
   cities: number
@@ -27,7 +27,7 @@ const Numbers: React.FC = () => {
     couriers: 0,
     restaurants: 0
   })
-  const { handleModalRecommendation, setRegistrationMsg } = useContext(PageContext)
+  const { handleModalRecommendation, setRegistrationMsg } = usePageContext()
   const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
 
   useEffect(() => {

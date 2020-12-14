@@ -1,4 +1,4 @@
-import { useState, useContext, useReducer, FormEvent, ChangeEvent } from 'react'
+import { useReducer, FormEvent } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -12,12 +12,13 @@ import {
   ModalBody
 } from '@chakra-ui/react'
 
-import PageContext from '../context/'
 import CustomPhoneInput from './CustomPhoneInput'
 import CustomSelect from './CustomSelect'
 import CustomComboInput from './CustomComboInput'
 import CustomButton from './CustomButton'
 import FormMessage from './FormMessage';
+
+import { usePageContext } from '../context/'
 
 import { ufsList, profileOptions, getCities } from '../utils'
 
@@ -43,7 +44,7 @@ const ModalRecommendation: React.FC = () => {
     handleRegistration,
     registrationMsg,
     setRegistrationMsg, 
-  } = useContext(PageContext)
+  } = usePageContext()
   const {
     indicatorPhone,
     profile,

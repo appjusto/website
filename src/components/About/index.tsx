@@ -1,12 +1,11 @@
-import { useContext } from 'react'
 import { Flex, Text } from '@chakra-ui/react'
 import Link from '../CustomLink'
 import { SectionTitle, Title } from './TextElements'
 
-import PageContext from '../../context'
+import { usePageContext } from '../../context'
 
 const About: React.FC = () => {
-  const { handleModalRecommendation } = useContext(PageContext)
+  const { handleModalRecommendation } = usePageContext()
   return (
     <Flex
       flexDir="column"

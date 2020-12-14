@@ -1,13 +1,12 @@
-import { useContext } from 'react'
 import { Button, useStyleConfig, ButtonProps } from '@chakra-ui/react'
 import { BiShareAlt  } from 'react-icons/bi'
 
-import PageContext from '../context'
+import { usePageContext } from '../context/'
 
 const ShareButton: React.FC<ButtonProps> = ({...props}) => {
   const { 
     handleModalSharing, handleModalConfirmation, showModalConfirmation 
-  } = useContext(PageContext)
+  } = usePageContext()
   const variant = "basic"
   const styles = useStyleConfig("Button", {variant})
   const handleClick = () => {

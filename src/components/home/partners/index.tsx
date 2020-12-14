@@ -2,10 +2,8 @@ import { Flex, Box, Stack, Heading, Text } from "@chakra-ui/react";
 import Image from 'next/image'
 import Container from "../../Container";
 import Section from "../../Section";
-import CustomButton from '../../CustomButton'
 import Link from '../../CustomLink'
 import PartnerBox from './PartnerBox';
-import CallBox from './CallBox';
 import CustomLinkButton from "../../CustomLinkButton";
 
 

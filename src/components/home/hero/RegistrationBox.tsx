@@ -1,5 +1,5 @@
 import { 
-  useReducer, useEffect, useContext, useRef, ChangeEvent, FormEvent 
+  useReducer, useEffect, useRef, ChangeEvent, FormEvent 
 }from 'react'
 import { 
   Flex, Heading, Text,
@@ -11,7 +11,7 @@ import CustomComboInput from '../../CustomComboInput'
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
 
-import PageContext from '../../../context'
+import { usePageContext } from '../../../context'
 
 import { ufsList, getCities, profileOptions, getCorrectDimension } from '../../../utils'
 
@@ -44,7 +44,7 @@ const RegistrationBox: React.FC = () => {
     handleModalConfirmation, 
     handleRegistration, 
     registrationMsg
-  } = useContext(PageContext)
+  } = usePageContext()
   const isMountedRef = useRef(null);
 
   const clearForm = () => {

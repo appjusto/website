@@ -1,10 +1,9 @@
-import { useContext } from 'react'
 import { Flex, Text } from '@chakra-ui/react'
 
-import PageContext from '../context'
+import { usePageContext } from '../context'
 
 const FormMessage: React.FC = () => {
-  const { registrationMsg } = useContext(PageContext)
+  const { registrationMsg } = usePageContext()
   return (
     <Flex
     w="100%"

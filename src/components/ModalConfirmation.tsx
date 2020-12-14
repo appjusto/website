@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -12,11 +11,12 @@ import {
   Text
 } from '@chakra-ui/react'
 
-import PageContext from '../context/'
 import ShareButton from './ShareButton'
 
+import { usePageContext } from '../context'
+
 const ModalConfirmation: React.FC = () => {
-  const { showModalConfirmation, handleModalConfirmation } = useContext(PageContext)
+  const { showModalConfirmation, handleModalConfirmation } = usePageContext()
   return (
     <Modal 
       id="ModalConfirmation"

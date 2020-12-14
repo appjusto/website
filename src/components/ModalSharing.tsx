@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import {
   Flex,
@@ -16,13 +16,14 @@ import {
   FaWhatsappSquare, FaFacebookSquare, FaLinkedin, FaTwitterSquare 
 } from 'react-icons/fa'
 
-import PageContext from '../context/'
 import ShareLink from './ShareLink'
+
+import { usePageContext } from '../context/'
 
 const ModalSharing: React.FC = () => {
   const [mainUrl, setMainUrl] = useState("")
   const [sharingMsg, setSharingMsg] = useState("")
-  const { showModalSharing, handleModalSharing } = useContext(PageContext)
+  const { showModalSharing, handleModalSharing } = usePageContext()
   useEffect(() => {
     let url = "https://appjusto-ladingpage.vercel.app/"
     if(process.env.NODE_ENV === "production") {
