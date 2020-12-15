@@ -1,9 +1,7 @@
 import { 
   useReducer, useEffect, useLayoutEffect, useRef, ChangeEvent, FormEvent 
 }from 'react'
-import { 
-  Flex, Heading, Text,
-} from "@chakra-ui/react"
+import { Flex, Heading, Text } from "@chakra-ui/react"
 
 import CustomPhoneInput from '../../CustomPhoneInput'
 import CustomSelect from "../../CustomSelect"
@@ -11,9 +9,13 @@ import CustomComboInput from '../../CustomComboInput'
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
 
-import { usePageContext } from '../../../context'
+import { 
+  usePageContext, handleMessage, handleRegistration 
+} from '../../../context'
 
-import { ufsList, getCities, profileOptions, getCorrectDimension } from '../../../utils'
+import { 
+  ufsList, getCities, profileOptions, getCorrectDimension 
+} from '../../../utils'
 
 import { registrationReducer, Actions } from '../../../reducers/registrationReducer'
 
@@ -41,12 +43,7 @@ const RegistrationBox: React.FC = () => {
     isSubmiting,
     fixedHeader,
   } = state
-  const { 
-    handleModalConfirmation, 
-    handleRegistration, 
-    registrationMsg,
-    handleMessage
-  } = usePageContext()
+  const { contextState, contextDispatch  } = usePageContext()
   const isMountedRef = useRef(false);
 
   useLayoutEffect(() => {
@@ -98,7 +95,6 @@ const RegistrationBox: React.FC = () => {
 
   const handleValidation = async (field: string, value: boolean) => {
     if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
-      console.log("updateSate", value)
       dispatch({type: "validation", payload: { field, value}})
     }
     if(field === "uf" && value === true) {
@@ -115,18 +111,22 @@ const RegistrationBox: React.FC = () => {
       || !state.fieldsAreValid.uf 
       || !state.fieldsAreValid.city
       ) {
-      return handleMessage("Favor preencher corretamente os campos acima.", "registration")
+      return handleMessage(
+        contextDispatch,
+        "Favor preencher corretamente os campos acima.", 
+        "registration"
+      )
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
-      "registration", profile, phone, `${city}-${uf}`, "" 
+      contextDispatch, "registration", profile, phone, `${city}-${uf}`, "" 
     )
     dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
       return null
     }
     clearForm()
-    return handleModalConfirmation("subscribe")
+    return contextDispatch({ type: "handle_modalConfirmation", payload: "subscribe"})
   }
   return (
     <Flex 
@@ -227,9 +227,9 @@ const RegistrationBox: React.FC = () => {
           />
         </Flex>
         {
-          registrationMsg.status && registrationMsg.form === "registration" &&(
+          contextState.registrationMsg.status && 
+          contextState.registrationMsg.form === "registration" && 
           <FormMessage />
-          )
         }
       </Flex>
     </Flex>

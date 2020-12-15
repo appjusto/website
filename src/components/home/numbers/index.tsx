@@ -9,7 +9,7 @@ import HelpBox from './HelpBox'
 import Button from "../../CustomButton"
 import CustomLinkButton from '../../CustomLinkButton'; 
 
-import { usePageContext } from '../../../context'
+import { usePageContext, handleMessage } from '../../../context'
 
 import { db } from '../../../../firebase'
 
@@ -27,7 +27,7 @@ const Numbers: React.FC = () => {
     couriers: 0,
     restaurants: 0
   })
-  const { handleModalRecommendation, handleMessage } = usePageContext()
+  const { contextState, contextDispatch  } = usePageContext()
   const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
 
   useEffect(() => {
@@ -41,8 +41,8 @@ const Numbers: React.FC = () => {
   }, [])
 
   const handleRecommendation = () => {
-    handleMessage("")
-    return handleModalRecommendation()
+    handleMessage(contextDispatch, "")
+    return contextDispatch({type: "handle_modalRecommendation"})
   }
 
   return (

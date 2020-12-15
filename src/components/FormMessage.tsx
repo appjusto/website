@@ -4,7 +4,7 @@ import { FaExclamation } from 'react-icons/fa'
 import { usePageContext } from '../context'
 
 const FormMessage: React.FC = () => {
-  const { registrationMsg } = usePageContext()
+  const { contextState } = usePageContext()
   return (
     <Flex
     w="100%"
@@ -17,7 +17,7 @@ const FormMessage: React.FC = () => {
     p="8px 16px"
   >
     <Icon as={FaExclamation} mr="8px" w="12px" h="12px"/>
-    <Text textStyle="p">{registrationMsg.message}</Text>
+    <Text textStyle="p">{contextState.registrationMsg.message}</Text>
   </Flex>
   );
 }

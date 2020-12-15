@@ -16,14 +16,16 @@ import ShareButton from './ShareButton'
 import { usePageContext } from '../context'
 
 const ModalConfirmation: React.FC = () => {
-  const { showModalConfirmation, handleModalConfirmation } = usePageContext()
+  const { contextState, contextDispatch  } = usePageContext()
   return (
     <Modal 
       id="ModalConfirmation"
       size="full"
       blockScrollOnMount={true} 
-      isOpen={showModalConfirmation.show} 
-      onClose={() => handleModalConfirmation("")}
+      isOpen={contextState.showModalConfirmation.show} 
+      onClose={() => contextDispatch(
+        { type: "handle_modalConfirmation", payload: ""}
+      )}
       closeOnOverlayClick={true}
       isCentered
       >
@@ -73,7 +75,7 @@ const ModalConfirmation: React.FC = () => {
                 m="8px 0 16px"  
               >
                 {
-                  showModalConfirmation.type === "subscribe" ?
+                  contextState.showModalConfirmation.type === "subscribe" ?
                     "Pré-cadastro enviado com sucesso" :
                     "Indicação enviada com sucesso"
                 }

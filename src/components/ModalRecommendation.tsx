@@ -18,7 +18,7 @@ import CustomComboInput from './CustomComboInput'
 import CustomButton from './CustomButton'
 import FormMessage from './FormMessage';
 
-import { usePageContext } from '../context/'
+import { usePageContext, handleMessage, handleRegistration } from '../context/'
 
 import { ufsList, profileOptions, getCities } from '../utils'
 
@@ -43,14 +43,7 @@ const initialState = {
 
 const ModalRecommendation: React.FC = () => {
   const [state, dispatch] = useReducer(registrationReducer, initialState)
-  const { 
-    showModalRecommendation,
-    handleModalConfirmation, 
-    handleModalRecommendation,
-    handleRegistration,
-    registrationMsg,
-    handleMessage, 
-  } = usePageContext()
+  const { contextState, contextDispatch  } = usePageContext()
   const {
     indicatorPhone,
     profile,
@@ -89,25 +82,32 @@ const ModalRecommendation: React.FC = () => {
       || !state.fieldsAreValid.uf 
       || !state.fieldsAreValid.city
       ) {
-      return handleMessage("Favor preencher corretamente os campos acima.", "recommendation")
+      return handleMessage(contextDispatch, "Favor preencher corretamente os campos acima.", "recommendation")
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
-      "recommendation", profile, phone, `${city}-${uf}`, indicatorPhone 
+      contextDispatch, 
+      "recommendation", 
+      profile, 
+      phone, 
+      `${city}-${uf}`, 
+      indicatorPhone 
     )
     dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
       return null
     }
     clearForm()
-    handleModalConfirmation("recommendation")
-    return handleModalRecommendation()
+    contextDispatch(
+      {type: "handle_modalConfirmation", payload: "recommendation"}
+    )
+    return contextDispatch({type: "handle_modalRecommendation"})
   }
 
   const handleClose = () => {
     clearForm()
-    handleMessage("")
-    return handleModalRecommendation()
+    handleMessage(contextDispatch, "")
+    return contextDispatch({type: "handle_modalRecommendation"})
   }
 
   return (
@@ -115,7 +115,7 @@ const ModalRecommendation: React.FC = () => {
       id="ModalRecommendation"
       size="full"
       blockScrollOnMount={true} 
-      isOpen={showModalRecommendation} 
+      isOpen={contextState.showModalRecommendation} 
       onClose={handleClose}
       closeOnOverlayClick={true}
       isCentered
@@ -262,9 +262,9 @@ const ModalRecommendation: React.FC = () => {
                   isSubmiting={isSubmiting} 
                 />
                 {
-                  registrationMsg.status && registrationMsg.form === "recommendation" && (
+                  contextState.registrationMsg.status && 
+                  contextState.registrationMsg.form === "recommendation" && 
                   <FormMessage />
-                  )
                 }
             </Flex>
           </ModalBody>

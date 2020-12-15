@@ -5,7 +5,7 @@ import { SectionTitle, Title } from './TextElements'
 import { usePageContext } from '../../context'
 
 const About: React.FC = () => {
-  const { handleModalRecommendation } = usePageContext()
+  const { contextDispatch  } = usePageContext()
   return (
     <Flex
       flexDir="column"
@@ -148,7 +148,7 @@ const About: React.FC = () => {
         tivermos na sua cidade ou bairro, mais rápido o AppJusto pode chegar até 
         você. <Text 
           as="span" 
-          onClick={handleModalRecommendation}
+          onClick={() => contextDispatch({type: "handle_modalRecommendation"})}
           color="#055AFF"
           _hover={{color: "#003EB8"}}
           cursor="pointer"

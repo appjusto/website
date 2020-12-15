@@ -23,7 +23,7 @@ import { usePageContext } from '../context/'
 const ModalSharing: React.FC = () => {
   const [mainUrl, setMainUrl] = useState("")
   const [sharingMsg, setSharingMsg] = useState("")
-  const { showModalSharing, handleModalSharing } = usePageContext()
+  const { contextState, contextDispatch  } = usePageContext()
   useEffect(() => {
     let url = "https://appjusto-ladingpage.vercel.app/"
     if(process.env.NODE_ENV === "production") {
@@ -40,8 +40,8 @@ const ModalSharing: React.FC = () => {
       id="ModalSharing"
       size="full"
       blockScrollOnMount={true} 
-      isOpen={showModalSharing} 
-      onClose={() => handleModalSharing()}
+      isOpen={contextState.showModalSharing} 
+      onClose={() => contextDispatch({type: "handle_modalSharing"})}
       closeOnOverlayClick={true}
       isCentered
       >
