@@ -18,14 +18,18 @@ import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 import FormMessage from './FormMessage';
 
-import { usePageContext, handleMessage, handleRegistration } from '../context/';
+import { usePageContext, handleMessage, handleIndication } from '../context/';
 import useSharingUrlMsg from './share/useSharingUrlMsg';
 
 
 const ModalRecommendation: React.FC = () => {
   const [email, setEmail] = useState("")
   const [isSubmiting, setIsSubmiting] = useState(false)
-  const { contextState, contextDispatch  } = usePageContext()
+  const { 
+    contextState, 
+    contextDispatch, 
+    dbIndicationsRef, 
+  } = usePageContext()
   const { mainUrl, sharingMsg } = useSharingUrlMsg()
 
   const clearForm = () => {
@@ -36,15 +40,15 @@ const ModalRecommendation: React.FC = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    /*const registrationStatus = await handleRegistration(
+    const indicationStatus = await handleIndication(
       contextDispatch, 
-      "recommendation", 
+      dbIndicationsRef, 
       email, 
     )
     setIsSubmiting(false)
-    if(!registrationStatus) {
+    if(!indicationStatus) {
       return null
-    }*/
+    }
     clearForm()
     contextDispatch(
       {type: "handle_modalConfirmation", payload: "recommendation"}

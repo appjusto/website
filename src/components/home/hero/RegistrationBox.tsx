@@ -43,7 +43,7 @@ const RegistrationBox: React.FC = () => {
     isSubmiting,
     fixedHeader,
   } = state
-  const { contextState, contextDispatch  } = usePageContext()
+  const { contextState, contextDispatch, dbRegistrationsRef, dbSummaryRef  } = usePageContext()
   const isMountedRef = useRef(false);
 
   useLayoutEffect(() => {
@@ -119,7 +119,12 @@ const RegistrationBox: React.FC = () => {
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
-      contextDispatch, "registration", profile, phone, `${city}-${uf}`, "" 
+      contextDispatch, 
+      dbRegistrationsRef, 
+      dbSummaryRef, 
+      profile, 
+      phone, 
+      `${city}-${uf}` 
     )
     dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
