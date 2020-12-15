@@ -131,7 +131,7 @@ const ModalRecommendation: React.FC = () => {
               <Text 
                 textStyle="p" 
                 maxW="560px"
-                mb="24px"
+                mb="22px"
               >
                 Indique o AppJusto para amigos, entregadores, restaurantes e todos que desejam um modelo mais justo.
               </Text>
@@ -146,7 +146,7 @@ const ModalRecommendation: React.FC = () => {
                 fontSize="18px"
                 lineHeight="26px"
                 fontWeight="700"
-                mb="14px"   
+                mb="12px"   
               />
               <Flex
                 flexDir={["column", null, "row"]}

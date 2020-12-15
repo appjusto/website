@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, useMemo, Dispatch } from 'react'
-import { db } from '../../firebase'
+import firebase, { db } from '../../firebase'
 
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 
@@ -18,7 +18,7 @@ interface PageContextProps {
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps)
 
 const initialState = {
-  showModalConfirmation: {show: true, type: "registration"},
+  showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
   registrationMsg: {status: false, form: "", message: ""}
 }
@@ -112,12 +112,18 @@ export const handleRegistration = async (
       cities: newCitiesValue, 
       [`${profile}`]: oldSummary[`${profile}`] + 1
     }
+    const FieldValue = firebase.firestore.FieldValue
     const newDoc = {
       profile,
       phone, 
       city,
     }
-    batch.set(dbRef.doc(), newDoc);
+    batch.set(dbRef.doc(), {
+      profile,
+      phone, 
+      city,
+      created_at: FieldValue.serverTimestamp()
+    });
     batch.update(sumaryRef, newSummary)
     batch.commit()
     return true
@@ -150,6 +156,7 @@ export const handleIndication = async (
   dbRef: any,
   email: string, 
   ) => {
+  const FieldValue = firebase.firestore.FieldValue
   handleMessage(dispatch, "")
   try {
     const isNewEmail = await findEmail(dbRef, email)
@@ -157,8 +164,8 @@ export const handleIndication = async (
       handleMessage(dispatch, "O e-mail informado já havia sido indicado. Tente novamente com um novo e-mail.", "recommendation")
       return false
     }
-    const newDoc = { email }
-    dbRef.add(newDoc)
+    //const newDoc = { email }
+    dbRef.add({ email, created_at: FieldValue.serverTimestamp()})
     return true
   } catch (error) {
     handleMessage(dispatch, "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.", "recommendation")
