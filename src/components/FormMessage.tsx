@@ -17,7 +17,12 @@ const FormMessage: React.FC = () => {
     p="8px 16px"
   >
     <Icon as={FaExclamation} mr="8px" w="12px" h="12px"/>
-    <Text textStyle="p">{contextState.registrationMsg.message}</Text>
+    <Text 
+      textStyle="p"
+      textAlign={["center", null, "start"]}
+    >
+      {contextState.registrationMsg.message}
+    </Text>
   </Flex>
   );
 }

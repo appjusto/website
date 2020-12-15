@@ -12,30 +12,42 @@ const SharingBar: React.FC = () => {
     <Stack
       w="100%"
       maxW="560px"
-      direction="row"
+      direction={["column", null, "row"]}
       spacing={4}
       mt="6px"
     >
-      <ShareLink 
-        link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
-        label="Whatsapp"
-        icon={FaWhatsappSquare}  
-      />
-      <ShareLink 
-        link={`https://www.facebook.com/sharer/sharer.php?u=${mainUrl}%3Fsource%3Dsocial.fb&display=page&facebook%2Fclose`}
-        label="Facebook"
-        icon={FaFacebookSquare}  
-      />
-      <ShareLink 
-        link={`https://twitter.com/intent/tweet?url=${mainUrl}&text=${sharingMsg}`}
-        label="Twitter"
-        icon={FaTwitterSquare}  
-      />
-      <ShareLink 
-        link={`https://www.linkedin.com/sharing/share-offsite/?url=${mainUrl}`}
-        label="Linkedin"
-        icon={FaLinkedin}  
-      />
+      <Stack
+        w="100%"
+        direction="row"
+        spacing={4}
+      >
+        <ShareLink 
+          link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
+          label="Whatsapp"
+          icon={FaWhatsappSquare}  
+        />
+        <ShareLink 
+          link={`https://www.facebook.com/sharer/sharer.php?u=${mainUrl}%3Fsource%3Dsocial.fb&display=page&facebook%2Fclose`}
+          label="Facebook"
+          icon={FaFacebookSquare}  
+        />
+      </Stack>
+      <Stack
+        w="100%"
+        direction="row"
+        spacing={4}
+      >
+        <ShareLink 
+          link={`https://twitter.com/intent/tweet?url=${mainUrl}&text=${sharingMsg}`}
+          label="Twitter"
+          icon={FaTwitterSquare}  
+        />
+        <ShareLink 
+          link={`https://www.linkedin.com/sharing/share-offsite/?url=${mainUrl}`}
+          label="Linkedin"
+          icon={FaLinkedin}  
+        />
+      </Stack>
     </Stack>
   );
 }

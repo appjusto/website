@@ -18,7 +18,7 @@ interface PageContextProps {
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps)
 
 const initialState = {
-  showModalConfirmation: {show: false, type: ""},
+  showModalConfirmation: {show: true, type: "registration"},
   showModalRecommendation: false,
   registrationMsg: {status: false, form: "", message: ""}
 }
@@ -154,7 +154,7 @@ export const handleIndication = async (
   try {
     const isNewEmail = await findEmail(dbRef, email)
     if(!isNewEmail) {
-      handleMessage(dispatch, "O e-mail informado já foi recebido como indicação.", "recommendation")
+      handleMessage(dispatch, "O e-mail informado já havia sido indicado. Tente novamente com um novo e-mail.", "recommendation")
       return false
     }
     const newDoc = { email }

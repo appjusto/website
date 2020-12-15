@@ -75,7 +75,7 @@ const ModalRecommendation: React.FC = () => {
       >
         <ModalOverlay />
         <ModalContent
-          maxW={[null, null, "600px", "752px"]}
+          maxW={[null, null, "690px", "752px"]}
           maxH={[null, null, "480px"]}
           overflow="auto"
         >

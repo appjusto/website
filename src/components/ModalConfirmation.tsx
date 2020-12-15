@@ -32,8 +32,8 @@ const ModalConfirmation: React.FC = () => {
       >
         <ModalOverlay />
         <ModalContent
-          maxW="752px"
-          maxH="538px"
+          maxW={[null, null, "690px", "752px"]}
+          maxH={[null, null, "538px"]}
         >
           <ModalCloseButton 
             border="2px solid black"
@@ -80,7 +80,7 @@ const ModalConfirmation: React.FC = () => {
                 mt={type === "sharing" ? "32px" : "8px"}
                 mb="16px"  
               >
-                { type === "subscribe" && "Bem vindo ao movimento ;)" }
+                { type === "registration" && "Bem vindo ao movimento ;)" }
                 { type === "recommendation" && "Indicação enviada com sucesso" }
                 { type === "sharing" && "Divulgar o AppJusto" }
               </Heading>
@@ -90,15 +90,20 @@ const ModalConfirmation: React.FC = () => {
                 maxW="560px"
                 mb="22px"
               >
-                { type === "subscribe" ? 
+                { type === "registration" ? 
                   "Estamos dedicados a construção dessa plataforma, e sua ajuda é fundamental para formar a nossa rede. Você receberá um aviso quando estivermos por perto." 
                   :
                   "Agora chegou a hora de divulgar. Quanto mais você divulgar, mais rápido o AppJusto chegará até você!"
                 }
               </Text>
               {
-                type === "subscribe" &&
-                <Text textStyle="p" fontWeight="700" mb="22px">
+                type === "registration" &&
+                <Text 
+                  textStyle="p" 
+                  fontWeight="700" 
+                  mb="22px" 
+                  textAlign="center"
+                >
                   Quer ajudar mais? Divulgue para amigos, restaurantes e entregadores!
                 </Text>
               }

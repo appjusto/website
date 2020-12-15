@@ -46,7 +46,7 @@ const Alternative: React.FC = () => {
               Uma plataforma onde o ganho é compartilhado.
               <Box 
                 position="relative"
-                maxW={["90px", null, "164px", "540px"]}
+                maxW={["180px", null, "164px", "540px"]}
                 mt="-26px"
                 ml={["0", null, "220px", "456px"]}
                 color="white"
