@@ -54,6 +54,9 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
   useEffect(() => {
     setValueToDisplay(value)
     validation(value)
+    if(value === "") {
+      setPlaceholderText(placeHolder)
+    }
   }, [value])
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {

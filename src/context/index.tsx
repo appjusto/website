@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, useMemo, Dispatch } from 'react'
-import firebase, { db } from '../../firebase'
+import firebase, { db } from '../../firebaseApp'
 
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import {
   Flex,
   Box,
-  Stack,
   Heading,
   Text, 
   Modal, 

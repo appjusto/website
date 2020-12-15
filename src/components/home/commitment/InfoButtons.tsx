@@ -51,6 +51,7 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
               linkLabel="Baixar apresentação"
               link="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"
               isDownload={true}
+              textAlign="center"
             />
           </Box>
         </Stack>

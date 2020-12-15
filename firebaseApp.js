@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 //import "firebase/auth"; // If you need it
 import "firebase/firestore"; // If you need it
 //import "firebase/storage"; // If you need it
-//import "firebase/analytics"; // If you need it
+import "firebase/analytics"; // If you need it
 
 const clientCredentials = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -25,6 +25,7 @@ const clientCredentials = {
 //}
 if (!firebase.apps.length) {
   firebase.initializeApp(clientCredentials);
+  if ("measurementId" in clientCredentials) firebase.analytics();
 }
 
 export const db = firebase.firestore();

@@ -11,7 +11,7 @@ import CustomLinkButton from '../../CustomLinkButton';
 
 import { usePageContext, handleMessage } from '../../../context'
 
-import { db } from '../../../../firebase'
+import { db } from '../../../../firebaseApp'
 
 interface SummaryProps {
   cities: number
