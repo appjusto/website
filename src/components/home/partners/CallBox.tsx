@@ -23,12 +23,11 @@ const CallBox: React.FC = () => {
         h="72px"
         mr="13px"
       >
-        <Image 
+        <img 
           src={Delivery} 
           alt="Ilustração de motocicleta de delivery"
           width={72} 
           height={72} 
-          layout="responsive"
         />
       </Box>
       <Flex

@@ -41,7 +41,7 @@ const HelpBox: React.FC<HelpBoxProps> = ({
         justifyContent="center"
         mt="-60px"
       >
-        <Image src={icon} width={48} height={48} alt={altImg}/>
+        <img src={icon} width={48} height={48} alt={altImg}/>
       </Flex>
       <Heading 
         as="h2"

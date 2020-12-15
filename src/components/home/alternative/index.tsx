@@ -37,7 +37,7 @@ const Alternative: React.FC = () => {
               w="100%"
               mb="-12px"  
             >
-              <Image 
+              <img 
                 src={WeAre} 
                 width={429} 
                 height={43} 
@@ -57,7 +57,7 @@ const Alternative: React.FC = () => {
                 ml={["0", null, "220px", "456px"]}
                 color="white"
               >
-                <Image 
+                <img 
                   src={Line}
                   alt="Linha verde"
                   width={544} 

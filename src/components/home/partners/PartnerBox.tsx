@@ -23,7 +23,7 @@ const PartnerBox: React.FC<PartnerBoxProps> = ({ image, altImg, width, height })
       h="160px"
       m="0 8px"
     >
-      <Image src={image} width={width} height={height} alt={altImg} />
+      <img src={image} width={width} height={height} alt={altImg} />
     </Flex>
   );
 }

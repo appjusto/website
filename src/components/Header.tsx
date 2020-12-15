@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
           >
             <Link href="/">
               <a>
-                <Image 
+                <img 
                   src={logo}
                   alt="Logo AppJusto"
                   width={272} 
@@ -78,7 +78,7 @@ export default Header;
   mr="16px"
   h="40px"
 >
-  <Image 
+  <img 
     src="/googleplay.png" 
     alt="Google Play Store"
     width={135} 
@@ -86,7 +86,7 @@ export default Header;
   />
 </Box>
 <Box h="40px">
-  <Image 
+  <img 
     src="/appstore.png" 
     alt="Apple App Store"
     width={120} 

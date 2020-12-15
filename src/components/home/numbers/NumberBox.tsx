@@ -42,7 +42,7 @@ const NumberBox: React.FC<NumberBoxProps> = ({ icon, altImg, number, label }) =>
       alignItems="center"
       mt="22px"
     >
-      <Image src={icon} width={24} height={24} alt={altImg} />
+      <img src={icon} width={24} height={24} alt={altImg} />
       <VisibilitySensor onChange={handleVisibilityChange}>
         <Text
           fontFamily="Barlow"

@@ -54,7 +54,7 @@ const ModalConfirmation: React.FC = () => {
                 maxW="260px"
                 mr="-120px"
               >
-                <Image 
+                <img 
                   src={BigUser}
                   alt="Ilustração de uma mão entregando uma caixa para outra mão" 
                   width={275} 
@@ -66,7 +66,7 @@ const ModalConfirmation: React.FC = () => {
                   <Box
                     position="relative"
                   >
-                    <Image 
+                    <img 
                       src={Thanks}
                       alt="Obrigado!" 
                       width={213} 

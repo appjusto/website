@@ -40,7 +40,7 @@ const Commitment: React.FC = () => {
             color="white"
             display={["none", null, null, "block"]}
           >
-            <Image 
+            <img 
               src={Line}
               alt="Linha verde" 
               width={544} 
@@ -58,7 +58,7 @@ const Commitment: React.FC = () => {
             w="100%"
             display={["none", null, null, "block"]}
           >
-            <Image 
+            <img 
               src={Bg} 
               alt="Celular com appjusto na tela" 
               width={499} 

@@ -112,7 +112,7 @@ const ModalRecommendation: React.FC = () => {
                   w={["60px", null, "80px", "100px"]}
                   h={["60px", null, "80px", "100px"]}
                 >
-                  <Image 
+                  <img 
                     src={Promotion}
                     alt="Ilustração de auto-falante" 
                     width={100} 

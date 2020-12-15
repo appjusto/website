@@ -30,7 +30,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, altImg, title, textArray }) =>
         h="96px"
         mt="-46px"
       >
-        <Image src={image} width={96} height={96} alt={altImg}/>
+        <img src={image} width={96} height={96} alt={altImg}/>
       </Box>
       <Heading 
         as="h3"

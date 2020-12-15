@@ -33,7 +33,7 @@ const Support: React.FC = () => {
             ml={["0", null, "226px", "240px"]}
             color="white"
           >
-            <Image 
+            <img 
               src={Line}
               alt="Linha verde" 
               width={544} 

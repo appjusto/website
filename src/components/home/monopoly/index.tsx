@@ -40,7 +40,7 @@ const Monopoly: React.FC = () => {
             top={["48px", null, "12px", "26px"]}
             left={["0", null, "220px", "360px"]}
           >
-            <Image 
+            <img 
               src={Line}
               alt="Linha amarela"
               width={544} 
@@ -73,12 +73,11 @@ const Monopoly: React.FC = () => {
           w="100%"
           display={["inherit", null, null, "none"]}
         >
-          <Image 
+          <img 
             src={BgMob}
             alt="Entregador de capacete, retirando um pedido no balcão de um restaurante" 
             width={360} 
-            height={240} 
-            layout="responsive" 
+            height={240}  
           />
         </Box>
         <Box
@@ -86,12 +85,11 @@ const Monopoly: React.FC = () => {
           w="100%"
           display={["none", null, null, "inherit"]}
         >
-          <Image 
+          <img 
             src={Bg} 
             alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
             width={1440} 
-            height={600} 
-            layout="responsive" 
+            height={600}  
           />
         </Box>
       </Box>

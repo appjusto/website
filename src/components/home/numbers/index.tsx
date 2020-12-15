@@ -80,7 +80,7 @@ const Numbers: React.FC = () => {
                   mt={["-58px", null, "-64px", "-22px"]}
                   color="white"
                 >
-                  <Image 
+                  <img 
                     src="/line-vector-w.svg" 
                     alt="Linha branca"
                     width={544} 

@@ -45,13 +45,11 @@ const SliderImage: React.FC<SliderImageProps> = memo(({
       sx={styles.imgBox}
       opacity={isActive ? 1 : 0}
     >
-      <Image 
+      <img 
       src={image}
       alt={altImg} 
       width={isMobile ? 360 : 1440} 
       height={isMobile ? 482 : 600} 
-      layout="responsive" 
-      loading="eager"
     />
     </Box>
   )

@@ -28,7 +28,7 @@ const Item: React.FC<ItemProps> = ({
           h="20px"
           mr="16px"
         >
-          <Image src={image} width={30} height={30} alt={altImg}/>
+          <img src={image} width={30} height={30} alt={altImg}/>
         </Box>
         <Heading 
           as="h4"
@@ -49,7 +49,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <Image src="/ods8.svg" alt="ODS8" width={64} height={64} quality={100}/>
+              <img src="/ods8.svg" alt="ODS8" width={64} height={64} />
             </Box>
             <Box 
               borderRadius="4px" 
@@ -57,7 +57,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <Image src="/ods10.svg" alt="ODS10" width={64} height={64} quality={100}/>
+              <img src="/ods10.svg" alt="ODS10" width={64} height={64} />
             </Box>
             <Box 
               borderRadius="4px" 
@@ -65,7 +65,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <Image src="/ods11.svg" alt="ODS11" width={64} height={64} quality={100}/>
+              <img src="/ods11.svg" alt="ODS11" width={64} height={64} />
             </Box>
             <Box 
               borderRadius="4px" 
@@ -73,7 +73,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <Image src="/ods17.svg" alt="ODS17" width={64} height={64} quality={100}/>
+              <img src="/ods17.svg" alt="ODS17" width={64} height={64} />
             </Box>
           </Stack>
         )
