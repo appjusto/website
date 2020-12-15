@@ -78,6 +78,8 @@ const ModalRecommendation: React.FC = () => {
           maxW={[null, null, "690px", "752px"]}
           maxH={[null, null, "480px"]}
           overflow="auto"
+          display="flex"
+          alignItems="center"
         >
           <ModalCloseButton 
             border="2px solid black"
@@ -87,7 +89,8 @@ const ModalRecommendation: React.FC = () => {
             p="24px" 
             display="flex"
             flexDir="column"
-            alignItems="center"  
+            alignItems="center"
+            maxW={[null, null, null, "560px"]}  
           >
             <Flex
               as="form"
@@ -156,7 +159,7 @@ const ModalRecommendation: React.FC = () => {
                   placeholder="Digite o e-mail da sua indicação"
                   value={email}
                   handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-                  minW={[null, null, "368px"]}
+                  minW={[null, null, "340px"]}
                   mb={["16px", null, "0"]}
                 />
                 <CustomButton 
