@@ -15,7 +15,7 @@ import { usePageContext } from '../../../context'
 
 import { ufsList, getCities, profileOptions, getCorrectDimension } from '../../../utils'
 
-import { registrationReducer } from '../../../reducers/registrationReducer'
+import { registrationReducer, Actions } from '../../../reducers/registrationReducer'
 
 const initialState = {
   profile: "",
@@ -30,7 +30,7 @@ const initialState = {
 }
 
 const RegistrationBox: React.FC = () => {
-  const [state, dispatch] = useReducer(registrationReducer, initialState)
+  const [state, unsafeDispatch] = useReducer(registrationReducer, initialState)
   const {
     profile,
     phone,
@@ -47,7 +47,7 @@ const RegistrationBox: React.FC = () => {
     registrationMsg,
     handleMessage
   } = usePageContext()
-  const isMountedRef = useRef(null);
+  const isMountedRef = useRef(false);
 
   useLayoutEffect(() => {
     isMountedRef.current = true
@@ -64,21 +64,23 @@ const RegistrationBox: React.FC = () => {
     return window.removeEventListener("resize", handleResizing)
   }, [])
 
+  const dispatch = ({...args} : Actions) => {
+    if(isMountedRef.current) {
+      unsafeDispatch({...args})
+    }
+  }
+
   function handleResizing() {
-    if(isMountedRef) {
-      return dispatch({type: "update_fixedHeader", payload: false})
-    } 
+    return dispatch({type: "update_fixedHeader", payload: false})
   }
   
   async function handleScroll() {
-    if(isMountedRef) {
-      const width = await getCorrectDimension("width")
-      if(width > 1000) {
-        if (document.documentElement.scrollTop > 400) {
-          dispatch({type: "update_fixedHeader", payload: true})
-        } else {
-          dispatch({type: "update_fixedHeader", payload: false})
-        }
+    const width = await getCorrectDimension("width")
+    if(width > 1000) {
+      if (document.documentElement.scrollTop > 400) {
+        dispatch({type: "update_fixedHeader", payload: true})
+      } else {
+        dispatch({type: "update_fixedHeader", payload: false})
       }
     }
   }

@@ -18,7 +18,7 @@ interface StateProps {
   }
 }
 
-type Actions = 
+export type Actions = 
   | { type: 'update_indicatorPhone'; payload: string }
   | { type: 'update_profile'; payload: string }
   | { type: 'update_phone'; payload: string }
