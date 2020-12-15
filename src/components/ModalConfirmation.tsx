@@ -11,12 +11,13 @@ import {
   Text
 } from '@chakra-ui/react'
 
-import ShareButton from './ShareButton'
+import SharingBar from './share/SharingBar'
 
 import { usePageContext } from '../context'
 
 const ModalConfirmation: React.FC = () => {
   const { contextState, contextDispatch  } = usePageContext()
+  const { type } = contextState.showModalConfirmation
   return (
     <Modal 
       id="ModalConfirmation"
@@ -57,39 +58,51 @@ const ModalConfirmation: React.FC = () => {
                   height={200}
                 />
               </Box>
-              <Box
-                position="relative"
-              >
-                <Image 
-                  src="/obrigado.svg"
-                  alt="Obrigado!" 
-                  width={213} 
-                  height={53}
-                />
-              </Box>
+              {
+                type !== "sharing" && (
+                  <Box
+                    position="relative"
+                  >
+                    <Image 
+                      src="/obrigado.svg"
+                      alt="Obrigado!" 
+                      width={213} 
+                      height={53}
+                    />
+                  </Box>
+                )
+              }
               <Heading 
                 as="h2"
                 fontSize="24px"
                 lineHeight="30px"
                 textAlign="center"
-                m="8px 0 16px"  
+                mt={type === "sharing" ? "32px" : "8px"}
+                mb="16px"  
               >
-                {
-                  contextState.showModalConfirmation.type === "subscribe" ?
-                    "Pré-cadastro enviado com sucesso" :
-                    "Indicação enviada com sucesso"
-                }
+                { type === "subscribe" && "Bem vindo ao movimento ;)" }
+                { type === "recommendation" && "Indicação enviada com sucesso" }
+                { type === "sharing" && "Divulgar o AppJusto" }
               </Heading>
               <Text 
                 textStyle="p" 
                 textAlign="center" 
                 maxW="560px"
-                mb="40px"
+                mb="22px"
               >
-                Agora chegou a hora de divulgar. Quanto mais você divulgar, mais 
-                rápido o AppJusto chegará até você!
+                { type === "subscribe" ? 
+                  "Estamos dedicados a construção dessa plataforma, e sua ajuda é fundamental para formar a nossa rede. Você receberá um aviso quando estivermos por perto." 
+                  :
+                  "Agora chegou a hora de divulgar. Quanto mais você divulgar, mais rápido o AppJusto chegará até você!"
+                }
               </Text>
-              <ShareButton bg="#fff"/>
+              {
+                type === "subscribe" &&
+                <Text textStyle="p" fontWeight="700" mb="22px">
+                  Quer ajudar mais? Divulgue para amigos, restaurantes e entregadores!
+                </Text>
+              }
+              <SharingBar />
             </Flex>
           </ModalBody>
         </ModalContent>

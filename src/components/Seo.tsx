@@ -34,11 +34,11 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `og:image`,
-      content: `https://appjusto-ladingpage.vercel.app/bg-hero1.png`,
+      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
     },
     {
       property: `og:image:secure_url`,
-      content: `https://appjusto-ladingpage.vercel.app/bg-hero1.png`,
+      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
     },
     {
       property: `og:image:type`,
@@ -54,7 +54,7 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `og:image:alt`,
-      content: `Homem com capacete de ciclismo, montado numa bicicleta e carregando uma caixa de entregas nas costas`,
+      content: `Ilustração de uma motocicleta de entregas com o fundo verde.`,
     },
     {
       name: `twitter:card`,
@@ -74,11 +74,11 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `twitter:image`,
-      content: `https://appjusto-ladingpage.vercel.app/bg-hero1.png`,
+      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
     },
     {
       property: `twitter:image:src`,
-      content: `https://appjusto-ladingpage.vercel.app/bg-hero1.pn`,
+      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
     },
     {
       property: `twitter:image:width`,
@@ -90,7 +90,7 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `twitter:image:alt`,
-      content: `Homem com capacete de ciclismo, montado numa bicicleta e carregando uma caixa de entregas nas costas`,
+      content: `Ilustração de uma motocicleta de entregas com o fundo verde.`,
     },
     {
       name: "keywords",

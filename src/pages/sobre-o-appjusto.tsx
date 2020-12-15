@@ -2,7 +2,6 @@ import PageLayout from '../components/PageLayout'
 import About from '../components/About'
 import ModalRecommendation from '../components/ModalRecommendation'
 import ModalConfirmation from '../components/ModalConfirmation'
-import ModalSharing from '../components/ModalSharing'
 
 export default function AboutPage() {
   return (
@@ -10,7 +9,6 @@ export default function AboutPage() {
       <About />
       <ModalRecommendation />
       <ModalConfirmation />
-      <ModalSharing />
     </PageLayout>
   )
 }

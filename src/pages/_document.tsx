@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
       <Html lang="pt-BR">
         <Head>
           <Seo 
-            metaDescription="Mais do que um App, somos um movimento."
+            metaDescription="AppJusto. Mais do que um app de entregas. Somo um movimento por relações mais justas e transparentes. Faça parte agora!"
             title="AppJusto"
             author="@appjusto"
             canonical_url="https://appjusto.vercel.app/"

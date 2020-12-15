@@ -1,4 +1,4 @@
-import React, { useMemo, useReducer, useContext, Dispatch } from 'react'
+import React, { useReducer, useContext, Dispatch } from 'react'
 import { db } from '../../firebase'
 
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
@@ -7,7 +7,6 @@ interface PageContextProps {
   contextState: {
     showModalConfirmation: {show: boolean, type: string}
     showModalRecommendation: boolean
-    showModalSharing: boolean
     registrationMsg: {status: boolean, form: string, message: string}
   }
   contextDispatch: Dispatch<Actions>
@@ -18,7 +17,6 @@ const PageContext = React.createContext<PageContextProps>({} as PageContextProps
 const initialState = {
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
-  showModalSharing: false,
   registrationMsg: {status: false, form: "", message: ""}
 }
 

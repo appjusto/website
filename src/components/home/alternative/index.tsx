@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Flex, Box, Heading, Stack } from "@chakra-ui/react";
+import { Flex, Box, Heading, Text, Stack } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import InfoBox from './InfoBox';
@@ -43,10 +43,10 @@ const Alternative: React.FC = () => {
               fontSize={["24px", null, null, "48px"]}  
               lineHeight={["28,8px", null, null, "48px"]} 
             >
-              Uma plataforma onde todos ganham.
+              Uma plataforma onde o ganho é compartilhado.
               <Box 
                 position="relative"
-                maxW={["90px", null, "164px", "330px"]}
+                maxW={["90px", null, "164px", "540px"]}
                 mt="-26px"
                 ml={["0", null, "220px", "456px"]}
                 color="white"
@@ -59,6 +59,10 @@ const Alternative: React.FC = () => {
                 />
               </Box>
             </Heading>
+            <Text textStyle="p" fontSize="20px" lineHeight="26px" mt="16px">
+              Nosso propósito é promover relações justas e equilibradas na 
+              economia de plataforma:
+            </Text>
           </Flex>
         </Flex>
         <Stack

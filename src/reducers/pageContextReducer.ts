@@ -3,7 +3,6 @@ import React from 'react'
 interface StateProps {
   showModalConfirmation: {show: boolean, type: string}
   showModalRecommendation: boolean
-  showModalSharing: boolean
   registrationMsg: {status: boolean, form: string, message: string}
 }
 
@@ -11,7 +10,6 @@ export type Actions =
   | { type: 'update_message'; payload: {message: string, form?: string} }
   | { type: 'handle_modalConfirmation'; payload: string }
   | { type: 'handle_modalRecommendation' }
-  | { type: 'handle_modalSharing' } 
 
 export const pageContextReducer = (state: StateProps, action: Actions): StateProps => {
   switch (action.type) {
@@ -38,11 +36,6 @@ export const pageContextReducer = (state: StateProps, action: Actions): StatePro
       return {
         ...state,
         showModalRecommendation: !state.showModalRecommendation,
-      };
-    case 'handle_modalSharing':
-      return {
-        ...state,
-        showModalSharing: !state.showModalSharing,
       };
     default:
       throw new Error();

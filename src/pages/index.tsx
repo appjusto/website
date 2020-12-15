@@ -8,7 +8,6 @@ import Support from '../components/home/support'
 import Commitment from '../components/home/commitment'
 import ModalConfirmation from '../components/ModalConfirmation'
 import ModalRecommendation from '../components/ModalRecommendation'
-import ModalSharing from '../components/ModalSharing'
 
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
       <Support />
       <ModalConfirmation />
       <ModalRecommendation />
-      <ModalSharing />
     </PageLayout>
   )
 }
