@@ -3,6 +3,7 @@ import Image from 'next/image';
 import {
   Flex,
   Box,
+  Stack,
   Heading,
   Text, 
   Modal, 
@@ -74,8 +75,8 @@ const ModalRecommendation: React.FC = () => {
       >
         <ModalOverlay />
         <ModalContent
-          maxW="752px"
-          maxH={["100%", null, "480px"]}
+          maxW={[null, null, "600px", "752px"]}
+          maxH={[null, null, "480px"]}
           overflow="auto"
         >
           <ModalCloseButton 
@@ -83,8 +84,7 @@ const ModalRecommendation: React.FC = () => {
             borderRadius="8px"
           />
           <ModalBody 
-            pt={["16px", null, null, "24px"]} 
-            pb={["16px", null, null, "60px"]}
+            p="24px" 
             display="flex"
             flexDir="column"
             alignItems="center"  
@@ -94,6 +94,7 @@ const ModalRecommendation: React.FC = () => {
               flexDir="column"
               justifyContent="flex-start"
               alignItems="flex-start"
+              w="100%"
               onSubmit={handleSubmit}
             >
               <Flex
@@ -105,8 +106,8 @@ const ModalRecommendation: React.FC = () => {
                 <Box
                   position="relative"
                   mr="16px"
-                  w={["36px", null, null, "100px"]}
-                  h={["36px", null, null, "100px"]}
+                  w={["60px", null, "80px", "100px"]}
+                  h={["60px", null, "80px", "100px"]}
                 >
                   <Image 
                     src="/icon-promotion.svg"
@@ -135,10 +136,13 @@ const ModalRecommendation: React.FC = () => {
                 link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
                 label="Indique por WhatsApp"
                 icon={FaWhatsappSquare}
+                justifyContent="flex-start"
                 minHeight="60px"
-                maxW={["100%", null, null, "272px"]}
+                maxW={["100%", null, "272px"]}
+                p="0 16px"
                 fontSize="18px"
                 lineHeight="26px"
+                fontWeight="700"
                 mb="14px"   
               />
               <Flex
@@ -152,13 +156,15 @@ const ModalRecommendation: React.FC = () => {
                   placeholder="Digite o e-mail da sua indicação"
                   value={email}
                   handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-                  minW="368px"
+                  minW={[null, null, "368px"]}
+                  mb={["16px", null, "0"]}
                 />
                 <CustomButton 
                   type="submit"
                   label="Indicar agora"
                   variant="secondaryRegistration"
-                  maxW="260px"
+                  maxW={["100%", null, "260px"]}
+                  ml={[null, null, "16px", "0"]}
                   isSubmiting={isSubmiting} 
                 />
               </Flex> 
