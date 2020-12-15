@@ -105,6 +105,7 @@ const Footer: React.FC = () => {
               isExternal
               mr="28px"
               color="primary"
+              aria-label="Conheça nossa página no Linkedin"
             >
               <Icon as={FaLinkedin} 
                 w="20px"
@@ -116,6 +117,7 @@ const Footer: React.FC = () => {
               isExternal
               mr="28px"
               color="primary"
+              aria-label="Conheça nossa página no Facebook"
             >
               <Icon as={FaFacebookSquare} 
                 w="20px"
@@ -127,6 +129,7 @@ const Footer: React.FC = () => {
               isExternal
               mr="28px"
               color="primary"
+              aria-label="Conheça nossa página no Instagram"
             >
               <Icon as={FaInstagram} 
                 w="20px"
