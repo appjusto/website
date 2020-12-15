@@ -29,15 +29,14 @@ const Commitment: React.FC = () => {
           as="h2"
           fontSize={["24px", null, null, "56px"]}
           lineHeight={["28,8px", null, null, "67,2px"]}
-          mb="24px"
+          mb={["64px", null, "24px"]}
         >
           Nosso compromisso é com a sociedade.
           <Box 
             position="relative"
-            maxW={[null, null, null,"520px"]}
-            mt="-58px"
+            maxW={["220px", null, "220px","520px"]}
+            mt={["-38px", null, "-4px","-8px"]}
             color="white"
-            display={["none", null, null, "block"]}
           >
             <img 
               src={Line}

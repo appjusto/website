@@ -29,7 +29,7 @@ const Support: React.FC = () => {
           <Box 
             position="relative"
             maxW={["124px", null, "136px", "480px"]}
-            mt={["-26px", null, "-28px", "-26px"]}
+            mt={["-4px", null, "-2px", "2px"]}
             ml={["0", null, "226px", "240px"]}
             color="white"
           >

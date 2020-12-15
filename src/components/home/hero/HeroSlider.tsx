@@ -48,8 +48,10 @@ const SliderImage: React.FC<SliderImageProps> = memo(({
       <img 
       src={image}
       alt={altImg} 
-      width={isMobile ? 360 : 1440} 
-      height={isMobile ? 482 : 600} 
+      //width={isMobile ? 360 : 1440} 
+      //height={isMobile ? 482 : 600} 
+      width="100%" 
+      height="100%" 
     />
     </Box>
   )

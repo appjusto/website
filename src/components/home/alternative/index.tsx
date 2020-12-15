@@ -34,7 +34,8 @@ const Alternative: React.FC = () => {
             <Box
               position="relative"
               w="100%"
-              mb="-12px"  
+              maxW="420px"
+              mb="-6px"  
             >
               <img 
                 src={WeAre} 
@@ -51,9 +52,8 @@ const Alternative: React.FC = () => {
               Uma plataforma onde o ganho é compartilhado.
               <Box 
                 position="relative"
-                maxW={["180px", null, "164px", "540px"]}
-                mt="-26px"
-                ml={["0", null, "220px", "456px"]}
+                maxW={["180px", null, "280px", "540px"]}
+                ml={["0", null, "226px", "456px"]}
                 color="white"
               >
                 <img 

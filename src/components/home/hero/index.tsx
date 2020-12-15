@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
           <Box 
             display={["block", null, "none"]}
             maxW="300px"
-            mt="-34px"
+            mt="0"
           >
             <img 
               src={Line}
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
         <Box 
           display={["none", null, "block"]}
           position="absolute"
-          top={[null, "12px", null, "20px"]}
+          top={[null, "30px", null, "56px"]}
           left="0"
           maxW={[null, "240px", null, "510px"]}
         >

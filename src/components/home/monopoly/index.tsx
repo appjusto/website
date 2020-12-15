@@ -36,7 +36,7 @@ const Monopoly: React.FC = () => {
           <Box 
             position="absolute"
             maxW={["130px", null, null, "460px"]}
-            top={["48px", null, "12px", "26px"]}
+            top={["68px", null, "32px", "60px"]}
             left={["0", null, "220px", "360px"]}
           >
             <img 
