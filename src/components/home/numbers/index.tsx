@@ -13,6 +13,15 @@ import { usePageContext, handleMessage } from '../../../context'
 
 import { db } from '../../../../firebaseApp'
 
+import Line from '../../../../public/line-vector-w.svg'
+import Shield from '../../../../public//icon-shield.svg'
+import Bike from '../../../../public//icon-bike.svg'
+import Cutlery from '../../../../public//icon-cutlery.svg'
+import Happy from '../../../../public//icon-happy.svg'
+import Chat from '../../../../public//icon-chat-bubble.svg'
+import Promotion from '../../../../public//icon-promotion.svg'
+import Hfive from '../../../../public//icon-high-five.svg'
+
 interface SummaryProps {
   cities: number
   consumers: number
@@ -95,13 +104,13 @@ const Numbers: React.FC = () => {
                 >
                   <NumberBox 
                     key="nb-cities" 
-                    icon="/icon-shield.svg" 
+                    icon={Shield}
                     altImg="Ícone de escudo"
                     number={summary.cities} 
                     label="Cidades" />
                   <NumberBox 
                     key="nb-couriers" 
-                    icon="/icon-bike.svg" 
+                    icon={Bike} 
                     altImg="Ícone de entregador numa moto"
                     number={summary.couriers} 
                     label="Entregadores" />
@@ -112,13 +121,13 @@ const Numbers: React.FC = () => {
                 >
                   <NumberBox 
                     key="nb-restaurants" 
-                    icon="/icon-cutlery.svg" 
+                    icon={Cutlery} 
                     altImg="Ícone de talhares"
                     number={summary.restaurants} 
                     label="Restaurantes" />
                   <NumberBox 
                     key="nb-consumers" 
-                    icon="/icon-happy.svg" 
+                    icon={Happy}
                     altImg="Ícone de carinha feliz"
                     number={summary.consumers} 
                     label="Consumidores" />
@@ -143,7 +152,7 @@ const Numbers: React.FC = () => {
           flexDir={["column", null, null, "row"]}
         >
           <HelpBox 
-            icon="/icon-chat-bubble.svg"
+            icon={Chat}
             altImg="Ilustração de caixa de mensagens com um check e um x"
             title="Responda a pesquisa"
             text="Estamos ouvindo clientes, entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
@@ -155,7 +164,7 @@ const Numbers: React.FC = () => {
               variant="secondaryLight"/>
           </HelpBox>
           <HelpBox 
-            icon="/icon-promotion.svg"
+            icon={Promotion}
             altImg="Ilustração de auto-falante"
             title="Indique o AppJusto"
             text="Espalhe a notícia para seus amigos! Convide possíveis clientes, entregadores e donos de restaurantes, e ajude esta rede a crescer."
@@ -168,7 +177,7 @@ const Numbers: React.FC = () => {
             />
           </HelpBox>
           <HelpBox 
-            icon="/icon-high-five.svg"
+            icon={Hfive}
             altImg="Ilustração de mãos se cumprimentando"
             title="Seja um parceiro"
             text="Tem interesse em atuar como voluntário, ser uma empresa parceira, investidor, ou acredita que pode colaborar de alguma outra maneira? Fale com a gente!"

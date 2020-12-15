@@ -6,6 +6,8 @@ import Container from '../../Container';
 import RegistrationBox from './RegistrationBox';
 import HeroSlider from './HeroSlider';
 
+import Line from '../../../../public/line-vector-y.svg'
+
 const Hero: React.FC = () => {
   const settings = {
     dots: false,
@@ -47,7 +49,7 @@ const Hero: React.FC = () => {
             mt="-34px"
           >
             <Image 
-              src="/line-vector-y.svg"
+              src={Line}
               alt="Linha amarela" 
               width={544} 
               height={20} 

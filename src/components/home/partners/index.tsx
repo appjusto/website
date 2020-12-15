@@ -4,6 +4,9 @@ import Section from "../../Section";
 import Link from '../../CustomLink';
 import PartnerBox from './PartnerBox';
 
+import Abrasel from '../../../../public/logoAbrasel.png'
+import Iugu from '../../../../public/logoIugu.png'
+import ColPin from '../../../../public/logoColetivoPinheiros.png'
 
 const Partners: React.FC = () => {
   return (
@@ -33,19 +36,19 @@ const Partners: React.FC = () => {
           mb="24px"
         >
           <PartnerBox 
-            image="/logoAbrasel.png" 
+            image={Abrasel}
             altImg="Logo Abrasel"
             width={147} 
             height={64} 
           />
           <PartnerBox 
-            image="/logoIugu.png" 
+            image={Iugu}
             altImg="Logo Iugu"
             width={132} 
             height={54} 
           />
           <PartnerBox 
-            image="/logoColetivoPinheiros.png" 
+            image={ColPin} 
             altImg="Logo Coletivo Pinheiros"
             width={107} 
             height={105} 

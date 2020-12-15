@@ -3,6 +3,9 @@ import { Box, Heading } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 
+import Line from '../../../../public/line-vector-y.svg'
+import Bg from '../../../../public/bg-monopoly.png'
+import BgMob from '../../../../public/bg-mobile-monopoly.png'
 
 const Monopoly: React.FC = () => {
   return (
@@ -38,7 +41,7 @@ const Monopoly: React.FC = () => {
             left={["0", null, "220px", "360px"]}
           >
             <Image 
-              src="/line-vector-y.svg" 
+              src={Line}
               alt="Linha amarela"
               width={544} 
               height={20} 
@@ -71,7 +74,7 @@ const Monopoly: React.FC = () => {
           display={["inherit", null, null, "none"]}
         >
           <Image 
-            src="/bg-mobile-monopoly.png"
+            src={BgMob}
             alt="Entregador de capacete, retirando um pedido no balcão de um restaurante" 
             width={360} 
             height={240} 
@@ -84,7 +87,7 @@ const Monopoly: React.FC = () => {
           display={["none", null, null, "inherit"]}
         >
           <Image 
-            src="/bg-monopoly.png" 
+            src={Bg} 
             alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
             width={1440} 
             height={600} 

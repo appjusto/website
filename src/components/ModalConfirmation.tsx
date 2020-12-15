@@ -15,6 +15,9 @@ import SharingBar from './share/SharingBar'
 
 import { usePageContext } from '../context'
 
+import BigUser from '../../public/illustration-big-user.svg'
+import Thanks from '../../public/obrigado.svg'
+
 const ModalConfirmation: React.FC = () => {
   const { contextState, contextDispatch  } = usePageContext()
   const { type } = contextState.showModalConfirmation
@@ -52,7 +55,7 @@ const ModalConfirmation: React.FC = () => {
                 mr="-120px"
               >
                 <Image 
-                  src="/illustration-big-user.svg"
+                  src={BigUser}
                   alt="Ilustração de uma mão entregando uma caixa para outra mão" 
                   width={275} 
                   height={200}
@@ -64,7 +67,7 @@ const ModalConfirmation: React.FC = () => {
                     position="relative"
                   >
                     <Image 
-                      src="/obrigado.svg"
+                      src={Thanks}
                       alt="Obrigado!" 
                       width={213} 
                       height={53}

@@ -1,4 +1,7 @@
-module.exports = {
+const withImages = require('next-images')
+
+module.exports = withImages({
+  esModule: true,
   env: {
     FIREBASE_API_KEY: "AIzaSyBcFA8AAeGNp0q7Zxd09PEbm4X_gl37xfI",
     FIREBASE_AUTH_DOMAIN: "app-justo-site.firebaseapp.com",
@@ -13,4 +16,4 @@ module.exports = {
   experimental: {
     sprFlushToDisk: false,
   },
-};
+});

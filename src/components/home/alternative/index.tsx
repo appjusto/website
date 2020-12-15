@@ -4,6 +4,12 @@ import Container from "../../Container";
 import Section from "../../Section";
 import InfoBox from './InfoBox';
 
+import Line from '../../../../public/line-vector-g.svg'
+import WeAre from '../../../../public/alternativa.svg'
+import Couriers from '../../../../public/infobox-entregadores.png'
+import Restaurants from '../../../../public/infobox-restaurantes.png'
+import Clients from '../../../../public/infobox-clientes.png'
+
 const Alternative: React.FC = () => {
   return (
     <Section
@@ -32,7 +38,7 @@ const Alternative: React.FC = () => {
               mb="-12px"  
             >
               <Image 
-                src="/alternativa.svg" 
+                src={WeAre} 
                 width={429} 
                 height={43} 
                 alt="Nós somos a alternativa"  
@@ -52,7 +58,7 @@ const Alternative: React.FC = () => {
                 color="white"
               >
                 <Image 
-                  src="/line-vector-g.svg" 
+                  src={Line}
                   alt="Linha verde"
                   width={544} 
                   height={20}  
@@ -74,19 +80,19 @@ const Alternative: React.FC = () => {
           mb={["38px", null, null, "0"]}
         >
           <InfoBox 
-            image="/infobox-entregadores.png"
+            image={Couriers}
             altImg="Entregador numa bicicleta"
             title="Entregadores"
             textArray={["Regras transparentes", "Atendimento direto", "Sem suspensões injustas", "Autonomia para criar frotas", "Definição de taxas e regras próprias"]}
           />
           <InfoBox 
-            image="/infobox-restaurantes.png"
+            image={Restaurants}
             altImg="Mãos segurando um pode de comida"
             title="Restaurantes"
             textArray={["Menores taxas do mercado", "Logística inclusa", "Acesso direto ao cliente", "Visualização igualitária", "Gestão de frotas próprias"]} 
           />
           <InfoBox 
-            image="/infobox-clientes.png"
+            image={Clients}
             altImg="Pessoa segurando um hamburguer"
             title="Clientes"
             textArray={["Pagar o preço do cardápio", "Entrega mais barata de encomendas", "Consciência de apoiar um modelo mais justo"]}

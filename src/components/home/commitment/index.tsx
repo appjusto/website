@@ -5,6 +5,14 @@ import Section from "../../Section";
 import Item from './Item';
 import InfoButtons from './InfoButtons';
 
+import Line from '../../../../public/line-vector-g.svg'
+import Bg from '../../../../public/bg-commitment.svg'
+import IconBike from '../../../../public/icon-bike.svg'
+import IconMon from '../../../../public/item-monetization.svg'
+import IconThumb from '../../../../public/item-thumb.svg'
+import IconDom from '../../../../public/item-domain.svg'
+import IconBlur from '../../../../public/item-blur.svg'
+import IconWorld from '../../../../public/item-world.svg'
 
 const Commitment: React.FC = () => {
   return (
@@ -33,7 +41,7 @@ const Commitment: React.FC = () => {
             display={["none", null, null, "block"]}
           >
             <Image 
-              src="/line-vector-g.svg"
+              src={Line}
               alt="Linha verde" 
               width={544} 
               height={20} 
@@ -51,7 +59,7 @@ const Commitment: React.FC = () => {
             display={["none", null, null, "block"]}
           >
             <Image 
-              src="/bg-commitment.svg" 
+              src={Bg} 
               alt="Celular com appjusto na tela" 
               width={499} 
               height={480} 
@@ -64,32 +72,32 @@ const Commitment: React.FC = () => {
           >
             <InfoButtons />
             <Item 
-              image="/icon-bike.svg" 
+              image={IconBike}
               altImg="Ícone de entregador numa moto"
               title="Autonomia e participação" 
             />
             <Item 
-              image="/item-monetization.svg" 
+              image={IconMon} 
               altImg="Ícone de moeda"
               title="Preço justo para todos" 
             />
             <Item 
-              image="/item-thumb.svg" 
+              image={IconThumb} 
               altImg="Ícone de curtir"
               title="Eficiência e sustentabilidade financeira" 
             />
             <Item 
-              image="/item-domain.svg" 
+              image={IconDom}
               altImg="Ícone de prédios"
               title="Criação de um bem coletivo" 
             />
             <Item 
-              image="/item-blur.svg" 
+              image={IconBlur} 
               altImg="Ícone de pontos"
               title="Transparência em toda a plataforma" 
             />
             <Item 
-              image="/item-world.svg" 
+              image={IconWorld} 
               altImg="Ícone de planeta"
               title="Objetivos de Desenvolvimento Sustentáveis" 
               ods={true}

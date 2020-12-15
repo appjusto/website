@@ -21,6 +21,7 @@ import FormMessage from './FormMessage';
 import { usePageContext, handleMessage, handleIndication } from '../context/';
 import useSharingUrlMsg from './share/useSharingUrlMsg';
 
+import Promotion from '../../public/icon-promotion.svg'
 
 const ModalRecommendation: React.FC = () => {
   const [email, setEmail] = useState("")
@@ -112,7 +113,7 @@ const ModalRecommendation: React.FC = () => {
                   h={["60px", null, "80px", "100px"]}
                 >
                   <Image 
-                    src="/icon-promotion.svg"
+                    src={Promotion}
                     alt="Ilustração de auto-falante" 
                     width={100} 
                     height={100} 

@@ -12,6 +12,13 @@ import { Box, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { getCorrectDimension } from '../../../utils'
 
+import Hero1 from '../../../../public/bg-hero1.png'
+import Hero2 from '../../../../public/bg-hero2.png'
+import Hero3 from '../../../../public/bg-hero3.png'
+import HeroMob1 from '../../../../public/bg-mobile-hero1.png'
+import HeroMob2 from '../../../../public/bg-mobile-hero2.png'
+import HeroMob3 from '../../../../public/bg-mobile-hero3.png'
+
 interface SliderImageProps {
   isActive?: boolean
   clientWidth?: number 
@@ -103,31 +110,31 @@ const HeroSlider: React.FC = () => {
       <SliderContainer isMobile={true}>
         <SliderImage 
           isMobile
-          image="/bg-mobile-hero1.png"
+          image={HeroMob1}
           altImg="Entregador numa bicicleta"
         />
         <SliderImage
           isMobile
-          image="/bg-mobile-hero2.png"
+          image={HeroMob2}
           altImg="Vários pratos de comida"
         />
         <SliderImage
           isMobile
-          image="/bg-mobile-hero3.png"
+          image={HeroMob3}
           altImg="Pessoa recebendo uma caixa"
         />
       </SliderContainer>
       <SliderContainer isMobile={false}>
         <SliderImage
-          image="/bg-hero1.png"
+          image={Hero1}
           altImg="Entregador numa bicicleta"
         />
         <SliderImage
-          image="/bg-hero2.png"
+          image={Hero2}
           altImg="Vários pratos de comida"
         />
         <SliderImage
-          image="/bg-hero3.png"
+          image={Hero3}
           altImg="Pessoa recebendo uma caixa"
         />
       </SliderContainer>

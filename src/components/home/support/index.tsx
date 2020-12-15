@@ -4,6 +4,8 @@ import Container from "../../Container";
 import Section from "../../Section";
 import CustomLinkButton from "../../CustomLinkButton";
 
+import Line from '../../../../public/line-vector-g.svg'
+
 const Support: React.FC = () => {
   return (
     <Section
@@ -32,7 +34,7 @@ const Support: React.FC = () => {
             color="white"
           >
             <Image 
-              src="/line-vector-g.svg"
+              src={Line}
               alt="Linha verde" 
               width={544} 
               height={20} 

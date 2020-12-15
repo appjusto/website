@@ -1,5 +1,5 @@
 import { ElementType } from 'react';
-import { Link, Icon, useStyleConfig, LinkProps } from '@chakra-ui/react';
+import { Link, Icon, LinkProps } from '@chakra-ui/react';
 
 interface ShareLinkProps extends LinkProps {
   link: string
@@ -10,11 +10,9 @@ interface ShareLinkProps extends LinkProps {
 const ShareLink: React.FC<ShareLinkProps> = ({
   link, label, icon, ...props
 }) => {
-  //const styles = useStyleConfig("Button", {variant: "basic"})
   return (
     <Link 
       href={link}
-      //sx={styles}
       fontFamily="Barlow"
       fontSize="15px"
       border="2px solid black"

@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { Flex, Box, Text } from '@chakra-ui/react'
 import Link from '../../CustomLink'
 
+import Delivery from '../../../../public/illustration-delivery.svg'
+
 const CallBox: React.FC = () => {
   return (
     <Flex
@@ -22,7 +24,7 @@ const CallBox: React.FC = () => {
         mr="13px"
       >
         <Image 
-          src="/illustration-delivery.svg" 
+          src={Delivery} 
           alt="Ilustração de motocicleta de delivery"
           width={72} 
           height={72} 

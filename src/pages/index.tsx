@@ -9,9 +9,11 @@ import Commitment from '../components/home/commitment'
 import ModalConfirmation from '../components/ModalConfirmation'
 import ModalRecommendation from '../components/ModalRecommendation'
 
+import Logo from '../../public/logo-home.svg'
+
 export default function Home() {
   return (
-    <PageLayout pageName="Home" logo="/logo-home.svg">
+    <PageLayout pageName="Home" logo={Logo}>
       <Hero />
       <Alternative />
       <Numbers />
