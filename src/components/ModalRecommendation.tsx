@@ -1,5 +1,5 @@
-import { useReducer, FormEvent } from 'react'
-import Image from 'next/image'
+import { useState, ChangeEvent, FormEvent } from 'react';
+import Image from 'next/image';
 import {
   Flex,
   Box,
@@ -11,92 +11,40 @@ import {
   ModalCloseButton,
   ModalBody
 } from '@chakra-ui/react'
+import { FaWhatsappSquare } from 'react-icons/fa';
 
-import CustomPhoneInput from './CustomPhoneInput'
-import CustomSelect from './CustomSelect'
-import CustomComboInput from './CustomComboInput'
-import CustomButton from './CustomButton'
+import ShareLink from './share/ShareLink';
+import CustomInput from './CustomInput';
+import CustomButton from './CustomButton';
 import FormMessage from './FormMessage';
 
-import { usePageContext, handleMessage, handleRegistration } from '../context/'
+import { usePageContext, handleMessage, handleRegistration } from '../context/';
+import useSharingUrlMsg from './share/useSharingUrlMsg';
 
-import { ufsList, profileOptions, getCities } from '../utils'
-
-import { registrationReducer } from '../reducers/registrationReducer'
-
-const initialState = {
-  indicatorPhone: "",
-  profile: "",
-  phone: "",
-  uf: "",
-  city: "",
-  isLoadingCities: false,
-  citiesList: [],
-  isSubmiting: false,
-  fieldsAreValid: {
-    indicatorPhone: true,
-    phone: true,
-    uf: true,
-    city: true
-  }
-}
 
 const ModalRecommendation: React.FC = () => {
-  const [state, dispatch] = useReducer(registrationReducer, initialState)
+  const [email, setEmail] = useState("")
+  const [isSubmiting, setIsSubmiting] = useState(false)
   const { contextState, contextDispatch  } = usePageContext()
-  const {
-    indicatorPhone,
-    profile,
-    phone,
-    uf,
-    city,
-    isLoadingCities,
-    citiesList,
-    isSubmiting,
-  } = state
+  const { mainUrl, sharingMsg } = useSharingUrlMsg()
 
   const clearForm = () => {
-    dispatch({type: "clear_state", payload: initialState})
-  }
-
-  const handleUf = async (uf: string) => {
-    dispatch({type: "update_uf", payload: uf})
-    const cities = await getCities(uf)
-    dispatch({type: "populate_cities", payload: cities})
-  }
-
-  const handleCity = (value: string) => 
-    dispatch({type: "update_city", payload: value})
-
-  const handleValidation = (field: string, value: boolean) => {
-    if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
-      dispatch({type: "validation", payload: { field, value}})
-    }
+    setEmail("")
+    setIsSubmiting(false)
   }
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    if(
-      !state.fieldsAreValid.indicatorPhone
-      || !state.fieldsAreValid.phone 
-      || !state.fieldsAreValid.uf 
-      || !state.fieldsAreValid.city
-      ) {
-      return handleMessage(contextDispatch, "Favor preencher corretamente os campos acima.", "recommendation")
-    }
-    dispatch({type: "update_isSubmiting", payload: true})
-    const registrationStatus = await handleRegistration(
+    setIsSubmiting(true)
+    /*const registrationStatus = await handleRegistration(
       contextDispatch, 
       "recommendation", 
-      profile, 
-      phone, 
-      `${city}-${uf}`, 
-      indicatorPhone 
+      email, 
     )
-    dispatch({type: "update_isSubmiting", payload: false})
+    setIsSubmiting(false)
     if(!registrationStatus) {
       return null
-    }
+    }*/
     clearForm()
     contextDispatch(
       {type: "handle_modalConfirmation", payload: "recommendation"}
@@ -123,7 +71,7 @@ const ModalRecommendation: React.FC = () => {
         <ModalOverlay />
         <ModalContent
           maxW="752px"
-          maxH={["100%", null, "600px"]}
+          maxH={["100%", null, "480px"]}
           overflow="auto"
         >
           <ModalCloseButton 
@@ -131,8 +79,8 @@ const ModalRecommendation: React.FC = () => {
             borderRadius="8px"
           />
           <ModalBody 
-            pt={["16px", null, null, "32px"]} 
-            pb={["16px", null, null, "32px"]}
+            pt={["16px", null, null, "24px"]} 
+            pb={["16px", null, null, "60px"]}
             display="flex"
             flexDir="column"
             alignItems="center"  
@@ -144,128 +92,77 @@ const ModalRecommendation: React.FC = () => {
               alignItems="flex-start"
               onSubmit={handleSubmit}
             >
-              <Flex 
-                flexDir="row"
-                justifyContent="flex-start"
-                alignItems="center"  
-                mb="8px"
+              <Flex
+                w="100%"
+                justifyContent="center"
+                alignItems="center"
+                mb="32px"
               >
                 <Box
                   position="relative"
                   mr="16px"
-                  w={["36px", null, null, "48px"]}
-                  h={["36px", null, null, "48px"]}
+                  w={["36px", null, null, "100px"]}
+                  h={["36px", null, null, "100px"]}
                 >
                   <Image 
                     src="/icon-promotion.svg"
                     alt="Ilustração de auto-falante" 
-                    width={48} 
-                    height={48} 
+                    width={100} 
+                    height={100} 
                   />
                 </Box>
-                <Heading 
-                  as="h2"
-                  fontSize={["20px", null, null, "24px"]}
-                  lineHeight={["22px", null, null, "30px"]}  
-                >
-                  Indique o AppJusto
-                </Heading> 
               </Flex>
+              <Heading 
+                as="h2"
+                fontSize={["20px", null, null, "24px"]}
+                lineHeight={["22px", null, null, "30px"]}
+                mb="8px"  
+              >
+                Indique o AppJusto
+              </Heading> 
               <Text 
                 textStyle="p" 
-                fontSize={["14px", null, null, "16px"]}
                 maxW="560px"
+                mb="24px"
               >
-                Agora chegou a hora de divulgar. Quanto mais você divulgar, mais 
-                rápido o AppJusto chegará até você!
+                Indique o AppJusto para amigos, entregadores, restaurantes e todos que desejam um modelo mais justo.
               </Text>
-              <CustomPhoneInput
-                name="indicatorPhone" 
-                id="recommendation-phone"
-                label="Seu celular" 
-                placeHolder="Digite seu celular"
-                value={indicatorPhone}
-                handleChange={
-                  (value: string) => dispatch(
-                    {type: "update_indicatorPhone", payload: value}
-                  )
-                }
-                notifyValidation={handleValidation}
+              <ShareLink
+                link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
+                label="Indique por WhatsApp"
+                icon={FaWhatsappSquare}
+                minHeight="60px"
+                maxW={["100%", null, null, "272px"]}
+                fontSize="18px"
+                lineHeight="26px"
+                mb="14px"   
               />
-              <Text 
-                mt="16px"
-                textStyle="p"
-                fontWeight="700" 
-                maxW="560px"
+              <Flex
+                flexDir={["column", null, "row"]}
+                w="100%"
               >
-                Indicar para:
-              </Text>
-              <CustomSelect 
-                id="recommended-profile"
-                label="Perfil"
-                placeholder="Selecione o perfil"
-                value={profile} 
-                options={profileOptions}
-                handleChange={
-                  (event) => dispatch(
-                    {type: "update_profile", payload: event.target.value}
-                  )
-                }
-              />
-              <CustomPhoneInput
-                name="phone" 
-                id="recommended-phone"
-                label="Celular do indicado"
-                placeHolder="Digite o celular do indicado" 
-                value={phone}
-                handleChange={
-                  (value: string) => 
-                    dispatch({type: "update_phone", payload: value})
-                }
-                notifyValidation={handleValidation}
-              />
-               <Flex
-                  w="100%"
-                  flexDir={["column", null, "row"]}
-                >
-                  <CustomComboInput
-                    name="uf" 
-                    id="recommended-uf"
-                    label="UF"
-                    placeholder="UF"
-                    parentValue={uf}
-                    setParentValue={handleUf}
-                    items={ufsList}
-                    maxW={["auto", null, "100px"]}
-                    maxLength={2}
-                    notifyValidation={handleValidation}
-                  />
-                  <CustomComboInput 
-                    isDisabled={citiesList.length > 0 ? false : true}
-                    isLoading={isLoadingCities}
-                    name="city" 
-                    id="subscribe-city"
-                    label="Cidade"
-                    placeholder="Selecione sua cidade"
-                    parentValue={city}
-                    setParentValue={handleCity}
-                    items={citiesList}
-                    notifyValidation={handleValidation}
-                  />
-                </Flex>
-              <CustomButton 
+                <CustomInput 
+                  type="email"
+                  id="recommended-email"
+                  label="E-mail da indicação"
+                  placeholder="Digite o e-mail da sua indicação"
+                  value={email}
+                  handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                  minW="368px"
+                />
+                <CustomButton 
                   type="submit"
                   label="Indicar agora"
                   variant="secondaryRegistration"
                   maxW="260px"
-                  mt="26px"
                   isSubmiting={isSubmiting} 
                 />
-                {
-                  contextState.registrationMsg.status && 
-                  contextState.registrationMsg.form === "recommendation" && 
-                  <FormMessage />
-                }
+              </Flex> 
+              {
+                contextState.registrationMsg.status && 
+                contextState.registrationMsg.form === "recommendation" && 
+                <FormMessage />
+              }
             </Flex>
           </ModalBody>
         </ModalContent>

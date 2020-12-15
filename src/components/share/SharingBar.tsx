@@ -1,25 +1,13 @@
-import { useState, useEffect } from 'react'
 import { Stack } from '@chakra-ui/react'
 import { 
   FaWhatsappSquare, FaFacebookSquare, FaLinkedin, FaTwitterSquare 
 } from 'react-icons/fa'
 
 import ShareLink from './ShareLink'
+import useSharingUrlMsg from './useSharingUrlMsg'
 
 const SharingBar: React.FC = () => {
-  const [mainUrl, setMainUrl] = useState("")
-  const [sharingMsg, setSharingMsg] = useState("")
-  useEffect(() => {
-    let url = "https://appjusto-ladingpage.vercel.app/"
-    if(process.env.NODE_ENV === "production") {
-      const newUrl = window.location.href
-      const main = newUrl.split("//")[1].split("/")[0]
-      url = `https://${main}`
-    }
-    const message = encodeURIComponent("AppJusto. Mais do que um app de entregas. Somo um movimento por relações mais justas e transparentes. Faça parte agora!")
-    setMainUrl(url)
-    setSharingMsg(message)
-  }, [])
+  const { mainUrl, sharingMsg } = useSharingUrlMsg()
   return (
     <Stack
       w="100%"
