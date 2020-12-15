@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Box, Heading } from '@chakra-ui/react'
 
 import Section from "../../Section";
@@ -48,7 +47,7 @@ const Hero: React.FC = () => {
             maxW="300px"
             mt="-34px"
           >
-            <Image 
+            <img 
               src={Line}
               alt="Linha amarela" 
               width={544} 
@@ -72,7 +71,7 @@ const Hero: React.FC = () => {
           left="0"
           maxW={[null, "240px", null, "510px"]}
         >
-          <Image 
+          <img 
             src="/line-vector-y.svg" 
             alt="Linha amarela" 
             width={544} 

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Flex, Heading, Stack, Text } from '@chakra-ui/react'
 
 interface HelpBoxProps {

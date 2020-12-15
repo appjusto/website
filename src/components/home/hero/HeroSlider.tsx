@@ -7,7 +7,7 @@ import {
   SetStateAction,
   ReactElement
 } from 'react'
-import Image from 'next/image'
+
 import { Box, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { getCorrectDimension } from '../../../utils'

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Flex, Box, Heading, Text, Stack } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";

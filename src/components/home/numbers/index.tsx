@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Flex, Heading, Text, Box } from '@chakra-ui/react'
-import Image from 'next/image'
 
 import Section from "../../Section";
 import Container from '../../Container';

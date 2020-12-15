@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Flex, Box, Heading, Stack } from "@chakra-ui/react";
 
 interface ItemProps {

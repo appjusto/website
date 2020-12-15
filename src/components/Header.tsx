@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Flex, Box, Text } from "@chakra-ui/react";
 import Container from './Container';
 

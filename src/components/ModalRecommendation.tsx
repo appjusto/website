@@ -1,5 +1,4 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
-import Image from 'next/image';
 import {
   Flex,
   Box,

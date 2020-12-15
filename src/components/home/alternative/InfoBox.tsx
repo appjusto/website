@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Flex, Box, Heading, Text, Icon } from '@chakra-ui/react'
 import { BiDownArrowAlt  } from 'react-icons/bi';
 
