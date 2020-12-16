@@ -3,10 +3,10 @@ import {
   Flex,
   Box,
   Heading,
-  Text, 
-  Modal, 
-  ModalOverlay, 
-  ModalContent, 
+  Text,
+  Modal,
+  ModalOverlay,
+  ModalContent,
   ModalCloseButton,
   ModalBody
 } from '@chakra-ui/react'
@@ -17,7 +17,7 @@ import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 import FormMessage from './FormMessage';
 
-import { usePageContext, handleMessage, handleIndication } from '../context/';
+import { usePageContext, handleMessage } from '../context/';
 import useSharingUrlMsg from './share/useSharingUrlMsg';
 
 import Promotion from '../../public/icon-promotion.svg'
@@ -25,10 +25,10 @@ import Promotion from '../../public/icon-promotion.svg'
 const ModalRecommendation: React.FC = () => {
   const [email, setEmail] = useState("")
   const [isSubmiting, setIsSubmiting] = useState(false)
-  const { 
-    contextState, 
-    contextDispatch, 
-    dbIndicationsRef, 
+  const {
+    contextState,
+    contextDispatch,
+    handleIndication
   } = usePageContext()
   const { mainUrl, sharingMsg } = useSharingUrlMsg()
 
@@ -40,11 +40,7 @@ const ModalRecommendation: React.FC = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const indicationStatus = await handleIndication(
-      contextDispatch, 
-      dbIndicationsRef, 
-      email, 
-    )
+    const indicationStatus = await handleIndication(email)
     setIsSubmiting(false)
     if(!indicationStatus) {
       return null
@@ -63,11 +59,11 @@ const ModalRecommendation: React.FC = () => {
   }
 
   return (
-    <Modal 
+    <Modal
       id="ModalRecommendation"
       size="full"
-      blockScrollOnMount={true} 
-      isOpen={contextState.showModalRecommendation} 
+      blockScrollOnMount={true}
+      isOpen={contextState.showModalRecommendation}
       onClose={handleClose}
       closeOnOverlayClick={true}
       isCentered
@@ -80,16 +76,16 @@ const ModalRecommendation: React.FC = () => {
           display="flex"
           alignItems="center"
         >
-          <ModalCloseButton 
+          <ModalCloseButton
             border="2px solid black"
             borderRadius="8px"
           />
-          <ModalBody 
-            p="24px" 
+          <ModalBody
+            p="24px"
             display="flex"
             flexDir="column"
             alignItems="center"
-            maxW={[null, null, null, "560px"]}  
+            maxW={[null, null, null, "560px"]}
           >
             <Flex
               as="form"
@@ -111,24 +107,24 @@ const ModalRecommendation: React.FC = () => {
                   w={["60px", null, "80px", "100px"]}
                   h={["60px", null, "80px", "100px"]}
                 >
-                  <img 
+                  <img
                     src={Promotion}
-                    alt="Ilustração de auto-falante" 
-                    width={100} 
-                    height={100} 
+                    alt="Ilustração de auto-falante"
+                    width={100}
+                    height={100}
                   />
                 </Box>
               </Flex>
-              <Heading 
+              <Heading
                 as="h2"
                 fontSize={["20px", null, null, "24px"]}
                 lineHeight={["22px", null, null, "30px"]}
-                mb="8px"  
+                mb="8px"
               >
                 Indique o AppJusto
-              </Heading> 
-              <Text 
-                textStyle="p" 
+              </Heading>
+              <Text
+                textStyle="p"
                 maxW="560px"
                 mb="22px"
               >
@@ -145,13 +141,13 @@ const ModalRecommendation: React.FC = () => {
                 fontSize="18px"
                 lineHeight="26px"
                 fontWeight="700"
-                mb="12px"   
+                mb="12px"
               />
               <Flex
                 flexDir={["column", null, "row"]}
                 w="100%"
               >
-                <CustomInput 
+                <CustomInput
                   type="email"
                   id="recommended-email"
                   label="E-mail da indicação"
@@ -161,18 +157,18 @@ const ModalRecommendation: React.FC = () => {
                   minW={[null, null, "340px"]}
                   mb={["16px", null, "0"]}
                 />
-                <CustomButton 
+                <CustomButton
                   type="submit"
                   label="Indicar agora"
                   variant="secondaryRegistration"
                   maxW={["100%", null, "260px"]}
                   ml={[null, null, "16px", "0"]}
-                  isSubmiting={isSubmiting} 
+                  isSubmiting={isSubmiting}
                 />
-              </Flex> 
+              </Flex>
               {
-                contextState.registrationMsg.status && 
-                contextState.registrationMsg.form === "recommendation" && 
+                contextState.registrationMsg.status &&
+                contextState.registrationMsg.form === "recommendation" &&
                 <FormMessage />
               }
             </Flex>

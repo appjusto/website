@@ -7,10 +7,10 @@ import firebase from '../../firebaseApp';
 import { PageContextProvider } from '../context';
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
+ /* useEffect(() => {
     // Analytics initialization for 'next export' apps
     firebase.analytics();
-  }, [])
+  }, [])*/
   return (
     <PageContextProvider>
       <ThemeProvider theme={theme}>

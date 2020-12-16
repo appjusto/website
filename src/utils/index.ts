@@ -40,3 +40,56 @@ export const getCorrectDimension = (dim: string, range = 2000) => {
     }, 50);
   });
 };
+
+export const findEmail = (dbRef: any, email: string) => {
+  const query = dbRef
+    .where('email', '==', email)
+    .get()
+    .then(snapshot => {
+      if (snapshot.empty) {
+        return true;
+      } else {
+        return false
+      }
+    })
+    .catch(err => {
+      console.log('Error getting documents', err)
+      return false;
+    });
+    return query
+}
+
+export const findPhone = (dbRef: any, phone: string, profile: string) => {
+  const query = dbRef
+    .where('phone', '==', phone)
+    .where('profile', '==', profile)
+    .get()
+    .then(snapshot => {
+      if (snapshot.empty) {
+        return true;
+      } else {
+        return false
+      }
+    })
+    .catch(err => {
+      console.log('Error getting documents', err)
+      return false;
+    });
+    return query
+}
+
+export const findCity = (dbRef: any, city: string) => {
+  const query = dbRef.where('city', '==', city).get()
+    .then(snapshot => {
+      if (snapshot.empty) {
+        return true;
+      } else {
+        return false
+      }
+    })
+    .catch(err => {
+      console.log('Error getting documents', err)
+      return false;
+    });
+    return query
+}

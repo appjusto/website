@@ -1,5 +1,5 @@
-import { 
-  useReducer, useEffect, useLayoutEffect, useRef, ChangeEvent, FormEvent 
+import {
+  useReducer, useEffect, useLayoutEffect, useRef, ChangeEvent, FormEvent
 }from 'react'
 import { Flex, Heading, Text } from "@chakra-ui/react"
 
@@ -9,12 +9,12 @@ import CustomComboInput from '../../CustomComboInput'
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
 
-import { 
-  usePageContext, handleMessage, handleRegistration 
+import {
+  usePageContext, handleMessage
 } from '../../../context'
 
-import { 
-  ufsList, getCities, profileOptions, getCorrectDimension 
+import {
+  ufsList, getCities, profileOptions, getCorrectDimension
 } from '../../../utils'
 
 import { registrationReducer, Actions } from '../../../reducers/registrationReducer'
@@ -43,7 +43,7 @@ const RegistrationBox: React.FC = () => {
     isSubmiting,
     fixedHeader,
   } = state
-  const { contextState, contextDispatch, dbRegistrationsRef, dbSummaryRef  } = usePageContext()
+  const { contextState, contextDispatch, handleRegistration } = usePageContext()
   const isMountedRef = useRef(false);
 
   useLayoutEffect(() => {
@@ -70,7 +70,7 @@ const RegistrationBox: React.FC = () => {
   function handleResizing() {
     return dispatch({type: "update_fixedHeader", payload: false})
   }
-  
+
   async function handleScroll() {
     const width = await getCorrectDimension("width")
     if(width > 1000) {
@@ -89,8 +89,8 @@ const RegistrationBox: React.FC = () => {
   const handleUf = (uf: string) => {
     dispatch({type: "update_uf", payload: uf})
   }
-  
-  const handleCity = (value: string) => 
+
+  const handleCity = (value: string) =>
     dispatch({type: "update_city", payload: value})
 
   const handleValidation = async (field: string, value: boolean) => {
@@ -103,28 +103,25 @@ const RegistrationBox: React.FC = () => {
       dispatch({type: "populate_cities", payload: cities})
     }
   }
-  
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     if(
-      !state.fieldsAreValid.phone 
-      || !state.fieldsAreValid.uf 
+      !state.fieldsAreValid.phone
+      || !state.fieldsAreValid.uf
       || !state.fieldsAreValid.city
       ) {
       return handleMessage(
         contextDispatch,
-        "Favor preencher corretamente os campos acima.", 
+        "Favor preencher corretamente os campos acima.",
         "registration"
       )
     }
     dispatch({type: "update_isSubmiting", payload: true})
     const registrationStatus = await handleRegistration(
-      contextDispatch, 
-      dbRegistrationsRef, 
-      dbSummaryRef, 
-      profile, 
-      phone, 
-      `${city}-${uf}` 
+      profile,
+      phone,
+      `${city}-${uf}`
     )
     dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
@@ -134,7 +131,7 @@ const RegistrationBox: React.FC = () => {
     return contextDispatch({ type: "handle_modalConfirmation", payload: "subscribe"})
   }
   return (
-    <Flex 
+    <Flex
       position={fixedHeader ? "fixed" : "relative"}
       top={fixedHeader ? "0" : null}
       left={fixedHeader ? "0" : null}
@@ -153,19 +150,19 @@ const RegistrationBox: React.FC = () => {
         maxW="1104px"
         p={fixedHeader ? "0 24px 16px" : "24px"}
       >
-        <Heading 
-          as="h2" 
-          fontSize="24px" 
-          display={fixedHeader ? "none" : "block"}  
+        <Heading
+          as="h2"
+          fontSize="24px"
+          display={fixedHeader ? "none" : "block"}
         >
           Faça o pré-cadastro agora e entre nesse movimento!
         </Heading>
-        <Text 
-          fontSize="16px" 
+        <Text
+          fontSize="16px"
           fontFamily="Barlow"
           display={fixedHeader ? "none" : "block"}
         >
-          Ao fazer o pré-cadastro, você autoriza o envio de nossas comunicações 
+          Ao fazer o pré-cadastro, você autoriza o envio de nossas comunicações
           para o número cadastrado.
         </Text>
         <Flex
@@ -173,24 +170,24 @@ const RegistrationBox: React.FC = () => {
           flexDir={["column", null, null, "row"]}
           onSubmit={handleSubmit}
         >
-          <CustomSelect 
+          <CustomSelect
             id="subscribe-profile"
             label="Perfil"
             placeholder="Selecione seu perfil"
             value={profile}
             handleChange={
-              (event: ChangeEvent<HTMLSelectElement>) => 
+              (event: ChangeEvent<HTMLSelectElement>) =>
                 dispatch({type: "update_profile", payload: event.target.value})
             }
             options={profileOptions}
           />
-          <CustomPhoneInput 
+          <CustomPhoneInput
             name="phone"
             id="subscribe-phone"
-            label="Celular" 
+            label="Celular"
             placeHolder="Digite seu celular"
             value={phone}
-            handleChange={(value: string) => 
+            handleChange={(value: string) =>
               dispatch({type: "update_phone", payload: value})}
             notifyValidation={handleValidation}
           />
@@ -200,7 +197,7 @@ const RegistrationBox: React.FC = () => {
             flexDir={["column", null, "row"]}
           >
             <CustomComboInput
-              name="uf" 
+              name="uf"
               id="subscribe-uf"
               label="UF"
               placeholder="UF"
@@ -211,10 +208,10 @@ const RegistrationBox: React.FC = () => {
               maxLength={2}
               notifyValidation={handleValidation}
             />
-            <CustomComboInput 
+            <CustomComboInput
               isDisabled={citiesList.length > 0 ? false : true}
               isLoading={isLoadingCities}
-              name="city" 
+              name="city"
               id="subscribe-city"
               label="Cidade"
               placeholder="Selecione sua cidade"
@@ -224,16 +221,16 @@ const RegistrationBox: React.FC = () => {
               notifyValidation={handleValidation}
             />
           </Flex>
-          <CustomButton 
+          <CustomButton
             type="submit"
-            label="Fazer pré-cadastro" 
-            variant="secondaryRegistration" 
-            isSubmiting={isSubmiting}  
+            label="Fazer pré-cadastro"
+            variant="secondaryRegistration"
+            isSubmiting={isSubmiting}
           />
         </Flex>
         {
-          contextState.registrationMsg.status && 
-          contextState.registrationMsg.form === "registration" && 
+          contextState.registrationMsg.status &&
+          contextState.registrationMsg.form === "registration" &&
           <FormMessage />
         }
       </Flex>

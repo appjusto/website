@@ -19,10 +19,10 @@ if (!firebase.apps.length) {
   firebase.initializeApp(clientCredentials);
 }
 // Check that `window` is in scope for the analytics module!
-if (typeof window !== "undefined" && !firebase.apps.length) {
+//if (typeof window !== "undefined" && !firebase.apps.length) {
   //To enable analytics. https://firebase.google.com/docs/analytics/get-started
-  if ("measurementId" in clientCredentials) firebase.analytics();
-}
+  //if ("measurementId" in clientCredentials) firebase.analytics();
+//}
 
 export const db = firebase.firestore();
 export default firebase;
