@@ -1,5 +1,5 @@
 interface SeoProps {
-  canonical_url: string;
+  canonical_url: string
   metaDescription: string;
   title: string;
   author: string;
@@ -18,7 +18,7 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       name: `image`,
-      content: `https://appjusto-ladingpage.vercel.app/bg-hero1.png`,
+      content: `${canonical_url}/bg-hero1.png`,
     },
     {
       property: `og:title`,
@@ -34,11 +34,11 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `og:image`,
-      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
+      content: `${canonical_url}/share-social.png`,
     },
     {
       property: `og:image:secure_url`,
-      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
+      content: `${canonical_url}/share-social.png`,
     },
     {
       property: `og:image:type`,
@@ -74,11 +74,11 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `twitter:image`,
-      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
+      content: `${canonical_url}/share-social.png`,
     },
     {
       property: `twitter:image:src`,
-      content: `https://appjusto-ladingpage.vercel.app/share-social.png`,
+      content: `${canonical_url}/share-social.png`,
     },
     {
       property: `twitter:image:width`,

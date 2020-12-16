@@ -1,36 +1,36 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" 
-  xmlns:xhtml="http://www.w3.org/1999/xhtml" 
-  xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" 
-  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
   xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://appjusto-ladingpage.vercel.app/</loc>
+    <loc>https://appjusto.com.br/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://appjusto-ladingpage.vercel.app/sobre-o-appjusto</loc>
+    <loc>https://appjusto.com.br/sobre-o-appjusto</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://appjusto-ladingpage.vercel.app/conheca-a-rede</loc>
+    <loc>https://appjusto.com.br/conheca-a-rede</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://appjusto-ladingpage.vercel.app/politica-de-privacidade</loc>
+    <loc>https://appjusto.com.br/politica-de-privacidade</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://appjusto-ladingpage.vercel.app/termos-de-uso</loc>
+    <loc>https://appjusto.com.br/termos-de-uso</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://appjusto-ladingpage.vercel.app/transparencia</loc>
+    <loc>https://appjusto.com.br/transparencia</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

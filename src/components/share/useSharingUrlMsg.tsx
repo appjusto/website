@@ -4,7 +4,7 @@ const useSharingUrlMsg = () => {
   const [mainUrl, setMainUrl] = useState("")
   const [sharingMsg, setSharingMsg] = useState("")
   useEffect(() => {
-    let url = "https://appjusto-ladingpage.vercel.app/"
+    let url = "https://app-justo-site.web.app/"
     if(process.env.NODE_ENV === "production") {
       const newUrl = window.location.href
       const main = newUrl.split("//")[1].split("/")[0]
