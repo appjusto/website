@@ -6,7 +6,7 @@ interface StateProps {
   registrationMsg: {status: boolean, form: string, message: string}
 }
 
-export type Actions = 
+export type Actions =
   | { type: 'update_message'; payload: {message: string, form?: string} }
   | { type: 'handle_modalConfirmation'; payload: string }
   | { type: 'handle_modalRecommendation' }
