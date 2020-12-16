@@ -1,7 +1,9 @@
 import { ThemeProvider, CSSReset } from '@chakra-ui/react';
 import theme from '../styles/theme';
 
-import { PageContextProvider } from '../context'
+import firebase from '../../firebaseApp';
+
+import { PageContextProvider } from '../context';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         <CSSReset />
         <Component {...pageProps} />
       </ThemeProvider>
-    </PageContextProvider>  
+    </PageContextProvider>
   )
 }
 

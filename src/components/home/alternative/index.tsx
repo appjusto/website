@@ -1,13 +1,13 @@
-import { Flex, Box, Heading, Text, Stack } from "@chakra-ui/react";
-import Container from "../../Container";
-import Section from "../../Section";
+import { Flex, Box, Heading, Text, Stack } from '@chakra-ui/react';
+import Container from '../../Container';
+import Section from '../../Section';
 import InfoBox from './InfoBox';
 
-import Line from '../../../../public/line-vector-g.svg'
-import WeAre from '../../../../public/alternativa.svg'
-import Couriers from '../../../../public/infobox-entregadores.png'
-import Clients from '../../../../public/infobox-clientes.png'
-import Restaurants from '../../../../public/infobox-restaurantes.png'
+import Line from '../../../../public/line-vector-g.svg';
+import WeAre from '../../../../public/alternativa.svg';
+import Couriers from '../../../../public/infobox-entregadores.png';
+import Clients from '../../../../public/infobox-clientes.png';
+import Restaurants from '../../../../public/infobox-restaurantes.png';
 
 const Alternative: React.FC = () => {
   return (

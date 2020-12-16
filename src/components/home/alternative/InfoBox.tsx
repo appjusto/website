@@ -1,4 +1,4 @@
-import { Flex, Box, Heading, Text, Icon } from '@chakra-ui/react'
+import { Flex, Box, Heading, Text, Icon } from '@chakra-ui/react';
 import { BiDownArrowAlt  } from 'react-icons/bi';
 
 interface InfoBoxProps{
@@ -31,7 +31,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, altImg, title, textArray }) =>
       >
         <img src={image} width={96} height={96} alt={altImg}/>
       </Box>
-      <Heading 
+      <Heading
         as="h3"
         display="flex"
         flexDir="column"
@@ -80,7 +80,6 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, altImg, title, textArray }) =>
             )
           )
         }
-        
       </Flex>
     </Flex>
   );
