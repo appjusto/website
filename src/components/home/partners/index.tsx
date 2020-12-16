@@ -17,9 +17,9 @@ const Partners: React.FC = () => {
         flexDir="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        pb={["62px", null, null, "64px"]} 
+        pb={["62px", null, null, "64px"]}
       >
-        <Heading 
+        <Heading
           as="h2"
           fontSize={["24px", null, null, "32px"]}
           lineHeight={["28,8px", null, null, "48px"]}
@@ -27,7 +27,7 @@ const Partners: React.FC = () => {
         >
           Quem está com a gente nessa:
         </Heading>
-        <Stack 
+        <Stack
           w="100%"
           direction="row"
           spacing={0}
@@ -35,23 +35,23 @@ const Partners: React.FC = () => {
           p="8px 0"
           mb="24px"
         >
-          <PartnerBox 
+          <PartnerBox
             image={Abrasel}
             altImg="Logo Abrasel"
-            width={147} 
-            height={64} 
+            width={147}
+            height={64}
           />
-          <PartnerBox 
+          <PartnerBox
             image={Iugu}
             altImg="Logo Iugu"
-            width={132} 
-            height={54} 
+            width={132}
+            height={54}
           />
-          <PartnerBox 
-            image={ColPin} 
+          <PartnerBox
+            image={ColPin}
             altImg="Logo Coletivo Pinheiros"
-            width={107} 
-            height={105} 
+            width={107}
+            height={105}
           />
         </Stack>
         <Text
@@ -59,10 +59,11 @@ const Partners: React.FC = () => {
           lineHeight="26px"
           textStyle="p"
         >
-          Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas, 
+          Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas,
           entre sócios, colaboradores e voluntários.
         </Text>
-        <Link 
+        <Link
+          name="go-to-network"
           link="/conheca-a-rede"
           linkLabel="Conheça a nossa rede completa"
           internal={true}

@@ -1,19 +1,24 @@
 import NextLink from 'next/link'
 import { Link, LinkProps } from '@chakra-ui/react'
 
+import { usePageContext } from '../context'
+
 interface CustomLinkProps extends LinkProps {
+  name: string
   link: string
   linkLabel?: string
   internal?: boolean
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
-  link, linkLabel, internal, children, ...props
+  name, link, linkLabel, internal, children, ...props
 }) => {
+  const { safeAnalytics } = usePageContext()
+
   if(internal) {
     return (
       <NextLink href={link} passHref>
-        <Link 
+        <Link
           textDecoration="underline"
           _hover={{color: "#055AFF"}}
           {...props}
@@ -24,12 +29,13 @@ const CustomLink: React.FC<CustomLinkProps> = ({
     )
   }
   return (
-    <Link 
+    <Link
       href={link}
       textDecoration="underline"
       _hover={{color: "#055AFF"}}
       _focus={{outline: "none"}}
       {...props}
+      onClick={() => safeAnalytics(name)}
       isExternal
     >
       {

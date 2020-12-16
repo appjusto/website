@@ -39,34 +39,37 @@ const Footer: React.FC = () => {
             display={["block", null, null, "none"]}
           >
             <Link
+              name="go_to_linkedin_footer"
               link="https://www.linkedin.com/company/appjusto/"
               isExternal
               mr="28px"
               color="primary"
             >
-              <Icon as={FaLinkedin} 
+              <Icon as={FaLinkedin}
                 w="20px"
                 h="20px"
               />
             </Link>
             <Link
+              name="go_to_facebook_footer"
               link="https://www.facebook.com/appjusto"
               isExternal
               mr="28px"
               color="primary"
             >
-              <Icon as={FaFacebookSquare} 
+              <Icon as={FaFacebookSquare}
                 w="20px"
                 h="20px"
               />
             </Link>
             <Link
+              name="go_to_instagram_footer"
               link="https://www.instagram.com/appjusto/"
               isExternal
               mr="28px"
               color="primary"
             >
-              <Icon as={FaInstagram} 
+              <Icon as={FaInstagram}
                 w="20px"
                 h="20px"
               />
@@ -80,13 +83,14 @@ const Footer: React.FC = () => {
             mb={["22px", null, null, "0"]}
             mr={["0", null, null, "26px"]}
           >
-            <Icon as={MdMailOutline} 
-              color="primary" 
+            <Icon as={MdMailOutline}
+              color="primary"
               mr="12px"
               w="20px"
               h="20px"
             />
             <Link
+              name="contact_footer"
               link="mailto:contato@appjusto.com.br"
               linkLabel="contato@appjusto.com.br"
               internal={false}
@@ -101,37 +105,40 @@ const Footer: React.FC = () => {
             display={["none", null, null, "block"]}
           >
             <Link
+              name="go_to_linkedin_footer"
               link="https://www.linkedin.com/company/appjusto/"
               isExternal
               mr="28px"
               color="primary"
               aria-label="Conheça nossa página no Linkedin"
             >
-              <Icon as={FaLinkedin} 
+              <Icon as={FaLinkedin}
                 w="20px"
                 h="20px"
               />
             </Link>
             <Link
+              name="go_to_facebook_footer"
               link="https://www.facebook.com/appjusto"
               isExternal
               mr="28px"
               color="primary"
               aria-label="Conheça nossa página no Facebook"
             >
-              <Icon as={FaFacebookSquare} 
+              <Icon as={FaFacebookSquare}
                 w="20px"
                 h="20px"
               />
             </Link>
             <Link
+              name="go_to_instagram_footer"
               link="https://www.instagram.com/appjusto/"
               isExternal
               mr="28px"
               color="primary"
               aria-label="Conheça nossa página no Instagram"
             >
-              <Icon as={FaInstagram} 
+              <Icon as={FaInstagram}
                 w="20px"
                 h="20px"
               />
@@ -147,24 +154,26 @@ const Footer: React.FC = () => {
           alignItems={["flex-start", null, null, "flex-end"]}
           color="white"
         >
-          <Link 
+          <Link
+            name="policy_footer"
             link="/politica-de-privacidade"
             linkLabel="Política de privacidade"
             internal={true}
-            mb={["22px", null, null, "0"]} 
+            mb={["22px", null, null, "0"]}
             fontSize="15px"
             mr={["0", null, null, "16px"]}
           />
-          <Link 
+          <Link
+            name="terms_footer"
             link="/termos-de-uso"
             linkLabel="Termos de uso"
             internal={true}
-            mb={["22px", null, null, "0"]} 
+            mb={["22px", null, null, "0"]}
             fontSize="15px"
             mr={["0", null, null, "16px"]}
           />
-          <Text 
-            mb={["22px", null, null, "0"]} 
+          <Text
+            mb={["22px", null, null, "0"]}
             fontSize="15px"
             >
             © {new Date().getFullYear()} AppJusto. Marca Registrada.

@@ -22,11 +22,11 @@ const CallBox: React.FC = () => {
         h="72px"
         mr="13px"
       >
-        <img 
-          src={Delivery} 
+        <img
+          src={Delivery}
           alt="Ilustração de motocicleta de delivery"
-          width={72} 
-          height={72} 
+          width={72}
+          height={72}
         />
       </Box>
       <Flex
@@ -44,7 +44,8 @@ const CallBox: React.FC = () => {
           Seja um parceiro <br/>
           do AppJusto
         </Text>
-        <Link 
+        <Link
+          name="call-box-contact"
           link="/"
           linkLabel="Entre em contato"
           internal={true}
