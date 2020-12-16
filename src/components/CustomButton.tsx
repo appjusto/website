@@ -11,13 +11,13 @@ interface Props extends ButtonProps {
   handleClick?: () => void
 }
 
-const CustomButton: React.FC<Props> = ({ 
-  label, 
-  variant, 
+const CustomButton: React.FC<Props> = ({
+  label,
+  variant,
   link,
-  isSubmiting, 
-  handleClick, 
-  ...props 
+  isSubmiting,
+  handleClick,
+  ...props
 }) => {
   const styles = useStyleConfig("Button", {variant})
   if(link) {

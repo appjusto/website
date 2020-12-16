@@ -134,6 +134,7 @@ const ModalRecommendation: React.FC = () => {
                 link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
                 label="Indique por WhatsApp"
                 icon={FaWhatsappSquare}
+                indication={true}
                 justifyContent="flex-start"
                 minHeight="60px"
                 maxW={["100%", null, "272px"]}

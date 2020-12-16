@@ -6,13 +6,29 @@ import { usePageContext } from '../../context'
 interface ShareLinkProps extends LinkProps {
   link: string
   label: string
+  indication?: boolean
   icon: ElementType<any>
 }
 
 const ShareLink: React.FC<ShareLinkProps> = ({
-  link, label, icon, ...props
+  link, label, indication = false, icon, ...props
 }) => {
   const { safeAnalytics } = usePageContext()
+  let analyticsEvent = ""
+  let prefix = "share_on"
+  if(indication) {
+    prefix = "indication"
+  }
+  const labelLow = label.toLowerCase()
+  if(labelLow.includes("whatsapp")) {
+    analyticsEvent = `${prefix}_whatsapp`
+  } else if (labelLow.includes("facebook")) {
+    analyticsEvent = `${prefix}_facebook`
+  } else if (labelLow.includes("twitter")) {
+    analyticsEvent = `${prefix}_twitter`
+  } else {
+    analyticsEvent = `${prefix}_linkedin`
+  }
   return (
     <Link
       href={link}
@@ -27,7 +43,7 @@ const ShareLink: React.FC<ShareLinkProps> = ({
       flexDir="row"
       justifyContent="center"
       alignItems="center"
-      onClick={() => safeAnalytics(`share_on_${label.toLowerCase()}`)}
+      onClick={() => safeAnalytics(analyticsEvent)}
       {...props}
       isExternal
     >

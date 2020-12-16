@@ -91,7 +91,7 @@ export const PageContextProvider = (props) => {
         return false
       }
       dbIndicationsRef.add({ email, created_at: FieldValue.serverTimestamp()})
-      safeAnalytics("indication")
+      safeAnalytics("indication_email")
       return true
     } catch (error) {
       safeAnalytics("indication_error", {error})
