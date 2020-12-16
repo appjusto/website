@@ -91,8 +91,10 @@ export const PageContextProvider = (props) => {
         return false
       }
       dbIndicationsRef.add({ email, created_at: FieldValue.serverTimestamp()})
+      safeAnalytics("indication")
       return true
     } catch (error) {
+      safeAnalytics("indication_error", {error})
       handleMessage(contextDispatch, "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.", "recommendation")
       return false
     }

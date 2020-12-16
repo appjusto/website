@@ -1,6 +1,8 @@
 import { ElementType } from 'react';
 import { Link, Icon, LinkProps } from '@chakra-ui/react';
 
+import { usePageContext } from '../../context'
+
 interface ShareLinkProps extends LinkProps {
   link: string
   label: string
@@ -10,8 +12,9 @@ interface ShareLinkProps extends LinkProps {
 const ShareLink: React.FC<ShareLinkProps> = ({
   link, label, icon, ...props
 }) => {
+  const { safeAnalytics } = usePageContext()
   return (
-    <Link 
+    <Link
       href={link}
       fontFamily="Barlow"
       fontSize="15px"
@@ -24,6 +27,7 @@ const ShareLink: React.FC<ShareLinkProps> = ({
       flexDir="row"
       justifyContent="center"
       alignItems="center"
+      onClick={() => safeAnalytics(`share_on_${label.toLowerCase()}`)}
       {...props}
       isExternal
     >
