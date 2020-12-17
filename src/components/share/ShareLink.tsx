@@ -34,6 +34,7 @@ const ShareLink: React.FC<ShareLinkProps> = ({
       href={link}
       fontFamily="Barlow"
       fontSize="15px"
+      fontWeight="700"
       border="2px solid black"
       borderRadius="8px"
       w="100%"

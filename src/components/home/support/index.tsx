@@ -77,7 +77,7 @@ const Support: React.FC = () => {
           />
           <CustomLinkButton
             name="jobs"
-            link="mailto:vagas@appjusto.com.br"
+            link="https://www.linkedin.com/company/appjusto/jobs/"
             linkLabel="Quero trabalhar com vocês"
             variant="basic"
             bg="white"
