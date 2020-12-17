@@ -8,10 +8,10 @@ interface StateProps {
 }
 
 export type Actions =
-  | { type: 'update_message'; payload: {message: string, form?: string} }
+  | { type: 'update_message'; payload: {message: string, form?: string}}
   | { type: 'handle_modalConfirmation'; payload: string }
   | { type: 'handle_modalRecommendation' }
-  | { type: 'handle_cookiesBar' }
+  | { type: 'handle_cookiesBar', payload: { consent: boolean }}
 
 export const pageContextReducer = (state: StateProps, action: Actions): StateProps => {
   switch (action.type) {
@@ -29,10 +29,19 @@ export const pageContextReducer = (state: StateProps, action: Actions): StatePro
         };
       };
     case 'handle_cookiesBar':
+      if(action.payload.consent === false) {
         return {
           ...state,
-          showCookiesBar: !state.showCookiesBar,
+          showCookiesBar: true,
         };
+      } else {
+        const item = { date: new Date().getTime(), policyVersion: "0", consentStatus: true }
+        localStorage.setItem("appjusto_policy_consent", JSON.stringify(item))
+        return {
+          ...state,
+          showCookiesBar: false,
+        };
+      }
     case 'handle_modalConfirmation':
       const type = action.payload
       return {

@@ -229,7 +229,7 @@ const RegistrationBox: React.FC = () => {
           />
         </Flex>
         {
-          contextState.registrationMsg.status &&
+          contextState?.registrationMsg.status &&
           contextState.registrationMsg.form === "registration" &&
           <FormMessage />
         }

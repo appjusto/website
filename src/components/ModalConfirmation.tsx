@@ -1,9 +1,9 @@
 import {
   Flex,
-  Box, 
-  Modal, 
-  ModalOverlay, 
-  ModalContent, 
+  Box,
+  Modal,
+  ModalOverlay,
+  ModalContent,
   ModalCloseButton,
   ModalBody,
   Heading,
@@ -19,13 +19,16 @@ import Thanks from '../../public/obrigado.svg'
 
 const ModalConfirmation: React.FC = () => {
   const { contextState, contextDispatch  } = usePageContext()
-  const { type } = contextState.showModalConfirmation
+  let type = ""
+  if(contextState) {
+    type = contextState.showModalConfirmation.type
+  }
   return (
-    <Modal 
+    <Modal
       id="ModalConfirmation"
       size="full"
-      blockScrollOnMount={true} 
-      isOpen={contextState.showModalConfirmation.show} 
+      blockScrollOnMount={true}
+      isOpen={contextState?.showModalConfirmation.show || false}
       onClose={() => contextDispatch(
         { type: "handle_modalConfirmation", payload: ""}
       )}
@@ -37,7 +40,7 @@ const ModalConfirmation: React.FC = () => {
           maxW={[null, null, "690px", "752px"]}
           maxH={[null, null, "538px"]}
         >
-          <ModalCloseButton 
+          <ModalCloseButton
             border="2px solid black"
             borderRadius="8px"
             zIndex="100"
@@ -53,10 +56,10 @@ const ModalConfirmation: React.FC = () => {
                 maxW="260px"
                 mr="-120px"
               >
-                <img 
+                <img
                   src={BigUser}
-                  alt="Ilustração de uma mão entregando uma caixa para outra mão" 
-                  width={275} 
+                  alt="Ilustração de uma mão entregando uma caixa para outra mão"
+                  width={275}
                   height={200}
                 />
               </Box>
@@ -65,45 +68,45 @@ const ModalConfirmation: React.FC = () => {
                   <Box
                     position="relative"
                   >
-                    <img 
+                    <img
                       src={Thanks}
-                      alt="Obrigado!" 
-                      width={213} 
+                      alt="Obrigado!"
+                      width={213}
                       height={53}
                     />
                   </Box>
                 )
               }
-              <Heading 
+              <Heading
                 as="h2"
                 fontSize="24px"
                 lineHeight="30px"
                 textAlign="center"
                 mt={type === "sharing" ? "32px" : "8px"}
-                mb="16px"  
+                mb="16px"
               >
                 { type === "registration" && "Bem vindo ao movimento ;)" }
                 { type === "recommendation" && "Indicação enviada com sucesso" }
                 { type === "sharing" && "Divulgar o AppJusto" }
               </Heading>
-              <Text 
-                textStyle="p" 
-                textAlign="center" 
+              <Text
+                textStyle="p"
+                textAlign="center"
                 maxW="560px"
                 mb="22px"
               >
-                { type === "registration" ? 
-                  "Estamos dedicados a construção dessa plataforma, e sua ajuda é fundamental para formar a nossa rede. Você receberá um aviso quando estivermos por perto." 
+                { type === "registration" ?
+                  "Estamos dedicados a construção dessa plataforma, e sua ajuda é fundamental para formar a nossa rede. Você receberá um aviso quando estivermos por perto."
                   :
                   "Agora chegou a hora de divulgar. Quanto mais você divulgar, mais rápido o AppJusto chegará até você!"
                 }
               </Text>
               {
                 type === "registration" &&
-                <Text 
-                  textStyle="p" 
-                  fontWeight="700" 
-                  mb="22px" 
+                <Text
+                  textStyle="p"
+                  fontWeight="700"
+                  mb="22px"
                   textAlign="center"
                 >
                   Quer ajudar mais? Divulgue para amigos, restaurantes e entregadores!

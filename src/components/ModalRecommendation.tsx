@@ -63,7 +63,7 @@ const ModalRecommendation: React.FC = () => {
       id="ModalRecommendation"
       size="full"
       blockScrollOnMount={true}
-      isOpen={contextState.showModalRecommendation}
+      isOpen={contextState?.showModalRecommendation || false}
       onClose={handleClose}
       closeOnOverlayClick={true}
       isCentered
@@ -168,7 +168,7 @@ const ModalRecommendation: React.FC = () => {
                 />
               </Flex>
               {
-                contextState.registrationMsg.status &&
+                contextState?.registrationMsg.status &&
                 contextState.registrationMsg.form === "recommendation" &&
                 <FormMessage />
               }

@@ -28,7 +28,7 @@ export default function Home() {
       <ModalConfirmation />
       <ModalRecommendation />
       {
-        contextState.showCookiesBar && <CookiesBar />
+        contextState?.showCookiesBar && <CookiesBar />
       }
     </PageLayout>
   )

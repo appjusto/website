@@ -35,7 +35,9 @@ const CookiesBar: React.FC = () => {
           sx={styles}
           bgColor="white"
           maxW="132px"
-          onClick={() => contextDispatch({ type: 'handle_cookiesBar'})}
+          onClick={() => contextDispatch(
+            { type: 'handle_cookiesBar', payload: {consent: true}}
+          )}
         >
           Aceitar
         </Button>

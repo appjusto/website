@@ -24,8 +24,10 @@ const initialState = {
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
   registrationMsg: {status: false, form: "", message: ""},
-  showCookiesBar: true
+  showCookiesBar: false
 }
+
+type consentProps = { date: number, policyVersion: string, consentStatus: boolean }
 
 export const PageContextProvider = (props) => {
   const [contextState, contextDispatch] = useReducer(pageContextReducer, initialState)
@@ -36,6 +38,13 @@ export const PageContextProvider = (props) => {
 
   useEffect(() => {
     analyticsRef.current = firebase.analytics()
+    const appjusto_policy = localStorage.getItem("appjusto_policy_consent")
+    const consent = JSON.parse(appjusto_policy) as consentProps
+    console.log("antes", consent)
+    if (consent?.policyVersion !== "0") {
+      console.log("no if", consent)
+      contextDispatch({type: "handle_cookiesBar", payload: { consent: false }})
+    }
   }, [])
 
   const safeAnalytics = (event: string, params?: {}) => {
