@@ -50,6 +50,7 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
             maxW="224px"
           >
             <CustomLinkButton
+              name="presentation"
               variant="secondaryLight"
               linkLabel="Baixar apresentação"
               link="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"

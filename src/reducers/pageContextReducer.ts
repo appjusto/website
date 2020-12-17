@@ -4,12 +4,14 @@ interface StateProps {
   showModalConfirmation: {show: boolean, type: string}
   showModalRecommendation: boolean
   registrationMsg: {status: boolean, form: string, message: string}
+  showCookiesBar: boolean
 }
 
 export type Actions =
   | { type: 'update_message'; payload: {message: string, form?: string} }
   | { type: 'handle_modalConfirmation'; payload: string }
   | { type: 'handle_modalRecommendation' }
+  | { type: 'handle_cookiesBar' }
 
 export const pageContextReducer = (state: StateProps, action: Actions): StateProps => {
   switch (action.type) {
@@ -26,6 +28,11 @@ export const pageContextReducer = (state: StateProps, action: Actions): StatePro
           registrationMsg: {status: false, form: "", message: "" },
         };
       };
+    case 'handle_cookiesBar':
+        return {
+          ...state,
+          showCookiesBar: !state.showCookiesBar,
+        };
     case 'handle_modalConfirmation':
       const type = action.payload
       return {

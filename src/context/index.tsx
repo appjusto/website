@@ -10,6 +10,7 @@ interface PageContextProps {
     showModalConfirmation: {show: boolean, type: string}
     showModalRecommendation: boolean
     registrationMsg: {status: boolean, form: string, message: string}
+    showCookiesBar: boolean
   }
   contextDispatch: Dispatch<Actions>
   handleRegistration: (profile: string, phone: string, city: string) => boolean
@@ -22,7 +23,8 @@ const PageContext = React.createContext<PageContextProps>({} as PageContextProps
 const initialState = {
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
-  registrationMsg: {status: false, form: "", message: ""}
+  registrationMsg: {status: false, form: "", message: ""},
+  showCookiesBar: true
 }
 
 export const PageContextProvider = (props) => {
@@ -116,10 +118,15 @@ export const usePageContext = () => {
   return context
 }
 
-export const handleMessage = (dispatch: Dispatch<Actions>, message: string, form: string = "") => {
+export const handleMessage = (
+  dispatch: Dispatch<Actions>, message: string, form: string = ""
+  ) => {
   if(message !== "") {
     dispatch({ type: "update_message", payload: { form, message }})
-    setTimeout(() => dispatch({ type: "update_message", payload: { message: "" }}), 5000)
+    setTimeout(
+      () => dispatch({ type: "update_message", payload: { message: "" }}),
+      5000
+    )
   } else {
     dispatch({ type: "update_message", payload: { message: "" }})
   }

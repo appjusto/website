@@ -18,7 +18,7 @@ const Support: React.FC = () => {
         justifyContent="flex-start"
         alignItems="flex-start"
       >
-        <Heading 
+        <Heading
           as="h2"
           fontSize={["24px", null, null, "48px"]}
           lineHeight={["28,8px", null, null, "48px"]}
@@ -26,59 +26,61 @@ const Support: React.FC = () => {
           maxW={["270px", "100%"]}
         >
           Estamos em busca de mais apoio.
-          <Box 
+          <Box
             position="relative"
             maxW={["124px", null, "136px", "480px"]}
             mt={["-4px", null, "-2px", "2px"]}
             ml={["0", null, "226px", "240px"]}
             color="white"
           >
-            <img 
+            <img
               src={Line}
-              alt="Linha verde" 
-              width={544} 
-              height={20} 
+              alt="Linha verde"
+              width={544}
+              height={20}
             />
           </Box>
         </Heading>
-        <Text 
+        <Text
           fontSize="18px"
           lineHeight="26px"
           textStyle="p"
           mb="32px"
           display={["none", null, null, "block"]}
         >
-          O AppJusto está em fase de captação de investimentos e montando uma 
+          O AppJusto está em fase de captação de investimentos e montando uma
           rede de apoiadores por todo país. <br/>
           Quer nos ajudar nessa missão?
         </Text>
-        <Text 
+        <Text
           fontSize="18px"
           lineHeight="26px"
           textStyle="p"
           mb="32px"
           display={["block", null, null, "none"]}
         >
-          O AppJusto está em fase de captação de investimentos e montando uma 
+          O AppJusto está em fase de captação de investimentos e montando uma
           rede de apoiadores por todo país. Quer nos ajudar nessa missão?
         </Text>
         <Flex
           flexDir={["column", null, null, "row"]}
           w="100%"
         >
-          <CustomLinkButton 
+          <CustomLinkButton
+            name="partner2"
             link="mailto:parceiros@appjusto.com.br"
-            linkLabel="Quero ser um parceiro" 
+            linkLabel="Quero ser um parceiro"
             variant="basic"
-            bg="white"    
+            bg="white"
             maxW={["100%", null, "220px"]}
             mr={["0", "0", "0", "16px"]}
           />
           <CustomLinkButton
-            link="mailto:vagas@appjusto.com.br" 
-            linkLabel="Quero trabalhar com vocês" 
+            name="jobs"
+            link="mailto:vagas@appjusto.com.br"
+            linkLabel="Quero trabalhar com vocês"
             variant="basic"
-            bg="white"      
+            bg="white"
             maxW={["100%", null, "220px"]}
           />
         </Flex>

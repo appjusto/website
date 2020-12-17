@@ -8,10 +8,14 @@ import Support from '../components/home/support'
 import Commitment from '../components/home/commitment'
 import ModalConfirmation from '../components/ModalConfirmation'
 import ModalRecommendation from '../components/ModalRecommendation'
+import CookiesBar from '../components/CookiesBar'
 
 import Logo from '../../public/logo-home.svg'
 
+import { usePageContext } from '../context'
+
 export default function Home() {
+  const { contextState } = usePageContext()
   return (
     <PageLayout pageName="Home" logo={Logo}>
       <Hero />
@@ -23,6 +27,9 @@ export default function Home() {
       <Support />
       <ModalConfirmation />
       <ModalRecommendation />
+      {
+        contextState.showCookiesBar && <CookiesBar />
+      }
     </PageLayout>
   )
 }

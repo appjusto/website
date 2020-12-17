@@ -6,7 +6,7 @@ import Container from '../../Container';
 import NumberBox from './NumberBox';
 import HelpBox from './HelpBox'
 import Button from "../../CustomButton"
-import CustomLinkButton from '../../CustomLinkButton'; 
+import CustomLinkButton from '../../CustomLinkButton';
 
 import { usePageContext, handleMessage } from '../../../context'
 
@@ -54,12 +54,12 @@ const Numbers: React.FC = () => {
   }
 
   return (
-    <Section 
+    <Section
       id="numbers"
-      bgColor="primary" 
+      bgColor="primary"
       minHeight="100vh"
     >
-      <Container 
+      <Container
         flexDir="column"
         pt="64px"
         pb="64px"
@@ -67,28 +67,28 @@ const Numbers: React.FC = () => {
         {
           summary?.couriers > 99 && summary.restaurants > 99 && (
             <>
-              <Heading 
-                as="h1" 
+              <Heading
+                as="h1"
                 fontSize={["24px", null, null, "32px"]}
               >
                 Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade.
-                <Box 
+                <Box
                   position="relative"
                   maxW={["240px", null, null, "320px"]}
                   ml={["24px", null, "350px", "480px"]}
                   mt={["-58px", null, "-64px", "-22px"]}
                   color="white"
                 >
-                  <img 
-                    src="/line-vector-w.svg" 
+                  <img
+                    src="/line-vector-w.svg"
                     alt="Linha branca"
-                    width={544} 
-                    height={20} 
+                    width={544}
+                    height={20}
                   />
                 </Box>
               </Heading>
-              <Text 
-                mt="16px" 
+              <Text
+                mt="16px"
                 textStyle="p"
                 fontSize={["16px", null, null, "18px"]}>
                 Pré-cadastros até o momento:
@@ -101,34 +101,34 @@ const Numbers: React.FC = () => {
                   w="100%"
                   flexDir="row"
                 >
-                  <NumberBox 
-                    key="nb-cities" 
+                  <NumberBox
+                    key="nb-cities"
                     icon={Shield}
                     altImg="Ícone de escudo"
-                    number={summary.cities} 
+                    number={summary.cities}
                     label="Cidades" />
-                  <NumberBox 
-                    key="nb-couriers" 
-                    icon={Bike} 
+                  <NumberBox
+                    key="nb-couriers"
+                    icon={Bike}
                     altImg="Ícone de entregador numa moto"
-                    number={summary.couriers} 
+                    number={summary.couriers}
                     label="Entregadores" />
                 </Flex>
                 <Flex
                   w="100%"
                   flexDir="row"
                 >
-                  <NumberBox 
-                    key="nb-restaurants" 
-                    icon={Cutlery} 
+                  <NumberBox
+                    key="nb-restaurants"
+                    icon={Cutlery}
                     altImg="Ícone de talhares"
-                    number={summary.restaurants} 
+                    number={summary.restaurants}
                     label="Restaurantes" />
-                  <NumberBox 
-                    key="nb-consumers" 
+                  <NumberBox
+                    key="nb-consumers"
                     icon={Happy}
                     altImg="Ícone de carinha feliz"
-                    number={summary.consumers} 
+                    number={summary.consumers}
                     label="Consumidores" />
                 </Flex>
               </Flex>
@@ -136,13 +136,13 @@ const Numbers: React.FC = () => {
           )
         }
         <Heading
-          mt="64px" 
-          as="h1" 
+          mt="64px"
+          as="h1"
           fontSize={["24px", null, null, "32px"]}
         >
           Ajude este movimento a crescer!
         </Heading>
-        <Text 
+        <Text
           textStyle="p"
           fontSize={["16px", null, null, "18px"]}>
           Entenda como você pode colaborar para que o AppJusto chegue mais longe:
@@ -150,7 +150,7 @@ const Numbers: React.FC = () => {
         <Flex
           flexDir={["column", null, null, "row"]}
         >
-          <HelpBox 
+          <HelpBox
             icon={Chat}
             altImg="Ilustração de caixa de mensagens com um check e um x"
             title="Responda a pesquisa"
@@ -158,31 +158,32 @@ const Numbers: React.FC = () => {
             isLast={false}
           >
             <Button
-              link="/pesquisa" 
-              label="Responder pesquisa" 
+              link="/pesquisa"
+              label="Responder pesquisa"
               variant="secondaryLight"/>
           </HelpBox>
-          <HelpBox 
+          <HelpBox
             icon={Promotion}
             altImg="Ilustração de auto-falante"
             title="Indique o AppJusto"
             text="Espalhe a notícia para seus amigos! Convide possíveis clientes, entregadores e donos de restaurantes, e ajude esta rede a crescer."
             isLast={false}
           >
-            <Button 
-              label="Indicar o AppJusto" 
+            <Button
+              label="Indicar o AppJusto"
               variant="secondaryLight"
               handleClick={handleRecommendation}
             />
           </HelpBox>
-          <HelpBox 
+          <HelpBox
             icon={Hfive}
             altImg="Ilustração de mãos se cumprimentando"
             title="Seja um parceiro"
             text="Tem interesse em atuar como voluntário, ser uma empresa parceira, investidor, ou acredita que pode colaborar de alguma outra maneira? Fale com a gente!"
             isLast={true}
           >
-            <CustomLinkButton 
+            <CustomLinkButton
+              name="partner1"
               link="mailto:parceiros@appjusto.com.br"
               linkLabel="Quero ser parceiro"
               variant="secondaryLight"
