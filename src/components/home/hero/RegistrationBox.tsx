@@ -128,7 +128,7 @@ const RegistrationBox: React.FC = () => {
       return null
     }
     clearForm()
-    return contextDispatch({ type: "handle_modalConfirmation", payload: "subscribe"})
+    return contextDispatch({ type: "handle_modalConfirmation", payload: "registration"})
   }
   return (
     <Flex
