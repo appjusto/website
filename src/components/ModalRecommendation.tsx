@@ -131,7 +131,7 @@ const ModalRecommendation: React.FC = () => {
                 Indique o AppJusto para amigos, entregadores, restaurantes e todos que desejam um modelo mais justo.
               </Text>
               <ShareLink
-                link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
+                link={`https://api.whatsapp.com/send?text=${sharingMsg}`}
                 label="Indique por WhatsApp"
                 icon={FaWhatsappSquare}
                 indication={true}

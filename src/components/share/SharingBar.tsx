@@ -1,6 +1,6 @@
 import { Stack } from '@chakra-ui/react'
-import { 
-  FaWhatsappSquare, FaFacebookSquare, FaLinkedin, FaTwitterSquare 
+import {
+  FaWhatsappSquare, FaFacebookSquare, FaLinkedin, FaTwitterSquare
 } from 'react-icons/fa'
 
 import ShareLink from './ShareLink'
@@ -21,15 +21,15 @@ const SharingBar: React.FC = () => {
         direction="row"
         spacing={4}
       >
-        <ShareLink 
+        <ShareLink
           link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
           label="Whatsapp"
-          icon={FaWhatsappSquare}  
+          icon={FaWhatsappSquare}
         />
-        <ShareLink 
+        <ShareLink
           link={`https://www.facebook.com/sharer/sharer.php?u=${mainUrl}%3Fsource%3Dsocial.fb&display=page&facebook%2Fclose`}
           label="Facebook"
-          icon={FaFacebookSquare}  
+          icon={FaFacebookSquare}
         />
       </Stack>
       <Stack
@@ -37,15 +37,15 @@ const SharingBar: React.FC = () => {
         direction="row"
         spacing={4}
       >
-        <ShareLink 
-          link={`https://twitter.com/intent/tweet?url=${mainUrl}&text=${sharingMsg}`}
+        <ShareLink
+          link={`https://twitter.com/intent/tweet?text=${sharingMsg}`}
           label="Twitter"
-          icon={FaTwitterSquare}  
+          icon={FaTwitterSquare}
         />
-        <ShareLink 
+        <ShareLink
           link={`https://www.linkedin.com/sharing/share-offsite/?url=${mainUrl}`}
           label="Linkedin"
-          icon={FaLinkedin}  
+          icon={FaLinkedin}
         />
       </Stack>
     </Stack>
