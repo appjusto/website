@@ -5,9 +5,9 @@ import InfoBox from './InfoBox';
 
 import Line from '../../../../public/line-vector-g.svg';
 import WeAre from '../../../../public/alternativa.svg';
-import Couriers from '../../../../public/infobox-entregadores.png';
-import Clients from '../../../../public/infobox-clientes.png';
-import Restaurants from '../../../../public/infobox-restaurantes.png';
+import Couriers from '../../../../public/infobox-entregadores.webp';
+import Clients from '../../../../public/infobox-clientes.webp';
+import Restaurants from '../../../../public/infobox-restaurantes.webp';
 
 const Alternative: React.FC = () => {
   return (

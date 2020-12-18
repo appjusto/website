@@ -4,9 +4,9 @@ import Section from "../../Section";
 import Link from '../../CustomLink';
 import PartnerBox from './PartnerBox';
 
-import Abrasel from '../../../../public/logoAbrasel.png'
-import Iugu from '../../../../public/logoIugu.png'
-import ColPin from '../../../../public/logoColetivoPinheiros.png'
+import Abrasel from '../../../../public/logoAbrasel.webp'
+import Iugu from '../../../../public/logoIugu.webp'
+import ColPin from '../../../../public/logoColetivoPinheiros.webp'
 
 const Partners: React.FC = () => {
   return (

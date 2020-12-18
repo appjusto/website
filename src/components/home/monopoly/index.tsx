@@ -3,8 +3,8 @@ import Container from "../../Container";
 import Section from "../../Section";
 
 import Line from '../../../../public/line-vector-y.svg'
-import Bg from '../../../../public/bg-monopoly.png'
-import BgMob from '../../../../public/bg-mobile-monopoly.png'
+import Bg from '../../../../public/bg-monopoly.webp'
+import BgMob from '../../../../public/bg-mobile-monopoly.webp'
 
 const Monopoly: React.FC = () => {
   return (
@@ -21,42 +21,42 @@ const Monopoly: React.FC = () => {
         color="white"
         justifyContent="flex-end"
         alignItems="flex-start"
-        pb={["62px", null, null, "53px"]} 
+        pb={["62px", null, null, "53px"]}
       >
-        <Heading 
+        <Heading
           as="h1"
-          position="relative" 
-          fontSize={["24px", null, null, "56px"]} 
-          mb={["16px", null, null, "42px"]}  
-          lineHeight={["28,8px", null, null, "62px"]} 
+          position="relative"
+          fontSize={["24px", null, null, "56px"]}
+          mb={["16px", null, null, "42px"]}
+          lineHeight={["28,8px", null, null, "62px"]}
           maxW="944px"
         >
-          Os apps atuais criam monopólios, controlam o mercado, impondo suas 
+          Os apps atuais criam monopólios, controlam o mercado, impondo suas
           próprias taxas e regras.
-          <Box 
+          <Box
             position="absolute"
             maxW={["130px", null, null, "460px"]}
             top={["68px", null, "32px", "60px"]}
             left={["0", null, "220px", "360px"]}
           >
-            <img 
+            <img
               src={Line}
               alt="Linha amarela"
-              width={544} 
-              height={20} 
+              width={544}
+              height={20}
             />
           </Box>
         </Heading>
-        <Heading 
-          as="h4" 
-          fontSize={["16px", null, null, "20px"]}  
-          fontWeight="500" 
-          lineHeight={["22px", null, null, "32px"]} 
+        <Heading
+          as="h4"
+          fontSize={["16px", null, null, "20px"]}
+          fontWeight="500"
+          lineHeight={["22px", null, null, "32px"]}
           maxW="944px"
         >
-          Hoje, os apps são fonte de renda para 3.8 milhões de autônomos no Brasil. 
-          Este modelo é dificil de ser combatido e contribui para aumento das 
-          desigualdades sociais. O AppJusto é uma alternativa para todos ganharem 
+          Hoje, os apps são fonte de renda para 3.8 milhões de autônomos no Brasil.
+          Este modelo é dificil de ser combatido e contribui para aumento das
+          desigualdades sociais. O AppJusto é uma alternativa para todos ganharem
           mais, com autonomia e respeito.
         </Heading>
       </Container>
@@ -72,11 +72,11 @@ const Monopoly: React.FC = () => {
           w="100%"
           display={["inherit", null, null, "none"]}
         >
-          <img 
+          <img
             src={BgMob}
-            alt="Entregador de capacete, retirando um pedido no balcão de um restaurante" 
-            width={360} 
-            height={240}  
+            alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
+            width={360}
+            height={240}
           />
         </Box>
         <Box
@@ -84,11 +84,11 @@ const Monopoly: React.FC = () => {
           w="100%"
           display={["none", null, null, "inherit"]}
         >
-          <img 
-            src={Bg} 
+          <img
+            src={Bg}
             alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
-            width={1440} 
-            height={600}  
+            width={1440}
+            height={600}
           />
         </Box>
       </Box>

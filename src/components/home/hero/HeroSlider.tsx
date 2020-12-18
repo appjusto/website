@@ -1,9 +1,9 @@
-import { 
-  useState, 
-  useEffect, 
-  Children, 
-  cloneElement, 
-  memo, 
+import {
+  useState,
+  useEffect,
+  Children,
+  cloneElement,
+  memo,
   SetStateAction,
   ReactElement
 } from 'react'
@@ -12,19 +12,19 @@ import { Box, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { getCorrectDimension } from '../../../utils'
 
-import Hero1 from '../../../../public/bg-hero1.png'
-import Hero2 from '../../../../public/bg-hero2.png'
-import Hero3 from '../../../../public/bg-hero3.png'
-import HeroMob1 from '../../../../public/bg-mobile-hero1.png'
-import HeroMob2 from '../../../../public/bg-mobile-hero2.png'
-import HeroMob3 from '../../../../public/bg-mobile-hero3.png'
+import Hero1 from '../../../../public/bg-hero1.webp'
+import Hero2 from '../../../../public/bg-hero2.webp'
+import Hero3 from '../../../../public/bg-hero3.webp'
+import HeroMob1 from '../../../../public/bg-mobile-hero1.webp'
+import HeroMob2 from '../../../../public/bg-mobile-hero2.webp'
+import HeroMob3 from '../../../../public/bg-mobile-hero3.webp'
 
 interface SliderImageProps {
   isActive?: boolean
-  clientWidth?: number 
-  image: string 
-  altImg: string 
-  isMobile?: boolean 
+  clientWidth?: number
+  image: string
+  altImg: string
+  isMobile?: boolean
 }
 
 const SliderImage: React.FC<SliderImageProps> = memo(({
@@ -41,17 +41,17 @@ const SliderImage: React.FC<SliderImageProps> = memo(({
     return <Box as="div"/>
   }
   return (
-    <Box 
+    <Box
       sx={styles.imgBox}
       opacity={isActive ? 1 : 0}
     >
-      <img 
+      <img
       src={image}
-      alt={altImg} 
-      //width={isMobile ? 360 : 1440} 
-      //height={isMobile ? 482 : 600} 
-      width="100%" 
-      height="100%" 
+      alt={altImg}
+      //width={isMobile ? 360 : 1440}
+      //height={isMobile ? 482 : 600}
+      width="100%"
+      height="100%"
     />
     </Box>
   )
@@ -95,7 +95,7 @@ const SliderContainer = ({isMobile, children}) => {
         Children.map(children, (child: ReactElement<SliderImageProps>, index: number) => {
           return typeof child.type === 'string'
             ? child
-            : cloneElement(child, 
+            : cloneElement(child,
               {isActive: active === index +1 ? true: false, clientWidth}
             )
         })
@@ -108,7 +108,7 @@ const HeroSlider: React.FC = () => {
   return (
     <>
       <SliderContainer isMobile={true}>
-        <SliderImage 
+        <SliderImage
           isMobile
           image={HeroMob1}
           altImg="Entregador numa bicicleta"
@@ -140,7 +140,7 @@ const HeroSlider: React.FC = () => {
       </SliderContainer>
     </>
   );
-} 
+}
 
 export default HeroSlider;
 
