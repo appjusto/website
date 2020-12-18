@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useReducer, useContext, useMemo, Dispatch } from 'react'
-import firebase, { db } from '../../firebaseApp'
+import firebase from '../../firebaseApp'
 
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 
@@ -7,11 +7,13 @@ import { findEmail, findPhone, findCity } from '../utils'
 
 interface PageContextProps {
   contextState: {
+    database: firebase.firestore.Firestore
     showModalConfirmation: {show: boolean, type: string}
     showModalRecommendation: boolean
     registrationMsg: {status: boolean, form: string, message: string}
     showCookiesBar: boolean
   }
+  dbSummaryRef: firebase.firestore.DocumentReference
   contextDispatch: Dispatch<Actions>
   handleRegistration: (profile: string, phone: string, city: string) => boolean
   handleIndication: (email: string) => boolean
@@ -21,6 +23,7 @@ interface PageContextProps {
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps)
 
 const initialState = {
+  database: null,
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
   registrationMsg: {status: false, form: "", message: ""},
@@ -31,13 +34,35 @@ type consentProps = { date: number, policyVersion: string, consentStatus: boolea
 
 export const PageContextProvider = (props) => {
   const [contextState, contextDispatch] = useReducer(pageContextReducer, initialState)
-  const dbRegistrationsRef = useMemo(() => db.collection('registrations'), [])
-  const dbIndicationsRef = useMemo(() => db.collection('indications'), [])
-  const dbSummaryRef = useMemo(() => db.collection("summary").doc("data"), [])
+
+  const { database } = contextState
+  const dbRegistrationsRef = database?.collection('registrations')
+  const dbIndicationsRef = database?.collection('indications')
+  const dbSummaryRef = database?.collection("summary").doc("data")
   const analyticsRef = useRef(null)
 
   useEffect(() => {
-    analyticsRef.current = firebase.analytics()
+    import("firebase/firestore")
+      .then(() => {
+        const db = firebase.firestore();
+        contextDispatch({type: "update_database", payload: db})
+      })
+      .catch((error) => {
+        console.error("Unable to lazy-load firebase/firestore:", error);
+      });
+  }, [])
+
+  useEffect(() => {
+    import("firebase/analytics")
+      .then(() => {
+        analyticsRef.current = firebase.analytics()
+      })
+      .catch((error) => {
+        console.error("Unable to lazy-load firebase/analytics:", error);
+      })
+  }, [])
+
+  useEffect(() => {
     const appjusto_policy = localStorage.getItem("appjusto_policy_consent")
     const consent = JSON.parse(appjusto_policy) as consentProps
     if (consent?.policyVersion !== "0") {
@@ -63,7 +88,7 @@ export const PageContextProvider = (props) => {
         handleMessage(contextDispatch, "O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil.", "registration")
         return false
       }
-      const batch = db.batch()
+      const batch = contextState.database.batch()
       const isNewCity = await findCity(dbRegistrationsRef, city)
       const oldSummary = (await dbSummaryRef.get()).data()
       const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
@@ -110,6 +135,7 @@ export const PageContextProvider = (props) => {
   }
   return <PageContext.Provider value={{
     contextState,
+    dbSummaryRef,
     contextDispatch,
     handleRegistration,
     handleIndication,

@@ -10,8 +10,6 @@ import CustomLinkButton from '../../CustomLinkButton';
 
 import { usePageContext, handleMessage } from '../../../context'
 
-import { db } from '../../../../firebaseApp'
-
 import Line from '../../../../public/line-vector-w.svg'
 import Shield from '../../../../public//icon-shield.svg'
 import Bike from '../../../../public//icon-bike.svg'
@@ -35,18 +33,17 @@ const Numbers: React.FC = () => {
     couriers: 0,
     restaurants: 0
   })
-  const { contextState, contextDispatch  } = usePageContext()
-  const dbRef = useMemo(() => db.collection("summary").doc("data"),[])
+  const { contextState, contextDispatch, dbSummaryRef } = usePageContext()
 
   useEffect(() => {
-    const observer = dbRef.onSnapshot(snaptshop => {
+    const observer = dbSummaryRef?.onSnapshot(snaptshop => {
       const newSummary = snaptshop.data()
       if(newSummary) {
         setSummary(newSummary as SummaryProps)
       }
     })
     return observer
-  }, [])
+  }, [dbSummaryRef])
 
   const handleRecommendation = () => {
     handleMessage(contextDispatch, "")
@@ -65,18 +62,19 @@ const Numbers: React.FC = () => {
         pb="64px"
       >
         {
-          summary?.couriers > 99 && summary.restaurants > 99 && (
+          summary?.couriers > 0 && summary.restaurants > 0 && (
             <>
               <Heading
                 as="h1"
                 fontSize={["24px", null, null, "32px"]}
+                mb={["20px", null, "36px","0"]}
               >
                 Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade.
                 <Box
                   position="relative"
                   maxW={["240px", null, null, "320px"]}
                   ml={["24px", null, "350px", "480px"]}
-                  mt={["-58px", null, "-64px", "-22px"]}
+                  mt={["-40px", null, "-44px", "0"]}
                   color="white"
                 >
                   <img
