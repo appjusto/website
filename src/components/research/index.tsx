@@ -5,12 +5,9 @@ import * as typeformEmbed from "@typeform/embed";
 import CustomSelect from "../CustomSelect";
 import { profileOptions } from '../../utils';
 
-import { usePageContext } from '../../context'
-
 const Research: React.FC = () => {
   const [profile, setProfile] = useState("")
   const formBoxRef = useRef(null)
-  const { safeAnalytics } = usePageContext()
 
   const makeForm= (formUrl: string) => {
     typeformEmbed.makeWidget(formBoxRef.current, formUrl, {
@@ -23,13 +20,10 @@ const Research: React.FC = () => {
   const handleSelect = (profile: string) => {
     setProfile(profile)
     if(profile === "consumers") {
-      safeAnalytics("consumers_quest_selected")
       makeForm("https://form.typeform.com/to/S6p5e11f")
     } else if (profile === "couriers") {
-      safeAnalytics("couriers_quest_selected")
       makeForm("https://form.typeform.com/to/x4GHkfQ6")
     } else if (profile === "restaurants") {
-      safeAnalytics("restaurants_quest_selected")
       makeForm("https://form.typeform.com/to/TCJFIwUe")
     }
   }

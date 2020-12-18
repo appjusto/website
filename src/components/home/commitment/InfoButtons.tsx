@@ -2,10 +2,7 @@ import { Flex, Heading, Stack, Box, BoxProps } from '@chakra-ui/react'
 import CustomButton from '../../CustomButton'
 import CustomLinkButton from '../../CustomLinkButton'
 
-import { usePageContext } from '../../../context'
-
 const InfoButtons: React.FC<BoxProps> = (props) => {
-  const { safeAnalytics } = usePageContext()
   return (
     <Flex
       flexDir="column"
@@ -56,7 +53,6 @@ const InfoButtons: React.FC<BoxProps> = (props) => {
               link="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"
               isDownload={true}
               textAlign="center"
-              onClick={() => safeAnalytics("download_presentation")}
             />
           </Box>
         </Stack>

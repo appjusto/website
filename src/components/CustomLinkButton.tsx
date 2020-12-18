@@ -1,8 +1,6 @@
 import { Link, LinkProps } from '@chakra-ui/react'
 import { useStyleConfig } from "@chakra-ui/react"
 
-import { usePageContext } from '../context'
-
 interface CustomLinkButtonProps extends LinkProps {
   name: string
   link: string
@@ -15,7 +13,6 @@ interface CustomLinkButtonProps extends LinkProps {
 const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
   name, link, linkLabel, variant, isExternal = true, isDownload = false, ...props
 }) => {
-  const { safeAnalytics } = usePageContext()
   const styles = useStyleConfig("Button", {variant})
   return (
     <Link
@@ -26,7 +23,6 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
       alignItems="center"
       mt="16px"
       {...props}
-      onClick={() => safeAnalytics(`button_${name}`)}
       isExternal={isExternal}
       download={isDownload}
     >

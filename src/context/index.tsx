@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useReducer, useContext, useMemo, Dispatch } from 'react'
+import React, { useEffect, useReducer, useContext, useMemo, Dispatch } from 'react'
 import firebase from '../../firebaseApp'
 
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
@@ -11,13 +11,11 @@ interface PageContextProps {
     showModalConfirmation: {show: boolean, type: string}
     showModalRecommendation: boolean
     registrationMsg: {status: boolean, form: string, message: string}
-    showCookiesBar: boolean
   }
   dbSummaryRef: firebase.firestore.DocumentReference
   contextDispatch: Dispatch<Actions>
   handleRegistration: (profile: string, phone: string, city: string) => boolean
   handleIndication: (email: string) => boolean
-  safeAnalytics: (event: string, params?: object) => void
 }
 
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps)
@@ -27,19 +25,18 @@ const initialState = {
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
   registrationMsg: {status: false, form: "", message: ""},
-  showCookiesBar: false
 }
-
-type consentProps = { date: number, policyVersion: string, consentStatus: boolean }
 
 export const PageContextProvider = (props) => {
   const [contextState, contextDispatch] = useReducer(pageContextReducer, initialState)
 
   const { database } = contextState
-  const dbRegistrationsRef = database?.collection('registrations')
-  const dbIndicationsRef = database?.collection('indications')
-  const dbSummaryRef = database?.collection("summary").doc("data")
-  const analyticsRef = useRef(null)
+  const dbRegistrationsRef = useMemo(() =>
+    database?.collection('registrations'), [database])
+  const dbIndicationsRef = useMemo(() =>
+    database?.collection('indications'), [database])
+  const dbSummaryRef = useMemo(() =>
+    database?.collection("summary").doc("data"), [database])
 
   useEffect(() => {
     import("firebase/firestore")
@@ -51,30 +48,6 @@ export const PageContextProvider = (props) => {
         console.error("Unable to lazy-load firebase/firestore:", error);
       });
   }, [])
-
-  useEffect(() => {
-    import("firebase/analytics")
-      .then(() => {
-        analyticsRef.current = firebase.analytics()
-      })
-      .catch((error) => {
-        console.error("Unable to lazy-load firebase/analytics:", error);
-      })
-  }, [])
-
-  useEffect(() => {
-    const appjusto_policy = localStorage.getItem("appjusto_policy_consent")
-    const consent = JSON.parse(appjusto_policy) as consentProps
-    if (consent?.policyVersion !== "0") {
-      contextDispatch({type: "handle_cookiesBar", payload: { consent: false }})
-    }
-  }, [])
-
-  const safeAnalytics = (event: string, params?: {}) => {
-    if(analyticsRef.current) {
-      analyticsRef.current.logEvent(event, params)
-    }
-  }
 
   const handleRegistration = async (
     profile: string,
@@ -106,10 +79,8 @@ export const PageContextProvider = (props) => {
       });
       batch.update(dbSummaryRef, newSummary)
       batch.commit()
-      safeAnalytics("registration")
       return true
     } catch (error) {
-      safeAnalytics("registration_error", {error})
       handleMessage(contextDispatch, "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.", "registration")
       return false
     }
@@ -125,10 +96,8 @@ export const PageContextProvider = (props) => {
         return false
       }
       dbIndicationsRef.add({ email, created_at: FieldValue.serverTimestamp()})
-      safeAnalytics("indication_email")
       return true
     } catch (error) {
-      safeAnalytics("indication_error", {error})
       handleMessage(contextDispatch, "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.", "recommendation")
       return false
     }
@@ -139,7 +108,6 @@ export const PageContextProvider = (props) => {
     contextDispatch,
     handleRegistration,
     handleIndication,
-    safeAnalytics
   }} {...props}/>
 }
 
