@@ -7,8 +7,8 @@ interface ItemProps {
   ods?: boolean
 }
 
-const Item: React.FC<ItemProps> = ({ 
-    image, altImg, title, ods = false 
+const Item: React.FC<ItemProps> = ({
+    image, altImg, title, ods = false
   }) => {
   return (
     <Flex
@@ -29,12 +29,12 @@ const Item: React.FC<ItemProps> = ({
         >
           <img src={image} width={30} height={30} alt={altImg}/>
         </Box>
-        <Heading 
+        <Heading
           as="h4"
           fontSize="20px"
           lineHeight="26px"
           fontWeight="500"
-          color="#697667" 
+          color="#697667"
         >
           {title}
         </Heading>
@@ -42,37 +42,37 @@ const Item: React.FC<ItemProps> = ({
       {
         ods && (
           <Stack direction="row" spacing={2} w="100%" mt="16px" pl="36px">
-            <Box 
-              borderRadius="4px" 
+            <Box
+              borderRadius="4px"
               overflow="hidden"
               maxW="64px"
               h="64px"
               >
-              <img src="/ods8.svg" alt="ODS8" width={64} height={64} />
+              <img src="/ods8.webp" alt="ODS8" width={64} height={64} />
             </Box>
-            <Box 
-              borderRadius="4px" 
+            <Box
+              borderRadius="4px"
               overflow="hidden"
               maxW="64px"
               h="64px"
               >
-              <img src="/ods10.svg" alt="ODS10" width={64} height={64} />
+              <img src="/ods10.webp" alt="ODS10" width={64} height={64} />
             </Box>
-            <Box 
-              borderRadius="4px" 
+            <Box
+              borderRadius="4px"
               overflow="hidden"
               maxW="64px"
               h="64px"
               >
-              <img src="/ods11.svg" alt="ODS11" width={64} height={64} />
+              <img src="/ods11.webp" alt="ODS11" width={64} height={64} />
             </Box>
-            <Box 
-              borderRadius="4px" 
+            <Box
+              borderRadius="4px"
               overflow="hidden"
               maxW="64px"
               h="64px"
               >
-              <img src="/ods17.svg" alt="ODS17" width={64} height={64} />
+              <img src="/ods17.webp" alt="ODS17" width={64} height={64} />
             </Box>
           </Stack>
         )

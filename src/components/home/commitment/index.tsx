@@ -5,7 +5,7 @@ import Item from './Item';
 import InfoButtons from './InfoButtons';
 
 import Line from '../../../../public/line-vector-g.svg'
-import Bg from '../../../../public/bg-commitment.svg'
+import Bg from '../../../../public/bg-commitment.webp'
 import IconBike from '../../../../public/icon-bike.svg'
 import IconMon from '../../../../public/item-monetization.svg'
 import IconThumb from '../../../../public/item-thumb.svg'
@@ -23,26 +23,26 @@ const Commitment: React.FC = () => {
         justifyContent="flex-start"
         alignItems="flex-start"
         pt={["52px", null, null, "54px"]}
-        pb={["62px", null, null, "64px"]} 
+        pb={["62px", null, null, "64px"]}
       >
-        <Heading 
+        <Heading
           as="h2"
           fontSize={["24px", null, null, "56px"]}
           lineHeight={["28,8px", null, null, "67,2px"]}
           mb={["64px", null, "24px"]}
         >
           Nosso compromisso é com a sociedade.
-          <Box 
+          <Box
             position="relative"
             maxW={["220px", null, "220px","520px"]}
             mt={["-38px", null, "-4px","-8px"]}
             color="white"
           >
-            <img 
+            <img
               src={Line}
-              alt="Linha verde" 
-              width={544} 
-              height={20} 
+              alt="Linha verde"
+              width={544}
+              height={20}
             />
           </Box>
         </Heading>
@@ -56,11 +56,11 @@ const Commitment: React.FC = () => {
             w="100%"
             display={["none", null, null, "block"]}
           >
-            <img 
-              src={Bg} 
-              alt="Celular com appjusto na tela" 
-              width={499} 
-              height={480} 
+            <img
+              src={Bg}
+              alt="Celular com appjusto na tela"
+              width={499}
+              height={480}
             />
           </Box>
           <Flex
@@ -69,35 +69,35 @@ const Commitment: React.FC = () => {
             maxW="656px"
           >
             <InfoButtons />
-            <Item 
+            <Item
               image={IconBike}
               altImg="Ícone de entregador numa moto"
-              title="Autonomia e participação" 
+              title="Autonomia e participação"
             />
-            <Item 
-              image={IconMon} 
+            <Item
+              image={IconMon}
               altImg="Ícone de moeda"
-              title="Preço justo para todos" 
+              title="Preço justo para todos"
             />
-            <Item 
-              image={IconThumb} 
+            <Item
+              image={IconThumb}
               altImg="Ícone de curtir"
-              title="Eficiência e sustentabilidade financeira" 
+              title="Eficiência e sustentabilidade financeira"
             />
-            <Item 
+            <Item
               image={IconDom}
               altImg="Ícone de prédios"
-              title="Criação de um bem coletivo" 
+              title="Criação de um bem coletivo"
             />
-            <Item 
-              image={IconBlur} 
+            <Item
+              image={IconBlur}
               altImg="Ícone de pontos"
-              title="Transparência em toda a plataforma" 
+              title="Transparência em toda a plataforma"
             />
-            <Item 
-              image={IconWorld} 
+            <Item
+              image={IconWorld}
               altImg="Ícone de planeta"
-              title="Objetivos de Desenvolvimento Sustentáveis" 
+              title="Objetivos de Desenvolvimento Sustentáveis"
               ods={true}
             />
           </Flex>
