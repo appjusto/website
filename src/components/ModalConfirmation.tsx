@@ -17,6 +17,12 @@ import { usePageContext } from '../context'
 import BigUser from '../../public/illustration-big-user.svg'
 import Thanks from '../../public/obrigado.svg'
 
+export const modalConfOptions = {
+  registration: "registration",
+  recommendation: "recommendation",
+  sharing: "sharing"
+}
+
 const ModalConfirmation: React.FC = () => {
   const { contextState, contextDispatch  } = usePageContext()
   let type = ""

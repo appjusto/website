@@ -40,9 +40,7 @@ export const PageContextProvider = (props) => {
     analyticsRef.current = firebase.analytics()
     const appjusto_policy = localStorage.getItem("appjusto_policy_consent")
     const consent = JSON.parse(appjusto_policy) as consentProps
-    console.log("antes", consent)
     if (consent?.policyVersion !== "0") {
-      console.log("no if", consent)
       contextDispatch({type: "handle_cookiesBar", payload: { consent: false }})
     }
   }, [])

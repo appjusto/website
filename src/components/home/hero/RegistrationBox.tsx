@@ -19,6 +19,8 @@ import {
 
 import { registrationReducer, Actions } from '../../../reducers/registrationReducer'
 
+import { modalConfOptions } from '../../ModalConfirmation'
+
 const initialState = {
   profile: "",
   phone: "",
@@ -128,7 +130,9 @@ const RegistrationBox: React.FC = () => {
       return null
     }
     clearForm()
-    return contextDispatch({ type: "handle_modalConfirmation", payload: "registration"})
+    return contextDispatch({
+      type: "handle_modalConfirmation", payload: modalConfOptions.registration
+    })
   }
   return (
     <Flex

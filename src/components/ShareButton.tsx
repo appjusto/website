@@ -3,6 +3,8 @@ import { BiShareAlt  } from 'react-icons/bi'
 
 import { usePageContext } from '../context/'
 
+import { modalConfOptions } from './ModalConfirmation'
+
 const ShareButton: React.FC<ButtonProps> = ({...props}) => {
   const { contextDispatch, safeAnalytics  } = usePageContext()
   const variant = "basic"
@@ -14,7 +16,9 @@ const ShareButton: React.FC<ButtonProps> = ({...props}) => {
       maxW="220px"
       onClick={() => {
         safeAnalytics("share_button")
-        return contextDispatch({type: "handle_modalConfirmation", payload: "sharing"})
+        return contextDispatch({
+          type: "handle_modalConfirmation", payload: modalConfOptions.sharing
+        })
       }
       }
       {...props}

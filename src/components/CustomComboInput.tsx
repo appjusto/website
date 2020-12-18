@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { 
-  Box, FormControl, FormLabel, Input, InputProps, List, ListItem, Icon 
+import {
+  Box, FormControl, FormLabel, Input, InputProps, List, ListItem, Icon
 } from '@chakra-ui/react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { useMultiStyleConfig } from "@chakra-ui/react"
@@ -25,15 +25,15 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   isDisabled = false,
   isLoading = false,
   name,
-  id, 
+  id,
   label,
-  placeholder, 
-  parentValue, 
+  placeholder,
+  parentValue,
   maxW,
   maxLength,
   items,
   setParentValue,
-  notifyValidation 
+  notifyValidation
 }) => {
   const styles = useMultiStyleConfig("Input", {})
   const [inputValue, setInputValue] = useState(parentValue)
@@ -79,7 +79,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   }
 
   return (
-    <FormControl 
+    <FormControl
       id={id}
       position="relative"
       mt="24px"
@@ -101,7 +101,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
             maxLength={maxLength ? maxLength : null}
           />
         </Box>
-          <List 
+          <List
             display={isOpen ? "block" : "none"}
             spacing={2}
             maxHeight= "200px"
@@ -131,11 +131,11 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
                     cursor="pointer"
                     {...getItemProps({item, index})}
                   >
-                    <Icon 
-                      as={FaMapMarkerAlt} 
+                    <Icon
+                      as={FaMapMarkerAlt}
                       mr="8px"
                       w="12px"
-                      h="12px"  
+                      h="12px"
                     />
                     {item}
                   </ListItem>

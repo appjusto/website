@@ -22,6 +22,8 @@ import useSharingUrlMsg from './share/useSharingUrlMsg';
 
 import Promotion from '../../public/icon-promotion.svg'
 
+import { modalConfOptions } from './ModalConfirmation'
+
 const ModalRecommendation: React.FC = () => {
   const [email, setEmail] = useState("")
   const [isSubmiting, setIsSubmiting] = useState(false)
@@ -47,7 +49,7 @@ const ModalRecommendation: React.FC = () => {
     }
     clearForm()
     contextDispatch(
-      {type: "handle_modalConfirmation", payload: "recommendation"}
+      {type: "handle_modalConfirmation", payload: modalConfOptions.recommendation}
     )
     return contextDispatch({type: "handle_modalRecommendation"})
   }
