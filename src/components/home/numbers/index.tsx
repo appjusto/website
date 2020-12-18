@@ -62,7 +62,7 @@ const Numbers: React.FC = () => {
         pb="64px"
       >
         {
-          summary?.couriers > 0 && summary.restaurants > 0 && (
+          summary?.couriers > 99 && summary.restaurants > 99 && (
             <>
               <Heading
                 as="h1"
