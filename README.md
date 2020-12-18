@@ -23,14 +23,14 @@ Run the project
 ```bash
 yarn dev
 # or
-npm dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Live Demo
 
-[https://appjusto-ladingpage.vercel.app/](https://appjusto-ladingpage.vercel.app/)
+[https://app-justo-site.web.app/](https://app-justo-site.web.app/)
 
 ## Deploy on Vercel
 
