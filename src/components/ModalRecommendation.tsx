@@ -16,11 +16,10 @@ import ShareLink from './share/ShareLink';
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 import FormMessage from './FormMessage';
+import Image from './Image'
 
 import { usePageContext, handleMessage } from '../context/';
 import useSharingUrlMsg from './share/useSharingUrlMsg';
-
-import Promotion from '../../public/icon-promotion.svg'
 
 import { modalConfOptions } from './ModalConfirmation'
 
@@ -109,11 +108,10 @@ const ModalRecommendation: React.FC = () => {
                   w={["60px", null, "80px", "100px"]}
                   h={["60px", null, "80px", "100px"]}
                 >
-                  <img
-                    src={Promotion}
+                  <Image
+                    src="/icon-promotion.svg"
                     alt="Ilustração de auto-falante"
-                    width={100}
-                    height={100}
+                    width="100%"
                   />
                 </Box>
               </Flex>

@@ -42,40 +42,9 @@ const Item: React.FC<ItemProps> = ({
       </Flex>
       {
         ods && (
-          <Stack direction="row" spacing={2} w="100%" mt="16px" pl="36px">
-            <Box
-              borderRadius="4px"
-              overflow="hidden"
-              maxW="64px"
-              h="64px"
-              >
-              <Image src="/ods8.webp" alt="ODS8" />
-            </Box>
-            <Box
-              borderRadius="4px"
-              overflow="hidden"
-              maxW="64px"
-              h="64px"
-              >
-              <Image src="/ods10.webp" alt="ODS10" />
-            </Box>
-            <Box
-              borderRadius="4px"
-              overflow="hidden"
-              maxW="64px"
-              h="64px"
-              >
-              <Image src="/ods11.webp" alt="ODS11" />
-            </Box>
-            <Box
-              borderRadius="4px"
-              overflow="hidden"
-              maxW="64px"
-              h="64px"
-              >
-              <Image src="/ods17.webp" alt="ODS17" />
-            </Box>
-          </Stack>
+          <Box w="100%" mt="16px" pl="36px">
+            <Image src="/ods.png" alt="ODS" />
+          </Box>
         )
       }
     </Flex>

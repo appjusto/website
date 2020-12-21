@@ -61,8 +61,8 @@ const Monopoly: React.FC = () => {
         zIndex="0"
       >
         <Image
-          src="/bg-monopoly.webp"
-          srcMob="/bg-mobile-monopoly.webp"
+          src="/bg-monopoly.jpg"
+          srcMob="/bg-mobile-monopoly.jpg"
           alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
         />
       </Box>

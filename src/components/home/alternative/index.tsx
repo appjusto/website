@@ -62,19 +62,19 @@ const Alternative: React.FC = () => {
           mb={["38px", null, null, "0"]}
         >
           <InfoBox
-            image="/infobox-entregadores.webp"
+            image="/infobox-entregadores.png"
             altImg="Entregador numa bicicleta"
             title="Entregadores"
             textArray={["Regras transparentes", "Atendimento direto", "Sem suspensões injustas", "Autonomia para criar frotas", "Definição de taxas e regras próprias"]}
           />
           <InfoBox
-            image="/infobox-restaurantes.webp"
+            image="/infobox-restaurantes.png"
             altImg="Mãos segurando um pode de comida"
             title="Restaurantes"
             textArray={["Menores taxas do mercado", "Logística inclusa", "Acesso direto ao cliente", "Visualização igualitária", "Gestão de frotas próprias"]}
           />
           <InfoBox
-            image="/infobox-clientes.webp"
+            image="/infobox-clientes.png"
             altImg="Pessoa segurando um hamburguer"
             title="Clientes"
             textArray={["Pagar o preço do cardápio", "Entrega mais barata de encomendas", "Consciência de apoiar um modelo mais justo"]}

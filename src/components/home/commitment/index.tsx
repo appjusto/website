@@ -41,7 +41,7 @@ const Commitment: React.FC = () => {
             w="100%"
             display={["none", null, null, "block"]}
           >
-            <Image src="/bg-commitment.webp" alt="Celular com appjusto na tela" />
+            <Image src="/bg-commitment.png" alt="Celular com appjusto na tela" />
           </Box>
           <Flex
             w="100%"

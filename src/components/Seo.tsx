@@ -18,7 +18,7 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       name: `image`,
-      content: `${canonical_url}/bg-hero1.png`,
+      content: `${canonical_url}/share-social.png`,
     },
     {
       property: `og:title`,

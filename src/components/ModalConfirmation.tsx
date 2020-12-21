@@ -14,6 +14,8 @@ import SharingBar from './share/SharingBar'
 
 import { usePageContext } from '../context'
 
+import Image from './Image'
+
 import BigUser from '../../public/illustration-big-user.svg'
 import Thanks from '../../public/obrigado.svg'
 
@@ -62,11 +64,10 @@ const ModalConfirmation: React.FC = () => {
                 maxW="260px"
                 mr="-120px"
               >
-                <img
-                  src={BigUser}
+                <Image
+                  src="/illustration-big-user.png"
                   alt="Ilustração de uma mão entregando uma caixa para outra mão"
-                  width={275}
-                  height={200}
+                  width="275px"
                 />
               </Box>
               {
@@ -74,11 +75,10 @@ const ModalConfirmation: React.FC = () => {
                   <Box
                     position="relative"
                   >
-                    <img
-                      src={Thanks}
+                    <Image
+                      src="/obrigado.svg"
                       alt="Obrigado!"
-                      width={213}
-                      height={53}
+                      width="213px"
                     />
                   </Box>
                 )

@@ -12,12 +12,12 @@ import { Box, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { getCorrectDimension } from '../../../utils'
 
-import Hero1 from '../../../../public/bg-hero1.webp'
-import Hero2 from '../../../../public/bg-hero2.webp'
-import Hero3 from '../../../../public/bg-hero3.webp'
-import HeroMob1 from '../../../../public/bg-mobile-hero1.webp'
-import HeroMob2 from '../../../../public/bg-mobile-hero2.webp'
-import HeroMob3 from '../../../../public/bg-mobile-hero3.webp'
+import Hero1 from '../../../../public/bg-hero1.jpg'
+import Hero2 from '../../../../public/bg-hero2.jpg'
+import Hero3 from '../../../../public/bg-hero3.jpg'
+import HeroMob1 from '../../../../public/bg-mobile-hero1.jpg'
+import HeroMob2 from '../../../../public/bg-mobile-hero2.jpg'
+import HeroMob3 from '../../../../public/bg-mobile-hero3.jpg'
 
 interface SliderImageProps {
   isActive?: boolean
