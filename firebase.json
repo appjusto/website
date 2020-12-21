@@ -12,7 +12,7 @@
     ],
     "headers": [
       {
-        "source": "**/*.@(jpg|jpeg|gif|png|webp)",
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
         "headers": [ {
           "key": "Cache-Control",
           "value": "max-age=31536000"
