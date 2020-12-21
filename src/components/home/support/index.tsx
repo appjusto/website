@@ -4,7 +4,7 @@ import Container from "../../Container";
 import Section from "../../Section";
 import CustomLinkButton from "../../CustomLinkButton";
 
-import Line from '../../../../public/line-vector-g.svg'
+import Line from '../../Line'
 
 const Support: React.FC = () => {
   return (
@@ -26,20 +26,12 @@ const Support: React.FC = () => {
           maxW={["270px", "100%"]}
         >
           Estamos em busca de mais apoio.
-          <Box
-            position="relative"
+          <Line
+            color="green"
             maxW={["124px", null, "136px", "480px"]}
             mt={["-4px", null, "-2px", "2px"]}
             ml={["0", null, "226px", "240px"]}
-            color="white"
-          >
-            <img
-              src={Line}
-              alt="Linha verde"
-              width={544}
-              height={20}
-            />
-          </Box>
+          />
         </Heading>
         <Text
           fontSize="18px"

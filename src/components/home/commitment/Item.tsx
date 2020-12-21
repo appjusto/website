@@ -1,4 +1,5 @@
 import { Flex, Box, Heading, Stack } from "@chakra-ui/react";
+import Image from '../../Image'
 
 interface ItemProps {
   image: string
@@ -27,7 +28,7 @@ const Item: React.FC<ItemProps> = ({
           h="20px"
           mr="16px"
         >
-          <img src={image} width={30} height={30} alt={altImg}/>
+          <Image src={image} alt={altImg} />
         </Box>
         <Heading
           as="h4"
@@ -48,7 +49,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <img src="/ods8.webp" alt="ODS8" width={64} height={64} />
+              <Image src="/ods8.webp" alt="ODS8" />
             </Box>
             <Box
               borderRadius="4px"
@@ -56,7 +57,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <img src="/ods10.webp" alt="ODS10" width={64} height={64} />
+              <Image src="/ods10.webp" alt="ODS10" />
             </Box>
             <Box
               borderRadius="4px"
@@ -64,7 +65,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <img src="/ods11.webp" alt="ODS11" width={64} height={64} />
+              <Image src="/ods11.webp" alt="ODS11" />
             </Box>
             <Box
               borderRadius="4px"
@@ -72,7 +73,7 @@ const Item: React.FC<ItemProps> = ({
               maxW="64px"
               h="64px"
               >
-              <img src="/ods17.webp" alt="ODS17" width={64} height={64} />
+              <Image src="/ods17.webp" alt="ODS17" />
             </Box>
           </Stack>
         )

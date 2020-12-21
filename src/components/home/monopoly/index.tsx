@@ -2,9 +2,8 @@ import { Box, Heading } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 
-import Line from '../../../../public/line-vector-y.svg'
-import Bg from '../../../../public/bg-monopoly.webp'
-import BgMob from '../../../../public/bg-mobile-monopoly.webp'
+import Image from '../../Image'
+import Line from '../../Line'
 
 const Monopoly: React.FC = () => {
   return (
@@ -33,19 +32,13 @@ const Monopoly: React.FC = () => {
         >
           Os apps atuais criam monopólios, controlam o mercado, impondo suas
           próprias taxas e regras.
-          <Box
+          <Line
+            color="yellow"
             position="absolute"
             maxW={["130px", null, null, "460px"]}
             top={["68px", null, "32px", "60px"]}
             left={["0", null, "220px", "360px"]}
-          >
-            <img
-              src={Line}
-              alt="Linha amarela"
-              width={544}
-              height={20}
-            />
-          </Box>
+          />
         </Heading>
         <Heading
           as="h4"
@@ -67,33 +60,29 @@ const Monopoly: React.FC = () => {
         w="100%"
         zIndex="0"
       >
-        <Box
-          position="relative"
-          w="100%"
-          display={["inherit", null, null, "none"]}
-        >
-          <img
-            src={BgMob}
-            alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
-            width={360}
-            height={240}
-          />
-        </Box>
-        <Box
-          position="relative"
-          w="100%"
-          display={["none", null, null, "inherit"]}
-        >
-          <img
-            src={Bg}
-            alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
-            width={1440}
-            height={600}
-          />
-        </Box>
+        <Image
+          src="/bg-monopoly.webp"
+          srcMob="/bg-mobile-monopoly.webp"
+          alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
+        />
       </Box>
     </Section>
   );
 }
 
 export default Monopoly;
+
+/*
+<Box
+  position="relative"
+  w="100%"
+  display={["inherit", null, null, "none"]}
+>
+  <img
+    src={BgMob}
+    alt="Entregador de capacete, retirando um pedido no balcão de um restaurante"
+    width={360}
+    height={240}
+  />
+</Box>
+*/

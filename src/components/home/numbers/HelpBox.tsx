@@ -1,5 +1,5 @@
 import { Flex, Heading, Stack, Text } from '@chakra-ui/react'
-
+import Image from '../../Image';
 interface HelpBoxProps {
   icon: string
   altImg: string
@@ -13,11 +13,11 @@ const HelpBox: React.FC<HelpBoxProps> = ({
   altImg,
   title,
   text,
-  isLast, 
+  isLast,
   children
 }) => {
   return (
-    <Flex 
+    <Flex
       w="100%"
       minH="260px"
       flexDir="column"
@@ -38,11 +38,12 @@ const HelpBox: React.FC<HelpBoxProps> = ({
         bg="white"
         alignItems="center"
         justifyContent="center"
+        p="0 18px"
         mt="-60px"
       >
-        <img src={icon} width={48} height={48} alt={altImg}/>
+        <Image src={icon} alt={altImg} />
       </Flex>
-      <Heading 
+      <Heading
         as="h2"
         fontSize="24px"
         textAlign="center"
@@ -50,8 +51,8 @@ const HelpBox: React.FC<HelpBoxProps> = ({
       >
         {title}
       </Heading>
-      <Text 
-        textStyle="p" 
+      <Text
+        textStyle="p"
         textAlign="center"
         m="16px 0"
       >

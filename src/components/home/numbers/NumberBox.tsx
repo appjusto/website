@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Flex, Text } from '@chakra-ui/react'
-
+import { Flex, Box, Text } from '@chakra-ui/react'
 import { useCountUp } from 'react-countup';
 import VisibilitySensor  from 'react-visibility-sensor';
+
+import Image from '../../Image'
 
 interface NumberBoxProps {
   icon: string
@@ -32,16 +33,21 @@ const NumberBox: React.FC<NumberBoxProps> = ({ icon, altImg, number, label }) =>
       return start()
     }
   }
-  
+
   return (
-    <Flex 
+    <Flex
       w="100%"
       flexDir="column"
       justifyContent="center"
       alignItems="center"
       mt="22px"
     >
-      <img src={icon} width={24} height={24} alt={altImg} />
+      <Box
+        w="24px"
+        h="24px"
+      >
+        <Image src={icon} alt={altImg} />
+      </Box>
       <VisibilitySensor onChange={handleVisibilityChange}>
         <Text
           fontFamily="Barlow"

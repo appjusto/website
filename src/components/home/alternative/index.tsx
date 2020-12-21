@@ -2,12 +2,8 @@ import { Flex, Box, Heading, Text, Stack } from '@chakra-ui/react';
 import Container from '../../Container';
 import Section from '../../Section';
 import InfoBox from './InfoBox';
-
-import Line from '../../../../public/line-vector-g.svg';
-import WeAre from '../../../../public/alternativa.svg';
-import Couriers from '../../../../public/infobox-entregadores.webp';
-import Clients from '../../../../public/infobox-clientes.webp';
-import Restaurants from '../../../../public/infobox-restaurantes.webp';
+import Line from '../../Line'
+import Image from '../../Image';
 
 const Alternative: React.FC = () => {
   return (
@@ -37,12 +33,7 @@ const Alternative: React.FC = () => {
               maxW="420px"
               mb="-6px"
             >
-              <img
-                src={WeAre}
-                width={429}
-                height={43}
-                alt="Nós somos a alternativa"
-              />
+              <Image src="/alternativa.svg" alt="Nós somos a alternativa" />
             </Box>
             <Heading
               as="h1"
@@ -50,19 +41,11 @@ const Alternative: React.FC = () => {
               lineHeight={["28,8px", null, null, "48px"]}
             >
               Uma plataforma onde o ganho é compartilhado.
-              <Box
-                position="relative"
+              <Line
+                color="green"
                 maxW={["180px", null, "280px", "540px"]}
                 ml={["0", null, "226px", "456px"]}
-                color="white"
-              >
-                <img
-                  src={Line}
-                  alt="Linha verde"
-                  width={544}
-                  height={20}
-                />
-              </Box>
+              />
             </Heading>
             <Text textStyle="p" fontSize="20px" lineHeight="26px" mt="16px">
               Nosso propósito é promover relações justas e equilibradas na
@@ -79,19 +62,19 @@ const Alternative: React.FC = () => {
           mb={["38px", null, null, "0"]}
         >
           <InfoBox
-            image={Couriers}
+            image="/infobox-entregadores.webp"
             altImg="Entregador numa bicicleta"
             title="Entregadores"
             textArray={["Regras transparentes", "Atendimento direto", "Sem suspensões injustas", "Autonomia para criar frotas", "Definição de taxas e regras próprias"]}
           />
           <InfoBox
-            image={Restaurants}
+            image="/infobox-restaurantes.webp"
             altImg="Mãos segurando um pode de comida"
             title="Restaurantes"
             textArray={["Menores taxas do mercado", "Logística inclusa", "Acesso direto ao cliente", "Visualização igualitária", "Gestão de frotas próprias"]}
           />
           <InfoBox
-            image={Clients}
+            image="/infobox-clientes.webp"
             altImg="Pessoa segurando um hamburguer"
             title="Clientes"
             textArray={["Pagar o preço do cardápio", "Entrega mais barata de encomendas", "Consciência de apoiar um modelo mais justo"]}

@@ -36,19 +36,19 @@ const Partners: React.FC = () => {
           mb="24px"
         >
           <PartnerBox
-            image={Abrasel}
+            image="/logoAbrasel.webp"
             altImg="Logo Abrasel"
             width={147}
             height={64}
           />
           <PartnerBox
-            image={Iugu}
+            image="/logoIugu.webp"
             altImg="Logo Iugu"
             width={132}
             height={54}
           />
           <PartnerBox
-            image={ColPin}
+            image="/logoColetivoPinheiros.webp"
             altImg="Logo Coletivo Pinheiros"
             width={107}
             height={105}

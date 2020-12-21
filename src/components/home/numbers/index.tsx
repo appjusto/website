@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from 'react'
-import { Flex, Heading, Text, Box } from '@chakra-ui/react'
+import { useState, useEffect } from 'react'
+import { Flex, Heading, Text } from '@chakra-ui/react'
 
 import Section from "../../Section";
 import Container from '../../Container';
@@ -7,17 +7,8 @@ import NumberBox from './NumberBox';
 import HelpBox from './HelpBox'
 import Button from "../../CustomButton"
 import CustomLinkButton from '../../CustomLinkButton';
-
 import { usePageContext, handleMessage } from '../../../context'
-
-import Line from '../../../../public/line-vector-w.svg'
-import Shield from '../../../../public//icon-shield.svg'
-import Bike from '../../../../public//icon-bike.svg'
-import Cutlery from '../../../../public//icon-cutlery.svg'
-import Happy from '../../../../public//icon-happy.svg'
-import Chat from '../../../../public//icon-chat-bubble.svg'
-import Promotion from '../../../../public//icon-promotion.svg'
-import Hfive from '../../../../public//icon-high-five.svg'
+import Line from '../../Line'
 
 interface SummaryProps {
   cities: number
@@ -70,20 +61,11 @@ const Numbers: React.FC = () => {
                 mb={["20px", null, "36px","0"]}
               >
                 Se todos colaborarem, o sonho de uma plataforma justa se tornará realidade.
-                <Box
-                  position="relative"
+                <Line
                   maxW={["240px", null, null, "320px"]}
                   ml={["24px", null, "350px", "480px"]}
                   mt={["-40px", null, "-44px", "0"]}
-                  color="white"
-                >
-                  <img
-                    src="/line-vector-w.svg"
-                    alt="Linha branca"
-                    width={544}
-                    height={20}
-                  />
-                </Box>
+                />
               </Heading>
               <Text
                 mt="16px"
@@ -101,13 +83,13 @@ const Numbers: React.FC = () => {
                 >
                   <NumberBox
                     key="nb-cities"
-                    icon={Shield}
+                    icon="/icon-shield.svg"
                     altImg="Ícone de escudo"
                     number={summary.cities}
                     label="Cidades" />
                   <NumberBox
                     key="nb-couriers"
-                    icon={Bike}
+                    icon="/icon-bike.svg"
                     altImg="Ícone de entregador numa moto"
                     number={summary.couriers}
                     label="Entregadores" />
@@ -118,13 +100,13 @@ const Numbers: React.FC = () => {
                 >
                   <NumberBox
                     key="nb-restaurants"
-                    icon={Cutlery}
+                    icon="/icon-cutlery.svg"
                     altImg="Ícone de talhares"
                     number={summary.restaurants}
                     label="Restaurantes" />
                   <NumberBox
                     key="nb-consumers"
-                    icon={Happy}
+                    icon="/icon-happy.svg"
                     altImg="Ícone de carinha feliz"
                     number={summary.consumers}
                     label="Consumidores" />
@@ -149,7 +131,7 @@ const Numbers: React.FC = () => {
           flexDir={["column", null, null, "row"]}
         >
           <HelpBox
-            icon={Chat}
+            icon="/icon-chat-bubble.svg"
             altImg="Ilustração de caixa de mensagens com um check e um x"
             title="Responda a pesquisa"
             text="Estamos ouvindo clientes, entregadores e restaurantes para criar uma plataforma pensada desde o início para todos."
@@ -161,7 +143,7 @@ const Numbers: React.FC = () => {
               variant="secondaryLight"/>
           </HelpBox>
           <HelpBox
-            icon={Promotion}
+            icon="/icon-promotion.svg"
             altImg="Ilustração de auto-falante"
             title="Indique o AppJusto"
             text="Espalhe a notícia para seus amigos! Convide possíveis clientes, entregadores e donos de restaurantes, e ajude esta rede a crescer."
@@ -174,7 +156,7 @@ const Numbers: React.FC = () => {
             />
           </HelpBox>
           <HelpBox
-            icon={Hfive}
+            icon="/icon-high-five.svg"
             altImg="Ilustração de mãos se cumprimentando"
             title="Seja um parceiro"
             text="Tem interesse em atuar como voluntário, ser uma empresa parceira, investidor, ou acredita que pode colaborar de alguma outra maneira? Fale com a gente!"

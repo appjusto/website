@@ -5,7 +5,7 @@ import Container from '../../Container';
 import RegistrationBox from './RegistrationBox';
 import HeroSlider from './HeroSlider';
 
-import Line from '../../../../public/line-vector-y.svg'
+import Line from '../../Line'
 
 const Hero: React.FC = () => {
   const settings = {
@@ -21,63 +21,49 @@ const Hero: React.FC = () => {
   };
   return (
     <Section
-      position="relative" 
+      position="relative"
       id="hero"
       bgColor="black"
       overflow="hidden"
-      h={["auto", null, null, "560px", "560px", "600px"]} 
+      h={["auto", null, null, "560px", "560px", "600px"]}
     >
-      <Container 
+      <Container
         h="100%"
         flexDir="column"
         justifyContent="flex-end"
         pt={["132px", null, null, "0"]}
         pb="16px"
-        zIndex="100"  
+        zIndex="100"
       >
-        <Heading 
-          as="h1" 
-          color="white" 
+        <Heading
+          as="h1"
+          color="white"
           fontSize={["40px", null, null, "52px"]}
-          lineHeight={["48px", null, null, "62px"]}   
+          lineHeight={["48px", null, null, "62px"]}
         >
           Mais do que um app de entregas.
-          <Box 
+          <Line
+            color="yellow"
             display={["block", null, "none"]}
             maxW="300px"
             mt="0"
-          >
-            <img 
-              src={Line}
-              alt="Linha amarela" 
-              width={544} 
-              height={20} 
-            />
-          </Box>
+          />
         </Heading>
-        <Heading 
+        <Heading
           position="relative"
-          as="h2" 
+          as="h2"
           color="white"
           fontSize={["24px", null, null, "52px"]}
-          lineHeight={["28,8px", null, null, "62px"]} 
-          mb="36px"   
+          lineHeight={["28,8px", null, null, "62px"]}
+          mb="36px"
         >
         Somos um movimento por relações mais justas e transparentes.
-        <Box 
+        <Line
+          color="yellow"
           display={["none", null, "block"]}
-          position="absolute"
-          top={[null, "30px", null, "56px"]}
-          left="0"
+          top={[null, "-42px", null, "-66px"]}
           maxW={[null, "240px", null, "510px"]}
-        >
-          <img 
-            src="/line-vector-y.svg" 
-            alt="Linha amarela" 
-            width={544} 
-            height={20} 
-          />
-        </Box>
+        />
         </Heading>
         <RegistrationBox />
       </Container>

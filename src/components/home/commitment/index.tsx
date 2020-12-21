@@ -3,15 +3,8 @@ import Container from "../../Container";
 import Section from "../../Section";
 import Item from './Item';
 import InfoButtons from './InfoButtons';
-
-import Line from '../../../../public/line-vector-g.svg'
-import Bg from '../../../../public/bg-commitment.webp'
-import IconBike from '../../../../public/icon-bike.svg'
-import IconMon from '../../../../public/item-monetization.svg'
-import IconThumb from '../../../../public/item-thumb.svg'
-import IconDom from '../../../../public/item-domain.svg'
-import IconBlur from '../../../../public/item-blur.svg'
-import IconWorld from '../../../../public/item-world.svg'
+import Image from '../../Image'
+import Line from '../../Line'
 
 const Commitment: React.FC = () => {
   return (
@@ -32,19 +25,11 @@ const Commitment: React.FC = () => {
           mb={["64px", null, "24px"]}
         >
           Nosso compromisso é com a sociedade.
-          <Box
-            position="relative"
+          <Line
+            color="green"
             maxW={["220px", null, "220px","520px"]}
             mt={["-38px", null, "-4px","-8px"]}
-            color="white"
-          >
-            <img
-              src={Line}
-              alt="Linha verde"
-              width={544}
-              height={20}
-            />
-          </Box>
+          />
         </Heading>
         <Flex
           w="100%"
@@ -56,12 +41,7 @@ const Commitment: React.FC = () => {
             w="100%"
             display={["none", null, null, "block"]}
           >
-            <img
-              src={Bg}
-              alt="Celular com appjusto na tela"
-              width={499}
-              height={480}
-            />
+            <Image src="/bg-commitment.webp" alt="Celular com appjusto na tela" />
           </Box>
           <Flex
             w="100%"
@@ -70,32 +50,32 @@ const Commitment: React.FC = () => {
           >
             <InfoButtons />
             <Item
-              image={IconBike}
+              image="/icon-bike.svg"
               altImg="Ícone de entregador numa moto"
               title="Autonomia e participação"
             />
             <Item
-              image={IconMon}
+              image="/item-monetization.svg"
               altImg="Ícone de moeda"
               title="Preço justo para todos"
             />
             <Item
-              image={IconThumb}
+              image="/item-thumb.svg"
               altImg="Ícone de curtir"
               title="Eficiência e sustentabilidade financeira"
             />
             <Item
-              image={IconDom}
+              image="/item-domain.svg"
               altImg="Ícone de prédios"
               title="Criação de um bem coletivo"
             />
             <Item
-              image={IconBlur}
+              image="/item-blur.svg"
               altImg="Ícone de pontos"
               title="Transparência em toda a plataforma"
             />
             <Item
-              image={IconWorld}
+              image="/item-world.svg"
               altImg="Ícone de planeta"
               title="Objetivos de Desenvolvimento Sustentáveis"
               ods={true}

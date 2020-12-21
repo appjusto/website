@@ -1,9 +1,6 @@
 import React, { useEffect, useReducer, useContext, useMemo, Dispatch } from 'react'
-
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
-
 import getFirebaseClient from '../../firebaseApp'
-
 import { findEmail, findPhone, findCity } from '../utils'
 
 interface PageContextProps {
@@ -41,28 +38,9 @@ export const PageContextProvider = (props) => {
   const dbSummaryRef = useMemo(() =>
     database?.collection("summary").doc("data"), [database])
 
-  /*useEffect(() => {
-    const firebase = import('firebase/app')
-      .then(() => {
-        return firebase
-      })
-      .catch((error) => {
-        console.error("Unable to lazy-load firebase:", error);
-      });
-    import("firebase/firestore")
-      .then(() => {
-        const db = firebase.firestore();
-        contextDispatch({type: "update_database", payload: db})
-      })
-      .catch((error) => {
-        console.error("Unable to lazy-load firebase/firestore:", error);
-      });
-  }, [])*/
-
   useEffect(() => {
     const loadFirebase = async () => {
       const { firebase, db } = await getFirebaseClient()
-      console.log("load", firebase, db)
       return contextDispatch({type: "update_firebase", payload: {firebase, db}})
     }
     loadFirebase()

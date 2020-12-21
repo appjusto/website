@@ -1,4 +1,5 @@
 import { Flex } from '@chakra-ui/react'
+import Image from '../../Image'
 
 interface PartnerBoxProps{
   image: string
@@ -21,8 +22,9 @@ const PartnerBox: React.FC<PartnerBoxProps> = ({ image, altImg, width, height })
       minW="268px"
       h="160px"
       m="0 8px"
+      p="0 30px"
     >
-      <img src={image} width={width} height={height} alt={altImg} />
+      <Image src={image} alt={altImg} />
     </Flex>
   );
 }
