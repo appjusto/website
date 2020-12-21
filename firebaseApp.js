@@ -1,4 +1,4 @@
-import firebase from "firebase/app";
+//import firebase from "firebase/app";
 //import "firebase/auth"; // If you need it
 //import "firebase/firestore"; // If you need it
 //import "firebase/storage"; // If you need it
@@ -15,7 +15,7 @@ const clientCredentials = {
   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
-if (!firebase.apps.length) {
+/*if (!firebase.apps.length) {
   firebase.initializeApp(clientCredentials);
 }
 // Check that `window` is in scope for the analytics module!
@@ -23,4 +23,26 @@ if (!firebase.apps.length) {
   //To enable analytics. https://firebase.google.com/docs/analytics/get-started
   //if ("measurementId" in clientCredentials) firebase.analytics();
 //}
-export default firebase;
+export default firebase;*/
+
+const getFirebaseClient = async () => {
+  const firebase = await import('firebase/app')
+    .then((res) => {
+      const fire = res.default
+      if (!fire.apps.length) {
+        fire.initializeApp(clientCredentials);
+      }
+      return fire
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  const db = await import('firebase/firestore')
+    .then(() => {
+      return firebase.firestore()
+    })
+  console.log("getFire", firebase, db)
+  return { firebase, db }
+}
+
+export default getFirebaseClient;

@@ -1,18 +1,20 @@
 import React, { useEffect, useReducer, useContext, useMemo, Dispatch } from 'react'
-import firebase from '../../firebaseApp'
 
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
+
+import getFirebaseClient from '../../firebaseApp'
 
 import { findEmail, findPhone, findCity } from '../utils'
 
 interface PageContextProps {
   contextState: {
-    database: firebase.firestore.Firestore
+    firebase: any
+    database: any //firebase.firestore.Firestore
     showModalConfirmation: {show: boolean, type: string}
     showModalRecommendation: boolean
     registrationMsg: {status: boolean, form: string, message: string}
   }
-  dbSummaryRef: firebase.firestore.DocumentReference
+  dbSummaryRef: any //firebase.firestore.DocumentReference
   contextDispatch: Dispatch<Actions>
   handleRegistration: (profile: string, phone: string, city: string) => boolean
   handleIndication: (email: string) => boolean
@@ -21,6 +23,7 @@ interface PageContextProps {
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps)
 
 const initialState = {
+  firebase: null,
   database: null,
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
@@ -38,7 +41,14 @@ export const PageContextProvider = (props) => {
   const dbSummaryRef = useMemo(() =>
     database?.collection("summary").doc("data"), [database])
 
-  useEffect(() => {
+  /*useEffect(() => {
+    const firebase = import('firebase/app')
+      .then(() => {
+        return firebase
+      })
+      .catch((error) => {
+        console.error("Unable to lazy-load firebase:", error);
+      });
     import("firebase/firestore")
       .then(() => {
         const db = firebase.firestore();
@@ -47,6 +57,15 @@ export const PageContextProvider = (props) => {
       .catch((error) => {
         console.error("Unable to lazy-load firebase/firestore:", error);
       });
+  }, [])*/
+
+  useEffect(() => {
+    const loadFirebase = async () => {
+      const { firebase, db } = await getFirebaseClient()
+      console.log("load", firebase, db)
+      return contextDispatch({type: "update_firebase", payload: {firebase, db}})
+    }
+    loadFirebase()
   }, [])
 
   const handleRegistration = async (
@@ -70,7 +89,7 @@ export const PageContextProvider = (props) => {
         cities: newCitiesValue,
         [`${profile}`]: oldSummary[`${profile}`] + 1
       }
-      const FieldValue = firebase.firestore.FieldValue
+      const FieldValue = contextState.firebase.firestore.FieldValue
       batch.set(dbRegistrationsRef.doc(), {
         profile,
         phone,
@@ -87,7 +106,7 @@ export const PageContextProvider = (props) => {
   }
 
   const handleIndication = async (email: string) => {
-    const FieldValue = firebase.firestore.FieldValue
+    const FieldValue = contextState.firebase.firestore.FieldValue
     handleMessage(contextDispatch, "")
     try {
       const isNewEmail = await findEmail(dbIndicationsRef, email)
