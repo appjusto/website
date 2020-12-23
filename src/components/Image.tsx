@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, Image as ChakraImg, ImageProps } from '@chakra-ui/react'
 import VisibilitySensor  from 'react-visibility-sensor';
 
-import useClientWidth from './useClientWidth';
+import useClientWidth from '../hooks/useClientWidth';
 
 interface ImgProps extends ImageProps{
   src: string
@@ -17,8 +17,7 @@ const Image: React.FC<ImgProps> = ({
   const [load, setLoad] = useState(false)
   const [isActive, setIsActive] = useState(true)
   const width = useClientWidth()
-  const handleVisibility = (value) => {
-    console.log(value)
+  const handleVisibility = (value: boolean) => {
     if(value) {
       setIsActive(false)
       setLoad(true)

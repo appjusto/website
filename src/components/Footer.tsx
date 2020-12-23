@@ -155,19 +155,9 @@ const Footer: React.FC = () => {
           color="white"
         >
           <Link
-            name="policy_footer"
-            link="/politica-de-privacidade"
-            linkLabel="Política de privacidade"
-            internal={true}
-            mb={["22px", null, null, "0"]}
-            fontSize="15px"
-            mr={["0", null, null, "16px"]}
-          />
-          <Link
             name="terms_footer"
-            link="/termos-de-uso"
+            link="https://github.com/appjusto/docs/blob/main/legal/termo-tratamento-de-dados.md"
             linkLabel="Termos de uso"
-            internal={true}
             mb={["22px", null, null, "0"]}
             fontSize="15px"
             mr={["0", null, null, "16px"]}

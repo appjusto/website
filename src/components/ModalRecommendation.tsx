@@ -9,19 +9,19 @@ import {
   ModalContent,
   ModalCloseButton,
   ModalBody
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 import { FaWhatsappSquare } from 'react-icons/fa';
 
 import ShareLink from './share/ShareLink';
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 import FormMessage from './FormMessage';
-import Image from './Image'
+import Image from './Image';
 
 import { usePageContext, handleMessage } from '../context/';
 import useSharingUrlMsg from './share/useSharingUrlMsg';
 
-import { modalConfOptions } from './ModalConfirmation'
+import { modalConfOptions } from './ModalConfirmation';
 
 const ModalRecommendation: React.FC = () => {
   const [email, setEmail] = useState("")
@@ -31,7 +31,7 @@ const ModalRecommendation: React.FC = () => {
     contextDispatch,
     handleIndication
   } = usePageContext()
-  const { mainUrl, sharingMsg } = useSharingUrlMsg()
+  const { sharingMsg } = useSharingUrlMsg()
 
   const clearForm = () => {
     setEmail("")

@@ -1,8 +1,16 @@
-import React, { useEffect, useReducer, useContext, useMemo, Dispatch } from 'react'
+import {
+  createContext,
+  useEffect,
+  useReducer,
+  useContext,
+  useMemo,
+  Dispatch
+} from 'react'
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 import getFirebaseClient from '../../firebaseApp'
 import { findEmail, findPhone, findCity } from '../utils'
 
+import { setFirestoreTimeout} from '../utils'
 interface PageContextProps {
   contextState: {
     firebase: any
@@ -17,7 +25,7 @@ interface PageContextProps {
   handleIndication: (email: string) => boolean
 }
 
-const PageContext = React.createContext<PageContextProps>({} as PageContextProps)
+const PageContext = createContext<PageContextProps>({} as PageContextProps)
 
 const initialState = {
   firebase: null,
@@ -27,8 +35,14 @@ const initialState = {
   registrationMsg: {status: false, form: "", message: ""},
 }
 
+const celIsNotNewMsg = "O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil."
+const emailIsNotNewMsg = "O e-mail informado já havia sido indicado. Tente novamente com um novo e-mail."
+const serverErrorMsg = "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes."
+
 export const PageContextProvider = (props) => {
-  const [contextState, contextDispatch] = useReducer(pageContextReducer, initialState)
+  const [contextState, contextDispatch] = useReducer(
+    pageContextReducer, initialState
+  )
 
   const { database } = contextState
   const dbRegistrationsRef = useMemo(() =>
@@ -53,20 +67,26 @@ export const PageContextProvider = (props) => {
     ) => {
     handleMessage(contextDispatch, "")
     try {
-      const isNewPhone = await findPhone(dbRegistrationsRef, phone, profile)
-      if(!isNewPhone) {
-        handleMessage(contextDispatch, "O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil.", "registration")
+      const checkPhone = await findPhone(dbRegistrationsRef, phone, profile)
+      if(checkPhone === "found") {
+        handleMessage(contextDispatch, celIsNotNewMsg, "registration")
         return false
+      }
+      if(checkPhone === "error") {
+        throw new Error("connection error");
       }
       const batch = contextState.database.batch()
       const isNewCity = await findCity(dbRegistrationsRef, city)
+      console.log("isNewCity", isNewCity)
       const oldSummary = (await dbSummaryRef.get()).data()
+      console.log("oldSummary", oldSummary)
       const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
       const newSummary = {
         ...oldSummary,
         cities: newCitiesValue,
         [`${profile}`]: oldSummary[`${profile}`] + 1
       }
+      console.log("newSummary", newSummary)
       const FieldValue = contextState.firebase.firestore.FieldValue
       batch.set(dbRegistrationsRef.doc(), {
         profile,
@@ -75,10 +95,23 @@ export const PageContextProvider = (props) => {
         created_at: FieldValue.serverTimestamp()
       });
       batch.update(dbSummaryRef, newSummary)
-      batch.commit()
-      return true
+      console.log("before commit")
+      const connectionStatus = await batch.commit()
+        .then(() => {
+          console.log("batch.update then")
+          return true
+        })
+        .catch((error) => {
+          console.log("batch.update error", error)
+          return false
+        })
+      if(connectionStatus) {
+        return true
+      } else {
+        return false
+      }
     } catch (error) {
-      handleMessage(contextDispatch, "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.", "registration")
+      handleMessage(contextDispatch, serverErrorMsg, "registration")
       return false
     }
   }
@@ -87,15 +120,32 @@ export const PageContextProvider = (props) => {
     const FieldValue = contextState.firebase.firestore.FieldValue
     handleMessage(contextDispatch, "")
     try {
-      const isNewEmail = await findEmail(dbIndicationsRef, email)
-      if(!isNewEmail) {
-        handleMessage(contextDispatch, "O e-mail informado já havia sido indicado. Tente novamente com um novo e-mail.", "recommendation")
+      const checkEmail = await findEmail(dbIndicationsRef, email)
+      if(checkEmail === "found") {
+        handleMessage(contextDispatch, emailIsNotNewMsg, "recommendation")
         return false
       }
-      dbIndicationsRef.add({ email, created_at: FieldValue.serverTimestamp()})
-      return true
+      if(checkEmail === "error") {
+        throw new Error("connection error");
+      }
+      const connectionStatus = await dbIndicationsRef.add(
+        { email, created_at: FieldValue.serverTimestamp()}
+      )
+        .then(() => {
+          return true
+        })
+        .catch((error) => {
+          console.log("connection error", error)
+          return false
+        })
+      if(connectionStatus) {
+        return true
+      } else {
+        return false
+      }
     } catch (error) {
-      handleMessage(contextDispatch, "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes.", "recommendation")
+      console.log(error)
+      handleMessage(contextDispatch, serverErrorMsg, "recommendation")
       return false
     }
   }

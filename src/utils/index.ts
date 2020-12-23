@@ -1,3 +1,5 @@
+import { rejects } from 'assert'
+import { resolve } from 'path'
 import IBGEUrl from '../services/ApiIBGE'
 import Ufs from '../services/ufs'
 
@@ -41,55 +43,106 @@ export const getCorrectDimension = (dim: string, range = 2000) => {
   });
 };
 
-export const findEmail = (dbRef: any, email: string) => {
-  const query = dbRef
+export const findEmail = async (dbRef: any, email: string) => {
+  const query = await dbRef
     .where('email', '==', email)
     .get()
     .then(snapshot => {
+      //snapshot.metadata.fromCache: true means no connection
+      if(snapshot.metadata.fromCache) {
+        throw new Error("No connection");
+      }
       if (snapshot.empty) {
-        return true;
+        return "not_found";
       } else {
-        return false
+        return "found"
       }
     })
-    .catch(err => {
-      console.log('Error getting documents', err)
-      return false;
+    .catch((err) => {
+      throw new Error(err)
     });
-    return query
+  return query
 }
 
-export const findPhone = (dbRef: any, phone: string, profile: string) => {
-  const query = dbRef
+export const findPhone = async (dbRef: any, phone: string, profile: string) => {
+  const query = await dbRef
     .where('phone', '==', phone)
     .where('profile', '==', profile)
     .get()
     .then(snapshot => {
+      if(snapshot.metadata.fromCache) {
+        throw new Error("No connection");
+      }
       if (snapshot.empty) {
-        return true;
+        return "not_found";
       } else {
-        return false
+        return "found"
       }
     })
-    .catch(err => {
-      console.log('Error getting documents', err)
-      return false;
+    .catch((err) => {
+      throw new Error(err)
     });
     return query
 }
 
-export const findCity = (dbRef: any, city: string) => {
-  const query = dbRef.where('city', '==', city).get()
+export const findCity = async (dbRef: any, city: string) => {
+  const query = await dbRef.where('city', '==', city).get()
     .then(snapshot => {
+      if(snapshot.metadata.fromCache) {
+        throw new Error("No connection");
+      }
       if (snapshot.empty) {
         return true;
       } else {
         return false
       }
     })
-    .catch(err => {
-      console.log('Error getting documents', err)
-      return false;
+    .catch((err) => {
+      throw new Error(err)
     });
     return query
 }
+
+export const timeoutTest = () => new Promise((resolve, reject) => {
+  setTimeout(() => resolve(true), 2000)
+})
+
+export const setFirestoreTimeout =
+  (method: string, func: Function, [...args], timeout = 8000) =>
+    new Promise((resolve, reject) => {
+  try {
+    if(method !== "find" && method !== "add") {
+      throw new Error(
+        `Unknown method "${method}". Valid methods are "find" and "add"`
+      )
+    }
+    let success = null
+    func.apply(null, args).then((result: string) => {
+      console.log("func then")
+      if(success === null) {
+        console.log("func resolve")
+        success = true
+        if(method === "find") {
+          resolve(result)
+        } else {
+          resolve(true)
+        }
+      }
+      return
+    })
+    const timer = setTimeout(() => {
+      console.log("setT")
+      if(!success) {
+        console.log("setT resolve")
+        success = false
+        if(method === "find") {
+          resolve("error")
+        }
+        resolve(false)
+      }
+    }, timeout)
+  } catch (error){
+    console.log(error)
+    reject(false)
+  }
+});
