@@ -22,7 +22,7 @@ const SharingBar: React.FC = () => {
         spacing={4}
       >
         <ShareLink
-          link={`https://api.whatsapp.com/send?text=${sharingMsg}%20${mainUrl}`}
+          link={`https://api.whatsapp.com/send?text=${sharingMsg}`}
           label="Whatsapp"
           icon={FaWhatsappSquare}
         />

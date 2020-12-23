@@ -16,9 +16,6 @@ import { usePageContext } from '../context'
 
 import Image from './Image'
 
-import BigUser from '../../public/illustration-big-user.svg'
-import Thanks from '../../public/obrigado.svg'
-
 export const modalConfOptions = {
   registration: "registration",
   recommendation: "recommendation",
