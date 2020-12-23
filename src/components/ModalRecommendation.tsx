@@ -73,7 +73,7 @@ const ModalRecommendation: React.FC = () => {
         <ModalContent
           maxW={[null, null, "690px", "752px"]}
           maxH={[null, null, "480px"]}
-          overflow="auto"
+          overflow="hidden"
           display="flex"
           alignItems="center"
         >
@@ -105,8 +105,8 @@ const ModalRecommendation: React.FC = () => {
                 <Box
                   position="relative"
                   mr="16px"
-                  w={["60px", null, "80px", "100px"]}
-                  h={["60px", null, "80px", "100px"]}
+                  w={["60px", null, "80px"]}
+                  h={["60px", null, "80px"]}
                 >
                   <Image
                     src="/icon-promotion.svg"
