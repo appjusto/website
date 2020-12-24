@@ -34,7 +34,7 @@ const Image: React.FC<ImgProps> = ({
         minH="1px"
       >
         {
-          load && (
+          width > 0 && load && (
             <ChakraImg
               src={srcMob ? width < 1000 ? srcMob : src : src}
               ignoreFallback

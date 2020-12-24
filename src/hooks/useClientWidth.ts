@@ -1,20 +1,23 @@
-import { useState, SetStateAction, useEffect } from 'react';
-
-import { getCorrectDimension } from '../utils'
+import { useState, useEffect } from 'react';
 
 const useClientWidth = () => {
   const [width, setWidth] = useState(0)
-  async function getWidth() {
-    const width = await getCorrectDimension("width")
-    setWidth(width as SetStateAction<number>)
+  const updateState = () => {
+    if (typeof window !== 'undefined') {
+      let w = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+      if(width !== w) {
+        setWidth(w)
+      }
+    }
   }
   useEffect(() => {
-    getWidth()
+    updateState()
+    window.addEventListener('resize', updateState)
+    return () => window.removeEventListener('resize', updateState)
   }, [])
-  useEffect(() => {
-    window.addEventListener('resize', getWidth)
-    return () => window.removeEventListener('resize', getWidth)
-  }, [])
+  console.log(width)
   return width;
 }
 
