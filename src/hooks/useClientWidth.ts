@@ -17,7 +17,6 @@ const useClientWidth = () => {
     window.addEventListener('resize', updateState)
     return () => window.removeEventListener('resize', updateState)
   }, [])
-  console.log(width)
   return width;
 }
 
