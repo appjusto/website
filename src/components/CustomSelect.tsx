@@ -18,42 +18,42 @@ interface CustomSelectProps extends SelectProps {
 
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
-  id, 
-  label, 
+  id,
+  label,
   placeholder,
   value,
   maxW = "100%",
   marginLeft = ["0"],
   isLast,
-  isLoading, 
-  options, 
+  isLoading,
+  options,
   handleChange,
   ...props
 }) => {
   const styles = useMultiStyleConfig("Select", {})
   if(isLoading) {
     return (
-      <FormControl 
-      id={id} 
-      mt="24px"
-      mr={["0", null, null, isLast ? "0" : "16px"]}
-      maxW={maxW}
-    >
-      <FormLabel sx={styles.label}>
-        {label}
-      </FormLabel>
-      <Select
-        isRequired
-        placeholder="Carregando..."
-        sx={styles.select}
+      <FormControl
+        id={id}
+        mt="24px"
+        mr={["0", null, null, isLast ? "0" : "16px"]}
+        maxW={maxW}
       >
-      </Select>
-    </FormControl>
+        <FormLabel sx={styles.label}>
+          {label}
+        </FormLabel>
+        <Select
+          isRequired
+          placeholder="Carregando..."
+          sx={styles.select}
+        >
+        </Select>
+      </FormControl>
     )
   }
   return (
-    <FormControl 
-      id={id} 
+    <FormControl
+      id={id}
       mt="24px"
       mr={["0", null, null, isLast ? "0" : "16px"]}
       maxW={maxW}

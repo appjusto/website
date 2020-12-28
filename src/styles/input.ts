@@ -18,7 +18,7 @@ export default {
       borderColor: "#C8D7CB",
       pt: "30px",
       pb: "9px",
-      zIndex: "0"
-    } 
+      zIndex: "0",
+    }
   },
 }

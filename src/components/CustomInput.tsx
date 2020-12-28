@@ -17,7 +17,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
 }) => {
   const styles = useMultiStyleConfig("Input", {})
   return (
-    <FormControl 
+    <FormControl
       id={id}
       mt="24px"
       mr={["0", null, null, "16px"]}
@@ -25,15 +25,16 @@ const CustomInput: React.FC<CustomInputProps> = ({
       <FormLabel sx={styles.label}>
         {label}
       </FormLabel>
-        <Input
-          isRequired 
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          sx={styles.input}
-          onChange={handleChange}
-          {...props}
-        />
+      <Input
+        isRequired
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        sx={styles.input}
+        onChange={handleChange}
+        autocomplete="off"
+        {...props}
+      />
     </FormControl>
   );
 }

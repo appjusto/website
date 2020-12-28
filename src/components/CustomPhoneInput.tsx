@@ -81,7 +81,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
     }
   }
   return (
-    <FormControl 
+    <FormControl
       id={id}
       mt="24px"
       mr={["0", null, null, "16px"]}
@@ -91,7 +91,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
       </FormLabel>
         <Input
           isRequired
-          isInvalid={!isValid ? true : false} 
+          isInvalid={!isValid ? true : false}
           type="tel"
           placeholder={placeholderText}
           maxLength={15}
@@ -100,6 +100,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
           onChange={onInputChange}
           onFocus={() => setPlaceholderText("(__) _____-____")}
           onBlur={handleLeave}
+          autocomplete="off"
           {...props}
         />
     </FormControl>
