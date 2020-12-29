@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
             metaDescription="AppJusto. Mais do que um app de entregas. Somo um movimento por relações mais justas e transparentes. Faça parte agora!"
             title="AppJusto"
             author="@appjusto"
-            canonical_url="https://app-justo-site.web.app/"
+            canonical_url="https://appjusto.com.br/"
           />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
