@@ -11,7 +11,6 @@ module.exports = withImages({
     FIREBASE_MESSAGING_SENDER_ID: "739460379065",
     FIREBASE_APP_ID: "1:739460379065:web:4496d1ec8e8e74d02f8668",
     FIREBASE_MEASUREMENT_ID: "G-MD12BE6W35",
-    GOOGLE_PLACES_API_KEY: "AIzaSyAGQnQ-ZdGbstevMNxwjYB3K_v--ENrPY8",
   },
   experimental: {
     sprFlushToDisk: false,

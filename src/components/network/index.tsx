@@ -34,6 +34,8 @@ const partnerAssociations = [
 
 const volunteers = [
   "Fernando Fuzii",
+  "Renan Costa",
+  "Kim Richardson",
   "Fábio Borges",
   "Cassio Horita",
   "Arthur Rufino",
@@ -53,9 +55,9 @@ const volunteers = [
 const publishers = [
   "João Vitor",
   "Bruno Barroso",
-  "Renata Zanuto", 
+  "Renata Zanuto",
   "João Aquino",
-  "Fernado Trota", 
+  "Fernado Trota",
   "Maytê Carvalho",
   "Ivan Achcar",
   "Raul Lemos"
@@ -78,7 +80,7 @@ const Network: React.FC = () => {
         <NamesBox>
           <RoleTitle text="Investidores anjos" />
           {
-            angelInvestors.map( 
+            angelInvestors.map(
               name => <NetworkNames key={name} text={name} />
             )
           }
@@ -88,7 +90,7 @@ const Network: React.FC = () => {
         <NamesBox>
           <RoleTitle text="Empresas parceiras" />
           {
-            partnerCompanies.map( 
+            partnerCompanies.map(
               name => <NetworkNames key={name} text={name} />
             )
           }
@@ -96,7 +98,7 @@ const Network: React.FC = () => {
         <NamesBox>
           <RoleTitle text="Associações parceiras" />
           {
-            partnerAssociations.map( 
+            partnerAssociations.map(
               name => <NetworkNames key={name} text={name} />
             )
           }
@@ -106,20 +108,20 @@ const Network: React.FC = () => {
         <NamesBox>
           <RoleTitle text="Voluntários ativos" />
           {
-            volunteers.map( 
+            volunteers.map(
               name => <NetworkNames key={name} text={name} />
             )
           }
-        </NamesBox> 
+        </NamesBox>
         <NamesBox>
           <RoleTitle text="Divulgadores" />
           {
-            publishers.map( 
+            publishers.map(
               name => <NetworkNames key={name} text={name} />
             )
           }
-        </NamesBox> 
-      </Column>     
+        </NamesBox>
+      </Column>
     </Flex>
   );
 }
