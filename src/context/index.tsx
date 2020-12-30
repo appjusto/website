@@ -77,16 +77,13 @@ export const PageContextProvider = (props) => {
       }
       const batch = contextState.database.batch()
       const isNewCity = await findCity(dbRegistrationsRef, city)
-      console.log("isNewCity", isNewCity)
       const oldSummary = (await dbSummaryRef.get()).data()
-      console.log("oldSummary", oldSummary)
       const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
       const newSummary = {
         ...oldSummary,
         cities: newCitiesValue,
         [`${profile}`]: oldSummary[`${profile}`] + 1
       }
-      console.log("newSummary", newSummary)
       const FieldValue = contextState.firebase.firestore.FieldValue
       batch.set(dbRegistrationsRef.doc(), {
         profile,
@@ -95,10 +92,8 @@ export const PageContextProvider = (props) => {
         created_at: FieldValue.serverTimestamp()
       });
       batch.update(dbSummaryRef, newSummary)
-      console.log("before commit")
       const connectionStatus = await batch.commit()
         .then(() => {
-          console.log("batch.update then")
           return true
         })
         .catch((error) => {

@@ -32,7 +32,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         value={value}
         sx={styles.input}
         onChange={handleChange}
-        autocomplete="off"
+        autoComplete="off"
         {...props}
       />
     </FormControl>
