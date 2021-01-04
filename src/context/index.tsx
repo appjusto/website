@@ -10,7 +10,6 @@ import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 import getFirebaseClient from '../../firebaseApp'
 import { findEmail, findPhone, findCity } from '../utils'
 
-import { setFirestoreTimeout} from '../utils'
 interface PageContextProps {
   contextState: {
     firebase: any

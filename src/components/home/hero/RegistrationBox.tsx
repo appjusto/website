@@ -9,13 +9,9 @@ import CustomComboInput from '../../CustomComboInput'
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
 
-import {
-  usePageContext, handleMessage
-} from '../../../context'
+import { usePageContext, handleMessage } from '../../../context'
 
-import {
-  ufsList, getCities, profileOptions, getCorrectDimension
-} from '../../../utils'
+import { ufsList, getCities, profileOptions } from '../../../utils'
 
 import { registrationReducer, Actions } from '../../../reducers/registrationReducer'
 
@@ -73,8 +69,10 @@ const RegistrationBox: React.FC = () => {
     return dispatch({type: "update_fixedHeader", payload: false})
   }
 
-  async function handleScroll() {
-    const width = await getCorrectDimension("width")
+  function handleScroll() {
+    const width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
     if(width > 1000) {
       if (document.documentElement.scrollTop > 400) {
         dispatch({type: "update_fixedHeader", payload: true})
@@ -83,7 +81,6 @@ const RegistrationBox: React.FC = () => {
       }
     }
   }
-
   const clearForm = () => {
     dispatch({type: "clear_state", payload: initialState})
   }

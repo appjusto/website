@@ -2,14 +2,14 @@ import React from 'react'
 
 interface StateProps {
   indicatorPhone?: string
-  profile: string,
-  phone: string,
-  uf: string,
-  city: string,
-  isLoadingCities: boolean,
-  citiesList: string[],
-  isSubmiting: boolean,
-  fixedHeader?: boolean,
+  profile: string
+  phone: string
+  uf: string
+  city: string
+  isLoadingCities: boolean
+  citiesList: string[]
+  isSubmiting: boolean
+  fixedHeader?: boolean
   fieldsAreValid: {
     indicatorPhone?: boolean
     phone: boolean
@@ -18,18 +18,18 @@ interface StateProps {
   }
 }
 
-export type Actions = 
+export type Actions =
   | { type: 'update_indicatorPhone'; payload: string }
   | { type: 'update_profile'; payload: string }
   | { type: 'update_phone'; payload: string }
   | { type: 'update_uf'; payload: string }
   | { type: 'fetch_cities' }
-  | { type: 'populate_cities'; payload: string[] } 
-  | { type: 'update_city'; payload: string } 
+  | { type: 'populate_cities'; payload: string[] }
+  | { type: 'update_city'; payload: string }
   | { type: 'update_isSubmiting'; payload: boolean }
   | { type: 'update_fixedHeader'; payload: boolean }
-  | { type: 'clear_state', payload: StateProps }  
-  | { type: 'validation', payload: { field: string, value: boolean }}     
+  | { type: 'clear_state', payload: StateProps }
+  | { type: 'validation', payload: { field: string, value: boolean }}
 
 export const registrationReducer = (state: StateProps, action: Actions): StateProps => {
   switch (action.type) {
