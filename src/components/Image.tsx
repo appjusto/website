@@ -17,14 +17,14 @@ const Image: React.FC<ImgProps> = ({
   const [width, setWidth] = useState(0)
   const updateWidth = () => {
     if (typeof window !== 'undefined') {
-      let w = window.innerWidth
+      let width = window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth;
       setWidth( prevWidth => {
-        if(srcMob && prevWidth !== w) {
-          return w
+        if(srcMob && prevWidth !== width) {
+          return width
         } else if (prevWidth === 0) {
-          return w
+          return width
         } else {
           return prevWidth
         }

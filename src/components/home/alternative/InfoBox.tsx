@@ -34,7 +34,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ image, altImg, title, textArray }) =>
         <Image src={image} alt={altImg} />
       </Box>
       <Heading
-        as="h3"
+        as="h2"
         display="flex"
         flexDir="column"
         justifyContent="center"
