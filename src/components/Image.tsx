@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Box, Image as ChakraImg, ImageProps } from '@chakra-ui/react';
 import VisibilitySensor  from 'react-visibility-sensor';
 
@@ -15,7 +15,7 @@ const Image: React.FC<ImgProps> = ({
   const [load, setLoad] = useState(false)
   const [isActive, setIsActive] = useState(true)
   const [width, setWidth] = useState(0)
-  const updateWidth = () => {
+  const updateWidth = useCallback(() => {
     if (typeof window !== 'undefined') {
       let width = window.innerWidth
         || document.documentElement.clientWidth
@@ -30,12 +30,12 @@ const Image: React.FC<ImgProps> = ({
         }
       })
     }
-  }
+  }, [srcMob])
   useEffect(() => {
     updateWidth()
     window.addEventListener('resize', updateWidth)
     return () => window.removeEventListener('resize', updateWidth)
-  }, [])
+  }, [updateWidth])
   const handleVisibility = (value: boolean) => {
     if(value) {
       setIsActive(false)
