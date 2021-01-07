@@ -99,6 +99,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
             {...getInputProps()}
             value={inputValue}
             maxLength={maxLength ? maxLength : null}
+            autoComplete="nope"
           />
         </Box>
           <List

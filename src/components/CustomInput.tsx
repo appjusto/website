@@ -42,7 +42,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         sx={styles.input}
         onChange={handleChange}
         onBlur={(ev) => handleValidity(ev)}
-        autoComplete="off"
+        autoComplete="nope"
         {...props}
       />
     </FormControl>

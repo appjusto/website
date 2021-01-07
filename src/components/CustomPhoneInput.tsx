@@ -100,7 +100,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
           onChange={onInputChange}
           onFocus={() => setPlaceholderText("(__) _____-____")}
           onBlur={handleLeave}
-          autoComplete="off"
+          autoComplete="nope"
           {...props}
         />
     </FormControl>
