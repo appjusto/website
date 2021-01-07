@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { useState, ChangeEvent } from 'react'
 import { FormControl, FormLabel, Input, InputProps } from '@chakra-ui/react'
 
 import { useMultiStyleConfig } from "@chakra-ui/react"
@@ -15,7 +15,15 @@ interface CustomInputProps extends InputProps {
 const CustomInput: React.FC<CustomInputProps> = ({
   id, label, placeholder, value, type = "text", handleChange, ...props
 }) => {
+  const [isInvalid, setIsInvalid] = useState(false);
   const styles = useMultiStyleConfig("Input", {})
+  const handleValidity = (ev: ChangeEvent<HTMLInputElement>) => {
+    if (value !== '' && !ev.target.validity.valid) {
+      setIsInvalid(true);
+    } else {
+      setIsInvalid(false);
+    }
+  };
   return (
     <FormControl
       id={id}
@@ -27,11 +35,13 @@ const CustomInput: React.FC<CustomInputProps> = ({
       </FormLabel>
       <Input
         isRequired
+        isInvalid={isInvalid}
         type={type}
         placeholder={placeholder}
         value={value}
         sx={styles.input}
         onChange={handleChange}
+        onBlur={(ev) => handleValidity(ev)}
         autoComplete="off"
         {...props}
       />

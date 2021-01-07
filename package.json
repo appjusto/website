@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^1.0.0",
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
+    "@rooks/use-visibility-sensor": "^4.5.0",
     "@typeform/embed": "^0.29.1",
     "downshift": "^6.0.7",
     "firebase": "^8.1.1",
@@ -24,8 +25,7 @@
     "react-countup": "^4.3.3",
     "react-dom": "17.0.1",
     "react-icons": "^3.11.0",
-    "react-scroll": "^1.8.1",
-    "react-visibility-sensor": "^5.1.1"
+    "react-scroll": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.8",

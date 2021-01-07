@@ -1,69 +1,55 @@
-import { useState, useEffect, useCallback } from 'react';
 import { Box, Image as ChakraImg, ImageProps } from '@chakra-ui/react';
-import VisibilitySensor  from 'react-visibility-sensor';
+import useVisibilitySensor from '@rooks/use-visibility-sensor';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-interface ImgProps extends ImageProps{
-  src: string
-  srcMob?: string
+interface ImgProps extends ImageProps {
+  src: string;
+  srcMob?: string;
+  scrollCheck?: boolean;
 }
 
-const Image: React.FC<ImgProps> = ({
-  src,
-  srcMob,
-  ...props
-}) => {
-  const [load, setLoad] = useState(false)
-  const [isActive, setIsActive] = useState(true)
-  const [width, setWidth] = useState(0)
+const Image: React.FC<ImgProps> = ({ src, srcMob, scrollCheck = true, ...props }) => {
+  const [loaded, setLoaded] = useState(false);
+  const [width, setWidth] = useState(0);
+  const rootNode = useRef(null);
+  const { isVisible } = useVisibilitySensor(rootNode, {
+    partialVisibility: true,
+    intervalCheck: false,
+    scrollCheck: scrollCheck,
+    resizeCheck: true,
+  });
   const updateWidth = useCallback(() => {
     if (typeof window !== 'undefined') {
-      let width = window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
-      setWidth( prevWidth => {
-        if(srcMob && prevWidth !== width) {
-          return width
+      let width =
+        window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      setWidth((prevWidth) => {
+        if (srcMob && prevWidth !== width) {
+          return width;
         } else if (prevWidth === 0) {
-          return width
+          return width;
         } else {
-          return prevWidth
+          return prevWidth;
         }
-      })
+      });
     }
-  }, [srcMob])
+  }, [srcMob]);
   useEffect(() => {
-    updateWidth()
-    window.addEventListener('resize', updateWidth)
-    return () => window.removeEventListener('resize', updateWidth)
-  }, [updateWidth])
-  const handleVisibility = (value: boolean) => {
-    if(value) {
-      setIsActive(false)
-      setLoad(true)
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, [updateWidth]);
+  useEffect(() => {
+    if (isVisible && !loaded) {
+      setLoaded(true);
     }
-  }
+  }, [isVisible, loaded]);
   return (
-    <VisibilitySensor
-      partialVisibility={true}
-      active={isActive}
-      onChange={handleVisibility}
-    >
-      <Box
-        minW="1px"
-        minH="1px"
-      >
-        {
-          width > 0 && load && (
-            <ChakraImg
-              src={srcMob ? width < 1000 ? srcMob : src : src}
-              ignoreFallback
-              {...props}
-            />
-          )
-        }
-      </Box>
-    </VisibilitySensor>
+    <Box ref={rootNode} minW="1px" minH="1px">
+      {width > 0 && loaded && (
+        <ChakraImg src={srcMob ? (width < 1000 ? srcMob : src) : src} ignoreFallback {...props} />
+      )}
+    </Box>
   );
-}
+};
 
 export default Image;
