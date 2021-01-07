@@ -18,14 +18,15 @@ export default {
       borderColor: "#C8D7CB",
       display: "flex",
       alignItems: "flex-end",
+      pt: "30px",
       pb: "9px"
     }
-    
+
   },
   // Two sizes: sm and md
 
   // Two variants: outline and solid
-  
+
   // The default size and variant values
-  
+
 }
