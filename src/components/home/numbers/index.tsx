@@ -17,6 +17,8 @@ interface SummaryProps {
   restaurants: number
 }
 
+const initParam = 99;
+
 const Numbers: React.FC = () => {
   const [summary, setSummary] = useState<SummaryProps>({
     cities: 0,
@@ -53,7 +55,7 @@ const Numbers: React.FC = () => {
         pb="64px"
       >
         {
-          summary?.couriers > 99 && summary.restaurants > 99 && (
+          summary?.couriers > initParam && summary.restaurants > initParam && (
             <>
               <Heading
                 as="h1"
