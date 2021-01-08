@@ -27,8 +27,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   return (
     <FormControl
       id={id}
-      mt="24px"
-      mr={["0", null, null, "16px"]}
+      sx={styles.control}
     >
       <FormLabel sx={styles.label}>
         {label}
@@ -42,7 +41,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
         sx={styles.input}
         onChange={handleChange}
         onBlur={(ev) => handleValidity(ev)}
-        autoComplete="nope"
         {...props}
       />
     </FormControl>

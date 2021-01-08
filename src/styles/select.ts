@@ -1,13 +1,19 @@
 export default {
-  // The styles all button have in common
-  parts: ["label", "select"],
+  parts: ["control", "label", "select"],
   baseStyle: {
+    control: {
+      position: "relative",
+      mt: "16px",
+      zIndex: "1"
+    },
     label: {
+      position: "absolute",
       fontFamily: "Barlow",
       fontSize: "16px",
       color: "#2F855A",
-      ml: "16px",
-      mb: "-32px"
+      top: "8px",
+      left: "16px",
+      zIndex: "1000"
     },
     select: {
       fontFamily: "Barlow",
@@ -19,14 +25,9 @@ export default {
       display: "flex",
       alignItems: "flex-end",
       pt: "30px",
-      pb: "9px"
+      pb: "9px",
+      zIndex: "1"
     }
 
   },
-  // Two sizes: sm and md
-
-  // Two variants: outline and solid
-
-  // The default size and variant values
-
 }

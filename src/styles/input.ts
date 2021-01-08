@@ -1,12 +1,20 @@
 export default {
-  parts: ["label", "input"],
+  parts: ["control", "label", "input"],
   baseStyle: {
+    control: {
+      position: "relative",
+      mt: "16px",
+      mr: ["0", null, null, "16px"],
+      zIndex: "1"
+    },
     label: {
+      position: "absolute",
       fontFamily: "Barlow",
       fontSize: "16px",
       color: "#2F855A",
-      ml: "16px",
-      mb: "-32px",
+      top: "8px",
+      left: "16px",
+      zIndex: "1000"
     },
     input: {
       fontFamily: "Barlow",
@@ -17,6 +25,7 @@ export default {
       borderColor: "#C8D7CB",
       pt: "30px",
       pb: "9px",
+      zIndex: "1"
     }
   },
 }

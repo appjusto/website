@@ -35,7 +35,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     return (
       <FormControl
         id={id}
-        mt="24px"
+        sx={styles.control}
         mr={["0", null, null, isLast ? "0" : "16px"]}
         maxW={maxW}
       >
@@ -54,7 +54,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   return (
     <FormControl
       id={id}
-      mt="24px"
+      sx={styles.control}
       mr={["0", null, null, isLast ? "0" : "16px"]}
       maxW={maxW}
       ml={marginLeft}

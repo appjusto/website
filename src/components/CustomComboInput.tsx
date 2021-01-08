@@ -33,7 +33,8 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   maxLength,
   items,
   setParentValue,
-  notifyValidation
+  notifyValidation,
+  ...props
 }) => {
   const styles = useMultiStyleConfig("Input", {})
   const [inputValue, setInputValue] = useState(parentValue)
@@ -81,9 +82,7 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
   return (
     <FormControl
       id={id}
-      position="relative"
-      mt="24px"
-      mr={["0", null, null, "16px"]}
+      sx={styles.control}
       maxW={maxW ? maxW : null}
     >
       <FormLabel sx={styles.label} {...getLabelProps()}>
@@ -99,7 +98,6 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
             {...getInputProps()}
             value={inputValue}
             maxLength={maxLength ? maxLength : null}
-            autoComplete="nope"
           />
         </Box>
           <List
