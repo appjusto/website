@@ -5,6 +5,7 @@ import {
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { useMultiStyleConfig } from "@chakra-ui/react"
 import { useCombobox } from 'downshift'
+import { removeAccents } from '../utils'
 
 interface CustomComboInputProps extends InputProps {
   isDisabled?: boolean
@@ -60,12 +61,10 @@ const CustomComboInput: React.FC<CustomComboInputProps> = ({
     items: inputItems,
     onInputValueChange: ({inputValue}) => {
       setParentValue(inputValue)
-      setInputItems(
-        items.filter((item) =>
-          item.toLowerCase().startsWith(inputValue.toLowerCase()),
-        ),
-      )
-    },
+      setInputItems( items.filter((item) =>
+        removeAccents(item).startsWith(removeAccents(inputValue)),
+      ))
+    }
   })
 
   const validation = (value: string) => {

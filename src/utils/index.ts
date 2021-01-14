@@ -7,6 +7,9 @@ export const profileOptions = [
   { value: "restaurants", label: "Restaurante"}
 ]
 
+export const removeAccents = (str: string) => {
+  return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 export const ufsList = Ufs.map(uf => uf.sigla)
 
 export const getCities = async (uf: string) => {
