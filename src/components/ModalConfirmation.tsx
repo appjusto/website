@@ -46,9 +46,8 @@ const ModalConfirmation: React.FC = () => {
           maxH={[null, null, "538px"]}
         >
           <ModalCloseButton
-            border="2px solid black"
-            borderRadius="8px"
             zIndex="100"
+            _focus={{outline: 'none'}}
           />
           <ModalBody pt="0" pb="60px">
             <Flex

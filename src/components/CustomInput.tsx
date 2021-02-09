@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, forwardRef } from 'react'
 import { FormControl, FormLabel, Input, InputProps } from '@chakra-ui/react'
 
 import { useMultiStyleConfig } from "@chakra-ui/react"
@@ -12,9 +12,9 @@ interface CustomInputProps extends InputProps {
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({
+const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(({
   id, label, placeholder, value, type = "text", handleChange, ...props
-}) => {
+}: CustomInputProps, ref) => {
   const [isInvalid, setIsInvalid] = useState(false);
   const styles = useMultiStyleConfig("Input", {})
   const handleValidity = (ev: ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +33,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         {label}
       </FormLabel>
       <Input
+        ref={ref}
         isRequired
         isInvalid={isInvalid}
         type={type}
@@ -45,6 +46,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
       />
     </FormControl>
   );
-}
+});
 
 export default CustomInput;

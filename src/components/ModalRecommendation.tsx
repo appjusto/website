@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent, useRef } from 'react';
 import {
   Flex,
   Box,
@@ -26,6 +26,7 @@ import { modalConfOptions } from './ModalConfirmation';
 const ModalRecommendation: React.FC = () => {
   const [email, setEmail] = useState("")
   const [isSubmiting, setIsSubmiting] = useState(false)
+  const inputRef = useRef(null);
   const {
     contextState,
     contextDispatch,
@@ -59,6 +60,10 @@ const ModalRecommendation: React.FC = () => {
     return contextDispatch({type: "handle_modalRecommendation"})
   }
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, [inputRef.current])
+
   return (
     <Modal
       id="ModalRecommendation"
@@ -77,10 +82,7 @@ const ModalRecommendation: React.FC = () => {
           display="flex"
           alignItems="center"
         >
-          <ModalCloseButton
-            border="2px solid black"
-            borderRadius="8px"
-          />
+          <ModalCloseButton _focus={{outline: 'none'}}/>
           <ModalBody
             p="24px"
             display="flex"
@@ -149,6 +151,7 @@ const ModalRecommendation: React.FC = () => {
                 w="100%"
               >
                 <CustomInput
+                  ref={inputRef}
                   type="email"
                   id="recommended-email"
                   label="E-mail da indicação"
