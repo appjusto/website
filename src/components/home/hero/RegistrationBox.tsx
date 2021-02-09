@@ -1,5 +1,5 @@
 import {
-  useReducer, useEffect, useLayoutEffect, useRef, ChangeEvent, FormEvent
+  useReducer, useEffect, useRef, ChangeEvent, FormEvent
 }from 'react'
 import { Flex, Heading, Text } from "@chakra-ui/react"
 
@@ -44,7 +44,7 @@ const RegistrationBox: React.FC = () => {
   const { contextState, contextDispatch, handleRegistration } = usePageContext()
   const isMountedRef = useRef(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     isMountedRef.current = true
     return () => isMountedRef.current = false
   }, [])

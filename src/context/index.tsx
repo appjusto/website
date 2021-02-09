@@ -66,14 +66,14 @@ export const PageContextProvider = (props) => {
     ) => {
     handleMessage(contextDispatch, "")
     try {
-      /*const checkPhone = await findPhone(dbRegistrationsRef, phone, profile)
+      const checkPhone = await findPhone(dbRegistrationsRef, phone, profile)
       if(checkPhone === "found") {
         handleMessage(contextDispatch, celIsNotNewMsg, "registration")
         return false
       }
       if(checkPhone === "error") {
         throw new Error("connection error");
-      }*/
+      }
       const batch = contextState.database.batch()
       const isNewCity = await findCity(dbRegistrationsRef, city)
       const oldSummary = (await dbSummaryRef.get()).data()
