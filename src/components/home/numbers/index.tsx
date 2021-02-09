@@ -43,6 +43,8 @@ const Numbers: React.FC = () => {
     return contextDispatch({type: "handle_modalRecommendation"})
   }
 
+  const hasNumbers = summary?.couriers > initParam && summary.restaurants > initParam;
+
   return (
     <Section
       id="numbers"
@@ -55,7 +57,7 @@ const Numbers: React.FC = () => {
         pb="64px"
       >
         {
-          summary?.couriers > initParam && summary.restaurants > initParam && (
+          hasNumbers && (
             <>
               <Heading
                 as="h1"
@@ -118,7 +120,7 @@ const Numbers: React.FC = () => {
           )
         }
         <Heading
-          mt="64px"
+          mt={hasNumbers ? "64px" : "0"}
           as="h1"
           fontSize={["24px", null, null, "32px"]}
         >

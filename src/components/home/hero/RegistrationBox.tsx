@@ -143,6 +143,8 @@ const RegistrationBox: React.FC = () => {
       justifyContent="center"
       alignItems="center"
       bg="white"
+      border="2px solid black"
+      borderRadius="8px"
       mb="24px"
     >
       <Flex
