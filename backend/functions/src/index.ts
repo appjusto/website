@@ -32,7 +32,7 @@ export const createRegistration = functions.https.onCall(async (data, context) =
   await updateSummary(profile, city);
   return {status: true, message: '', error: ''};
  } catch (error) {
-  return {status: false, message: 'Error', error: error.toString()};
+  return {status: false, message: 'Error', error: error};
  }
 });
 
@@ -48,6 +48,6 @@ export const createIndication = functions.https.onCall(async (data, context) => 
    await indicationsRef.add({email, createdOn})
    return {status: true, message: '', error: ''};
   } catch (error) {
-   return {status: false, message: 'Error', error: error.toString()};
+   return {status: false, message: 'Error', error};
   }
  });
