@@ -9,9 +9,9 @@ export const findEmail = async (dbRef: any, email: string) => {
         throw new Error("No connection");
       }
       if (snapshot.empty) {
-        return "not_found";
+        return true
       } else {
-        return "found"
+        return false
       }
     })
     .catch((err: any) => {
@@ -30,9 +30,9 @@ export const findPhone = async (dbRef: any, phone: string, profile: string) => {
         throw new Error("No connection");
       }
       if (snapshot.empty) {
-        return "not_found";
+        return true
       } else {
-        return "found"
+        return false
       }
     })
     .catch((err: any) => {
