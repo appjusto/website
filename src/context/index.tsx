@@ -8,12 +8,13 @@ import {
 } from 'react'
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 import getFirebaseClient from '../../firebaseApp'
-import { findEmail, findPhone, findCity } from '../utils'
+import firebase from 'firebase';
 
 interface PageContextProps {
   contextState: {
-    firebase: any
-    database: any //firebase.firestore.Firestore
+    firebase: firebase.app.App
+    database: firebase.firestore.Firestore
+    functions: firebase.functions.Functions
     showModalConfirmation: {show: boolean, type: string}
     showModalRecommendation: boolean
     registrationMsg: {status: boolean, form: string, message: string}
@@ -29,6 +30,7 @@ const PageContext = createContext<PageContextProps>({} as PageContextProps)
 const initialState = {
   firebase: null,
   database: null,
+  functions: null,
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
   registrationMsg: {status: false, form: "", message: ""},
@@ -43,7 +45,7 @@ export const PageContextProvider = (props) => {
     pageContextReducer, initialState
   )
 
-  const { database } = contextState
+  const { database, functions } = contextState
   const dbRegistrationsRef = useMemo(() =>
     database?.collection('registrations'), [database])
   const dbIndicationsRef = useMemo(() =>
@@ -53,8 +55,8 @@ export const PageContextProvider = (props) => {
 
   useEffect(() => {
     const loadFirebase = async () => {
-      const { firebase, db } = await getFirebaseClient()
-      return contextDispatch({type: "update_firebase", payload: {firebase, db}})
+      const { firebase, db, functions } = await getFirebaseClient()
+      return contextDispatch({type: "update_firebase", payload: {firebase, db, functions}})
     }
     loadFirebase()
   }, [])
@@ -66,9 +68,16 @@ export const PageContextProvider = (props) => {
     ) => {
     handleMessage(contextDispatch, "")
     try {
-      // criar createdOn no back
-      //await this.functions.httpsCallable('createRegistration')(profile, phone, city);
-     return true
+      const response = await functions.httpsCallable('createRegistration')({profile, phone, city});
+      if(!response.data.status) {
+        if(response.data.message === 'CellIsNotNew') {
+          handleMessage(contextDispatch, celIsNotNewMsg)
+        } else {
+          handleMessage(contextDispatch, serverErrorMsg)
+        }
+        return false
+      }
+      return true
     } catch (error) {
       handleMessage(contextDispatch, serverErrorMsg, "registration")
       return false
@@ -78,8 +87,15 @@ export const PageContextProvider = (props) => {
   const handleIndication = async (email: string) => {
     handleMessage(contextDispatch, "")
     try {
-      // criar createdOn no back
-      //await this.functions.httpsCallable('createIndication')(email);
+      const response = await functions.httpsCallable('createIndication')(email);
+      if(!response.data.status) {
+        if(response.data.message === 'EmailIsNotNew') {
+          handleMessage(contextDispatch, emailIsNotNewMsg)
+        } else {
+          handleMessage(contextDispatch, serverErrorMsg)
+        }
+        return false
+      }
       return true
     } catch (error) {
       handleMessage(contextDispatch, serverErrorMsg, "recommendation")
