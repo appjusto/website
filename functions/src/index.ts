@@ -3,12 +3,10 @@ import * as admin from 'firebase-admin';
 import { findCity, findEmail, findPhone } from './utils';
 
 admin.initializeApp();
-const refs = admin.firestore();
-const registrationsRef = refs.collection('registrations');
-const indicationsRef = refs.collection('indications');
-const sumarryRef = refs.collection('summary').doc('data');
 
 const updateSummary = async (profile: string, city: string) => {
+  const sumarryRef = admin.firestore().collection('summary').doc('data');
+  const registrationsRef = admin.firestore().collection('registrations');
   await sumarryRef.update({
     [profile]: admin.firestore.FieldValue.increment(1),
   })
@@ -23,6 +21,7 @@ const updateSummary = async (profile: string, city: string) => {
 
 export const createRegistration = functions.https.onCall(async (data, context) => {
  const {profile, phone, city} = data;
+ const registrationsRef = admin.firestore().collection('registrations');
  const createdOn = admin.firestore.FieldValue.serverTimestamp();
  try {
    const isNewPhone = await findPhone(registrationsRef, phone, profile);
@@ -39,6 +38,7 @@ export const createRegistration = functions.https.onCall(async (data, context) =
 
 export const createIndication = functions.https.onCall(async (data, context) => {
   const {email} = data;
+  const indicationsRef = admin.firestore().collection('indications');
   const createdOn = admin.firestore.FieldValue.serverTimestamp();
   try {
     const isNewEmail = await findEmail(indicationsRef, email);
