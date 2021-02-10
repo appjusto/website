@@ -25,7 +25,11 @@ const getFirebaseClient = async () => {
     .then(() => {
       return firebase.firestore()
     })
-  return { firebase, db }
+  const functions = await import('firebase/functions')
+    .then(() => {
+      return firebase.functions();
+    })
+  return { firebase, db, functions }
 }
 
 export default getFirebaseClient;

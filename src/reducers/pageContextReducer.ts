@@ -1,15 +1,17 @@
 import React from 'react'
+import firebase from 'firebase';
 
 interface StateProps {
-  firebase: any
-  database: any //firebase.firestore.Firestore
+  firebase: firebase.app.App
+  database: firebase.firestore.Firestore
+  functions: firebase.functions.Functions
   showModalConfirmation: {show: boolean, type: string}
   showModalRecommendation: boolean
   registrationMsg: {status: boolean, form: string, message: string}
 }
 
 export type Actions =
-  | { type: 'update_firebase'; payload: { firebase: any, db: any }}//firebase.firestore.Firestore
+  | { type: 'update_firebase'; payload: { firebase: any, db: any, functions: any }}//firebase.firestore.Firestore
   | { type: 'update_message'; payload: {message: string, form?: string}}
   | { type: 'handle_modalConfirmation'; payload: string }
   | { type: 'handle_modalRecommendation' }
@@ -20,7 +22,8 @@ export const pageContextReducer = (state: StateProps, action: Actions): StatePro
         return {
           ...state,
           firebase: action.payload.firebase,
-          database: action.payload.db
+          database: action.payload.db,
+          functions: action.payload.functions
         };
     case 'update_message':
       const {form, message} = action.payload
