@@ -66,44 +66,9 @@ export const PageContextProvider = (props) => {
     ) => {
     handleMessage(contextDispatch, "")
     try {
-      const checkPhone = await findPhone(dbRegistrationsRef, phone, profile)
-      if(checkPhone === "found") {
-        handleMessage(contextDispatch, celIsNotNewMsg, "registration")
-        return false
-      }
-      if(checkPhone === "error") {
-        throw new Error("connection error");
-      }
-      const batch = contextState.database.batch()
-      const isNewCity = await findCity(dbRegistrationsRef, city)
-      const oldSummary = (await dbSummaryRef.get()).data()
-      const newCitiesValue = isNewCity ? oldSummary.cities + 1 : oldSummary.cities
-      const newSummary = {
-        ...oldSummary,
-        cities: newCitiesValue,
-        [`${profile}`]: oldSummary[`${profile}`] + 1
-      }
-      const FieldValue = contextState.firebase.firestore.FieldValue
-      batch.set(dbRegistrationsRef.doc(), {
-        profile,
-        phone,
-        city,
-        created_at: FieldValue.serverTimestamp()
-      });
-      batch.update(dbSummaryRef, newSummary)
-      const connectionStatus = await batch.commit()
-        .then(() => {
-          return true
-        })
-        .catch((error) => {
-          console.log("batch.update error", error)
-          return false
-        })
-      if(connectionStatus) {
-        return true
-      } else {
-        return false
-      }
+      // criar createdOn no back
+      //await this.functions.httpsCallable('createRegistration')(profile, phone, city);
+     return true
     } catch (error) {
       handleMessage(contextDispatch, serverErrorMsg, "registration")
       return false
@@ -111,34 +76,12 @@ export const PageContextProvider = (props) => {
   }
 
   const handleIndication = async (email: string) => {
-    const FieldValue = contextState.firebase.firestore.FieldValue
     handleMessage(contextDispatch, "")
     try {
-      const checkEmail = await findEmail(dbIndicationsRef, email)
-      if(checkEmail === "found") {
-        handleMessage(contextDispatch, emailIsNotNewMsg, "recommendation")
-        return false
-      }
-      if(checkEmail === "error") {
-        throw new Error("connection error");
-      }
-      const connectionStatus = await dbIndicationsRef.add(
-        { email, created_at: FieldValue.serverTimestamp()}
-      )
-        .then(() => {
-          return true
-        })
-        .catch((error) => {
-          console.log("connection error", error)
-          return false
-        })
-      if(connectionStatus) {
-        return true
-      } else {
-        return false
-      }
+      // criar createdOn no back
+      //await this.functions.httpsCallable('createIndication')(email);
+      return true
     } catch (error) {
-      console.log(error)
       handleMessage(contextDispatch, serverErrorMsg, "recommendation")
       return false
     }
