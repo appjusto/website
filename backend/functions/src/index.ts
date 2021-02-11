@@ -1,53 +1,29 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { cityExists, emailExists, phoneExists } from './utils';
+
 
 admin.initializeApp();
 
-const updateSummary = async (profile: string, city: string) => {
-  const sumarryRef = admin.firestore().collection('summary').doc('data');
-  const registrationsRef = admin.firestore().collection('registrations');
-  await sumarryRef.update({
-    [profile]: admin.firestore.FieldValue.increment(1),
-  })
-  const isRegistratedCity = await cityExists(registrationsRef, city);
-  if(!isRegistratedCity) {
-    await sumarryRef.update({
-      cities: admin.firestore.FieldValue.increment(1),
-    })
+const getTotal = (array: number[]) => {
+  if(array?.length > 0) {
+    return array.reduce((total: number, current: number) => total + current, 0)
   }
-  return null;
+  return 0;
 }
 
-export const createRegistration = functions.https.onCall(async (data, context) => {
- const { profile, phone, city } = data;
- const registrationsRef = admin.firestore().collection('registrations');
- const createdOn = admin.firestore.FieldValue.serverTimestamp();
- try {
-   const alreadyRegistrated = await phoneExists(registrationsRef, phone, profile);
-   if(alreadyRegistrated) {
-    return {status: false, message: 'CellIsNotNew', error: ''};
-  }
-  await updateSummary(profile, city);
-  await registrationsRef.add({profile, phone, city, createdOn})
-  return {status: true, message: '', error: ''};
- } catch (error) {
-  return {status: false, message: 'Error', error: error};
- }
-});
-
-export const createIndication = functions.https.onCall(async (data, context) => {
-  const { email } = data;
-  const indicationsRef = admin.firestore().collection('indications');
-  const createdOn = admin.firestore.FieldValue.serverTimestamp();
-  try {
-    const alreadyIndicated = await emailExists(indicationsRef, email);
-    if(alreadyIndicated) {
-     return {status: false, message: 'EmailIsNotNew', error: ''};
-   }
-   await indicationsRef.add({email, createdOn})
-   return {status: true, message: '', error: ''};
-  } catch (error) {
-   return {status: false, message: 'Error', error};
-  }
- });
+export const updateSummary = functions.firestore.document('registrations/{id}')
+  .onWrite(async (change, context) => {
+    const sumarryRef = admin.firestore().collection('summary').doc('data');
+    const registrations = (await admin.firestore().collection('registrations').get()).docs;
+    const consumers = getTotal(registrations?.map(doc => doc.data().profile === 'consumers' ? 1 : 0));
+    const couriers = getTotal(registrations?.map(doc => doc.data().profile === 'couriers' ? 1 : 0));
+    const restaurants = getTotal(registrations?.map(doc => doc.data().profile === 'restaurants' ? 1 : 0));
+    const citiesArr = registrations?.map(doc => doc.data().city);
+    const cities = citiesArr.filter((city: string, index: number) => citiesArr.indexOf(city) === index).length || 0;
+    await sumarryRef.update({
+      cities,
+      consumers,
+      couriers,
+      restaurants
+    })
+  })
