@@ -28,8 +28,8 @@ export const createRegistration = functions.https.onCall(async (data, context) =
    if(alreadyRegistrated) {
     return {status: false, message: 'CellIsNotNew', error: ''};
   }
-  await registrationsRef.add({profile, phone, city, createdOn})
   await updateSummary(profile, city);
+  await registrationsRef.add({profile, phone, city, createdOn})
   return {status: true, message: '', error: ''};
  } catch (error) {
   return {status: false, message: 'Error', error: error};
