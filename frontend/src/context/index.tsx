@@ -68,15 +68,13 @@ export const PageContextProvider = (props) => {
     ) => {
     handleMessage(contextDispatch, "")
     try {
-      const response = await functions.httpsCallable('createRegistration')({profile, phone, city});
-      if(!response.data.status) {
-        if(response.data.message === 'CellIsNotNew') {
-          handleMessage(contextDispatch, celIsNotNewMsg, "registration")
-        } else {
-          handleMessage(contextDispatch, serverErrorMsg, "registration")
-        }
-        return false
-      }
+      const createdOn = firebase.firestore.FieldValue.serverTimestamp()
+      await dbRegistrationsRef.add({
+        city,
+        phone,
+        profile,
+        createdOn
+      })
       return true
     } catch (error) {
       handleMessage(contextDispatch, serverErrorMsg, "registration")
@@ -87,17 +85,14 @@ export const PageContextProvider = (props) => {
   const handleIndication = async (email: string) => {
     handleMessage(contextDispatch, "")
     try {
-      const response = await functions.httpsCallable('createIndication')({email})
-      if(!response.data.status) {
-        if(response.data.message === 'EmailIsNotNew') {
-          handleMessage(contextDispatch, emailIsNotNewMsg, "recommendation")
-        } else {
-          handleMessage(contextDispatch, serverErrorMsg, "recommendation")
-        }
-        return false
-      }
+      const createdOn = firebase.firestore.FieldValue.serverTimestamp()
+      await dbIndicationsRef.doc(email).set({createdOn})
       return true
     } catch (error) {
+      if(error.toString().includes('Missing or insufficient permissions')) {
+        handleMessage(contextDispatch, emailIsNotNewMsg, "recommendation")
+        return false
+      }
       handleMessage(contextDispatch, serverErrorMsg, "recommendation")
       return false
     }

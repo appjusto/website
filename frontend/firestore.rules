@@ -2,10 +2,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /indications/{id} {
-      allow read, write: if false;
+      allow create: if !exists(/databases/$(database)/documents/indications/$(id));
+      allow update, delete: if false;
+      allow read: if false;
     }
     match /registrations/{id} {
-      allow read, write: if false;
+      allow create: if true;
+      allow update, delete: if false;
+      allow read: if false;
    }
     match /summary/{id} {
       allow read: if true;
