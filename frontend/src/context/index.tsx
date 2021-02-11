@@ -88,7 +88,6 @@ export const PageContextProvider = (props) => {
     handleMessage(contextDispatch, "")
     try {
       const response = await functions.httpsCallable('createIndication')({email})
-      console.log(response.data);
       if(!response.data.status) {
         if(response.data.message === 'EmailIsNotNew') {
           handleMessage(contextDispatch, emailIsNotNewMsg, "recommendation")
