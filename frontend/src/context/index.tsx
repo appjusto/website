@@ -71,9 +71,9 @@ export const PageContextProvider = (props) => {
       const response = await functions.httpsCallable('createRegistration')({profile, phone, city});
       if(!response.data.status) {
         if(response.data.message === 'CellIsNotNew') {
-          handleMessage(contextDispatch, celIsNotNewMsg)
+          handleMessage(contextDispatch, celIsNotNewMsg, "registration")
         } else {
-          handleMessage(contextDispatch, serverErrorMsg)
+          handleMessage(contextDispatch, serverErrorMsg, "registration")
         }
         return false
       }
@@ -88,7 +88,7 @@ export const PageContextProvider = (props) => {
     handleMessage(contextDispatch, "")
     try {
       const response = await functions.httpsCallable('createIndication')(email)
-      console.log(response);
+      console.log(response.data.error);
       if(!response.data.status) {
         if(response.data.message === 'EmailIsNotNew') {
           handleMessage(contextDispatch, emailIsNotNewMsg, "recommendation")
