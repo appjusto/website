@@ -109,6 +109,7 @@ const RegistrationBox: React.FC = () => {
       !state.fieldsAreValid.phone
       || !state.fieldsAreValid.uf
       || !state.fieldsAreValid.city
+      || city === ''
       ) {
       return handleMessage(
         contextDispatch,
