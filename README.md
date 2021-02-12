@@ -18,6 +18,30 @@ yarn
 npm install
 ```
 
+You will need to create a file called 'next.config.js' with some configurations and your firebase credentials:
+
+```bash
+const withImages = require('next-images')
+
+module.exports = withImages({
+  esModule: true,
+  env: {
+    FIREBASE_API_KEY: "",
+    FIREBASE_AUTH_DOMAIN: "",
+    FIREBASE_DATABASE_URL: "",
+    FIREBASE_PROJECT_ID: "",
+    FIREBASE_STORAGE_BUCKET: "",
+    FIREBASE_MESSAGING_SENDER_ID: "",
+    FIREBASE_APP_ID: "",
+    FIREBASE_MEASUREMENT_ID: "",
+    GOOGLE_PLACES_API_KEY: "",
+  },
+  experimental: {
+    sprFlushToDisk: false,
+  },
+});
+```
+
 Run the project
 
 ```bash
@@ -28,12 +52,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Live Demo
+## Live in
 
-[https://app-justo-site.web.app/](https://app-justo-site.web.app/)
+[https://appjusto.com.br/](https://appjusto.com.br/)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
