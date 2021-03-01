@@ -10,8 +10,7 @@ const founders = [
   "Rogério A. Nogueira",
   "Italo Monteiro",
   "Eduardo Araújo",
-  "Daniel Lima",
-  "Kellen Ribas"
+  "Daniel Lima"
 ]
 
 const angelInvestors = [
@@ -22,7 +21,9 @@ const angelInvestors = [
 ]
 
 const partnerCompanies = [
-  "IUGU"
+  "IUGU",
+  "NoRisk",
+  "99jobs"
 ]
 
 const partnerAssociations = [
@@ -33,9 +34,7 @@ const partnerAssociations = [
 ]
 
 const volunteers = [
-  "Fernando Fuzii",
-  "Renan Costa",
-  "Kim Richardson",
+  "Kellen Ribas",
   "Fábio Borges",
   "Cassio Horita",
   "Arthur Rufino",
@@ -47,20 +46,13 @@ const volunteers = [
   "Tiago Barra",
   "Arthur (Malungo)",
   "Ian Guedes",
-  "Mel Sayon",
-  "Rubens Dutra",
-  "Allan Harada"
+  "Rubens Dutra"
 ]
 
-const publishers = [
-  "João Vitor",
-  "Bruno Barroso",
-  "Renata Zanuto",
-  "João Aquino",
-  "Fernado Trota",
-  "Maytê Carvalho",
-  "Ivan Achcar",
-  "Raul Lemos"
+const team = [
+  "Fernando Fuzii",
+  "Pedro Dittmar",
+  "Renan Costa"
 ]
 
 const Network: React.FC = () => {
@@ -78,6 +70,16 @@ const Network: React.FC = () => {
           }
         </NamesBox>
         <NamesBox>
+          <RoleTitle text="Equipe" />
+          {
+            team.map(
+              name => <NetworkNames key={name} text={name} />
+            )
+          }
+        </NamesBox>
+      </Column>
+      <Column>
+        <NamesBox>
           <RoleTitle text="Investidores anjos" />
           {
             angelInvestors.map(
@@ -85,8 +87,6 @@ const Network: React.FC = () => {
             )
           }
         </NamesBox>
-      </Column>
-      <Column>
         <NamesBox>
           <RoleTitle text="Empresas parceiras" />
           {
@@ -109,14 +109,6 @@ const Network: React.FC = () => {
           <RoleTitle text="Voluntários ativos" />
           {
             volunteers.map(
-              name => <NetworkNames key={name} text={name} />
-            )
-          }
-        </NamesBox>
-        <NamesBox>
-          <RoleTitle text="Divulgadores" />
-          {
-            publishers.map(
               name => <NetworkNames key={name} text={name} />
             )
           }
