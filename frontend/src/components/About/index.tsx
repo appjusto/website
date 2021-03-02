@@ -54,19 +54,6 @@ const About: React.FC = () => {
           _hover={{color: "#003EB8"}}
         />
       </Text>
-      <Title text="Kellen Ribas" />
-      <Text textStyle="p" mb="26px">
-        Empreendedora social, co-fundadora e co-autora de negócios e projetos
-        premiados, atua com foco em inovação social, impacto e sustentabilidade
-        - <Link
-          name="linkedin-kellen"
-          link="https://www.linkedin.com/in/kellenribas/"
-          linkLabel="Linkedin"
-          internal={false}
-          color="#055AFF"
-          _hover={{color: "#003EB8"}}
-        />
-      </Text>
       <Title text="Italo Monteiro" />
       <Text textStyle="p" mb="26px">
         Designer de produto com foco na experiência do usuário e construção de
@@ -171,12 +158,12 @@ const About: React.FC = () => {
       <Text textStyle="p" mb="26px">
         Venha trabalhar conosco como colaborador ou voluntário! <Link
           name="go_to_linkedin_about"
-          link="https://www.linkedin.com/company/appjusto/"
-          linkLabel="Acesse nosso Linkedin"
+          link="https://99jobs.com/appjusto"
+          linkLabel="Acesse nossa página de vagas"
           internal={false}
           color="#055AFF"
           _hover={{color: "#003EB8"}}
-        /> e confira as vagas disponíveis.
+        />.
       </Text>
       <Title text="4. Investindo no projeto" />
       <Text textStyle="p" mb="26px">

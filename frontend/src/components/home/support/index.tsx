@@ -69,7 +69,7 @@ const Support: React.FC = () => {
           />
           <CustomLinkButton
             name="jobs"
-            link="https://www.linkedin.com/company/appjusto/jobs/"
+            link="https://99jobs.com/appjusto"
             linkLabel="Quero trabalhar com vocês"
             variant="basic"
             bg="white"
