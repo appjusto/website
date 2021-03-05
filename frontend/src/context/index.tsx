@@ -21,7 +21,7 @@ interface PageContextProps {
   }
   dbSummaryRef: any //firebase.firestore.DocumentReference
   contextDispatch: Dispatch<Actions>
-  handleRegistration: (profile: string, phone: string, city: string) => boolean
+  handleRegistration: (profile: string, phone: string, city: string, email: string) => boolean
   handleIndication: (email: string) => boolean
 }
 
@@ -65,6 +65,7 @@ export const PageContextProvider = (props) => {
     profile: string,
     phone: string,
     city: string,
+    email: string
     ) => {
     handleMessage(contextDispatch, "")
     try {
@@ -73,6 +74,7 @@ export const PageContextProvider = (props) => {
         city,
         phone,
         profile,
+        email,
         createdOn
       })
       return true

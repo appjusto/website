@@ -5,7 +5,7 @@ import { Flex, Heading, Text } from "@chakra-ui/react"
 
 import CustomPhoneInput from '../../CustomPhoneInput'
 import CustomSelect from "../../CustomSelect"
-import CustomComboInput from '../../CustomComboInput'
+//import CustomComboInput from '../../CustomComboInput'
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
 
@@ -16,12 +16,14 @@ import { ufsList, getCities, profileOptions } from '../../../utils'
 import { registrationReducer, Actions } from '../../../reducers/registrationReducer'
 
 import { modalConfOptions } from '../../ModalConfirmation'
+import CustomInput from '../../CustomInput'
 
 const initialState = {
-  profile: "",
+  profile: "couriers",
   phone: "",
   uf: "",
   city: "",
+  email: "",
   isLoadingCities: false,
   citiesList: [],
   isSubmiting: false,
@@ -35,9 +37,10 @@ const RegistrationBox: React.FC = () => {
     profile,
     phone,
     uf,
-    city,
-    isLoadingCities,
-    citiesList,
+    //city,
+    email,
+    //isLoadingCities,
+    //citiesList,
     isSubmiting,
     fixedHeader,
   } = state
@@ -85,12 +88,12 @@ const RegistrationBox: React.FC = () => {
     dispatch({type: "clear_state", payload: initialState})
   }
 
-  const handleUf = (uf: string) => {
+  /*const handleUf = (uf: string) => {
     dispatch({type: "update_uf", payload: uf})
-  }
+  }*/
 
-  const handleCity = (value: string) =>
-    dispatch({type: "update_city", payload: value})
+  /*const handleCity = (value: string) =>
+    dispatch({type: "update_city", payload: value})*/
 
   const handleValidation = async (field: string, value: boolean) => {
     if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
@@ -107,9 +110,9 @@ const RegistrationBox: React.FC = () => {
     event.preventDefault()
     if(
       !state.fieldsAreValid.phone
-      || !state.fieldsAreValid.uf
-      || !state.fieldsAreValid.city
-      || city === ''
+      //|| !state.fieldsAreValid.uf
+      //|| !state.fieldsAreValid.city
+      //|| city === ''
       ) {
       return handleMessage(
         contextDispatch,
@@ -121,7 +124,8 @@ const RegistrationBox: React.FC = () => {
     const registrationStatus = await handleRegistration(
       profile,
       phone,
-      `${city}-${uf}`
+      'Não_informado', //`${city}-${uf}`
+      email
     )
     dispatch({type: "update_isSubmiting", payload: false})
     if(!registrationStatus) {
@@ -195,7 +199,19 @@ const RegistrationBox: React.FC = () => {
               dispatch({type: "update_phone", payload: value})}
             notifyValidation={handleValidation}
           />
-          <Flex
+          <CustomInput
+            type="email"
+            id="registration-email"
+            label="E-mail"
+            placeholder="Digite seu e-mail"
+            value={email}
+            handleChange={(event: ChangeEvent<HTMLInputElement>) => {
+              dispatch({type: "update_email", payload: event.target.value})
+            }}
+            minW={[null, null, "300px"]}
+            mb={["16px", null, "0"]}
+          />
+          {/*<Flex
             w="100%"
             minW={["auto", null, null, "360px"]}
             flexDir={["column", null, "row"]}
@@ -224,7 +240,7 @@ const RegistrationBox: React.FC = () => {
               items={citiesList}
               notifyValidation={handleValidation}
             />
-          </Flex>
+          </Flex>*/}
           <CustomButton
             type="submit"
             label="Fazer pré-cadastro"

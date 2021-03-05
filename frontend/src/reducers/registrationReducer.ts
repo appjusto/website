@@ -6,6 +6,7 @@ interface StateProps {
   phone: string
   uf: string
   city: string
+  email: string
   isLoadingCities: boolean
   citiesList: string[]
   isSubmiting: boolean
@@ -26,6 +27,7 @@ export type Actions =
   | { type: 'fetch_cities' }
   | { type: 'populate_cities'; payload: string[] }
   | { type: 'update_city'; payload: string }
+  | { type: 'update_email'; payload: string }
   | { type: 'update_isSubmiting'; payload: boolean }
   | { type: 'update_fixedHeader'; payload: boolean }
   | { type: 'clear_state', payload: StateProps }
@@ -71,6 +73,11 @@ export const registrationReducer = (state: StateProps, action: Actions): StatePr
       return {
         ...state,
         city: action.payload,
+      };
+    case 'update_email':
+      return {
+        ...state,
+        email: action.payload,
       };
     case 'update_isSubmiting':
       return {
