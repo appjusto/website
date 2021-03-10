@@ -158,7 +158,7 @@ const About: React.FC = () => {
       <Text textStyle="p" mb="26px">
         Venha trabalhar conosco como colaborador ou voluntário! <Link
           name="go_to_linkedin_about"
-          link="https://99jobs.com/appjusto"
+          link="https://99jobs.com/appjusto/jobs"
           linkLabel="Acesse nossa página de vagas"
           internal={false}
           color="#055AFF"
