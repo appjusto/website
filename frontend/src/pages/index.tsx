@@ -10,6 +10,7 @@ import ModalConfirmation from '../components/ModalConfirmation'
 import ModalRecommendation from '../components/ModalRecommendation'
 
 import Logo from '../../public/logo-home.svg'
+import Helpdesk from '../components/Helpdesk'
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Support />
       <ModalConfirmation />
       <ModalRecommendation />
+      <Helpdesk />
     </PageLayout>
   )
 }
