@@ -50,8 +50,8 @@ const customTheme = extendTheme({
   textStyles: {
     p: {
       fontFamily: 'Barlow, system-ui, sans-serif',
-      fontSize: "16px",
-      lineHeight: "22px"  
+      fontSize: "18px",
+      lineHeight: "26px"
     }
   }
 })

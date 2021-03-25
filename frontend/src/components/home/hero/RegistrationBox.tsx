@@ -1,7 +1,7 @@
 import {
   useReducer, useEffect, useRef, ChangeEvent, FormEvent
 }from 'react'
-import { Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Flex, Heading, Text } from "@chakra-ui/react"
 
 import CustomPhoneInput from '../../CustomPhoneInput'
 import CustomSelect from "../../CustomSelect"
@@ -17,6 +17,9 @@ import { registrationReducer, Actions } from '../../../reducers/registrationRedu
 
 import { modalConfOptions } from '../../ModalConfirmation'
 import CustomInput from '../../CustomInput'
+import Image from '../../Image';
+import Section from '../../Section';
+import Container from '../../Container';
 
 const initialState = {
   profile: "couriers",
@@ -137,124 +140,90 @@ const RegistrationBox: React.FC = () => {
     })
   }
   return (
-    <Flex
-      position={fixedHeader ? "fixed" : "relative"}
-      top={fixedHeader ? "0" : null}
-      left={fixedHeader ? "0" : null}
-      w={fixedHeader ? "100%" : "auto"}
-      borderBottom={fixedHeader ? "1px solid #C8D7CB" : "none"}
-      transition="all 1s ease"
-      flexDir="column"
-      justifyContent="center"
-      alignItems="center"
-      bg="white"
-      border="2px solid black"
-      borderRadius="8px"
-      mb="24px"
+    <Section
+      position={{ base: 'relative', md: 'fixed' }}
+      top={{ md: '0' }}
+      mt={{ base: '-140px', md: '80px' }}
+      zIndex="800"
     >
-      <Flex
-        flexDir="column"
-        w="100%"
-        maxW="1104px"
-        p={fixedHeader ? "0 24px 16px" : "24px"}
-      >
-        <Heading
-          as="h2"
-          fontSize="24px"
-          display={fixedHeader ? "none" : "block"}
-        >
-          Faça o pré-cadastro agora e entre nesse movimento!
-        </Heading>
-        <Text
-          fontSize="16px"
-          fontFamily="Barlow"
-          display={fixedHeader ? "none" : "block"}
-        >
-          Ao fazer o pré-cadastro, você autoriza o envio de nossas comunicações
-          para o número cadastrado.
-        </Text>
+      <Container pt="0" display="flex" justifyContent="flex-end">
         <Flex
-          as="form"
-          flexDir={["column", null, null, "row"]}
-          onSubmit={handleSubmit}
+          flexDir="column"
+          maxW="370px"
+          bg="white"
+          border="1px solid #C8D7CB"
+          p="24px"
+          color="black"
         >
-          <CustomSelect
-            id="subscribe-profile"
-            label="Perfil"
-            placeholder="Selecione seu perfil"
-            value={profile}
-            handleChange={
-              (event: ChangeEvent<HTMLSelectElement>) =>
-                dispatch({type: "update_profile", payload: event.target.value})
-            }
-            options={profileOptions}
-          />
-          <CustomPhoneInput
-            name="phone"
-            id="subscribe-phone"
-            label="Celular"
-            placeHolder="Digite seu celular"
-            value={phone}
-            handleChange={(value: string) =>
-              dispatch({type: "update_phone", payload: value})}
-            notifyValidation={handleValidation}
-          />
-          <CustomInput
-            type="email"
-            id="registration-email"
-            label="E-mail"
-            placeholder="Digite seu e-mail"
-            value={email}
-            handleChange={(event: ChangeEvent<HTMLInputElement>) => {
-              dispatch({type: "update_email", payload: event.target.value})
-            }}
-            minW={[null, null, "300px"]}
-            mb={["16px", null, "0"]}
-          />
-          {/*<Flex
-            w="100%"
-            minW={["auto", null, null, "360px"]}
-            flexDir={["column", null, "row"]}
+          <Box position="relative" width="84px" mt="-50px">
+            <Image src="/big-delivery.svg" />
+          </Box>
+          <Heading mt="4" as="h2" fontSize="24px">
+            Cadastre-se agora!
+          </Heading>
+          <Text mt="4" fontSize="16px" fontFamily="Barlow">
+             Ganhe mais no seu restaurante, e tenha uma experiência mais justa para seus clientes e entregadores!
+          </Text>
+          <Flex
+            as="form"
+            flexDir="column"
+            onSubmit={handleSubmit}
           >
-            <CustomComboInput
-              name="uf"
-              id="subscribe-uf"
-              label="UF"
-              placeholder="UF"
-              parentValue={uf}
-              setParentValue={handleUf}
-              items={ufsList}
-              maxW={["auto", null, "100px"]}
-              maxLength={2}
+            <CustomSelect
+              id="subscribe-profile"
+              label="Perfil"
+              placeholder="Selecione seu perfil"
+              value={profile}
+              handleChange={
+                (event: ChangeEvent<HTMLSelectElement>) =>
+                  dispatch({type: "update_profile", payload: event.target.value})
+              }
+              options={profileOptions}
+            />
+            <CustomPhoneInput
+              name="phone"
+              id="subscribe-phone"
+              label="Celular"
+              placeHolder="Digite seu celular"
+              value={phone}
+              handleChange={(value: string) =>
+                dispatch({type: "update_phone", payload: value})}
               notifyValidation={handleValidation}
             />
-            <CustomComboInput
-              isDisabled={citiesList.length > 0 ? false : true}
-              isLoading={isLoadingCities}
-              name="city"
-              id="subscribe-city"
-              label="Cidade"
-              placeholder="Selecione sua cidade"
-              parentValue={city}
-              setParentValue={handleCity}
-              items={citiesList}
-              notifyValidation={handleValidation}
+            <CustomInput
+              type="email"
+              id="registration-email"
+              label="E-mail"
+              placeholder="Digite seu e-mail"
+              value={email}
+              handleChange={(event: ChangeEvent<HTMLInputElement>) => {
+                dispatch({type: "update_email", payload: event.target.value})
+              }}
+              minW={[null, null, "300px"]}
+              mb={["16px", null, "0"]}
             />
-          </Flex>*/}
-          <CustomButton
-            type="submit"
-            label="Fazer pré-cadastro"
-            variant="secondaryRegistration"
-            isSubmiting={isSubmiting}
-          />
-        </Flex>
+            <CustomButton
+              type="submit"
+              label="Fazer pré-cadastro"
+              variant="secondaryRegistration"
+              isSubmiting={isSubmiting}
+            />
+          </Flex>
+          {
+            !contextState?.registrationMsg.status && (
+              <Text mt="4" fontSize="xs" lineHeight="lg">
+                Ao começar o cadastro, você aceita receber nosso contato por telefone, e-mail ou whatsapp quando for necessário
+              </Text>
+            )
+          }
         {
           contextState?.registrationMsg.status &&
           contextState.registrationMsg.form === "registration" &&
           <FormMessage />
         }
       </Flex>
-    </Flex>
+    </Container>
+  </Section>
   );
 }
 

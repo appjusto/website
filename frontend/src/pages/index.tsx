@@ -1,7 +1,5 @@
 import PageLayout from '../components/PageLayout'
 import Hero from '../components/home/hero'
-import Numbers from '../components/home/numbers'
-import Monopoly from '../components/home/monopoly'
 import Alternative from '../components/home/alternative'
 import Partners from '../components/home/partners'
 import Support from '../components/home/support'
@@ -11,14 +9,18 @@ import ModalRecommendation from '../components/ModalRecommendation'
 
 import Logo from '../../public/logo-home.svg'
 import Helpdesk from '../components/Helpdesk'
+import RegistrationBox from '../components/home/hero/RegistrationBox'
+import Better from '../components/home/better'
+import Share from '../components/home/share'
 
 export default function Home() {
   return (
     <PageLayout pageName="Home" logo={Logo}>
       <Hero />
+      <RegistrationBox />
+      <Better />
+      <Share />
       <Alternative />
-      <Numbers />
-      <Monopoly />
       <Commitment />
       <Partners />
       <Support />

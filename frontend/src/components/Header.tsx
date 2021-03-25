@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  logo, 
+  logo,
   logoW,
   logoH,
   isHome = true,
@@ -24,8 +24,9 @@ const Header: React.FC<HeaderProps> = ({
     justifyContent="center"
     position="absolute"
     top={[top, null, null, "0"]}
+    mt={isHome ? {base: "2", md: "8"} : "4"}
     left="0"
-    zIndex="100" 
+    zIndex="100"
     >
       <Container pt="16px">
         <Flex
@@ -40,16 +41,16 @@ const Header: React.FC<HeaderProps> = ({
           >
             <Link href="/">
               <a>
-                <img 
+                <img
                   src={logo}
                   alt="Logo AppJusto"
-                  width={272} 
-                  height={116} 
+                  width={272}
+                  height={116}
                   loading="eager" />
               </a>
             </Link>
           </Box>
-          <Flex
+          {/*<Flex
             justifyContent="flex-end"
             alignItems="center"
             display={["none", null, null, "flex"]}
@@ -63,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({
             >
               Em breve para Android e iOS
             </Text>
-          </Flex>
+          </Flex>*/}
         </Flex>
       </Container>
     </Flex>
@@ -73,23 +74,23 @@ const Header: React.FC<HeaderProps> = ({
 export default Header;
 
 /*
-<Box 
+<Box
   mr="16px"
   h="40px"
 >
-  <img 
-    src="/googleplay.png" 
+  <img
+    src="/googleplay.png"
     alt="Google Play Store"
-    width={135} 
-    height={40} 
+    width={135}
+    height={40}
   />
 </Box>
 <Box h="40px">
-  <img 
-    src="/appstore.png" 
+  <img
+    src="/appstore.png"
     alt="Apple App Store"
-    width={120} 
-    height={40} 
+    width={120}
+    height={40}
   />
 </Box>
 */

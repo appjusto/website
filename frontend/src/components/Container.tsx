@@ -1,18 +1,11 @@
-import { Flex, BoxProps } from '@chakra-ui/react'
+import { Container, ContainerProps } from '@chakra-ui/react'
 
-const Container: React.FC<BoxProps> = (props) => {
+const CustomContainer: React.FC<ContainerProps> = ({ children, ...props }) => {
   return (
-    <Flex
-      as="div"
-      w={["100%", "90%"]}
-      maxW="1136px"
-      pr="16px"
-      pl="16px"
-      {...props}
-    >
-      {props.children}
-    </Flex>
+    <Container maxW={{ base: '100%', md: '740px', lg: '900px', xl: '1120px' }} pt="10" {...props}>
+      {children}
+    </Container>
   );
 }
 
-export default Container;
+export default CustomContainer;

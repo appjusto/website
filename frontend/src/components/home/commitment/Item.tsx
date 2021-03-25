@@ -1,4 +1,4 @@
-import { Flex, Box, Heading, Stack } from "@chakra-ui/react";
+import { Flex, Box, Heading } from "@chakra-ui/react";
 import Image from '../../Image'
 
 interface ItemProps {
@@ -15,6 +15,7 @@ const Item: React.FC<ItemProps> = ({
     <Flex
       flexDir="column"
       w="100%"
+      mt="4"
       mb="16px"
     >
       <Flex
@@ -32,10 +33,9 @@ const Item: React.FC<ItemProps> = ({
         </Box>
         <Heading
           as="h4"
-          fontSize="20px"
+          fontSize="18px"
           lineHeight="26px"
           fontWeight="500"
-          color="#697667"
         >
           {title}
         </Heading>
