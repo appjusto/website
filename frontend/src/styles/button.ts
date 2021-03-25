@@ -12,6 +12,14 @@ export default {
       h: "48px",
       _hover: {bg: "#F2F6EA"}
     },
+    primary: {
+      bg: "primary",
+      h: "48px",
+      fontSize: "13px",
+      lineHeight: "21px",
+      border: "none",
+      _hover: {bg: "primaryLight"}
+    },
     secondary: {
       bg: "secondary",
       h: "60px",

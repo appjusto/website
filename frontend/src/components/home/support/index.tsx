@@ -1,81 +1,44 @@
-import { Flex, Box, Heading, Text } from "@chakra-ui/react";
-
+import { Flex, Text } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import CustomLinkButton from "../../CustomLinkButton";
-
-import Line from '../../Line'
+import Content from "../../Content";
+import SectionHeading from "../../SectionHeading";
 
 const Support: React.FC = () => {
   return (
-    <Section
-      id="support"
-      bg="#F2F6EA"
-      p="64px 0"
-    >
-      <Container
-        flexDir="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-      >
-        <Heading
-          as="h2"
-          fontSize={["24px", null, null, "48px"]}
-          lineHeight={["28,8px", null, null, "48px"]}
-          mb={["30px", null, null, "48px"]}
-          maxW={["270px", "100%"]}
-        >
-          Estamos em busca de mais apoio.
-          <Line
-            color="green"
-            maxW={["124px", null, "136px", "480px"]}
-            mt={["-4px", null, "-2px", "2px"]}
-            ml={["0", null, "226px", "240px"]}
-          />
-        </Heading>
-        <Text
-          fontSize="18px"
-          lineHeight="26px"
-          textStyle="p"
-          mb="32px"
-          display={["none", null, null, "block"]}
-        >
-          O AppJusto está em fase de captação de investimentos e montando uma
-          rede de apoiadores por todo país. <br/>
-          Quer nos ajudar nessa missão?
-        </Text>
-        <Text
-          fontSize="18px"
-          lineHeight="26px"
-          textStyle="p"
-          mb="32px"
-          display={["block", null, null, "none"]}
-        >
-          O AppJusto está em fase de captação de investimentos e montando uma
-          rede de apoiadores por todo país. Quer nos ajudar nessa missão?
-        </Text>
-        <Flex
-          flexDir={["column", null, null, "row"]}
-          w="100%"
-        >
-          <CustomLinkButton
-            name="partner2"
-            link="mailto:parceiros@appjusto.com.br"
-            linkLabel="Quero ser um parceiro"
-            variant="basic"
-            bg="white"
-            maxW={["100%", null, "220px"]}
-            mr={["0", "0", "0", "16px"]}
-          />
-          <CustomLinkButton
-            name="jobs"
-            link="https://99jobs.com/appjusto/jobs"
-            linkLabel="Quero trabalhar com vocês"
-            variant="basic"
-            bg="white"
-            maxW={["100%", null, "220px"]}
-          />
-        </Flex>
+    <Section id="support">
+      <Container py="24">
+        <Content>
+          <SectionHeading>
+            Estamos em busca de mais apoio para construir esse modelo
+          </SectionHeading>
+          <Text mt="6" textStyle="p">
+            O AppJusto está em fase de captação de investimentos e montando uma
+            rede de apoiadores por todo país. Quer nos ajudar nessa missão?
+          </Text>
+          <Flex
+            mt="4"
+            flexDir={["column", null, null, "row"]}
+            w="100%"
+          >
+            <CustomLinkButton
+              name="partner2"
+              link="mailto:parceiros@appjusto.com.br"
+              linkLabel="Quero ser um parceiro"
+              variant="primary"
+              maxW={["100%", null, "220px"]}
+              mr={["0", "0", "0", "16px"]}
+            />
+            <CustomLinkButton
+              name="jobs"
+              link="https://99jobs.com/appjusto/jobs"
+              linkLabel="Quero trabalhar com vocês"
+              variant="primary"
+              maxW={["100%", null, "220px"]}
+            />
+          </Flex>
+        </Content>
       </Container>
     </Section>
   );

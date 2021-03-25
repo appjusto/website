@@ -19,8 +19,8 @@ const PartnerBox: React.FC<PartnerBoxProps> = ({ image, altImg, width, height })
       borderRadius="8px"
       boxSizing="border-box"
       boxShadow="0 8px 16px -4px rgba(105, 118, 103, 0.1)"
-      minW="268px"
-      h="160px"
+      minW="210px"
+      h="124px"
       m="0 8px"
       p="0 30px"
     >
