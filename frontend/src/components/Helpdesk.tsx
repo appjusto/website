@@ -3,7 +3,7 @@ import React from 'react';
 
 const Helpdesk: React.FC = () => {
 
-  const initWidget = () => {
+  const initWidget = React.useCallback(() => {
     //@ts-ignore
     window.fwSettings={
       'widget_id': 67000002819
@@ -19,7 +19,7 @@ const Helpdesk: React.FC = () => {
       //@ts-ignore
       window.FreshworksWidget = n
     }
-  }
+  },[]);
 
   React.useEffect(() => {
     const script = document.createElement('script');
@@ -30,7 +30,7 @@ const Helpdesk: React.FC = () => {
 
   React.useEffect(() => {
     initWidget();
-  }, [window]);
+  }, [initWidget]);
 
   return <Box />
 }
