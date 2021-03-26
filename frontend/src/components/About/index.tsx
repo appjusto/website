@@ -226,7 +226,7 @@ const About: React.FC = () => {
         estamos trabalhando no desenvolvimento de uma plataforma de código aberto,
         baseada em um modelo de negócios sustentável e participativo, que prove
         que é possível sim, fazer negócio e fazer a diferença, inspirando assim
-        outras empresas a fazer o mesmo. Além disso, consideramos fundamental
+        outras empresas a fazerem o mesmo. Além disso, consideramos fundamental
         promover o engajamento do consumidor, influenciar políticas públicas que
         contribuam para um ecossistema mais justo e equilibrado e construir uma
         rede de parceiros interessados em debater o tema a fim de encontrar,
