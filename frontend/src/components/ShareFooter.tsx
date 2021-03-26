@@ -84,14 +84,16 @@ const ShareFooter: React.FC = () => {
                     display={["none", null, null, "inherit"]}
                     _focus={{outline: "none"}}
                     minW="130px"
-                    fontWeight="700"
+                    fontSize="15px"
+                    fontWeight="500"
                   >
                     Voltar para o topo
                   </Text>
                   <Text
                     display={["inherit", null, null, "none"]}
                     _focus={{outline: "none"}}
-                    fontWeight="700"
+                    fontSize="15px"
+                    fontWeight="500"
                     mr="4px"
                   >
                     Topo

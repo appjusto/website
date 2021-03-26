@@ -170,7 +170,7 @@ const Footer: React.FC<FooterProps> = ({isHome}) => {
             </Flex>
           </Flex>
           <Box w="100%" textAlign={{base: 'start', lg: 'end'}}>
-            <Text color="white">
+            <Text color="white" fontSize="13px" lineHeight="18px">
               JUSTO TECNOLOGIA E INOVAÇÃO SOCIAL LTDA - CNPJ:38.447.139/0001-50
             </Text>
           </Box>

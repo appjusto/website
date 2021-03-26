@@ -15,7 +15,7 @@ export default {
     primary: {
       bg: "primary",
       h: "48px",
-      fontSize: "13px",
+      fontSize: "15px",
       lineHeight: "21px",
       border: "none",
       _hover: {bg: "primaryLight"}

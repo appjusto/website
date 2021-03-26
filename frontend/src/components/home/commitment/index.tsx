@@ -33,7 +33,7 @@ const Commitment: React.FC = () => {
             <Item
               image="/item-domain.svg"
               altImg="Ícone de prédios"
-              title="Criar de um bem coletivo"
+              title="Criar um bem coletivo"
             />
             <Item
               image="/item-blur.svg"
@@ -52,7 +52,7 @@ const Commitment: React.FC = () => {
               <Image src='/arrow-right.svg' />
             </Box>
             <NextLink href="/sobre-o-appjusto" passHref>
-              <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px">
+              <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px" textDecor="underline">
                 Saiba mais sobre o AppJusto
               </Link>
             </NextLink>
@@ -66,6 +66,7 @@ const Commitment: React.FC = () => {
               fontSize="lg"
               fontWeight="700"
               lineHeight="26px"
+              textDecor="underline"
               isExternal
             >
               Baixe nossa apresentação

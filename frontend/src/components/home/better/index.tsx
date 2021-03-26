@@ -5,6 +5,7 @@ import Content from '../../Content';
 import Section from '../../Section';
 import Image from '../../Image';
 import Topic from './Topic';
+import CustomLinkButton from '../../CustomLinkButton';
 
 const Better = () => {
   return (
@@ -18,7 +19,7 @@ const Better = () => {
             <Box>
               <SectionHeading>Melhor para entregadores</SectionHeading>
               <Topic
-                label='Entregadores tem autonomia de criar frotas com condições próprias'
+                label='Entregadores têm autonomia de criar frotas com condições próprias'
               />
               <Topic
                 label='Maior remuneração por corrida'
@@ -41,7 +42,7 @@ const Better = () => {
             <Box>
               <SectionHeading>Melhor para restaurantes</SectionHeading>
               <Topic
-                label='Taxa de 5% ao invés de 27%'
+                label='Taxa de 5% em vez de 27%'
               />
               <Topic
                 label='Possibilidade de gerir frota própria direto na plataforma'
@@ -55,6 +56,13 @@ const Better = () => {
               <Topic
                 label='Participação ativa na plataforma'
               />
+              {/*<CustomLinkButton
+                name="go-to-admin"
+                link="https://admin.appjusto.com.br/"
+                linkLabel="Cadastrar restaurante"
+                variant="primary"
+                maxW={["100%", null, "220px"]}
+              />*/}
             </Box>
           </Flex>
           <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
