@@ -24,7 +24,7 @@ const Alternative: React.FC = () => {
                 color={{base: 'white', lg: 'black'}}
                 fontSize={{base: 'xs', sm: 'sm', md: 'lg'}}
               >
-                Hoje, os apps são fonte de renda para 3.8 milhões de autônomos no Brasil. Este modelo é dificil de ser combatido e contribui para aumento das desigualdades sociais.
+                Hoje, os apps são fonte de renda para 3.8 milhões de autônomos no Brasil. Este modelo é dificil de ser combatido e contribui para o aumento das desigualdades sociais.
               </Text>
               <Text mt="8"
                 textStyle="p"
