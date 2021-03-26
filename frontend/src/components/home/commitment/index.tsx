@@ -33,7 +33,7 @@ const Commitment: React.FC = () => {
             <Item
               image="/item-domain.svg"
               altImg="Ícone de prédios"
-              title="Criar de um bem coletivo"
+              title="Criação de um bem coletivo"
             />
             <Item
               image="/item-blur.svg"
