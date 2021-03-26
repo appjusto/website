@@ -10,7 +10,7 @@ interface StateProps {
   isLoadingCities: boolean
   citiesList: string[]
   isSubmiting: boolean
-  fixedHeader?: boolean
+  pageLimit?: boolean
   fieldsAreValid: {
     indicatorPhone?: boolean
     phone: boolean
@@ -29,7 +29,7 @@ export type Actions =
   | { type: 'update_city'; payload: string }
   | { type: 'update_email'; payload: string }
   | { type: 'update_isSubmiting'; payload: boolean }
-  | { type: 'update_fixedHeader'; payload: boolean }
+  | { type: 'update_pageLimit'; payload: boolean }
   | { type: 'clear_state', payload: StateProps }
   | { type: 'validation', payload: { field: string, value: boolean }}
 
@@ -84,10 +84,10 @@ export const registrationReducer = (state: StateProps, action: Actions): StatePr
         ...state,
         isSubmiting: action.payload,
       };
-    case 'update_fixedHeader':
+    case 'update_pageLimit':
       return {
         ...state,
-        fixedHeader: action.payload,
+        pageLimit: action.payload,
       };
     case 'validation':
       return {

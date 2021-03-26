@@ -30,7 +30,7 @@ const initialState = {
   isLoadingCities: false,
   citiesList: [],
   isSubmiting: false,
-  fixedHeader: false,
+  pageLimit: false,
   fieldsAreValid: { phone: true, uf: true, city: true }
 }
 
@@ -45,7 +45,7 @@ const RegistrationBox: React.FC = () => {
     //isLoadingCities,
     //citiesList,
     isSubmiting,
-    fixedHeader,
+    pageLimit,
   } = state
   const { contextState, contextDispatch, handleRegistration } = usePageContext()
   const isMountedRef = useRef(false);
@@ -56,22 +56,20 @@ const RegistrationBox: React.FC = () => {
     }
   }
 
-  function handleResizing() {
-    return dispatch({type: "update_fixedHeader", payload: false})
-  }
-
-  function handleScroll() {
+  const handleScroll = () => {
     const width = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
     if(width > 1000) {
-      if (document.documentElement.scrollTop > 400) {
-        dispatch({type: "update_fixedHeader", payload: true})
+      console.log(document.documentElement.scrollTop)
+      if (document.documentElement.scrollTop > 3490) {
+        dispatch({type: "update_pageLimit", payload: true})
       } else {
-        dispatch({type: "update_fixedHeader", payload: false})
+        dispatch({type: "update_pageLimit", payload: false})
       }
     }
   }
+
   const clearForm = () => {
     dispatch({type: "clear_state", payload: initialState})
   }
@@ -136,15 +134,11 @@ const RegistrationBox: React.FC = () => {
     return window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  useEffect(() => {
-    window.addEventListener('resize', handleResizing, true);
-    return window.removeEventListener("resize", handleResizing)
-  }, [])
-
   return (
     <Section
       position={{ base: 'relative', md: 'fixed' }}
-      top={{ md: '0' }}
+      top={{ md: pageLimit ? undefined : '0' }}
+      bottom={{ md: pageLimit ? '246px' : undefined }}
       mt={{ base: '-140px', md: '80px' }}
       zIndex="800"
     >
@@ -161,7 +155,7 @@ const RegistrationBox: React.FC = () => {
             <Image src="/big-delivery.svg" />
           </Box>
           <Heading mt="4" as="h2" fontSize="24px" lineHeight="28.8px" maxW="227px">
-          Faça o pré-cadastro agora e entre nesse movimento!
+            Faça o pré-cadastro agora e entre nesse movimento!
           </Heading>
           <Flex
             as="form"
