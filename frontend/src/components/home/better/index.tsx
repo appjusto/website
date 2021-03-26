@@ -18,7 +18,7 @@ const Better = () => {
             <Box>
               <SectionHeading>Melhor para entregadores</SectionHeading>
               <Topic
-                label='Entregadores tem autonomia de criar frotas com condições próprias'
+                label='Entregadores têm autonomia de criar frotas com condições próprias'
               />
               <Topic
                 label='Maior remuneração por corrida'
@@ -41,7 +41,7 @@ const Better = () => {
             <Box>
               <SectionHeading>Melhor para restaurantes</SectionHeading>
               <Topic
-                label='Taxa de 5% ao invés de 27%'
+                label='Taxa de 5% em vez de 27%'
               />
               <Topic
                 label='Possibilidade de gerir frota própria direto na plataforma'
