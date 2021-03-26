@@ -49,7 +49,7 @@ const Partners: React.FC = () => {
             textStyle="p"
           >
             Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas,
-            entre sócios, colaboradores e voluntários.
+            dentre sócios, colaboradores e voluntários.
           </Text>
           <HStack mt="8">
             <Box>
