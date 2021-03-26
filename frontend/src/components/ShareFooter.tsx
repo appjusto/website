@@ -41,7 +41,7 @@ const ShareFooter: React.FC = () => {
     >
       <Container
         h="64px"
-        p="8px 0"
+        py="8px"
         display="flex"
         flexDir="row"
         justifyContent="space-between"
@@ -99,8 +99,8 @@ const ShareFooter: React.FC = () => {
                   <Icon
                     as={BiUpArrowAlt}
                     fontWeight="700"
-                    width={["32px", null, null, "16px"]}
-                    height={["32px", null, null, "16px"]}
+                    width={{base: "32px", md: "16px"}}
+                    height={{base: "32px", md: "16px"}}
                   />
                 </Flex>
               </ScrollLink>

@@ -1,38 +1,18 @@
 import {
-  useReducer, useEffect, useRef, ChangeEvent, FormEvent, useState
+  useEffect, useRef, ChangeEvent, FormEvent, useState
 }from 'react'
 import { Box, Flex, Heading, Text } from "@chakra-ui/react"
-
 import CustomPhoneInput from '../../CustomPhoneInput'
 import CustomSelect from "../../CustomSelect"
-//import CustomComboInput from '../../CustomComboInput'
 import CustomButton from '../../CustomButton'
 import FormMessage from '../../FormMessage'
-
 import { usePageContext, handleMessage } from '../../../context'
-
-import { ufsList, getCities, profileOptions } from '../../../utils'
-
-import { registrationReducer, Actions } from '../../../reducers/registrationReducer'
-
+import { profileOptions } from '../../../utils'
 import { modalConfOptions } from '../../ModalConfirmation'
 import CustomInput from '../../CustomInput'
 import Image from '../../Image';
 import Section from '../../Section';
 import Container from '../../Container';
-
-const initialState = {
-  profile: "couriers",
-  phone: "",
-  uf: "",
-  city: "",
-  email: "",
-  isLoadingCities: false,
-  citiesList: [],
-  isSubmiting: false,
-  pageLimit: false,
-  fieldsAreValid: { phone: true, uf: true, city: true }
-}
 
 const RegistrationBox: React.FC = () => {
   // context
@@ -44,10 +24,9 @@ const RegistrationBox: React.FC = () => {
   const [isSubmiting, setIsSubmiting] = useState(false)
   const [validation, setValidation] = useState({ phone: true })
   const [pageLimit, setPageLimit] = useState(false)
-  //const [state, unsafeDispatch] = useReducer(registrationReducer, initialState)
 
   const isMountedRef = useRef(false);
-
+  // hadlers
   const handleScroll = () => {
     const width = window.innerWidth
     || document.documentElement.clientWidth
@@ -99,6 +78,7 @@ const RegistrationBox: React.FC = () => {
     })
   }
 
+  // side effects
   useEffect(() => {
     isMountedRef.current = true
     return () => isMountedRef.current = false
@@ -108,7 +88,8 @@ const RegistrationBox: React.FC = () => {
     window.addEventListener('scroll', handleScroll, true);
     return window.removeEventListener("scroll", handleScroll)
   }, [])
-  console.log("REGISTRATION !!!")
+
+  // UI
   return (
     <Section
       position={{ base: 'relative', md: 'fixed' }}

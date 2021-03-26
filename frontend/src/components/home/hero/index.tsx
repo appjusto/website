@@ -6,7 +6,7 @@ import Content from '../../Content';
 
 const Hero: React.FC = () => {
   return (
-    <Section id="hero" h={{ base: '600px', md: '680px', lg: '600px' }} overflow="hidden">
+    <Section id="hero" h={{ base: '600px', md: '840px', lg: '720px' }} overflow="hidden">
       <Container>
         <Content mt={{base: '60px' , md: '200px'}}>
           <Flex flexDir="column">
