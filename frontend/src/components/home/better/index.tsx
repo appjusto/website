@@ -11,8 +11,8 @@ const Better = () => {
     <Section>
       <Container pt="24">
         <Content>
-          <Flex flexDir={{base: 'column', md: 'row'}}>
-            <Box mr="6" mb={{ base: '6', md: '0'}} minW="160px">
+          <Flex flexDir={{base: 'column', lg: 'row'}}>
+            <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
               <Image src="/courier.png" width="160px" height="160px" />
             </Box>
             <Box>
@@ -34,8 +34,8 @@ const Better = () => {
               />
             </Box>
           </Flex>
-          <Flex mt="16" flexDir={{base: 'column', md: 'row'}}>
-            <Box mr="6" mb={{ base: '6', md: '0'}} minW="160px">
+          <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
+            <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
               <Image src="/business.png" width="160px" height="160px" />
             </Box>
             <Box>
@@ -57,8 +57,8 @@ const Better = () => {
               />
             </Box>
           </Flex>
-          <Flex mt="16" flexDir={{base: 'column', md: 'row'}}>
-            <Box mr="6" mb={{ base: '6', md: '0'}} minW="160px">
+          <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
+            <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
               <Image src="/consumer.png" width="160px" height="160px" />
             </Box>
             <Box>

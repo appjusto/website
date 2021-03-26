@@ -9,15 +9,28 @@ const Alternative: React.FC = () => {
     <Section id="alternative">
       <Container pt="24">
         <Content>
-          <Flex>
-            <Box minW="336px">
+          <Flex position="relative">
+            <Box w="100%">
               <Image src="/alternative.jpg" width="336px" />
             </Box>
-            <Box ml={{base: '0', md: '12'}}>
-              <Text textStyle="p">
+            <Box
+              maxW="272px"
+              ml={{base: '0', lg: '12'}}
+              position={{base: 'absolute', lg: 'relative'}}
+              p={{base: '6', lg: '0'}}
+            >
+              <Text
+                textStyle="p"
+                color={{base: 'white', lg: 'black'}}
+                fontSize={{base: 'xs', sm: 'sm', md: 'lg'}}
+              >
                 Hoje, os apps são fonte de renda para 3.8 milhões de autônomos no Brasil. Este modelo é dificil de ser combatido e contribui para aumento das desigualdades sociais.
               </Text>
-              <Text mt="8" textStyle="p">
+              <Text mt="8"
+                textStyle="p"
+                color={{base: 'white', lg: 'black'}}
+                fontSize={{base: 'xs', sm: 'sm', md: 'lg'}}
+              >
                 O AppJusto é uma alternativa para todos ganharem mais, com autonomia e respeito.
               </Text>
             </Box>

@@ -7,26 +7,24 @@ import Container from "./Container";
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
-import ShareFooter from './ShareFooter';
 import Section from './Section';
 
 interface PageProps {
   pageName: string
-  logo: string
 }
 
 const PageLayout: React.FC<PageProps> = ({
-  pageName, 
-  logo,  
+  pageName,
   children
 }) => {
+  const isHome = pageName === "Home"
   return (
     <>
       <Head>
         <title>AppJusto | {pageName}</title>
       </Head>
       {
-        pageName !== "Home" && (
+        !isHome && (
           <Flex
             flexDir="row"
             justifyContent="center"
@@ -36,7 +34,7 @@ const PageLayout: React.FC<PageProps> = ({
             display={["flex", null, null, "none"]}
           >
             <NextLink href="/" passHref>
-              <Link 
+              <Link
                 position="absolute"
                 left="16px"
                 border="1px solid #F2F6EA"
@@ -47,63 +45,63 @@ const PageLayout: React.FC<PageProps> = ({
                 _hover={{textDecoration: "underline"}}
               >
                 <Icon as={BiArrowBack}
-                  mt="2px" 
+                  mt="2px"
                   w="16px"
                   h="16px"
                 />
               </Link>
             </NextLink>
-            <Heading 
+            <Heading
               as="h2"
               fontSize="16px"
               lineHeight="22px"
-              fontWeight="500"  
+              fontWeight="500"
             >
               {pageName}
             </Heading>
         </Flex>
         )
       }
-      <Header 
-        logo={logo} 
-        logoW={pageName !== "Home" ? "120px" : "140px" }
-        logoH={pageName !== "Home" ? "52px" : "60px" }
-        isHome={pageName === "Home"}
-        top={pageName === "Home" ? "0" : "48px"}
+      <Header
+        logo={isHome ? '/logo-home.svg' : '/logo-pages.svg'}
+        logoW={!isHome ? "120px" : "140px" }
+        logoH={!isHome ? "52px" : "60px" }
+        isHome={isHome}
+        top={isHome ? "0" : "48px"}
       />
       <Main>
         {
-          pageName === "Home" ? children : (
+          isHome ? children : (
             <Section>
-              <Container 
+              <Container
                 flexDir="column"
                 m="124px"
                 mb="64px"
                 display={[ "none", null, null, "flex"]}
               >
-                <Stack 
+                <Stack
                   direction="row"
-                  spacing={2} 
+                  spacing={2}
                   color="#697667"
                   fontSize="16px"
                   lineHeight="22px"
                 >
                   <NextLink href="/" passHref>
-                    <Link 
+                    <Link
                       _hover={{textDecoration: "underline"}}
                     >
                       Home
                     </Link>
                   </NextLink>
                   <Text>
-                    <Icon as={Dot} 
+                    <Icon as={Dot}
                       w="6px"
                       h="6px"
                     />
                   </Text>
                   <Text>{pageName}</Text>
                 </Stack>
-                <Heading 
+                <Heading
                   as="h1"
                   fontSize="56px"
                   lineHeight="67,2px"
@@ -121,11 +119,6 @@ const PageLayout: React.FC<PageProps> = ({
         }
       </Main>
       <Footer />
-      {
-        pageName === "Home" && (
-          <ShareFooter />
-        )
-      }
     </>
   );
 }

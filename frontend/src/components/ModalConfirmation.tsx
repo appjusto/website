@@ -10,7 +10,7 @@ import {
   Text
 } from '@chakra-ui/react'
 
-import SharingBar from './share/SharingBar'
+import SharingButtons from './share/SharingButtons'
 
 import { usePageContext } from '../context'
 
@@ -114,7 +114,7 @@ const ModalConfirmation: React.FC = () => {
                   Quer ajudar mais? Divulgue para amigos, restaurantes e entregadores!
                 </Text>
               }
-              <SharingBar />
+              <SharingButtons />
             </Flex>
           </ModalBody>
         </ModalContent>

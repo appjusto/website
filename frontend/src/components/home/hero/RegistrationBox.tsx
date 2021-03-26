@@ -50,21 +50,6 @@ const RegistrationBox: React.FC = () => {
   const { contextState, contextDispatch, handleRegistration } = usePageContext()
   const isMountedRef = useRef(false);
 
-  useEffect(() => {
-    isMountedRef.current = true
-    return () => isMountedRef.current = false
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, true);
-    return window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResizing, true);
-    return window.removeEventListener("resize", handleResizing)
-  }, [])
-
   const dispatch = ({...args} : Actions) => {
     if(isMountedRef.current) {
       unsafeDispatch({...args})
@@ -139,6 +124,23 @@ const RegistrationBox: React.FC = () => {
       type: "handle_modalConfirmation", payload: modalConfOptions.registration
     })
   }
+
+
+  useEffect(() => {
+    isMountedRef.current = true
+    return () => isMountedRef.current = false
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, true);
+    return window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResizing, true);
+    return window.removeEventListener("resize", handleResizing)
+  }, [])
+
   return (
     <Section
       position={{ base: 'relative', md: 'fixed' }}
@@ -158,12 +160,9 @@ const RegistrationBox: React.FC = () => {
           <Box position="relative" width="84px" mt="-50px">
             <Image src="/big-delivery.svg" />
           </Box>
-          <Heading mt="4" as="h2" fontSize="24px">
-            Cadastre-se agora!
+          <Heading mt="4" as="h2" fontSize="24px" lineHeight="28.8px" maxW="227px">
+          Faça o pré-cadastro agora e entre nesse movimento!
           </Heading>
-          <Text mt="4" fontSize="16px" fontFamily="Barlow">
-             Ganhe mais no seu restaurante, e tenha uma experiência mais justa para seus clientes e entregadores!
-          </Text>
           <Flex
             as="form"
             flexDir="column"
@@ -212,7 +211,7 @@ const RegistrationBox: React.FC = () => {
           {
             !contextState?.registrationMsg.status && (
               <Text mt="4" fontSize="xs" lineHeight="lg">
-                Ao começar o cadastro, você aceita receber nosso contato por telefone, e-mail ou whatsapp quando for necessário
+                Ao fazer o pré-cadastro, você autoriza o envio de nossas comunicações para o número cadastrado.
               </Text>
             )
           }
