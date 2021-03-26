@@ -118,7 +118,7 @@ const PageLayout: React.FC<PageProps> = ({
           )
         }
       </Main>
-      <Footer />
+      <Footer isHome={isHome} />
     </>
   );
 }

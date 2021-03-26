@@ -1,5 +1,5 @@
 import {
-  useReducer, useEffect, useRef, ChangeEvent, FormEvent
+  useReducer, useEffect, useRef, ChangeEvent, FormEvent, useState
 }from 'react'
 import { Box, Flex, Heading, Text } from "@chakra-ui/react"
 
@@ -35,70 +35,46 @@ const initialState = {
 }
 
 const RegistrationBox: React.FC = () => {
-  const [state, unsafeDispatch] = useReducer(registrationReducer, initialState)
-  const {
-    profile,
-    phone,
-    uf,
-    //city,
-    email,
-    //isLoadingCities,
-    //citiesList,
-    isSubmiting,
-    pageLimit,
-  } = state
+  // context
   const { contextState, contextDispatch, handleRegistration } = usePageContext()
-  const isMountedRef = useRef(false);
+  // state
+  const [profile, setProfile] = useState("couriers")
+  const [phone, setPhone] = useState("")
+  const [email, setEmail] = useState("")
+  const [isSubmiting, setIsSubmiting] = useState(false)
+  const [validation, setValidation] = useState({ phone: true })
+  const [pageLimit, setPageLimit] = useState(false)
+  //const [state, unsafeDispatch] = useReducer(registrationReducer, initialState)
 
-  const dispatch = ({...args} : Actions) => {
-    if(isMountedRef.current) {
-      unsafeDispatch({...args})
-    }
-  }
+  const isMountedRef = useRef(false);
 
   const handleScroll = () => {
     const width = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
     if(width > 1000) {
-      console.log(document.documentElement.scrollTop)
-      if (document.documentElement.scrollTop > 3490) {
-        dispatch({type: "update_pageLimit", payload: true})
+      if (document.documentElement.scrollTop > 3300) {
+        setPageLimit(true)
       } else {
-        dispatch({type: "update_pageLimit", payload: false})
+        setPageLimit(false)
       }
     }
   }
 
   const clearForm = () => {
-    dispatch({type: "clear_state", payload: initialState})
+    setProfile("couriers")
+    setPhone("")
+    setEmail("")
   }
 
-  /*const handleUf = (uf: string) => {
-    dispatch({type: "update_uf", payload: uf})
-  }*/
-
-  /*const handleCity = (value: string) =>
-    dispatch({type: "update_city", payload: value})*/
-
   const handleValidation = async (field: string, value: boolean) => {
-    if(!value && state.fieldsAreValid[field] || value && !state.fieldsAreValid[field]) {
-      dispatch({type: "validation", payload: { field, value}})
-    }
-    if(field === "uf" && value === true) {
-      dispatch({type: "fetch_cities"})
-      const cities = await getCities(uf)
-      dispatch({type: "populate_cities", payload: cities})
-    }
+    setValidation(prevState => ({...prevState, [field]: value}))
   }
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     if(
-      !state.fieldsAreValid.phone
-      //|| !state.fieldsAreValid.uf
-      //|| !state.fieldsAreValid.city
-      //|| city === ''
+      !validation.phone
       ) {
       return handleMessage(
         contextDispatch,
@@ -106,14 +82,14 @@ const RegistrationBox: React.FC = () => {
         "registration"
       )
     }
-    dispatch({type: "update_isSubmiting", payload: true})
+    setIsSubmiting(true)
     const registrationStatus = await handleRegistration(
       profile,
       phone,
       'Não_informado', //`${city}-${uf}`
       email
     )
-    dispatch({type: "update_isSubmiting", payload: false})
+    setIsSubmiting(false)
     if(!registrationStatus) {
       return null
     }
@@ -122,7 +98,6 @@ const RegistrationBox: React.FC = () => {
       type: "handle_modalConfirmation", payload: modalConfOptions.registration
     })
   }
-
 
   useEffect(() => {
     isMountedRef.current = true
@@ -133,7 +108,7 @@ const RegistrationBox: React.FC = () => {
     window.addEventListener('scroll', handleScroll, true);
     return window.removeEventListener("scroll", handleScroll)
   }, [])
-
+  console.log("REGISTRATION !!!")
   return (
     <Section
       position={{ base: 'relative', md: 'fixed' }}
@@ -169,7 +144,7 @@ const RegistrationBox: React.FC = () => {
               value={profile}
               handleChange={
                 (event: ChangeEvent<HTMLSelectElement>) =>
-                  dispatch({type: "update_profile", payload: event.target.value})
+                  setProfile(event.target.value)
               }
               options={profileOptions}
             />
@@ -179,8 +154,7 @@ const RegistrationBox: React.FC = () => {
               label="Celular"
               placeHolder="Digite seu celular"
               value={phone}
-              handleChange={(value: string) =>
-                dispatch({type: "update_phone", payload: value})}
+              handleChange={(value: string) => setPhone(value)}
               notifyValidation={handleValidation}
             />
             <CustomInput
@@ -189,9 +163,7 @@ const RegistrationBox: React.FC = () => {
               label="E-mail"
               placeholder="Digite seu e-mail"
               value={email}
-              handleChange={(event: ChangeEvent<HTMLInputElement>) => {
-                dispatch({type: "update_email", payload: event.target.value})
-              }}
+              handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
               minW={[null, null, "300px"]}
               mb={["16px", null, "0"]}
             />

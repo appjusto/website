@@ -10,7 +10,7 @@ const Alternative: React.FC = () => {
       <Container pt="24">
         <Content>
           <Flex position="relative">
-            <Box w="100%">
+            <Box width={{base: '100%', md: '336px'}}>
               <Image src="/alternative.jpg" width="336px" />
             </Box>
             <Box

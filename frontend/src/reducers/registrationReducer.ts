@@ -85,6 +85,9 @@ export const registrationReducer = (state: StateProps, action: Actions): StatePr
         isSubmiting: action.payload,
       };
     case 'update_pageLimit':
+      if(state.pageLimit === action.payload) {
+        return {...state }
+      };
       return {
         ...state,
         pageLimit: action.payload,
