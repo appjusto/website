@@ -4,9 +4,9 @@ const SectionHeading: React.FC<HeadingProps> = ({ children }) => {
   return (
     <Heading
       color="black"
-      fontSize={{ base: '2xl', md: '32px' }}
+      fontSize={{ base: '24px', lg: '32px' }}
       fontWeight="700"
-      lineHeight={{ base: '28px', md: '38.4px' }}
+      lineHeight={{ base: '30px', lg: '38.4px' }}
       mb="4"
     >
       {children}

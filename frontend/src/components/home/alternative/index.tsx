@@ -3,11 +3,17 @@ import Container from '../../Container';
 import Section from '../../Section';
 import Image from '../../Image';
 import Content from '../../Content';
+import SectionHeading from '../../SectionHeading';
 
 const Alternative: React.FC = () => {
   return (
     <Section id="alternative">
-      <Container pt="24" px={{base: '0', md: 'auto'}}>
+      <Container pt="24">
+        <Content>
+          <SectionHeading>Os apps atuais criam monopólios, controlam o mercado de forma agressiva, impondo suas taxas e regras</SectionHeading>
+        </Content>
+      </Container>
+      <Container pt="4" px={{base: '0', md: '1rem'}}>
         <Content maxW={{base:'100%', md: '312px', lg: '480px', xl: '656px'}}>
           <Flex position="relative" w="100%" >
             <Box width={{base: '100%', md: '336px'}}>
