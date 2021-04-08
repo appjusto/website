@@ -64,6 +64,7 @@ const ModalConfirmation: React.FC = () => {
                   src="/illustration-big-user.png"
                   alt="Ilustração de uma mão entregando uma caixa para outra mão"
                   width="275px"
+                  eagerLoading
                 />
               </Box>
               {
@@ -75,6 +76,7 @@ const ModalConfirmation: React.FC = () => {
                       src="/obrigado.svg"
                       alt="Obrigado!"
                       width="213px"
+                      eagerLoading
                     />
                   </Box>
                 )

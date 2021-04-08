@@ -114,6 +114,7 @@ const ModalRecommendation: React.FC = () => {
                     src="/icon-promotion.svg"
                     alt="Ilustração de auto-falante"
                     width="100%"
+                    eagerLoading
                   />
                 </Box>
               </Flex>
