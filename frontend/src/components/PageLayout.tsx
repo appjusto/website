@@ -62,13 +62,7 @@ const PageLayout: React.FC<PageProps> = ({
         </Flex>
         )
       }
-      <Header
-        logo={isHome ? '/logo-home.svg' : '/logo-pages.svg'}
-        logoW={!isHome ? "120px" : "140px" }
-        logoH={!isHome ? "52px" : "60px" }
-        isHome={isHome}
-        top={isHome ? "0" : "48px"}
-      />
+      <Header isHome={isHome} />
       <Main>
         {
           isHome ? children : (

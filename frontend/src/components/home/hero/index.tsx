@@ -12,11 +12,11 @@ const Hero: React.FC = () => {
           <Flex flexDir="column">
             <Heading
               as="h1"
-              maxW="464px"
+              maxW="540px"
               color="white"
-              fontSize={{ base: '32px', md: '48px' }}
+              fontSize={{ base: '32px', md: '48px', lg: "56px" }}
               fontWeight="700"
-              lineHeight={{ base: '38.4px', md: '56px' }}
+              lineHeight={{ base: '38.4px', md: '56px', lg: "64px" }}
             >
               Um movimento por relações mais justas e transparentes
             </Heading>
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
         </Content>
       </Container>
       <Box position="absolute" top="0" left="0" w="full" zIndex="0">
-        <Image src="/hero-bg.jpg" srcMob="/hero-bg-mobile.jpg" w="full" eagerLoading />
+        <Image src="/hero-bg.jpeg" srcMob="/hero-bg-mobile.jpeg" w="full" eagerLoading />
       </Box>
     </Section>
   );

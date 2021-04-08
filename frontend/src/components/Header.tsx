@@ -1,21 +1,14 @@
-import Link from 'next/link'
-import { Flex, Box, Text } from "@chakra-ui/react";
+import NextLink from 'next/link'
+import { Flex, Box, Text, Link } from "@chakra-ui/react";
 import Container from './Container';
+import Image from '../components/Image';
 
 interface HeaderProps {
-  logo: string
-  logoW: string
-  logoH: string
-  isHome?: boolean
-  top: string
+  isHome: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  logo,
-  logoW,
-  logoH,
   isHome = true,
-  top
 }) => {
   return (
     <Flex
@@ -23,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({
     w="100%"
     justifyContent="center"
     position="absolute"
-    top={[top, null, null, "0"]}
+    top={{ base: isHome ? "0" : "48px", lg: "0" }}
     mt={isHome ? {base: "2", md: "8"} : "4"}
     left="0"
     zIndex="100"
@@ -35,19 +28,13 @@ const Header: React.FC<HeaderProps> = ({
           justifyContent="space-between"
           alignItems="center"
         >
-          <Box
-          w={logoW}
-          h={logoH}
-          >
+          <Box w={{ base: '120px', lg: isHome ? "168px" : "120px" }}>
             <Link href="/">
-              <a>
-                <img
-                  src={logo}
-                  alt="Logo AppJusto"
-                  width={272}
-                  height={116}
-                  loading="eager" />
-              </a>
+              <Image
+                src={isHome ? '/logo-home.svg' : '/logo-pages.svg'}
+                alt="Logo AppJusto"
+                width="100%"
+                loading="eager" />
             </Link>
           </Box>
           {/*<Flex
