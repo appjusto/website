@@ -17,7 +17,7 @@ const Alternative: React.FC = () => {
         <Content maxW={{base:'100%', md: '312px', lg: '480px', xl: '656px'}}>
           <Flex position="relative" w="100%" >
             <Box width={{base: '100%', md: '336px'}}>
-              <Image src="/alternative.jpg" width={{base: '100%', md: '336px'}} />
+              <Image src="/alternative.jpg" width={{base: '100%', md: '336px'}} eagerLoading />
             </Box>
             <Box
               maxW={{base: '100%', md: '272px'}}

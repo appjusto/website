@@ -29,7 +29,7 @@ const Item: React.FC<ItemProps> = ({
           h="20px"
           mr="16px"
         >
-          <Image src={image} alt={altImg} />
+          <Image src={image} alt={altImg} eagerLoading />
         </Box>
         <Heading
           as="h4"
@@ -43,7 +43,7 @@ const Item: React.FC<ItemProps> = ({
       {
         ods && (
           <Box w="100%" mt="16px" pl="36px">
-            <Image src="/ods.png" alt="ODS" />
+            <Image src="/ods.png" alt="ODS" eagerLoading />
           </Box>
         )
       }
