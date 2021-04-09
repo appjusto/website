@@ -3,8 +3,6 @@ export default {
   baseStyle: {
     control: {
       position: "relative",
-      mt: "16px",
-      mr: ["0", null, null, "16px"],
       zIndex: "1"
     },
     label: {

@@ -22,14 +22,19 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   label,
   placeholder,
   value,
-  maxW = "100%",
   marginLeft = ["0"],
+  maxW = "100%",
+  mt = '16px',
+  mb,
+  mr,
+  ml,
   isLast,
   isLoading,
   options,
   handleChange,
   ...props
 }) => {
+  const controlProps = { maxW, mt, mb, mr, ml };
   const styles = useMultiStyleConfig("Select", {})
   if(isLoading) {
     return (
@@ -37,7 +42,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
         id={id}
         sx={styles.control}
         mr={["0", null, null, isLast ? "0" : "16px"]}
-        maxW={maxW}
+        {...controlProps}
       >
         <FormLabel sx={styles.label}>
           {label}

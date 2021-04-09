@@ -110,10 +110,11 @@ const RegistrationBox: React.FC = () => {
           <Box position="relative" width="84px" mt="-50px">
             <Image src="/big-delivery.svg" />
           </Box>
-          <Heading mt="4" as="h2" fontSize="24px" lineHeight="28.8px" maxW="227px">
+          <Heading mt="3" as="h2" fontSize="24px" lineHeight="28.8px" maxW="290px">
             Faça o pré-cadastro agora e entre nesse movimento!
           </Heading>
           <Flex
+            mt="12px"
             as="form"
             flexDir="column"
             onSubmit={handleSubmit}
@@ -130,6 +131,7 @@ const RegistrationBox: React.FC = () => {
               options={profileOptions}
             />
             <CustomPhoneInput
+              mt="12px"
               name="phone"
               id="subscribe-phone"
               label="Celular"
@@ -139,6 +141,7 @@ const RegistrationBox: React.FC = () => {
               notifyValidation={handleValidation}
             />
             <CustomInput
+              mt="12px"
               type="email"
               id="registration-email"
               label="E-mail"
@@ -146,9 +149,9 @@ const RegistrationBox: React.FC = () => {
               value={email}
               handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
               minW={[null, null, "300px"]}
-              mb={["16px", null, "0"]}
             />
             <CustomButton
+              mt="3"
               type="submit"
               label="Fazer pré-cadastro"
               variant="secondaryRegistration"
@@ -157,7 +160,7 @@ const RegistrationBox: React.FC = () => {
           </Flex>
           {
             !contextState?.registrationMsg.status && (
-              <Text mt="4" fontSize="xs" lineHeight="lg">
+              <Text mt="12px" fontSize="xs" lineHeight="lg">
                 Ao fazer o pré-cadastro, você autoriza o envio de nossas comunicações para o número cadastrado.
               </Text>
             )

@@ -13,8 +13,20 @@ interface CustomInputProps extends InputProps {
 }
 
 const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(({
-  id, label, placeholder, value, type = "text", handleChange, ...props
+  id,
+  label,
+  placeholder,
+  value,
+  type = "text",
+  handleChange,
+  maxW = "100%",
+  mt = '16px',
+  mb,
+  mr,
+  ml,
+  ...props
 }: CustomInputProps, ref) => {
+  const controlProps = { maxW, mt, mb, mr, ml };
   const [isInvalid, setIsInvalid] = useState(false);
   const styles = useMultiStyleConfig("Input", {})
   const handleValidity = (ev: ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +40,7 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(({
     <FormControl
       id={id}
       sx={styles.control}
+      {...controlProps}
     >
       <FormLabel sx={styles.label}>
         {label}

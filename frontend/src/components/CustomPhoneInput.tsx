@@ -40,8 +40,21 @@ function phoneFormater(value: string) {
 }
 
 const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
-  name, id, label, value, placeHolder, handleChange, notifyValidation, ...props
+  name,
+  id,
+  label,
+  value,
+  placeHolder,
+  handleChange,
+  notifyValidation,
+  maxW = "100%",
+  mt = '16px',
+  mb,
+  mr,
+  ml,
+  ...props
 }) => {
+  const controlProps = { maxW, mt, mb, mr, ml };
   const [valueToDisplay, setValueToDisplay] = useState("")
   const [placeholderText, setPlaceholderText] = useState("")
   const [isValid, setIsValid] = useState(true)
@@ -84,6 +97,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInput> = ({
     <FormControl
       id={id}
       sx={styles.control}
+      {...controlProps}
     >
       <FormLabel sx={styles.label}>
         {label}
