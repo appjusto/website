@@ -12,7 +12,7 @@ const Commitment: React.FC = () => {
       <Container pt="24">
         <Content>
           <SectionHeading>
-            Nosso compromisso é com a sociedade e isso se traduz em nossos princípios
+            Compromissos do AppJusto para uma economia de plataforma mais equilibrada
           </SectionHeading>
           <Box>
             <Item
@@ -31,14 +31,14 @@ const Commitment: React.FC = () => {
               title="Ter eficiência e sustentabilidade financeira"
             />
             <Item
-              image="/item-domain.svg"
-              altImg="Ícone de prédios"
-              title="Criar um bem coletivo"
-            />
-            <Item
               image="/item-blur.svg"
               altImg="Ícone de pontos"
               title="Manter transparência em toda a plataforma"
+            />
+            <Item
+              image="/item-domain.svg"
+              altImg="Ícone de prédios"
+              title="Criar um bem coletivo"
             />
             <Item
               image="/item-world.svg"

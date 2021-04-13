@@ -10,9 +10,9 @@ const Share = () => {
     <Section id="shareSection">
       <Container pt="24">
         <Content>
-          <SectionHeading>Divulgue esse movimento</SectionHeading>
+          <SectionHeading>Com sua ajuda iremos mais longe!</SectionHeading>
           <Text mb="6">
-            Para chegar mais rápido a todas as cidades, o AppJusto precisa da sua ajuda. Divulgue nas suas rede e ajude o movimento a crescer:
+            Para sermos uma alternativa viável ao delivery de plataforma, precisamos alcançar o maior número possível de pessoas. Ajude divulgando a nossa proposta:
           </Text>
           <SharingButtons />
         </Content>

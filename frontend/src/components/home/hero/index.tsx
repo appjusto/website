@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   return (
     <Section id="hero" h={{ base: '600px', md: '840px', lg: '720px' }} overflow="hidden">
       <Container>
-        <Content mt={{base: '60px' , md: '200px'}}>
+        <Content mt={{base: '60px' , md: '180px'}}>
           <Flex flexDir="column">
             <Heading
               as="h1"
@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
               fontWeight="700"
               lineHeight={{ base: '38.4px', md: '56px', lg: "64px" }}
             >
-              Um movimento por relações mais justas e transparentes
+              Um movimento por relações mais justas e transparentes no delivery
             </Heading>
           </Flex>
         </Content>

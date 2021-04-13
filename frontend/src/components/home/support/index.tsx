@@ -25,7 +25,7 @@ const Support: React.FC = () => {
             <CustomLinkButton
               name="partner2"
               link="mailto:parceiros@appjusto.com.br"
-              linkLabel="Quero ser um parceiro"
+              linkLabel="Seja nosso parceiro"
               variant="primary"
               maxW={["100%", null, "220px"]}
               mr={["0", "0", "0", "16px"]}
@@ -33,7 +33,7 @@ const Support: React.FC = () => {
             <CustomLinkButton
               name="jobs"
               link="https://99jobs.com/appjusto/jobs"
-              linkLabel="Quero trabalhar com vocês"
+              linkLabel="Trabalhe conosco"
               variant="primary"
               maxW={["100%", null, "220px"]}
             />
