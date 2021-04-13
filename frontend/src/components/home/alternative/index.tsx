@@ -34,7 +34,7 @@ const Alternative: React.FC = () => {
                 fontSize={{base: '1rem', md: 'lg'}}
                 lineHeight="22px"
               >
-                Hoje, as plataformas de entrega são fonte de renda para mais de
+                Hoje, as plataformas digitais são fonte de renda para mais de
                 3.8 Milhões de autônomos no Brasil. Muitos profissionais se tornaram
                 reféns desse modelo de trabalho.
               </Text>

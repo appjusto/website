@@ -12,7 +12,7 @@ const Share = () => {
         <Content>
           <SectionHeading>Com sua ajuda iremos mais longe!</SectionHeading>
           <Text mb="6">
-            Para sermos uma alternativa viável ao delivery de plataforma, precisamos alcançar o maior número possível de pessoas. Ajude divulgando a nossa proposta:
+            Para sermos uma alternativa viável no delivery de plataforma, precisamos alcançar o maior número possível de pessoas. Ajude divulgando a nossa proposta:
           </Text>
           <SharingButtons />
         </Content>
