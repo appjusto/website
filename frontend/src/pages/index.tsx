@@ -5,7 +5,6 @@ import Partners from '../components/home/partners'
 import Support from '../components/home/support'
 import Commitment from '../components/home/commitment'
 import ModalConfirmation from '../components/ModalConfirmation'
-//import Helpdesk from '../components/Helpdesk'
 import RegistrationBox from '../components/home/hero/RegistrationBox'
 import Better from '../components/home/better'
 import Share from '../components/home/share'
@@ -22,7 +21,6 @@ export default function Home() {
       <Partners />
       <Support />
       <ModalConfirmation />
-      {/*<Helpdesk />*/}
     </PageLayout>
   )
 }
