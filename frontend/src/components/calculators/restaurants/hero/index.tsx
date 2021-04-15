@@ -7,12 +7,12 @@ import Content from '../../../Content';
 const RestaurantsHero: React.FC = () => {
   return (
     <Section
-      id='hero-restaurants'
-      h={{ base: '405px', md: '800px', lg: '540px' }}
+      id='hero'
+      h={{ base: '405px', md: '800px', lg: '720px' }}
       overflow='hidden'
     >
       <Container>
-        <Content mt={{base: '60px' , md: '120px'}} maxW={{base: '100%', md: '600px' , lg: '600px'}}>
+        <Content mt={{base: '60px' , md: '200px', lg: '160px'}} maxW={{base: '100%', md: '600px' , lg: '600px'}}>
           <Flex flexDir='column' color='white'>
             <Text fontSize='lg' lineHeight='26px' fontWeight='700' textStyle='p'>
               Calculadora para restaurantes

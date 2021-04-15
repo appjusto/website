@@ -153,7 +153,7 @@ const RestaurantCalculator: React.FC = () => {
                 - Pix: 0,99% + R$0,09 (compensa no mesmo dia)
               </Text>
             </Box>
-            <Box mt={{base: '30px', md: '60px'}} bg="#F6F6F6" borderRadius="lg" p="24px" minW={{ md: "464px"}}>
+            <Box mt={{base: '30px', md: '60px'}} bg="#F6F6F6" borderRadius="lg" p="24px" minW={{ xl: "464px"}}>
               <Text textStyle="p" fontSize="24px" lineHeight="30px">
                 Economia utilizando o AppJusto
               </Text>
