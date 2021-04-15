@@ -7,7 +7,7 @@ interface CustomInputProps extends InputProps {
   id: string
   label: string
   placeholder: string
-  value: string
+  value: string | number
   type?: string
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
