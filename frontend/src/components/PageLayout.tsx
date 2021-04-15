@@ -8,6 +8,7 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import Section from './Section';
+import { logoType } from './Header'
 
 interface PageProps {
   pageName: string
@@ -17,55 +18,19 @@ const PageLayout: React.FC<PageProps> = ({
   pageName,
   children
 }) => {
-  const isHome = pageName === "Home"
+  let logo = 'green'
+  if(pageName === "Home") logo = 'white'
+  if(pageName === "Restaurantes") logo = 'greenWhite'
+  const HeroShare = pageName === "Home" || pageName === "Restaurantes" || pageName === "Entregadores"
   return (
     <>
       <Head>
         <title>AppJusto | {pageName}</title>
       </Head>
-      {
-        !isHome && (
-          <Flex
-            flexDir="row"
-            justifyContent="center"
-            alignItems="center"
-            position="relative"
-            h="48px"
-            display={["flex", null, null, "none"]}
-          >
-            <NextLink href="/" passHref>
-              <Link
-                position="absolute"
-                left="16px"
-                border="1px solid #F2F6EA"
-                borderRadius="8px"
-                minW="32px"
-                h="32px"
-                textAlign="center"
-                _hover={{textDecoration: "underline"}}
-              >
-                <Icon as={BiArrowBack}
-                  mt="2px"
-                  w="16px"
-                  h="16px"
-                />
-              </Link>
-            </NextLink>
-            <Heading
-              as="h2"
-              fontSize="16px"
-              lineHeight="22px"
-              fontWeight="500"
-            >
-              {pageName}
-            </Heading>
-        </Flex>
-        )
-      }
-      <Header isHome={isHome} />
+      <Header logo={logo as logoType} hero={HeroShare} />
       <Main>
         {
-          isHome ? children : (
+          HeroShare ? children : (
             <Section>
               <Container
                 flexDir="column"
@@ -112,7 +77,7 @@ const PageLayout: React.FC<PageProps> = ({
           )
         }
       </Main>
-      <Footer isHome={isHome} />
+      <Footer shareBar={HeroShare} />
     </>
   );
 }

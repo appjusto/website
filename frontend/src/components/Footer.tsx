@@ -6,10 +6,10 @@ import Link from './CustomLink'
 import ShareFooter from './ShareFooter'
 
 interface FooterProps {
-  isHome: boolean;
+  shareBar: boolean;
 }
 
-const Footer: React.FC<FooterProps> = ({isHome}) => {
+const Footer: React.FC<FooterProps> = ({shareBar}) => {
   return (
     <>
       <Flex
@@ -177,7 +177,7 @@ const Footer: React.FC<FooterProps> = ({isHome}) => {
         </Container>
       </Flex>
       {
-        isHome && <ShareFooter />
+        shareBar && <ShareFooter />
       }
     </>
   );

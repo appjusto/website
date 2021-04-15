@@ -3,21 +3,28 @@ import { Flex, Box, Text, Link } from "@chakra-ui/react";
 import Container from './Container';
 import Image from '../components/Image';
 
+export type logoType = 'white' | 'green' | 'greenWhite';
+
 interface HeaderProps {
-  isHome: boolean;
+  logo: logoType;
+  hero?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  isHome = true,
+  logo = 'white',
+  hero
 }) => {
+  let logoSrc = '/logo-home.svg'
+  if(logo = 'green') logoSrc = '/logo-pages.svg'
+  if(logo = 'greenWhite') logoSrc = '/logo-restaurants.svg'
   return (
     <Flex
     as="header"
     w="100%"
     justifyContent="center"
     position="absolute"
-    top={{ base: isHome ? "0" : "48px", lg: "0" }}
-    mt={isHome ? {base: "2", md: "8"} : "4"}
+    top={{ base: hero ? "0" : "48px", lg: "0" }}
+    mt={hero ? {base: "2", md: "8"} : "4"}
     left="0"
     zIndex="100"
     >
@@ -28,10 +35,10 @@ const Header: React.FC<HeaderProps> = ({
           justifyContent="space-between"
           alignItems="center"
         >
-          <Box w={{ base: '120px', lg: isHome ? "168px" : "120px" }}>
+          <Box w={{ base: '120px', lg: hero ? "168px" : "120px" }}>
             <Link href="/">
               <Image
-                src={isHome ? '/logo-home.svg' : '/logo-pages.svg'}
+                src={logoSrc}
                 alt="Logo AppJusto"
                 width="100%"
                 loading="eager" />
