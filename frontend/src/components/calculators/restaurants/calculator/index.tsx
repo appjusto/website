@@ -205,6 +205,7 @@ const RestaurantCalculator: React.FC = () => {
                   formattedRawValue(((competitorValue - appjustoValue) * 12).toString()) : 'R$ 00.000,00'
                 }
               </Text>
+              {/*
               <Text mt="12" textStyle="p" fontSize="16px" lineHeight="22px" color="#697667">
                 Envie essa simulação para o seu e-mail:
               </Text>
@@ -231,6 +232,7 @@ const RestaurantCalculator: React.FC = () => {
                 fontWeight="500">
                 Enviar simulação
               </Button>
+              */}
             </Box>
           </Flex>
         </Flex>

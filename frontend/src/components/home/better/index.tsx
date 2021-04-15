@@ -6,6 +6,7 @@ import Section from '../../Section';
 import Image from '../../Image';
 import Topic from './Topic';
 import CustomLinkButton from '../../CustomLinkButton';
+import CustomButton from '../../CustomButton';
 
 const Better = () => {
   return (
@@ -53,13 +54,21 @@ const Better = () => {
               <Topic
                 label='Transparência em todas as regras e preços da plataforma'
               />
-              <CustomLinkButton
-                name="go-to-admin"
-                link="https://admin.appjusto.com.br/"
-                linkLabel="Cadastrar restaurante"
-                variant="primary"
-                maxW={["100%", null, "220px"]}
-              />
+              <Flex flexDir={{base: 'column', lg: 'row'}}>
+                <CustomButton
+                  id="restaurant-calculator"
+                  label="Calcule seus ganhos"
+                  link="/calculadoras/restaurantes"
+                  variant="primary"
+                />
+                <CustomLinkButton
+                  ml={{lg: '4'}}
+                  name="go-to-admin"
+                  link="https://admin.appjusto.com.br/"
+                  linkLabel="Cadastrar restaurante"
+                  variant="primary"
+                />
+              </Flex>
             </Box>
           </Flex>
           <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
