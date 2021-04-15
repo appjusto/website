@@ -8,6 +8,8 @@ import Image from "../../../Image";
 import CustomInput from "../../../CustomInput";
 import CustomButton from "../../../CustomButton";
 import NextLink from 'next/link';
+import { formattedRawValue } from '../../../../utils';
+import CustomLinkButton from "../../../CustomLinkButton";
 
 const BlockHeading = ({children}: TextProps) => {
   return (
@@ -36,8 +38,30 @@ const RestaurantCalculator: React.FC = () => {
   const [fee, setFee] = useState('');
   const [revenues, setRevenues] = useState(0);
   const [orders, setOrders] = useState('');
-  const [stores, setStores] = useState('');
+  const [stores, setStores] = useState('1');
   const [email, setEmail] = useState('');
+  const [appjustoValue, setAppjustoValue] = useState(0);
+  const [competitorValue, setCompetitorValue] = useState(0);
+
+  useEffect(() => {
+    const appjustoFee = 0.0721;
+    const feeValue = parseInt(fee) / 100;
+    const revenuesValue = revenues;
+    const ordersValue = parseInt(orders);
+    //const storesValue = parseInt(stores);
+    const appjustoResult = () => {
+      const feeTotal = (appjustoFee * revenuesValue) + (ordersValue * 9);
+      setAppjustoValue(feeTotal);
+    };
+    const competitorResult = () => {
+      const feeTotal = (feeValue * revenuesValue);
+      setCompetitorValue(feeTotal);
+    };
+    appjustoResult();
+    competitorResult();
+  }, [fee, revenues, orders, stores])
+  console.log(appjustoValue);
+  console.log(competitorValue);
   return (
     <Section id="restaurant-calculator">
       <Container pt="12" pb="24">
@@ -97,13 +121,17 @@ const RestaurantCalculator: React.FC = () => {
                   Por mês você paga
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#4EA031">
-                  R$ 00.000,00
+                  { !isNaN(appjustoValue) ?
+                    formattedRawValue(appjustoValue.toString()) : 'R$ 00.000,00'
+                  }
                 </Text>
                 <Text mt="4" textStyle="p" fontSize="lg" lineHeight="26px">
                   Previsão para 12 meses
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#4EA031">
-                  R$ 00.000,00
+                  {!isNaN(appjustoValue) ?
+                    formattedRawValue((appjustoValue * 12).toString()) : 'R$ 00.000,00'
+                  }
                 </Text>
               </Box>
               <Box mt={{base: '8', md: '0'}}>
@@ -117,13 +145,17 @@ const RestaurantCalculator: React.FC = () => {
                   Por mês você paga
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#DC3545">
-                  R$ 00.000,00
+                  {!isNaN(competitorValue) ?
+                    formattedRawValue(competitorValue.toString()) : 'R$ 00.000,00'
+                  }
                 </Text>
                 <Text mt="4" textStyle="p" fontSize="lg" lineHeight="26px">
                   Previsão para 12 meses
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#DC3545">
-                  R$ 00.000,00
+                  {!isNaN(competitorValue) ?
+                    formattedRawValue((competitorValue * 12).toString()) : 'R$ 00.000,00'
+                  }
                 </Text>
               </Box>
             </Flex>
@@ -147,10 +179,10 @@ const RestaurantCalculator: React.FC = () => {
                 • Gateway de pagamento:
               </Text>
               <Text ml="2" textStyle="p" fontSize="15px">
-                - Cartão de crédito:  2,21% + 0,09%
+                - Cartão de crédito:  2,21% + R$ 0,09
               </Text>
               <Text ml="2" textStyle="p" fontSize="15px">
-                - Pix: 0,99% + R$0,09 (compensa no mesmo dia)
+                - Pix: 0,99% + R$ 0,09 (compensa no mesmo dia)
               </Text>
             </Box>
             <Box mt={{base: '30px', md: '60px'}} bg="#F6F6F6" borderRadius="lg" p="24px" minW={{ xl: "464px"}}>
@@ -161,13 +193,17 @@ const RestaurantCalculator: React.FC = () => {
                 Economia por mês
               </Text>
               <Text mt="2" textStyle="p" fontSize="48px" lineHeight="57.6px" color="#4EA031">
-                R$ 00.000,00
+                {!isNaN(appjustoValue) && !isNaN(competitorValue) ?
+                  formattedRawValue((competitorValue - appjustoValue).toString()) : 'R$ 00.000,00'
+                }
               </Text>
               <Text mt="8" textStyle="p" fontSize="20px" lineHeight="26px">
                 Economia para 12 meses
               </Text>
               <Text mt="2" textStyle="p" fontSize="48px" lineHeight="57.6px" color="#4EA031">
-                R$ 00.000,00
+                {!isNaN(appjustoValue) && !isNaN(competitorValue) ?
+                  formattedRawValue(((competitorValue - appjustoValue) * 12).toString()) : 'R$ 00.000,00'
+                }
               </Text>
               <Text mt="12" textStyle="p" fontSize="16px" lineHeight="22px" color="#697667">
                 Envie essa simulação para o seu e-mail:
@@ -206,17 +242,17 @@ const RestaurantCalculator: React.FC = () => {
             O AppJusto tem muito mais vantagens para o seu restaurante. Cadastre-se
             agora e faça parte desse movimento.
           </Text>
-          <CustomButton
+          <CustomLinkButton
             mt="6"
             maxW={{md: "304px"}}
-            type="submit"
-            label="Cadastrar restaurante"
+            name="admin"
+            linkLabel="Cadastrar restaurante"
             variant="secondaryRegistration"
             link="https://admin.appjusto.com.br"
           />
           <HStack mt="8">
             <Box>
-              <Image src='/arrow-right.svg' />
+              <Image src='/arrow-right.svg' eagerLoading />
             </Box>
             <NextLink href="/sobre-o-appjusto" passHref>
               <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px" textDecor="underline">

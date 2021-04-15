@@ -6,17 +6,13 @@ import Image from '../components/Image';
 export type logoType = 'white' | 'green' | 'greenWhite';
 
 interface HeaderProps {
-  logo: logoType;
   hero?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  logo = 'white',
   hero
 }) => {
-  let logoSrc = '/logo-home.svg'
-  if(logo = 'green') logoSrc = '/logo-pages.svg'
-  if(logo = 'greenWhite') logoSrc = '/logo-restaurants.svg'
+  let logoSrc = hero ? '/logo-home.svg' : '/logo-pages.svg'
   return (
     <Flex
     as="header"

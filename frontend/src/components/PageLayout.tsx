@@ -18,16 +18,13 @@ const PageLayout: React.FC<PageProps> = ({
   pageName,
   children
 }) => {
-  let logo = 'green'
-  if(pageName === "Home") logo = 'white'
-  if(pageName === "Restaurantes") logo = 'greenWhite'
   const HeroShare = pageName === "Home" || pageName === "Restaurantes" || pageName === "Entregadores"
   return (
     <>
       <Head>
         <title>AppJusto | {pageName}</title>
       </Head>
-      <Header logo={logo as logoType} hero={HeroShare} />
+      <Header hero={HeroShare} />
       <Main>
         {
           HeroShare ? children : (
