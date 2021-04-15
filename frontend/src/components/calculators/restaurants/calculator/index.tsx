@@ -151,7 +151,7 @@ const RestaurantCalculator: React.FC = () => {
               value={orders}
               onChange={(ev) => setOrders(ev.target.value)}
             />
-            <InputQuestion mt="4">
+            {/*<InputQuestion mt="4">
               Qual a quantidade de lojas do seu restaurante?
             </InputQuestion>
             <Input
@@ -160,7 +160,7 @@ const RestaurantCalculator: React.FC = () => {
               placeholder="0"
               value={stores}
               onChange={(ev) => setStores(ev.target.value)}
-            />
+            />*/}
             <Flex mt="16" w="100%" maxW={{md: '500px'}} flexDir={{base: 'column', md: 'row'}} justifyContent="space-between">
               <Box>
                 <HStack spacing={2}>
@@ -226,7 +226,7 @@ const RestaurantCalculator: React.FC = () => {
                 - Cartão de crédito:  2,21% + R$ 0,09
               </Text>
               <Text ml="2" textStyle="p" fontSize="15px">
-                - Pix: 0,99% + R$ 0,09 (compensa no mesmo dia)
+                - Pix: 0,99% (compensa no mesmo dia)
               </Text>
             </Box>
             <Box mt={{base: '30px', md: '60px'}} bg="#F6F6F6" borderRadius="lg" p="24px" minW={{ xl: "464px"}}>
@@ -276,7 +276,7 @@ const RestaurantCalculator: React.FC = () => {
             </Box>
           </Flex>
         </Flex>
-        <Box mt={{base: '16', lg: '8'}} w="100%" maxW="500px">
+        <Box mt="16" w="100%" maxW="500px">
           <Text textStyle="p" fontSize="28px" lineHeight="30px">
             Faça o seu cadastro!
           </Text>
