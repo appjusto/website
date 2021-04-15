@@ -43,6 +43,55 @@ const RestaurantCalculator: React.FC = () => {
   const [appjustoValue, setAppjustoValue] = useState(0);
   const [competitorValue, setCompetitorValue] = useState(0);
 
+  // helpers
+  const stopCalc = revenues === 0
+    || (isNaN(parseInt(orders)) || parseInt(orders) === 0)
+    || isNaN(parseFloat(fee.replace(',', '.')))
+
+  const getIntStr = (value: number) => {
+    return parseInt(value.toString()).toString()
+  }
+  const appjustoMonthlyValueToDisplay = () => {
+    if(stopCalc) return 'R$ 00.000,00'
+    if(!isNaN(appjustoValue)) return formattedRawValue(getIntStr(appjustoValue))
+    else return 'R$ 00.000,00'
+  }
+
+  const appjustoYearlyValueToDisplay = () => {
+    if(stopCalc) return 'R$ 00.000,00'
+    const yarly = appjustoValue * 12
+    if(!isNaN(appjustoValue)) return formattedRawValue(getIntStr(yarly))
+    else return 'R$ 00.000,00'
+  }
+
+  const competitorMonthlyValueToDisplay = () => {
+    if(stopCalc) return 'R$ 00.000,00'
+    if(!isNaN(competitorValue)) return formattedRawValue(getIntStr(competitorValue))
+    else return 'R$ 00.000,00'
+  }
+
+  const competitorYearlyValueToDisplay = () => {
+    if(stopCalc) return 'R$ 00.000,00'
+    const yarly = competitorValue * 12
+    if(!isNaN(competitorValue)) return formattedRawValue(getIntStr(yarly))
+    else return 'R$ 00.000,00'
+  }
+
+  const monthlyDiff = () => {
+    if(stopCalc) return 'R$ 00.000,00'
+    if(!isNaN(appjustoValue) && !isNaN(competitorValue)) {
+      const diff = competitorValue - appjustoValue
+      return formattedRawValue(getIntStr(diff));
+    } else return 'R$ 00.000,00'
+  }
+  const yearlyDiff = () => {
+    if(stopCalc) return 'R$ 00.000,00'
+    if(!isNaN(appjustoValue) && !isNaN(competitorValue)) {
+      const diff = (competitorValue - appjustoValue) * 12
+      return formattedRawValue(getIntStr(diff));
+    } else return 'R$ 00.000,00'
+  }
+
   useEffect(() => {
     const appjustoFee = 0.0721;
     const feeValue = parseFloat(fee.replace(',', '.')) / 100;
@@ -124,17 +173,13 @@ const RestaurantCalculator: React.FC = () => {
                   Por mês você paga
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#4EA031">
-                  { !isNaN(appjustoValue) ?
-                    formattedRawValue(appjustoValue.toString()) : 'R$ 00.000,00'
-                  }
+                  {appjustoMonthlyValueToDisplay()}
                 </Text>
                 <Text mt="4" textStyle="p" fontSize="lg" lineHeight="26px">
                   Previsão para 12 meses
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#4EA031">
-                  {!isNaN(appjustoValue) ?
-                    formattedRawValue((appjustoValue * 12).toString()) : 'R$ 00.000,00'
-                  }
+                  {appjustoYearlyValueToDisplay()}
                 </Text>
               </Box>
               <Box mt={{base: '8', md: '0'}}>
@@ -148,17 +193,13 @@ const RestaurantCalculator: React.FC = () => {
                   Por mês você paga
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#DC3545">
-                  {!isNaN(competitorValue) ?
-                    formattedRawValue(competitorValue.toString()) : 'R$ 00.000,00'
-                  }
+                  {competitorMonthlyValueToDisplay()}
                 </Text>
                 <Text mt="4" textStyle="p" fontSize="lg" lineHeight="26px">
                   Previsão para 12 meses
                 </Text>
                 <Text mt="1" textStyle="p" fontSize="3xl" lineHeight="30px" color="#DC3545">
-                  {!isNaN(competitorValue) ?
-                    formattedRawValue((competitorValue * 12).toString()) : 'R$ 00.000,00'
-                  }
+                  {competitorYearlyValueToDisplay()}
                 </Text>
               </Box>
             </Flex>
@@ -196,17 +237,13 @@ const RestaurantCalculator: React.FC = () => {
                 Economia por mês
               </Text>
               <Text mt="2" textStyle="p" fontSize="48px" lineHeight="57.6px" color="#4EA031">
-                {!isNaN(appjustoValue) && !isNaN(competitorValue) ?
-                  formattedRawValue((competitorValue - appjustoValue).toString()) : 'R$ 00.000,00'
-                }
+                {monthlyDiff()}
               </Text>
               <Text mt="8" textStyle="p" fontSize="20px" lineHeight="26px">
                 Economia para 12 meses
               </Text>
               <Text mt="2" textStyle="p" fontSize="48px" lineHeight="57.6px" color="#4EA031">
-                {!isNaN(appjustoValue) && !isNaN(competitorValue) ?
-                  formattedRawValue(((competitorValue - appjustoValue) * 12).toString()) : 'R$ 00.000,00'
-                }
+                {yearlyDiff()}
               </Text>
               {/*
               <Text mt="12" textStyle="p" fontSize="16px" lineHeight="22px" color="#697667">

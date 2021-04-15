@@ -9,7 +9,7 @@ const founders = [
   "Pedro Saulo de Andrade",
   "Rogério A. Nogueira",
   "Italo Monteiro",
-  "Eduardo Araújo",
+  "Eduardo Araújo Jr.",
   "Daniel Lima"
 ]
 

@@ -66,7 +66,7 @@ const About: React.FC = () => {
           _hover={{color: "#003EB8"}}
         />
       </Text>
-      <Title text="Eduardo Araújo" />
+      <Title text="Eduardo Araújo Jr." />
       <Text textStyle="p" mb="26px">
         Advogado com experiência em consultoria e contencioso em diversas áreas
         do direito - <Link
