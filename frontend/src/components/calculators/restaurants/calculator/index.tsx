@@ -45,7 +45,7 @@ const RestaurantCalculator: React.FC = () => {
 
   useEffect(() => {
     const appjustoFee = 0.0721;
-    const feeValue = parseInt(fee) / 100;
+    const feeValue = parseFloat(fee.replace(',', '.')) / 100;
     const revenuesValue = revenues;
     const ordersValue = parseInt(orders);
     //const storesValue = parseInt(stores);
@@ -60,8 +60,7 @@ const RestaurantCalculator: React.FC = () => {
     appjustoResult();
     competitorResult();
   }, [fee, revenues, orders, stores])
-  console.log(appjustoValue);
-  console.log(competitorValue);
+
   return (
     <Section id="restaurant-calculator">
       <Container pt="12" pb="24">
@@ -79,6 +78,10 @@ const RestaurantCalculator: React.FC = () => {
               placeholder="% 00"
               value={fee}
               onChange={(ev) => setFee(ev.target.value)}
+              maxLength={5}
+              onBlur={() => {
+                if(parseFloat(fee.replace(',', '.')) > 100) setFee('100')
+              }}
             />
             <InputQuestion mt="4">
               Qual o seu faturamento mensal em delivery  (média)?

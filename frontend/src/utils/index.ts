@@ -7,7 +7,7 @@ export const profileOptions = [
   { value: "restaurants", label: "Restaurante"}
 ]
 
-export const numbersOnlyParser = (value: string) => value.replace(/[^0-9]/g, '');
+export const numbersDotCommaOnlyParser = (value: string) => value.replace(/[^.,0-9]/g, '');
 
 export const removeAccents = (str: string) => {
   return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
