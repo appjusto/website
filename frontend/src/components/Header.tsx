@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { Flex, Box, Text, Link } from "@chakra-ui/react";
+import { Flex, Box, Link } from "@chakra-ui/react";
 import Container from './Container';
 import Image from '../components/Image';
 
@@ -32,13 +32,16 @@ const Header: React.FC<HeaderProps> = ({
           alignItems="center"
         >
           <Box w={{ base: '120px', lg: hero ? "168px" : "120px" }}>
-            <Link href="/">
+          <NextLink href="/" passHref>
+            <Link _focus={{ outline: 'none'}}>
               <Image
                 src={logoSrc}
                 alt="Logo AppJusto"
                 width="100%"
-                loading="eager" />
+                loading="eager"
+              />
             </Link>
+            </NextLink>
           </Box>
           {/*<Flex
             justifyContent="flex-end"
