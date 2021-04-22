@@ -13,6 +13,7 @@ import CustomInput from '../../CustomInput'
 import Image from '../../Image';
 import Section from '../../Section';
 import Container from '../../Container';
+import CustomLinkButton from '../../CustomLinkButton'
 
 const RegistrationBox: React.FC = () => {
   // context
@@ -130,38 +131,58 @@ const RegistrationBox: React.FC = () => {
               }
               options={profileOptions}
             />
-            <CustomPhoneInput
-              mt="12px"
-              name="phone"
-              id="subscribe-phone"
-              label="Celular"
-              placeHolder="Digite seu celular"
-              value={phone}
-              handleChange={(value: string) => setPhone(value)}
-              notifyValidation={handleValidation}
-            />
-            <CustomInput
-              mt="12px"
-              type="email"
-              id="registration-email"
-              label="E-mail"
-              placeholder="Digite seu e-mail"
-              value={email}
-              handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-              minW={[null, null, "300px"]}
-            />
-            <CustomButton
-              mt="3"
-              type="submit"
-              label="Fazer pré-cadastro"
-              variant="secondaryRegistration"
-              isSubmiting={isSubmiting}
-            />
+            {
+              profile === 'restaurants' ? (
+                <>
+                <Text mt="12px" textStyle="p" fontSize="lg" lineHeight="lg">
+                  O cadastro para restaurantes já está disponível!
+                </Text>
+                <CustomLinkButton
+                  mt="3"
+                  name="admin-link"
+                  linkLabel="Cadastrar restaurante"
+                  variant="secondaryRegistration"
+                  link="https://admin.appjusto.com.br"
+                  isExternal
+                />
+                </>
+              ) : (
+                <>
+                  <CustomPhoneInput
+                    mt="12px"
+                    name="phone"
+                    id="subscribe-phone"
+                    label="Celular"
+                    placeHolder="Digite seu celular"
+                    value={phone}
+                    handleChange={(value: string) => setPhone(value)}
+                    notifyValidation={handleValidation}
+                  />
+                  <CustomInput
+                    mt="12px"
+                    type="email"
+                    id="registration-email"
+                    label="E-mail"
+                    placeholder="Digite seu e-mail"
+                    value={email}
+                    handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                    minW={[null, null, "300px"]}
+                  />
+                  <CustomButton
+                    mt="3"
+                    type="submit"
+                    label="Fazer pré-cadastro"
+                    variant="secondaryRegistration"
+                    isSubmiting={isSubmiting}
+                  />
+                </>
+              )
+            }
           </Flex>
           {
             !contextState?.registrationMsg.status && (
-              <Text mt="12px" fontSize="xs" lineHeight="lg">
-                Ao fazer o pré-cadastro, você autoriza o envio de nossas comunicações para o número cadastrado.
+              <Text mt="12px" textStyle="p" fontSize="xs" lineHeight="lg">
+                Ao fazer o {profile === 'restaurants' ? 'cadastro' : 'pré-cadastro' }, você autoriza o envio de nossas comunicações para o número cadastrado.
               </Text>
             )
           }
