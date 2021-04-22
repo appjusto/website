@@ -8,18 +8,17 @@ const RestaurantsHero: React.FC = () => {
   return (
     <Section
       id='hero'
-      h={{ base: '405px', md: '800px', lg: '720px' }}
+      h={{ base: '405px', md: '800px', lg: '480px' }}
       overflow='hidden'
     >
       <Container>
-        <Content mt={{base: '60px' , md: '200px', lg: '160px'}} maxW={{base: '100%', md: '600px' , lg: '600px'}}>
+        <Content mt={{base: '60px' , md: '200px', lg: '120px'}} maxW={{base: '100%', md: '600px' , lg: '960px'}}>
           <Flex flexDir='column' color='white'>
             <Text fontSize='lg' lineHeight='26px' fontWeight='700' textStyle='p'>
               Calculadora para restaurantes
             </Text>
             <Heading
               as='h1'
-              maxW='540px'
               fontSize={{ base: '32px', md: '56px' }}
               fontWeight='700'
               lineHeight={{ base: '38.4px', md: '64px' }}
@@ -27,7 +26,7 @@ const RestaurantsHero: React.FC = () => {
               Descubra quanto você vai economizar com o AppJusto
             </Heading>
             <Text
-              mt='32px'
+              mt='24px'
               fontSize={{base: '15px', md: '18px'}}
               lineHeight={{base: '21px', md: '26px'}}
               textStyle='p'

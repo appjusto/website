@@ -51,11 +51,17 @@ const Commitment: React.FC = () => {
             <Box>
               <Image src='/arrow-right.svg' />
             </Box>
-            <NextLink href="/sobre-o-appjusto" passHref>
-              <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px" textDecor="underline">
-                Saiba mais sobre o AppJusto
-              </Link>
-            </NextLink>
+            <Link
+              href="https://appjusto.freshdesk.com/"
+              fontSize="lg"
+              fontWeight="700"
+              lineHeight="26px"
+              textDecor="underline"
+              _focus={{ outline: 'none' }}
+              isExternal
+            >
+              Saiba mais sobre o AppJusto
+            </Link>
           </HStack>
           <HStack mt="4">
             <Box>
@@ -67,6 +73,7 @@ const Commitment: React.FC = () => {
               fontWeight="700"
               lineHeight="26px"
               textDecor="underline"
+              _focus={{ outline: 'none' }}
               isExternal
             >
               Baixe nossa apresentação

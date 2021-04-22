@@ -1,11 +1,15 @@
-import { Box, Flex, HStack, Text, Icon } from '@chakra-ui/react'
+import { Box, Flex, HStack, Text, Icon, FlexProps } from '@chakra-ui/react'
 import { BiUpArrowAlt  } from 'react-icons/bi'
 import { Link as ScrollLink } from "react-scroll";
 import Container from './Container'
 import ShareButton from './ShareButton';
 import { useState, useEffect } from 'react';
 
-const ShareFooter: React.FC = () => {
+interface ShareProps {
+  fixed?: boolean;
+}
+
+const ShareFooter: React.FC<ShareProps> = ({ fixed = true }) => {
   // state
   const [isTop, setisTop] = useState(false);
   // handlers
@@ -28,7 +32,7 @@ const ShareFooter: React.FC = () => {
   // UI
   return (
     <Flex
-      position={{md: 'fixed'}}
+      position={fixed ? { md: 'fixed' } : 'relative'}
       bottom={{md: '0'}}
       as="div"
       w="100%"

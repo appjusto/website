@@ -74,7 +74,7 @@ const PageLayout: React.FC<PageProps> = ({
           )
         }
       </Main>
-      <Footer shareBar={HeroShare} />
+      <Footer pageName={pageName} />
     </>
   );
 }
