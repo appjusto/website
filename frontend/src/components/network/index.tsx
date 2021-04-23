@@ -17,7 +17,6 @@ const angelInvestors = [
   "Emiliano Graziano",
   "Claudio Neszlinger",
   "Gustavo Araújo",
-  "Gisselle Lanza"
 ]
 
 const partnerCompanies = [
