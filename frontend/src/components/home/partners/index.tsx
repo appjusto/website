@@ -56,7 +56,7 @@ const Partners: React.FC = () => {
               <Image src='/arrow-right.svg' />
             </Box>
             <NextLink href="/conheca-a-rede" passHref>
-              <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px" textDecor="underline">
+              <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px" textDecor="underline" _focus={{ outline: 'none '}}>
                 Conheça a nossa rede completa
               </Link>
             </NextLink>

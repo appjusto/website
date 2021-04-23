@@ -45,6 +45,7 @@ const PageLayout: React.FC<PageProps> = ({
                   <NextLink href="/" passHref>
                     <Link
                       _hover={{textDecoration: "underline"}}
+                      _focus={{ outline: 'none '}}
                     >
                       Home
                     </Link>
