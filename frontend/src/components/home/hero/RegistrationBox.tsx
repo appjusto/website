@@ -1,13 +1,9 @@
 import {
   useEffect, useRef, ChangeEvent, FormEvent, useState
 }from 'react'
-import { Box, Flex, Heading, Text } from "@chakra-ui/react"
-import CustomPhoneInput from '../../CustomPhoneInput'
-import CustomSelect from "../../CustomSelect"
-import CustomButton from '../../CustomButton'
+import { Box, Flex, Heading, Text, BoxProps, HStack, Button } from "@chakra-ui/react"
 import FormMessage from '../../FormMessage'
-import { usePageContext, handleMessage } from '../../../context'
-import { profileOptions } from '../../../utils'
+import { usePageContext } from '../../../context'
 import { modalConfOptions } from '../../ModalConfirmation'
 import CustomInput from '../../CustomInput'
 import Image from '../../Image';
@@ -15,15 +11,32 @@ import Section from '../../Section';
 import Container from '../../Container';
 import CustomLinkButton from '../../CustomLinkButton'
 
+interface TopicProps extends BoxProps {
+  label: string;
+}
+
+const Topic: React.FC<TopicProps> = ({ label, ...props }) => {
+  return (
+    <HStack spacing={4} alignItems="center" {...props}>
+      <Image src="/green-check.svg" width="24px" height="32px" eagerLoading/>
+      <Box color="black">
+        <Heading as="h2" fontSize="24px" fontWeight="700" lineHeight="26px">
+          {label}
+        </Heading>
+      </Box>
+    </HStack>
+  );
+};
+
 const RegistrationBox: React.FC = () => {
   // context
   const { contextState, contextDispatch, handleRegistration } = usePageContext()
   // state
-  const [profile, setProfile] = useState("couriers")
-  const [phone, setPhone] = useState("")
+  //const [profile, setProfile] = useState("couriers")
+  //const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
   const [isSubmiting, setIsSubmiting] = useState(false)
-  const [validation, setValidation] = useState({ phone: true })
+  //const [validation, setValidation] = useState({ phone: true })
   const [pageLimit, setPageLimit] = useState(false)
 
   const isMountedRef = useRef(false);
@@ -33,7 +46,7 @@ const RegistrationBox: React.FC = () => {
     || document.documentElement.clientWidth
     || document.body.clientWidth;
     if(width > 1000) {
-      if (document.documentElement.scrollTop > 3300) {
+      if (document.documentElement.scrollTop > 4200) {
         setPageLimit(true)
       } else {
         setPageLimit(false)
@@ -42,18 +55,18 @@ const RegistrationBox: React.FC = () => {
   }
 
   const clearForm = () => {
-    setProfile("couriers")
-    setPhone("")
+    //setProfile("couriers")
+    //setPhone("")
     setEmail("")
   }
 
-  const handleValidation = async (field: string, value: boolean) => {
+  /*const handleValidation = async (field: string, value: boolean) => {
     setValidation(prevState => ({...prevState, [field]: value}))
-  }
+  }*/
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    if(
+    /*if(
       !validation.phone
       ) {
       return handleMessage(
@@ -61,17 +74,17 @@ const RegistrationBox: React.FC = () => {
         "Favor preencher corretamente os campos acima.",
         "registration"
       )
-    }
+    }*/
     setIsSubmiting(true)
     const registrationStatus = await handleRegistration(
-      profile,
-      phone,
+      'consumers',
+      'Não_informado',
       'Não_informado', //`${city}-${uf}`
       email
     )
     setIsSubmiting(false)
     if(!registrationStatus) {
-      return null
+      return;
     }
     clearForm()
     return contextDispatch({
@@ -96,7 +109,7 @@ const RegistrationBox: React.FC = () => {
       position={{ base: 'relative', md: 'fixed' }}
       top={{ md: pageLimit ? undefined : '0' }}
       bottom={{ md: pageLimit ? '246px' : undefined }}
-      mt={{ base: '-140px', md: '80px' }}
+      mt={{ base: '-140px', md: '40px' }}
       zIndex="800"
     >
       <Container pt="0" display="flex" justifyContent="flex-end">
@@ -108,89 +121,94 @@ const RegistrationBox: React.FC = () => {
           p="24px"
           color="black"
         >
-          <Box position="relative" width="84px" mt="-50px">
-            <Image src="/big-delivery.svg" />
-          </Box>
-          <Heading mt="3" as="h2" fontSize="24px" lineHeight="28.8px" maxW="290px">
-            Faça o pré-cadastro agora e entre nesse movimento!
-          </Heading>
+          <Topic label="Entregadores" />
+          <Text mt="2" textStyle="p" fontSize="16px" lineHeight="22px">
+            Baixe o nosso app e faça seu cadastro agora!
+          </Text>
+          <HStack mt="2" w="100%" spacing={4}>
+            <CustomLinkButton
+              mt="0"
+              name="app-android"
+              linkLabel="Android"
+              variant="primary"
+              fontSize="16px"
+              icon="icon-play-store.png"
+              link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
+              isExternal
+            />
+            <CustomLinkButton
+              mt="0"
+              name="app-android"
+              linkLabel="Em breve"
+              variant="disabled"
+              fontSize="16px"
+              icon="icon-apple.png"
+              link="#"
+              isExternal={false}
+              isDisabled
+            />
+          </HStack>
+          <Topic label="Restaurantes" mt="4" />
+          <Text mt="2" textStyle="p" fontSize="16px" lineHeight="22px">
+            Ganhe mais e tenha uma relação mais justa com seus clientes e
+            entregadores!
+          </Text>
+          <CustomLinkButton
+            mt="3"
+            name="admin-link"
+            linkLabel="Cadastrar restaurante"
+            variant="secondaryRegistration"
+            link="https://admin.appjusto.com.br"
+            isExternal
+          />
           <Flex
-            mt="12px"
             as="form"
             flexDir="column"
             onSubmit={handleSubmit}
           >
-            <CustomSelect
-              id="subscribe-profile"
-              label="Perfil"
-              placeholder="Selecione seu perfil"
-              value={profile}
-              handleChange={
-                (event: ChangeEvent<HTMLSelectElement>) =>
-                  setProfile(event.target.value)
-              }
-              options={profileOptions}
-            />
-            {
-              profile === 'restaurants' ? (
-                <>
-                <Text mt="12px" textStyle="p" fontSize="lg" lineHeight="lg">
-                  O cadastro para restaurantes já está disponível!
-                </Text>
-                <CustomLinkButton
-                  mt="3"
-                  name="admin-link"
-                  linkLabel="Cadastrar restaurante"
-                  variant="secondaryRegistration"
-                  link="https://admin.appjusto.com.br"
-                  isExternal
-                />
-                </>
-              ) : (
-                <>
-                  <CustomPhoneInput
-                    mt="12px"
-                    name="phone"
-                    id="subscribe-phone"
-                    label="Celular"
-                    placeHolder="Digite seu celular"
-                    value={phone}
-                    handleChange={(value: string) => setPhone(value)}
-                    notifyValidation={handleValidation}
-                  />
-                  <CustomInput
-                    mt="12px"
-                    type="email"
-                    id="registration-email"
-                    label="E-mail"
-                    placeholder="Digite seu e-mail"
-                    value={email}
-                    handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-                    minW={[null, null, "300px"]}
-                  />
-                  <CustomButton
-                    mt="3"
-                    type="submit"
-                    label="Fazer pré-cadastro"
-                    variant="secondaryRegistration"
-                    isSubmiting={isSubmiting}
-                  />
-                </>
-              )
-            }
+            <Topic label="Clientes" mt="4" />
+            <Text mt="2" textStyle="p" fontSize="16px" lineHeight="22px">
+              Disponível em breve. Deixe seu e-mail para ser avisado e faça
+              parte do movimento:
+            </Text>
+            <Box position="relative">
+              <CustomInput
+                mt="12px"
+                type="email"
+                id="registration-email"
+                label="E-mail"
+                placeholder="Digite seu e-mail"
+                value={email}
+                handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                minW={[null, null, "300px"]}
+                isRequired
+              />
+              <Button
+                pos="absolute"
+                top="22px"
+                right="20px"
+                type="submit"
+                border="none"
+                bg="none"
+                w="60px"
+                color="Black"
+                textStyle="p"
+                fontSize="16px"
+                lineHeight="22px"
+                fontWeight="700"
+                zIndex="999"
+                isLoading={isSubmiting}
+                loadingText="Enviando"
+                >
+                  Enviar
+                </Button>
+            </Box>
           </Flex>
           {
-            !contextState?.registrationMsg.status && (
-              <Text mt="12px" textStyle="p" fontSize="xs" lineHeight="lg">
-                Ao fazer o {profile === 'restaurants' ? 'cadastro' : 'pré-cadastro' }, você autoriza o envio de nossas comunicações para o número cadastrado.
-              </Text>
-            )
+            contextState?.registrationMsg.status &&
+            contextState.registrationMsg.form === "registration" &&
+            <FormMessage />
           }
-        {
-          contextState?.registrationMsg.status &&
-          contextState.registrationMsg.form === "registration" &&
-          <FormMessage />
-        }
       </Flex>
     </Container>
   </Section>

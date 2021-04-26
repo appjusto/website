@@ -35,10 +35,18 @@ export default {
     },
     secondaryRegistration: {
       bg: "secondaryLight",
-      h: "60px",
-      fontSize: "18px",
-      lineHeight: "26px",
+      h: "56px",
+      fontSize: "16px",
+      lineHeight: "22px",
       _hover: {bg: "#FFC093"}
+    },
+    disabled: {
+      bg: "#F6F6F6",
+      color: '#697667',
+      h: "48px",
+      fontSize: "15px",
+      lineHeight: "21px",
+      border: "none",
     },
   },
   defaultProps: {

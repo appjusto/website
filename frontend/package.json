@@ -8,6 +8,7 @@
     "start": "next start",
     "export": "next build && next export",
     "deploy": "next build && next export && firebase deploy",
+    "deploy:preview": "next build && next export && firebase hosting:channel:deploy preview",
     "deploy:functions": "firebase deploy --only functions"
   },
   "dependencies": {
