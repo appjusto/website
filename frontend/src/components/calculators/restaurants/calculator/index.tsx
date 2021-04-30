@@ -1,13 +1,10 @@
-import { Box, Flex, Text, TextProps, HStack, Button, Link } from "@chakra-ui/react";
+import { Box, Flex, Text, TextProps, HStack, Link } from "@chakra-ui/react";
 import Container from "../../../Container";
 import Section from "../../../Section";
 import Input from '../../../CustomNumberInput';
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { CurrencyInput } from "../../../CurrencyInput";
 import Image from "../../../Image";
-import CustomInput from "../../../CustomInput";
-import CustomButton from "../../../CustomButton";
-import NextLink from 'next/link';
 import { formattedRawValue } from '../../../../utils';
 import CustomLinkButton from "../../../CustomLinkButton";
 
@@ -294,13 +291,19 @@ const RestaurantCalculator: React.FC = () => {
           />
           <HStack mt="8">
             <Box>
-              <Image src='/arrow-right.svg' eagerLoading />
+              <Image src='/arrow-right.svg' />
             </Box>
-            <NextLink href="/sobre-o-appjusto" passHref>
-              <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px" textDecor="underline">
-                Saiber mais sobre o AppJusto
-              </Link>
-            </NextLink>
+            <Link
+              href="https://appjusto.freshdesk.com/"
+              fontSize="lg"
+              fontWeight="700"
+              lineHeight="26px"
+              textDecor="underline"
+              _focus={{ outline: 'none' }}
+              isExternal
+            >
+              Saiba mais sobre o AppJusto
+            </Link>
           </HStack>
         </Box>
         <Box mt="16" display={{base: 'block', md: 'none'}} pr={{base: '2' , md: '32'}} maxW="464px">
