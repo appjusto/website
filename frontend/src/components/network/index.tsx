@@ -26,10 +26,10 @@ const partnerCompanies = [
 ]
 
 const partnerAssociations = [
-  "Abrasel",
+  "Abrasel - Associação Brasileira de Bares e Restaurantes",
   "Coletivo Pinheiros",
-  "ANR",
-  "ABF"
+  "ANR - Associação Nacional de Restaurantes",
+  //"ABF - Associação Brasileira de Franchising"
 ]
 
 const volunteers = [
@@ -77,7 +77,7 @@ const Network: React.FC = () => {
           }
         </NamesBox>
       </Column>
-      <Column>
+      <Column minW={{lg: '450px'}}>
         <NamesBox>
           <RoleTitle text="Investidores anjos" />
           {
