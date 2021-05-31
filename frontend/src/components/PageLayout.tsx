@@ -1,14 +1,12 @@
 import Head from 'next/head'
 import NextLink from 'next/link'
-import { Flex, Stack, Heading, Text, Link, Icon } from "@chakra-ui/react";
+import { Stack, Heading, Text, Link, Icon } from "@chakra-ui/react";
 import { MdFiberManualRecord as Dot  } from 'react-icons/md'
-import { BiArrowBack } from 'react-icons/bi'
 import Container from "./Container";
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import Section from './Section';
-import { logoType } from './Header'
 
 interface PageProps {
   pageName: string
@@ -24,14 +22,14 @@ const PageLayout: React.FC<PageProps> = ({
       <Head>
         <title>AppJusto | {pageName}</title>
       </Head>
-      <Header hero={HeroShare} />
+      <Header />
       <Main>
         {
           HeroShare ? children : (
             <Section>
               <Container
                 flexDir="column"
-                m="124px"
+                m="64px"
                 mb="64px"
                 display={[ "none", null, null, "flex"]}
               >

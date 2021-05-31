@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({pageName}) => {
       >
         <Container
           pt="32px"
-          pb={{base: '9px', md: '96px'}}
+          pb={{base: '9px', md: '32px'}}
           display="flex"
           flexDir="column"
         >
@@ -186,7 +186,7 @@ const Footer: React.FC<FooterProps> = ({pageName}) => {
         </Container>
       </Flex>
       {
-        shareBar && <ShareFooter fixed={pageName === "Home"} />
+        shareBar && <ShareFooter />
       }
     </>
   );

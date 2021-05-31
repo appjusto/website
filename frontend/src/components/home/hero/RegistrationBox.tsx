@@ -109,7 +109,7 @@ const RegistrationBox: React.FC = () => {
       position={{ base: 'relative', md: 'fixed' }}
       top={{ md: pageLimit ? undefined : '0' }}
       bottom={{ md: pageLimit ? '246px' : undefined }}
-      mt={{ base: '-140px', md: '40px' }}
+      mt={{ base: '-140px', md: '140px' }}
       zIndex="800"
     >
       <Container pt="0" display="flex" justifyContent="flex-end">
@@ -118,7 +118,7 @@ const RegistrationBox: React.FC = () => {
           maxW="370px"
           bg="white"
           border="1px solid #C8D7CB"
-          p="24px"
+          p="8"
           color="black"
         >
           <Topic label="Entregadores" />
@@ -148,25 +148,12 @@ const RegistrationBox: React.FC = () => {
               isDisabled
             />
           </HStack>
-          <Topic label="Restaurantes" mt="4" />
-          <Text mt="2" textStyle="p" fontSize="16px" lineHeight="22px">
-            Ganhe mais e tenha uma relação mais justa com seus clientes e
-            entregadores!
-          </Text>
-          <CustomLinkButton
-            mt="3"
-            name="admin-link"
-            linkLabel="Cadastrar restaurante"
-            variant="secondaryRegistration"
-            link="https://admin.appjusto.com.br"
-            isExternal
-          />
           <Flex
             as="form"
             flexDir="column"
             onSubmit={handleSubmit}
           >
-            <Topic label="Clientes" mt="4" />
+            <Topic label="Clientes" mt="12" />
             <Text mt="2" textStyle="p" fontSize="16px" lineHeight="22px">
               Disponível em breve. Deixe seu e-mail para ser avisado e faça
               parte do movimento:

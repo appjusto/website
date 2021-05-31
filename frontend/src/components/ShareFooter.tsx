@@ -5,11 +5,7 @@ import Container from './Container'
 import ShareButton from './ShareButton';
 import { useState, useEffect } from 'react';
 
-interface ShareProps {
-  fixed?: boolean;
-}
-
-const ShareFooter: React.FC<ShareProps> = ({ fixed = true }) => {
+const ShareFooter = () => {
   // state
   const [isTop, setisTop] = useState(false);
   // handlers
@@ -32,8 +28,6 @@ const ShareFooter: React.FC<ShareProps> = ({ fixed = true }) => {
   // UI
   return (
     <Flex
-      position={fixed ? { md: 'fixed' } : 'relative'}
-      bottom={{md: '0'}}
       as="div"
       w="100%"
       h="64px"

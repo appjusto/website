@@ -1,63 +1,78 @@
 import NextLink from 'next/link'
-import { Flex, Box, Link } from "@chakra-ui/react";
+import { Flex, Box, Link, HStack, Button } from "@chakra-ui/react";
 import Container from './Container';
 import Image from '../components/Image';
 
-export type logoType = 'white' | 'green' | 'greenWhite';
-
-interface HeaderProps {
-  hero?: boolean;
-}
-
-const Header: React.FC<HeaderProps> = ({
-  hero
-}) => {
-  let logoSrc = hero ? '/logo-home.svg' : '/logo-pages.svg'
+const Header = () => {
   return (
     <Flex
     as="header"
     w="100%"
+    h="64px"
+    bg="#F6F6F6"
     justifyContent="center"
-    position="absolute"
-    top={{ base: hero ? "0" : "48px", lg: "0" }}
-    mt={hero ? {base: "2", md: "8"} : "4"}
+    position="fixed"
+    top="0"
     left="0"
-    zIndex="100"
+    zIndex="9999"
     >
-      <Container pt="16px">
+      <Container py="2">
         <Flex
           flexDir="row"
           w="100%"
           justifyContent="space-between"
           alignItems="center"
         >
-          <Box w={{ base: '120px', lg: hero ? "168px" : "120px" }}>
-          <NextLink href="/" passHref>
-            <Link _focus={{ outline: 'none'}}>
-              <Image
-                src={logoSrc}
-                alt="Logo AppJusto"
-                width="100%"
-                loading="eager"
-              />
-            </Link>
-            </NextLink>
+          <Box w={{ base: '100px', lg: "100px" }}>
+            <NextLink href="/" passHref>
+              <Link _focus={{ outline: 'none'}}>
+                <Image
+                  src="/logo-pages.svg"
+                  alt="Logo AppJusto"
+                  width="100%"
+                  loading="eager"
+                />
+              </Link>
+              </NextLink>
           </Box>
-          {/*<Flex
-            justifyContent="flex-end"
-            alignItems="center"
-            display={["none", null, null, "flex"]}
-          >
-            <Text
-              color={ isHome ? "white" : "black"}
-              fontFamily="Barlow"
+          <HStack spacing={8} alignItems="center">
+            <Link
+              fontSize="16px"
+              lineHeight="22px"
               fontWeight="700"
-              fontSize="15px"
-              mr="16px"
+              _focus={{ outline: 'none'}}
+              href="https://admin.appjusto.com.br"
+              isExternal
             >
-              Em breve para Android e iOS
-            </Text>
-          </Flex>*/}
+              Cadastrar restaurante
+            </Link>
+            <Link
+              fontSize="16px"
+              lineHeight="22px"
+              fontWeight="500"
+              _focus={{ outline: 'none'}}
+              href="https://appjusto.freshdesk.com/support/home"
+              isExternal
+            >
+              Tirar dúvidas sobre o AppJusto
+            </Link>
+            <Link
+              _focus={{ outline: 'none'}}
+              href="https://admin.appjusto.com.br/app"
+              isExternal
+            >
+              <Button
+                minH="48px"
+                variant="outline"
+                fontFamily="barlow"
+                fontSize="16px"
+                fontWeight="500"
+                borderColor="black"
+              >
+                Acessar portal do restaurante
+              </Button>
+            </Link>
+          </HStack>
         </Flex>
       </Container>
     </Flex>
@@ -65,25 +80,3 @@ const Header: React.FC<HeaderProps> = ({
 }
 
 export default Header;
-
-/*
-<Box
-  mr="16px"
-  h="40px"
->
-  <img
-    src="/googleplay.png"
-    alt="Google Play Store"
-    width={135}
-    height={40}
-  />
-</Box>
-<Box h="40px">
-  <img
-    src="/appstore.png"
-    alt="Apple App Store"
-    width={120}
-    height={40}
-  />
-</Box>
-*/
