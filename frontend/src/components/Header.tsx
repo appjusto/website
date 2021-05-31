@@ -10,21 +10,21 @@ const Header = () => {
   console.log(isOpen);
   return (
     <Flex
-    as="header"
-    w="100%"
-    bg="#F6F6F6"
-    flexDir="column"
-    justifyContent="center"
-    position="fixed"
-    top="0"
-    left="0"
-    zIndex="9999"
+      as="header"
+      w="100%"
+      bg="#F6F6F6"
+      flexDir="column"
+      justifyContent="center"
+      position="fixed"
+      top="0"
+      left="0"
+      zIndex="9999"
     >
       <Container py="2">
         <Flex
           flexDir="row"
           w="100%"
-          h="64px"
+          maxH="64px"
           justifyContent="space-between"
           alignItems="center"
         >
