@@ -10,13 +10,15 @@ const founders = [
   "Rogério A. Nogueira",
   "Italo Monteiro",
   "Eduardo Araújo Jr.",
-  "Daniel Lima"
+  "Daniel Lima",
+  "Fernando Fuzii"
 ]
 
 const angelInvestors = [
   "Emiliano Graziano",
   "Claudio Neszlinger",
   "Gustavo Araújo",
+  'Marcelo Romcy',
 ]
 
 const partnerCompanies = [
@@ -49,7 +51,6 @@ const volunteers = [
 ]
 
 const team = [
-  "Fernando Fuzii",
   "Pedro Dittmar",
   "Renan Costa"
 ]
