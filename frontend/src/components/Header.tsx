@@ -29,7 +29,7 @@ const Header = () => {
           alignItems="center"
         >
           <HStack spacing={2}>
-            <Box display={{base: 'block', md: 'none'}}>
+            <Box display={{base: 'block', lg: 'none'}}>
               {
                 isOpen ? <CloseButton onClick={onToggle} /> : (
                   <Button border="none" px="1" bg="#F6F6F6" onClick={onToggle}>
@@ -57,7 +57,13 @@ const Header = () => {
               )
             }
           </HStack>
-          <HStack spacing={8} alignItems="center" display={{base: 'none', md: 'block'}}>
+          <HStack
+            spacing={8}
+            //alignItems="flex-end"
+            //justifyContent="flex-end"
+            display={{base: 'none', lg: 'block'}}
+            minW={{ lg: '712px'}}
+          >
             <Link
               fontSize="16px"
               lineHeight="22px"
@@ -85,6 +91,7 @@ const Header = () => {
             >
               <Button
                 minH="48px"
+                w="260px"
                 variant="outline"
                 fontFamily="barlow"
                 fontSize="16px"
@@ -96,7 +103,7 @@ const Header = () => {
             </Link>
           </HStack>
           <Link
-            display={{base: 'block', md: 'none'}}
+            display={{base: 'block', lg: 'none'}}
             _focus={{ outline: 'none'}}
             href="https://admin.appjusto.com.br/app"
             isExternal

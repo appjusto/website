@@ -109,7 +109,7 @@ const RegistrationBox: React.FC = () => {
       position={{ base: 'relative', md: 'fixed' }}
       top={{ md: pageLimit ? undefined : '0' }}
       bottom={{ md: pageLimit ? '246px' : undefined }}
-      mt={{ base: '-140px', md: '140px' }}
+      mt={{ base: '-140px', md: '210px', lg: "160px", xl: '200px' }}
       zIndex="800"
     >
       <Container pt="0" display="flex" justifyContent="flex-end">

@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
               as="h1"
               maxW="540px"
               color="white"
-              fontSize={{ base: '32px', md: '48px', lg: "56px" }}
+              fontSize={{ base: '32px', md: '48px', lg: "50px", xl: "56px" }}
               fontWeight="700"
               lineHeight={{ base: '38.4px', md: '56px', lg: "64px" }}
             >
