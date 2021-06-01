@@ -1,5 +1,6 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Link, Text } from "@chakra-ui/react";
 import Image from "../components/Image";
+import NextLink from 'next/link';
 
 export default function LinkConfirmation() {
   return (
@@ -11,7 +12,16 @@ export default function LinkConfirmation() {
       alignItems="center"
     >
       <Box w="160px">
-        <Image src="/logo-pages.svg" eagerLoading />
+        <NextLink href="/" passHref>
+          <Link _focus={{ outline: 'none'}} w={{ base: '100px', lg: "100px" }}>
+            <Image
+              src="/logo-pages.svg"
+              alt="Logo AppJusto"
+              width="100%"
+              eagerLoading
+            />
+          </Link>
+        </NextLink>
       </Box>
       <Text mt="8" fontFamily="barlow" fontSize="36px" fontWeight="500" lineHeight="30px">
         Use seu celular para acessar o link
