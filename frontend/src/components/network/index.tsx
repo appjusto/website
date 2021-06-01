@@ -18,8 +18,11 @@ const angelInvestors = [
   "Emiliano Graziano",
   "Claudio Neszlinger",
   "Gustavo Araújo",
-  'Marcelo Romcy',
-]
+  "Gisselle Ruiz y Lanza",
+  "Fabricio Erick de Araujo",
+  "Mg Tech Participações S/A",
+  "Marcelo Romcy",
+];
 
 const partnerCompanies = [
   "IUGU",

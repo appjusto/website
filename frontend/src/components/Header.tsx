@@ -59,8 +59,6 @@ const Header = () => {
           </HStack>
           <HStack
             spacing={8}
-            //alignItems="flex-end"
-            //justifyContent="flex-end"
             display={{base: 'none', lg: 'block'}}
             minW={{ lg: '712px'}}
           >
