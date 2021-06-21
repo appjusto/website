@@ -7,7 +7,6 @@ import CustomLink from './CustomLink'
 
 const Header = () => {
   const { isOpen, onToggle } = useDisclosure()
-  console.log(isOpen);
   return (
     <Flex
       as="header"

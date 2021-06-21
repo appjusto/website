@@ -44,7 +44,6 @@ const Helpdesk: React.FC = () => {
       let subjectField = document.getElementById('subject');
       if(subjectField) subjectField.parentElement.style.visibility = "hidden";
   }, [])*/
-  console.log("render")
   // placeholder UI
   return <Box />
 }
