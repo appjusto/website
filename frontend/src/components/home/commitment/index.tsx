@@ -1,10 +1,12 @@
-import { Box, Link, Image, HStack } from "@chakra-ui/react";
+import { Box, Link, Image, HStack, Stack } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import Item from './Item';
 import Content from "../../Content";
 import SectionHeading from "../../SectionHeading";
 import NextLink from 'next/link';
+import CustomButton from '../../CustomButton';
+import CustomLinkButton from '../../CustomLinkButton';
 
 const Commitment: React.FC = () => {
   return (
@@ -31,14 +33,14 @@ const Commitment: React.FC = () => {
               title="Ter eficiência e sustentabilidade financeira"
             />
             <Item
-              image="/item-blur.svg"
-              altImg="Ícone de pontos"
-              title="Manter transparência em toda a plataforma"
-            />
-            <Item
               image="/item-domain.svg"
               altImg="Ícone de prédios"
               title="Criar um bem coletivo"
+            />
+            <Item
+              image="/item-blur.svg"
+              altImg="Ícone de pontos"
+              title="Manter transparência em toda a plataforma"
             />
             <Item
               image="/item-world.svg"
@@ -47,38 +49,22 @@ const Commitment: React.FC = () => {
               ods={true}
             />
           </Box>
-          <HStack mt="8">
-            <Box>
-              <Image src='/arrow-right.svg' />
-            </Box>
-            <Link
-              href="https://appjusto.freshdesk.com/"
-              fontSize="lg"
-              fontWeight="700"
-              lineHeight="26px"
-              textDecor="underline"
-              _focus={{ outline: 'none' }}
-              isExternal
-            >
-              Saiba mais sobre o AppJusto
-            </Link>
-          </HStack>
-          <HStack mt="4">
-            <Box>
-              <Image src='/arrow-right.svg' />
-            </Box>
-            <Link
-              href="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"
-              fontSize="lg"
-              fontWeight="700"
-              lineHeight="26px"
-              textDecor="underline"
-              _focus={{ outline: 'none' }}
-              isExternal
-            >
-              Baixe nossa apresentação
-            </Link>
-          </HStack>
+          <Stack mt="8" w="100%" direction={{base: 'column', lg: 'row'}} spacing={4}>
+            <CustomLinkButton
+              mt="0"
+              name="go-to-desk"
+              link="https://appjusto.freshdesk.com/"
+              linkLabel="Tire suas dúvidas"
+              variant="primary"
+            />
+            <CustomLinkButton
+              mt="0"
+              name="download-presentation"
+              link="https://drive.google.com/file/d/1pMniZvENzeChLN3ERibhKdEHrlq75PZ2/view?usp=sharing"
+              linkLabel="Baixe nossa apresentação"
+              variant="primary"
+            />
+          </Stack>
         </Content>
       </Container>
     </Section>

@@ -8,6 +8,7 @@ import ModalConfirmation from '../components/ModalConfirmation'
 import RegistrationBox from '../components/home/hero/RegistrationBox'
 import Better from '../components/home/better'
 import Share from '../components/home/share'
+import UN from '../components/home/un'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Alternative />
       <Commitment />
       <Partners />
+      <UN />
       <Support />
       <ModalConfirmation />
     </PageLayout>
