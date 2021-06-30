@@ -1,14 +1,16 @@
-import { Flex } from '@chakra-ui/react'
-import Image from '../../Image'
+import { Box, Flex, Image } from '@chakra-ui/react'
+import CustomLinkButton from '../../CustomLinkButton';
 
 interface PartnerBoxProps{
   image: string
   altImg: string
-  width: number
-  height: number
+  width?: number | string
+  height?: number | string
+  link: string
+  linkLabel: string
 }
 
-const PartnerBox: React.FC<PartnerBoxProps> = ({ image, altImg, width, height }) => {
+const PartnerBox: React.FC<PartnerBoxProps> = ({ image, altImg, width, height, link, linkLabel }) => {
   return (
     <Flex
       position="relative"
@@ -19,12 +21,22 @@ const PartnerBox: React.FC<PartnerBoxProps> = ({ image, altImg, width, height })
       borderRadius="8px"
       boxSizing="border-box"
       boxShadow="0 8px 16px -4px rgba(105, 118, 103, 0.1)"
-      minW="210px"
-      h="124px"
-      m="0 8px"
-      p="0 30px"
+      w="200px"
+      minW="200px"
+      h="144px"
+      m="4px"
+      p="8px 30px"
     >
-      <Image src={image} alt={altImg} width={width} height={height} eagerLoading />
+      <Flex pos="relative" w="100%" h="64px" p="0" justifyContent="center" alignItems="center">
+        <Image src={image} alt={altImg} width={width ? width : "100%"} height={height ? height : 'auto'}/>
+      </Flex>
+      <CustomLinkButton
+        mt="4"
+        name={link}
+        link={link}
+        linkLabel={linkLabel}
+        variant="outlineDark"
+      />
     </Flex>
   );
 }

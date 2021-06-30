@@ -40,6 +40,16 @@ export default {
       lineHeight: "22px",
       _hover: {bg: "#FFC093"}
     },
+    outlineDark: {
+      bg: "#C8D7CB",
+      w: "auto",
+      h: "22px",
+      px: '3',
+      py: '2',
+      border:  'none',
+      fontSize: "xs",
+      _hover: {bg: "#697667"}
+    },
     disabled: {
       bg: "#F6F6F6",
       color: '#697667',

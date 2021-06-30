@@ -1,11 +1,9 @@
-import { Box, Link, Image, HStack, Stack } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import Item from './Item';
 import Content from "../../Content";
 import SectionHeading from "../../SectionHeading";
-import NextLink from 'next/link';
-import CustomButton from '../../CustomButton';
 import CustomLinkButton from '../../CustomLinkButton';
 
 const Commitment: React.FC = () => {
@@ -41,12 +39,6 @@ const Commitment: React.FC = () => {
               image="/item-blur.svg"
               altImg="Ícone de pontos"
               title="Manter transparência em toda a plataforma"
-            />
-            <Item
-              image="/item-world.svg"
-              altImg="Ícone de planeta"
-              title="Colaborar com os Objetivos de Desenvolvimento Sustentáveis da ONU"
-              ods={true}
             />
           </Box>
           <Stack mt="8" w="100%" direction={{base: 'column', lg: 'row'}} spacing={4}>

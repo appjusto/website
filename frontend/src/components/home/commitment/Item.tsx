@@ -5,11 +5,10 @@ interface ItemProps {
   image: string
   altImg: string
   title: string
-  ods?: boolean
 }
 
 const Item: React.FC<ItemProps> = ({
-    image, altImg, title, ods = false
+    image, altImg, title
   }) => {
   return (
     <Flex
@@ -40,13 +39,6 @@ const Item: React.FC<ItemProps> = ({
           {title}
         </Heading>
       </Flex>
-      {
-        ods && (
-          <Box w="100%" mt="16px" pl="36px">
-            <Image src="/ods.png" alt="ODS" eagerLoading />
-          </Box>
-        )
-      }
     </Flex>
   );
 }
