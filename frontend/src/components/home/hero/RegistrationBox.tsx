@@ -90,13 +90,12 @@ const RegistrationBox: React.FC = () => {
             <CustomLinkButton
               mt="0"
               name="app-consumer-ios"
-              linkLabel="Em breve"
-              variant="disabled"
+              linkLabel="iPhone"
+              variant="primary"
               fontSize="16px"
-              icon="icon-apple.png"
-              link="#"
-              isExternal={false}
-              isDisabled
+              icon="icon-apple-black.png"
+              link="https://apps.apple.com/br/app/appjusto/id1569067601"
+              isExternal
             />
           </HStack>
       </Flex>
