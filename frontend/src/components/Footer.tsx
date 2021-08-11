@@ -170,8 +170,8 @@ const Footer: React.FC<FooterProps> = ({pageName}) => {
               />
               <Link
                 name="terms_footer"
-                link="https://github.com/appjusto/docs/blob/main/legal/termo-tratamento-de-dados.md"
-                linkLabel="Termos de uso"
+                link="https://github.com/appjusto/docs/blob/main/legal/politica-de-privacidade.md"
+                linkLabel="Política de Privacidade"
                 ml={{base: "0", lg: "6"}}
                 mb={{base: "12px", lg: "0"}}
                 fontSize="15px"
