@@ -19,10 +19,10 @@ interface PageContextProps {
     showModalRecommendation: boolean
     registrationMsg: {status: boolean, form: string, message: string}
   }
-  dbSummaryRef: any //firebase.firestore.DocumentReference
   contextDispatch: Dispatch<Actions>
-  handleRegistration: (profile: string, phone: string, city: string, email: string) => boolean
-  handleIndication: (email: string) => boolean
+  fleetsRef: firebase.firestore.CollectionReference;
+  //handleRegistration: (profile: string, phone: string, city: string, email: string) => boolean
+  //handleIndication: (email: string) => boolean
 }
 
 const PageContext = createContext<PageContextProps>({} as PageContextProps)
@@ -36,9 +36,9 @@ const initialState = {
   registrationMsg: {status: false, form: "", message: ""},
 }
 
-const celIsNotNewMsg = "O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil."
-const emailIsNotNewMsg = "O e-mail informado já havia sido indicado. Tente novamente com um novo e-mail."
-const serverErrorMsg = "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes."
+//const celIsNotNewMsg = "O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil."
+//const emailIsNotNewMsg = "O e-mail informado já havia sido indicado. Tente novamente com um novo e-mail."
+//const serverErrorMsg = "Desculpe. Não foi possível acessar o servidor. Tente novamente em alguns instantes."
 
 export const PageContextProvider = (props) => {
   const [contextState, contextDispatch] = useReducer(
@@ -46,12 +46,14 @@ export const PageContextProvider = (props) => {
   )
 
   const { database, functions } = contextState
-  const dbRegistrationsRef = useMemo(() =>
+  /*const dbRegistrationsRef = useMemo(() =>
     database?.collection('registrations'), [database])
   const dbIndicationsRef = useMemo(() =>
     database?.collection('indications'), [database])
   const dbSummaryRef = useMemo(() =>
-    database?.collection("summary").doc("data"), [database])
+    database?.collection("summary").doc("data"), [database])*/
+  const fleetsRef = useMemo(() =>
+    database?.collection('fleets'), [database]);
 
   useEffect(() => {
     const loadFirebase = async () => {
@@ -61,7 +63,7 @@ export const PageContextProvider = (props) => {
     loadFirebase()
   }, [])
 
-  const handleRegistration = async (
+  /*const handleRegistration = async (
     profile: string,
     phone: string,
     city: string,
@@ -82,9 +84,9 @@ export const PageContextProvider = (props) => {
       handleMessage(contextDispatch, serverErrorMsg, "registration")
       return false
     }
-  }
+  }*/
 
-  const handleIndication = async (email: string) => {
+  /*const handleIndication = async (email: string) => {
     handleMessage(contextDispatch, "")
     try {
       const createdOn = firebase.firestore.FieldValue.serverTimestamp()
@@ -98,13 +100,13 @@ export const PageContextProvider = (props) => {
       handleMessage(contextDispatch, serverErrorMsg, "recommendation")
       return false
     }
-  }
+  }*/
   return <PageContext.Provider value={{
     contextState,
-    dbSummaryRef,
     contextDispatch,
-    handleRegistration,
-    handleIndication,
+    fleetsRef,
+    //handleRegistration,
+    //handleIndication,
   }} {...props}/>
 }
 

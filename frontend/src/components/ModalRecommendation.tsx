@@ -27,7 +27,7 @@ const ModalRecommendation: React.FC = () => {
   const {
     contextState,
     contextDispatch,
-    handleIndication
+    //handleIndication
   } = usePageContext()
   const { sharingMsg } = useSharingUrlMsg()
 
@@ -39,11 +39,11 @@ const ModalRecommendation: React.FC = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setIsSubmiting(true)
-    const indicationStatus = await handleIndication(email)
+    //const indicationStatus = await handleIndication(email)
     setIsSubmiting(false)
-    if(!indicationStatus) {
+    /*if(!indicationStatus) {
       return null
-    }
+    }*/
     clearForm()
     contextDispatch(
       {type: "handle_modalConfirmation", payload: modalConfOptions.recommendation}

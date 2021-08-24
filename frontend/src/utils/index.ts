@@ -1,3 +1,4 @@
+import i18n, { ToCurrencyOptions } from 'i18n-js';
 import IBGEUrl from '../services/ApiIBGE'
 import Ufs from '../services/ufs'
 
@@ -136,3 +137,9 @@ export const formattedRawValue = (rawValue: string) => {
   }
   return result;
 };
+
+export const formatCurrency = (value: number, options: ToCurrencyOptions = {
+  unit: 'R$ ',
+  separator: ','
+}) =>
+  i18n.toCurrency(value / 100, options);
