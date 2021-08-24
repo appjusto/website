@@ -1,11 +1,11 @@
-import { Box, Center, Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 import NextLink from 'next/link';
-import PageLayout from "../components/PageLayout";
+import Footer from "../components/Footer";
 
 export default function LinkConfirmation() {
   return (
-    <PageLayout>
-      <Flex mt="-40px" h="80vh" justifyContent="center">
+    <Box>
+      <Flex w="100vw" h="100vh" justifyContent="center" alignItems="center">
         <Box maxW="752px">
           <Flex justifyContent="center">
             <NextLink href="/" passHref>
@@ -51,10 +51,11 @@ export default function LinkConfirmation() {
             Obrigado por fazer parte desse momento por uma economia mais justa para todos!
           </Text>
           <Flex mt="6" justifyContent="center">
-            <Image src="icon-intro-delivery.svg" w="120px"/>
+            <Image src="/icon-intro-delivery.svg" w="140px"/>
           </Flex>
         </Box>
       </Flex>
-    </PageLayout>
+      <Footer />
+    </Box>
   )
 }

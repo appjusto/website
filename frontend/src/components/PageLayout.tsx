@@ -9,14 +9,14 @@ import Footer from './Footer';
 import Section from './Section';
 
 interface PageProps {
-  pageName: string
+  pageName?: string
 }
 
 const PageLayout: React.FC<PageProps> = ({
   pageName,
   children
 }) => {
-  const HeroShare = pageName === "Home" || pageName === "Restaurantes" || pageName === "Entregadores"
+  const HeroShare = pageName && ['Home', 'Restaurantes', 'Entregadores'].includes(pageName);
   return (
     <>
       <Head>

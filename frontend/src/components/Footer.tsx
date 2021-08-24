@@ -6,11 +6,11 @@ import Link from './CustomLink'
 import ShareFooter from './ShareFooter'
 
 interface FooterProps {
-  pageName: string;
+  pageName?: string;
 }
 
 const Footer: React.FC<FooterProps> = ({pageName}) => {
-  const shareBar = pageName === "Home" || pageName === "Restaurantes" || pageName === "Entregadores"
+  const shareBar = pageName && ['Home', 'Restaurantes', 'Entregadores'].includes(pageName);
   return (
     <>
       <Flex
