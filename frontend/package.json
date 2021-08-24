@@ -1,15 +1,17 @@
 {
   "name": "landingpage",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "deploy": "next build && next export && firebase deploy",
-    "deploy:preview": "next build && next export && firebase hosting:channel:deploy preview",
-    "deploy:functions": "firebase deploy --only functions"
+    "deploy": "git checkout $ENV && git pull && env-cmd -f .env.$ENV yarn export && firebase use app-justo-$ENV && firebase deploy && yarn version",
+    "deploy:dev": "ENV=dev yarn deploy",
+    "deploy:staging": "ENV=staging yarn deploy",
+    "deploy:live": "ENV=live yarn deploy",
+    "postversion": "git push && git push --tags && git fetch"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.0.0",
@@ -37,6 +39,7 @@
     "@types/typeform__embed": "^0.22.2",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
+    "env-cmd": "^10.1.0",
     "eslint": "7.12.1",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "2.22.1",
