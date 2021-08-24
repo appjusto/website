@@ -1,6 +1,4 @@
-import { Flex, Box, Heading } from "@chakra-ui/react";
-import Image from '../../Image'
-
+import { Flex, Box, Heading, Image } from "@chakra-ui/react";
 interface ItemProps {
   image: string
   altImg: string
@@ -28,7 +26,7 @@ const Item: React.FC<ItemProps> = ({
           h="20px"
           mr="16px"
         >
-          <Image src={image} alt={altImg} eagerLoading />
+          <Image src={image} alt={altImg} />
         </Box>
         <Heading
           as="h4"

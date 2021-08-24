@@ -1,7 +1,6 @@
 import NextLink from 'next/link'
-import { Flex, Box, Link, Icon, HStack, Button, CloseButton, useDisclosure, Collapse, VStack  } from "@chakra-ui/react";
+import { Flex, Box, Link, Icon, Image, HStack, Button, CloseButton, useDisclosure, Collapse, VStack  } from "@chakra-ui/react";
 import Container from './Container';
-import Image from '../components/Image';
 import { FaFacebookSquare, FaInstagram, FaLinkedin  } from 'react-icons/fa'
 import CustomLink from './CustomLink'
 
@@ -49,7 +48,6 @@ const Header = () => {
                       src="/logo-pages.svg"
                       alt="Logo AppJusto"
                       width="100%"
-                      eagerLoading
                     />
                   </Link>
                 </NextLink>

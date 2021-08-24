@@ -1,9 +1,8 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Image } from '@chakra-ui/react';
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
 import Content from '../../Content';
 import Section from '../../Section';
-import Image from '../../Image';
 import Topic from './Topic';
 import CustomLinkButton from '../../CustomLinkButton';
 import CustomButton from '../../CustomButton';
@@ -15,7 +14,7 @@ const Better = () => {
         <Content>
           <Flex flexDir={{base: 'column', lg: 'row'}}>
             <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
-              <Image src="/courier.png" width="160px" height="160px" eagerLoading />
+              <Image src="/courier.png" width="160px" height="160px" />
             </Box>
             <Box>
               <SectionHeading>Melhor para entregadores</SectionHeading>
@@ -38,7 +37,7 @@ const Better = () => {
           </Flex>
           <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
             <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
-              <Image src="/business.png" width="160px" height="160px" eagerLoading />
+              <Image src="/business.png" width="160px" height="160px" />
             </Box>
             <Box>
               <SectionHeading>Melhor para restaurantes</SectionHeading>
@@ -73,7 +72,7 @@ const Better = () => {
           </Flex>
           <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
             <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
-              <Image src="/consumer.png" width="160px" height="160px" eagerLoading />
+              <Image src="/consumer.png" width="160px" height="160px" />
             </Box>
             <Box>
               <SectionHeading>Melhor para consumidores</SectionHeading>

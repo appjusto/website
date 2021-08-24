@@ -14,7 +14,7 @@ const CustomNumberInput = React.forwardRef<HTMLInputElement, Props>(
     const [state, setState] = React.useState('');
     const controlProps = { mt, mb, ml, mr, flex };
     const styles = useMultiStyleConfig('Input', {});
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
       const newState = numbersDotCommaOnlyParser(value);
       setState((prevState) => {
         if (maxLength && newState.length < maxLength) {

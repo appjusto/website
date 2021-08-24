@@ -1,5 +1,4 @@
-import { Box, Flex, Link, Text } from "@chakra-ui/react";
-import Image from "../components/Image";
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 import NextLink from 'next/link';
 
 export default function LinkConfirmation() {
@@ -18,7 +17,6 @@ export default function LinkConfirmation() {
               src="/logo-pages.svg"
               alt="Logo AppJusto"
               width="100%"
-              eagerLoading
             />
           </Link>
         </NextLink>

@@ -9,13 +9,13 @@ interface ImgProps extends ImageProps {
   eagerLoading?: boolean;
 }
 
-const Image: React.FC<ImgProps> = ({
+const Image = ({
   src,
   srcMob,
   scrollCheck = true,
   eagerLoading = false,
   ...props
-}) => {
+}: ImgProps) => {
   const [loaded, setLoaded] = useState(false);
   const [width, setWidth] = useState(0);
   const rootNode = useRef(null);

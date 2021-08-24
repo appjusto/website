@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 import getFirebaseClient from '../../firebaseApp'
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 interface PageContextProps {
   contextState: {

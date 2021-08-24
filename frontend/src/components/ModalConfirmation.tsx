@@ -1,6 +1,7 @@
 import {
   Flex,
   Box,
+  Image,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -9,12 +10,8 @@ import {
   Heading,
   Text
 } from '@chakra-ui/react'
-
 import SharingButtons from './share/SharingButtons'
-
 import { usePageContext } from '../context'
-
-import Image from './Image'
 
 export const modalConfOptions = {
   registration: "registration",
@@ -64,7 +61,6 @@ const ModalConfirmation: React.FC = () => {
                   src="/illustration-big-user.png"
                   alt="Ilustração de uma mão entregando uma caixa para outra mão"
                   width="275px"
-                  eagerLoading
                 />
               </Box>
               {
@@ -76,7 +72,6 @@ const ModalConfirmation: React.FC = () => {
                       src="/obrigado.svg"
                       alt="Obrigado!"
                       width="213px"
-                      eagerLoading
                     />
                   </Box>
                 )

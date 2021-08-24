@@ -3,6 +3,7 @@ import {
   Flex,
   Box,
   Heading,
+  Image,
   Text,
   Modal,
   ModalOverlay,
@@ -11,16 +12,12 @@ import {
   ModalBody
 } from '@chakra-ui/react';
 import { FaWhatsappSquare } from 'react-icons/fa';
-
 import ShareLink from './share/ShareLink';
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 import FormMessage from './FormMessage';
-import Image from './Image';
-
 import { usePageContext, handleMessage } from '../context/';
 import useSharingUrlMsg from './share/useSharingUrlMsg';
-
 import { modalConfOptions } from './ModalConfirmation';
 
 const ModalRecommendation: React.FC = () => {
@@ -114,7 +111,6 @@ const ModalRecommendation: React.FC = () => {
                     src="/icon-promotion.svg"
                     alt="Ilustração de auto-falante"
                     width="100%"
-                    eagerLoading
                   />
                 </Box>
               </Flex>

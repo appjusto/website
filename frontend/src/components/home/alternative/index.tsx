@@ -1,7 +1,6 @@
-import { Flex, Box, Text } from '@chakra-ui/react';
+import { Flex, Box, Image, Text } from '@chakra-ui/react';
 import Container from '../../Container';
 import Section from '../../Section';
-import Image from '../../Image';
 import Content from '../../Content';
 import SectionHeading from '../../SectionHeading';
 
@@ -20,7 +19,7 @@ const Alternative: React.FC = () => {
         <Content maxW={{base:'100%', md: '312px', lg: '480px', xl: '656px'}}>
           <Flex position="relative" w="100%" >
             <Box width={{base: '100%', md: '336px'}}>
-              <Image src="/alternative.jpg" width={{base: '100%', md: '336px'}} eagerLoading />
+              <Image src="/alternative.jpg" width={{base: '100%', md: '336px'}} />
             </Box>
             <Box
               maxW={{base: '100%', md: '272px'}}

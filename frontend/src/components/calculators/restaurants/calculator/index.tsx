@@ -1,10 +1,9 @@
-import { Box, Flex, Text, TextProps, HStack, Link } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, TextProps, HStack, Link } from "@chakra-ui/react";
 import Container from "../../../Container";
 import Section from "../../../Section";
 import Input from '../../../CustomNumberInput';
 import { useState, useEffect } from 'react';
 import { CurrencyInput } from "../../../CurrencyInput";
-import Image from "../../../Image";
 import { formattedRawValue } from '../../../../utils';
 import CustomLinkButton from "../../../CustomLinkButton";
 
@@ -161,7 +160,7 @@ const RestaurantCalculator: React.FC = () => {
             <Flex mt="16" w="100%" maxW={{md: '500px'}} flexDir={{base: 'column', md: 'row'}} justifyContent="space-between">
               <Box>
                 <HStack spacing={2}>
-                  <Image src="/green-check.svg" w="14px" h="15px" eagerLoading />
+                  <Image src="/green-check.svg" w="14px" h="15px" />
                   <Text textStyle="p" fontSize="20px" lineHeight="26px">
                     Total no AppJusto
                   </Text>
@@ -181,7 +180,7 @@ const RestaurantCalculator: React.FC = () => {
               </Box>
               <Box mt={{base: '8', md: '0'}}>
                 <HStack spacing={2}>
-                  <Image src="/icon-close.svg" w="20px" h="20px" eagerLoading />
+                  <Image src="/icon-close.svg" w="20px" h="20px" />
                   <Text textStyle="p" fontSize="20px" lineHeight="26px">
                     Total no concorrente
                   </Text>

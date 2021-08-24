@@ -32,7 +32,7 @@ export const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputPro
     // state
     const [priceText, setPriceText] = React.useState('');
     // side effects
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
       // keep internal state in sync with value received
       // and format value from number to string
       const parentRawValue = value.toString();

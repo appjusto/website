@@ -1,4 +1,4 @@
-import { Image, Stack, Wrap, WrapItem } from "@chakra-ui/react";
+import { Image, Wrap, WrapItem } from "@chakra-ui/react";
 import Container from "../../Container";
 import Section from "../../Section";
 import Content from "../../Content";
@@ -14,16 +14,16 @@ const UN: React.FC = () => {
           </SectionHeading>
           <Wrap mt="4" w="100%" spacing="12px">
             <WrapItem>
-              <Image src="/ods8.png" w="96px" h="96px" alt="ODS" eagerLoading />
+              <Image src="/ods8.png" w="96px" h="96px" alt="ODS" />
             </WrapItem>
             <WrapItem>
-              <Image src="/ods10.png" w="96px" h="96px" alt="ODS" eagerLoading />
+              <Image src="/ods10.png" w="96px" h="96px" alt="ODS" />
             </WrapItem>
             <WrapItem>
-              <Image src="/ods11.png" w="96px" h="96px" alt="ODS" eagerLoading />
+              <Image src="/ods11.png" w="96px" h="96px" alt="ODS" />
             </WrapItem>
             <WrapItem>
-              <Image src="/ods17.png" w="96px" h="96px" alt="ODS" eagerLoading />
+              <Image src="/ods17.png" w="96px" h="96px" alt="ODS" />
             </WrapItem>
           </Wrap>
         </Content>
