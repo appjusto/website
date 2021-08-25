@@ -1,6 +1,7 @@
 import { Box, Image, Link, Stack, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import NextLink from 'next/link';
+import Head from 'next/head';
 import Container from "../../components/Container";
 import CustomLinkButton from "../../components/CustomLinkButton";
 import { AppsBox } from "../../components/Fleet/AppsBox";
@@ -61,7 +62,8 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 export default function FleetPage() {
   // context
   const router = useRouter();
-  const fleetId = router.query.fleetId;
+  console.log(router.query);
+  const fleetId = router.query.id;
   const { fleetsRef } = usePageContext();
   // state
   const [fleet, setFleet] = React.useState<Fleet>();
@@ -75,6 +77,9 @@ export default function FleetPage() {
   // UI
   return (
     <Box>
+      <Head>
+        <title>AppJusto | {fleet?.name ?? 'Frotas'}</title>
+      </Head>
       <AppsBox />
       <Container w="100vw" h={{base: 'auto', lg: '100vh'}} pb="16">
       <Box display={{base:  'block', md: 'none'}} mb="4">
