@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "public",
+    "cleanUrls": true,
     "rewrites": [
       {
         "source": "**/**",
@@ -27,7 +28,6 @@
           "value": "max-age=31536000"
         } ]
       }
-    ],
-    "cleanUrls": true
+    ]
   }
 }

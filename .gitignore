@@ -19,6 +19,7 @@
 /coverage
 
 # next.js
+frontend/nextjs/
 frontend/.next/
 frontend/out/
 frontend/next.config.js
@@ -44,3 +45,4 @@ frontend/next.config.js
 
 # vercel
 **/.vercel
+bash.exe.stackdump

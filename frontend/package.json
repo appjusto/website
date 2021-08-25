@@ -4,6 +4,9 @@
   "private": true,
   "author": "@appjusto",
   "license": "MIT",
+  "engines": {
+    "node": "14"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "rimraf /nextjs && next build",
