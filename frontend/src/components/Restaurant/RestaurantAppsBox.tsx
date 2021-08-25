@@ -64,6 +64,7 @@ export const RestaurantAppsBox = () => {
             mt="6"
             href="https://appjusto.freshdesk.com/support/home"
             textDecor="underline"
+            fontWeight="500"
             _focus={{ outline: 'none'}}
             isExternal
           >

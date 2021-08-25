@@ -172,3 +172,7 @@ export const formatHour = (value: string | undefined) => {
   }
   return formatedNumber;
 };
+
+export const formatCEP = (cep: string) => {
+  return cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+}
