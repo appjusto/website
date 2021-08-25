@@ -1,6 +1,7 @@
 import i18n, { ToCurrencyOptions } from 'i18n-js';
 import IBGEUrl from '../services/ApiIBGE'
 import Ufs from '../services/ufs'
+import { FirebaseDocument, WithId } from '../types';
 
 export const profileOptions = [
   { value: "consumers", label: "Consumidor"},
@@ -143,3 +144,31 @@ export const formatCurrency = (value: number, options: ToCurrencyOptions = {
   separator: ','
 }) =>
   i18n.toCurrency(value / 100, options);
+
+export const documentAs = <T extends object>(doc: FirebaseDocument): WithId<T> => ({
+  ...(doc.data() as T),
+  id: doc.id,
+});
+
+export const documentsAs = <T extends object>(docs: FirebaseDocument[]): WithId<T>[] =>
+  docs.map((doc) => documentAs<T>(doc));
+
+export const formatHour = (value: string | undefined) => {
+  let formatedNumber = '';
+  if (value) {
+    let hours = value.slice(0, 2);
+    let minutes = value.slice(2, 4);
+    if (parseInt(hours, 10) > 23) {
+      hours = '00';
+    }
+    if (parseInt(minutes, 10) > 59) {
+      minutes = '00';
+    }
+    if (minutes === '') {
+      formatedNumber = `${hours}`;
+    } else if (minutes !== '') {
+      formatedNumber = `${hours}:${minutes}`;
+    }
+  }
+  return formatedNumber;
+};

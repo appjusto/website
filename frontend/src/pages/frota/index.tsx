@@ -12,57 +12,11 @@ import { usePageContext } from "../../context";
 import React from 'react';
 //import { Fleet } from '@appjusto/types';
 import { formatCurrency } from "../../utils";
-
-export type FleetSituation = 'pending' | 'approved' | 'rejected' | 'blocked';
-
-export interface FleetFareParams {
-  minimumFee: number; // (in cents) minimum fee charged by couriers
-  distanceThreshold: number; // (in meters) distanced covered by the minimumFee
-  additionalPerKmAfterThreshold: number; // (in cents) fee charged every km after distanceThreshold
-  maxDistance: number; // (in meters) maximum trip distance
-  maxDistanceToOrigin: number; // (in meters) maximum distance to the pickup place
-}
-
-export interface FleetDetails extends FleetFareParams {
-  name: string;
-  description: string;
-  // metadata
-  createdOn: any;
-  createdBy?: string;
-}
-
-export interface Fleet extends FleetDetails {
-  situation: FleetSituation;
-  participantsOnline: number;
-}
-
-/*export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({params}) => {
-  const fleetId = params.fleetId.toString();
-  console.log('fleetId', fleetId)
-  const { db } = await getFirebaseClient()
-  const fleet = await db.collection('fleets').doc(fleetId)
-    .get();
-    //.then((r) => r.data().json());
-  console.log('fleet', fleet);
-  return {
-    props: {
-      fleet,
-    revalidate: 1,
-    }
-  };
-};*/
+import { Fleet } from "../../types";
 
 export default function FleetPage() {
   // context
   const router = useRouter();
-  console.log(router.query);
   const fleetId = router.query.id;
   const { fleetsRef } = usePageContext();
   // state

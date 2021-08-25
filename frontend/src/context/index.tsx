@@ -12,29 +12,33 @@ import firebase from 'firebase/app';
 
 interface PageContextProps {
   contextState: {
-    firebase: firebase.app.App
-    database: firebase.firestore.Firestore
-    functions: firebase.functions.Functions
-    showModalConfirmation: {show: boolean, type: string}
-    showModalRecommendation: boolean
-    registrationMsg: {status: boolean, form: string, message: string}
-  }
-  contextDispatch: Dispatch<Actions>
+    firebase: firebase.app.App;
+    database: firebase.firestore.Firestore;
+    storage: firebase.storage.Storage;
+    functions: firebase.functions.Functions;
+    showModalConfirmation: {show: boolean, type: string};
+    showModalRecommendation: boolean;
+    registrationMsg: {status: boolean, form: string, message: string};
+  };
+  contextDispatch: Dispatch<Actions>;
   fleetsRef: firebase.firestore.CollectionReference;
+  businessRef: firebase.firestore.CollectionReference;
+  storageRef: firebase.storage.Reference;
   //handleRegistration: (profile: string, phone: string, city: string, email: string) => boolean
   //handleIndication: (email: string) => boolean
-}
+};
 
-const PageContext = createContext<PageContextProps>({} as PageContextProps)
+const PageContext = createContext<PageContextProps>({} as PageContextProps);
 
 const initialState = {
   firebase: null,
   database: null,
+  storage: null,
   functions: null,
   showModalConfirmation: {show: false, type: ""},
   showModalRecommendation: false,
   registrationMsg: {status: false, form: "", message: ""},
-}
+};
 
 //const celIsNotNewMsg = "O celular informado já foi cadastrado para o perfil selecionado. Você pode tentar com outro perfil."
 //const emailIsNotNewMsg = "O e-mail informado já havia sido indicado. Tente novamente com um novo e-mail."
@@ -45,7 +49,7 @@ export const PageContextProvider = (props) => {
     pageContextReducer, initialState
   )
 
-  const { database, functions } = contextState
+  const { database, storage, functions } = contextState
   /*const dbRegistrationsRef = useMemo(() =>
     database?.collection('registrations'), [database])
   const dbIndicationsRef = useMemo(() =>
@@ -54,11 +58,17 @@ export const PageContextProvider = (props) => {
     database?.collection("summary").doc("data"), [database])*/
   const fleetsRef = useMemo(() =>
     database?.collection('fleets'), [database]);
+  const businessRef = useMemo(() =>
+    database?.collection('businesses'), [database]);
+  const storageRef = useMemo(() =>
+    storage?.ref(), [storage]);
 
   useEffect(() => {
     const loadFirebase = async () => {
-      const { firebase, db, functions } = await getFirebaseClient()
-      return contextDispatch({type: "update_firebase", payload: {firebase, db, functions}})
+      const { firebase, db, storage, functions } = await getFirebaseClient()
+      return contextDispatch({
+        type: "update_firebase", payload: {firebase, db, storage, functions}
+      })
     }
     loadFirebase()
   }, [])
@@ -105,6 +115,8 @@ export const PageContextProvider = (props) => {
     contextState,
     contextDispatch,
     fleetsRef,
+    businessRef,
+    storageRef,
     //handleRegistration,
     //handleIndication,
   }} {...props}/>
