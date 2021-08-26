@@ -29,7 +29,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       else return null
     });
   const paths = params.filter( param => param && param);
-  console.log('paths', paths);
   return {
     paths,
     fallback: false,
