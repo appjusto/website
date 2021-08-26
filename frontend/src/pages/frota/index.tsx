@@ -94,7 +94,7 @@ export default function FleetPage() {
             />
             <FleetFeature
               label="Distância Inicial Mínima"
-              value="3 km"
+              value={fleet?.distanceThreshold ? `${fleet.distanceThreshold / 1000} km` : 'N/E'}
             />
             <FleetFeature
               label="Valor Adicional por Km Rodado"

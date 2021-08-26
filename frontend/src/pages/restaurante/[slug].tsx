@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Icon, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@chakra-ui/react";
 import NextLink from 'next/link';
 import Head from 'next/head';
 import Container from "../../components/Container";
@@ -158,12 +158,31 @@ export default function RestaurantPage({ business }) {
         <Box mt={{base: '6', md: '0'}} maxW={{base: '100%', md: '320px' ,lg: '656px'}}>
           <Box
             position="relative"
-            h="auto"
-            bg="gray.500"
+            w="100%"
+            h={{base: '117px', md: '114px', lg: '234px'}}
+            bgColor="#F6F6F6"
             borderRadius="lg"
             overflow="hidden"
           >
-            <Image src={coverUrl} w="100%" alt="Foto de capa do restaurante"/>
+            {
+              coverUrl ? coverUrl !== 'not_found' ? (
+                <Image src={coverUrl} w="100%" alt="Foto de capa do restaurante" ignoreFallback />
+                ) : (
+                  <Center w="100%" h="100%">
+                    <Image
+                      src="/placeholder.svg"
+                      w="34px"
+                      h="34px"
+                      alt="Foto de capa do restaurante não encontrada"
+                      ignoreFallback
+                    />
+                  </Center>
+                ) : (
+                <Center w="100%" h="100%">
+                  <Spinner size="md" color="white" />
+                </Center>
+              )
+            }
           </Box>
           <Flex mt="6" justifyContent="space-between" alignItems="center">
             <Box>
@@ -174,8 +193,26 @@ export default function RestaurantPage({ business }) {
                 {cuisine ?? 'N/E'}
               </Text>
             </Box>
-            <Box position="relative" w="64px" h="64px">
-              <Image src={logoUrl} w="100%" alt="Logo do restaurante" />
+            <Box position="relative" w="64px" h="64px" bgColor="#F6F6F6" borderRadius="lg">
+              {
+                logoUrl ? logoUrl !== 'not_found' ? (
+                  <Image src={logoUrl} w="100%" alt="Logo do restaurante" ignoreFallback />
+                  ) : (
+                    <Center w="100%" h="100%">
+                      <Image
+                        src="/logo-placeholder.png"
+                        w="64px"
+                        h="64px"
+                        alt="Foto de capa do restaurante não encontrada"
+                        ignoreFallback
+                      />
+                    </Center>
+                  ) : (
+                  <Center w="100%" h="100%">
+                    <Spinner size="sm" color="white" />
+                  </Center>
+                )
+              }
             </Box>
           </Flex>
           <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{description ?? 'N/E'}</Text>
