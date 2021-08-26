@@ -1,6 +1,6 @@
 {
   "name": "landingpage",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "author": "@appjusto",
   "license": "MIT",
@@ -9,10 +9,10 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "rimraf /nextjs && next build",
+    "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "deploy": "git checkout $ENV && git pull && env-cmd -f .env.$ENV yarn build && firebase use app-justo-$ENV && firebase deploy && yarn version",
+    "deploy": "git checkout $ENV && git pull && env-cmd -f .env.$ENV yarn export && firebase use app-justo-$ENV && firebase deploy && yarn version",
     "deploy:dev": "ENV=dev yarn deploy",
     "deploy:staging": "ENV=staging yarn deploy",
     "deploy:live": "ENV=live yarn deploy",
