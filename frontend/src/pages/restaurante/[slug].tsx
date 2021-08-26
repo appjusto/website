@@ -1,4 +1,4 @@
-import { Box, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Icon, Image, Link, Text } from "@chakra-ui/react";
 import NextLink from 'next/link';
 import Head from 'next/head';
 import Container from "../../components/Container";
@@ -7,18 +7,32 @@ import Footer from "../../components/Footer";
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 //import { Business, WithId } from '@appjusto/types';
-import { Business, WithId } from "../../types";
+import { Business } from "../../types";
 import getFirebaseClient from "../../../firebaseApp";
-import { usePageContext } from "../../context";
 import { RestaurantAppsBox } from "../../components/Restaurant/RestaurantAppsBox";
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
+import { usePageContext } from "../../context";
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { db } = await getFirebaseClient();
+  const params = await db.collection('businesses')
+    .where('situation', '==', 'approved')
+    .where('enabled', '==', true)
+    .get()
+    .then((data) => {
+      if(!data.empty) return data.docs.map(doc => {
+        const docData = doc.data() as Business;
+        if(docData.slug) return { params: { slug: docData.slug }};
+      });
+      else return null
+    });
+  const paths = params.filter( param => param && param);
+  console.log('paths', paths);
   return {
-    paths: [],
-    fallback: 'blocking',
+    paths,
+    fallback: false,
   };
 };
 
@@ -43,86 +57,51 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       });
       else return null
     });
-  if (!businesses) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    }
-  }
   return {
     props: {
-      //businesses: JSON.stringify(businesses[0]),
-      businesses: businesses,
+      business: businesses[0],
     },
-    revalidate: 10,
+    //revalidate: 10,
   };
 };
 
-export default function RestaurantPage({ businesses }) {
-  // context
+export default function RestaurantPage({ business }) {
+  // props
+  const {
+    id,
+    cnpj,
+    name,
+    cuisine,
+    description,
+    businessAddress,
+    schedules,
+  } = business;
+  // constext
   const { storageRef } = usePageContext();
   // state
-  const [business, setBusiness] = React.useState<WithId<Business> | null>();
-  const [logo, setLogo] = React.useState<string | null>();
-  const [cover, setCover] = React.useState<string | null>();
+  const [logoUrl, setLogoUrl] = React.useState<string>();
+  const [coverUrl, setCoverUrl] = React.useState<string>();
   // handlers
   const getDownloadURL = React.useCallback(async (ref: any) => {
     const uri = await ref
       .getDownloadURL()
       .then((res: string | null) => res)
-      .catch(() => null);
+      .catch(() => 'not_found');
     return uri;
   }, []);
   // side effects
   React.useEffect(() => {
-    if(businesses === null) setBusiness(null);
-    if(!businesses) return;
-    setBusiness(businesses[0]);
-  }, [businesses]);
-  React.useEffect(() => {
-    if(!business?.id || !storageRef) return;
-    const logoRef = storageRef.child(`businesses/${businesses[0].id}/logo_240x240.jpg`);
-    const coverRef = storageRef.child(`businesses/${businesses[0].id}/cover_1008x360.jpg`);
-    getDownloadURL(logoRef).then((url) => setLogo(url));
-    getDownloadURL(coverRef).then((url) => setCover(url));
-  }, [business, storageRef, getDownloadURL])
+    if(!storageRef || !id) return;
+    const logoRef = storageRef.child(`businesses/${id}/logo_240x240.jpg`);
+    const coverRef = storageRef.child(`businesses/${id}/cover_1008x360.jpg`);
+    getDownloadURL(logoRef).then(uri => setLogoUrl(uri));
+    getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
+  }, [storageRef, id]);
   // UI
-  if(business === null) {
-    return(
-      <Center w="100vw" h="100vh">
-        <Box>
-          <Box w="120px">
-            <Image
-              src="/logo-pages.svg"
-              alt="Logo AppJusto"
-              width="94px"
-            />
-          </Box>
-          <Text
-            mt="6"
-            fontSize="24px"
-            lineHeight="26px"
-            fontWeight="700"
-          >
-            Página não encontrada!
-          </Text>
-        </Box>
-      </Center>
-    )
-  }
-  if(!business) {
-    return (
-      <Center w="100vw" h="100vh">
-          <Text mt="6">Carregando...</Text>
-      </Center>
-    )
-  }
   return (
     <Box>
       <Head>
-        <title>AppJusto | {business?.name ?? 'Restaurante'}</title>
+        <title>AppJusto | {name ?? 'Restaurante'}</title>
       </Head>
       <RestaurantAppsBox />
       <Container position="relative" w="100vw" h={{base: 'auto', lg: '100vh'}} pb="24">
@@ -184,22 +163,22 @@ export default function RestaurantPage({ businesses }) {
             borderRadius="lg"
             overflow="hidden"
           >
-            <Image src={cover} w="100%" />
+            <Image src={coverUrl} w="100%" alt="Foto de capa do restaurante"/>
           </Box>
           <Flex mt="6" justifyContent="space-between" alignItems="center">
             <Box>
               <Text fontSize="24px" lineHeight="26px" fontWeight="700">
-                {business?.name ?? 'N/E'}
+                {name ?? 'N/E'}
               </Text>
               <Text mt="1" fontSize="16px" lineHeight="22px" fontWeight="500" color="#4EA031">
-                {business?.cuisine ?? 'N/E'}
+                {cuisine ?? 'N/E'}
               </Text>
             </Box>
             <Box position="relative" w="64px" h="64px">
-              <Image src={logo} w="100%" />
+              <Image src={logoUrl} w="100%" alt="Logo do restaurante" />
             </Box>
           </Flex>
-          <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
+          <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{description ?? 'N/E'}</Text>
           <Flex mt="10" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
             <Box>
               <HStack spacing={2}>
@@ -210,14 +189,14 @@ export default function RestaurantPage({ businesses }) {
               </HStack>
               <HStack mt="4" spacing={2}>
                 <Box>
-                  {business?.schedules.map((item) => (
+                  {schedules.map((item) => (
                     <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
                       {item.day}
                     </Text>
                   ))}
                 </Box>
                 <Box>
-                  {business?.schedules.map((item) => {
+                  {schedules.map((item) => {
                     return !item.checked ? (
                       <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
                         Fechado
@@ -241,16 +220,16 @@ export default function RestaurantPage({ businesses }) {
                 </Text>
               </HStack>
               <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`${business?.businessAddress?.address ?? 'N/E'}, ${business?.businessAddress?.number}`}
+                {`${businessAddress?.address ?? 'N/E'}, ${businessAddress?.number}`}
               </Text>
               <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
+                {`${businessAddress?.city}, ${businessAddress?.state}`}
               </Text>
               <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`CEP: ${business?.businessAddress?.cep ? formatCEP(business?.businessAddress?.cep) : 'N/E'}`}
+                {`CEP: ${businessAddress?.cep ? formatCEP(businessAddress?.cep) : 'N/E'}`}
               </Text>
               <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`CNPJ: ${business?.cnpj ? cnpjutils.format(business?.cnpj) : 'N/E'}`}
+                {`CNPJ: ${cnpj ? cnpjutils.format(cnpj) : 'N/E'}`}
               </Text>
             </Box>
           </Flex>

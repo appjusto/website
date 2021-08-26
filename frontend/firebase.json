@@ -1,13 +1,7 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "out",
     "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "**/**",
-        "function": "nextSite"
-      }
-    ],
     "ignore": [
       "firebase.json",
       "**/.*",
