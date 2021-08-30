@@ -1,31 +1,14 @@
 {
   "projects": {
-    "default": "app-justo-dev",
-    "live": "app-justo-live",
-    "staging": "app-justo-staging",
-    "dev": "app-justo-dev"
+    "default": "app-justo-site",
   },
   "targets": {
-    "app-justo-live": {
+    "app-justo-site": {
       "hosting": {
         "site": [
-          "app-justo-live"
+          "app-justo-site"
         ]
       }
     },
-    "app-justo-staging": {
-      "hosting": {
-        "site": [
-          "app-justo-staging"
-        ]
-      }
-    },
-    "app-justo-dev": {
-      "hosting": {
-        "site": [
-          "app-justo-dev"
-        ]
-      }
-    }
   }
 }

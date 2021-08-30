@@ -8,59 +8,65 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 //import { Business, WithId } from '@appjusto/types';
 import { Business } from "../../types";
-import getFirebaseClient from "../../../firebaseApp";
 import { RestaurantAppsBox } from "../../components/Restaurant/RestaurantAppsBox";
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { usePageContext } from "../../context";
+import getFirebaseProjectsClient from "../../../firebaseProjects";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { db } = await getFirebaseClient();
-  const params = await db.collection('businesses')
-    .where('situation', '==', 'approved')
-    .where('enabled', '==', true)
-    .get()
-    .then((data) => {
-      if(!data.empty) return data.docs.map(doc => {
-        const docData = doc.data() as Business;
-        if(docData.slug) return { params: { slug: docData.slug }};
-      });
-      else return null
-    });
-  const paths = params.filter( param => param && param);
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: 'blocking',
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = params.slug;
-  const { db } = await getFirebaseClient();
-  const businesses = await db.collection('businesses')
+  const { db } = await getFirebaseProjectsClient();
+  let business = {};
+  const queryBySlug = await db.collection('businesses')
     .where('slug', '==', slug)
     .get()
-    .then((data) => {
-      if(!data.empty) return data.docs.map(doc => {
-        const docData = doc.data() as Business;
-        return {
-          id: doc.id,
-          cnpj: docData.cnpj,
-          name: docData.name,
-          cuisine: docData.cuisine,
-          description: docData.description,
-          businessAddress: docData.businessAddress,
-          schedules: docData.schedules,
-        }
+  if(queryBySlug.docs.length > 0) {
+    business = queryBySlug.docs.map(doc => {
+      const docData = doc.data() as Business;
+      return {
+        id: doc.id,
+        cnpj: docData.cnpj,
+        name: docData.name,
+        cuisine: docData.cuisine,
+        description: docData.description,
+        businessAddress: docData.businessAddress,
+        schedules: docData.schedules,
+      }
+    })[0];
+  } else {
+    business = await db.collection('businesses')
+      .where('code', '==', slug)
+      .get()
+      .then((data) => {
+        if(!data.empty) return data.docs.map(doc => {
+          const docData = doc.data() as Business;
+          return {
+            id: doc.id,
+            cnpj: docData.cnpj,
+            name: docData.name,
+            cuisine: docData.cuisine,
+            description: docData.description,
+            businessAddress: docData.businessAddress,
+            schedules: docData.schedules,
+          }
+        });
+        else return null
       });
-      else return null
-    });
+  }
   return {
     props: {
-      business: businesses[0],
+      business,
     },
-    //revalidate: 10,
+    revalidate: 10,
   };
 };
 

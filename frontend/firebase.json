@@ -2,6 +2,12 @@
   "hosting": {
     "public": "out",
     "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**/**",
+        "function": "next"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -22,6 +28,22 @@
           "value": "max-age=31536000"
         } ]
       }
+    ]
+  },
+  "functions": {
+    "source": "./",
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run lint",
+    "ignore": [
+      "firebase.json",
+      "firbease-debug.log",
+      "**/.*",
+      "**/node_modules/**",
+      "components/**",
+      "helpers/**",
+      "pages/**",
+      "public/**",
+      "firestore.rules",
+      "readme.md"
     ]
   }
 }

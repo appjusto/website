@@ -11,24 +11,19 @@ import React from 'react';
 //import { Fleet } from '@appjusto/types';
 import { formatCurrency } from "../../utils";
 import { GetStaticPaths, GetStaticProps } from "next";
-import getFirebaseClient from "../../../firebaseApp";
 import { Fleet } from "../../types";
+import getFirebaseProjectsClient from "../../../firebaseProjects";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { db } = await getFirebaseClient();
-  const paths = await db.collection('fleets').get()
-    .then((data) => {
-      if(!data.empty) return data.docs.map(doc => ({ params: { id: doc.id }}));
-    });
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: 'blocking',
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const id = params.id as string;
-  const { db } = await getFirebaseClient();
+  const { db } = await getFirebaseProjectsClient();
   const fleet = await db.collection('fleets').doc(id).get()
     .then((data) => {
       if(data.exists) {
@@ -47,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     props: {
       fleet,
     },
-    //revalidate: 10,
+    revalidate: 10,
   };
 };
 
