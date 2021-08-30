@@ -1,5 +1,4 @@
 import { Box, Image, Link, Stack, Text } from "@chakra-ui/react";
-import { useRouter } from "next/router";
 import NextLink from 'next/link';
 import Head from 'next/head';
 import Container from "../../components/Container";
@@ -8,26 +7,51 @@ import { AppsBox } from "../../components/Fleet/AppsBox";
 import { FleetFeature } from "../../components/Fleet/FleetFeature";
 import Footer from "../../components/Footer";
 import Topic from "../../components/home/better/Topic";
-import { usePageContext } from "../../context";
 import React from 'react';
 //import { Fleet } from '@appjusto/types';
 import { formatCurrency } from "../../utils";
+import { GetStaticPaths, GetStaticProps } from "next";
+import getFirebaseClient from "../../../firebaseApp";
 import { Fleet } from "../../types";
 
-export default function FleetPage() {
-  // context
-  const router = useRouter();
-  const fleetId = router.query.id;
-  const { fleetsRef } = usePageContext();
-  // state
-  const [fleet, setFleet] = React.useState<Fleet>();
-  // side effects
-  React.useEffect(() => {
-    if(!fleetId || ! fleetsRef) return;
-    fleetsRef.doc(fleetId.toString()).get().then((data) => {
-      if(data.exists) setFleet(data.data() as Fleet)
-    })
-  }, [fleetId, fleetsRef])
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { db } = await getFirebaseClient();
+  const paths = await db.collection('fleets').get()
+    .then((data) => {
+      if(!data.empty) return data.docs.map(doc => ({ params: { id: doc.id }}));
+    });
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({params}) => {
+  const id = params.id as string;
+  const { db } = await getFirebaseClient();
+  const fleet = await db.collection('fleets').doc(id).get()
+    .then((data) => {
+      if(data.exists) {
+        const fleet = data.data() as Fleet;
+        return {
+          name: fleet.name,
+          minimumFee: fleet.minimumFee,
+          distanceThreshold: fleet.distanceThreshold,
+          additionalPerKmAfterThreshold: fleet.additionalPerKmAfterThreshold,
+          maxDistance: fleet.maxDistance,
+          maxDistanceToOrigin: fleet.maxDistanceToOrigin,
+        };
+      };
+    });
+  return {
+    props: {
+      fleet,
+    },
+    //revalidate: 10,
+  };
+};
+
+export default function FleetPage({ fleet }) {
   // UI
   return (
     <Box>
