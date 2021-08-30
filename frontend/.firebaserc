@@ -1,14 +1,5 @@
 {
   "projects": {
-    "default": "app-justo-site",
-  },
-  "targets": {
-    "app-justo-site": {
-      "hosting": {
-        "site": [
-          "app-justo-site"
-        ]
-      }
-    },
+    "default": "app-justo-website"
   }
 }

@@ -4,18 +4,15 @@
   "private": true,
   "author": "@appjusto",
   "license": "MIT",
+  "main": "./server.js",
   "engines": {
     "node": "14"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rimraf nextjs/ && next build",
     "start": "next start",
-    "export": "next build && next export",
-    "deploy": "git checkout $ENV && git pull && env-cmd -f .env.$ENV yarn export && firebase use app-justo-$ENV && firebase deploy && yarn version",
-    "deploy:dev": "ENV=dev yarn deploy",
-    "deploy:staging": "ENV=staging yarn deploy",
-    "deploy:live": "ENV=live yarn deploy",
+    "deploy": "firebase deploy && yarn version",
     "postversion": "git push && git push --tags && git fetch"
   },
   "dependencies": {
@@ -28,7 +25,7 @@
     "downshift": "^6.0.7",
     "firebase": "^8.2.6",
     "firebase-admin": "^9.5.0",
-    "firebase-functions": "3.6.1",
+    "firebase-functions": "^3.15.4",
     "framer-motion": "^2.9.4",
     "i18n-js": "^3.8.0",
     "next": "10.0.2",
@@ -55,6 +52,7 @@
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "^7.21.5",
     "firebase-functions-test": "0.2.0",
+    "rimraf": "^3.0.2",
     "tslint": "5.12.0",
     "typescript": "^4.0.5"
   }
