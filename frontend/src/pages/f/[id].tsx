@@ -12,7 +12,7 @@ import React from 'react';
 import { formatCurrency } from "../../utils";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Fleet } from "../../types";
-import getFirebaseProjectsClient from "../../../firebaseProjects";
+import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {

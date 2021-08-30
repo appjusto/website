@@ -7,13 +7,24 @@ import Footer from "../../components/Footer";
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 //import { Business, WithId } from '@appjusto/types';
-import { Business } from "../../types";
+import { Business, BusinessAddress, BusinessSchedule } from "../../types";
 import { RestaurantAppsBox } from "../../components/Restaurant/RestaurantAppsBox";
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
-import { usePageContext } from "../../context";
-import getFirebaseProjectsClient from "../../../firebaseProjects";
+import { getFirebaseProjectsClient, getFirebaseProjectsAdmin } from "../../../firebaseProjects";
+
+interface PartialBusiness {
+  id: string;
+  cnpj: string;
+  name: string;
+  cuisine: string;
+  description: string;
+  businessAddress: BusinessAddress;
+  schedules: BusinessSchedule;
+  logoUrl?: string;
+  coverUrl?: string;
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -25,10 +36,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = params.slug;
   const { db } = await getFirebaseProjectsClient();
-  let business = {};
+  const bucket = await getFirebaseProjectsAdmin();
+  // handlers
+  const getImageDownloadUrl = async (docId: string, imageName: string) => {
+    const file = bucket.file(`businesses/${docId}/${imageName}`);
+    const url = await file.getSignedUrl({action: 'read', expires: '12-31-2026'}).then(urls => urls[0]);
+    return url;
+  };
+  // queries
+  let business = {} as PartialBusiness;
   const queryBySlug = await db.collection('businesses')
-    .where('slug', '==', slug)
-    .get()
+  .where('slug', '==', slug)
+  .get()
   if(queryBySlug.docs.length > 0) {
     business = queryBySlug.docs.map(doc => {
       const docData = doc.data() as Business;
@@ -44,23 +63,33 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     })[0];
   } else {
     business = await db.collection('businesses')
-      .where('code', '==', slug)
-      .get()
-      .then((data) => {
-        if(!data.empty) return data.docs.map(doc => {
-          const docData = doc.data() as Business;
-          return {
-            id: doc.id,
-            cnpj: docData.cnpj,
-            name: docData.name,
-            cuisine: docData.cuisine,
-            description: docData.description,
-            businessAddress: docData.businessAddress,
-            schedules: docData.schedules,
-          }
-        });
-        else return null
-      });
+    .where('code', '==', slug)
+    .get()
+    .then((data) => {
+      if(!data.empty) return data.docs.map(doc => {
+        const docData = doc.data() as Business;
+        return {
+          id: doc.id,
+          cnpj: docData.cnpj,
+          name: docData.name,
+          cuisine: docData.cuisine,
+          description: docData.description,
+          businessAddress: docData.businessAddress,
+          schedules: docData.schedules,
+        }
+      })[0];
+      else return null
+    });
+  }
+  if(business?.id) {
+    const logoUrl = await getImageDownloadUrl(business.id, 'logo_240x240.jpg');
+    const coverUrl = await getImageDownloadUrl(business.id, 'cover_1008x360.jpg');
+    console.log('logoUrl', logoUrl);
+    business = {
+      ...business,
+      logoUrl,
+      coverUrl,
+    }
   }
   return {
     props: {
@@ -73,21 +102,22 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 export default function RestaurantPage({ business }) {
   // props
   const {
-    id,
     cnpj,
     name,
     cuisine,
     description,
     businessAddress,
     schedules,
+    logoUrl,
+    coverUrl,
   } = business;
   // constext
-  const { storageRef } = usePageContext();
+  //const { storageRef } = usePageContext();
   // state
-  const [logoUrl, setLogoUrl] = React.useState<string>();
-  const [coverUrl, setCoverUrl] = React.useState<string>();
+  //const [logoUrl, setLogoUrl] = React.useState<string>();
+  //const [coverUrl, setCoverUrl] = React.useState<string>();
   // handlers
-  const getDownloadURL = React.useCallback(async (ref: any) => {
+  /*const getDownloadURL = React.useCallback(async (ref: any) => {
     const uri = await ref
       .getDownloadURL()
       .then((res: string | null) => res)
@@ -96,12 +126,15 @@ export default function RestaurantPage({ business }) {
   }, []);
   // side effects
   React.useEffect(() => {
-    if(!storageRef || !id) return;
-    const logoRef = storageRef.child(`businesses/${id}/logo_240x240.jpg`);
-    const coverRef = storageRef.child(`businesses/${id}/cover_1008x360.jpg`);
-    getDownloadURL(logoRef).then(uri => setLogoUrl(uri));
-    getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
-  }, [storageRef, id]);
+    if(!id) return;
+    (async () => {
+      const { storage } = await getFirebaseProjectsClient();
+      const logoRef = storage.ref().child(`businesses/${id}/logo_240x240.jpg`);
+      const coverRef = storage.ref().child(`businesses/${id}/cover_1008x360.jpg`);
+      getDownloadURL(logoRef).then(uri => setLogoUrl(uri));
+      getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
+    })();
+  }, [id]);*/
   // UI
   return (
     <Box>

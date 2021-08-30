@@ -1,3 +1,4 @@
+import * as admin from 'firebase-admin';
 import firebase from 'firebase/app';
 
 const clientCredentials = {
@@ -17,7 +18,7 @@ interface FirebaseClientResult {
   storage: firebase.storage.Storage;
 }
 
-const getFirebaseProjectsClient = async (): Promise<FirebaseClientResult> => {
+export const getFirebaseProjectsClient = async (): Promise<FirebaseClientResult> => {
   const firebase = await import('firebase/app')
     .then((res) => {
       const fire = res.default
@@ -42,4 +43,15 @@ const getFirebaseProjectsClient = async (): Promise<FirebaseClientResult> => {
   return { firebase, db, storage };
 };
 
-export default getFirebaseProjectsClient;
+//export default getFirebaseProjectsClient;
+
+export const getFirebaseProjectsAdmin = async () => {
+  const serviceAccount = require('../../app-justo-dev-a0e08f4a58db.json');
+  if (!admin.apps.length) {
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+      storageBucket: 'app-justo-dev.appspot.com'
+    });
+  }
+  return admin.storage().bucket();
+};
