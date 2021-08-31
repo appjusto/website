@@ -84,7 +84,6 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   if(business?.id) {
     const logoUrl = await getImageDownloadUrl(business.id, 'logo_240x240.jpg');
     const coverUrl = await getImageDownloadUrl(business.id, 'cover_1008x360.jpg');
-    console.log('logoUrl', logoUrl);
     business = {
       ...business,
       logoUrl,

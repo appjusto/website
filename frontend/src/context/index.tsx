@@ -3,7 +3,7 @@ import {
   useEffect,
   useReducer,
   useContext,
-  useMemo,
+  //useMemo,
   Dispatch
 } from 'react'
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
@@ -13,17 +13,17 @@ import firebase from 'firebase/app';
 interface PageContextProps {
   contextState: {
     firebase: firebase.app.App;
-    database: firebase.firestore.Firestore;
-    storage: firebase.storage.Storage;
+    //database: firebase.firestore.Firestore;
+    //storage: firebase.storage.Storage;
     functions: firebase.functions.Functions;
     showModalConfirmation: {show: boolean, type: string};
     showModalRecommendation: boolean;
     registrationMsg: {status: boolean, form: string, message: string};
   };
   contextDispatch: Dispatch<Actions>;
-  fleetsRef: firebase.firestore.CollectionReference;
-  businessRef: firebase.firestore.CollectionReference;
-  storageRef: firebase.storage.Reference;
+  //fleetsRef: firebase.firestore.CollectionReference;
+  //businessRef: firebase.firestore.CollectionReference;
+  //storageRef: firebase.storage.Reference;
   //handleRegistration: (profile: string, phone: string, city: string, email: string) => boolean
   //handleIndication: (email: string) => boolean
 };
@@ -49,25 +49,25 @@ export const PageContextProvider = (props) => {
     pageContextReducer, initialState
   )
 
-  const { database, storage, functions } = contextState
-  /*const dbRegistrationsRef = useMemo(() =>
+  /*const { database, storage, functions } = contextState
+  const dbRegistrationsRef = useMemo(() =>
     database?.collection('registrations'), [database])
   const dbIndicationsRef = useMemo(() =>
     database?.collection('indications'), [database])
   const dbSummaryRef = useMemo(() =>
-    database?.collection("summary").doc("data"), [database])*/
+    database?.collection("summary").doc("data"), [database])
   const fleetsRef = useMemo(() =>
     database?.collection('fleets'), [database]);
   const businessRef = useMemo(() =>
     database?.collection('businesses'), [database]);
   const storageRef = useMemo(() =>
-    storage?.ref(), [storage]);
+    storage?.ref(), [storage]);*/
 
   useEffect(() => {
     const loadFirebase = async () => {
-      const { firebase, db, storage, functions } = await getFirebaseClient()
+      const { firebase, functions } = await getFirebaseClient()
       return contextDispatch({
-        type: "update_firebase", payload: {firebase, db, storage, functions}
+        type: "update_firebase", payload: {firebase, db: null, storage: null, functions}
       })
     }
     loadFirebase()
@@ -114,9 +114,9 @@ export const PageContextProvider = (props) => {
   return <PageContext.Provider value={{
     contextState,
     contextDispatch,
-    fleetsRef,
-    businessRef,
-    storageRef,
+    //fleetsRef,
+    //businessRef,
+    //storageRef,
     //handleRegistration,
     //handleIndication,
   }} {...props}/>

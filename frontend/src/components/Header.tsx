@@ -48,6 +48,7 @@ const Header = () => {
                       src="/logo-pages.svg"
                       alt="Logo AppJusto"
                       width="100%"
+                      ignoreFallback
                     />
                   </Link>
                 </NextLink>
