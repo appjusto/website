@@ -39,9 +39,14 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   const bucket = await getFirebaseProjectsAdmin();
   // handlers
   const getImageDownloadUrl = async (docId: string, imageName: string) => {
-    const file = bucket.file(`businesses/${docId}/${imageName}`);
-    const url = await file.getSignedUrl({action: 'read', expires: '12-31-2026'}).then(urls => urls[0]);
-    return url;
+    try {
+      const file = bucket.file(`businesses/${docId}/${imageName}`);
+      const url = await file.getSignedUrl({action: 'read', expires: '12-31-2026'}).then(urls => urls[0]);
+      return url;
+    } catch (error) {
+      console.error(error);
+      return 'not_found';
+    };
   };
   // queries
   let business = {} as PartialBusiness;
@@ -84,6 +89,8 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   if(business?.id) {
     const logoUrl = await getImageDownloadUrl(business.id, 'logo_240x240.jpg');
     const coverUrl = await getImageDownloadUrl(business.id, 'cover_1008x360.jpg');
+    //const logoUrl = `https://storage.googleapis.com/app-justo-dev.appspot.com/businesses/${business.id}/logo_240x240.jpg`;
+    //const coverUrl = `https://storage.googleapis.com/app-justo-dev.appspot.com/businesses/${business.id}/cover_1008x360.jpg`;
     business = {
       ...business,
       logoUrl,
@@ -99,17 +106,6 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 };
 
 export default function RestaurantPage({ business }) {
-  // props
-  const {
-    cnpj,
-    name,
-    cuisine,
-    description,
-    businessAddress,
-    schedules,
-    logoUrl,
-    coverUrl,
-  } = business;
   // constext
   //const { storageRef } = usePageContext();
   // state
@@ -138,7 +134,7 @@ export default function RestaurantPage({ business }) {
   return (
     <Box>
       <Head>
-        <title>AppJusto | {name ?? 'Restaurante'}</title>
+        <title>AppJusto | {business?.name ?? 'Restaurante'}</title>
       </Head>
       <RestaurantAppsBox />
       <Container position="relative" w="100vw" h={{base: 'auto', lg: '100vh'}} pb="24">
@@ -202,8 +198,8 @@ export default function RestaurantPage({ business }) {
             overflow="hidden"
           >
             {
-              coverUrl ? coverUrl !== 'not_found' ? (
-                <Image src={coverUrl} w="100%" alt="Foto de capa do restaurante" ignoreFallback />
+              business?.coverUrl ? business.coverUrl !== 'not_found' ? (
+                <Image src={business.coverUrl} w="100%" alt="Foto de capa do restaurante" ignoreFallback />
                 ) : (
                   <Center w="100%" h="100%">
                     <Image
@@ -224,16 +220,16 @@ export default function RestaurantPage({ business }) {
           <Flex mt="6" justifyContent="space-between" alignItems="center">
             <Box>
               <Text fontSize="24px" lineHeight="26px" fontWeight="700">
-                {name ?? 'N/E'}
+                {business?.name ?? 'N/E'}
               </Text>
               <Text mt="1" fontSize="16px" lineHeight="22px" fontWeight="500" color="#4EA031">
-                {cuisine ?? 'N/E'}
+                {business?.cuisine ?? 'N/E'}
               </Text>
             </Box>
             <Box position="relative" w="64px" h="64px" bgColor="#F6F6F6" borderRadius="lg">
               {
-                logoUrl ? logoUrl !== 'not_found' ? (
-                  <Image src={logoUrl} w="100%" alt="Logo do restaurante" ignoreFallback />
+                business?.logoUrl ? business.logoUrl !== 'not_found' ? (
+                  <Image src={business.logoUrl} w="100%" alt="Logo do restaurante" ignoreFallback />
                   ) : (
                     <Center w="100%" h="100%">
                       <Image
@@ -252,7 +248,7 @@ export default function RestaurantPage({ business }) {
               }
             </Box>
           </Flex>
-          <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{description ?? 'N/E'}</Text>
+          <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
           <Flex mt="10" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
             <Box>
               <HStack spacing={2}>
@@ -263,14 +259,14 @@ export default function RestaurantPage({ business }) {
               </HStack>
               <HStack mt="4" spacing={2}>
                 <Box>
-                  {schedules.map((item) => (
+                  {business?.schedules.map((item) => (
                     <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
                       {item.day}
                     </Text>
                   ))}
                 </Box>
                 <Box>
-                  {schedules.map((item) => {
+                  {business?.schedules.map((item) => {
                     return !item.checked ? (
                       <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
                         Fechado
@@ -294,16 +290,16 @@ export default function RestaurantPage({ business }) {
                 </Text>
               </HStack>
               <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`${businessAddress?.address ?? 'N/E'}, ${businessAddress?.number}`}
+                {`${business?.businessAddress?.address ?? 'N/E'}, ${business?.businessAddress?.number}`}
               </Text>
               <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`${businessAddress?.city}, ${businessAddress?.state}`}
+                {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
               </Text>
               <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`CEP: ${businessAddress?.cep ? formatCEP(businessAddress?.cep) : 'N/E'}`}
+                {`CEP: ${business?.businessAddress?.cep ? formatCEP(business.businessAddress?.cep) : 'N/E'}`}
               </Text>
               <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`CNPJ: ${cnpj ? cnpjutils.format(cnpj) : 'N/E'}`}
+                {`CNPJ: ${business?.cnpj ? cnpjutils.format(business.cnpj) : 'N/E'}`}
               </Text>
             </Box>
           </Flex>

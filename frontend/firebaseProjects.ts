@@ -51,7 +51,8 @@ export const getFirebaseProjectsAdmin = async () => {
   if (!admin.apps.length) {
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
-      storageBucket: `${process.env.EXTERNAL_FIREBASE_PROJECT_ID}.appspot.com`,
+      //storageBucket: `${process.env.EXTERNAL_FIREBASE_PROJECT_ID}.appspot.com`,
+      ...clientCredentials,
     });
   }
   return admin.storage().bucket();
