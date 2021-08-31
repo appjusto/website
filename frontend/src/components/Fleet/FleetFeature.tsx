@@ -8,7 +8,7 @@ interface FleetFeatureProps {
 
 export const FleetFeature = ({ type = 'black', label, value }: FleetFeatureProps) => {
   return (
-    <Flex mt="3" justifyContent="space-between">
+    <Flex mt="3" justifyContent="space-between" alignItems="center">
       <Text
         fontSize="13px"
         lineHeight="18px"

@@ -1,4 +1,4 @@
-import * as admin from 'firebase-admin';
+//import * as admin from 'firebase-admin';
 import firebase from 'firebase/app';
 
 const clientCredentials = {
@@ -45,15 +45,23 @@ export const getFirebaseProjectsClient = async (): Promise<FirebaseClientResult>
 
 //export default getFirebaseProjectsClient;
 
-export const getFirebaseProjectsAdmin = async () => {
+/*export const getFirebaseProjectsAdmin = async () => {
   // path to service account key json file
-  const serviceAccount = require('../../app-justo-dev-a0e08f4a58db.json');
   if (!admin.apps.length) {
     admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
+      credential: admin.credential.applicationDefault(),
+      storageBucket: `app-justo-dev.appspot.com`,
       //storageBucket: `${process.env.EXTERNAL_FIREBASE_PROJECT_ID}.appspot.com`,
-      ...clientCredentials,
     });
+    /*const serviceAccount = require('../../app-justo-dev-a0e08f4a58db.json');
+    const _secondary = admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+      storageBucket: `${process.env.EXTERNAL_FIREBASE_PROJECT_ID}.appspot.com`,
+    }, 'secondary');
+    return _secondary.storage().bucket();
+  } else {
+    //const secondary = admin.apps.find(app => app.name === 'secondary');
+    //return secondary.storage().bucket();
   }
   return admin.storage().bucket();
-};
+};*/

@@ -4,7 +4,7 @@ import {
   useReducer,
   useContext,
   //useMemo,
-  Dispatch
+  Dispatch,
 } from 'react'
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
 import getFirebaseClient from '../../firebaseApp'
@@ -49,8 +49,8 @@ export const PageContextProvider = (props) => {
     pageContextReducer, initialState
   )
 
-  /*const { database, storage, functions } = contextState
-  const dbRegistrationsRef = useMemo(() =>
+  //const { storage } = contextState
+  /*const dbRegistrationsRef = useMemo(() =>
     database?.collection('registrations'), [database])
   const dbIndicationsRef = useMemo(() =>
     database?.collection('indications'), [database])

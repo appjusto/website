@@ -38,6 +38,11 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
         };
       };
     });
+  if (!fleet) {
+    return {
+      notFound: true,
+    }
+  };
   return {
     props: {
       fleet,

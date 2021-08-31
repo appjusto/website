@@ -12,7 +12,7 @@ import { RestaurantAppsBox } from "../../components/Restaurant/RestaurantAppsBox
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
-import { getFirebaseProjectsClient, getFirebaseProjectsAdmin } from "../../../firebaseProjects";
+import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 
 interface PartialBusiness {
   id: string;
@@ -36,9 +36,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = params.slug;
   const { db } = await getFirebaseProjectsClient();
-  const bucket = await getFirebaseProjectsAdmin();
+  //const bucket = await getFirebaseProjectsAdmin();
   // handlers
-  const getImageDownloadUrl = async (docId: string, imageName: string) => {
+  /*const getImageDownloadUrl = async (docId: string, imageName: string) => {
     try {
       const file = bucket.file(`businesses/${docId}/${imageName}`);
       const url = await file.getSignedUrl({action: 'read', expires: '12-31-2026'}).then(urls => urls[0]);
@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       console.error(error);
       return 'not_found';
     };
-  };
+  };*/
   // queries
   let business = {} as PartialBusiness;
   const queryBySlug = await db.collection('businesses')
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       else return null
     });
   }
-  if(business?.id) {
+  /*if(business?.id) {
     const logoUrl = await getImageDownloadUrl(business.id, 'logo_240x240.jpg');
     const coverUrl = await getImageDownloadUrl(business.id, 'cover_1008x360.jpg');
     //const logoUrl = `https://storage.googleapis.com/app-justo-dev.appspot.com/businesses/${business.id}/logo_240x240.jpg`;
@@ -96,7 +96,12 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       logoUrl,
       coverUrl,
     }
-  }
+  }*/
+  if (!business) {
+    return {
+      notFound: true,
+    }
+  };
   return {
     props: {
       business,
@@ -106,13 +111,11 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 };
 
 export default function RestaurantPage({ business }) {
-  // constext
-  //const { storageRef } = usePageContext();
   // state
-  //const [logoUrl, setLogoUrl] = React.useState<string>();
-  //const [coverUrl, setCoverUrl] = React.useState<string>();
+  const [logoUrl, setLogoUrl] = React.useState<string>();
+  const [coverUrl, setCoverUrl] = React.useState<string>();
   // handlers
-  /*const getDownloadURL = React.useCallback(async (ref: any) => {
+  const getDownloadURL = React.useCallback(async (ref: any) => {
     const uri = await ref
       .getDownloadURL()
       .then((res: string | null) => res)
@@ -121,15 +124,15 @@ export default function RestaurantPage({ business }) {
   }, []);
   // side effects
   React.useEffect(() => {
-    if(!id) return;
+    if(!business?.id) return;
     (async () => {
       const { storage } = await getFirebaseProjectsClient();
-      const logoRef = storage.ref().child(`businesses/${id}/logo_240x240.jpg`);
-      const coverRef = storage.ref().child(`businesses/${id}/cover_1008x360.jpg`);
+      const logoRef = storage.ref().child(`businesses/${business.id}/logo_240x240.jpg`);
+      const coverRef = storage.ref().child(`businesses/${business.id}/cover_1008x360.jpg`);
       getDownloadURL(logoRef).then(uri => setLogoUrl(uri));
       getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
     })();
-  }, [id]);*/
+  }, [business?.id]);
   // UI
   return (
     <Box>
@@ -198,8 +201,8 @@ export default function RestaurantPage({ business }) {
             overflow="hidden"
           >
             {
-              business?.coverUrl ? business.coverUrl !== 'not_found' ? (
-                <Image src={business.coverUrl} w="100%" alt="Foto de capa do restaurante" ignoreFallback />
+              coverUrl ? coverUrl !== 'not_found' ? (
+                <Image src={coverUrl} w="100%" alt="Foto de capa do restaurante" ignoreFallback />
                 ) : (
                   <Center w="100%" h="100%">
                     <Image
@@ -228,8 +231,8 @@ export default function RestaurantPage({ business }) {
             </Box>
             <Box position="relative" w="64px" h="64px" bgColor="#F6F6F6" borderRadius="lg">
               {
-                business?.logoUrl ? business.logoUrl !== 'not_found' ? (
-                  <Image src={business.logoUrl} w="100%" alt="Logo do restaurante" ignoreFallback />
+                logoUrl ? logoUrl !== 'not_found' ? (
+                  <Image src={logoUrl} w="100%" alt="Logo do restaurante" ignoreFallback />
                   ) : (
                     <Center w="100%" h="100%">
                       <Image
