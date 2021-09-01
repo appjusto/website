@@ -10,7 +10,6 @@ frontend/.firebase/
 **/.pnp.js
 **/.pnp
 **/.pnp.js
-**/*.js
 **/*.js.map
 
 # Typescript v1 declaration files

@@ -1,12 +1,12 @@
 import React from 'react'
 import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
-import getFirebaseClient from '../../firebaseApp'
-import firebase from 'firebase/app';
+//import getFirebaseClient from '../../firebaseApp'
+//import firebase from 'firebase/app';
 
 interface PageContextProps {
   contextState: {
-    firebase: firebase.app.App;
-    analytics: firebase.analytics.Analytics;
+    //firebase: firebase.app.App;
+    //analytics: firebase.analytics.Analytics;
     showModalConfirmation: {show: boolean, type: string}
   };
   contextDispatch: React.Dispatch<Actions>;
@@ -24,14 +24,14 @@ export const PageContextProvider = (props) => {
   const [contextState, contextDispatch] = React.useReducer(
     pageContextReducer, initialState
   )
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     (async () => {
       const { firebase, analytics } = await getFirebaseClient()
       return contextDispatch({
         type: "update_firebase", payload: { firebase, analytics }
       })
     })();
-  }, [])
+  }, [])*/
   return <PageContext.Provider value={{ contextState, contextDispatch }} {...props}/>
 }
 
