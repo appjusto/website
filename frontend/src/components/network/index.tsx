@@ -15,6 +15,7 @@ const founders = [
 ]
 
 const angelInvestors = [
+  "Ana Júlia Kiss",
   "Emiliano Graziano",
   "Claudio Neszlinger",
   "Gustavo Araújo",
@@ -54,8 +55,12 @@ const volunteers = [
 ]
 
 const team = [
+  "Ahlan Dias",
+  "Mariana Tuyuti",
   "Pedro Dittmar",
-  "Renan Costa"
+  "Renan Costa",
+  "Vitoria Ottero",
+  "Welington Paulo",
 ]
 
 const Network: React.FC = () => {
