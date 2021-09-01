@@ -1,6 +1,4 @@
-## AppJusto website
-
-## Getting Started
+## AppJusto website - Getting Started
 
 At your selected folder, clone the repository
 
