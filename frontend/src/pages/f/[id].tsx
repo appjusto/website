@@ -16,7 +16,7 @@ import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [],
+    paths: ['appjusto'],
     fallback: 'blocking',
   };
 };

@@ -13,11 +13,8 @@ const clientCredentials = {
 
 interface FirebaseClientResult {
   firebase: any;
-  //db: firebase.firestore.Firestore;
-  //storage: firebase.storage.Storage;
-  functions: firebase.functions.Functions;
   analytics: firebase.analytics.Analytics;
-}
+};
 
 const getFirebaseClient = async (): Promise<FirebaseClientResult> => {
   const firebase = await import('firebase/app')
@@ -31,27 +28,12 @@ const getFirebaseClient = async (): Promise<FirebaseClientResult> => {
     .catch((error) => {
       console.log(error)
     });
-  //const db = await import('firebase/firestore')
-  //  .then(() => {
-  //    if(firebase)
-  //      return firebase.firestore()
-  //  });
-  //const storage = await import('firebase/storage')
-  //  .then(() => {
-  //    if(firebase)
-  //      return firebase.storage()
-  //  });
-  const functions = await import('firebase/functions')
-    .then(() => {
-      if(firebase)
-        return firebase.functions();
-    });
   const analytics  = await import('firebase/analytics')
     .then(() => {
       if(firebase)
         return firebase.analytics();
     });
-  return { firebase, functions, analytics };
+  return { firebase, analytics };
 };
 
 export default getFirebaseClient;
