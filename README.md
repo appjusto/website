@@ -1,4 +1,4 @@
-AppJusto website
+## AppJusto website
 
 ## Getting Started
 
@@ -49,66 +49,13 @@ module.exports = withImages({
   },
 });
 ```
-Firebase settings:
 
-.firebaserc
+Log in with firebase and edit the settings in .firebaserc:
+
 ```bash
 {
   "projects": {
-    "default": "app-justo-website"
-  }
-}
-```
-
-firebase.json
-```bash
-{
-  "hosting": {
-    "public": "public",
-    "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "**/**",
-        "function": "next"
-      }
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      },
-      {
-        "source": "**/*.@(js)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      }
-    ]
-  },
-  "functions": {
-    "source": "./",
-    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run lint",
-    "ignore": [
-      "firebase.json",
-      "firbease-debug.log",
-      "**/.*",
-      "**/node_modules/**",
-      "components/**",
-      "helpers/**",
-      "pages/**",
-      "public/**",
-      "firestore.rules",
-      "readme.md"
-    ]
+    "default": "your-app-name"
   }
 }
 ```
