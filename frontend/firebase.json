@@ -1,5 +1,6 @@
 {
-  "hosting": {
+  "hosting": [{
+    "target": "dev",
     "public": "public",
     "cleanUrls": true,
     "rewrites": [
@@ -30,6 +31,71 @@
       }
     ]
   },
+  {
+    "target": "staging",
+    "public": "public",
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**/**",
+        "function": "next"
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        } ]
+      },
+      {
+        "source": "**/*.@(js)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        } ]
+      }
+    ]
+  },
+  {
+    "target": "live",
+    "public": "public",
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**/**",
+        "function": "next"
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        } ]
+      },
+      {
+        "source": "**/*.@(js)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        } ]
+      }
+    ]
+  }
+],
   "functions": {
     "source": "./",
     "predeploy": "npm --prefix \"$RESOURCE_DIR\" run lint",
