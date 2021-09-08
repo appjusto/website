@@ -18,3 +18,15 @@ exports.next = functions.https.onRequest((request, response) => {
 	console.log("File: " + request.originalUrl);
 	return app.prepare().then(() => handle(request, response));
 });
+
+exports.nextStaging = functions.https.onRequest((request, response) => {
+	// log the page.js file or resource being requested
+	console.log("File: " + request.originalUrl);
+	return app.prepare().then(() => handle(request, response));
+});
+
+exports.nextDev = functions.https.onRequest((request, response) => {
+	// log the page.js file or resource being requested
+	console.log("File: " + request.originalUrl);
+	return app.prepare().then(() => handle(request, response));
+});

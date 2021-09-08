@@ -6,7 +6,7 @@
     "rewrites": [
       {
         "source": "**/**",
-        "function": "next"
+        "function": "nextDev"
       }
     ],
     "ignore": [
@@ -38,7 +38,7 @@
     "rewrites": [
       {
         "source": "**/**",
-        "function": "next"
+        "function": "nextStaging"
       }
     ],
     "ignore": [
