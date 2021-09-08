@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "rimraf nextjs/ && next build",
+    "lint": "eslint",
     "start": "next start",
     "deploy": "firebase deploy && yarn version",
     "postversion": "git push && git push --tags && git fetch"
@@ -55,5 +56,8 @@
     "rimraf": "^3.0.2",
     "tslint": "5.12.0",
     "typescript": "^4.0.5"
+  },
+  "resolutions": {
+    "minipass": "2.7.0"
   }
 }

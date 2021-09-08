@@ -22,7 +22,7 @@ frontend/.firebase/
 frontend/nextjs/
 frontend/.next/
 frontend/out/
-frontend/next.config.js
+frontend/next.config*.js
 
 # production
 **/build
