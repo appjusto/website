@@ -88,12 +88,12 @@ module.exports = withImages({
 });
 ```
 
-Run the project
+Run the project locally
 
 ```bash
-yarn dev
+yarn local:dev
 # or
-npm run dev
+npm run local:dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
