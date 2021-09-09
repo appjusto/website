@@ -10,7 +10,7 @@ const Media = () => {
     <Section id="media">
       <Container pt="24">
         <Content>
-          <SectionHeading>Veja o que já falam sobre nós</SectionHeading>
+          <SectionHeading>Veja o que já falaram sobre nós</SectionHeading>
           <Text mb="6" textStyle="p">
             Graças ao seu apoio, o AppJusto está cada vez mais na mídia. Continue
             divulgando e faça chegar a ainda mais pessoas!
