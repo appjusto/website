@@ -9,7 +9,7 @@ git clone https://github.com/appjusto/website.git
 Go to project's folder and install all dependecies
 
 ```bash
-cd <project_folder>
+cd <project_folder>/frontend
 # then
 yarn
 # or
