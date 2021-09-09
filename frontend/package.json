@@ -47,7 +47,6 @@
     "@types/typeform__embed": "^0.22.2",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
-    "dotenv": "^10.0.0",
     "env-cmd": "^10.1.0",
     "eslint": "7.12.1",
     "eslint-config-standard": "^16.0.2",
