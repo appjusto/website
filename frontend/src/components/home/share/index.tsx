@@ -11,7 +11,7 @@ const Share = () => {
       <Container pt="24">
         <Content>
           <SectionHeading>Com sua ajuda iremos mais longe!</SectionHeading>
-          <Text mb="6">
+          <Text mb="6" textStyle="p">
             Para sermos uma alternativa viável no delivery de plataforma, precisamos alcançar o maior número possível de pessoas. Ajude divulgando a nossa proposta:
           </Text>
           <SharingButtons />

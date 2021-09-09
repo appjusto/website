@@ -9,6 +9,7 @@ import RegistrationBox from '../components/home/hero/RegistrationBox'
 import Better from '../components/home/better'
 import Share from '../components/home/share'
 import UN from '../components/home/un'
+import Media from '../components/home/media'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <RegistrationBox />
       <Better />
+      <Media />
       <Share />
       <Alternative />
       <Commitment />
