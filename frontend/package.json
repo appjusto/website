@@ -1,6 +1,6 @@
 {
   "name": "landingpage",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "author": "@appjusto",
   "license": "MIT",
@@ -13,7 +13,9 @@
     "build": "rimraf nextjs/ && next build",
     "lint": "eslint",
     "start": "next start",
-    "deploy": "firebase deploy && yarn version",
+    "deploy:dev": "env-cmd -e current,dev yarn build && firebase deploy --only functions:nextDev && firebase deploy --only hosting:dev && yarn version",
+    "deploy:staging": "env-cmd -e current,staging yarn build && firebase deploy --only functions:nextStaging && firebase deploy --only hosting:staging && yarn version",
+    "deploy:live": "env-cmd -e current,live yarn build && firebase deploy --only functions:next && firebase deploy --only hosting:live && yarn version",
     "postversion": "git push && git push --tags && git fetch"
   },
   "dependencies": {
@@ -45,6 +47,7 @@
     "@types/typeform__embed": "^0.22.2",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
+    "dotenv": "^10.0.0",
     "env-cmd": "^10.1.0",
     "eslint": "7.12.1",
     "eslint-config-standard": "^16.0.2",
