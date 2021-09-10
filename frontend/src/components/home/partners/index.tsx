@@ -104,7 +104,7 @@ const Partners: React.FC = () => {
           </Text>
           <HStack mt="8">
             <Box>
-              <Image src='/arrow-right.svg' />
+              <Image src='/arrow-right.svg' alt="seta para a direita" />
             </Box>
             <NextLink href="/conheca-a-rede" passHref>
               <Link ml="4" fontSize="lg" fontWeight="700" lineHeight="26px" textDecor="underline" _focus={{ outline: 'none '}}>

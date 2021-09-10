@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
         </Content>
       </Container>
       <Box position="absolute" top="0" left="0" w="full" zIndex="0">
-        <Image src="/hero-bg.jpeg" srcMob="/hero-bg-mobile.jpeg" w="full" eagerLoading />
+        <Image src="/hero-bg.jpeg" srcMob="/hero-bg-mobile.jpeg" w="full" alt="Entregador sentado recebendo pagamento via celular" eagerLoading />
       </Box>
     </Section>
   );

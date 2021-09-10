@@ -8,13 +8,14 @@ interface CustomLinkButtonProps extends LinkProps {
   linkLabel: string
   variant: string
   icon?: string;
+  iconAlt?: string;
   isExternal?: boolean
   isDownload?: boolean
   isDisabled?: boolean
 }
 
 const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
-  name, link, linkLabel, variant, icon, isExternal = true, isDownload = false, isDisabled, ...props
+  name, link, linkLabel, variant, icon, iconAlt, isExternal = true, isDownload = false, isDisabled, ...props
 }) => {
   const styles = useStyleConfig("Button", {variant})
   if(isDisabled) {
@@ -28,7 +29,7 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
         cursor="unset"
         {...props}
       >
-        {icon && <Image src={icon} w="20px" h="22px" ml="-4" mr="2" />}
+        {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" />}
         {linkLabel}
       </Link>
     )
@@ -44,7 +45,7 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
           mt="16px"
           {...props}
         >
-          {icon && <Image src={icon} w="20px" h="22px" ml="-4" mr="2" />}
+          {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" />}
           {linkLabel}
         </Link>
       </NextLink>

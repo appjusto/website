@@ -60,6 +60,7 @@ const RegistrationBox: React.FC = () => {
               variant="primary"
               fontSize="16px"
               icon="icon-play-store.png"
+              iconAlt="ícone play store"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
               isExternal
             />
@@ -70,6 +71,7 @@ const RegistrationBox: React.FC = () => {
               variant="disabled"
               fontSize="16px"
               icon="icon-apple.png"
+              iconAlt="ícone apple store"
               link="#"
               isExternal={false}
               isDisabled
@@ -84,6 +86,7 @@ const RegistrationBox: React.FC = () => {
               variant="primary"
               fontSize="16px"
               icon="icon-play-store.png"
+              iconAlt="ícone play store"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live"
               isExternal
             />
@@ -94,6 +97,7 @@ const RegistrationBox: React.FC = () => {
               variant="primary"
               fontSize="16px"
               icon="icon-apple-black.png"
+              iconAlt="ícone apple store"
               link="https://apps.apple.com/br/app/appjusto/id1569067601"
               isExternal
             />

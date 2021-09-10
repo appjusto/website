@@ -30,7 +30,7 @@ const Header = () => {
             <Box display={{base: 'block', lg: 'none'}}>
               {
                 isOpen ? <CloseButton onClick={onToggle} /> : (
-                  <Button border="none" px="1" bg="#F6F6F6" onClick={onToggle}>
+                  <Button border="none" px="1" bg="#F6F6F6" onClick={onToggle} aria-label="Menu">
                     <VStack spacing={1}>
                       <Box bg="black" h="2px" w="20px"/>
                       <Box bg="black" h="2px" w="20px"/>
@@ -142,7 +142,7 @@ const Header = () => {
             </Link>
             <HStack spacing={4}>
               <CustomLink
-                name="go_to_linkedin_footer"
+                name="go_to_linkedin_header"
                 link="https://www.linkedin.com/company/appjusto/"
                 isExternal
                 mr="28px"
@@ -154,7 +154,7 @@ const Header = () => {
                 />
               </CustomLink>
               <CustomLink
-                name="go_to_facebook_footer"
+                name="go_to_facebook_header"
                 link="https://www.facebook.com/appjusto"
                 isExternal
                 mr="28px"
@@ -166,7 +166,7 @@ const Header = () => {
                 />
               </CustomLink>
               <CustomLink
-                name="go_to_instagram_footer"
+                name="go_to_instagram_header"
                 link="https://www.instagram.com/appjusto/"
                 isExternal
                 mr="28px"

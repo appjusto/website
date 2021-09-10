@@ -14,7 +14,7 @@ const Better = () => {
         <Content>
           <Flex flexDir={{base: 'column', lg: 'row'}}>
             <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
-              <Image src="/courier.png" width="160px" height="160px" />
+              <Image src="/courier.png" width="160px" height="160px" alt="entregador descendo da bicicleta" />
             </Box>
             <Box>
               <SectionHeading>Melhor para entregadores</SectionHeading>
@@ -37,7 +37,7 @@ const Better = () => {
           </Flex>
           <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
             <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
-              <Image src="/business.png" width="160px" height="160px" />
+              <Image src="/business.png" width="160px" height="160px" alt="pessoas segurando uma refeição" />
             </Box>
             <Box>
               <SectionHeading>Melhor para restaurantes</SectionHeading>
@@ -72,7 +72,7 @@ const Better = () => {
           </Flex>
           <Flex mt="16" flexDir={{base: 'column', lg: 'row'}}>
             <Box mr="6" mb={{ base: '6', lg: '0'}} minW="160px">
-              <Image src="/consumer.png" width="160px" height="160px" />
+              <Image src="/consumer.png" width="160px" height="160px" alt="mulher comendo um sanduíche" />
             </Box>
             <Box>
               <SectionHeading>Melhor para consumidores</SectionHeading>
