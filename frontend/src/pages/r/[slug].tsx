@@ -162,6 +162,7 @@ export default function RestaurantPage({ business }) {
               variant="primary"
               fontSize="16px"
               icon="/icon-play-store.png"
+              iconAlt="ícone play store"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live"
               isExternal
             />
@@ -172,6 +173,7 @@ export default function RestaurantPage({ business }) {
               variant="primary"
               fontSize="16px"
               icon="/icon-apple-black.png"
+              iconAlt="ícone apple store"
               link="https://apps.apple.com/br/app/appjusto/id1569067601"
               isExternal
             />

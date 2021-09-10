@@ -42,6 +42,7 @@ export const AppsBox = () => {
               variant="primary"
               fontSize="16px"
               icon="/icon-play-store.png"
+              iconAlt="ícone play store"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
               isExternal
             />
@@ -52,6 +53,7 @@ export const AppsBox = () => {
               variant="disabled"
               fontSize="16px"
               icon="/icon-apple.png"
+              iconAlt="ícone apple store"
               link="#"
               isExternal={false}
               isDisabled
