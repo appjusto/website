@@ -31,10 +31,10 @@ const Media = () => {
           </Stack>
           <Stack mt="4" direction={{base: 'column', lg: 'row'}} spacing={4}>
           <MediaBox
-              text="Impacto social por delivery"
-              link="https://www.istoedinheiro.com.br/impacto-social-por-delivery/"
-              image="/logo-istoe.png"
-              altImg="logo Istoé"
+              text="The 37 best cities in the world in 2021 - 31. São Paulo"
+              link="https://www.timeout.com/things-to-do/best-cities-in-the-world"
+              image="/logo-timeout.png"
+              altImg="logo Timeout"
             />
             <MediaBox
               text="Experiências alternativas no trabalho por plataformas no Brasil"

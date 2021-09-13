@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { Link, LinkProps, Image, Text } from '@chakra-ui/react'
+import { Link, LinkProps, Image } from '@chakra-ui/react'
 import { useStyleConfig } from "@chakra-ui/react"
 
 interface CustomLinkButtonProps extends LinkProps {
