@@ -1,7 +1,7 @@
-import { Head } from 'next/document'
-import PageLayout from '../components/PageLayout'
-import Research from '../components/research'
-import Seo from '../components/Seo'
+import Head from "next/head";
+import PageLayout from '../components/PageLayout';
+import Research from '../components/research';
+import Seo from '../components/Seo';
 
 export default function ResearchPage() {
   return (

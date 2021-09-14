@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
-import { Head } from "next/document";
+import Head from "next/head";
 import NextLink from 'next/link';
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";

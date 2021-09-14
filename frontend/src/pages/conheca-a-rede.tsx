@@ -1,7 +1,7 @@
-import { Head } from 'next/document'
-import Network from '../components/network'
-import PageLayout from '../components/PageLayout'
-import Seo from '../components/Seo'
+import Head from "next/head";
+import Network from '../components/network';
+import PageLayout from '../components/PageLayout';
+import Seo from '../components/Seo';
 
 export default function Net() {
   return (
