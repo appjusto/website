@@ -29,7 +29,7 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
         cursor="unset"
         {...props}
       >
-        {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" />}
+        {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
         {linkLabel}
       </Link>
     )
@@ -45,7 +45,7 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
           mt="16px"
           {...props}
         >
-          {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" />}
+          {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
           {linkLabel}
         </Link>
       </NextLink>
@@ -63,7 +63,7 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
       isExternal={isExternal}
       download={isDownload}
     >
-      {icon && <Image src={icon} w="20px" h="22px" ml="-4" mr="2" />}
+      {icon && <Image src={icon} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
       {linkLabel}
     </Link>
   );
