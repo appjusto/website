@@ -13,6 +13,7 @@ import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
+import Seo from "../../components/Seo";
 
 interface PartialBusiness {
   id: string;
@@ -138,6 +139,12 @@ export default function RestaurantPage({ business }) {
     <Box>
       <Head>
         <title>AppJusto | {business?.name ?? 'Restaurante'}</title>
+        <Seo
+          metaDescription={business?.description ?? "Mais do que um app de entregas. Um movimento por relações mais justas e transparentes para restaurantes, entregadores e clientes. Faça parte desse movimento!"}
+          title={`AppJusto | ${business?.name ?? 'Restaurante'}`}
+          author="@appjusto"
+          canonical_url="https://appjusto.com.br/"
+        />
       </Head>
       <RestaurantAppsBox />
       <Container position="relative" w="100vw" h={{base: 'auto', lg: '100vh'}} pb="24">

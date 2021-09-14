@@ -1,8 +1,19 @@
 import { Box, Center, Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Head } from "next/document";
 import NextLink from "next/link";
+import Seo from "../components/Seo";
 
 export default function PageNotFound() {
   return (
+    <>
+    <Head>
+      <Seo
+        metaDescription="Mais do que um app de entregas. Um movimento por relações mais justas e transparentes para restaurantes, entregadores e clientes. Faça parte desse movimento!"
+        title="AppJusto"
+        author="@appjusto"
+        canonical_url="https://appjusto.com.br/"
+      />
+    </Head>
     <Center w="100vw" h="100vh">
       <Flex flexDir="column" alignItems="center">
         <Box w="140px">
@@ -23,5 +34,6 @@ export default function PageNotFound() {
         </NextLink>
       </Flex>
     </Center>
+    </>
   )
 }

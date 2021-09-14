@@ -13,6 +13,7 @@ import { formatCurrency } from "../../utils";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Fleet } from "../../types";
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
+import Seo from "../../components/Seo";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -57,6 +58,12 @@ export default function FleetPage({ fleet }) {
     <Box>
       <Head>
         <title>AppJusto | {fleet?.name ?? 'Frotas'}</title>
+        <Seo
+          metaDescription="Mais do que um app de entregas. Um movimento por relações mais justas e transparentes para restaurantes, entregadores e clientes. Faça parte desse movimento!"
+          title={`AppJusto | ${fleet?.name ?? 'Frotas'}`}
+          author="@appjusto"
+          canonical_url="https://appjusto.com.br/"
+        />
       </Head>
       <AppsBox />
       <Container w="100vw" h={{base: 'auto', lg: '100vh'}} pb="16">
