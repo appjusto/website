@@ -189,16 +189,16 @@ export default function RestaurantPage({ business }) {
             Ao usar o AppJusto, você paga menos, e colabora com uma economia mais
             justa para entregadores e restaurantes. Faça parte desse movimento!
           </Text>
-          <Link
-            href="https://appjusto.freshdesk.com/support/home"
-            textDecor="underline"
-            fontSize="15px"
-            fontWeight="500"
-            _focus={{ outline: 'none'}}
-            isExternal
-          >
-            Saiba mais sobre o AppJusto
-          </Link>
+          <NextLink href="/" passHref>
+            <Link
+              mt="6"
+              textDecor="underline"
+              fontWeight="500"
+              _focus={{ outline: 'none'}}
+            >
+              Saiba mais sobre o AppJusto
+            </Link>
+          </NextLink>
         </Box>
         <Box mt={{base: '6', md: '0'}} maxW={{base: '100%', md: '320px' ,lg: '656px'}}>
           <Box

@@ -67,19 +67,19 @@ export default function FleetPage({ fleet }) {
       </Head>
       <AppsBox />
       <Container w="100vw" h={{base: 'auto', lg: '100vh'}} pb="16">
-      <Box display={{base:  'block', md: 'none'}} mb="4">
-        <NextLink href="/" passHref>
-          <Link _focus={{ outline: 'none'}} w='94px'>
-            <Image
-              src="/logo-pages.svg"
-              alt="Logo AppJusto"
-              width="94px"
-            />
-          </Link>
-        </NextLink>
-      </Box>
+        <Box display={{base:  'block', md: 'none'}} mb="4">
+          <NextLink href="/" passHref>
+            <Link _focus={{ outline: 'none'}} w='94px'>
+              <Image
+                src="/logo-pages.svg"
+                alt="Logo AppJusto"
+                width="94px"
+              />
+            </Link>
+          </NextLink>
+        </Box>
         <Stack direction={{base: 'column', lg: 'row'}} spacing={12}>
-          <Box maxW="320px">
+          <Box maxW={{lg: '320px'}}>
             <Text fontSize="24px" lineHeight="26px" fontWeight="700">
               Você foi convidado a fazer parte da frota "{fleet?.name ?? 'N/E'}" no AppJusto!
               Bora lá?
@@ -117,7 +117,7 @@ export default function FleetPage({ fleet }) {
               />
             </Stack>
           </Box>
-          <Box minW="272px" maxW="320px">
+          <Box minW="272px" maxW={{lg: '320px'}}>
             <Text fontSize="18px" lineHeight="26px" fontWeight="500">
               {fleet?.name ?? 'N/E'}
             </Text>

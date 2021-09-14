@@ -62,16 +62,16 @@ export const RestaurantAppsBox = () => {
             Ao usar o AppJusto, você paga menos, e colabora com uma economia mais
             justa para entregadores e restaurantes. Faça parte desse movimento!
           </Text>
-          <Link
-            mt="6"
-            href="https://appjusto.freshdesk.com/support/home"
-            textDecor="underline"
-            fontWeight="500"
-            _focus={{ outline: 'none'}}
-            isExternal
-          >
-            Saiba mais sobre o AppJusto
-          </Link>
+          <NextLink href="/" passHref>
+            <Link
+              mt="6"
+              textDecor="underline"
+              fontWeight="500"
+              _focus={{ outline: 'none'}}
+            >
+              Saiba mais sobre o AppJusto
+            </Link>
+          </NextLink>
       </Flex>
     </Container>
   </Section>

@@ -59,16 +59,16 @@ export const AppsBox = () => {
               isDisabled
             />
           </HStack>
-          <Link
-            mt="6"
-            href="https://appjusto.freshdesk.com/support/home"
-            textDecor="underline"
-            fontWeight="500"
-            _focus={{ outline: 'none'}}
-            isExternal
-          >
-            Saiba mais sobre o AppJusto
-          </Link>
+          <NextLink href="/" passHref>
+            <Link
+              mt="6"
+              textDecor="underline"
+              fontWeight="500"
+              _focus={{ outline: 'none'}}
+            >
+              Saiba mais sobre o AppJusto
+            </Link>
+          </NextLink>
       </Flex>
     </Container>
   </Section>
