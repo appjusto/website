@@ -59,7 +59,7 @@ export default function LinkConfirmation() {
               lineHeight="22px"
               textAlign="center"
             >
-              Obrigado por fazer parte desse momento por uma economia mais justa para todos!
+              Obrigado por fazer parte desse movimento por uma economia mais justa para todos!
             </Text>
             <Flex mt="6" justifyContent="center">
               <Image src="/icon-intro-delivery.svg" w="140px"/>
