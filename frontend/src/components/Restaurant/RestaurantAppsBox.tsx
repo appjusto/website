@@ -1,4 +1,4 @@
-import { Flex, Image, Link, HStack, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Link, HStack, Text } from "@chakra-ui/react";
 import NextLink from 'next/link';
 import Container from "../Container";
 import CustomLinkButton from "../CustomLinkButton";
@@ -7,72 +7,46 @@ import Section from "../Section";
 export const RestaurantAppsBox = () => {
   return (
     <Section
-      display={{base: 'none', md: 'flex'}}
-      position={{ base: 'relative', md: 'fixed' }}
-      top="10"
+      display="flex"
+      position={{ base: 'relative', lg: 'fixed' }}
+      top={{base: '6', lg: '10'}}
       zIndex="800"
     >
       <Container pt="0" display="flex" justifyContent="flex-end">
-        <Flex
-          flexDir="column"
+        <Box
           w="100%"
-          maxW="370px"
+          maxW={{lg: '366px'}}
           bg="white"
-          border="1px solid #C8D7CB"
-          p="8"
+          border={{base: 'none', lg: '1px solid #C8D7CB'}}
+          p={{base: '0', lg: '8'}}
           color="black"
         >
-          <NextLink href="/" passHref>
-          <Link _focus={{ outline: 'none'}} w='94px'>
-            <Image
-              src="/logo-pages.svg"
-              alt="Logo AppJusto"
-              width="120px"
-            />
-          </Link>
-        </NextLink>
-          <Text mt="8" fontSize="24px" lineHeight="26px" fontWeight="700">
-            Baixe o app e faça seu pedido!
-          </Text>
-          <HStack mt="6" w="100%" spacing={4}>
+          <Flex justifyContent="space-between" >
+            <NextLink href="/" passHref>
+              <Link _focus={{ outline: 'none'}} w="120px">
+                <Image
+                  src="/logo-pages.svg"
+                  alt="Logo AppJusto"
+                  w="100%"
+                />
+              </Link>
+            </NextLink>
             <CustomLinkButton
-              mt="0"
-              name="app-consumer-android"
-              linkLabel="Android"
-              variant="primary"
-              fontSize="16px"
-              icon="/icon-play-store.png"
-              iconAlt="ícone play store"
-              link="https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live"
-              isExternal
-            />
-            <CustomLinkButton
-              mt="0"
-              name="app-consumer-ios"
-              linkLabel="iPhone"
-              variant="primary"
-              fontSize="16px"
-              icon="/icon-apple-black.png"
-              iconAlt="ícone apple store"
-              link="https://apps.apple.com/br/app/appjusto/id1569067601"
-              isExternal
-            />
-          </HStack>
-          <Text mt="6" fontSize="15px" lineHeight="21px" fontWeight="500">
+                mt="0"
+                maxW="114px"
+                name="app-consumer"
+                linkLabel="Baixe o app"
+                variant="primary"
+                fontSize="16px"
+                link="https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live"
+                isExternal
+              />
+          </Flex>
+          <Text display={{base: 'none', lg: 'block'}} mt="6" fontSize="15px" lineHeight="21px" fontWeight="500">
             Ao usar o AppJusto, você paga menos, e colabora com uma economia mais
             justa para entregadores e restaurantes. Faça parte desse movimento!
           </Text>
-          <NextLink href="/" passHref>
-            <Link
-              mt="6"
-              textDecor="underline"
-              fontWeight="500"
-              _focus={{ outline: 'none'}}
-            >
-              Saiba mais sobre o AppJusto
-            </Link>
-          </NextLink>
-      </Flex>
+        </Box>
     </Container>
   </Section>
   );

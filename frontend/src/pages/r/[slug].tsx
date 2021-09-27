@@ -1,8 +1,6 @@
-import { Box, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@chakra-ui/react";
-import NextLink from 'next/link';
+import { Box, Button, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@chakra-ui/react";
 import Head from 'next/head';
 import Container from "../../components/Container";
-import CustomLinkButton from "../../components/CustomLinkButton";
 import Footer from "../../components/Footer";
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -16,6 +14,7 @@ import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import Seo from "../../components/Seo";
 import { getBusinessObject, getCategoriesObjects, getOrderedCategories, getProductsObjects } from "./utils";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
+import { FaWhatsapp } from 'react-icons/fa'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -66,6 +65,10 @@ export default function RestaurantPage({ business, categories }) {
   const [isAbout, setIsAbout] = React.useState(false);
   const [logoUrl, setLogoUrl] = React.useState<string>();
   const [coverUrl, setCoverUrl] = React.useState<string>();
+  const [whatsBottom, setWhatsBottom] = React.useState(0);
+  // refs
+  //const MainBoxRef = React.useRef<HTMLDivElement>(null);
+  const BoxRef = React.useRef<HTMLDivElement>(null);
   // handlers
   const getDownloadURL = React.useCallback(async (ref: any) => {
     const uri = await ref
@@ -85,7 +88,21 @@ export default function RestaurantPage({ business, categories }) {
       getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
     })();
   }, [business?.id]);
-  console.log('categories', categories);
+  /*React.useEffect(() => {
+    console.log("RENDER")
+    if(!BoxRef?.current) return;
+    if(BoxRef.current.scrollTop >= BoxRef.current.scrollHeight - 110) {
+      setWhatsBottom(124);
+    } else setWhatsBottom(0);
+    console.log('BoxRef', BoxRef.current.scrollTop);
+  }, [BoxRef.current?.scrollTop]);*/
+  React.useEffect(() => {
+    const handleScroll = () => {
+      console.log(BoxRef?.current?.scrollTop)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [BoxRef?.current])
   // UI
   return (
     <Box>
@@ -98,210 +115,227 @@ export default function RestaurantPage({ business, categories }) {
           canonical_url="https://appjusto.com.br/"
         />
       </Head>
-      <RestaurantAppsBox />
-      <Container position="relative" w="100vw" pb="24">
-        <Box display={{base:  'block', md: 'none'}} mb="4">
-          <NextLink href="/" passHref>
-            <Link _focus={{ outline: 'none'}} w='94px'>
-              <Image
-                src="/logo-pages.svg"
-                alt="Logo AppJusto"
-                width="94px"
-              />
-            </Link>
-          </NextLink>
-          <Text mt="6" fontSize="24px" lineHeight="26px" fontWeight="700">
-            Baixe o app e faça seu pedido!
-          </Text>
-          <HStack mt="6" w="100%" spacing={4}>
-            <CustomLinkButton
-              mt="0"
-              name="app-consumer-android"
-              linkLabel="Android"
-              variant="primary"
-              fontSize="16px"
-              icon="/icon-play-store.png"
-              iconAlt="ícone play store"
-              link="https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live"
-              isExternal
-            />
-            <CustomLinkButton
-              mt="0"
-              name="app-consumer-ios"
-              linkLabel="iPhone"
-              variant="primary"
-              fontSize="16px"
-              icon="/icon-apple-black.png"
-              iconAlt="ícone apple store"
-              link="https://apps.apple.com/br/app/appjusto/id1569067601"
-              isExternal
-            />
-          </HStack>
-          <Text mt="6" mb="4" fontSize="15px" lineHeight="21px" fontWeight="500">
-            Ao usar o AppJusto, você paga menos, e colabora com uma economia mais
-            justa para entregadores e restaurantes. Faça parte desse movimento!
-          </Text>
-          <NextLink href="/" passHref>
-            <Link
-              mt="6"
-              textDecor="underline"
-              fontWeight="500"
-              _focus={{ outline: 'none'}}
+      <Box ref={BoxRef}>
+        <RestaurantAppsBox />
+        <Container position="relative" w="100vw" pb="24">
+          <Box position="relative" mt={{base: '2', lg: '0'}} maxW={{base: '100%', lg: '656px'}}>
+            <Box
+              position="relative"
+              w="100%"
+              h={{base: '117px', md: '264px', lg: '234px'}}
+              bgColor="#F6F6F6"
+              borderRadius="lg"
+              overflow="hidden"
+              zIndex="100"
             >
-              Saiba mais sobre o AppJusto
-            </Link>
-          </NextLink>
-        </Box>
-        <Box mt={{base: '6', md: '0'}} maxW={{base: '100%', md: '320px' ,lg: '656px'}}>
-          <Box
-            position="relative"
-            w="100%"
-            h={{base: '117px', md: '114px', lg: '234px'}}
-            bgColor="#F6F6F6"
-            borderRadius="lg"
-            overflow="hidden"
-          >
-            {
-              coverUrl ? coverUrl !== 'not_found' ? (
-                <Image src={coverUrl} w="100%" alt="Foto de capa do restaurante" ignoreFallback />
-                ) : (
-                  <Center w="100%" h="100%">
-                    <Image
-                      src="/placeholder.svg"
-                      w="34px"
-                      h="34px"
-                      alt="Foto de capa do restaurante não encontrada"
-                      ignoreFallback
-                    />
-                  </Center>
-                ) : (
-                <Center w="100%" h="100%">
-                  <Spinner size="md" color="white" />
-                </Center>
-              )
-            }
-          </Box>
-          <Flex mt="6" justifyContent="space-between" alignItems="center">
-            <Box>
-              <Text fontSize="24px" lineHeight="26px" fontWeight="700">
-                {business?.name ?? 'N/E'}
-              </Text>
-              <Text mt="1" fontSize="16px" lineHeight="22px" fontWeight="500" color="#4EA031">
-                {business?.cuisine ?? 'N/E'}
-              </Text>
-            </Box>
-            <Box position="relative" w="64px" h="64px" bgColor="#F6F6F6" borderRadius="lg">
               {
-                logoUrl ? logoUrl !== 'not_found' ? (
-                  <Image src={logoUrl} w="100%" alt="Logo do restaurante" ignoreFallback />
+                coverUrl ? coverUrl !== 'not_found' ? (
+                  <Image src={coverUrl} w="100%" alt="Foto de capa do restaurante" ignoreFallback />
                   ) : (
                     <Center w="100%" h="100%">
                       <Image
-                        src="/logo-placeholder.png"
-                        w="64px"
-                        h="64px"
+                        src="/placeholder.svg"
+                        w="34px"
+                        h="34px"
                         alt="Foto de capa do restaurante não encontrada"
                         ignoreFallback
                       />
                     </Center>
                   ) : (
                   <Center w="100%" h="100%">
-                    <Spinner size="sm" color="white" />
+                    <Spinner size="md" color="white" />
                   </Center>
                 )
               }
+              <Text
+                position="absolute"
+                display={{base: 'block', md: 'none'}}
+                bottom="2"
+                right="2"
+                bgColor="white"
+                border="1px solid black"
+                borderRadius="24px"
+                py="1"
+                px="2"
+                fontSize="13px"
+                lineHeight="18px"
+                fontWeight="500"
+                cursor="pointer"
+                onClick={() => setIsAbout(!isAbout)}
+                zIndex="900"
+              >
+                {isAbout ? "Ver cardápio" : "Saber mais"}
+              </Text>
             </Box>
-          </Flex>
-          <Box>
-          <Link
-            mt="4"
-            w={{base: '100%', lg: '336px'}}
-            h="40px"
-            bgColor="#F6F6F6"
-            borderRadius="lg"
-            href="#"
-            display="inline-flex"
-            justifyContent="center"
-            alignItems="center"
-            fontSize="13px"
-            lineHeight="18px"
-            fontWeight="500"
-            isExternal
-          >
-            <Image src="/icon-share.png" w="24px" h="24px" mr="2" ignoreFallback />
-            Compartilhe esse restaurante com seus amigos!
-          </Link>
-          </Box>
-          {
-            isAbout ? (
-              <>
-                <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
-                <Flex mt="10" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
-                  <Box>
-                    <HStack spacing={2}>
-                      <Icon as={MdQueryBuilder} />
-                      <Text fontSize="16px" lineHeight="21px" fontWeight="500">
-                        Horário de entrega
-                      </Text>
-                    </HStack>
-                    <HStack mt="4" spacing={2}>
-                      <Box>
-                        {business?.schedules.map((item) => (
-                          <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                            {item.day}
-                          </Text>
-                        ))}
-                      </Box>
-                      <Box>
-                        {business?.schedules.map((item) => {
-                          return !item.checked ? (
-                            <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                              Fechado
-                            </Text>
-                          ) : (
-                            <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                              {item.schedule
-                                .map(({ from, to }) => `${formatHour(from)} ${'às'} ${formatHour(to)}`)
-                                .join('  -  ')}
-                            </Text>
-                          );
-                        })}
-                      </Box>
-                    </HStack>
-                  </Box>
-                  <Box mt={{base: '8', lg: '0'}}>
-                    <HStack spacing={2}>
-                      <Icon as={MdInfoOutline} />
-                      <Text fontSize="16px" lineHeight="21px" fontWeight="500">
-                        Outras informações
-                      </Text>
-                    </HStack>
-                    <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                      {`${business?.businessAddress?.address ?? 'N/E'}, ${business?.businessAddress?.number}`}
-                    </Text>
-                    <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                      {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
-                    </Text>
-                    <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                      {`CEP: ${business?.businessAddress?.cep ? formatCEP(business.businessAddress?.cep) : 'N/E'}`}
-                    </Text>
-                    <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                      {`CNPJ: ${business?.cnpj ? cnpjutils.format(business.cnpj) : 'N/E'}`}
-                    </Text>
-                  </Box>
-                </Flex>
-              </>
-            ) : (
+            <Flex mt="6" justifyContent="space-between" alignItems="center">
               <Box>
+                <HStack spacing={4}>
+                  <Text fontSize="24px" lineHeight="26px" fontWeight="700">
+                    {business?.name ?? 'N/E'}
+                  </Text>
+                  <Text
+                    ml="2"
+                    display={{base: 'none', md: 'block'}}
+                    as="span"
+                    border="1px solid black"
+                    borderRadius="24px"
+                    py="1"
+                    px="2"
+                    fontSize="13px"
+                    lineHeight="18px"
+                    fontWeight="500"
+                    cursor="pointer"
+                    onClick={() => setIsAbout(!isAbout)}
+                  >
+                    {isAbout ? "Ver cardápio" : "Saber mais"}
+                  </Text>
+                </HStack>
+                <Text mt="1" fontSize="16px" lineHeight="22px" fontWeight="500" color="#4EA031">
+                  {business?.cuisine ?? 'N/E'}
+                </Text>
+              </Box>
+              <Box position="relative" w="64px" h="64px" bgColor="#F6F6F6" borderRadius="lg">
                 {
-                  categories && categories.map((category: WithId<Category>) => <CategoryItem category={category} />)
+                  logoUrl ? logoUrl !== 'not_found' ? (
+                    <Image src={logoUrl} w="100%" alt="Logo do restaurante" ignoreFallback />
+                    ) : (
+                      <Center w="100%" h="100%">
+                        <Image
+                          src="/logo-placeholder.png"
+                          w="64px"
+                          h="64px"
+                          alt="Foto de capa do restaurante não encontrada"
+                          ignoreFallback
+                        />
+                      </Center>
+                    ) : (
+                    <Center w="100%" h="100%">
+                      <Spinner size="sm" color="white" />
+                    </Center>
+                  )
                 }
               </Box>
-            )
-          }
-        </Box>
-      </Container>
-      <Footer />
+            </Flex>
+            <Box>
+            <Link
+              mt="4"
+              w={{base: '100%', md: '336px'}}
+              h="40px"
+              bgColor="#F6F6F6"
+              borderRadius="lg"
+              href="#"
+              display="inline-flex"
+              justifyContent="center"
+              alignItems="center"
+              fontSize="13px"
+              lineHeight="18px"
+              fontWeight="500"
+              isExternal
+            >
+              <Image src="/icon-share.png" w="24px" h="24px" mr="2" ignoreFallback />
+              Compartilhe esse restaurante com seus amigos!
+            </Link>
+            </Box>
+            {
+              isAbout ? (
+                <>
+                  <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
+                  <Flex mt="10" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
+                    <Box>
+                      <HStack spacing={2}>
+                        <Icon as={MdQueryBuilder} />
+                        <Text fontSize="16px" lineHeight="21px" fontWeight="500">
+                          Horário de entrega
+                        </Text>
+                      </HStack>
+                      <HStack mt="4" spacing={2}>
+                        <Box>
+                          {business?.schedules.map((item) => (
+                            <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                              {item.day}
+                            </Text>
+                          ))}
+                        </Box>
+                        <Box>
+                          {business?.schedules.map((item) => {
+                            return !item.checked ? (
+                              <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                                Fechado
+                              </Text>
+                            ) : (
+                              <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                                {item.schedule
+                                  .map(({ from, to }) => `${formatHour(from)} ${'às'} ${formatHour(to)}`)
+                                  .join('  -  ')}
+                              </Text>
+                            );
+                          })}
+                        </Box>
+                      </HStack>
+                    </Box>
+                    <Box mt={{base: '8', lg: '0'}}>
+                      <HStack spacing={2}>
+                        <Icon as={MdInfoOutline} />
+                        <Text fontSize="16px" lineHeight="21px" fontWeight="500">
+                          Outras informações
+                        </Text>
+                      </HStack>
+                      <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                        {`${business?.businessAddress?.address ?? 'N/E'}, ${business?.businessAddress?.number}`}
+                      </Text>
+                      <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                        {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
+                      </Text>
+                      <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                        {`CEP: ${business?.businessAddress?.cep ? formatCEP(business.businessAddress?.cep) : 'N/E'}`}
+                      </Text>
+                      <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                        {`CNPJ: ${business?.cnpj ? cnpjutils.format(business.cnpj) : 'N/E'}`}
+                      </Text>
+                    </Box>
+                  </Flex>
+                </>
+              ) : (
+                <Box>
+                  {
+                    categories && categories.map((category: WithId<Category>) => <CategoryItem key={category.id} category={category} />)
+                  }
+                </Box>
+              )
+            }
+            <Box
+              w={{base: '100vw', lg: '100%'}}
+              position="fixed"
+              bottom={`${whatsBottom}px`}
+              left={{base: '0', lg: 'auto'}}
+              maxW={{lg: '656px'}}
+              bgColor="white"
+              py="4"
+              px={{base: '4', lg: '0'}}
+              border="none"
+            >
+              <Link
+                w='100%'
+                h="48px"
+                bgColor="#6CE787"
+                borderRadius="lg"
+                href="#"
+                display="inline-flex"
+                justifyContent="center"
+                alignItems="center"
+                fontSize="16px"
+                lineHeight="22px"
+                fontWeight="700"
+                isExternal
+              >
+                <Icon as={FaWhatsapp} w="24px" h="24px" mr="2" />
+                Pedir pelo WhatsApp
+              </Link>
+            </Box>
+          </Box>
+        </Container>
+        <Footer />
+      </Box>
     </Box>
   );
 };

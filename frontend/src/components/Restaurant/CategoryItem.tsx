@@ -16,7 +16,7 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
         </Text>
       </HStack>
       {
-        category.items.map(product => <ProductItem product={product} />)
+        category.items.map(product => <ProductItem key={product.id} product={product} />)
       }
     </Box>
   )
