@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 //import { Business, WithId } from '@appjusto/types';
-import { Category, Ordering, PartialBusiness, Product, WithId } from "../../types";
+import { Category, Ordering, PartialBusiness, WithId } from "../../types";
 import { RestaurantAppsBox } from "../../components/Restaurant/RestaurantAppsBox";
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
@@ -65,7 +65,7 @@ export default function RestaurantPage({ business, categories }) {
   const [isAbout, setIsAbout] = React.useState(false);
   const [logoUrl, setLogoUrl] = React.useState<string>();
   const [coverUrl, setCoverUrl] = React.useState<string>();
-  const [whatsBottom, setWhatsBottom] = React.useState(0);
+  const [whatsLimit, setWhatsLimit] = React.useState(false);
   // refs
   //const MainBoxRef = React.useRef<HTMLDivElement>(null);
   const BoxRef = React.useRef<HTMLDivElement>(null);
@@ -88,24 +88,19 @@ export default function RestaurantPage({ business, categories }) {
       getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
     })();
   }, [business?.id]);
-  /*React.useEffect(() => {
-    console.log("RENDER")
-    if(!BoxRef?.current) return;
-    if(BoxRef.current.scrollTop >= BoxRef.current.scrollHeight - 110) {
-      setWhatsBottom(124);
-    } else setWhatsBottom(0);
-    console.log('BoxRef', BoxRef.current.scrollTop);
-  }, [BoxRef.current?.scrollTop]);*/
   React.useEffect(() => {
+    if(!BoxRef.current) return;
+    const limit = BoxRef.current.scrollHeight - 206 - screen.height;
     const handleScroll = () => {
-      console.log(BoxRef?.current?.scrollTop)
-    }
-    window.addEventListener('scroll', handleScroll)
+      if (document.documentElement.scrollTop >= limit) setWhatsLimit(true);
+      else setWhatsLimit(false);
+    };
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [BoxRef?.current])
+  }, [BoxRef?.current]);
   // UI
   return (
-    <Box>
+    <Box ref={BoxRef}>
       <Head>
         <title>AppJusto | {business?.name ?? 'Restaurante'}</title>
         <Seo
@@ -115,7 +110,7 @@ export default function RestaurantPage({ business, categories }) {
           canonical_url="https://appjusto.com.br/"
         />
       </Head>
-      <Box ref={BoxRef}>
+      <Box>
         <RestaurantAppsBox />
         <Container position="relative" w="100vw" pb="24">
           <Box position="relative" mt={{base: '2', lg: '0'}} maxW={{base: '100%', lg: '656px'}}>
@@ -304,14 +299,15 @@ export default function RestaurantPage({ business, categories }) {
               )
             }
             <Box
-              w={{base: '100vw', lg: '100%'}}
-              position="fixed"
-              bottom={`${whatsBottom}px`}
+              w={{base: whatsLimit ? '100%' : '100vw', lg: '100%'}}
+              position={whatsLimit ? 'relative' : 'fixed'}
+              bottom="0"
+              transition="position 0.2s, transform 0.3s"
               left={{base: '0', lg: 'auto'}}
               maxW={{lg: '656px'}}
               bgColor="white"
               py="4"
-              px={{base: '4', lg: '0'}}
+              px={{base: whatsLimit ? '0' : '4', lg: '0'}}
               border="none"
             >
               <Link
