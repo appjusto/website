@@ -107,3 +107,45 @@ export interface Business {
   orderPrinting?: boolean;
   slug?: string;
 }
+
+export interface PartialBusiness {
+  id: string;
+  cnpj: string;
+  name: string;
+  cuisine: string;
+  description: string;
+  businessAddress: BusinessAddress;
+  schedules: BusinessSchedule;
+  logoUrl?: string;
+  coverUrl?: string;
+}
+
+export interface Ordering {
+  firstLevelIds: string[];
+  secondLevelIdsByFirstLevelId: {
+    [firstLevelId: string]: string[];
+  };
+}
+
+export interface Product {
+  name: string;
+  description?: string;
+  imageExists?: boolean;
+  price: number;
+  externalId?: string;
+  enabled: boolean;
+  classifications?: string[];
+  complementsEnabled?: boolean;
+  complementsGroupsIds?: string[];
+  //statistics?: ProductStatistics;
+  availability?: BusinessSchedule;
+  // transient
+  //complementsGroups?: WithId<ComplementGroup>[];
+}
+
+export interface Category {
+  name: string;
+  enabled: boolean;
+  // transient
+  items?: WithId<Product>[];
+}

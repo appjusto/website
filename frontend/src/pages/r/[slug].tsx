@@ -7,25 +7,15 @@ import Footer from "../../components/Footer";
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 //import { Business, WithId } from '@appjusto/types';
-import { Business, BusinessAddress, BusinessSchedule } from "../../types";
+import { Category, Ordering, PartialBusiness, Product, WithId } from "../../types";
 import { RestaurantAppsBox } from "../../components/Restaurant/RestaurantAppsBox";
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import Seo from "../../components/Seo";
-
-interface PartialBusiness {
-  id: string;
-  cnpj: string;
-  name: string;
-  cuisine: string;
-  description: string;
-  businessAddress: BusinessAddress;
-  schedules: BusinessSchedule;
-  logoUrl?: string;
-  coverUrl?: string;
-}
+import { getBusinessObject, getCategoriesObjects, getOrderedCategories, getProductsObjects } from "./utils";
+import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -37,82 +27,43 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = params.slug;
   const { db } = await getFirebaseProjectsClient();
-  //const bucket = await getFirebaseProjectsAdmin();
-  // handlers
-  /*const getImageDownloadUrl = async (docId: string, imageName: string) => {
-    try {
-      const file = bucket.file(`businesses/${docId}/${imageName}`);
-      const url = await file.getSignedUrl({action: 'read', expires: '12-31-2026'}).then(urls => urls[0]);
-      return url;
-    } catch (error) {
-      console.error(error);
-      return 'not_found';
-    };
-  };*/
   // queries
   let business = {} as PartialBusiness;
   const queryBySlug = await db.collection('businesses')
   .where('slug', '==', slug)
   .get()
   if(queryBySlug.docs.length > 0) {
-    business = queryBySlug.docs.map(doc => {
-      const docData = doc.data() as Business;
-      return {
-        id: doc.id,
-        cnpj: docData.cnpj,
-        name: docData.name,
-        cuisine: docData.cuisine,
-        description: docData.description,
-        businessAddress: docData.businessAddress,
-        schedules: docData.schedules,
-      }
-    })[0];
+    business = getBusinessObject(queryBySlug.docs);
   } else {
     business = await db.collection('businesses')
     .where('code', '==', slug)
     .get()
     .then((data) => {
-      if(!data.empty) return data.docs.map(doc => {
-        const docData = doc.data() as Business;
-        return {
-          id: doc.id,
-          cnpj: docData.cnpj,
-          name: docData.name,
-          cuisine: docData.cuisine,
-          description: docData.description,
-          businessAddress: docData.businessAddress,
-          schedules: docData.schedules,
-        }
-      })[0];
+      if(!data.empty) return getBusinessObject(data.docs);
       else return null
     });
   }
-  /*if(business?.id) {
-    const logoUrl = await getImageDownloadUrl(business.id, 'logo_240x240.jpg');
-    const coverUrl = await getImageDownloadUrl(business.id, 'cover_1008x360.jpg');
-    //const logoUrl = `https://storage.googleapis.com/app-justo-dev.appspot.com/businesses/${business.id}/logo_240x240.jpg`;
-    //const coverUrl = `https://storage.googleapis.com/app-justo-dev.appspot.com/businesses/${business.id}/cover_1008x360.jpg`;
-    business = {
-      ...business,
-      logoUrl,
-      coverUrl,
-    }
-  }*/
   if (!business) {
     return {
       notFound: true,
     }
   };
+  const unorderedCategories = await db.collection('businesses').doc(business.id).collection('categories').get().then((data) => getCategoriesObjects(data.docs));
+  const products = await db.collection('businesses').doc(business.id).collection('products').get().then((data) => getProductsObjects(data.docs));
+  const ordering = await db.collection('businesses').doc(business.id).collection('menu').doc('default').get().then((data) => data.data()) as Ordering;
+  const categories = getOrderedCategories(unorderedCategories, products, ordering);
   return {
     props: {
       business,
+      categories,
     },
     revalidate: 10,
   };
 };
 
-export default function RestaurantPage({ business }) {
+export default function RestaurantPage({ business, categories }) {
   // state
+  const [isAbout, setIsAbout] = React.useState(false);
   const [logoUrl, setLogoUrl] = React.useState<string>();
   const [coverUrl, setCoverUrl] = React.useState<string>();
   // handlers
@@ -134,6 +85,7 @@ export default function RestaurantPage({ business }) {
       getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
     })();
   }, [business?.id]);
+  console.log('categories', categories);
   // UI
   return (
     <Box>
@@ -147,7 +99,7 @@ export default function RestaurantPage({ business }) {
         />
       </Head>
       <RestaurantAppsBox />
-      <Container position="relative" w="100vw" h={{base: 'auto', lg: '100vh'}} pb="24">
+      <Container position="relative" w="100vw" pb="24">
         <Box display={{base:  'block', md: 'none'}} mb="4">
           <NextLink href="/" passHref>
             <Link _focus={{ outline: 'none'}} w='94px'>
@@ -260,61 +212,93 @@ export default function RestaurantPage({ business }) {
               }
             </Box>
           </Flex>
-          <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
-          <Flex mt="10" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
-            <Box>
-              <HStack spacing={2}>
-                <Icon as={MdQueryBuilder} />
-                <Text fontSize="16px" lineHeight="21px" fontWeight="500">
-                  Horário de entrega
-                </Text>
-              </HStack>
-              <HStack mt="4" spacing={2}>
-                <Box>
-                  {business?.schedules.map((item) => (
-                    <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                      {item.day}
+          <Box>
+          <Link
+            mt="4"
+            w={{base: '100%', lg: '336px'}}
+            h="40px"
+            bgColor="#F6F6F6"
+            borderRadius="lg"
+            href="#"
+            display="inline-flex"
+            justifyContent="center"
+            alignItems="center"
+            fontSize="13px"
+            lineHeight="18px"
+            fontWeight="500"
+            isExternal
+          >
+            <Image src="/icon-share.png" w="24px" h="24px" mr="2" ignoreFallback />
+            Compartilhe esse restaurante com seus amigos!
+          </Link>
+          </Box>
+          {
+            isAbout ? (
+              <>
+                <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
+                <Flex mt="10" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
+                  <Box>
+                    <HStack spacing={2}>
+                      <Icon as={MdQueryBuilder} />
+                      <Text fontSize="16px" lineHeight="21px" fontWeight="500">
+                        Horário de entrega
+                      </Text>
+                    </HStack>
+                    <HStack mt="4" spacing={2}>
+                      <Box>
+                        {business?.schedules.map((item) => (
+                          <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                            {item.day}
+                          </Text>
+                        ))}
+                      </Box>
+                      <Box>
+                        {business?.schedules.map((item) => {
+                          return !item.checked ? (
+                            <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                              Fechado
+                            </Text>
+                          ) : (
+                            <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                              {item.schedule
+                                .map(({ from, to }) => `${formatHour(from)} ${'às'} ${formatHour(to)}`)
+                                .join('  -  ')}
+                            </Text>
+                          );
+                        })}
+                      </Box>
+                    </HStack>
+                  </Box>
+                  <Box mt={{base: '8', lg: '0'}}>
+                    <HStack spacing={2}>
+                      <Icon as={MdInfoOutline} />
+                      <Text fontSize="16px" lineHeight="21px" fontWeight="500">
+                        Outras informações
+                      </Text>
+                    </HStack>
+                    <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                      {`${business?.businessAddress?.address ?? 'N/E'}, ${business?.businessAddress?.number}`}
                     </Text>
-                  ))}
-                </Box>
-                <Box>
-                  {business?.schedules.map((item) => {
-                    return !item.checked ? (
-                      <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                        Fechado
-                      </Text>
-                    ) : (
-                      <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                        {item.schedule
-                          .map(({ from, to }) => `${formatHour(from)} ${'às'} ${formatHour(to)}`)
-                          .join('  -  ')}
-                      </Text>
-                    );
-                  })}
-                </Box>
-              </HStack>
-            </Box>
-            <Box mt={{base: '8', lg: '0'}}>
-              <HStack spacing={2}>
-                <Icon as={MdInfoOutline} />
-                <Text fontSize="16px" lineHeight="21px" fontWeight="500">
-                  Outras informações
-                </Text>
-              </HStack>
-              <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`${business?.businessAddress?.address ?? 'N/E'}, ${business?.businessAddress?.number}`}
-              </Text>
-              <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
-              </Text>
-              <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`CEP: ${business?.businessAddress?.cep ? formatCEP(business.businessAddress?.cep) : 'N/E'}`}
-              </Text>
-              <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                {`CNPJ: ${business?.cnpj ? cnpjutils.format(business.cnpj) : 'N/E'}`}
-              </Text>
-            </Box>
-          </Flex>
+                    <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                      {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
+                    </Text>
+                    <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                      {`CEP: ${business?.businessAddress?.cep ? formatCEP(business.businessAddress?.cep) : 'N/E'}`}
+                    </Text>
+                    <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                      {`CNPJ: ${business?.cnpj ? cnpjutils.format(business.cnpj) : 'N/E'}`}
+                    </Text>
+                  </Box>
+                </Flex>
+              </>
+            ) : (
+              <Box>
+                {
+                  categories && categories.map((category: WithId<Category>) => <CategoryItem category={category} />)
+                }
+              </Box>
+            )
+          }
         </Box>
       </Container>
       <Footer />
