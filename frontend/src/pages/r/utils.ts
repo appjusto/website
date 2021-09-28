@@ -70,3 +70,11 @@ export const getOrderedCategories = <T extends object, T2 extends object>(
     };
   });
 };
+
+export const getDownloadURL = async (ref: any) => {
+  const uri = await ref
+    .getDownloadURL()
+    .then((res: string | null) => res)
+    .catch(() => 'not_found');
+  return uri;
+};

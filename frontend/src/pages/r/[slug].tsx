@@ -12,7 +12,7 @@ import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import Seo from "../../components/Seo";
-import { getBusinessObject, getCategoriesObjects, getOrderedCategories, getProductsObjects } from "./utils";
+import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "./utils";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 import { FaWhatsapp } from 'react-icons/fa'
 
@@ -69,14 +69,6 @@ export default function RestaurantPage({ business, categories }) {
   // refs
   //const MainBoxRef = React.useRef<HTMLDivElement>(null);
   const BoxRef = React.useRef<HTMLDivElement>(null);
-  // handlers
-  const getDownloadURL = React.useCallback(async (ref: any) => {
-    const uri = await ref
-      .getDownloadURL()
-      .then((res: string | null) => res)
-      .catch(() => 'not_found');
-    return uri;
-  }, []);
   // side effects
   React.useEffect(() => {
     if(!business?.id) return;
@@ -293,7 +285,7 @@ export default function RestaurantPage({ business, categories }) {
               ) : (
                 <Box>
                   {
-                    categories && categories.map((category: WithId<Category>) => <CategoryItem key={category.id} category={category} />)
+                    categories && categories.map((category: WithId<Category>) => <CategoryItem key={category.id} businessId={business?.id} category={category} />)
                   }
                 </Box>
               )

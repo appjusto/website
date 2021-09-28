@@ -1,12 +1,32 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
+import React from 'react';
+import Image from "../Image";
+import { getDownloadURL } from "../../pages/r/utils";
+import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 
 interface ProductItemProps {
+  businessId: string;
   product: WithId<Product>;
 }
 
-export const ProductItem = ({ product }: ProductItemProps) => {
+export const ProductItem = ({ businessId, product }: ProductItemProps) => {
+  // state
+  const [imageUrl, setImageUrl] = React.useState<string>();
+  // side effects
+  React.useEffect(() => {
+    if(!product?.id) return;
+    (async () => {
+      const { storage } = await getFirebaseProjectsClient();
+      const imageRef = storage.ref().child(`businesses/${businessId}/products/${product.id}_288x288.jpg`);
+      getDownloadURL(imageRef).then(uri => {
+        if(!uri || uri === 'not_found') setImageUrl('/product-placeholder.png');
+        else setImageUrl(uri);
+      });
+    })();
+  }, [businessId, product?.id]);
+  // UI
   return (
     <Flex w="100%" py="3" justifyContent="space-between" borderTop="1px solid #F6F6F6">
       <Box maxW={{base: '228px', lg: '400px'}}>
@@ -20,8 +40,8 @@ export const ProductItem = ({ product }: ProductItemProps) => {
           {formatCurrency(product.price)}
         </Text>
       </Box>
-      <Box w="80px" h="80px" bgColor="#F6F6F6" borderRadius="lg">
-
+      <Box position="relative" w="80px" h="80px" bgColor="#F6F6F6" borderRadius="lg" overflow="hidden">
+        <Image src={imageUrl} w="80px" h="80px" />
       </Box>
     </Flex>
   )

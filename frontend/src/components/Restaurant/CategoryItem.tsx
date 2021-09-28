@@ -3,10 +3,11 @@ import { Category, WithId } from "../../types"
 import { ProductItem } from "./ProductItem"
 
 interface CategoryItemProps {
+  businessId: string;
   category: WithId<Category>;
 }
 
-export const CategoryItem = ({ category }: CategoryItemProps) => {
+export const CategoryItem = ({ businessId, category }: CategoryItemProps) => {
   return (
     <Box mt="6">
       <HStack spacing={4} pb="4">
@@ -16,7 +17,7 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
         </Text>
       </HStack>
       {
-        category.items.map(product => <ProductItem key={product.id} product={product} />)
+        category.items.map(product => <ProductItem key={product.id} businessId={businessId} product={product} />)
       }
     </Box>
   )
