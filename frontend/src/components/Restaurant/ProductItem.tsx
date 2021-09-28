@@ -3,7 +3,7 @@ import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
 import React from 'react';
 import Image from "../Image";
-import { getDownloadURL } from "../../pages/r/utils";
+import { getDownloadURL } from "../../utils/businesses";
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 
 interface ProductItemProps {

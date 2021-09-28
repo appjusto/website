@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@chakra-ui/react";
 import Head from 'next/head';
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
@@ -12,9 +12,8 @@ import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import Seo from "../../components/Seo";
-import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "./utils";
+import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "../../utils/businesses";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
-import { FaWhatsapp } from 'react-icons/fa'
 import { useRouter } from "next/router";
 import { WhatsappOrderButton } from "../../components/Restaurant/WhatsappOrderButton";
 

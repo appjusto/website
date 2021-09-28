@@ -1,4 +1,4 @@
-import { Business, Category, Ordering, Product, WithId } from "../../types";
+import { Business, Category, Ordering, Product, WithId } from "../types";
 import firebase from 'firebase/app';
 
 export type FirebaseDocument =
