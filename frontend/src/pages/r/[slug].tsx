@@ -12,7 +12,7 @@ import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import Seo from "../../components/Seo";
-import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "./utils";
+import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getOS, getProductsObjects } from "./utils";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 import { FaWhatsapp } from 'react-icons/fa'
 
@@ -68,7 +68,6 @@ export default function RestaurantPage({ business, categories }) {
   const [whatsLimit, setWhatsLimit] = React.useState(false);
   const [sharingMsg, setSharingMsg] = React.useState("");
   // refs
-  //const MainBoxRef = React.useRef<HTMLDivElement>(null);
   const BoxRef = React.useRef<HTMLDivElement>(null);
   // helpers
   const path = "https://appjusto.com.br/r/itapuama-vegan";
@@ -97,7 +96,7 @@ export default function RestaurantPage({ business, categories }) {
   React.useEffect(() => {
     if(!business?.slug) return;
     const url = `https://appjusto.com.br/r/${business.slug}`;
-    const message = encodeURIComponent(`Olá! Gostaria de te indicar esse ótimo restaurante!\n\n${url}`);
+    const message = encodeURIComponent(`Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e o entregador. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`);
     setSharingMsg(message);
   }, [business?.slug]);
   React.useEffect(() => {

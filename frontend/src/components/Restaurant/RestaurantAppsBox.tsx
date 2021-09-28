@@ -3,8 +3,19 @@ import NextLink from 'next/link';
 import Container from "../Container";
 import CustomLinkButton from "../CustomLinkButton";
 import Section from "../Section";
+import React from 'react';
+import { getOS } from "../../pages/r/utils";
 
 export const RestaurantAppsBox = () => {
+  // state
+  const [appLink, setAppLink] = React.useState('https://apps.apple.com/br/app/appjusto/id1569067601');
+  // side effects
+  React.useEffect(() => {
+    const opSystem = getOS();
+    console.log('opSystem', opSystem);
+    if(opSystem === 'Android') setAppLink('https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live')
+  }, []);
+  // UI
   return (
     <Section
       display="flex"
@@ -38,7 +49,7 @@ export const RestaurantAppsBox = () => {
                 linkLabel="Baixe o app"
                 variant="primary"
                 fontSize="16px"
-                link="https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live"
+                link={appLink}
                 isExternal
               />
           </Flex>
