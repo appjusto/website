@@ -66,9 +66,12 @@ export default function RestaurantPage({ business, categories }) {
   const [logoUrl, setLogoUrl] = React.useState<string>();
   const [coverUrl, setCoverUrl] = React.useState<string>();
   const [whatsLimit, setWhatsLimit] = React.useState(false);
+  const [sharingMsg, setSharingMsg] = React.useState("");
   // refs
   //const MainBoxRef = React.useRef<HTMLDivElement>(null);
   const BoxRef = React.useRef<HTMLDivElement>(null);
+  // helpers
+  const path = "https://appjusto.com.br/r/itapuama-vegan";
   // side effects
   React.useEffect(() => {
     if(!business?.id) return;
@@ -84,12 +87,23 @@ export default function RestaurantPage({ business, categories }) {
     if(!BoxRef.current) return;
     const limit = BoxRef.current.scrollHeight - 206 - screen.height;
     const handleScroll = () => {
+      if(isAbout) return;
       if (document.documentElement.scrollTop >= limit) setWhatsLimit(true);
       else setWhatsLimit(false);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [BoxRef?.current]);
+  }, [BoxRef?.current, isAbout]);
+  React.useEffect(() => {
+    if(!business?.slug) return;
+    const url = `https://appjusto.com.br/r/${business.slug}`;
+    const message = encodeURIComponent(`Olá! Gostaria de te indicar esse ótimo restaurante!\n\n${url}`);
+    setSharingMsg(message);
+  }, [business?.slug]);
+  React.useEffect(() => {
+    if(isAbout) setWhatsLimit(true);
+    else setWhatsLimit(false);
+  }, [isAbout])
   // UI
   return (
     <Box ref={BoxRef}>
@@ -210,7 +224,7 @@ export default function RestaurantPage({ business, categories }) {
               h="40px"
               bgColor="#F6F6F6"
               borderRadius="lg"
-              href="#"
+              href={`https://api.whatsapp.com/send?text=${sharingMsg}`}
               display="inline-flex"
               justifyContent="center"
               alignItems="center"
@@ -227,7 +241,7 @@ export default function RestaurantPage({ business, categories }) {
               isAbout ? (
                 <>
                   <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
-                  <Flex mt="10" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
+                  <Flex mt="10" mb="4" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
                     <Box>
                       <HStack spacing={2}>
                         <Icon as={MdQueryBuilder} />
@@ -307,7 +321,7 @@ export default function RestaurantPage({ business, categories }) {
                 h="48px"
                 bgColor="#6CE787"
                 borderRadius="lg"
-                href="#"
+                href={`https://wa.me/+55${business?.phone}?text=Olá, gostaria de fazer um pedido!`}
                 display="inline-flex"
                 justifyContent="center"
                 alignItems="center"

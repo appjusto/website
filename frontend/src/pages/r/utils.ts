@@ -14,6 +14,8 @@ export const getBusinessObject = (docs: firebase.firestore.QueryDocumentSnapshot
       name: docData.name,
       cuisine: docData.cuisine,
       description: docData.description,
+      phone: docData.phone,
+      slug: docData.slug,
       businessAddress: docData.businessAddress,
       schedules: docData.schedules,
     }
