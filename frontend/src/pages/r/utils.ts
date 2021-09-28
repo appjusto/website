@@ -80,11 +80,3 @@ export const getDownloadURL = async (ref: any) => {
     .catch(() => 'not_found');
   return uri;
 };
-
-export const getOS = () => {
-  let userAgent = navigator.userAgent || navigator.vendor;
-  if (/android/i.test(userAgent)) {
-      return "Android";
-  }
-  return "IOS";
-};

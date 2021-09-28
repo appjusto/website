@@ -12,9 +12,11 @@ import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import Seo from "../../components/Seo";
-import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getOS, getProductsObjects } from "./utils";
+import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "./utils";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 import { FaWhatsapp } from 'react-icons/fa'
+import { useRouter } from "next/router";
+import { WhatsappOrderButton } from "../../components/Restaurant/WhatsappOrderButton";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -61,16 +63,17 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 };
 
 export default function RestaurantPage({ business, categories }) {
+  // context
+  const { query } = useRouter();
   // state
   const [isAbout, setIsAbout] = React.useState(false);
   const [logoUrl, setLogoUrl] = React.useState<string>();
   const [coverUrl, setCoverUrl] = React.useState<string>();
   const [whatsLimit, setWhatsLimit] = React.useState(false);
   const [sharingMsg, setSharingMsg] = React.useState("");
+  const [mode, setMode] = React.useState<string | null>();
   // refs
   const BoxRef = React.useRef<HTMLDivElement>(null);
-  // helpers
-  const path = "https://appjusto.com.br/r/itapuama-vegan";
   // side effects
   React.useEffect(() => {
     if(!business?.id) return;
@@ -102,7 +105,11 @@ export default function RestaurantPage({ business, categories }) {
   React.useEffect(() => {
     if(isAbout) setWhatsLimit(true);
     else setWhatsLimit(false);
-  }, [isAbout])
+  }, [isAbout]);
+  React.useEffect(() => {
+    if(!query.mode) return;
+    else setMode(query.mode as string);
+  }, [query.mode])
   // UI
   return (
     <Box ref={BoxRef}>
@@ -303,36 +310,11 @@ export default function RestaurantPage({ business, categories }) {
                 </Box>
               )
             }
-            <Box
-              w={{base: whatsLimit ? '100%' : '100vw', lg: '100%'}}
-              position={whatsLimit ? 'relative' : 'fixed'}
-              bottom="0"
-              transition="position 0.2s, transform 0.3s"
-              left={{base: '0', lg: 'auto'}}
-              maxW={{lg: '656px'}}
-              bgColor="white"
-              py="4"
-              px={{base: whatsLimit ? '0' : '4', lg: '0'}}
-              border="none"
-            >
-              <Link
-                w='100%'
-                h="48px"
-                bgColor="#6CE787"
-                borderRadius="lg"
-                href={`https://wa.me/+55${business?.phone}?text=Olá, gostaria de fazer um pedido!`}
-                display="inline-flex"
-                justifyContent="center"
-                alignItems="center"
-                fontSize="16px"
-                lineHeight="22px"
-                fontWeight="700"
-                isExternal
-              >
-                <Icon as={FaWhatsapp} w="24px" h="24px" mr="2" />
-                Pedir pelo WhatsApp
-              </Link>
-            </Box>
+            {
+              !query.mode && (
+                <WhatsappOrderButton limit={whatsLimit} phone={business?.phone} delay={2000}/>
+              )
+            }
           </Box>
         </Container>
         <Footer />
