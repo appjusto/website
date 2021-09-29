@@ -39,6 +39,7 @@ export const WhatsappOrderButton = ({ limit, phone, delay }: WhatsappOrderButton
         w='100%'
         h="48px"
         bgColor="#6CE787"
+        _hover={{ bgColor: '#B8E994' }}
         borderRadius="lg"
         href={`https://wa.me/+55${phone}?text=Olá, gostaria de fazer um pedido!`}
         display="inline-flex"
