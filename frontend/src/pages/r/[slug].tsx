@@ -15,7 +15,7 @@ import Seo from "../../components/Seo";
 import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "../../utils/businesses";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 import { useRouter } from "next/router";
-import { WhatsappOrderButton } from "../../components/Restaurant/WhatsappOrderButton";
+import { Mode, OrderButton } from "../../components/Restaurant/OrderButton";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -309,11 +309,7 @@ export default function RestaurantPage({ business, categories }) {
                 </Box>
               )
             }
-            {
-              !query.mode && (
-                <WhatsappOrderButton limit={whatsLimit} phone={business?.phone} delay={2000}/>
-              )
-            }
+            <OrderButton mode={query.mode as Mode} limit={whatsLimit} phone={business?.phone} />
           </Box>
         </Container>
         <Footer />

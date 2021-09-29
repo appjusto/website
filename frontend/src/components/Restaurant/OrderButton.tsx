@@ -2,24 +2,31 @@ import { Box, Icon, Link} from '@chakra-ui/react';
 import { FaWhatsapp } from 'react-icons/fa';
 import React from 'react';
 
-interface WhatsappOrderButtonProps {
+export type Mode = 'whatsapp' | 'in-store';
+
+interface OrderButtonProps {
+  mode: Mode;
   limit: boolean;
   phone: string;
-  delay: number;
 }
 
-export const WhatsappOrderButton = ({ limit, phone, delay }: WhatsappOrderButtonProps) => {
+export const OrderButton = ({ mode, limit, phone }: OrderButtonProps) => {
   // state
   const [show, setShow] = React.useState(false);
-  // refs
-  const isMounted = React.useRef(true);
+  const [mount, setMount] = React.useState(false);
+  // helpers
+  const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
+  const storeLink = `https://${env ?? 'live'}.login.appjusto.com.br/consumer/store`;
+  const btnLink = mode === 'whatsapp' ? `https://wa.me/+55${phone}?text=Olá, gostaria de fazer um pedido!` :
+    storeLink;
+  const btnLabel = mode === 'whatsapp' ? 'Pedir pelo WhatsApp' : 'Pedir pelo AppJusto';
   // side effects
   React.useEffect(() => {
-    setTimeout(() => {
-      if(isMounted.current) setShow(true);
-    }, delay);
-    return () => isMounted.current = false;
-  }, [delay, isMounted])
+    if(mount && mode !== 'in-store') setShow(true);
+  }, [mode, mount]);
+  React.useEffect(() => {
+    setTimeout(() => setMount(true), 2000);
+  }, [])
   // UI
   if(!show) return <Box />
   return (
@@ -41,7 +48,7 @@ export const WhatsappOrderButton = ({ limit, phone, delay }: WhatsappOrderButton
         bgColor="#6CE787"
         _hover={{ bgColor: '#B8E994' }}
         borderRadius="lg"
-        href={`https://wa.me/+55${phone}?text=Olá, gostaria de fazer um pedido!`}
+        href={btnLink}
         display="inline-flex"
         justifyContent="center"
         alignItems="center"
@@ -50,8 +57,8 @@ export const WhatsappOrderButton = ({ limit, phone, delay }: WhatsappOrderButton
         fontWeight="700"
         isExternal
       >
-        <Icon as={FaWhatsapp} w="24px" h="24px" mr="2" />
-        Pedir pelo WhatsApp
+        {mode === 'whatsapp' && <Icon as={FaWhatsapp} w="24px" h="24px" mr="2" />}
+        {btnLabel}
       </Link>
     </Box>
   )
