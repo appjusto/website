@@ -121,7 +121,7 @@ export default function RestaurantPage({ business, categories }) {
       <Box>
         <RestaurantAppsBox />
         <Container position="relative" w="100vw" pb="24">
-          <Box position="relative" mt={{base: '2', lg: '0'}} maxW={{base: '100%', lg: '656px'}}>
+          <Box position="relative" mt={{base: '2', lg: '0'}} maxW={{base: '100%', lg: '656px'}} zIndex="999">
             <Box
               position="relative"
               w="100%"
