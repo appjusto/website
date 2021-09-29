@@ -16,7 +16,7 @@ export const OrderButton = ({ mode, limit, phone }: OrderButtonProps) => {
   const [mount, setMount] = React.useState(false);
   // helpers
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
-  const storeLink = `https://${env ?? 'live'}.login.appjusto.com.br/consumer/store`;
+  const storeLink = env === 'live' ? 'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
   const btnLink = mode === 'whatsapp' ? `https://wa.me/+55${phone}?text=Olá, gostaria de fazer um pedido!` :
     storeLink;
   const btnLabel = mode === 'whatsapp' ? 'Pedir pelo WhatsApp' : 'Pedir pelo AppJusto';

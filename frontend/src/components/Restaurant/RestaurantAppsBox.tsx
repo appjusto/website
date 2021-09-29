@@ -8,7 +8,7 @@ import React from 'react';
 export const RestaurantAppsBox = () => {
   // helpers
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
-  const storeLink = `https://${env ?? 'live'}.login.appjusto.com.br/consumer/store`;
+  const storeLink = env === 'live' ? 'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
   // UI
   return (
     <Section
