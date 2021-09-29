@@ -70,7 +70,6 @@ export default function RestaurantPage({ business, categories }) {
   const [coverUrl, setCoverUrl] = React.useState<string>();
   const [whatsLimit, setWhatsLimit] = React.useState(false);
   const [sharingMsg, setSharingMsg] = React.useState("");
-  const [mode, setMode] = React.useState<string | null>();
   // refs
   const BoxRef = React.useRef<HTMLDivElement>(null);
   // side effects
@@ -97,7 +96,9 @@ export default function RestaurantPage({ business, categories }) {
   }, [BoxRef?.current, isAbout]);
   React.useEffect(() => {
     if(!business?.slug) return;
-    const url = `https://appjusto.com.br/r/${business.slug}`;
+    const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
+    const url = env === 'live' ? `https://appjusto.com.br/r/${business.slug}` :
+      `https://app-justo-website-${env}.web.app/r/${business.slug}`;
     const message = encodeURIComponent(`Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e o entregador. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`);
     setSharingMsg(message);
   }, [business?.slug]);
@@ -105,10 +106,6 @@ export default function RestaurantPage({ business, categories }) {
     if(isAbout) setWhatsLimit(true);
     else setWhatsLimit(false);
   }, [isAbout]);
-  React.useEffect(() => {
-    if(!query.mode) return;
-    else setMode(query.mode as string);
-  }, [query.mode])
   // UI
   return (
     <Box ref={BoxRef}>
