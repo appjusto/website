@@ -3,11 +3,12 @@ import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
 import React from 'react';
 import Image from "../Image";
-import { getDownloadURL, getProductObject } from "../../utils/businesses";
+import { getDownloadURL, getProductObject, productFetcher } from "../../utils/businesses";
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import { useRouter } from "next/router";
 import NextLink from 'next/link';
 import useSWR from "swr";
+import { useComplementsGroups } from "../../hooks/useComplementsGroups";
 
 interface ProductDetailProps {
   businessId: string;
@@ -17,21 +18,14 @@ export const ProductDetail = ({ businessId }: ProductDetailProps) => {
   // router
   const { query } = useRouter();
   const productId = query.slug[2];
-  // fetcher
-  const fetcher = async () => {
-    const { db } = await getFirebaseProjectsClient();
-    const dbQuery = db.collection('businesses').doc(businessId).collection('products').doc(productId);
-    const result = await dbQuery.get().then(snapshot => {
-      if(snapshot.exists) return getProductObject(snapshot.data());
-      else return null;
-    });
-    return result;
-  }
   // swr
-  const { data: product } = useSWR<WithId<Product> | null, any>('/product', fetcher);
+  const { data: product } = useSWR<WithId<Product> | null, any>(
+    '/product', () => productFetcher(businessId, productId)
+  );
   // state
   const [imageUrl, setImageUrl] = React.useState<string | null>();
-  const [groups, setGroups] = React.useState();
+  const groups = useComplementsGroups(businessId, productId);
+  console.log('groups', groups);
   // side effects
   React.useEffect(() => {
     if(!productId) return;

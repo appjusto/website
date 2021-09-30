@@ -1,5 +1,6 @@
-import { Business, Category, Ordering, Product, WithId } from "../types";
+import { Business, Category, Complement, ComplementGroup, Ordering, Product, WithId } from "../types";
 import firebase from 'firebase/app';
+import { getFirebaseProjectsClient } from "../../firebaseProjects";
 
 export type FirebaseDocument =
   | firebase.firestore.QueryDocumentSnapshot<firebase.firestore.DocumentData>
@@ -52,6 +53,20 @@ export const getProductsObjects = (docs: FirebaseDocument[]): WithId<Product>[] 
   });
 };
 
+export const getGroupsObjects = (docs: FirebaseDocument[]): WithId<ComplementGroup>[] => {
+  return docs.map((item) => {
+    const { name, required, minimum, maximum, enabled } = item.data();
+    return { id: item.id, name, required, minimum, maximum, enabled };
+  });
+};
+
+export const getComplementsObjects = (docs: FirebaseDocument[]): WithId<Complement>[] => {
+  return docs.map((item) => {
+    const { name, description, imageExists, price, enabled } = item.data();
+    return { id: item.id, name, description, imageExists, price, enabled };
+  });
+};
+
 export const getProductObject = (data: any): WithId<Product> => {
     const { name, description, imageExists, price, enabled } = data;
     return { id: data.id, name, description, imageExists, price, enabled };
@@ -85,3 +100,13 @@ export const getDownloadURL = async (ref: any) => {
     .catch(() => 'not_found');
   return uri;
 };
+
+export const productFetcher = async (businessId: string, productId: string) => {
+  const { db } = await getFirebaseProjectsClient();
+  const dbQuery = db.collection('businesses').doc(businessId).collection('products').doc(productId);
+  const result = await dbQuery.get().then(snapshot => {
+    if(snapshot.exists) return getProductObject(snapshot.data());
+    else return null;
+  });
+  return result;
+}

@@ -67,7 +67,6 @@ interface RestaurantPageProps {
 export default function RestaurantPage({ business, categories }: RestaurantPageProps) {
   // router
   const { query } = useRouter();
-  console.log("query", query);
   // state
   const [isAbout, setIsAbout] = React.useState(false);
   const [logoUrl, setLogoUrl] = React.useState<string>();
