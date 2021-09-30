@@ -5,6 +5,8 @@ import React from 'react';
 import Image from "../Image";
 import { getDownloadURL } from "../../utils/businesses";
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
+import { useRouter } from "next/router";
+import NextLink from 'next/link';
 
 interface ProductItemProps {
   businessId: string;
@@ -12,6 +14,8 @@ interface ProductItemProps {
 }
 
 export const ProductItem = ({ businessId, product }: ProductItemProps) => {
+  // router
+  const { asPath } = useRouter();
   // state
   const [imageUrl, setImageUrl] = React.useState<string | null>();
   // side effects
@@ -28,25 +32,27 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
   }, [businessId, product?.id]);
   // UI
   return (
-    <Flex w="100%" py="3" justifyContent="space-between" borderTop="1px solid #F6F6F6">
-      <Box maxW={{base: '228px', lg: '400px'}}>
-        <Text fontSize="15px" lineHeight="21px" fontWeight="500">
-          {product.name}
-        </Text>
-        <Text mt="1" color="#697667" fontSize="13px" lineHeight="18px" fontWeight="500">
-          {product.description}
-        </Text>
-        <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
-          {formatCurrency(product.price)}
-        </Text>
-      </Box>
-      {
-        imageUrl && (
-          <Box position="relative" w="80px" h="80px" bgColor="#F6F6F6" borderRadius="lg" overflow="hidden">
-            <Image src={imageUrl} w="80px" h="80px" />
-          </Box>
-        )
-      }
-    </Flex>
+    <NextLink href={`${asPath}/p/${product.id}`}>
+      <Flex w="100%" py="3" justifyContent="space-between" borderTop="1px solid #F6F6F6" cursor="pointer">
+        <Box maxW={{base: '228px', lg: '400px'}}>
+          <Text fontSize="15px" lineHeight="21px" fontWeight="500">
+            {product.name}
+          </Text>
+          <Text mt="1" color="#697667" fontSize="13px" lineHeight="18px" fontWeight="500">
+            {product.description}
+          </Text>
+          <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
+            {formatCurrency(product.price)}
+          </Text>
+        </Box>
+        {
+          imageUrl && (
+            <Box position="relative" w="80px" h="80px" bgColor="#F6F6F6" borderRadius="lg" overflow="hidden">
+              <Image src={imageUrl} w="80px" h="80px" />
+            </Box>
+          )
+        }
+      </Flex>
+    </NextLink>
   )
 }
