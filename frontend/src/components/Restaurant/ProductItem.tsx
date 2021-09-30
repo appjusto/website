@@ -13,7 +13,7 @@ interface ProductItemProps {
 
 export const ProductItem = ({ businessId, product }: ProductItemProps) => {
   // state
-  const [imageUrl, setImageUrl] = React.useState<string>();
+  const [imageUrl, setImageUrl] = React.useState<string | null>();
   // side effects
   React.useEffect(() => {
     if(!product?.id) return;
@@ -21,7 +21,7 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
       const { storage } = await getFirebaseProjectsClient();
       const imageRef = storage.ref().child(`businesses/${businessId}/products/${product.id}_288x288.jpg`);
       getDownloadURL(imageRef).then(uri => {
-        if(!uri || uri === 'not_found') setImageUrl('/product-placeholder.png');
+        if(!uri || uri === 'not_found') setImageUrl(null);
         else setImageUrl(uri);
       });
     })();
@@ -40,9 +40,13 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
           {formatCurrency(product.price)}
         </Text>
       </Box>
-      <Box position="relative" w="80px" h="80px" bgColor="#F6F6F6" borderRadius="lg" overflow="hidden">
-        <Image src={imageUrl} w="80px" h="80px" />
-      </Box>
+      {
+        imageUrl && (
+          <Box position="relative" w="80px" h="80px" bgColor="#F6F6F6" borderRadius="lg" overflow="hidden">
+            <Image src={imageUrl} w="80px" h="80px" />
+          </Box>
+        )
+      }
     </Flex>
   )
 }

@@ -19,7 +19,7 @@ export const OrderButton = ({ mode, limit, phone }: OrderButtonProps) => {
   const storeLink = env === 'live' ? 'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
   const btnLink = mode === 'whatsapp' ? `https://wa.me/+55${phone}?text=Olá, gostaria de fazer um pedido!` :
     storeLink;
-  const btnLabel = mode === 'whatsapp' ? 'Pedir pelo WhatsApp' : 'Pedir pelo AppJusto';
+  const btnLabel = mode === 'whatsapp' ? 'Pedir no WhatsApp' : 'Pedir no AppJusto';
   // side effects
   React.useEffect(() => {
     if(mount && mode !== 'in-store') setShow(true);
