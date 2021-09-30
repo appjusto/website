@@ -3,12 +3,13 @@ import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
 import React from 'react';
 import Image from "../Image";
-import { getDownloadURL, getProductObject, productFetcher } from "../../utils/businesses";
+import { getDownloadURL, productFetcher } from "../../utils/businesses";
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import { useRouter } from "next/router";
 import NextLink from 'next/link';
 import useSWR from "swr";
 import { useComplementsGroups } from "../../hooks/useComplementsGroups";
+import { ComplementsGroupItem } from "./ComplementsGroupItem";
 
 interface ProductDetailProps {
   businessId: string;
@@ -25,7 +26,6 @@ export const ProductDetail = ({ businessId }: ProductDetailProps) => {
   // state
   const [imageUrl, setImageUrl] = React.useState<string | null>();
   const groups = useComplementsGroups(businessId, productId);
-  console.log('groups', groups);
   // side effects
   React.useEffect(() => {
     if(!productId) return;
@@ -41,7 +41,7 @@ export const ProductDetail = ({ businessId }: ProductDetailProps) => {
   // UI
   return (
     <Box>
-      <Flex flexDir={{base: 'column', lg: 'row'}} alignItems={{lg: 'flex-end'}}>
+      <Flex position="relative" flexDir={{base: 'column', lg: 'row'}} alignItems={{lg: 'flex-end'}}>
         {
           imageUrl && (
             <Box
@@ -65,11 +65,14 @@ export const ProductDetail = ({ businessId }: ProductDetailProps) => {
               {product.description}
             </Text>
             <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
-              {formatCurrency(product.price)}
+              A partir de {formatCurrency(product.price)}
             </Text>
           </Box>
         </Flex>
       </Flex>
+      {
+        groups && groups.map(group => <ComplementsGroupItem key={group.id} group={group} />)
+      }
     </Box>
   )
 }
