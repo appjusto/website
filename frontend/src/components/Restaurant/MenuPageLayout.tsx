@@ -55,7 +55,7 @@ export default function MenuPageLayout({
       </Head>
       <Box>
         <RestaurantAppsBox />
-        <Container position="relative" w="100vw" pb="24">
+        <Container position="relative" w="100vw" minH="100vh" pb="24">
           <Box position="relative" mt={{base: '2', lg: '0'}} maxW={{base: '100%', lg: '656px'}} zIndex="999">
             {children}
             <OrderButton mode={query.mode as Mode} limit={whatsLimit} phone={businessPhone} />

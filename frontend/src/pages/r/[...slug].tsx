@@ -13,6 +13,7 @@ import { usePageContext } from "../../context";
 import MenuPageLayout from "../../components/Restaurant/MenuPageLayout";
 import { useRouter } from "next/router";
 import { ProductDetail } from "../../components/Restaurant/ProductDetail";
+import { SWRConfig } from "swr";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -107,6 +108,9 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
   }, [query.slug, categories]);
   // UI
   if(product) {
+    const fallback  = {
+      '/product': product
+    };
     return (
       <MenuPageLayout
         businessName={business?.name}
@@ -114,7 +118,9 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
         businessPhone={business?.phone}
         isAbout={isAbout}
       >
-        <ProductDetail businessId={business.id} product={product} />
+        <SWRConfig value={{ fallback }}>
+          <ProductDetail businessId={business.id} />
+        </SWRConfig>
       </MenuPageLayout>
     )
   }

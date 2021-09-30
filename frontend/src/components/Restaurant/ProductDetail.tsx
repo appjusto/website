@@ -3,33 +3,47 @@ import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
 import React from 'react';
 import Image from "../Image";
-import { getDownloadURL } from "../../utils/businesses";
+import { getDownloadURL, getProductObject } from "../../utils/businesses";
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import { useRouter } from "next/router";
 import NextLink from 'next/link';
+import useSWR from "swr";
 
 interface ProductDetailProps {
   businessId: string;
-  product: WithId<Product>;
 }
 
-export const ProductDetail = ({ businessId, product }: ProductDetailProps) => {
+export const ProductDetail = ({ businessId }: ProductDetailProps) => {
   // router
-  const { asPath } = useRouter();
+  const { query } = useRouter();
+  const productId = query.slug[2];
+  // fetcher
+  const fetcher = async () => {
+    const { db } = await getFirebaseProjectsClient();
+    const dbQuery = db.collection('businesses').doc(businessId).collection('products').doc(productId);
+    const result = await dbQuery.get().then(snapshot => {
+      if(snapshot.exists) return getProductObject(snapshot.data());
+      else return null;
+    });
+    return result;
+  }
+  // swr
+  const { data: product } = useSWR<WithId<Product> | null, any>('/product', fetcher);
   // state
   const [imageUrl, setImageUrl] = React.useState<string | null>();
+  const [groups, setGroups] = React.useState();
   // side effects
   React.useEffect(() => {
-    if(!product?.id) return;
+    if(!productId) return;
     (async () => {
       const { storage } = await getFirebaseProjectsClient();
-      const imageRef = storage.ref().child(`businesses/${businessId}/products/${product.id}_1008x720.jpg`);
+      const imageRef = storage.ref().child(`businesses/${businessId}/products/${productId}_1008x720.jpg`);
       getDownloadURL(imageRef).then(uri => {
         if(!uri || uri === 'not_found') setImageUrl(null);
         else setImageUrl(uri);
       });
     })();
-  }, [businessId, product?.id]);
+  }, [businessId, productId]);
   // UI
   return (
     <Box>
@@ -48,7 +62,7 @@ export const ProductDetail = ({ businessId, product }: ProductDetailProps) => {
             </Box>
           )
         }
-        <Flex w="100%" ml={{lg: '4'}} py={{base: '3', lg: '0'}} justifyContent="space-between" borderTop="1px solid #F6F6F6" cursor="pointer">
+        <Flex w="100%" ml={{lg: '4'}} py={{base: '3', lg: '0'}} justifyContent="space-between">
           <Box maxW={{base: '228px', lg: '400px'}}>
             <Text fontSize="15px" lineHeight="21px" fontWeight="500">
               {product.name}
@@ -61,7 +75,6 @@ export const ProductDetail = ({ businessId, product }: ProductDetailProps) => {
             </Text>
           </Box>
         </Flex>
-
       </Flex>
     </Box>
   )

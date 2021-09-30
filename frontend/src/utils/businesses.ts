@@ -52,6 +52,11 @@ export const getProductsObjects = (docs: FirebaseDocument[]): WithId<Product>[] 
   });
 };
 
+export const getProductObject = (data: any): WithId<Product> => {
+    const { name, description, imageExists, price, enabled } = data;
+    return { id: data.id, name, description, imageExists, price, enabled };
+};
+
 export const getOrderedCategories = <T extends object, T2 extends object>(
   firstLevels: WithId<T>[],
   secondLevels: WithId<T2>[],

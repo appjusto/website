@@ -43,7 +43,8 @@
     "react-countup": "^4.3.3",
     "react-dom": "17.0.1",
     "react-icons": "^3.11.0",
-    "react-scroll": "^1.8.1"
+    "react-scroll": "^1.8.1",
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "@appjusto/types": "^3.10.1",
