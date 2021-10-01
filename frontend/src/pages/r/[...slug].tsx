@@ -9,7 +9,6 @@ import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "../../utils/businesses";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
-import { usePageContext } from "../../context";
 import MenuPageLayout from "../../components/Restaurant/MenuPageLayout";
 import { useRouter } from "next/router";
 import { ProductDetail } from "../../components/Restaurant/ProductDetail";
@@ -68,7 +67,7 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
   // router
   const { query } = useRouter();
   // state
-  const [isAbout, setIsAbout] = React.useState(false);
+  const [isMenu, setIsMenu] = React.useState(true);
   const [logoUrl, setLogoUrl] = React.useState<string>();
   const [coverUrl, setCoverUrl] = React.useState<string>();
   const [sharingMsg, setSharingMsg] = React.useState("");
@@ -115,10 +114,10 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
         businessName={business?.name}
         businessDescription={business?.description}
         businessPhone={business?.phone}
-        isAbout={isAbout}
+        isMenu={isMenu}
       >
         <SWRConfig value={{ fallback }}>
-          <ProductDetail businessId={business.id} />
+          <ProductDetail businessId={business.id} businessName={business.name} />
         </SWRConfig>
       </MenuPageLayout>
     )
@@ -128,7 +127,7 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
       businessName={business?.name}
       businessDescription={business?.description}
       businessPhone={business?.phone}
-      isAbout={isAbout}
+      isMenu={isMenu}
     >
       <Box
         position="relative"
@@ -172,10 +171,10 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
           lineHeight="18px"
           fontWeight="500"
           cursor="pointer"
-          onClick={() => setIsAbout(!isAbout)}
+          onClick={() => setIsMenu(!isMenu)}
           zIndex="900"
         >
-          {isAbout ? "Ver cardápio" : "Saber mais"}
+          {isMenu ? "Saber mais" : "Ver cardápio"}
         </Text>
       </Box>
       <Flex mt="6" justifyContent="space-between" alignItems="center">
@@ -196,9 +195,9 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
               lineHeight="18px"
               fontWeight="500"
               cursor="pointer"
-              onClick={() => setIsAbout(!isAbout)}
+              onClick={() => setIsMenu(!isMenu)}
             >
-              {isAbout ? "Ver cardápio" : "Saber mais"}
+              {isMenu ? "Saber mais" : "Ver cardápio"}
             </Text>
           </HStack>
           <Text mt="1" fontSize="16px" lineHeight="22px" fontWeight="500" color="#4EA031">
@@ -248,7 +247,13 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
       </Link>
       </Box>
       {
-        isAbout ? (
+        isMenu ? (
+          <Box>
+            {
+              categories && categories.map((category: WithId<Category>) => <CategoryItem key={category.id} businessId={business?.id} category={category} />)
+            }
+          </Box>
+        ) : (
           <>
             <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
             <Flex mt="10" mb="4" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
@@ -306,12 +311,6 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
               </Box>
             </Flex>
           </>
-        ) : (
-          <Box>
-            {
-              categories && categories.map((category: WithId<Category>) => <CategoryItem key={category.id} businessId={business?.id} category={category} />)
-            }
-          </Box>
         )
       }
     </MenuPageLayout>

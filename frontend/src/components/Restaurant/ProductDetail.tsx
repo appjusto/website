@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import { ArrowBackIcon } from '@chakra-ui/icons';
 import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
 import React from 'react';
@@ -6,19 +7,19 @@ import Image from "../Image";
 import { getDownloadURL, productFetcher } from "../../utils/businesses";
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import { useRouter } from "next/router";
-import NextLink from 'next/link';
 import useSWR from "swr";
 import { useComplementsGroups } from "../../hooks/useComplementsGroups";
 import { ComplementsGroupItem } from "./ComplementsGroupItem";
 
 interface ProductDetailProps {
   businessId: string;
+  businessName: string;
 }
 
-export const ProductDetail = ({ businessId }: ProductDetailProps) => {
+export const ProductDetail = ({ businessId, businessName }: ProductDetailProps) => {
   // router
-  const { query } = useRouter();
-  const productId = query.slug[2];
+  const router = useRouter();
+  const productId = router.query.slug[2];
   // swr
   const { data: product } = useSWR<WithId<Product> | null, any>(
     '/product', () => productFetcher(businessId, productId)
@@ -41,6 +42,20 @@ export const ProductDetail = ({ businessId }: ProductDetailProps) => {
   // UI
   return (
     <Box>
+      <Box position="relative" w="100%">
+        <Flex
+          position="absolute"
+          top="0"
+          left="0"
+          alignItems="center"
+          h="48px"
+          >
+            <ArrowBackIcon w="20px" h="20px" cursor="pointer" onClick={() => router.back()} />
+        </Flex>
+        <Flex w="100%" h="48px" justifyContent={{base: 'center', lg: 'flex-start'}} alignItems="center">
+          <Text ml={{lg: '36px'}} fontSize="16px" lineHeight="26px" fontWeight="500">{businessName}</Text>
+        </Flex>
+      </Box>
       <Flex position="relative" flexDir={{base: 'column', lg: 'row'}} alignItems={{lg: 'flex-end'}}>
         {
           imageUrl && (
@@ -58,10 +73,10 @@ export const ProductDetail = ({ businessId }: ProductDetailProps) => {
         }
         <Flex w="100%" ml={{lg: '4'}} py={{base: '3', lg: '0'}} justifyContent="space-between">
           <Box maxW={{base: '228px', lg: '400px'}}>
-            <Text fontSize="15px" lineHeight="21px" fontWeight="500">
+            <Text fontSize="20px" lineHeight="26px" fontWeight="500">
               {product.name}
             </Text>
-            <Text mt="1" color="#697667" fontSize="13px" lineHeight="18px" fontWeight="500">
+            <Text mt="1" color="#697667" fontSize="15px" lineHeight="21px" fontWeight="500">
               {product.description}
             </Text>
             <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">

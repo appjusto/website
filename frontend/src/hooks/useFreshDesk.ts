@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-const disabedPaths = ['/f/[id]', '/r/[slug]'];
+const disabedPaths = ['/f/[id]', '/r/[...slug]'];
 
 export const useFreshDesk = () => {
   // context

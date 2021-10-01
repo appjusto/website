@@ -12,12 +12,12 @@ interface MenuPageLayoutProps {
   businessName?:  string;
   businessDescription?:  string;
   businessPhone?:  string;
-  isAbout: boolean;
+  isMenu: boolean;
   children: React.ReactNode | React.ReactNode[];
 }
 
 export default function MenuPageLayout({
-  businessName, businessDescription, businessPhone, isAbout, children
+  businessName, businessDescription, businessPhone, isMenu, children
 }: MenuPageLayoutProps) {
   // router
   const { query } = useRouter();
@@ -25,22 +25,23 @@ export default function MenuPageLayout({
   const [whatsLimit, setWhatsLimit] = React.useState(false);
   // refs
   const BoxRef = React.useRef<HTMLDivElement>(null);
+  const BoxRefHeight = BoxRef.current?.scrollHeight;
   // side effects
   React.useEffect(() => {
-    if(!BoxRef.current) return;
-    const limit = BoxRef.current.scrollHeight - 206 - screen.height;
+    if(!BoxRefHeight) return;
+    const limit = BoxRefHeight - 206 - screen.height;
     const handleScroll = () => {
-      if(isAbout) return;
+      if(!isMenu) return;
       if (document.documentElement.scrollTop >= limit) setWhatsLimit(true);
       else setWhatsLimit(false);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [BoxRef?.current, isAbout]);
+  }, [BoxRefHeight, isMenu]);
   React.useEffect(() => {
-    if(isAbout) setWhatsLimit(true);
+    if(!isMenu || query.slug.length > 1) setWhatsLimit(true);
     else setWhatsLimit(false);
-  }, [isAbout]);
+  }, [isMenu, query.slug]);
   // UI
   return (
     <Box ref={BoxRef}>
