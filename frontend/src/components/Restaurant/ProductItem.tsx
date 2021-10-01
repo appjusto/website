@@ -15,9 +15,15 @@ interface ProductItemProps {
 
 export const ProductItem = ({ businessId, product }: ProductItemProps) => {
   // router
-  const { asPath } = useRouter();
+  const { asPath, query } = useRouter();
   // state
   const [imageUrl, setImageUrl] = React.useState<string | null>();
+  // helpers
+  const mode = query.mode;
+  const basePath = mode ? asPath.split('?')[0] : asPath;
+  const productLink = mode ?
+    `${basePath}/p/${product.id}?mode=${mode}` :
+    `${basePath}/p/${product.id}`
   // side effects
   React.useEffect(() => {
     if(!product?.id) return;
@@ -32,7 +38,7 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
   }, [businessId, product?.id]);
   // UI
   return (
-    <NextLink href={`${asPath}/p/${product.id}`}>
+    <NextLink href={productLink}>
       <Flex w="100%" py="3" justifyContent="space-between" borderTop="1px solid #F6F6F6" cursor="pointer">
         <Box maxW={{base: '228px', lg: '400px'}}>
           <Text fontSize="15px" lineHeight="21px" fontWeight="500">
