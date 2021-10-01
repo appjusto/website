@@ -72,6 +72,18 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
   const [coverUrl, setCoverUrl] = React.useState<string>();
   const [sharingMsg, setSharingMsg] = React.useState("");
   const [product, setProduct] = React.useState<WithId<Product> | null>();
+  // handlers
+  /*const getProductById = React.useCallback(() => {
+    const productId = query.slug[2];
+    let data = null;
+    for(let category of categories) {
+      if(category.items.map(item => item.id).includes(productId)) {
+        data = category.items.find(item => item.id === productId);
+        break;
+      }
+    };
+    return data;
+  }, [query.slug]);*/
   // side effects
   React.useEffect(() => {
     if(!business?.id) return;
@@ -97,11 +109,13 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
     if(query.slug.length > 1) {
       const productId = query.slug[2];
       let data = null;
-      categories.forEach(category => {
-        const isProductCategory = category.items.map(item => item.id).includes(productId);
-        if(isProductCategory) data = category.items.find(item => item.id === productId);
-        setProduct(data);
-      })
+      for(let category of categories) {
+        if(category.items.map(item => item.id).includes(productId)) {
+          data = category.items.find(item => item.id === productId);
+          break;
+        }
+      };
+      setProduct(data);
     } else setProduct(null);
   }, [query.slug, categories]);
   // UI
