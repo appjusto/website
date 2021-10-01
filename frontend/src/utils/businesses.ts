@@ -48,8 +48,8 @@ export const getCategoriesObjects = (docs: FirebaseDocument[]): WithId<Category>
 
 export const getProductsObjects = (docs: FirebaseDocument[]): WithId<Product>[] => {
   return docs.map((item) => {
-    const { name, description, imageExists, price, enabled } = item.data();
-    return { id: item.id, name, description, imageExists, price, enabled };
+    const { name, description, imageExists, price, enabled, complementsGroupsIds } = item.data();
+    return { id: item.id, name, description, imageExists, price, enabled, complementsGroupsIds: complementsGroupsIds ?? []  };
   });
 };
 
@@ -67,9 +67,9 @@ export const getComplementsObjects = (docs: FirebaseDocument[]): WithId<Compleme
   });
 };
 
-export const getProductObject = (data: any): WithId<Product> => {
-    const { name, description, imageExists, price, enabled } = data;
-    return { id: data.id, name, description, imageExists, price, enabled };
+export const getProductObject = (id: string, data: any): WithId<Product> => {
+    const { name, description, imageExists, price, enabled, complementsGroupsIds } = data;
+    return { id, name, description, imageExists, price, enabled, complementsGroupsIds: complementsGroupsIds ?? [] };
 };
 
 export const getOrderedCategories = <T extends object, T2 extends object>(
@@ -105,7 +105,7 @@ export const productFetcher = async (businessId: string, productId: string) => {
   const { db } = await getFirebaseProjectsClient();
   const dbQuery = db.collection('businesses').doc(businessId).collection('products').doc(productId);
   const result = await dbQuery.get().then(snapshot => {
-    if(snapshot.exists) return getProductObject(snapshot.data());
+    if(snapshot.exists) return getProductObject(snapshot.id, snapshot.data());
     else return null;
   });
   return result;

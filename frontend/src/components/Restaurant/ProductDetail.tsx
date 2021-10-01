@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
@@ -14,9 +14,10 @@ import { ComplementsGroupItem } from "./ComplementsGroupItem";
 interface ProductDetailProps {
   businessId: string;
   businessName: string;
+  back(): void;
 }
 
-export const ProductDetail = ({ businessId, businessName }: ProductDetailProps) => {
+export const ProductDetail = ({ businessId, businessName, back }: ProductDetailProps) => {
   // router
   const router = useRouter();
   const productId = router.query.slug[2];
@@ -26,7 +27,12 @@ export const ProductDetail = ({ businessId, businessName }: ProductDetailProps) 
   );
   // state
   const [imageUrl, setImageUrl] = React.useState<string | null>();
-  const groups = useComplementsGroups(businessId, productId);
+  const groups = useComplementsGroups(businessId, productId, product?.complementsGroupsIds);
+  // handlers
+  const handleBack = () => {
+    router.back();
+    back()
+  }
   // side effects
   React.useEffect(() => {
     if(!productId) return;
@@ -50,7 +56,7 @@ export const ProductDetail = ({ businessId, businessName }: ProductDetailProps) 
           alignItems="center"
           h="48px"
           >
-            <ArrowBackIcon w="20px" h="20px" cursor="pointer" onClick={() => router.back()} />
+            <ArrowBackIcon w="20px" h="20px" cursor="pointer" onClick={handleBack} />
         </Flex>
         <Flex w="100%" h="48px" justifyContent={{base: 'center', lg: 'flex-start'}} alignItems="center">
           <Text ml={{lg: '36px'}} fontSize="16px" lineHeight="26px" fontWeight="500">{businessName}</Text>
@@ -71,7 +77,7 @@ export const ProductDetail = ({ businessId, businessName }: ProductDetailProps) 
             </Box>
           )
         }
-        <Flex w="100%" ml={{lg: '4'}} py={{base: '3', lg: '0'}} justifyContent="space-between">
+        <Flex w="100%" ml={{lg: '4'}} mb="6" py={{base: '3', lg: '0'}} justifyContent="space-between">
           <Box maxW={{base: '228px', lg: '400px'}}>
             <Text fontSize="20px" lineHeight="26px" fontWeight="500">
               {product.name}

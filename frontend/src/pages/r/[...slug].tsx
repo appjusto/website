@@ -117,7 +117,7 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
         isMenu={isMenu}
       >
         <SWRConfig value={{ fallback }}>
-          <ProductDetail businessId={business.id} businessName={business.name} />
+          <ProductDetail businessId={business.id} businessName={business.name} back={() => setProduct(null)}/>
         </SWRConfig>
       </MenuPageLayout>
     )

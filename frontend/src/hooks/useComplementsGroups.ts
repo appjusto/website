@@ -3,12 +3,13 @@ import { getFirebaseProjectsClient } from '../../firebaseProjects';
 import { Complement, ComplementGroup, Ordering, WithId } from '../types';
 import { getComplementsObjects, getGroupsObjects, getOrderedCategories } from '../utils/businesses';
 
-export const useComplementsGroups = (businessId?: string, productId?: string) => {
+export const useComplementsGroups = (businessId?: string, productId?: string, groupsIds?: string[]) => {
   // state
   const [unorderedGroups, setUnorderedGroups] = React.useState<WithId<ComplementGroup>[] | null>();
   const [complements, setComplements] = React.useState<WithId<Complement>[] | null>();
   const [ordering, setOrdering] = React.useState<Ordering | null>();
-  const [groups, setGroups] = React.useState<WithId<ComplementGroup>[]>();
+  const [groups, setGroups] = React.useState<WithId<ComplementGroup>[] | null>();
+  const [sortedGroups, setSortedGroups] = React.useState<WithId<ComplementGroup>[] | null>();
   // side effects
   React.useEffect(() => {
     if(!businessId || !productId) return;
@@ -29,9 +30,20 @@ export const useComplementsGroups = (businessId?: string, productId?: string) =>
     })();
   }, [businessId, productId]);
   React.useEffect(()=> {
+    if(unorderedGroups === null || complements === null || ordering === null) {
+      setGroups([]);
+      return;
+    };
     if(!unorderedGroups || !complements || !ordering) return;
     const orderedGroups = getOrderedCategories<ComplementGroup, Complement>(unorderedGroups, complements, ordering);
     setGroups(orderedGroups);
-  }, [unorderedGroups, complements, ordering])
-  return groups;
+  }, [unorderedGroups, complements, ordering]);
+  React.useEffect(() => {
+    if(!groupsIds || !groups) {
+      setSortedGroups(null);
+      return;
+    };
+    setSortedGroups(groups.filter(group => groupsIds.includes(group.id)));
+  }, [groupsIds, groups]);
+  return sortedGroups;
 }
