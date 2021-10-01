@@ -86,7 +86,7 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
               {product.description}
             </Text>
             <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
-              {groups?.length > 0 && 'A partir de' }{formatCurrency(product.price)}
+              {groups?.length > 0 && 'A partir de '}{formatCurrency(product.price)}
             </Text>
           </Box>
         </Flex>
