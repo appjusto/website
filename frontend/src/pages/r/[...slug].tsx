@@ -72,6 +72,7 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
   const [coverUrl, setCoverUrl] = React.useState<string>();
   const [sharingMsg, setSharingMsg] = React.useState("");
   const [product, setProduct] = React.useState<WithId<Product> | null>();
+  const [isLoading, setIsLoading] = React.useState(false);
   // handlers
   /*const getProductById = React.useCallback(() => {
     const productId = query.slug[2];
@@ -116,6 +117,7 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
         }
       };
       setProduct(data);
+      setIsLoading(false);
     } else setProduct(null);
   }, [query.slug, categories]);
   // UI
@@ -128,6 +130,7 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
         businessName={business?.name}
         businessDescription={business?.description}
         businessPhone={business?.phone}
+        isAppBox={false}
         isMenu={isMenu}
       >
         <SWRConfig value={{ fallback }}>
@@ -143,6 +146,13 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
       businessPhone={business?.phone}
       isMenu={isMenu}
     >
+      {
+        isLoading && (
+          <Center position="fixed" w={{base: '90%', lg: '656px'}} h="100vh" top="0">
+            <Spinner color="#697667" size="xl" />
+          </Center>
+        )
+      }
       <Box
         position="relative"
         w="100%"
@@ -264,12 +274,26 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
         isMenu ? (
           <Box>
             {
-              categories && categories.map((category: WithId<Category>) => <CategoryItem key={category.id} businessId={business?.id} category={category} />)
+              categories && categories.map((category: WithId<Category>) =>
+                <CategoryItem
+                  key={category.id}
+                  businessId={business?.id}
+                  category={category}
+                  setIsLoading={() => setIsLoading(true)}
+                />
+              )
             }
           </Box>
         ) : (
           <>
-            <Text mt="6" fontSize="16px" lineHeight="22px" fontWeight="500">{business?.description ?? 'N/E'}</Text>
+            <Text
+              mt="6"
+              fontSize="16px"
+              lineHeight="22px"
+              fontWeight="500"
+            >
+              {business?.description ?? 'N/E'}
+            </Text>
             <Flex mt="10" mb="4" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between">
               <Box>
                 <HStack spacing={2}>
@@ -281,7 +305,13 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
                 <HStack mt="4" spacing={2}>
                   <Box>
                     {business?.schedules.map((item) => (
-                      <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                      <Text
+                        key={item.day}
+                        fontSize="15px"
+                        lineHeight="21px"
+                        fontWeight="500"
+                        color="#697667"
+                      >
                         {item.day}
                       </Text>
                     ))}
@@ -289,11 +319,23 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
                   <Box>
                     {business?.schedules.map((item) => {
                       return !item.checked ? (
-                        <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                        <Text
+                          key={item.day}
+                          fontSize="15px"
+                          lineHeight="21px"
+                          fontWeight="500"
+                          color="#697667"
+                        >
                           Fechado
                         </Text>
                       ) : (
-                        <Text key={item.day} fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
+                        <Text
+                          key={item.day}
+                          fontSize="15px"
+                          lineHeight="21px"
+                          fontWeight="500"
+                          color="#697667"
+                          >
                           {item.schedule
                             .map(({ from, to }) => `${formatHour(from)} ${'às'} ${formatHour(to)}`)
                             .join('  -  ')}
@@ -317,7 +359,11 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
                   {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
                 </Text>
                 <Text fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
-                  {`CEP: ${business?.businessAddress?.cep ? formatCEP(business.businessAddress?.cep) : 'N/E'}`}
+                  {
+                    `CEP: ${business?.businessAddress?.cep ?
+                      formatCEP(business.businessAddress?.cep) :
+                      'N/E'}`
+                  }
                 </Text>
                 <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500" color="#697667">
                   {`CNPJ: ${business?.cnpj ? cnpjutils.format(business.cnpj) : 'N/E'}`}

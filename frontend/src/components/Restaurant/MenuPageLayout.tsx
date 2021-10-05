@@ -12,12 +12,13 @@ interface MenuPageLayoutProps {
   businessName?:  string;
   businessDescription?:  string;
   businessPhone?:  string;
+  isAppBox?: boolean;
   isMenu: boolean;
   children: React.ReactNode | React.ReactNode[];
 }
 
 export default function MenuPageLayout({
-  businessName, businessDescription, businessPhone, isMenu, children
+  businessName, businessDescription, businessPhone, isAppBox = true, isMenu, children
 }: MenuPageLayoutProps) {
   // router
   const { query } = useRouter();
@@ -55,8 +56,8 @@ export default function MenuPageLayout({
         />
       </Head>
       <Box>
-        <RestaurantAppsBox />
-        <Container position="relative" w="100vw" minH="100vh" pb="24">
+        <RestaurantAppsBox display={{base: isAppBox ? 'flex' : 'none', lg: 'flex'}}/>
+        <Container position="relative" w="100vw" minH="100vh" pt={{base: isAppBox ? '8' : '0', lg: '10'}} pb="24">
           <Box position="relative" mt={{base: '2', lg: '0'}} maxW={{base: '100%', lg: '656px'}} zIndex="999">
             {children}
             <OrderButton mode={query.mode as Mode} limit={whatsLimit} phone={businessPhone} />

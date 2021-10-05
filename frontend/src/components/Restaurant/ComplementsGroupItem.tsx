@@ -9,7 +9,7 @@ interface ComplementsGroupItemProps {
 export const ComplementsGroupItem = ({ group }: ComplementsGroupItemProps) => {
   return (
     <Box mt="6">
-      <HStack ml="-16px" spacing={4} pb="4">
+      <HStack ml="-16px" spacing={3} pb="4">
         <Box w="4px" h="24px" bgColor="#6CE787" borderRadius="lg"></Box>
         <Text fontSize="16px" lineHeight="22px" fontWeight="700">
           {group.name}

@@ -1,4 +1,4 @@
-import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Spinner, Text } from "@chakra-ui/react";
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
@@ -48,7 +48,7 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
   // UI
   return (
     <Box>
-      <Box position="relative" w="100%">
+      <Box position="relative" w="100%" mb={{lg: '2'}}>
         <Flex
           position="absolute"
           top="0"
@@ -56,13 +56,24 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
           alignItems="center"
           h="48px"
           >
-            <ArrowBackIcon w="20px" h="20px" cursor="pointer" onClick={handleBack} />
+            <ArrowBackIcon display={{lg: 'none'}} w="20px" h="20px" cursor="pointer" onClick={handleBack} />
+            <Button
+              display={{base: 'none', lg: 'inline-block'}}
+              variant="outline"
+              fontSize="15px"
+              lineHeight="21px"
+              fontWeight="500"
+              borderColor="black"
+              onClick={handleBack}>
+              <ArrowBackIcon mr="2" w="20px" h="20px" />
+              Voltar
+            </Button>
         </Flex>
         <Flex w="100%" h="48px" justifyContent={{base: 'center', lg: 'flex-start'}} alignItems="center">
-          <Text ml={{lg: '36px'}} fontSize="16px" lineHeight="26px" fontWeight="500">{businessName}</Text>
+          <Text ml={{lg: '120px'}} fontSize="16px" lineHeight="26px" fontWeight="500">{businessName}</Text>
         </Flex>
       </Box>
-      <Flex position="relative" flexDir={{base: 'column', lg: 'row'}} alignItems={{lg: 'flex-end'}}>
+      <Flex position="relative" flexDir={{base: 'column', lg: 'row'}} alignItems={{lg: 'center'}}>
         {
           imageUrl && (
             <Box
@@ -77,7 +88,7 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
             </Box>
           )
         }
-        <Flex w="100%" ml={{lg: '4'}} py={{base: '3', lg: '0'}} justifyContent="space-between">
+        <Flex w="100%" ml={{lg: '8'}} py={{base: '3', lg: '0'}} justifyContent="space-between">
           <Box maxW={{base: '228px', lg: '400px'}}>
             <Text fontSize="20px" lineHeight="26px" fontWeight="500">
               {product.name}

@@ -1,11 +1,11 @@
-import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, FlexProps, Image, Link, Text } from "@chakra-ui/react";
 import NextLink from 'next/link';
 import Container from "../Container";
 import CustomLinkButton from "../CustomLinkButton";
 import Section from "../Section";
 import React from 'react';
 
-export const RestaurantAppsBox = () => {
+export const RestaurantAppsBox = (props: FlexProps) => {
   // helpers
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
   const storeLink = env === 'live' ? 'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
@@ -16,6 +16,7 @@ export const RestaurantAppsBox = () => {
       position={{ base: 'relative', lg: 'fixed' }}
       top={{base: '6', lg: '10'}}
       zIndex="800"
+      {...props}
     >
       <Container pt="0" display="flex" justifyContent="flex-end">
         <Box
