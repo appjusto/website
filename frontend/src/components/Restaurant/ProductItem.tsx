@@ -28,6 +28,7 @@ export const ProductItem = ({ businessId, product, setIsLoading }: ProductItemPr
   // side effects
   React.useEffect(() => {
     if(!product?.id) return;
+    if(!product.imageExists) return;
     (async () => {
       const { storage } = await getFirebaseProjectsClient();
       const imageRef = storage.ref().child(`businesses/${businessId}/products/${product.id}_288x288.jpg`);
