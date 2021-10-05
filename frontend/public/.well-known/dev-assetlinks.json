@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.com.appjusto.consumer.dev",
+      "sha256_cert_fingerprints": [
+        "FC:B3:E0:46:8B:70:03:BB:FD:E2:C9:97:7C:3B:04:C4:99:F2:58:75:B6:1F:33:E1:F4:60:AB:84:A1:B5:FD:64"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.com.appjusto.courier.dev",
+      "sha256_cert_fingerprints": [
+        "9B:7A:F4:4F:F4:92:F8:68:55:43:5C:66:3F:60:EF:42:EC:06:C0:6E:7B:26:3C:3C:16:C1:B0:1D:BF:C2:DA:EC"
+      ]
+    }
+  }
+]

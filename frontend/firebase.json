@@ -1,101 +1,242 @@
 {
-  "hosting": [{
-    "target": "dev",
-    "public": "public",
-    "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "**/**",
-        "function": "nextDev"
-      }
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      },
-      {
-        "source": "**/*.@(js)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      }
-    ]
-  },
-  {
-    "target": "staging",
-    "public": "public",
-    "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "**/**",
-        "function": "nextStaging"
-      }
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      },
-      {
-        "source": "**/*.@(js)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      }
-    ]
-  },
-  {
-    "target": "live",
-    "public": "public",
-    "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "**/**",
-        "function": "next"
-      }
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      },
-      {
-        "source": "**/*.@(js)",
-        "headers": [ {
-          "key": "Cache-Control",
-          "value": "max-age=31536000"
-        } ]
-      }
-    ]
-  }
-],
+  "hosting": [
+    {
+      "target": "dev",
+      "public": "public",
+      "cleanUrls": true,
+      "rewrites": [
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "destination": "/.well-known/dev-apple-app-site-association"
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "destination": "/.well-known/dev-assetlinks.json"
+        },
+        {
+          "source": "**/**",
+          "function": "nextDev"
+        }
+      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "headers": [
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+      ],
+      "appAssociation": "NONE"
+    },
+    {
+      "target": "staging",
+      "public": "public",
+      "cleanUrls": true,
+      "rewrites": [
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "destination": "/.well-known/staging-apple-app-site-association"
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "destination": "/.well-known/staging-assetlinks.json"
+        },
+        {
+          "source": "**/**",
+          "function": "nextStaging"
+        }
+      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "headers": [
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+      ],
+      "appAssociation": "NONE"
+    },
+    {
+      "target": "community",
+      "public": "public",
+      "cleanUrls": true,
+      "rewrites": [
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "destination": "/.well-known/community-apple-app-site-association"
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "destination": "/.well-known/community-assetlinks.json"
+        },
+        {
+          "source": "**/**",
+          "function": "nextCommunity"
+        }
+      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "headers": [
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+      ],
+      "appAssociation": "NONE"
+    },
+    {
+      "target": "live",
+      "public": "public",
+      "cleanUrls": true,
+      "rewrites": [
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "destination": "/.well-known/live-apple-app-site-association"
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "destination": "/.well-known/live-assetlinks.json"
+        },
+        {
+          "source": "**/**",
+          "function": "next"
+        }
+      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "headers": [
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/apple-app-site-association",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        {
+          "source": "/.well-known/assetlinks.json",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+      ],
+      "appAssociation": "NONE"
+    }
+  ],
   "functions": {
     "source": "./",
     "predeploy": "npm --prefix \"$RESOURCE_DIR\" run lint",

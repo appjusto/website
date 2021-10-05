@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "L7X2JT6W83.br.com.appjusto.courier.live",
+        "paths": [
+          "NOT /_/*",
+          "/*"
+        ]
+      },
+      {
+        "appID": "L7X2JT6W83.br.com.appjusto.consumer.live",
+        "paths": [
+          "NOT /_/*",
+          "/*"
+        ]
+      }
+    ]
+  }
+}
