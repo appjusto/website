@@ -19,8 +19,8 @@
     "build:live": "env-cmd -e current,live yarn build",
     "lint": "eslint",
     "start": "next start",
-    "deploy:dev": "yarn build:dev && firebase deploy --only functions:nextDev && firebase deploy --only hosting:dev && yarn version",
-    "deploy:staging": "yarn build:staging && firebase deploy --only functions:nextStaging && firebase deploy --only hosting:staging && yarn version",
+    "deploy:dev": "yarn build:dev && firebase deploy --only functions:nextDev && firebase deploy --only hosting:dev",
+    "deploy:staging": "yarn build:staging && firebase deploy --only functions:nextStaging && firebase deploy --only hosting:staging",
     "deploy:live": "yarn build:live && firebase deploy --only functions:next && firebase deploy --only hosting:live && yarn version",
     "postversion": "git push && git push --tags && git fetch"
   },
