@@ -13,15 +13,18 @@
     "local:dev": "env-cmd -e current,dev yarn dev",
     "local:staging": "env-cmd -e current,staging yarn dev",
     "local:live": "env-cmd -e current,live yarn dev",
+    "local:community": "env-cmd -e current,community yarn dev",
     "build": "rimraf nextjs/ && next build",
     "build:dev": "env-cmd -e current,dev yarn build",
     "build:staging": "env-cmd -e current,staging yarn build",
     "build:live": "env-cmd -e current,live yarn build",
+    "build:community": "env-cmd -e current,community yarn build",
     "lint": "eslint",
     "start": "next start",
     "deploy:dev": "yarn build:dev && firebase deploy --only functions:nextDev && firebase deploy --only hosting:dev",
     "deploy:staging": "yarn build:staging && firebase deploy --only functions:nextStaging && firebase deploy --only hosting:staging",
     "deploy:live": "yarn build:live && firebase deploy --only functions:next && firebase deploy --only hosting:live && yarn version",
+    "deploy:community": "yarn build:community && firebase deploy --only functions:nextCommunity && firebase deploy --only hosting:community && yarn version",
     "postversion": "git push && git push --tags && git fetch"
   },
   "dependencies": {

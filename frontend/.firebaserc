@@ -13,6 +13,9 @@
         ],
         "live": [
           "app-justo-website-live"
+        ],
+        "community": [
+          "app-justo-website-community"
         ]
       }
     }
