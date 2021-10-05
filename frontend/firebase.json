@@ -94,6 +94,38 @@
         } ]
       }
     ]
+  },
+  {
+    "target": "community",
+    "public": "public",
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**/**",
+        "function": "nextCommunity"
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        } ]
+      },
+      {
+        "source": "**/*.@(js)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        } ]
+      }
+    ]
   }
 ],
   "functions": {
