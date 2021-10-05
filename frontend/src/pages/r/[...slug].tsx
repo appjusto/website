@@ -99,8 +99,7 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
   React.useEffect(() => {
     if(!business?.slug) return;
     const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
-    const url = env === 'live' ? `https://appjusto.com.br/r/${business.slug}` :
-    `https://app-justo-website-${env}.web.app/r/${business.slug}`;
+    const url = `https://${env !== 'live' ? `${env}.` : ''}appjusto.com.br/r/${business.slug}`;
     const message = encodeURIComponent(`Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e o entregador. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`);
     setSharingMsg(message);
   }, [business?.slug]);
