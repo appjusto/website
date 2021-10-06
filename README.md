@@ -1,5 +1,11 @@
 ## AppJusto website - Getting Started
 
+Install & configure system dependencies
+
+```bash
+npm install --global yarn
+```
+
 At your selected folder, clone the repository
 
 ```bash
@@ -10,13 +16,10 @@ Go to project's folder and install all dependecies
 
 ```bash
 cd <project_folder>/frontend
-# then
 yarn
-# or
-npm install
 ```
 
-This application uses 4 different firebase projects and configures 3 development environments.For this, two files ('.env-cmdrc.json' and 'next.config.js') must be created to configure and use current and external firebase project for dev, staging and live environments:
+This application uses different firebase projects and configures development environments.For this, two files ('.env-cmdrc.json' and 'next.config.js') must be created to configure and use current and external firebase project for dev, staging and live environments:
 
 ##### .env-cmdrc.json
 ```bash
@@ -29,6 +32,15 @@ This application uses 4 different firebase projects and configures 3 development
     "FIREBASE_MESSAGING_SENDER_ID": "",
     "FIREBASE_APP_ID": "",
     "FIREBASE_MEASUREMENT_ID": ""
+  },
+  "community": {
+    "EXTERNAL_FIREBASE_API_KEY": "",
+    "EXTERNAL_FIREBASE_AUTH_DOMAIN": "",
+    "EXTERNAL_FIREBASE_PROJECT_ID": "",
+    "FIREBASE_STORAGE_BUCKET": "",
+    "EXTERNAL_FIREBASE_MESSAGING_SENDER_ID": "",
+    "EXTERNAL_FIREBASE_APP_ID": "",
+    "EXTERNAL_FIREBASE_MEASUREMENT_ID": ""
   },
   "dev": {
     "EXTERNAL_FIREBASE_API_KEY": "",
@@ -91,9 +103,7 @@ module.exports = withImages({
 Run the project locally
 
 ```bash
-yarn local:dev
-# or
-npm run local:dev
+yarn local:community
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
