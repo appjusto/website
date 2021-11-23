@@ -5,14 +5,9 @@ import Container from './Container'
 import Link from './CustomLink'
 import ShareFooter from './ShareFooter'
 
-interface FooterProps {
-  pageName?: string;
-}
-
-const Footer: React.FC<FooterProps> = ({pageName}) => {
-  const shareBar = pageName && ['Home', 'Restaurantes', 'Entregadores'].includes(pageName);
+const Footer: React.FC = () => {
   return (
-    <>
+    <Box>
       <Flex
         as="footer"
         id="page-footer"
@@ -188,10 +183,8 @@ const Footer: React.FC<FooterProps> = ({pageName}) => {
           </Box>
         </Container>
       </Flex>
-      {
-        shareBar && <ShareFooter />
-      }
-    </>
+      <ShareFooter />
+    </Box>
   );
 }
 

@@ -241,34 +241,6 @@ const RestaurantCalculator: React.FC = () => {
               <Text mt="2" textStyle="p" fontSize="48px" lineHeight="57.6px" color="#4EA031">
                 {yearlyDiff()}
               </Text>
-              {/*
-              <Text mt="12" textStyle="p" fontSize="16px" lineHeight="22px" color="#697667">
-                Envie essa simulação para o seu e-mail:
-              </Text>
-              <CustomInput
-                mt="2"
-                bg="white"
-                type="email"
-                id="registration-email"
-                label="E-mail"
-                placeholder="Digite seu e-mail"
-                value={email}
-                handleChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-              />
-              <Button
-                mt="8"
-                h="48px"
-                bg="#697667"
-                color="white"
-                border="none"
-                w={{base: '100%', lg: '180px'}}
-                fontFamily="barlow"
-                fontSize="15px"
-                lineHeight="21px"
-                fontWeight="500">
-                Enviar simulação
-              </Button>
-              */}
             </Box>
           </Flex>
         </Flex>

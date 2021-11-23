@@ -1,26 +1,16 @@
 import React from 'react'
-import { pageContextReducer, Actions } from '../reducers/pageContextReducer'
-
 interface PageContextProps {
-  contextState: {
-    showModalConfirmation: {show: boolean, type: string};
-  };
-  contextDispatch: React.Dispatch<Actions>;
+  showSharingModal: boolean;
+  setShowSharingModal(value: boolean): void;
 };
 
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps);
 
-const initialState = {
-  showModalConfirmation: {show: false, type: ""},
-};
-
 export const PageContextProvider = (props) => {
   // state
-  const [contextState, contextDispatch] = React.useReducer(
-    pageContextReducer, initialState
-  )
+  const [showSharingModal, setShowSharingModal] = React.useState(false);
   // provider
-  return <PageContext.Provider value={{ contextState, contextDispatch }} {...props}/>
+  return <PageContext.Provider value={{ showSharingModal, setShowSharingModal }} {...props}/>
 }
 
 export const usePageContext = () => {

@@ -13,27 +13,15 @@ import {
 import SharingButtons from './share/SharingButtons'
 import { usePageContext } from '../context'
 
-export const modalConfOptions = {
-  registration: "registration",
-  recommendation: "recommendation",
-  sharing: "sharing"
-}
-
-const ModalConfirmation: React.FC = () => {
-  const { contextState, contextDispatch  } = usePageContext()
-  let type = ""
-  if(contextState) {
-    type = contextState.showModalConfirmation.type
-  }
+const SharingModal: React.FC = () => {
+  const { showSharingModal, setShowSharingModal  } = usePageContext()
   return (
     <Modal
-      id="ModalConfirmation"
+      id="sharing-modal"
       size="full"
       blockScrollOnMount={true}
-      isOpen={contextState?.showModalConfirmation.show || false}
-      onClose={() => contextDispatch(
-        { type: "handle_modalConfirmation", payload: ""}
-      )}
+      isOpen={showSharingModal}
+      onClose={() => setShowSharingModal(false)}
       closeOnOverlayClick={true}
       isCentered
       >
@@ -63,30 +51,15 @@ const ModalConfirmation: React.FC = () => {
                   width="275px"
                 />
               </Box>
-              {
-                type !== "sharing" && (
-                  <Box
-                    position="relative"
-                  >
-                    <Image
-                      src="/obrigado.svg"
-                      alt="Obrigado!"
-                      width="213px"
-                    />
-                  </Box>
-                )
-              }
               <Heading
                 as="h2"
                 fontSize="24px"
                 lineHeight="30px"
                 textAlign="center"
-                mt={type === "sharing" ? "32px" : "8px"}
+                mt="32px"
                 mb="16px"
               >
-                { type === "registration" && "Bem vindo ao movimento ;)" }
-                { type === "recommendation" && "Indicação enviada com sucesso" }
-                { type === "sharing" && "Divulgar o AppJusto" }
+                Divulgar o AppJusto
               </Heading>
               <Text
                 textStyle="p"
@@ -94,23 +67,8 @@ const ModalConfirmation: React.FC = () => {
                 maxW="560px"
                 mb="22px"
               >
-                { type === "registration" ?
-                  "Estamos dedicados a construção dessa plataforma, e sua ajuda é fundamental para formar a nossa rede. Você receberá um aviso quando estivermos por perto."
-                  :
-                  "Agora chegou a hora de divulgar. Quanto mais você divulgar, mais rápido o AppJusto chegará até você!"
-                }
+                Agora chegou a hora de divulgar. Quanto mais você divulgar, mais rápido o AppJusto chegará até você!
               </Text>
-              {
-                type === "registration" &&
-                <Text
-                  textStyle="p"
-                  fontWeight="700"
-                  mb="22px"
-                  textAlign="center"
-                >
-                  Quer ajudar mais? Divulgue para amigos, restaurantes e entregadores!
-                </Text>
-              }
               <SharingButtons />
             </Flex>
           </ModalBody>
@@ -119,4 +77,4 @@ const ModalConfirmation: React.FC = () => {
   );
 }
 
-export default ModalConfirmation;
+export default SharingModal;

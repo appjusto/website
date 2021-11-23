@@ -16,7 +16,7 @@ const PageLayout: React.FC<PageProps> = ({
   pageName,
   children
 }) => {
-  const HeroShare = pageName && ['Home', 'Restaurantes', 'Entregadores'].includes(pageName);
+  const HeroShare = pageName && ['Home', 'Restaurantes'].includes(pageName);
   return (
     <>
       <Head>
@@ -34,6 +34,7 @@ const PageLayout: React.FC<PageProps> = ({
                 display={[ "none", null, null, "flex"]}
               >
                 <Stack
+                  mt="4"
                   direction="row"
                   spacing={2}
                   color="#697667"
@@ -73,7 +74,7 @@ const PageLayout: React.FC<PageProps> = ({
           )
         }
       </Main>
-      <Footer pageName={pageName} />
+      <Footer />
     </>
   );
 }

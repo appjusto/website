@@ -2,12 +2,12 @@ import { Flex } from "@chakra-ui/react"
 
 const Main: React.FC = ({ children }) => {
   return (
-    <Flex 
+    <Flex
       as="main"
-      w="100%" 
+      w="100%"
+      minH="100vh"
       flexDir="column"
-      justify="center" 
-      align="flex-start" 
+      align="flex-start"
       >
       {children}
     </Flex>
