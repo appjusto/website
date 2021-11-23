@@ -24,7 +24,7 @@ const Header = () => {
       <Container py="2">
         <Flex
           flexDir="row"
-          w="100%"
+          w='100%'
           maxH="64px"
           justifyContent="space-between"
           alignItems="center"
@@ -60,31 +60,29 @@ const Header = () => {
           </HStack>
           <Flex
             flexDir="row"
-            w="100%"
+            w={{base: '50%', md: '100%'}}
             maxH="64px"
             justifyContent="space-between"
             alignItems="center"
+            fontFamily="barlow"
+            fontSize="16px"
+            lineHeight="22px"
+            fontWeight="700"
           >
             <HStack
               ml="8"
               spacing={8}
               display={{base: 'none', lg: 'block'}}
+              align="center"
             >
               <Button
                 w="124px"
                 variant="primary"
-                fontFamily="barlow"
-                fontSize="16px"
-                lineHeight="22px"
-                fontWeight="700"
                 onClick={() => setShowAppsModal(true)}
               >
                 Baixar App
               </Button>
               <Link
-                fontSize="16px"
-                lineHeight="22px"
-                fontWeight="700"
                 _focus={{ outline: 'none'}}
                 href="https://admin.appjusto.com.br"
                 isExternal
@@ -93,25 +91,79 @@ const Header = () => {
               </Link>
               <NextLink  href="/investimento-coletivo" passHref>
                 <Link
-                  fontSize="16px"
-                  lineHeight="22px"
-                  fontWeight="700"
                   _focus={{ outline: 'none'}}
                 >
                   Sobre o investimento coletivo
                 </Link>
               </NextLink>
               <Link
-                fontSize="16px"
-                lineHeight="22px"
-                fontWeight="500"
                 _focus={{ outline: 'none'}}
                 href="https://appjusto.freshdesk.com/support/home"
                 isExternal
               >
-                Tirar dúvidas sobre o AppJusto
+                Tirar dúvidas
               </Link>
             </HStack>
+            <Link
+              display={{base: 'none', md: 'block'}}
+              _focus={{ outline: 'none'}}
+              href="https://admin.appjusto.com.br/app"
+              isExternal
+            >
+              <Button
+                minH="48px"
+                w="260px"
+                variant="outline"
+                fontWeight="500"
+                borderColor="black"
+              >
+                Acessar portal do restaurante
+              </Button>
+            </Link>
+          </Flex>
+          <Button
+            display={{base: 'block', md: 'none'}}
+            maxW="130px"
+            variant="primary"
+            onClick={() => setShowAppsModal(true)}
+          >
+            Baixar App
+          </Button>
+        </Flex>
+      </Container>
+      <Collapse in={isOpen} animateOpacity>
+        <Box
+          bg="#F6F6F6"
+          w="100%"
+          pt="6"
+          px="6"
+          pb="20"
+          fontSize="16px"
+          lineHeight="22px"
+          fontWeight="700"
+        >
+          <VStack spacing={10} alignItems="flex-start">
+            <Link
+              _focus={{ outline: 'none'}}
+              href="https://admin.appjusto.com.br"
+              isExternal
+            >
+              Cadastrar restaurante
+            </Link>
+            <NextLink  href="/investimento-coletivo" passHref>
+                <Link
+                  _focus={{ outline: 'none'}}
+                >
+                  Sobre o investimento coletivo
+                </Link>
+              </NextLink>
+            <Link
+              _focus={{ outline: 'none'}}
+              href="https://appjusto.freshdesk.com/support/home"
+              isExternal
+            >
+              Tirar dúvidas sobre o AppJusto
+            </Link>
             <Link
               _focus={{ outline: 'none'}}
               href="https://admin.appjusto.com.br/app"
@@ -121,56 +173,11 @@ const Header = () => {
                 minH="48px"
                 w="260px"
                 variant="outline"
-                fontFamily="barlow"
-                fontSize="16px"
                 fontWeight="500"
                 borderColor="black"
               >
                 Acessar portal do restaurante
               </Button>
-            </Link>
-          </Flex>
-          <Link
-            display={{base: 'block', lg: 'none'}}
-            _focus={{ outline: 'none'}}
-            href="https://admin.appjusto.com.br/app"
-            isExternal
-          >
-            <Button
-              minH="48px"
-              variant="outline"
-              fontFamily="barlow"
-              fontSize="16px"
-              fontWeight="500"
-              borderColor="black"
-            >
-              Acessar portal
-            </Button>
-          </Link>
-        </Flex>
-      </Container>
-      <Collapse in={isOpen} animateOpacity>
-        <Box bg="#F6F6F6" w="100%" p="6">
-          <VStack spacing={6} alignItems="flex-start">
-            <Link
-              fontSize="16px"
-              lineHeight="22px"
-              fontWeight="700"
-              _focus={{ outline: 'none'}}
-              href="https://admin.appjusto.com.br"
-              isExternal
-            >
-              Cadastrar restaurante
-            </Link>
-            <Link
-              fontSize="16px"
-              lineHeight="22px"
-              fontWeight="500"
-              _focus={{ outline: 'none'}}
-              href="https://appjusto.freshdesk.com/support/home"
-              isExternal
-            >
-              Tirar dúvidas sobre o AppJusto
             </Link>
             <HStack spacing={4}>
               <CustomLink
