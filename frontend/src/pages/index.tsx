@@ -5,7 +5,6 @@ import Partners from '../components/home/partners';
 import Support from '../components/home/support';
 import Commitment from '../components/home/commitment';
 import SharingModal from '../components/SharingModal';
-import RegistrationBox from '../components/home/hero/RegistrationBox';
 import Better from '../components/home/better';
 import Share from '../components/home/share';
 import UN from '../components/home/un';
@@ -27,7 +26,6 @@ export default function Home() {
       </Head>
       <PageLayout pageName="Home">
         <Hero />
-        <RegistrationBox />
         <Better />
         <Media />
         <Share />

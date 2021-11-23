@@ -5,6 +5,8 @@ const Section: React.FC<FlexProps> = (props) => {
     <Flex
       as="section"
       w="100%"
+      h="100vh"
+      maxH="800px"
       flexDir="column"
       alignItems="center"
       position="relative"
