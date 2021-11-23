@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Text, Icon, FlexProps } from '@chakra-ui/react'
+import { Box, Flex, HStack, Text, Icon } from '@chakra-ui/react'
 import { BiUpArrowAlt  } from 'react-icons/bi'
 import { Link as ScrollLink } from "react-scroll";
 import Container from './Container'
@@ -23,7 +23,7 @@ const ShareFooter = () => {
   // side effects
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, true);
-    return window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   // UI
   return (

@@ -49,6 +49,7 @@ const SharingModal: React.FC = () => {
                   src="/illustration-big-user.png"
                   alt="Ilustração de uma mão entregando uma caixa para outra mão"
                   width="275px"
+                  ignoreFallback
                 />
               </Box>
               <Heading

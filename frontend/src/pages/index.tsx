@@ -4,7 +4,7 @@ import Alternative from '../components/home/alternative';
 import Partners from '../components/home/partners';
 import Support from '../components/home/support';
 import Commitment from '../components/home/commitment';
-import ModalConfirmation from '../components/ModalConfirmation';
+import SharingModal from '../components/SharingModal';
 import RegistrationBox from '../components/home/hero/RegistrationBox';
 import Better from '../components/home/better';
 import Share from '../components/home/share';
@@ -12,6 +12,7 @@ import UN from '../components/home/un';
 import Media from '../components/home/media';
 import Head from "next/head";
 import Seo from '../components/Seo';
+import AppsModal from '../components/AppsModal';
 
 export default function Home() {
   return (
@@ -35,7 +36,8 @@ export default function Home() {
         <Partners />
         <UN />
         <Support />
-        <ModalConfirmation />
+        <AppsModal />
+        <SharingModal />
       </PageLayout>
     </>
   )

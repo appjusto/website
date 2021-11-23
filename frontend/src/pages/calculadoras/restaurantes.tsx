@@ -1,6 +1,6 @@
 import PageLayout from '../../components/PageLayout'
 import RestaurantsHero from '../../components/calculators/restaurants/hero'
-import ModalConfirmation from '../../components/ModalConfirmation'
+import SharingModal from '../../components/SharingModal'
 import RestaurantCalculator from '../../components/calculators/restaurants/calculator'
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
     <PageLayout pageName="Restaurantes">
       <RestaurantsHero />
       <RestaurantCalculator />
-      <ModalConfirmation />
+      <SharingModal />
     </PageLayout>
   )
 }

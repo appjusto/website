@@ -3,14 +3,17 @@ import { Flex, Box, Link, Icon, Image, HStack, Button, CloseButton, useDisclosur
 import Container from './Container';
 import { FaFacebookSquare, FaInstagram, FaLinkedin  } from 'react-icons/fa'
 import CustomLink from './CustomLink'
+import { usePageContext } from '../context';
 
 const Header = () => {
+  // context
+  const { setShowAppsModal  } = usePageContext()
   const { isOpen, onToggle } = useDisclosure()
   return (
     <Flex
       as="header"
       w="100%"
-      bg="#F6F6F6"
+      bg="white"
       flexDir="column"
       justifyContent="center"
       position="fixed"
@@ -43,7 +46,7 @@ const Header = () => {
             {
               !isOpen && (
                 <NextLink href="/" passHref>
-                  <Link _focus={{ outline: 'none'}} w={{ base: '100px', lg: "100px" }}>
+                  <Link _focus={{ outline: 'none'}} w={{ base: '96px', lg: "96px" }}>
                     <Image
                       src="/logo-pages.svg"
                       alt="Logo AppJusto"
@@ -55,31 +58,60 @@ const Header = () => {
               )
             }
           </HStack>
-          <HStack
-            spacing={8}
-            display={{base: 'none', lg: 'block'}}
-            minW={{ lg: '712px'}}
+          <Flex
+            flexDir="row"
+            w="100%"
+            maxH="64px"
+            justifyContent="space-between"
+            alignItems="center"
           >
-            <Link
-              fontSize="16px"
-              lineHeight="22px"
-              fontWeight="700"
-              _focus={{ outline: 'none'}}
-              href="https://admin.appjusto.com.br"
-              isExternal
+            <HStack
+              ml="8"
+              spacing={8}
+              display={{base: 'none', lg: 'block'}}
             >
-              Cadastrar restaurante
-            </Link>
-            <Link
-              fontSize="16px"
-              lineHeight="22px"
-              fontWeight="500"
-              _focus={{ outline: 'none'}}
-              href="https://appjusto.freshdesk.com/support/home"
-              isExternal
-            >
-              Tirar dúvidas sobre o AppJusto
-            </Link>
+              <Button
+                w="124px"
+                variant="primary"
+                fontFamily="barlow"
+                fontSize="16px"
+                lineHeight="22px"
+                fontWeight="700"
+                onClick={() => setShowAppsModal(true)}
+              >
+                Baixar App
+              </Button>
+              <Link
+                fontSize="16px"
+                lineHeight="22px"
+                fontWeight="700"
+                _focus={{ outline: 'none'}}
+                href="https://admin.appjusto.com.br"
+                isExternal
+              >
+                Cadastrar restaurante
+              </Link>
+              <NextLink  href="/investimento-coletivo" passHref>
+                <Link
+                  fontSize="16px"
+                  lineHeight="22px"
+                  fontWeight="700"
+                  _focus={{ outline: 'none'}}
+                >
+                  Sobre o investimento coletivo
+                </Link>
+              </NextLink>
+              <Link
+                fontSize="16px"
+                lineHeight="22px"
+                fontWeight="500"
+                _focus={{ outline: 'none'}}
+                href="https://appjusto.freshdesk.com/support/home"
+                isExternal
+              >
+                Tirar dúvidas sobre o AppJusto
+              </Link>
+            </HStack>
             <Link
               _focus={{ outline: 'none'}}
               href="https://admin.appjusto.com.br/app"
@@ -97,7 +129,7 @@ const Header = () => {
                 Acessar portal do restaurante
               </Button>
             </Link>
-          </HStack>
+          </Flex>
           <Link
             display={{base: 'block', lg: 'none'}}
             _focus={{ outline: 'none'}}
