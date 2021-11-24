@@ -20,7 +20,7 @@ export default function Links() {
         <title>AppJusto | Links</title>
       </Head>
       <HeaderLinks />
-      <Center mt={{base: '8'}} w="100vw" h="100vh" >
+      <Center mt={{base: '8', md: '10'}} w="100vw" h="100vh" >
         <Container
           maxW="414px"
           fontFamily="barlow"
@@ -30,6 +30,7 @@ export default function Links() {
             <Link
               w="100%"
               _focus={{ outline: 'none'}}
+              _hover={{textDecor: 'none'}}
               href="https://admin.appjusto.com.br/"
               isExternal
             >
@@ -44,6 +45,7 @@ export default function Links() {
             <Link
               w="100%"
               _focus={{ outline: 'none'}}
+              _hover={{textDecor: 'none'}}
               href="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
               isExternal
             >
@@ -58,6 +60,7 @@ export default function Links() {
             <Link
               w="100%"
               _focus={{ outline: 'none'}}
+              _hover={{textDecor: 'none'}}
               href={storeLink}
               isExternal
             >
@@ -66,7 +69,7 @@ export default function Links() {
                 fontSize="16px"
                 borderColor="black"
               >
-                  Sou consumidor, quero baixar o App
+                  Sou consumidor e quero baixar o App
               </Button>
             </Link>
             <Box>

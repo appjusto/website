@@ -26,43 +26,39 @@ const HeaderLinks = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Box display={{base: 'block', lg: 'none'}}>
-            { // mobile
-              isOpen ? <CloseButton onClick={onToggle} /> : (
-                <Button border="none" px="1" bg="#F6F6F6" onClick={onToggle} aria-label="Menu">
-                  <VStack spacing={1}>
-                    <Box bg="black" h="2px" w="20px"/>
-                    <Box bg="black" h="2px" w="20px"/>
-                    <Box bg="black" h="2px" w="20px"/>
-                  </VStack>
-                </Button>
+          <HStack spacing={2}>
+            <Box display={{base: 'block', lg: 'none'}}>
+              {
+                isOpen ? <CloseButton onClick={onToggle} /> : (
+                  <Button border="none" px="1" bg="#F6F6F6" onClick={onToggle} aria-label="Menu">
+                    <VStack spacing={1}>
+                      <Box bg="black" h="2px" w="20px"/>
+                      <Box bg="black" h="2px" w="20px"/>
+                      <Box bg="black" h="2px" w="20px"/>
+                    </VStack>
+                  </Button>
+                )
+              }
+            </Box>
+            {
+              !isOpen && (
+                <NextLink href="/" passHref>
+                  <Link _focus={{ outline: 'none'}} w={{ base: '100px', lg: "100px" }}>
+                    <Image
+                      src="/logo-pages.svg"
+                      alt="Logo AppJusto"
+                      width="100%"
+                      ignoreFallback
+                    />
+                  </Link>
+                </NextLink>
               )
             }
-          </Box>
-          <NextLink href="/" passHref>
-            <Link display={{base: 'block', md: 'none'}} _focus={{ outline: 'none'}} w={{ base: '100px', lg: "100px" }}>
-              <Image
-                src="/logo-pages.svg"
-                alt="Logo AppJusto"
-                width="100%"
-                ignoreFallback
-              />
-            </Link>
-          </NextLink>
+          </HStack>
           {/*desktop*/}
           <NextLink href="/" passHref>
-              <Link display={{base: 'none', md: 'block'}} _focus={{ outline: 'none'}} w={{ base: '100px', lg: "100px" }}>
-                <Image
-                  src="/logo-pages.svg"
-                  alt="Logo AppJusto"
-                  width="100%"
-                  ignoreFallback
-                />
-              </Link>
-            </NextLink>
-          <NextLink href="/" passHref>
-            <Link display={{base: 'none', md: 'block'}} _focus={{ outline: 'none'}} w={{ base: '100px', lg: "100px" }} fontWeight="700">
-              Ir para home
+            <Link display={{base: 'none', md: 'block'}} _focus={{ outline: 'none'}} fontWeight="700">
+              Saber mais do AppJusto
             </Link>
           </NextLink>
         </Flex>
@@ -77,29 +73,9 @@ const HeaderLinks = () => {
                 fontWeight="700"
                 _focus={{ outline: 'none'}}
               >
-                Home
+                Saber mais do AppJusto
               </Link>
             </NextLink>
-            <Link
-              fontSize="16px"
-              lineHeight="22px"
-              fontWeight="700"
-              _focus={{ outline: 'none'}}
-              href="https://admin.appjusto.com.br"
-              isExternal
-            >
-              Cadastrar restaurante
-            </Link>
-            <Link
-              fontSize="16px"
-              lineHeight="22px"
-              fontWeight="500"
-              _focus={{ outline: 'none'}}
-              href="https://appjusto.freshdesk.com/support/home"
-              isExternal
-            >
-              Tirar dúvidas sobre o AppJusto
-            </Link>
             <HStack spacing={4}>
               <CustomLink
                 name="go_to_linkedin_header"
