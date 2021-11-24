@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
             </Button>
           </Flex>
           <Flex flexDir="column" justifyContent="center" alignItems="flex-end" w="100%">
-            <Image src="/crowd-hero.png" w="100%" />
+            <Image src="/crowd-hero.jpeg" w="100%" />
           </Flex>
         </Flex>
       </Container>

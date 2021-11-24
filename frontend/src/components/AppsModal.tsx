@@ -74,7 +74,7 @@ const AppsModal: React.FC = () => {
                     BETA
                 </Badge>
               </Stack>
-              <Topic mt="10" label="Consumidores" imageSrc="/pizza.png" />
+              <Topic mt="10" label="Consumidores" imageSrc="/emoji-pizza.png" />
               <Stack w="100%" direction="column" spacing={2}>
                 <CustomLinkButton
                   mt="0"
@@ -99,7 +99,7 @@ const AppsModal: React.FC = () => {
                   isExternal
                 />
               </Stack>
-              <Topic mt="10" label="Entregadores" imageSrc="/motocycle.png" />
+              <Topic mt="10" label="Entregadores" imageSrc="/emoji-motoca.png" />
               <CustomLinkButton
                 mt="0"
                 name="app-courier-android"
