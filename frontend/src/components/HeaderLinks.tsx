@@ -58,7 +58,7 @@ const HeaderLinks = () => {
           {/*desktop*/}
           <NextLink href="/" passHref>
             <Link display={{base: 'none', md: 'block'}} _focus={{ outline: 'none'}} fontWeight="700">
-              Saber mais do AppJusto
+              Saber mais sobre o AppJusto
             </Link>
           </NextLink>
         </Flex>
@@ -73,7 +73,7 @@ const HeaderLinks = () => {
                 fontWeight="700"
                 _focus={{ outline: 'none'}}
               >
-                Saber mais do AppJusto
+                Saber mais sobre o AppJusto
               </Link>
             </NextLink>
             <HStack spacing={4}>
