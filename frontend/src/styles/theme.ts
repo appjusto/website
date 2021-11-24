@@ -39,7 +39,9 @@ const customTheme = extendTheme({
     primaryDark: "#22543D",
     primaryLight: "#B8E994",
     secondary: "#FFBE00",
-    secondaryLight: "#FFE493"
+    secondaryLight: "#FFE493",
+    tertiary: "#F17105",
+    tertiaryLight: "#FFA356"
   },
   components: {
     Select,

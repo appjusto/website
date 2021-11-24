@@ -285,7 +285,7 @@ const RestaurantCalculator: React.FC = () => {
             maxW={{md: "304px"}}
             name="admin"
             linkLabel="Cadastrar restaurante"
-            variant="secondaryRegistration"
+            variant="secondary"
             link="https://admin.appjusto.com.br"
           />
           <HStack mt="8">
