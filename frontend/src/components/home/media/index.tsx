@@ -33,7 +33,6 @@ const Media: React.FC = () => {
     window.addEventListener('resize', () => getSliderWidth)
     return () => window.removeEventListener('resize', getSliderWidth)
   }, [sliderRef.current]);
-  console.log('sliderMl', sliderMl)
   // UI
   return (
     <Section mt="4" id="media" h="auto">
