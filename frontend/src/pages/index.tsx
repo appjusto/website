@@ -11,6 +11,7 @@ import Testimonials from '../components/home/testimonials';
 import Invest from '../components/home/invest';
 import Media from '../components/home/media';
 import Support from '../components/home/support';
+import Un from '../components/home/un';
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
         <Invest />
         <Media />
         <Support />
+        <Un />
         <AppsModal />
         <SharingModal />
       </PageLayout>
