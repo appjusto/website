@@ -1,7 +1,7 @@
 import { Box, Stack } from "@chakra-ui/react";
 import Container from "../../../Container";
 import Section from "../../../Section";
-import Item from './Item';
+import Item from '../../invest/Item';
 import Content from "../../../Content";
 import SectionHeading from "../../../SectionHeading";
 import CustomLinkButton from '../../../CustomLinkButton';

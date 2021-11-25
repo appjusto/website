@@ -5,6 +5,7 @@ import Head from "next/head";
 import Seo from '../components/Seo';
 import AppsModal from '../components/AppsModal';
 import MainVideo from '../components/home/main-video';
+import Invest from '../components/home/invest';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <PageLayout pageName="Home">
         <Hero />
         <MainVideo />
+        <Invest />
         <AppsModal />
         <SharingModal />
       </PageLayout>
