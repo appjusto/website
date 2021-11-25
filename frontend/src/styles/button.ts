@@ -2,12 +2,12 @@ export default {
   baseStyle: {
     fontFamily: "Barlow",
     fontSize: "16px",
-    border: "2px solid black",
     borderRadius: "8px",
     w: "100%",
   },
   variants: {
     basic:{
+      border: "2px solid black",
       fontSize: "15px",
       h: "48px",
       _hover: {bg: "#F2F6EA"}
@@ -17,28 +17,19 @@ export default {
       h: "48px",
       fontSize: "15px",
       lineHeight: "21px",
-      border: "none",
       _hover: {bg: "primaryLight"}
     },
     secondary: {
       bg: "secondary",
-      h: "60px",
-      fontSize: "18px",
-      _hover: {bg: "#FF7F22"}
-    },
-    secondaryLight: {
-      bg: "secondaryLight",
       h: "48px",
-      fontSize: "15px",
-      padding: "0 8px",
-      _hover: {bg: "#FFC093"}
+      fontSize: "18px",
+      _hover: {bg: "secondaryLight"}
     },
-    secondaryRegistration: {
-      bg: "secondaryLight",
-      h: "56px",
-      fontSize: "16px",
-      lineHeight: "22px",
-      _hover: {bg: "#FFC093"}
+    tertiary: {
+      bg: "tertiary",
+      h: "48px",
+      fontSize: "18px",
+      _hover: {bg: "tertiaryLight"}
     },
     outlineDark: {
       bg: "#C8D7CB",
@@ -46,7 +37,6 @@ export default {
       h: "22px",
       px: '3',
       py: '2',
-      border:  'none',
       fontSize: "xs",
       _hover: {bg: "#697667"}
     },
@@ -56,7 +46,6 @@ export default {
       h: "48px",
       fontSize: "15px",
       lineHeight: "21px",
-      border: "none",
     },
   },
   defaultProps: {
