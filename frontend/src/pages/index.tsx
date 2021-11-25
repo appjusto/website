@@ -6,6 +6,7 @@ import Seo from '../components/Seo';
 import AppsModal from '../components/AppsModal';
 import MainVideo from '../components/home/main-video';
 import Invest from '../components/home/invest';
+import Better from '../components/home/better';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <MainVideo />
         <Invest />
+        <Better />
         <AppsModal />
         <SharingModal />
       </PageLayout>

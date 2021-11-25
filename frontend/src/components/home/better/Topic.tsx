@@ -1,4 +1,4 @@
-import { Box, BoxProps, Heading, HStack, Image } from '@chakra-ui/react';
+import { Box, BoxProps, Circle, Heading, HStack, Image } from '@chakra-ui/react';
 
 interface TopicProps extends BoxProps {
   label: string;
@@ -7,16 +7,11 @@ interface TopicProps extends BoxProps {
 
 const Topic: React.FC<TopicProps> = ({ label, size = 'lg', ...props }) => {
   return (
-    <HStack mt="3" spacing={4} alignItems="center" {...props}>
-      <Image
-        src="/green-check.svg"
-        alt="ícone de marcador verde"
-        width={size === 'lg' ? '24px' : '15px'}
-        height={size === 'lg' ? '48px' : '26px'}
-      />
+    <HStack mt="6" spacing={4} align="flex-start" {...props}>
+      <Circle mt="3" size="4px" bg="black" />
       <Box color="black">
         <Heading
-          as="h2"
+          as="h3"
           fontSize={size}
           fontWeight="500"
           lineHeight={size}

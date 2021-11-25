@@ -7,6 +7,7 @@ interface PageContextProps {
   showAppsModal: boolean;
   setShowAppsModal(value: boolean): void;
   analytics?: firebase.analytics.Analytics;
+  storeLink: string;
 };
 
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps);
@@ -16,6 +17,9 @@ export const PageContextProvider = (props) => {
   const [showSharingModal, setShowSharingModal] = React.useState(false);
   const [showAppsModal, setShowAppsModal] = React.useState(false);
   const [analytics, setAnalytics] = React.useState<firebase.analytics.Analytics>();
+  // helpers
+  const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
+  const storeLink = env === 'live' ? 'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
   // side effects
   React.useEffect(() => {
     (async () => {
@@ -25,7 +29,7 @@ export const PageContextProvider = (props) => {
   }, [])
   // provider
   return <PageContext.Provider value={{
-    showSharingModal, setShowSharingModal, showAppsModal, setShowAppsModal, analytics
+    showSharingModal, setShowSharingModal, showAppsModal, setShowAppsModal, analytics, storeLink
   }} {...props}/>
 }
 

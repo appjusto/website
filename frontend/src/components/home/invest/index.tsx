@@ -26,7 +26,7 @@ const Invest: React.FC = () => {
             <Text mt="10" fontSize={{base: '18px', lg: '20px'}} lineHeight="26px" fontWeight="500">
               Conheça nossos compromissos:
             </Text>
-            <Box>
+            <Box mt="8">
             <Item
               image="/icon-bike.svg"
               altImg="Ícone de entregador numa moto"

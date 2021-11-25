@@ -8,7 +8,7 @@ import SectionHeading from '../../SectionHeading';
 const MainVideo: React.FC = () => {
   return (
     <Section mt={{ base: '8', lg: '4'}} id="main-video" h="auto">
-      <Container bgColor="#2F422C" pt={{base: '8', lg: '16'}} px={{base: '4', md:'6', lg: '100px'}} pb={{base: '10', lg: '2'}} >
+      <Container bgColor="#2F422C" pt={{base: '8', lg: '16'}} px={{base: '4', md:'6', lg: '100px'}} pb={{base: '10', lg: '3'}} >
         <Flex direction={{base: 'column', md: 'row'}} h="100%" color="white">
           <Box w={{base: '100%', md: '50%', lg: '60%'}}>
             <Box position="relative">

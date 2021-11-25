@@ -19,7 +19,7 @@ const Header = () => {
       position="fixed"
       top="0"
       left="0"
-      zIndex="100"
+      zIndex="999"
     >
       <Container py="2">
         <Flex

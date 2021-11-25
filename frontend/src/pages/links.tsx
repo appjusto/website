@@ -2,12 +2,13 @@ import Head from "next/head";
 import Seo from '../components/Seo';
 import { Box, Button, Center, Container, Image, Link, VStack } from "@chakra-ui/react";
 import HeaderLinks from "../components/HeaderLinks";
+import { usePageContext } from "../context";
 
 
 export default function Links() {
-  // helpers
-  const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
-  const storeLink = env === 'live' ? 'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
+  // context
+  const { storeLink } = usePageContext();
+  // UI
   return (
     <>
       <Head>
@@ -35,7 +36,7 @@ export default function Links() {
               isExternal
             >
               <Button
-                variant="secondary"
+                variant="tertiary"
                 fontSize="16px"
                 borderColor="black"
               >
@@ -50,7 +51,7 @@ export default function Links() {
               isExternal
             >
               <Button
-                variant="tertiary"
+                variant="secondary"
                 fontSize="16px"
                 borderColor="black"
               >

@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
         w="100%"
         justifyContent="center"
         alignItems="center"
-        zIndex="9999"
+        zIndex="900"
       >
         <Image src="/decorative-lines-yellow.svg" w={{md: '360px', lg: '560px'}} />
       </Flex>
