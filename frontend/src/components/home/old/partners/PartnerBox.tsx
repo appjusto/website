@@ -1,5 +1,5 @@
 import { Box, Flex, Image } from '@chakra-ui/react'
-import CustomLinkButton from '../../CustomLinkButton';
+import CustomLinkButton from '../../../CustomLinkButton';
 
 interface PartnerBoxProps{
   image: string

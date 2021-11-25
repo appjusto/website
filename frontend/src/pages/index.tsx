@@ -1,14 +1,6 @@
 import PageLayout from '../components/PageLayout'
 import Hero from '../components/home/hero'
-import Alternative from '../components/home/alternative';
-import Partners from '../components/home/partners';
-import Support from '../components/home/support';
-import Commitment from '../components/home/commitment';
 import SharingModal from '../components/SharingModal';
-import Better from '../components/home/better';
-import Share from '../components/home/share';
-import UN from '../components/home/un';
-import Media from '../components/home/media';
 import Head from "next/head";
 import Seo from '../components/Seo';
 import AppsModal from '../components/AppsModal';
@@ -26,14 +18,6 @@ export default function Home() {
       </Head>
       <PageLayout pageName="Home">
         <Hero />
-        <Better />
-        <Media />
-        <Share />
-        <Alternative />
-        <Commitment />
-        <Partners />
-        <UN />
-        <Support />
         <AppsModal />
         <SharingModal />
       </PageLayout>

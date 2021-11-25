@@ -1,9 +1,9 @@
 import { Box, HStack, Image, Link, Text, Wrap, WrapItem } from "@chakra-ui/react";
-import Container from "../../Container";
-import Section from "../../Section";
+import Container from "../../../Container";
+import Section from "../../../Section";
 import PartnerBox from './PartnerBox';
-import Content from "../../Content";
-import SectionHeading from "../../SectionHeading";
+import Content from "../../../Content";
+import SectionHeading from "../../../SectionHeading";
 import NextLink from 'next/link';
 
 const Partners: React.FC = () => {

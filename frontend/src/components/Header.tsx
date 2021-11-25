@@ -62,7 +62,7 @@ const Header = () => {
             flexDir="row"
             w={{base: '50%', md: '100%'}}
             maxH="64px"
-            justifyContent="space-between"
+            justifyContent={{md: 'flex-end', lg: 'space-between'}}
             alignItems="center"
             fontFamily="barlow"
             fontSize="16px"

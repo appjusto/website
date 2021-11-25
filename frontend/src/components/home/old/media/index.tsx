@@ -1,8 +1,8 @@
 import { Stack, Text } from '@chakra-ui/react';
-import Container from '../../Container';
-import SectionHeading from '../../SectionHeading';
-import Content from '../../Content';
-import Section from '../../Section';
+import Container from '../../../Container';
+import SectionHeading from '../../../SectionHeading';
+import Content from '../../../Content';
+import Section from '../../../Section';
 import MediaBox from './MediaBox';
 
 const Media = () => {

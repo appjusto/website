@@ -1,5 +1,5 @@
 import { Box, Image, Text } from '@chakra-ui/react'
-import CustomLinkButton from '../../CustomLinkButton';
+import CustomLinkButton from '../../../CustomLinkButton';
 
 interface MediaBoxProps{
   image: string

@@ -5,8 +5,8 @@ const Section: React.FC<FlexProps> = (props) => {
     <Flex
       as="section"
       w="100%"
-      h="100vh"
-      maxH="800px"
+      h={{ lg: '100vh'}}
+      maxH={{ lg: '800px'}}
       flexDir="column"
       alignItems="center"
       position="relative"

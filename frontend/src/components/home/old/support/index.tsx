@@ -1,9 +1,9 @@
 import { Flex, Text } from "@chakra-ui/react";
-import Container from "../../Container";
-import Section from "../../Section";
-import CustomLinkButton from "../../CustomLinkButton";
-import Content from "../../Content";
-import SectionHeading from "../../SectionHeading";
+import Container from "../../../Container";
+import Section from "../../../Section";
+import CustomLinkButton from "../../../CustomLinkButton";
+import Content from "../../../Content";
+import SectionHeading from "../../../SectionHeading";
 
 const Support: React.FC = () => {
   return (

@@ -1,8 +1,8 @@
 import { Image, Wrap, WrapItem } from "@chakra-ui/react";
-import Container from "../../Container";
-import Section from "../../Section";
-import Content from "../../Content";
-import SectionHeading from "../../SectionHeading";
+import Container from "../../../Container";
+import Section from "../../../Section";
+import Content from "../../../Content";
+import SectionHeading from "../../../SectionHeading";
 
 const UN: React.FC = () => {
   return (

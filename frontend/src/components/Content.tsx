@@ -8,7 +8,6 @@ const Content: React.FC<FlexProps> = (props) => {
       alignItems="flex-start"
       position="relative"
       maxW={{ md: '312px', lg: '480px', xl: '656px' }}
-      zIndex="900"
       {...props}
     >
       {props.children}

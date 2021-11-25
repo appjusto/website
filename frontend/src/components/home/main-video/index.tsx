@@ -3,18 +3,18 @@ import Image from '../../Image';
 import Section from "../../Section";
 import Container from '../../Container';
 
-const Hero: React.FC = () => {
+const MainVideo: React.FC = () => {
   return (
-    <Section id="hero" mt={{base: '44px', lg: '-64px'}}>
-      <Container>
-        <Flex direction={{base: 'column', md: 'row'}} h={{lg: '100vh'}} maxH={{lg: '760px'}}>
+    <Section id="main-video">
+      <Container bgColor="green.700">
+        <Flex direction={{base: 'column', md: 'row'}} h="100vh" maxH="760px">
           <Flex flexDir="column" justifyContent="center" w="100%">
             <Heading
                 as="h1"
-                maxW={{base: '311px', lg: '648px'}}
-                fontSize={{ base: '28px', md: '48px', lg: "64px" }}
+                maxW="648px"
+                fontSize={{ base: '32px', md: '48px', lg: "64px" }}
                 fontWeight="700"
-                lineHeight={{ base: '30px', md: '56px', lg: "76px" }}
+                lineHeight={{ base: '38.4px', md: '56px', lg: "76px" }}
               >
                 Já pensou em ser sócio do App? Agora você pode!
               </Heading>
@@ -40,24 +40,16 @@ const Hero: React.FC = () => {
               Quero investir a partir de R$ 100
             </Button>
           </Flex>
-          <Flex mt={{base: '8', md: '0'}} flexDir="column" justifyContent="center" alignItems="flex-end" w="100%">
+          <Flex flexDir="column" justifyContent="center" alignItems="flex-end" w="100%">
             <Image src="/crowd-hero.jpeg" w="100%" />
           </Flex>
         </Flex>
       </Container>
-      <Flex
-        display={{base: 'none', lg: 'flex'}}
-        position="absolute"
-        bottom='-100px'
-        w="100%"
-        justifyContent="center"
-        alignItems="center"
-        zIndex="9999"
-      >
-        <Image src="/decorative-lines-yellow.svg" w={{md: '360px', lg: '560px'}} />
+      <Flex position="absolute" bottom='-100px' w="100%" justifyContent="center" alignItems="center" zIndex="9999">
+        <Image src="/decorative-lines-yellow.svg" w="560px" />
       </Flex>
     </Section>
   );
 }
 
-export default Hero;
+export default MainVideo;

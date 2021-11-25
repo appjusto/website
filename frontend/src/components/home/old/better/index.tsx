@@ -1,11 +1,11 @@
 import { Box, Flex, Image } from '@chakra-ui/react';
-import Container from '../../Container';
-import SectionHeading from '../../SectionHeading';
-import Content from '../../Content';
-import Section from '../../Section';
+import Container from '../../../Container';
+import SectionHeading from '../../../SectionHeading';
+import Content from '../../../Content';
+import Section from '../../../Section';
 import Topic from './Topic';
-import CustomLinkButton from '../../CustomLinkButton';
-import CustomButton from '../../CustomButton';
+import CustomLinkButton from '../../../CustomLinkButton';
+import CustomButton from '../../../CustomButton';
 
 const Better = () => {
   return (

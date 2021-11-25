@@ -1,9 +1,9 @@
 import { Text } from '@chakra-ui/react';
-import Container from '../../Container';
-import SectionHeading from '../../SectionHeading';
-import SharingButtons from '../../share/SharingButtons';
-import Content from '../../Content';
-import Section from '../../Section';
+import Container from '../../../Container';
+import SectionHeading from '../../../SectionHeading';
+import SharingButtons from '../../../share/SharingButtons';
+import Content from '../../../Content';
+import Section from '../../../Section';
 
 const Share = () => {
   return (

@@ -1,10 +1,10 @@
 import { Box, Stack } from "@chakra-ui/react";
-import Container from "../../Container";
-import Section from "../../Section";
+import Container from "../../../Container";
+import Section from "../../../Section";
 import Item from './Item';
-import Content from "../../Content";
-import SectionHeading from "../../SectionHeading";
-import CustomLinkButton from '../../CustomLinkButton';
+import Content from "../../../Content";
+import SectionHeading from "../../../SectionHeading";
+import CustomLinkButton from '../../../CustomLinkButton';
 
 const Commitment: React.FC = () => {
   return (
