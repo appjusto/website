@@ -12,8 +12,11 @@ const Un: React.FC = () => {
         <Center>
           <Image src="/icon-splash.svg" />
         </Center>
-        <SectionHeading mt="8" w="100%" textAlign="center">
+        <SectionHeading display={{base: 'none', md: 'block'}} mt="8" w="100%" textAlign="center">
           Colaboramos com os Objetivos de Desenvolvimento Sustentáveis da ONU
+        </SectionHeading>
+        <SectionHeading display={{base: 'block', md: 'none'}} mt="8" w="100%" textAlign="center">
+          Colaboramos com os Objetivos da ONU
         </SectionHeading>
         <Center mt="8">
           <HStack>

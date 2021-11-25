@@ -13,7 +13,7 @@ const MainVideo: React.FC = () => {
           <Box w={{base: '100%', md: '50%', lg: '60%'}}>
             <Box position="relative">
               <Image src="/team.jpeg" boxShadow={{lg: 'black -24px 24px'}} zIndex="100" />
-              <Center position="absolute" top="0" left="0" w="100%" h="100%" zIndex="999">
+              <Center position="absolute" top="0" left="0" w="100%" h="100%" zIndex="200">
                 <Image src="/icon-play.svg" w="96px" h="96px" _hover={{ opacity: "0.6" }} cursor="pointer" />
               </Center>
             </Box>

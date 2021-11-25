@@ -12,6 +12,7 @@ import Invest from '../components/home/invest';
 import Media from '../components/home/media';
 import Support from '../components/home/support';
 import Un from '../components/home/un';
+import Crowdfunding from '../components/home/crowdfunding';
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
         <Media />
         <Support />
         <Un />
+        <Crowdfunding />
         <AppsModal />
         <SharingModal />
       </PageLayout>
