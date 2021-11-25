@@ -4,6 +4,7 @@ import SharingModal from '../components/SharingModal';
 import Head from "next/head";
 import Seo from '../components/Seo';
 import AppsModal from '../components/AppsModal';
+import MainVideo from '../components/home/main-video';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       </Head>
       <PageLayout pageName="Home">
         <Hero />
+        <MainVideo />
         <AppsModal />
         <SharingModal />
       </PageLayout>

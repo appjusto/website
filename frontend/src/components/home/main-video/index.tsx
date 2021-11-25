@@ -1,53 +1,40 @@
-import { Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Flex, Heading, Text } from '@chakra-ui/react'
 import Image from '../../Image';
 import Section from "../../Section";
 import Container from '../../Container';
+import NextLink from 'next/link';
 
 const MainVideo: React.FC = () => {
   return (
-    <Section id="main-video">
-      <Container bgColor="green.700">
-        <Flex direction={{base: 'column', md: 'row'}} h="100vh" maxH="760px">
-          <Flex flexDir="column" justifyContent="center" w="100%">
-            <Heading
-                as="h1"
-                maxW="648px"
-                fontSize={{ base: '32px', md: '48px', lg: "64px" }}
-                fontWeight="700"
-                lineHeight={{ base: '38.4px', md: '56px', lg: "76px" }}
-              >
-                Já pensou em ser sócio do App? Agora você pode!
-              </Heading>
-            <Heading
-              mt="8"
-              as="h2"
-              maxW="648px"
-              fontSize="20px"
-              fontWeight="500"
-              lineHeight="26px"
-            >
-              Participe do{' '}
-              <Text as="mark" bgColor="#FFE493">investimento coletivo</Text>
-              {' '}a partir de R$100 e seja parte desse movimento por relações mais justas e transparentes no delivery.
+    <Section mt={{ lg: '4'}} id="main-video" h="auto">
+      <Container bgColor="#2F422C" pt="16" px="100px" pb="2" >
+        <Flex direction={{base: 'column', md: 'row'}} h="100%" color="white">
+          <Box w="60%">
+            <Box position="relative">
+              <Image src="/team.jpeg" boxShadow="black -24px 24px" zIndex="100" />
+            <Center position="absolute" top="0" left="0" w="100%" h="100%" zIndex="999">
+                <Image src="/icon-play.svg" w="96px" h="96px" _hover={{ opacity: "0.6" }} cursor="pointer" />
+              </Center>
+            </Box>
+            <Text mt="8" fontSize="16px" lineHeight="22px" fontWeight="500" textAlign="center">
+              Assista ao vídeo e entenda a nossa proposta
+            </Text>
+          </Box>
+          <Box w="40%" py="4" px="5">
+            <Heading as="h2" fontSize="48px" lineHeight="57.6px" fontWeight="700">
+              Só é bom quando é bom para todos
             </Heading>
-            <Button
-              mt="8"
-              maxW="328px"
-              variant="primary"
-              fontSize="18px"
-              fontWeight="700"
-              lineHeight="24px">
-              Quero investir a partir de R$ 100
-            </Button>
-          </Flex>
-          <Flex flexDir="column" justifyContent="center" alignItems="flex-end" w="100%">
-            <Image src="/crowd-hero.jpeg" w="100%" />
-          </Flex>
+            <Text mt="8" fontSize="20px" lineHeight="26px" fontWeight="500">
+              Mais que uma plataforma de entregas. Queremos ser exemplo de como um negócio da economia de plataforma pode crescer e, ao mesmo tempo, gerar prosperidade para todos - fornecedores, consumidores, entregadores, acionistas - reduzindo desigualdades.
+            </Text>
+            <NextLink  href="/investimento-coletivo" passHref>
+              <Button mt="8" w="auto" variant="outlineWhite" px="6">
+                Saiba mais do financiamento coletivo
+              </Button>
+            </NextLink>
+          </Box>
         </Flex>
       </Container>
-      <Flex position="absolute" bottom='-100px' w="100%" justifyContent="center" alignItems="center" zIndex="9999">
-        <Image src="/decorative-lines-yellow.svg" w="560px" />
-      </Flex>
     </Section>
   );
 }

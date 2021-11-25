@@ -31,6 +31,16 @@ export default {
       fontSize: "18px",
       _hover: {bg: "tertiaryLight"}
     },
+    outlineWhite: {
+      px: '3',
+      py: '2',
+      border: '1px solid white',
+      color: 'white',
+      fontSize: '16px',
+      lineHeight: "22px",
+      fontWeight: '700',
+      _hover: {bg: "#697667"}
+    },
     outlineDark: {
       bg: "#C8D7CB",
       w: "auto",

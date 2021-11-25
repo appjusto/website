@@ -5,9 +5,9 @@ import Container from '../../Container';
 
 const Hero: React.FC = () => {
   return (
-    <Section id="hero" mt={{base: '44px', lg: '-64px'}}>
+    <Section id="hero" mt={{base: '44px', lg: '-24px'}}>
       <Container>
-        <Flex direction={{base: 'column', md: 'row'}} h={{lg: '100vh'}} maxH={{lg: '760px'}}>
+        <Flex direction={{base: 'column', md: 'row'}} h="100%">
           <Flex flexDir="column" justifyContent="center" w="100%">
             <Heading
                 as="h1"
@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
       <Flex
         display={{base: 'none', lg: 'flex'}}
         position="absolute"
-        bottom='-100px'
+        bottom='-70px'
         w="100%"
         justifyContent="center"
         alignItems="center"
