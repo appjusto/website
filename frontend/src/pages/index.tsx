@@ -9,6 +9,7 @@ import Commitment from '../components/home/commitment';
 import Better from '../components/home/better';
 import Testimonials from '../components/home/testimonials';
 import Invest from '../components/home/invest';
+import Media from '../components/home/media';
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <Better />
         <Testimonials />
         <Invest />
+        <Media />
         <AppsModal />
         <SharingModal />
       </PageLayout>

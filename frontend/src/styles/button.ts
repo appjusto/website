@@ -4,6 +4,7 @@ export default {
     fontSize: "16px",
     borderRadius: "8px",
     w: "100%",
+    _focus: { boxShadow: 'none'}
   },
   variants: {
     basic:{
