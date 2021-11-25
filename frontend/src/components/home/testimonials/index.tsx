@@ -6,7 +6,7 @@ import SectionHeading from '../../SectionHeading';
 const Testimonials: React.FC = () => {
   // UI
   return (
-    <Section mt={{ base: '8', lg: '4'}} id="testimonials" h="auto">
+    <Section mt="4" id="testimonials" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '8'}} >
         <SectionHeading w="100%" textAlign={{ md: 'center'}}>
           Depoimentos de quem já faz parte da mudança

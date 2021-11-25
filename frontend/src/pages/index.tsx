@@ -5,9 +5,10 @@ import Head from "next/head";
 import Seo from '../components/Seo';
 import AppsModal from '../components/AppsModal';
 import MainVideo from '../components/home/main-video';
-import Invest from '../components/home/invest';
+import Commitment from '../components/home/commitment';
 import Better from '../components/home/better';
 import Testimonials from '../components/home/testimonials';
+import Invest from '../components/home/invest';
 
 export default function Home() {
   return (
@@ -23,9 +24,10 @@ export default function Home() {
       <PageLayout pageName="Home">
         <Hero />
         <MainVideo />
-        <Invest />
+        <Commitment />
         <Better />
         <Testimonials />
+        <Invest />
         <AppsModal />
         <SharingModal />
       </PageLayout>

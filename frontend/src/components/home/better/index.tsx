@@ -1,7 +1,6 @@
-import { Box, Button, Link, Stack, Text } from '@chakra-ui/react'
+import { Button, Link, Stack } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
-import NextLink from 'next/link';
 import SectionHeading from '../../SectionHeading';
 import StackholderBox from './StackholderBox';
 import Topic from './Topic';
@@ -12,7 +11,7 @@ const Better: React.FC = () => {
   const { storeLink } = usePageContext();
   // UI
   return (
-    <Section mt={{ base: '8', lg: '4'}} id="better" h="auto">
+    <Section mt="4" id="better" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '8'}} >
         <SectionHeading w="100%" textAlign={{ md: 'center'}}>
           O AppJusto é melhor para todos
