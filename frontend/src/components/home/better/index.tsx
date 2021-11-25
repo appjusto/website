@@ -12,7 +12,7 @@ const Better: React.FC = () => {
   const { storeLink } = usePageContext();
   // UI
   return (
-    <Section mt={{ base: '8', lg: '4'}} id="main-video" h="auto">
+    <Section mt={{ base: '8', lg: '4'}} id="better" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '8'}} >
         <SectionHeading w="100%" textAlign={{ md: 'center'}}>
           O AppJusto é melhor para todos

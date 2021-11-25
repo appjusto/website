@@ -7,6 +7,7 @@ import AppsModal from '../components/AppsModal';
 import MainVideo from '../components/home/main-video';
 import Invest from '../components/home/invest';
 import Better from '../components/home/better';
+import Testimonials from '../components/home/testimonials';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <MainVideo />
         <Invest />
         <Better />
+        <Testimonials />
         <AppsModal />
         <SharingModal />
       </PageLayout>

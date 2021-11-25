@@ -8,7 +8,7 @@ import Item from './Item';
 
 const Invest: React.FC = () => {
   return (
-    <Section mt={{ base: '8', lg: '4'}} id="main-video" h="auto">
+    <Section mt={{ base: '8', lg: '4'}} id="invest" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '2'}} >
         <Stack direction={{base: 'column', md: 'row'}} spacing={8} h="100%">
           <Box w='100%' display={{base: 'none', md: 'block'}}>

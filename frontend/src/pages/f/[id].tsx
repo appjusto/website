@@ -6,7 +6,7 @@ import CustomLinkButton from "../../components/CustomLinkButton";
 import { AppsBox } from "../../components/Fleet/AppsBox";
 import { FleetFeature } from "../../components/Fleet/FleetFeature";
 import Footer from "../../components/Footer";
-import Topic from "../../components/home/old/better/Topic";
+import Topic from "../../components/home/better/Topic";
 import React from 'react';
 //import { Fleet } from '@appjusto/types';
 import { formatCurrency } from "../../utils";
