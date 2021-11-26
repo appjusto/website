@@ -1,4 +1,4 @@
-import { Box, BoxProps, Heading, Image } from '@chakra-ui/react';
+import { Box, BoxProps, Flex, Heading, Image } from '@chakra-ui/react';
 
 interface StackholderBoxProps extends BoxProps {
   image: string;
@@ -20,7 +20,9 @@ const StackholderBox: React.FC<StackholderBoxProps> = ({ image, title, children,
       >
         {title}
       </Heading>
-      {children}
+      <Flex h="308px" flexDir="column" justifyContent="space-between">
+        {children}
+      </Flex>
     </Box>
   );
 };

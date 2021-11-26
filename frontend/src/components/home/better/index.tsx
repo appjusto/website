@@ -1,4 +1,4 @@
-import { Stack } from '@chakra-ui/react'
+import { Box, Stack } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
@@ -23,11 +23,12 @@ const Better: React.FC = () => {
             image="/stakeholder-courier.png"
             title="Entregadores"
           >
-            <Topic label="Remuneração na frota AppJusto: R$ 10 até 5km e mais R$ 2 por km adicional" />
-            <Topic label="Autonomia de definir preço e condições próprias no nosso sistema de frotas" />
-            <Topic label="Sem suspensões automáticas: o processo sempre passa por um atendente" />
+            <Box>
+              <Topic label="Remuneração na frota AppJusto: R$ 10 até 5km e mais R$ 2 por km adicional" />
+              <Topic label="Autonomia de definir preço e condições próprias no nosso sistema de frotas" />
+              <Topic label="Sem suspensões automáticas: o processo sempre passa por um atendente" />
+            </Box>
             <CustomLinkButton
-              mt="8"
               w="auto"
               px="6"
               fontSize="16px"
@@ -43,11 +44,12 @@ const Better: React.FC = () => {
             image="/stakeholder-restaurant.png"
             title="Restaurantes"
           >
-            <Topic label="Comissão de 5% no modelo com operação logística + 2,21% da operadora financeira. Calcule seus ganhos agora mesmo!" />
-            <Topic label="Exibição igualitária do seu restaurante por ordem de distância do cliente" />
-            <Topic label="Transparência em todas as regras" />
+            <Box>
+              <Topic label="Comissão de 5% no modelo com operação logística + 2,21% da operadora financeira. Calcule seus ganhos agora mesmo!" />
+              <Topic label="Exibição igualitária do seu restaurante por ordem de distância do cliente" />
+              <Topic label="Transparência em todas as regras" />
+            </Box>
             <CustomLinkButton
-              mt="8"
               w="auto"
               px="6"
               fontSize="16px"
@@ -63,11 +65,12 @@ const Better: React.FC = () => {
             image="/stakeholder-consumer.png"
             title="Consumidores"
           >
-            <Topic label="Preços dos pratos até 20% mais baratos do que em outros apps" />
-            <Topic label="Entregas de encomendas até 25% mais baratas" />
-            <Topic label="Consumir delivery de maneira socialmente responsável e mais sustentável " />
+            <Box>
+              <Topic label="Preços dos pratos até 20% mais baratos do que em outros apps" />
+              <Topic label="Entregas de encomendas até 25% mais baratas" />
+              <Topic label="Consumir delivery de maneira socialmente responsável e mais sustentável " />
+            </Box>
             <CustomLinkButton
-              mt="8"
               w="auto"
               px="6"
               fontSize="16px"
