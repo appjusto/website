@@ -40,7 +40,14 @@ const Media: React.FC = () => {
         <SectionHeading w="100%" textAlign={{ md: 'center'}}>
           O que andam falando do AppJusto por aí
         </SectionHeading>
-        <HStack ref={sliderRef} mt="10"ml={`${sliderMl}px`} spacing={4} h="100%" overflow={{base: 'scroll', lg: 'hidden'}}>
+        <HStack
+          ref={sliderRef}
+          mt="10"
+          ml={`${sliderMl}px`}
+          spacing={4} h="100%"
+          overflow={{base: 'scroll', lg: 'hidden'}}
+          transition="margin 1s"
+        >
           <MediaBox
             text="Aplicativo permite que entregadores decidam quanto vão cobrar por corrida"
             link="https://revistapegn.globo.com/Startups/noticia/2021/05/aplicativo-permite-que-entregadores-decidam-quanto-vao-cobrar-por-corrida.html"

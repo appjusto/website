@@ -14,6 +14,7 @@ const MediaBox: React.FC<MediaBoxProps> = ({ image, altImg, link, text }) => {
       bgColor="#F6F6F6"
       borderRadius="8px"
       minW="312px"
+      maxW="312px"
       h="400px"
       p="6"
       flexDir="column"
