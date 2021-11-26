@@ -42,12 +42,6 @@ const customTheme = extendTheme({
       fontSize: {base: '18px', lg: '20px'},
       lineHeight: {base: '20px', lg: '26px'},
       fontWeight: '400'
-    },
-    pBold: {
-      fontFamily: 'Barlow, system-ui, sans-serif',
-      fontSize: {base: '18px', lg: '20px'},
-      lineHeight: {base: '20px', lg: '26px'},
-      fontWeight: '700'
     }
   }
 })

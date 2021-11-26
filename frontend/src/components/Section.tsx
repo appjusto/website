@@ -1,8 +1,10 @@
 import { Flex, FlexProps } from '@chakra-ui/react'
+import React from 'react';
 
-const Section: React.FC<FlexProps> = (props) => {
+const Section = React.forwardRef<HTMLDivElement, FlexProps>(({children, ...props}, ref) => {
   return (
     <Flex
+      ref={ref}
       as="section"
       w="100%"
       h={{ lg: '100vh'}}
@@ -12,9 +14,9 @@ const Section: React.FC<FlexProps> = (props) => {
       position="relative"
       {...props}
     >
-      {props.children}
+      {children}
     </Flex>
   );
-}
+});
 
 export default Section;

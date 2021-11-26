@@ -17,7 +17,7 @@ const Support: React.FC = () => {
         <SectionHeading w="100%" textAlign="center" maxW={{base: '321px', md: 'unset'}}>
           Veja quem já apoia essa causa
         </SectionHeading>
-        <Text display={{base: 'none', md: 'block'}} mt="6" fontSize="18px" lineHeight="26px" fontWeight="500" textAlign={{ lg: 'center'}}>
+        <Text display={{base: 'none', md: 'block'}} mt="6" fontSize="18px" lineHeight="26px" fontWeight="500" textAlign={{ md: 'center'}}>
           Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas,
           entre sócios, colaboradores e voluntários.{' '}
           <NextLink href="/conheca-a-rede" passHref>
