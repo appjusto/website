@@ -2,6 +2,7 @@ import { Box, Button, Image, Stack, Text } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
+import CustomLinkButton from '../../CustomLinkButton';
 
 const Invest: React.FC = () => {
   return (
@@ -16,11 +17,20 @@ const Invest: React.FC = () => {
               <SectionHeading mt="8" highlighted>
                 100% do investimento será reinvestido na empresa
               </SectionHeading>
-              <Text mt="10" fontSize={{base: '18px', lg: '20px'}} lineHeight="26px" fontWeight="500">
+              <Text mt="10" textStyle="p">
                 Nosso objetivo com o investimento será destinado ao fortalecimento da rede, cadastro de 3.000 restaurantes,
                 5.000 entregadores, e alcançar 800.000 transações mensais nos próximos 14 meses.
               </Text>
-              <Button mt="10" variant="primary" w="auto" px="6">Quero investir a partir de R$ 100</Button>
+              <CustomLinkButton
+                mt="10"
+                w="auto"
+                px="6"
+                h="64px"
+                fontSize="20px"
+                variant="primary"
+                link=""
+                linkLabel="Quero investir a partir de R$ 100"
+              />
             </Box>
           </Box>
           <Box w="100%" pl={{lg: '8'}}>

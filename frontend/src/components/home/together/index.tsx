@@ -11,7 +11,7 @@ const Together: React.FC = () => {
             <Image display={{base: 'block', md: 'none'}} src="/signature-mobile.png" />
             <Image display={{base: 'none', md: 'block'}} src="/signature-desktop.png" />
           </Box>
-          <Text mt="10" fontSize="20px" lineHeight="26px" fontWeight="500">
+          <Text mt="10" textStyle="p">
             Quer fazer parte do AppJusto? Entre em{' '}
             <Link href="mailto:parceiros@appjusto.com.br" textDecor="underline" isExternal>
               contato sobre parcerias

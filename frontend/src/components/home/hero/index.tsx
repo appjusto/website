@@ -2,6 +2,7 @@ import { Button, Flex, Heading, Text } from '@chakra-ui/react'
 import Image from '../../Image';
 import Section from "../../Section";
 import Container from '../../Container';
+import CustomLinkButton from '../../CustomLinkButton';
 
 const Hero: React.FC = () => {
   return (
@@ -30,15 +31,18 @@ const Hero: React.FC = () => {
               <Text as="mark" bgColor="#FFE493">investimento coletivo</Text>
               {' '}a partir de R$100 e seja parte desse movimento por relações mais justas e transparentes no delivery.
             </Heading>
-            <Button
+            <CustomLinkButton
               mt="8"
               maxW="328px"
               variant="primary"
-              fontSize="18px"
+              h="64px"
+              fontSize="20px"
+              lineHeight="24px"
               fontWeight="700"
-              lineHeight="24px">
-              Quero investir a partir de R$ 100
-            </Button>
+              linkLabel="Quero investir a partir de R$ 100"
+              link=""
+              isExternal
+            />
           </Flex>
           <Flex mt={{base: '8', md: '0'}} flexDir="column" justifyContent="center" alignItems="flex-end" w="100%">
             <Image src="/crowd-hero.jpeg" w="100%" />

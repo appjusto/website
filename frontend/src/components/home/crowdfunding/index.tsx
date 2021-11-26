@@ -3,6 +3,8 @@ import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
 import NextLink from 'next/link';
+import CustomLinkButton from '../../CustomLinkButton';
+import CustomLink from '../../CustomLink';
 
 const Crowdfunding: React.FC = () => {
   return (
@@ -13,32 +15,26 @@ const Crowdfunding: React.FC = () => {
             <SectionHeading mt="8" textAlign="center">
               Preparado para participar do financiamento coletivo no futuro do delivery?
             </SectionHeading>
-            <Link href="/" _hover={{ textDecor: 'none'}} isExternal>
-              <Button
+            <CustomLinkButton
                 mt="8"
                 variant="primary"
                 h="60px"
-                w={{base: '100%', md: 'auto'}}
-                maxW={{ md: '325px'}}
                 px="6"
                 fontSize="20px"
-                lineHeight="24px"
-              >
-                Quero investir a partir de R$ 100
-              </Button>
-            </Link>
-            <NextLink href="/investimento-coletivo" passHref>
-              <Link
-                mt="10"
-                textDecor="underline"
-                fontSize="18px"
-                lineHeight="26px"
-                fontWeight="500"
-                textAlign="center"
-              >
-                Saiba mais do financiamento coletivo
-              </Link>
-            </NextLink>
+                link=""
+                linkLabel="Quero investir a partir de R$ 100"
+                isExternal
+            />
+            <CustomLink
+              mt="10"
+              name="invest-page-link"
+              textDecor="underline"
+              fontSize="20px"
+              lineHeight="26px"
+              textAlign="center"
+              link="/investimento-coletivo"
+              linkLabel="Saiba mais do financiamento coletivo"
+            />
           </Flex>
           <Box w="100%" pl={{lg: '8'}}>
             <Box>

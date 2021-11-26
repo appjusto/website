@@ -1,10 +1,11 @@
-import { Button, Link, Stack } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
 import StackholderBox from './StackholderBox';
 import Topic from './Topic';
 import { usePageContext } from '../../../context';
+import CustomLinkButton from '../../CustomLinkButton';
 
 const Better: React.FC = () => {
   // context
@@ -25,14 +26,17 @@ const Better: React.FC = () => {
             <Topic label="Remuneração na frota AppJusto: R$ 10 até 5km e mais R$ 2 por km adicional" />
             <Topic label="Autonomia de definir preço e condições próprias no nosso sistema de frotas" />
             <Topic label="Sem suspensões automáticas: o processo sempre passa por um atendente" />
-            <Link
-              _focus={{ outline: 'none'}}
-              _hover={{textDecor: 'none'}}
-              href="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
+            <CustomLinkButton
+              mt="8"
+              w="auto"
+              px="6"
+              fontSize="16px"
+              size="lg"
+              variant="secondary"
+              link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
+              linkLabel="Baixar app - Entregador"
               isExternal
-            >
-              <Button mt="8" w="auto" px="6" variant="secondary">Baixar app - Entregador</Button>
-            </Link>
+            />
           </StackholderBox>
           <StackholderBox
             flex={1}
@@ -42,14 +46,17 @@ const Better: React.FC = () => {
             <Topic label="Comissão de 5% no modelo com operação logística + 2,21% da operadora financeira. Calcule seus ganhos agora mesmo!" />
             <Topic label="Exibição igualitária do seu restaurante por ordem de distância do cliente" />
             <Topic label="Transparência em todas as regras" />
-            <Link
-              _focus={{ outline: 'none'}}
-              _hover={{textDecor: 'none'}}
-              href="https://admin.appjusto.com.br/"
+            <CustomLinkButton
+              mt="8"
+              w="auto"
+              px="6"
+              fontSize="16px"
+              size="lg"
+              variant="tertiary"
+              link="https://admin.appjusto.com.br/"
+              linkLabel="Cadastrar restaurante"
               isExternal
-            >
-              <Button mt="8" w="auto" px="6" variant="tertiary">Cadastrar restaurante</Button>
-            </Link>
+            />
           </StackholderBox>
           <StackholderBox
             flex={1}
@@ -59,14 +66,17 @@ const Better: React.FC = () => {
             <Topic label="Preços dos pratos até 20% mais baratos do que em outros apps" />
             <Topic label="Entregas de encomendas até 25% mais baratas" />
             <Topic label="Consumir delivery de maneira socialmente responsável e mais sustentável " />
-            <Link
-              _focus={{ outline: 'none'}}
-              _hover={{textDecor: 'none'}}
-              href={storeLink}
+            <CustomLinkButton
+              mt="8"
+              w="auto"
+              px="6"
+              fontSize="16px"
+              size="lg"
+              variant="primary"
+              link={storeLink}
+              linkLabel="Baixar App"
               isExternal
-            >
-              <Button mt="8" w="auto" px="6" variant="primary">Baixar App</Button>
-            </Link>
+            />
           </StackholderBox>
         </Stack>
       </Container>

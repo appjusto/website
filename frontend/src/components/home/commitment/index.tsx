@@ -19,10 +19,10 @@ const Commitment: React.FC = () => {
             <SectionHeading highlighted>
               Investir no AppJusto é investir em um bem coletivo
             </SectionHeading>
-            <Text mt="10" fontSize={{base: '18px', lg: '20px'}} lineHeight="26px" fontWeight="500">
+            <Text mt="10" textStyle="p">
               As plataformas de entrega atuais operam monopólios e controlam o mercado de maneira agressiva, impondo taxas e regras em benefício próprio. O AppJusto é uma alternativa na qual a economia de plataforma favorece a justiça social, trazendo mais autonomia e respeito.
             </Text>
-            <Text mt="10" fontSize={{base: '18px', lg: '20px'}} lineHeight="26px" fontWeight="500">
+            <Text mt="10" textStyle="p">
               Conheça nossos compromissos:
             </Text>
             <Box mt="8">

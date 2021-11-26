@@ -39,14 +39,14 @@ const customTheme = extendTheme({
   textStyles: {
     p: {
       fontFamily: 'Barlow, system-ui, sans-serif',
-      fontSize: "20px",
-      lineHeight: "26px",
-      fontWeight: '500'
+      fontSize: {base: '18px', lg: '20px'},
+      lineHeight: {base: '20px', lg: '26px'},
+      fontWeight: '400'
     },
     pBold: {
       fontFamily: 'Barlow, system-ui, sans-serif',
-      fontSize: "20px",
-      lineHeight: "26px",
+      fontSize: {base: '18px', lg: '20px'},
+      lineHeight: {base: '20px', lg: '26px'},
       fontWeight: '700'
     }
   }
