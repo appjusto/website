@@ -4,6 +4,7 @@ import Container from './Container';
 import { FaFacebookSquare, FaInstagram, FaLinkedin  } from 'react-icons/fa'
 import CustomLink from './CustomLink'
 import { usePageContext } from '../context';
+import CustomLinkButton from './CustomLinkButton';
 
 const Header = () => {
   // context
@@ -77,49 +78,40 @@ const Header = () => {
             >
               <Button
                 w="124px"
+                size="lg"
+                fontSize="16px"
                 variant="primary"
                 onClick={() => setShowAppsModal(true)}
               >
                 Baixar App
               </Button>
-              <Link
-                _focus={{ outline: 'none'}}
-                href="https://admin.appjusto.com.br"
+              <CustomLink
+                name="admin-landing"
+                link="https://admin.appjusto.com.br"
+                linkLabel="Cadastrar restaurante"
                 isExternal
-              >
-                Cadastrar restaurante
-              </Link>
-              <NextLink  href="/investimento-coletivo" passHref>
-                <Link
-                  _focus={{ outline: 'none'}}
-                >
-                  Sobre o investimento coletivo
-                </Link>
-              </NextLink>
-              <Link
-                _focus={{ outline: 'none'}}
-                href="https://appjusto.freshdesk.com/support/home"
+              />
+              <CustomLink
+                name="invest-page"
+                link="/investimento-coletivo"
+                linkLabel="Sobre o investimento coletivo"
+              />
+              <CustomLink
+                name="freshdesk"
+                link="https://appjusto.freshdesk.com/support/home"
+                linkLabel="Tirar dúvidas"
                 isExternal
-              >
-                Tirar dúvidas
-              </Link>
+              />
             </HStack>
-            <Link
+            <CustomLinkButton
               display={{base: 'none', md: 'block'}}
-              _focus={{ outline: 'none'}}
-              href="https://admin.appjusto.com.br/app"
+              w="260px"
+              size="lg"
+              fontSize="16px"
+              linkLabel="Acessar portal do restaurante"
+              link="https://admin.appjusto.com.br/app"
               isExternal
-            >
-              <Button
-                minH="48px"
-                w="260px"
-                variant="outline"
-                fontWeight="500"
-                borderColor="black"
-              >
-                Acessar portal do restaurante
-              </Button>
-            </Link>
+            />
           </Flex>
           <Button
             display={{base: 'block', md: 'none'}}
@@ -133,7 +125,7 @@ const Header = () => {
       </Container>
       <Collapse in={isOpen} animateOpacity>
         <Box
-          bg="#F6F6F6"
+          bg="white"
           w="100%"
           pt="6"
           px="6"
@@ -143,49 +135,36 @@ const Header = () => {
           fontWeight="700"
         >
           <VStack spacing={10} alignItems="flex-start">
-            <Link
-              _focus={{ outline: 'none'}}
-              href="https://admin.appjusto.com.br"
+            <CustomLink
+              name="admin-landing"
+              link="https://admin.appjusto.com.br"
+              linkLabel="Cadastrar restaurante"
               isExternal
-            >
-              Cadastrar restaurante
-            </Link>
-            <NextLink  href="/investimento-coletivo" passHref>
-                <Link
-                  _focus={{ outline: 'none'}}
-                >
-                  Sobre o investimento coletivo
-                </Link>
-              </NextLink>
-            <Link
-              _focus={{ outline: 'none'}}
-              href="https://appjusto.freshdesk.com/support/home"
+            />
+            <CustomLink
+              name="invest-page"
+              link="/investimento-coletivo"
+              linkLabel="Sobre o investimento coletivo"
+            />
+            <CustomLink
+              name="freshdesk"
+              link="https://appjusto.freshdesk.com/support/home"
+              linkLabel="Tirar dúvidas"
               isExternal
-            >
-              Tirar dúvidas sobre o AppJusto
-            </Link>
-            <Link
-              _focus={{ outline: 'none'}}
-              href="https://admin.appjusto.com.br/app"
+            />
+            <CustomLinkButton
+              size="lg"
+              variant="basic"
+              fontSize="16px"
+              linkLabel="Acessar portal do restaurante"
+              link="https://admin.appjusto.com.br/app"
               isExternal
-            >
-              <Button
-                minH="48px"
-                w="260px"
-                variant="outline"
-                fontWeight="500"
-                borderColor="black"
-              >
-                Acessar portal do restaurante
-              </Button>
-            </Link>
+            />
             <HStack spacing={4}>
               <CustomLink
                 name="go_to_linkedin_header"
                 link="https://www.linkedin.com/company/appjusto/"
                 isExternal
-                mr="28px"
-                color="black"
                 aria-label="Link para a página do Linkedin do Appjusto"
               >
                 <Icon as={FaLinkedin}
@@ -197,8 +176,6 @@ const Header = () => {
                 name="go_to_facebook_header"
                 link="https://www.facebook.com/appjusto"
                 isExternal
-                mr="28px"
-                color="black"
                 aria-label="Link para a página do Facebook do Appjusto"
               >
                 <Icon as={FaFacebookSquare}
@@ -210,8 +187,6 @@ const Header = () => {
                 name="go_to_instagram_header"
                 link="https://www.instagram.com/appjusto/"
                 isExternal
-                mr="28px"
-                color="black"
                 aria-label="Link para a página do Instagram do Appjusto"
               >
                 <Icon as={FaInstagram}

@@ -13,7 +13,7 @@ const Crowdfunding: React.FC = () => {
             <SectionHeading mt="8" textAlign="center">
               Preparado para participar do financiamento coletivo no futuro do delivery?
             </SectionHeading>
-            <Link href="/" isExternal>
+            <Link href="/" _hover={{ textDecor: 'none'}} isExternal>
               <Button
                 mt="8"
                 variant="primary"

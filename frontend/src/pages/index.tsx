@@ -13,6 +13,7 @@ import Media from '../components/home/media';
 import Support from '../components/home/support';
 import Un from '../components/home/un';
 import Crowdfunding from '../components/home/crowdfunding';
+import Together from '../components/home/together';
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
         <Support />
         <Un />
         <Crowdfunding />
+        <Together />
         <AppsModal />
         <SharingModal />
       </PageLayout>

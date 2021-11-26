@@ -47,6 +47,7 @@ const Footer: React.FC = () => {
                   mr="28px"
                   color="primary"
                   aria-label="Link para a página do Linkedin do Appjusto"
+                  _hover={{color: "#055AFF"}}
                 >
                   <Icon as={FaLinkedin}
                     w="20px"
@@ -60,6 +61,7 @@ const Footer: React.FC = () => {
                   mr="28px"
                   color="primary"
                   aria-label="Link para a página do Facebook do Appjusto"
+                  _hover={{color: "#055AFF"}}
                 >
                   <Icon as={FaFacebookSquare}
                     w="20px"
@@ -73,6 +75,7 @@ const Footer: React.FC = () => {
                   mr="28px"
                   color="primary"
                   aria-label="Link para a página do Instagram do Appjusto"
+                  _hover={{color: "#055AFF"}}
                 >
                   <Icon as={FaInstagram}
                     w="20px"
@@ -98,7 +101,8 @@ const Footer: React.FC = () => {
                   name="contact_footer"
                   link="mailto:contato@appjusto.com.br"
                   linkLabel="contato@appjusto.com.br"
-                  internal={false}
+                  isExternal
+                  _hover={{color: "#055AFF"}}
                 />
               </Flex>
               <Flex
@@ -116,6 +120,7 @@ const Footer: React.FC = () => {
                   mr="28px"
                   color="primary"
                   aria-label="Link para a página do Linkedin do Appjusto"
+                  _hover={{color: "#055AFF"}}
                 >
                   <Icon as={FaLinkedin}
                     w="20px"
@@ -129,6 +134,7 @@ const Footer: React.FC = () => {
                   mr="28px"
                   color="primary"
                   aria-label="Link para a página do Facebook do Appjusto"
+                  _hover={{color: "#055AFF"}}
                 >
                   <Icon as={FaFacebookSquare}
                     w="20px"
@@ -142,6 +148,7 @@ const Footer: React.FC = () => {
                   mr="28px"
                   color="primary"
                   aria-label="Link para a página do Instagram do Appjusto"
+                  _hover={{color: "#055AFF"}}
                 >
                   <Icon as={FaInstagram}
                     w="20px"
@@ -165,6 +172,7 @@ const Footer: React.FC = () => {
                 linkLabel="Perguntas frequentes"
                 mb={{base: "12px", lg: "0"}}
                 fontSize="15px"
+                _hover={{color: "#055AFF"}}
               />
               <Link
                 name="terms_footer"
@@ -173,6 +181,7 @@ const Footer: React.FC = () => {
                 ml={{base: "0", lg: "6"}}
                 mb={{base: "12px", lg: "0"}}
                 fontSize="15px"
+                _hover={{color: "#055AFF"}}
               />
             </Flex>
           </Flex>

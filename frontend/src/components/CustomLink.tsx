@@ -2,22 +2,21 @@ import NextLink from 'next/link'
 import { Link, LinkProps } from '@chakra-ui/react'
 
 interface CustomLinkProps extends LinkProps {
-  name: string
-  link: string
-  linkLabel?: string
-  internal?: boolean
+  name: string;
+  link: string;
+  linkLabel?: string;
+  isUnderline?: boolean;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
-  name, link, linkLabel, internal, children, ...props
+  name, link, linkLabel, isUnderline, isExternal, children, ...props
 }) => {
 
-  if(internal) {
+  if(!isExternal) {
     return (
       <NextLink href={link} passHref>
         <Link
-          textDecoration="underline"
-          _hover={{color: "#055AFF"}}
+          textDecoration={isUnderline ? "underline" : 'none'}
           {...props}
         >
           {linkLabel}
@@ -28,8 +27,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   return (
     <Link
       href={link}
-      textDecoration="underline"
-      _hover={{color: "#055AFF"}}
+      textDecoration={isUnderline ? "underline" : 'none'}
       _focus={{outline: "none"}}
       {...props}
       isExternal

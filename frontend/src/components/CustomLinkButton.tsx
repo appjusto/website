@@ -1,71 +1,43 @@
 import NextLink from 'next/link'
-import { Link, LinkProps, Image } from '@chakra-ui/react'
-import { useStyleConfig } from "@chakra-ui/react"
+import { Button, ButtonProps, Link, Image } from '@chakra-ui/react'
 
-interface CustomLinkButtonProps extends LinkProps {
-  name: string
+interface CustomLinkButtonProps extends ButtonProps {
   link: string
   linkLabel: string
-  variant: string
+  variant?: string
   icon?: string;
   iconAlt?: string;
-  isExternal?: boolean
-  isDownload?: boolean
-  isDisabled?: boolean
+  isExternal?: boolean;
+  isDownload?: boolean;
 }
 
 const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
-  name, link, linkLabel, variant, icon, iconAlt, isExternal = true, isDownload = false, isDisabled, ...props
+  link, linkLabel, variant = 'basic', icon, iconAlt, isExternal, isDownload, ...props
 }) => {
-  const styles = useStyleConfig("Button", {variant})
-  if(isDisabled) {
+  // UI
+  if(isExternal) {
     return (
       <Link
-        sx={styles}
-        display="inline-flex"
-        justifyContent="center"
-        alignItems="center"
-        mt="16px"
-        cursor="unset"
-        {...props}
+        _focus={{ outline: 'none'}}
+        _hover={{ textDecor: 'none'}}
+        href={link}
+        isExternal
+        download={isDownload}
       >
-        {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
-        {linkLabel}
+        <Button variant={variant} {...props}>
+          {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
+          {linkLabel}
+        </Button>
       </Link>
     )
   }
-  if(!isExternal) {
-    return (
-      <NextLink href={link} passHref>
-        <Link
-          sx={styles}
-          display="inline-flex"
-          justifyContent="center"
-          alignItems="center"
-          mt="16px"
-          {...props}
-        >
-          {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
-          {linkLabel}
-        </Link>
-      </NextLink>
-    )
-  }
   return (
-    <Link
-      href={link}
-      sx={styles}
-      display="inline-flex"
-      justifyContent="center"
-      alignItems="center"
-      mt="16px"
-      {...props}
-      isExternal={isExternal}
-      download={isDownload}
-    >
-      {icon && <Image src={icon} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
-      {linkLabel}
-    </Link>
+    <NextLink  href={link} passHref>
+      <Button variant={variant} {...props}>
+        {icon && <Image src={icon} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
+        {linkLabel}
+      </Button>
+    </NextLink>
   );
 }
 

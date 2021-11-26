@@ -21,19 +21,6 @@ const customTheme = extendTheme({
     heading: 'Barlow, system-ui, sans-serif',
     mono: 'Barlow, system-ui, sans-serif'
   },
-  fontWeights: {
-    normal: 400,
-    medium: 600,
-    bold: 700,
-  },
-  fontSizes: {
-    h: '24px',
-    p: '16px'
-  },
-  radii: {
-    sm: '5px',
-    md: '8px',
-  },
   colors: {
     primary: "#78E08F",
     primaryDark: "#22543D",
@@ -52,8 +39,15 @@ const customTheme = extendTheme({
   textStyles: {
     p: {
       fontFamily: 'Barlow, system-ui, sans-serif',
-      fontSize: "18px",
-      lineHeight: "26px"
+      fontSize: "20px",
+      lineHeight: "26px",
+      fontWeight: '500'
+    },
+    pBold: {
+      fontFamily: 'Barlow, system-ui, sans-serif',
+      fontSize: "20px",
+      lineHeight: "26px",
+      fontWeight: '700'
     }
   }
 })

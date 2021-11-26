@@ -34,7 +34,7 @@ const Topic: React.FC<TopicProps> = ({ label, imageSrc, ...props }) => {
 };
 
 const AppsModal: React.FC = () => {
-  const { showAppsModal, setShowAppsModal  } = usePageContext()
+  const { showAppsModal, setShowAppsModal, storeLink  } = usePageContext()
   return (
     <Modal
       id="sharing-modal"
@@ -46,20 +46,20 @@ const AppsModal: React.FC = () => {
       isCentered
       >
         <ModalOverlay />
-        <ModalContent w={{base: '90%', md: '328px' }} borderRadius="16px">
+        <ModalContent w={{base: '95%', md: '328px' }} borderRadius="24px">
           <ModalCloseButton
             bg="white !important"
             zIndex="100"
             _focus={{outline: 'none'}}
           />
-          <ModalBody p="10">
+          <ModalBody pt="10" px="10" pb="16">
             <Flex
               flexDir="column"
               w="100%"
             >
               <Stack direction="row" spacing={2} align="center">
                 <Text fontSize="36px" lineHeight="43.2px" fontWeight="700">
-                  Baixar app
+                  Faça parte
                 </Text>
                 <Badge
                   bg="#FFBE00"
@@ -74,47 +74,36 @@ const AppsModal: React.FC = () => {
                     BETA
                 </Badge>
               </Stack>
-              <Topic mt="10" label="Consumidores" imageSrc="/emoji-pizza.png" />
-              <Stack w="100%" direction="column" spacing={2}>
-                <CustomLinkButton
-                  mt="0"
-                  name="app-consumer-android"
-                  linkLabel="Android"
-                  variant="primary"
-                  fontSize="16px"
-                  icon="icon-play-store.png"
-                  iconAlt="ícone play store"
-                  link="https://play.google.com/store/apps/details?id=br.com.appjusto.consumer.live"
-                  isExternal
-                />
-                <CustomLinkButton
-                  mt="0"
-                  name="app-consumer-ios"
-                  linkLabel="iPhone"
-                  variant="primary"
-                  fontSize="16px"
-                  icon="icon-apple-black.png"
-                  iconAlt="ícone apple store"
-                  link="https://apps.apple.com/br/app/appjusto/id1569067601"
-                  isExternal
-                />
-              </Stack>
-              <Topic mt="10" label="Entregadores" imageSrc="/emoji-motoca.png" />
+              <Topic mt="6" label="Restaurantes" imageSrc="/emoji-restaurante.png" />
               <CustomLinkButton
-                mt="0"
-                name="app-courier-android"
-                linkLabel="Android"
+                size="lg"
+                w="100%"
+                linkLabel="Cadastre seu restaurante"
+                variant="tertiary"
+                fontSize="16px"
+                link="https://admin.appjusto.com.br"
+                isExternal
+              />
+              <Topic mt="6" label="Consumidores" imageSrc="/emoji-pizza.png" />
+              <CustomLinkButton
+                size="lg"
+                w="100%"
+                linkLabel="Baixe o App e faça um pedido"
                 variant="primary"
                 fontSize="16px"
-                icon="icon-play-store.png"
-                iconAlt="ícone play store"
+                link={storeLink}
+                isExternal
+              />
+              <Topic mt="6" label="Entregadores" imageSrc="/emoji-motoca.png" />
+              <CustomLinkButton
+                size="lg"
+                w="100%"
+                linkLabel="Cadastre-se como entregador"
+                variant="secondary"
+                fontSize="16px"
                 link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
                 isExternal
               />
-              <Box mt="10" fontSize="16px" lineHeight="22px" fontWeight="500">
-                <Text>Para cadastrar seu <Text as="span" fontWeight="700">Restaurante</Text>,</Text>
-                <Link href="https://admin.appjusto.com.br" textDecor="underline">clique aqui.</Link>
-              </Box>
           </Flex>
         </ModalBody>
       </ModalContent>
