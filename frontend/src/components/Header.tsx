@@ -34,7 +34,7 @@ const Header = () => {
             <Box display={{base: 'block', lg: 'none'}}>
               {
                 isOpen ? <CloseButton onClick={onToggle} /> : (
-                  <Button border="none" px="1" bg="#F6F6F6" onClick={onToggle} aria-label="Menu">
+                  <Button border="none" px="1" bg="white" onClick={onToggle} aria-label="Menu">
                     <VStack spacing={1}>
                       <Box bg="black" h="2px" w="20px"/>
                       <Box bg="black" h="2px" w="20px"/>
