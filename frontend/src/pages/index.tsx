@@ -15,6 +15,7 @@ import Un from '../components/home/un';
 import Crowdfunding from '../components/home/crowdfunding';
 import Together from '../components/home/together';
 import VideoModal from '../components/VideoModal';
+import { CookieBar } from '../components/CookieBar';
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
         <Un />
         <Crowdfunding />
         <Together />
+        <CookieBar />
         <AppsModal />
         <VideoModal />
         <SharingModal />

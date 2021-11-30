@@ -11,7 +11,7 @@ const breakpoints = createBreakpoints({
   md: "48em",
   lg: "62em",
   xl: "80em",
-  xxl: "100em"
+  '2xl': "96em"
 })
 
 const customTheme = extendTheme({
