@@ -10,7 +10,7 @@ const walk = keyframes`
 
 const Together: React.FC = () => {
   // animation
-  const walkAnimation = `${walk} infinite 20s linear`;
+  const walkAnimation = `${walk} infinite 26s linear`;
   // UI
   return (
     <Section mt="4" id="together" h="auto">

@@ -18,7 +18,7 @@ const SharingModal: React.FC = () => {
   return (
     <Modal
       id="sharing-modal"
-      size="full"
+      size="xl"
       blockScrollOnMount={true}
       isOpen={showSharingModal}
       onClose={() => setShowSharingModal(false)}
