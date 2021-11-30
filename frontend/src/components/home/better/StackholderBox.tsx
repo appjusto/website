@@ -20,7 +20,7 @@ const StackholderBox: React.FC<StackholderBoxProps> = ({ image, title, children,
       >
         {title}
       </Heading>
-      <Flex h="308px" flexDir="column" justifyContent="space-between">
+      <Flex minH={{ lg: '308px'}} flexDir="column" justifyContent="space-between">
         {children}
       </Flex>
     </Box>

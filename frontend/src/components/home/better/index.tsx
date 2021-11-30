@@ -29,6 +29,7 @@ const Better: React.FC = () => {
               <Topic label="Sem suspensões automáticas: o processo sempre passa por um atendente" />
             </Box>
             <CustomLinkButton
+              mt={{base: '6', lg: '0'}}
               w="auto"
               px="6"
               fontSize="16px"
@@ -50,6 +51,7 @@ const Better: React.FC = () => {
               <Topic label="Transparência em todas as regras" />
             </Box>
             <CustomLinkButton
+              mt={{base: '6', lg: '0'}}
               w="auto"
               px="6"
               fontSize="16px"
@@ -71,6 +73,7 @@ const Better: React.FC = () => {
               <Topic label="Consumir delivery de maneira socialmente responsável e mais sustentável " />
             </Box>
             <CustomLinkButton
+              mt={{base: '6', lg: '0'}}
               w="auto"
               px="6"
               fontSize="16px"
