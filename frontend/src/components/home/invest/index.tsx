@@ -35,7 +35,7 @@ const Invest: React.FC = () => {
           </Box>
           <Box w="100%" pl={{lg: '8'}}>
             <Box>
-              <Image src="/invest-graphic.jpeg" w="100%" />
+              <Image src="/invest-graphic@2x.jpeg" w="100%" maxW="674px" />
             </Box>
           </Box>
         </Stack>

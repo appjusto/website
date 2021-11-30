@@ -31,8 +31,18 @@ const MainVideo: React.FC = () => {
               ) : (
                 <Box position="relative">
                   <Image src="/team.jpeg" boxShadow={{lg: 'black -24px 24px'}} zIndex="100" />
-                  <Center position="absolute" top="0" left="0" w="100%" h="100%" zIndex="200" onClick={() => setIsVideoActive(true)}>
-                    <Image src="/icon-play.svg" w="96px" h="96px" _hover={{ opacity: "0.6" }} cursor="pointer" />
+                  <Center
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    w="100%"
+                    h="100%"
+                    zIndex="200"
+                    cursor="pointer"
+                    _hover={{ opacity: "0.6" }}
+                    onClick={() => setIsVideoActive(true)}
+                  >
+                    <Image src="/icon-play.svg" w="96px" h="96px" />
                   </Center>
                 </Box>
               )
@@ -41,7 +51,7 @@ const MainVideo: React.FC = () => {
               Assista ao vídeo e entenda a nossa proposta
             </Text>
           </Box>
-          <Box mt={{base: '8' , lg: '0'}} w={{base: '100%', md: '50%', lg: '40%'}} maxW="406px" py={{ lg: '4'}} ml={{md: '6', lg: '0'}}>
+          <Box mt={{base: '8' , lg: '0'}} w={{base: '100%', md: '50%', lg: '40%'}} maxW="406px" py={{ lg: '4'}} ml={{md: '6', lg: '4'}}>
             <SectionHeading highlighted color="white">
               Só é bom quando é bom para todos
             </SectionHeading>
