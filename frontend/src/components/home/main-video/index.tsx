@@ -1,24 +1,43 @@
-import { Box, Button, Center, Flex, Text } from '@chakra-ui/react'
+import { Box, Center, Flex, Text } from '@chakra-ui/react'
 import Image from '../../Image';
 import Section from "../../Section";
 import Container from '../../Container';
-import NextLink from 'next/link';
 import SectionHeading from '../../SectionHeading';
 import CustomLinkButton from '../../CustomLinkButton';
+import React from 'react';
 
 const MainVideo: React.FC = () => {
+  // state
+  const [isVideoActive, setIsVideoActive] = React.useState(false);
+  // UI
   return (
     <Section mt={{ base: '8', lg: '4'}} id="main-video" h="auto">
       <Container bgColor="#2F422C" pt={{base: '8', lg: '16'}} px={{base: '4', md:'6', lg: '100px'}} pb={{base: '10', lg: '3'}} >
         <Flex direction={{base: 'column', md: 'row'}} h="100%" justifyContent="space-between" color="white">
           <Box w={{base: '100%', md: '50%', lg: '60%'}}>
-            <Box position="relative">
-              <Image src="/team.jpeg" boxShadow={{lg: 'black -24px 24px'}} zIndex="100" />
-              <Center position="absolute" top="0" left="0" w="100%" h="100%" zIndex="200">
-                <Image src="/icon-play.svg" w="96px" h="96px" _hover={{ opacity: "0.6" }} cursor="pointer" />
-              </Center>
-            </Box>
-            <Text mt={{base: '2', lg: '8'}} fontSize="16px" lineHeight="22px" fontWeight="500" textAlign="center">
+            {
+              isVideoActive ? (
+                <Box position="relative" boxShadow={{lg: 'black -24px 24px'}} bgColor="black" h={{base: '225px', md: '255px', lg: '444px'}}>
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube-nocookie.com/embed/rm6ZAsuefqA?autoplay=1&controls=0&modestbranding=1"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </Box>
+              ) : (
+                <Box position="relative">
+                  <Image src="/team.jpeg" boxShadow={{lg: 'black -24px 24px'}} zIndex="100" />
+                  <Center position="absolute" top="0" left="0" w="100%" h="100%" zIndex="200" onClick={() => setIsVideoActive(true)}>
+                    <Image src="/icon-play.svg" w="96px" h="96px" _hover={{ opacity: "0.6" }} cursor="pointer" />
+                  </Center>
+                </Box>
+              )
+            }
+            <Text mt={{base: '2', lg: '8'}} fontSize="16px" lineHeight="22px" fontWeight="500" textAlign="center" onClick={() => setIsVideoActive(false)}>
               Assista ao vídeo e entenda a nossa proposta
             </Text>
           </Box>

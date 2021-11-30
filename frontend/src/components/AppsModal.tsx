@@ -37,7 +37,7 @@ const AppsModal: React.FC = () => {
   const { showAppsModal, setShowAppsModal, storeLink  } = usePageContext()
   return (
     <Modal
-      id="sharing-modal"
+      id="apps-modal"
       size="md"
       blockScrollOnMount={true}
       isOpen={showAppsModal}

@@ -35,7 +35,7 @@ const Better: React.FC = () => {
               size="lg"
               variant="secondary"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
-              linkLabel="Baixar app - Entregador"
+              linkLabel="Cadastre-se como entregador"
               isExternal
             />
           </StackholderBox>
@@ -56,7 +56,7 @@ const Better: React.FC = () => {
               size="lg"
               variant="tertiary"
               link="https://admin.appjusto.com.br/"
-              linkLabel="Cadastrar restaurante"
+              linkLabel="Cadastre seu restaurante"
               isExternal
             />
           </StackholderBox>
@@ -77,7 +77,7 @@ const Better: React.FC = () => {
               size="lg"
               variant="primary"
               link={storeLink}
-              linkLabel="Baixar App"
+              linkLabel="Baixe o App e faça um pedido"
               isExternal
             />
           </StackholderBox>

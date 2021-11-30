@@ -28,7 +28,7 @@ const Invest: React.FC = () => {
                 h="64px"
                 fontSize="20px"
                 variant="primary"
-                link=""
+                link="/"
                 linkLabel="Quero investir a partir de R$ 100"
               />
             </Box>
