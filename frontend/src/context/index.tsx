@@ -50,6 +50,7 @@ export const PageContextProvider = (props: Props) => {
   React.useEffect(() => {
     (async () => {
       const { analytics } = await getFirebaseClient();
+      analytics.setAnalyticsCollectionEnabled(false);
       setAnalytics(analytics);
     })();
   }, [])

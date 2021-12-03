@@ -4,6 +4,7 @@ import SharingModal from '../../components/SharingModal'
 import RestaurantCalculator from '../../components/calculators/restaurants/calculator'
 import Head from "next/head";
 import Seo from '../../components/Seo';
+import AppsModal from '../../components/AppsModal';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <PageLayout pageName="Restaurantes">
         <RestaurantsHero />
         <RestaurantCalculator />
+        <AppsModal />
         <SharingModal />
       </PageLayout>
     </>

@@ -17,6 +17,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       <NextLink href={link} passHref>
         <Link
           textDecoration={isUnderline ? "underline" : 'none'}
+          _focus={{outline: "none"}}
           {...props}
         >
           {linkLabel}

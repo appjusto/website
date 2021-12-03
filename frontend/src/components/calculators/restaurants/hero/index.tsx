@@ -11,9 +11,8 @@ const RestaurantsHero: React.FC = () => {
       h={{ base: '405px', md: '800px', lg: '480px' }}
       overflow='hidden'
     >
-      <Container>
-        <Content mt={{base: '60px' , md: '200px', lg: '120px'}} maxW={{base: '100%', md: '600px' , lg: '960px'}}>
-          <Flex flexDir='column' color='white'>
+      <Container zIndex="100">
+          <Flex flexDir='column' color='white' mt={{base: '60px' , md: '200px', lg: '120px'}} maxW={{base: '100%', md: '600px' , lg: '960px'}}>
             <Text fontSize='lg' lineHeight='26px' fontWeight='700' textStyle='p'>
               Calculadora para restaurantes
             </Text>
@@ -37,7 +36,6 @@ const RestaurantsHero: React.FC = () => {
               Você ganha mais, e ainda colabora com uma economia mais justa.
             </Text>
           </Flex>
-        </Content>
       </Container>
       <Box position='absolute' top='0' left='0' w='full' zIndex='0'>
         <Image src='/hero-restaurants.jpg' srcMob='/hero-restaurants-mobile.jpg' w='full' eagerLoading />

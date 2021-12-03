@@ -12,7 +12,7 @@ const Commitment: React.FC = () => {
         <Stack direction={{base: 'column', md: 'row'}} spacing={8} h="100%">
           <Box w='100%' display={{base: 'none', md: 'block'}}>
             <Box position="relative">
-              <Image src="/circle-players@2x.jpeg" maxW="590px" />
+              <Image src="/circle-players@2x.jpeg" maxW={{md: 'auto', lg: '590px'}} />
             </Box>
           </Box>
           <Box mt={{base: '8' , lg: '0'}} w='100%' minW={{ lg: '600px'}}>
@@ -55,7 +55,7 @@ const Commitment: React.FC = () => {
           </Box>
           <Box w='100%' display={{base: 'block', md: 'none'}}>
             <Box position="relative">
-              <Image src="/circle-players.jpeg" />
+              <Image src="/circle-players@2x.jpeg" />
             </Box>
           </Box>
         </Stack>

@@ -1,4 +1,4 @@
-import { Box, Stack } from '@chakra-ui/react'
+import { Box, Link, Stack, Text } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
@@ -6,6 +6,7 @@ import StackholderBox from './StackholderBox';
 import Topic from './Topic';
 import { usePageContext } from '../../../context';
 import CustomLinkButton from '../../CustomLinkButton';
+import NextLink from 'next/link';
 
 const Better: React.FC = () => {
   // context
@@ -46,7 +47,17 @@ const Better: React.FC = () => {
             title="Restaurantes"
           >
             <Box>
-              <Topic label="Comissão de 5% no modelo com operação logística + 2,21% da operadora financeira. Calcule seus ganhos agora mesmo!" />
+              <Topic label="Comissão de 5% no modelo com operação logística + 2,21% da operadora financeira.">
+                <NextLink href="/calculadoras/restaurantes" passHref>
+                  <Link
+                    textDecor="underline"
+                    fontWeight="700"
+                    _focus={{outline: "none"}}
+                  >
+                    <Text as="mark" bgColor="#FFE493">Calcule seus ganhos agora mesmo!</Text>
+                  </Link>
+                </NextLink>
+              </Topic>
               <Topic label="Exibição igualitária do seu restaurante por ordem de distância do cliente" />
               <Topic label="Transparência em todas as regras" />
             </Box>

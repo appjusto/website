@@ -6,7 +6,7 @@ import CustomLinkButton from '../../CustomLinkButton';
 
 const Hero: React.FC = () => {
   return (
-    <Section id="hero" mt={{base: '44px', lg: '-24px'}}>
+    <Section id="hero" mt={{base: '44px', lg: '-24px'}} h={{ lg: '100vh' }} maxH={{ lg: '900px'}}>
       <Container>
         <Flex direction={{base: 'column', md: 'row'}} h="100%">
           <Flex flexDir="column" justifyContent="center" w="100%">
