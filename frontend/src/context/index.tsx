@@ -46,14 +46,14 @@ export const PageContextProvider = (props: Props) => {
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
   const storeLink = env === 'live' ?
     'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
-    // side effects
-  React.useEffect(() => {
+  // side effects
+  /*React.useEffect(() => {
     (async () => {
       const { analytics } = await getFirebaseClient();
-      analytics.setAnalyticsCollectionEnabled(false);
+      //analytics.setAnalyticsCollectionEnabled(false);
       setAnalytics(analytics);
     })();
-  }, [])
+  }, [])*/
   React.useEffect(() => {
     const consent = localStorage.getItem('appjusto-consent');
     if(consent === 'true') setUserConsent(true);
@@ -61,11 +61,19 @@ export const PageContextProvider = (props: Props) => {
   }, []);
   console.log('userConsent', userConsent);
   React.useEffect(() => {
-    if(!analytics) return;
+    //if(!analytics) return;
     if(!userConsent) return;
-    analytics.setAnalyticsCollectionEnabled(true);
+    console.log('enable consent');
+    (async () => {
+      const { firebase } = await getFirebaseClient();
+      const analytics  = await import('firebase/analytics').then(
+        () => firebase.analytics()
+      );
+      setAnalytics(analytics);
+    })();
+    //analytics.setAnalyticsCollectionEnabled(true);
     fbq.grantConsent();
-  }, [analytics, userConsent]);
+  }, [userConsent]);
   // provider
   return <PageContext.Provider value={{
     showSharingModal,

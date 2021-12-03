@@ -13,7 +13,7 @@ const clientCredentials = {
 
 interface FirebaseClientResult {
   firebase: any;
-  analytics: firebase.analytics.Analytics;
+  //analytics: firebase.analytics.Analytics;
 };
 
 const getFirebaseClient = async (): Promise<FirebaseClientResult> => {
@@ -28,13 +28,13 @@ const getFirebaseClient = async (): Promise<FirebaseClientResult> => {
     .catch((error) => {
       console.log(error)
     });
-  const analytics  = await import('firebase/analytics')
-    .then(() => {
-      if(firebase)
-        return firebase.analytics();
-    });
-  //analytics.setAnalyticsCollectionEnabled(false);
-  return { firebase, analytics };
+  //const analytics  = await import('firebase/analytics')
+  //  .then(() => {
+  //    if(firebase)
+  //      return firebase.analytics();
+  //  });
+  //return { firebase, analytics };
+  return { firebase };
 };
 
 export default getFirebaseClient;
