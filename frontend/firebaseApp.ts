@@ -33,6 +33,7 @@ const getFirebaseClient = async (): Promise<FirebaseClientResult> => {
       if(firebase)
         return firebase.analytics();
     });
+  analytics.setAnalyticsCollectionEnabled(false);
   return { firebase, analytics };
 };
 

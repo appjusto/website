@@ -15,6 +15,7 @@ export const RestaurantAppsBox = (props: FlexProps) => {
       display="flex"
       position={{ base: 'relative', lg: 'fixed' }}
       top={{base: '6', lg: '10'}}
+      h="auto"
       zIndex="800"
       {...props}
     >

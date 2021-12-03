@@ -1,8 +1,11 @@
 import React from 'react'
 import firebase from 'firebase/app';
 import getFirebaseClient from '../../firebaseApp';
+import * as fbq from '../utils/fpixel';
 
 type VideoModalConfig = { isOpen: boolean, videoId?: string, title?: string };
+
+type ConsentResponse = 'accept' | 'refuse';
 interface PageContextProps {
   showSharingModal: boolean;
   setShowSharingModal(value: boolean): void;
@@ -11,28 +14,57 @@ interface PageContextProps {
   videoModalConfig: VideoModalConfig;
   setVideoModalConfig(config: VideoModalConfig): void;
   analytics?: firebase.analytics.Analytics;
+  userConsent: undefined | boolean;
+  handleUserConsent(response: ConsentResponse): void;
   storeLink: string;
 };
 
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps);
 
-export const PageContextProvider = (props) => {
+interface Props {
+  children: React.ReactNode | React.ReactNode[];
+}
+
+export const PageContextProvider = (props: Props) => {
   // state
   const [showSharingModal, setShowSharingModal] = React.useState(false);
   const [showAppsModal, setShowAppsModal] = React.useState(false);
   const [videoModalConfig, setVideoModalConfig] = React.useState<VideoModalConfig>({ isOpen: false });
   const [analytics, setAnalytics] = React.useState<firebase.analytics.Analytics>();
+  const [userConsent, setUserConsent] = React.useState<boolean>();
+  // handlers
+  const handleUserConsent = React.useCallback((response: ConsentResponse) => {
+    if(response === 'refuse') {
+      localStorage.setItem('appjusto-consent', 'false');
+      setUserConsent(false);
+      return;
+    }
+    localStorage.setItem('appjusto-consent', 'true');
+    setUserConsent(true);
+  }, []);
   // helpers
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
   const storeLink = env === 'live' ?
     'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
-  // side effects
+    // side effects
   React.useEffect(() => {
     (async () => {
       const { analytics } = await getFirebaseClient();
       setAnalytics(analytics);
     })();
   }, [])
+  React.useEffect(() => {
+    const consent = localStorage.getItem('appjusto-consent');
+    if(consent === 'true') setUserConsent(true);
+    else if(consent === 'false') setUserConsent(false);
+  }, []);
+  console.log('userConsent', userConsent);
+  React.useEffect(() => {
+    if(!analytics) return;
+    if(!userConsent) return;
+    analytics.setAnalyticsCollectionEnabled(true);
+    fbq.grantConsent();
+  }, [analytics, userConsent]);
   // provider
   return <PageContext.Provider value={{
     showSharingModal,
@@ -42,6 +74,8 @@ export const PageContextProvider = (props) => {
     videoModalConfig,
     setVideoModalConfig,
     analytics,
+    userConsent,
+    handleUserConsent,
     storeLink
   }} {...props}/>
 }

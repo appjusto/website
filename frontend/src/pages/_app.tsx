@@ -1,11 +1,12 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '../styles/theme';
-import { PageContextProvider } from '../context';
+import { PageContextProvider, usePageContext } from '../context';
 import { useFreshDesk } from '../hooks/useFreshDesk';
 import React from 'react';
 import Script from 'next/script'
 import { useRouter } from 'next/router';
 import * as fbq from '../utils/fpixel';
+import { FaQuidditch } from 'react-icons/fa';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -39,6 +40,7 @@ function MyApp({ Component, pageProps }) {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('consent', 'revoke');
             fbq('init', ${fbq.FB_PIXEL_ID});
           `,
         }}

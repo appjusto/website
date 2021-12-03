@@ -1,4 +1,5 @@
 import Head from "next/head";
+import AppsModal from "../components/AppsModal";
 import Network from '../components/network';
 import PageLayout from '../components/PageLayout';
 import Seo from '../components/Seo';
@@ -16,6 +17,7 @@ export default function Net() {
       </Head>
       <PageLayout pageName="Conheça a rede">
         <Network />
+        <AppsModal />
       </PageLayout>
     </>
   )

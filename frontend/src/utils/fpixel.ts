@@ -10,3 +10,8 @@ export const event = (name, options = {}) => {
   // @ts-ignore
   window.fbq('track', name, options)
 }
+
+export const grantConsent = () => {
+  // @ts-ignore
+  window.fbq('consent', 'grant');
+}

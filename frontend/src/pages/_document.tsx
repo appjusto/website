@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&display=swap"
             rel="stylesheet"
           />
+          <meta name="facebook-domain-verification" content="09j3j6jh7mwpa0fu7vuiv4vyj3zesq" />
           <noscript>
             <img
               height="1"
