@@ -14,6 +14,7 @@ export default {
       _hover: {bg: "#F2F6EA"}
     },
     primary: {
+      color: 'black',
       bg: "primary",
       _hover: {bg: "primaryLight"}
     },

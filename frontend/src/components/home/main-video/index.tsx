@@ -5,8 +5,11 @@ import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
 import CustomLinkButton from '../../CustomLinkButton';
 import React from 'react';
+import { usePageContext } from '../../../context';
 
 const MainVideo: React.FC = () => {
+  // context
+  const { kriaLink } = usePageContext();
   // state
   const [isVideoActive, setIsVideoActive] = React.useState(false);
   // UI
@@ -65,8 +68,9 @@ const MainVideo: React.FC = () => {
               size="lg"
               w={{base: '100%', lg: 'auto'}}
               variant="outlineWhite"
-              link="/investimento-coletivo"
+              link={kriaLink}
               linkLabel="Saiba mais do financiamento coletivo"
+              isExternal
             />
           </Box>
         </Flex>

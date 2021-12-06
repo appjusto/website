@@ -17,6 +17,7 @@ interface PageContextProps {
   userConsent: undefined | boolean;
   handleUserConsent(response: ConsentResponse): void;
   storeLink: string;
+  kriaLink: string;
 };
 
 const PageContext = React.createContext<PageContextProps>({} as PageContextProps);
@@ -46,6 +47,7 @@ export const PageContextProvider = (props: Props) => {
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
   const storeLink = env === 'live' ?
     'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
+  const kriaLink = 'https://app.kria.vc/agents/users/offers/277/detalhes?locale=pt-BR';
   // side effects
   /*React.useEffect(() => {
     (async () => {
@@ -85,7 +87,8 @@ export const PageContextProvider = (props: Props) => {
     analytics,
     userConsent,
     handleUserConsent,
-    storeLink
+    storeLink,
+    kriaLink
   }} {...props}/>
 }
 

@@ -1,10 +1,14 @@
-import { Box, Button, Image, Stack, Text } from '@chakra-ui/react'
+import { Box, Image, Stack, Text } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
 import CustomLinkButton from '../../CustomLinkButton';
+import { usePageContext } from '../../../context';
 
 const Invest: React.FC = () => {
+  // context
+  const { kriaLink } = usePageContext();
+  // UI
   return (
     <Section mt="4" id="invest" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '2'}} >
@@ -28,8 +32,9 @@ const Invest: React.FC = () => {
                 h="64px"
                 fontSize="20px"
                 variant="primary"
-                link="/"
+                link={kriaLink}
                 linkLabel="Quero investir a partir de R$ 100"
+                isExternal
               />
             </Box>
           </Box>

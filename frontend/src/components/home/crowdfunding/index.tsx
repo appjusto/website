@@ -5,8 +5,12 @@ import SectionHeading from '../../SectionHeading';
 import NextLink from 'next/link';
 import CustomLinkButton from '../../CustomLinkButton';
 import CustomLink from '../../CustomLink';
+import { usePageContext } from '../../../context';
 
 const Crowdfunding: React.FC = () => {
+  // context
+  const { kriaLink } = usePageContext();
+  // UI
   return (
     <Section mt="4" id="crowdfunding" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '2'}} >
@@ -21,7 +25,7 @@ const Crowdfunding: React.FC = () => {
                 h="60px"
                 px="6"
                 fontSize="20px"
-                link=""
+                link={kriaLink}
                 linkLabel="Quero investir a partir de R$ 100"
                 isExternal
             />
@@ -32,8 +36,9 @@ const Crowdfunding: React.FC = () => {
               fontSize="20px"
               lineHeight="26px"
               textAlign="center"
-              link="/investimento-coletivo"
+              link={kriaLink}
               linkLabel="Saiba mais do financiamento coletivo"
+              isExternal
             />
           </Flex>
           <Box w="100%" pl={{lg: '8'}}>

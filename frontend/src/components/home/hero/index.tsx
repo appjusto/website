@@ -3,8 +3,12 @@ import Image from '../../Image';
 import Section from "../../Section";
 import Container from '../../Container';
 import CustomLinkButton from '../../CustomLinkButton';
+import { usePageContext } from '../../../context';
 
 const Hero: React.FC = () => {
+  // context
+  const { kriaLink } = usePageContext();
+  // UI
   return (
     <Section id="hero" mt={{base: '44px', lg: '-24px'}} h={{ lg: '100vh' }} maxH={{ lg: '900px'}}>
       <Container>
@@ -40,7 +44,7 @@ const Hero: React.FC = () => {
               lineHeight="24px"
               fontWeight="700"
               linkLabel="Quero investir a partir de R$ 100"
-              link=""
+              link={kriaLink}
               isExternal
             />
           </Flex>

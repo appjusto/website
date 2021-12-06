@@ -51,7 +51,7 @@ const ShareFooter = () => {
           spacing={4}
           align="center"
         >
-          <ShareButton bg="primary" color="black" />
+          <ShareButton variant="primary" h="48px" />
           <Text
             fontSize="15px"
             fontWeight="500"

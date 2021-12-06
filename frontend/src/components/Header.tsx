@@ -8,7 +8,7 @@ import CustomLinkButton from './CustomLinkButton';
 
 const Header = () => {
   // context
-  const { setShowAppsModal  } = usePageContext()
+  const { setShowAppsModal, kriaLink  } = usePageContext()
   const { isOpen, onToggle } = useDisclosure()
   return (
     <Flex
@@ -93,8 +93,9 @@ const Header = () => {
               />
               <CustomLink
                 name="invest-page"
-                link="/investimento-coletivo"
+                link={kriaLink}
                 linkLabel="Sobre o investimento coletivo"
+                isExternal
               />
               <CustomLink
                 name="freshdesk"
@@ -143,8 +144,9 @@ const Header = () => {
             />
             <CustomLink
               name="invest-page"
-              link="/investimento-coletivo"
+              link={kriaLink}
               linkLabel="Sobre o investimento coletivo"
+              isExternal
             />
             <CustomLink
               name="freshdesk"
