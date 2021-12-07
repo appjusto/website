@@ -66,7 +66,7 @@ export default function LinkConfirmation() {
             </Flex>
           </Box>
         </Flex>
-        <Footer />
+        <Footer sharing={false} />
       </Box>
     </>
   )

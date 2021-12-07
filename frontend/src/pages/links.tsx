@@ -36,6 +36,7 @@ export default function Links() {
               isExternal
             >
               <Button
+                w="100%"
                 variant="tertiary"
                 fontSize="16px"
                 borderColor="black"
@@ -51,6 +52,7 @@ export default function Links() {
               isExternal
             >
               <Button
+                w="100%"
                 variant="secondary"
                 fontSize="16px"
                 borderColor="black"
@@ -66,6 +68,7 @@ export default function Links() {
               isExternal
             >
               <Button
+                w="100%"
                 variant="primary"
                 fontSize="16px"
                 borderColor="black"
@@ -74,7 +77,7 @@ export default function Links() {
               </Button>
             </Link>
             <Box>
-              <Image src="/circle-players.jpeg" />
+              <Image src="/circle-players@2x.jpeg" />
             </Box>
           </VStack>
         </Container>
