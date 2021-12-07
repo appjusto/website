@@ -254,6 +254,7 @@ const RestaurantCalculator: React.FC = () => {
           </Text>
           <CustomLinkButton
             mt="6"
+            h="48px"
             maxW={{md: "304px"}}
             name="admin"
             linkLabel="Cadastrar restaurante"

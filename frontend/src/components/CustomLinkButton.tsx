@@ -12,19 +12,20 @@ interface CustomLinkButtonProps extends ButtonProps {
 }
 
 const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
-  link, linkLabel, variant = 'basic', icon, iconAlt, isExternal, isDownload, ...props
+  link, linkLabel, variant = 'basic', icon, iconAlt, isExternal, isDownload, w = 'auto', ...props
 }) => {
   // UI
   if(isExternal) {
     return (
       <Link
+        w={w}
         _focus={{ outline: 'none'}}
         _hover={{ textDecor: 'none'}}
         href={link}
         isExternal
         download={isDownload}
       >
-        <Button variant={variant} {...props}>
+        <Button variant={variant} w="100%" {...props}>
           {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
           {linkLabel}
         </Button>

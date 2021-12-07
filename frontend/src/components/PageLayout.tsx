@@ -16,7 +16,9 @@ const PageLayout: React.FC<PageProps> = ({
   pageName,
   children
 }) => {
+  // helpers
   const HeroShare = pageName && ['Home', 'Restaurantes'].includes(pageName);
+  // UI
   return (
     <>
       <Head>
@@ -74,7 +76,7 @@ const PageLayout: React.FC<PageProps> = ({
           )
         }
       </Main>
-      <Footer />
+      <Footer sharing={pageName === 'Home'} />
     </>
   );
 }

@@ -66,7 +66,7 @@ export default function FleetPage({ fleet }) {
         />
       </Head>
       <AppsBox />
-      <Container w="100vw" h={{base: 'auto', lg: '100vh'}} pb="16">
+      <Container maxW="1120px" h={{base: 'auto', lg: '100vh'}} pb="16">
         <Box display={{base:  'block', md: 'none'}} mb="4">
           <NextLink href="/" passHref>
             <Link _focus={{ outline: 'none'}} w='94px'>
@@ -157,26 +157,31 @@ export default function FleetPage({ fleet }) {
           <Topic
             size="sm"
             label='Autonomia para definir o preço das corridas e outras condições pelo nosso sistema de frotas'
+            check
           />
           <Topic
             size="sm"
             label='Remuneração na frota AppJusto: R$ 10 até 5km e mais R$ 2 por km adicional'
+            check
           />
           <Topic
             size="sm"
             label='Recebem valor integral pago pela entrega (subtraindo a taxa da operadora financeira)'
+            check
           />
           <Topic
             size="sm"
             label='Sem suspensões automáticas: o processo sempre passa por um atendente'
+            check
           />
           <Topic
             size="sm"
             label='Transparência em todas as regras e preços da plataforma'
+            check
           />
         </Box>
       </Container>
-      <Footer />
+      <Footer sharing={false} containerMaxWidth="1120px"/>
     </Box>
   );
 };

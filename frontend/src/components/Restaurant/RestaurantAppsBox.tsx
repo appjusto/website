@@ -19,7 +19,7 @@ export const RestaurantAppsBox = (props: FlexProps) => {
       zIndex="800"
       {...props}
     >
-      <Container pt="0" display="flex" justifyContent="flex-end">
+      <Container pt="0" display="flex" justifyContent="flex-end" maxW="1120px">
         <Box
           w="100%"
           maxW={{lg: '366px'}}
@@ -39,15 +39,14 @@ export const RestaurantAppsBox = (props: FlexProps) => {
               </Link>
             </NextLink>
             <CustomLinkButton
-                mt="0"
-                maxW="114px"
-                name="app-consumer"
-                linkLabel="Baixe o app"
-                variant="primary"
-                fontSize="16px"
-                link={storeLink}
-                isExternal
-              />
+              maxW="114px"
+              name="app-consumer"
+              linkLabel="Baixe o app"
+              variant="primary"
+              fontSize="16px"
+              link={storeLink}
+              isExternal
+            />
           </Flex>
           <Text display={{base: 'none', lg: 'block'}} mt="6" fontSize="15px" lineHeight="21px" fontWeight="500">
             Ao usar o AppJusto, você paga menos, e colabora com uma economia mais

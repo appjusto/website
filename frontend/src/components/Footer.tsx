@@ -1,11 +1,16 @@
-import { Box, Flex, Icon, Text } from '@chakra-ui/react'
+import { Box, Flex, Icon, LayoutProps, Text } from '@chakra-ui/react'
 import { MdMailOutline  } from 'react-icons/md'
 import { FaFacebookSquare, FaInstagram, FaLinkedin  } from 'react-icons/fa'
 import Container from './Container'
 import Link from './CustomLink'
 import ShareFooter from './ShareFooter'
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  sharing?: boolean;
+  containerMaxWidth?: LayoutProps["w"];
+}
+
+const Footer: React.FC<FooterProps> = ({ sharing = true, containerMaxWidth = '1460px' }) => {
   return (
     <Box>
       <Flex
@@ -23,6 +28,7 @@ const Footer: React.FC = () => {
           pb={{base: '9px', md: '32px'}}
           display="flex"
           flexDir="column"
+          maxW={containerMaxWidth}
         >
           <Flex w="100%" flexDir={{base: 'column', lg: 'row'}} justifyContent="space-between" alignItems="center">
             <Flex
@@ -192,7 +198,7 @@ const Footer: React.FC = () => {
           </Box>
         </Container>
       </Flex>
-      <ShareFooter />
+      {sharing && <ShareFooter />}
     </Box>
   );
 }

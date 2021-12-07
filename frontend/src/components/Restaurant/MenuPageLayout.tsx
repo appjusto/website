@@ -57,13 +57,13 @@ export default function MenuPageLayout({
       </Head>
       <Box>
         <RestaurantAppsBox display={{base: isAppBox ? 'flex' : 'none', lg: 'flex'}}/>
-        <Container position="relative" w="100vw" minH="100vh" pt={{base: isAppBox ? '8' : '0', lg: '10'}} pb="24">
+        <Container position="relative" maxW="1120px" minH="100vh" pt={{base: isAppBox ? '8' : '0', lg: '10'}} pb="24">
           <Box position="relative" mt={{base: '2', lg: '0'}} maxW={{base: '100%', lg: '656px'}} zIndex="999">
             {children}
             <OrderButton mode={query.mode as Mode} limit={whatsLimit} phone={businessPhone} />
           </Box>
         </Container>
-        <Footer />
+        <Footer sharing={false} containerMaxWidth="1120px"/>
       </Box>
     </Box>
   );
