@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
                 fontWeight="700"
                 lineHeight={{ base: '30px', md: '56px', lg: "76px" }}
               >
-                Já pensou em ser sócio do App? Agora você pode!
+                Já pensou em ser dono do App? Agora você pode!
               </Heading>
             <Heading
               mt="8"
