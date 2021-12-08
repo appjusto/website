@@ -1,10 +1,8 @@
 import {
   Badge,
-  Box,
   Flex,
   Heading,
   Image,
-  Link,
   Stack,
   StackProps,
   Modal,

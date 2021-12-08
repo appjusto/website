@@ -1,5 +1,4 @@
-import { Box, Center, Flex, Text } from '@chakra-ui/react'
-import Image from '../../Image';
+import { Box, Center, Flex, Image, Text } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';

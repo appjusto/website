@@ -1,5 +1,5 @@
-import { Button, Flex, Heading, Text } from '@chakra-ui/react'
-import Image from '../../Image';
+import { Flex, Heading, Image, Text } from '@chakra-ui/react'
+//import Image from '../../Image';
 import Section from "../../Section";
 import Container from '../../Container';
 import CustomLinkButton from '../../CustomLinkButton';
