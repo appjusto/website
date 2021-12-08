@@ -22,6 +22,7 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
         _focus={{ outline: 'none'}}
         _hover={{ textDecor: 'none'}}
         href={link}
+        aria-label={linkLabel}
         isExternal
         download={isDownload}
       >

@@ -43,7 +43,7 @@ const Crowdfunding: React.FC = () => {
           </Flex>
           <Box w="100%" pl={{lg: '8'}}>
             <Box mt={{base: '6', md: '0'}}>
-              <Image src="/crowd-green-ending.jpeg" w="100%" />
+              <Image src="/crowd-green-ending.jpeg" w="100%" alt="entregador de delivery de perfil" />
             </Box>
           </Box>
         </Stack>

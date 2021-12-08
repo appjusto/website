@@ -70,6 +70,8 @@ const ShareFooter = () => {
                 smooth={true}
                 offset={-70}
                 duration={500}
+                name="scroll to top"
+                href="/"
               >
                 <Flex
                   direction="row"
