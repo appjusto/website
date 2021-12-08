@@ -68,7 +68,7 @@ const MainVideo: React.FC = () => {
               w={{base: '100%', lg: 'auto'}}
               variant="outlineWhite"
               link={kriaLink}
-              linkLabel="Saiba mais do financiamento coletivo"
+              linkLabel="Saiba mais do investimento coletivo"
               isExternal
             />
           </Box>

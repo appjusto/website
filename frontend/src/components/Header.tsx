@@ -94,7 +94,7 @@ const Header = () => {
               <CustomLink
                 name="invest-page"
                 link={kriaLink}
-                linkLabel="Sobre o investimento coletivo"
+                linkLabel="Investimento coletivo"
                 isExternal
               />
               <CustomLink
