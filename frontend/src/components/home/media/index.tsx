@@ -93,8 +93,9 @@ const Media: React.FC = () => {
               h="60px"
               borderRadius="30px" onClick={() => handleSlider('left')}
               _hover={{ bgColor: '#F2FFE8'}}
+              aria-label="seta para a esquerda"
             >
-              <Image src="/icon-arrow-left.svg" />
+              <Image src="/icon-arrow-left.svg" alt="seta para a esquerda" />
             </Button>
             <Button
               bgColor="#C8D7CB"
@@ -102,8 +103,9 @@ const Media: React.FC = () => {
               h="60px"
               borderRadius="30px" onClick={() => handleSlider('right')}
                _hover={{ bgColor: '#F2FFE8'}}
+               aria-label="seta para a direita"
               >
-              <Image src="/icon-arrow-right.svg" />
+              <Image src="/icon-arrow-right.svg" alt="seta para a direita" />
             </Button>
           </HStack>
         </Center>
