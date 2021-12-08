@@ -29,7 +29,7 @@ const Item: React.FC<ItemProps> = ({
           <Image src={image} alt={altImg} />
         </Box>
         <Heading
-          as="h4"
+          as="h3"
           fontSize="18px"
           lineHeight="26px"
           fontWeight="700"

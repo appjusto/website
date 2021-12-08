@@ -111,7 +111,7 @@ export default function FleetPage({ fleet }) {
                 fontSize="16px"
                 icon="/icon-apple.png"
                 iconAlt="ícone apple store"
-                link="#"
+                link="/"
                 isExternal
                 isDisabled
               />

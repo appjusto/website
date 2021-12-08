@@ -24,7 +24,7 @@ const MainVideo: React.FC = () => {
                     width="100%"
                     height="100%"
                     src="https://www.youtube-nocookie.com/embed/rm6ZAsuefqA?autoplay=1&controls=0&modestbranding=1"
-                    title="YouTube video player"
+                    title="Explicando AppJusto"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -32,7 +32,7 @@ const MainVideo: React.FC = () => {
                 </Box>
               ) : (
                 <Box position="relative">
-                  <Image src="/team.jpeg" boxShadow={{lg: 'black -24px 24px'}} zIndex="100" />
+                  <Image src="/team.jpeg" boxShadow={{lg: 'black -24px 24px'}} zIndex="100" alt="equipe Appjusto" />
                   <Center
                     position="absolute"
                     top="0"
@@ -44,7 +44,7 @@ const MainVideo: React.FC = () => {
                     _hover={{ opacity: "0.6" }}
                     onClick={() => setIsVideoActive(true)}
                   >
-                    <Image src="/icon-play.svg" w="96px" h="96px" />
+                    <Image src="/icon-play.svg" w="96px" h="96px" alt="Play" />
                   </Center>
                 </Box>
               )

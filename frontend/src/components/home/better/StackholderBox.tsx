@@ -9,7 +9,7 @@ const StackholderBox: React.FC<StackholderBoxProps> = ({ image, title, children,
   return (
     <Box p="6" bgColor="#F6F6F6" borderRadius="16px" {...props}>
       <Box w="112px" h="96px">
-        <Image src={image} />
+        <Image src={image} alt={title} />
       </Box>
       <Heading
         mt="6"

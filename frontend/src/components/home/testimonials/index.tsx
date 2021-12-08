@@ -6,10 +6,11 @@ import { usePageContext } from '../../../context';
 
 interface TestimonialBoxProps {
   image: string;
+  alt: string;
   handleClick(): void;
 }
 
-const TestimonialBox = ({ image, handleClick }: TestimonialBoxProps) => {
+const TestimonialBox = ({ image, alt, handleClick }: TestimonialBoxProps) => {
   return (
     <Box
       position="relative"
@@ -18,7 +19,7 @@ const TestimonialBox = ({ image, handleClick }: TestimonialBoxProps) => {
       borderRadius="16px"
       overflow="hidden"
     >
-      <Image src={image} />
+      <Image src={image} alt={alt} />
       <Center
         position="absolute"
         top="0"
@@ -34,6 +35,7 @@ const TestimonialBox = ({ image, handleClick }: TestimonialBoxProps) => {
           src="/icon-play.svg"
           w="96px"
           h="96px"
+          alt="Play"
         />
       </Center>
     </Box>
@@ -53,6 +55,7 @@ const Testimonials: React.FC = () => {
         <HStack mt="10" spacing={{base: 2, md: 4}} h="100%" overflow={{base: 'scroll' , md: 'auto' }}>
           <TestimonialBox
             image="/testimonials1.jpeg"
+            alt="entregador dando depoimento"
             handleClick={() => setVideoModalConfig({
               isOpen: true,
               videoId: '9qK8lmLd3w4',
@@ -61,6 +64,7 @@ const Testimonials: React.FC = () => {
           />
           <TestimonialBox
             image="/testimonials2.jpeg"
+            alt="dono de restaurante dando depoimento"
             handleClick={() => setVideoModalConfig({
               isOpen: true,
               videoId: 'y7_B4kCI93o',
@@ -69,6 +73,7 @@ const Testimonials: React.FC = () => {
           />
           <TestimonialBox
             image="/testimonials3.jpeg"
+            alt="entregador dando depoimento"
             handleClick={() => setVideoModalConfig({
               isOpen: true,
               videoId: 'gbgnLODrEkU',

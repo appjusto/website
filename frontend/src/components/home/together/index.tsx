@@ -17,8 +17,8 @@ const Together: React.FC = () => {
       <Container pt={{base: '8', lg: '16'}}>
         <Flex flexDir="column" alignItems="center">
           <Box maxW="960px">
-            <Image display={{base: 'block', md: 'none'}} src="/signature-mobile.png" />
-            <Image display={{base: 'none', md: 'block'}} src="/signature-desktop.png" />
+            <Image display={{base: 'block', md: 'none'}} src="/signature-mobile.png" alt="todos por um delivery mais justo" />
+            <Image display={{base: 'none', md: 'block'}} src="/signature-desktop.png" alt="todos por um delivery mais justo" />
           </Box>
           <Text mt="10" textStyle="p" textAlign="center">
             Quer fazer parte do AppJusto? Entre em{' '}
@@ -42,13 +42,13 @@ const Together: React.FC = () => {
           animation={walkAnimation}
         >
           <Box minW="1920px" h="300px">
-            <Image src="/photos-social.jpeg" w="100%" />
+            <Image src="/photos-social.jpeg" w="100%" alt="parceiros appjusto" />
           </Box>
           <Box minW="1920px" h="300px">
-            <Image src="/photos-social.jpeg" w="100%" />
+            <Image src="/photos-social.jpeg" w="100%" alt="parceiros appjusto" />
           </Box>
           <Box minW="1920px" h="300px">
-            <Image src="/photos-social.jpeg" w="100%" />
+            <Image src="/photos-social.jpeg" w="100%" alt="parceiros appjusto" />
           </Box>
         </Flex>
       </Box>

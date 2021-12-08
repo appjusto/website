@@ -10,7 +10,7 @@ const Un: React.FC = () => {
     <Section mt="4" id="un" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '8'}} overflow="hidden">
         <Center>
-          <Image src="/icon-splash.svg" />
+          <Image src="/icon-splash.svg" alt="ilustração splash" />
         </Center>
         <SectionHeading display={{base: 'none', md: 'block'}} mt="8" w="100%" textAlign="center">
           Colaboramos com os Objetivos de Desenvolvimento Sustentáveis da ONU
@@ -20,8 +20,8 @@ const Un: React.FC = () => {
         </SectionHeading>
         <Center mt="8">
           <HStack>
-            <Image src="/ods8.png" w="90px" h="90px" />
-            <Image src="/ods10.png" w="90px" h="90px" />
+            <Image src="/ods8.png" w="90px" h="90px" alt="ODS 8" />
+            <Image src="/ods10.png" w="90px" h="90px" alt="ODS 10" />
           </HStack>
         </Center>
       </Container>

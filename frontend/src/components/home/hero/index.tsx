@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
             />
           </Flex>
           <Flex mt={{base: '8', md: '0'}} flexDir="column" justifyContent="center" alignItems="flex-end" w="100%">
-            <Image src="/crowd-hero@2x.jpeg" w="100%" maxW="648px" />
+            <Image src="/crowd-hero@2x.jpeg" w="100%" maxW="648px" alt="entregador de delivery"/>
           </Flex>
         </Flex>
       </Container>
@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
         alignItems="center"
         zIndex="900"
       >
-        <Image src="/decorative-lines-yellow.svg" w={{md: '360px', lg: '560px'}} />
+        <Image src="/decorative-lines-yellow.svg" w={{md: '360px', lg: '560px'}} alt="ilustração de linha amarela" />
       </Flex>
     </Section>
   );

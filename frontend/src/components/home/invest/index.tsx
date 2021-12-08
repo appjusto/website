@@ -16,7 +16,7 @@ const Invest: React.FC = () => {
           <Box mt={{base: '8' , lg: '0'}} w="100%">
             <Box maxW={{lg: '648px'}}>
               <Box>
-                <Image src="/icon-spark-yellow.svg" w="48px" h="48px"/>
+                <Image src="/icon-spark-yellow.svg" w="48px" h="48px" alt="ilustração spark amarela"/>
               </Box>
               <SectionHeading mt="8" highlighted>
                 100% do investimento será reinvestido na empresa
@@ -40,7 +40,7 @@ const Invest: React.FC = () => {
           </Box>
           <Box w="100%" pl={{lg: '8'}}>
             <Box>
-              <Image src="/invest-graphic@2x.jpeg" w="100%" maxW="674px" />
+              <Image src="/invest-graphic@2x.jpeg" w="100%" maxW="674px" alt="gráfico de distribuição do investimento" />
             </Box>
           </Box>
         </Stack>

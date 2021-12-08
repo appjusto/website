@@ -41,42 +41,42 @@ const Support: React.FC = () => {
           <Wrap mt="10" maxW="960px" spacing={{base: '30px', lg: '40px'}} justify="center">
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-abrasel.png" />
+                <Image src="/logo-abrasel.png" alt="logo abrasel" />
               </CustomCenter>
             </WrapItem>
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-anr.png" />
+                <Image src="/logo-anr.png" alt="logo anr" />
               </CustomCenter>
             </WrapItem>
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-coletivo-pinheiros.png" />
+                <Image src="/logo-coletivo-pinheiros.png" alt="logo pinheiros" />
               </CustomCenter>
             </WrapItem>
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-iugu.png" />
+                <Image src="/logo-iugu.png" alt="logo iugu" />
               </CustomCenter>
             </WrapItem>
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-iza.png" />
+                <Image src="/logo-iza.png" alt="logo iza" />
               </CustomCenter>
             </WrapItem>
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-99jobs.png" />
+                <Image src="/logo-99jobs.png" alt="logo 99jobs" />
               </CustomCenter>
             </WrapItem>
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-dinamo.png" />
+                <Image src="/logo-dinamo.png" alt="logo dinamo" />
               </CustomCenter>
             </WrapItem>
             <WrapItem>
               <CustomCenter>
-                <Image src="/logo-kria.png" />
+                <Image src="/logo-kria.png" alt="logo kria" />
               </CustomCenter>
             </WrapItem>
           </Wrap>
