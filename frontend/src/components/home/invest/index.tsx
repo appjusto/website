@@ -27,7 +27,7 @@ const Invest: React.FC = () => {
               </Text>
               <CustomLinkButton
                 mt="10"
-                w="auto"
+                maxW={{ lg: '328px'}}
                 px="6"
                 h="64px"
                 fontSize="20px"

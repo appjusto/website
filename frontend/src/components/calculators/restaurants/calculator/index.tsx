@@ -260,6 +260,7 @@ const RestaurantCalculator: React.FC = () => {
             linkLabel="Cadastrar restaurante"
             variant="secondary"
             link="https://admin.appjusto.com.br"
+            isExternal
           />
           <HStack mt="8">
             <Box>
