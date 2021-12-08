@@ -27,27 +27,27 @@ const Commitment: React.FC = () => {
             </Text>
             <Box mt="8">
             <Item
-              image="/icon-bike.svg"
+              image="/icon-bike-y.svg"
               altImg="Ícone de entregador numa moto"
               title="Fornecer autonomia e participação"
             />
             <Item
-              image="/item-monetization.svg"
+              image="/item-monetization-y.svg"
               altImg="Ícone de moeda"
               title="Praticar preço justo para todos"
             />
             <Item
-              image="/item-thumb.svg"
+              image="/item-thumb-y.svg"
               altImg="Ícone de curtir"
               title="Ter eficiência e sustentabilidade financeira"
             />
             <Item
-              image="/item-domain.svg"
+              image="/item-domain-y.svg"
               altImg="Ícone de prédios"
               title="Criar um bem coletivo"
             />
             <Item
-              image="/item-blur.svg"
+              image="/item-blur-y.svg"
               altImg="Ícone de pontos"
               title="Manter transparência em toda a plataforma"
             />

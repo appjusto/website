@@ -79,7 +79,7 @@ export default function FleetPage({ fleet }) {
           </NextLink>
         </Box>
         <Stack direction={{base: 'column', lg: 'row'}} spacing={12}>
-          <Box maxW={{lg: '320px'}}>
+          <Box maxW={{md: '300px', lg: '320px'}}>
             <Text fontSize="24px" lineHeight="26px" fontWeight="700">
               Você foi convidado a fazer parte da frota "{fleet?.name ?? 'N/E'}" no AppJusto!
               Bora lá?
@@ -93,7 +93,7 @@ export default function FleetPage({ fleet }) {
             </Box>
             <Stack mt="6" w="100%" display={{base:  'flex', md: 'none'}} direction="row" spacing={4}>
               <CustomLinkButton
-                mt="0"
+                w="100%"
                 name="app-courier-android"
                 linkLabel="Android"
                 variant="primary"
@@ -104,7 +104,7 @@ export default function FleetPage({ fleet }) {
                 isExternal
               />
               <CustomLinkButton
-                mt="0"
+                w="100%"
                 name="app-courier-ios"
                 linkLabel="Em breve"
                 variant="disabled"
@@ -112,12 +112,12 @@ export default function FleetPage({ fleet }) {
                 icon="/icon-apple.png"
                 iconAlt="ícone apple store"
                 link="#"
-                isExternal={false}
+                isExternal
                 isDisabled
               />
             </Stack>
           </Box>
-          <Box minW="272px" maxW={{lg: '320px'}}>
+          <Box minW="272px" maxW={{md: '300px', lg: '320px'}}>
             <Text fontSize="18px" lineHeight="26px" fontWeight="500">
               {fleet?.name ?? 'N/E'}
             </Text>
