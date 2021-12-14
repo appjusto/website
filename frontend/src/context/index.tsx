@@ -47,7 +47,7 @@ export const PageContextProvider = (props: Props) => {
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
   const storeLink = env === 'live' ?
     'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
-  const kriaLink = 'https://app.kria.vc/agents/users/offers/277?locale=pt-BR';
+  const kriaLink = 'https://app.kria.vc/agents/users/offers/277?locale=pt-BR&utm_source=appjusto&utm_medium=landing&utm_campaign=crowd';
   // side effects
   /*React.useEffect(() => {
     (async () => {
