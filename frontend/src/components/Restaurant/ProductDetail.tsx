@@ -29,7 +29,7 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
   const [imageUrl, setImageUrl] = React.useState<string | null>();
   const groups = useComplementsGroups(businessId, productId, product?.complementsGroupsIds);
   // helpers
-  const productPrice = product.price > 0 ? product.price : 0;
+  const productPrice = product?.price > 0 ? product?.price : 0;
   // handlers
   const handleBack = () => {
     router.back();
@@ -93,10 +93,10 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
         <Flex w="100%" ml={{lg: '8'}} py={{base: '3', lg: '0'}} justifyContent="space-between">
           <Box maxW={{base: '228px', lg: '400px'}}>
             <Text fontSize="20px" lineHeight="26px" fontWeight="500">
-              {product.name}
+              {product?.name ?? 'Não foi possível carregar o nome do produto'}
             </Text>
             <Text mt="1" color="#697667" fontSize="15px" lineHeight="21px" fontWeight="500">
-              {product.description}
+              {product?.description  ?? 'Não foi possível carregar a descrição do produto'}
             </Text>
             <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
               {groups?.length > 0 && 'A partir de '}{formatCurrency(productPrice)}

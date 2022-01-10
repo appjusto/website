@@ -16,10 +16,10 @@ export const ComplementItem = ({ complement }: ComplementItemProps) => {
           {complement.name}
         </Text>
         <Text mt="1" color="#697667" fontSize="13px" lineHeight="18px" fontWeight="500">
-          {complement.description}
+          {complement?.description ?? 'N/I'}
         </Text>
         <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
-          {formatCurrency(complement.price)}
+          {formatCurrency(complement?.price ?? 0)}
         </Text>
       </Box>
     </Flex>
