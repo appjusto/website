@@ -28,6 +28,8 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
   // state
   const [imageUrl, setImageUrl] = React.useState<string | null>();
   const groups = useComplementsGroups(businessId, productId, product?.complementsGroupsIds);
+  // helpers
+  const productPrice = product.price > 0 ? product.price : 0;
   // handlers
   const handleBack = () => {
     router.back();
@@ -97,7 +99,7 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
               {product.description}
             </Text>
             <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
-              {groups?.length > 0 && 'A partir de '}{formatCurrency(product.price)}
+              {groups?.length > 0 && 'A partir de '}{formatCurrency(productPrice)}
             </Text>
           </Box>
         </Flex>

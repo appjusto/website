@@ -61,11 +61,11 @@ export const PageContextProvider = (props: Props) => {
     if(consent === 'true') setUserConsent(true);
     else if(consent === 'false') setUserConsent(false);
   }, []);
-  console.log('userConsent', userConsent);
+  //console.log('userConsent', userConsent);
   React.useEffect(() => {
     //if(!analytics) return;
     if(!userConsent) return;
-    console.log('enable consent');
+    //console.log('enable consent');
     (async () => {
       const { firebase } = await getFirebaseClient();
       const analytics  = await import('firebase/analytics').then(
