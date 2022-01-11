@@ -49,7 +49,15 @@ export const getCategoriesObjects = (docs: FirebaseDocument[]): WithId<Category>
 export const getProductsObjects = (docs: FirebaseDocument[]): WithId<Product>[] => {
   return docs.map((item) => {
     const { name, description, imageExists, price, enabled, complementsGroupsIds } = item.data();
-    return { id: item.id, name, description, imageExists, price, enabled, complementsGroupsIds: complementsGroupsIds ?? []  };
+    return {
+      id: item.id,
+      name,
+      description: description ?? '',
+      imageExists: imageExists ?? false,
+      price,
+      enabled,
+      complementsGroupsIds: complementsGroupsIds ?? []
+    };
   });
 };
 
@@ -63,7 +71,14 @@ export const getGroupsObjects = (docs: FirebaseDocument[]): WithId<ComplementGro
 export const getComplementsObjects = (docs: FirebaseDocument[]): WithId<Complement>[] => {
   return docs.map((item) => {
     const { name, description, imageExists, price, enabled } = item.data();
-    return { id: item.id, name, description, imageExists, price, enabled };
+    return {
+      id: item.id,
+      name,
+      description: description ?? '',
+      imageExists: imageExists ?? false,
+      price,
+      enabled
+    };
   });
 };
 
