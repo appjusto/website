@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Spinner, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
@@ -18,24 +18,32 @@ interface ProductDetailProps {
 }
 
 export const ProductDetail = ({ businessId, businessName, back }: ProductDetailProps) => {
+  console.log('Detail Props', businessId, businessName);
   // router
   const router = useRouter();
   const productId = router.query.slug[2];
   // swr
-  const { data: product } = useSWR<WithId<Product> | null, any>(
-    '/product', () => productFetcher(businessId, productId)
+  const { data, error } = useSWR<WithId<Product> | null, any>(
+    productId ? '/product' : null, () => productFetcher(businessId, productId)
   );
+  console.log('Detail data', data);
   // state
+  const [product, setProduct] = React.useState<WithId<Product>>();
   const [imageUrl, setImageUrl] = React.useState<string | null>();
   const groups = useComplementsGroups(businessId, productId, product?.complementsGroupsIds);
+  console.log('Detail groups', groups);
   // helpers
-  const productPrice = product?.price > 0 ? product?.price : 0;
+  const productPrice = product?.price > 0 ? product.price : 0;
   // handlers
   const handleBack = () => {
     router.back();
     back()
   }
   // side effects
+  React.useEffect(() => {
+    if(!data) return;
+    setProduct(data);
+  }, [data]);
   React.useEffect(() => {
     if(!productId) return;
     (async () => {
@@ -48,6 +56,7 @@ export const ProductDetail = ({ businessId, businessName, back }: ProductDetailP
     })();
   }, [businessId, productId]);
   // UI
+  if(error) console.error('useSWR Error', error);
   return (
     <Box>
       <Box position="relative" w="100%" mb={{lg: '2'}}>

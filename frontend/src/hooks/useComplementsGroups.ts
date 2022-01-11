@@ -4,12 +4,16 @@ import { Complement, ComplementGroup, Ordering, WithId } from '../types';
 import { getComplementsObjects, getGroupsObjects, getOrderedCategories } from '../utils/businesses';
 
 export const useComplementsGroups = (businessId?: string, productId?: string, groupsIds?: string[]) => {
+  console.log('useComplementsGroups', businessId, productId, groupsIds)
   // state
   const [unorderedGroups, setUnorderedGroups] = React.useState<WithId<ComplementGroup>[] | null>();
   const [complements, setComplements] = React.useState<WithId<Complement>[] | null>();
   const [ordering, setOrdering] = React.useState<Ordering | null>();
   const [groups, setGroups] = React.useState<WithId<ComplementGroup>[] | null>();
   const [sortedGroups, setSortedGroups] = React.useState<WithId<ComplementGroup>[] | null>();
+  console.log('unorderedGroups', unorderedGroups);
+  console.log('complements', complements);
+  console.log('ordering', ordering);
   // side effects
   React.useEffect(() => {
     if(!businessId || !productId) return;

@@ -68,8 +68,9 @@ export const getComplementsObjects = (docs: FirebaseDocument[]): WithId<Compleme
 };
 
 export const getProductObject = (id: string, data: any): WithId<Product> => {
-    const { name, description, imageExists, price, enabled, complementsGroupsIds } = data;
-    return { id, name, description, imageExists, price, enabled, complementsGroupsIds: complementsGroupsIds ?? [] };
+  console.log('Snapshot.data', data);
+  const { name, description, imageExists, price, enabled, complementsGroupsIds } = data;
+  return { id, name, description, imageExists, price, enabled, complementsGroupsIds: complementsGroupsIds ?? [] };
 };
 
 export const getOrderedCategories = <T extends object, T2 extends object>(

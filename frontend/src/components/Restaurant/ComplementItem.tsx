@@ -10,7 +10,7 @@ interface ComplementItemProps {
 export const ComplementItem = ({ complement }: ComplementItemProps) => {
   // UI
   return (
-    <Flex w="100%" py="3" justifyContent="space-between" borderTop="1px solid #F6F6F6" cursor="pointer">
+    <Flex w="100%" py="3" justifyContent="space-between" borderTop="1px solid #F6F6F6">
       <Box maxW={{base: '228px', lg: '400px'}}>
         <Text fontSize="15px" lineHeight="21px" fontWeight="500">
           {complement.name}
