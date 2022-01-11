@@ -6,7 +6,7 @@ const clientCredentials = {
   authDomain: process.env.EXTERNAL_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.EXTERNAL_FIREBASE_DATABASE_URL,
   projectId: process.env.EXTERNAL_FIREBASE_PROJECT_ID,
-  storageBucket: `${process.env.EXTERNAL_FIREBASE_PROJECT_ID}.appspot.com`,
+  storageBucket: process.env.EXTERNAL_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.EXTERNAL_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.EXTERNAL_FIREBASE_APP_ID,
   measurementId: process.env.EXTERNAL_FIREBASE_MEASUREMENT_ID,

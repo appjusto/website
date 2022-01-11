@@ -1,12 +1,11 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '../styles/theme';
-import { PageContextProvider, usePageContext } from '../context';
+import { PageContextProvider } from '../context';
 import { useFreshDesk } from '../hooks/useFreshDesk';
 import React from 'react';
 import Script from 'next/script'
 import { useRouter } from 'next/router';
 import * as fbq from '../utils/fpixel';
-import { FaQuidditch } from 'react-icons/fa';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
