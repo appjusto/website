@@ -11,10 +11,9 @@ import NextLink from 'next/link';
 interface ProductItemProps {
   businessId: string;
   product: WithId<Product>;
-  setIsLoading(): void;
 }
 
-export const ProductItem = ({ businessId, product, setIsLoading }: ProductItemProps) => {
+export const ProductItem = ({ businessId, product }: ProductItemProps) => {
   // router
   const { asPath, query } = useRouter();
   // state
@@ -47,7 +46,6 @@ export const ProductItem = ({ businessId, product, setIsLoading }: ProductItemPr
         justifyContent="space-between"
         borderTop="1px solid #F6F6F6"
         cursor="pointer"
-        onClick={setIsLoading}
       >
         <Box maxW={{base: '228px', lg: '400px'}}>
           <Text fontSize="15px" lineHeight="21px" fontWeight="500">

@@ -2,17 +2,16 @@ import { Box, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@ch
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 //import { Business, WithId } from '@appjusto/types';
-import { Business, Category, Ordering, PartialBusiness, Product, WithId } from "../../types";
+import { Business, Category, Complement, ComplementGroup, Ordering, PartialBusiness, WithId } from "../../types";
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
 import { getFirebaseProjectsClient } from "../../../firebaseProjects";
-import { getBusinessObject, getCategoriesObjects, getDownloadURL, getOrderedCategories, getProductsObjects } from "../../utils/businesses";
+import { getBusinessObject, getCategoriesObjects, getComplementsObjects, getDownloadURL, getGroupsObjects, getOrderedCategories, getProductsObjects } from "../../utils/businesses";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 import MenuPageLayout from "../../components/Restaurant/MenuPageLayout";
 import { useRouter } from "next/router";
 import { ProductDetail } from "../../components/Restaurant/ProductDetail";
-import { SWRConfig } from "swr";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -45,14 +44,39 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       notFound: true,
     }
   };
-  const unorderedCategories = await db.collection('businesses').doc(business.id).collection('categories').get().then((data) => getCategoriesObjects(data.docs));
-  const products = await db.collection('businesses').doc(business.id).collection('products').get().then((data) => getProductsObjects(data.docs));
-  const ordering = await db.collection('businesses').doc(business.id).collection('menu').doc('default').get().then((data) => data.data()) as Ordering;
+  // category and products
+  const unorderedCategories = await db.collection('businesses').doc(business.id)
+    .collection('categories').get().then(
+    (data) => getCategoriesObjects(data.docs)
+  );
+  const products = await db.collection('businesses').doc(business.id)
+    .collection('products')
+    .get().then((data) => getProductsObjects(data.docs));
+  const ordering = await db.collection('businesses').doc(business.id)
+    .collection('menu')
+    .doc('default')
+    .get().then((data) => data.data()) as Ordering;
   const categories = getOrderedCategories(unorderedCategories, products, ordering);
+  // groups and complements
+  const unorderedGroups = await db.collection('businesses').doc(business.id)
+    .collection('complementsgroups')
+    .get()
+    .then(data => getGroupsObjects(data.docs));
+  const complements = await db.collection('businesses').doc(business.id)
+    .collection('complements')
+    .get()
+    .then(data => getComplementsObjects(data.docs));
+  const complementsOrdering = await db.collection('businesses').doc(business.id)
+    .collection('menu')
+    .doc('complements')
+    .get()
+    .then(data => data.data()) as Ordering;
+  const orderedGroups = getOrderedCategories<ComplementGroup, Complement>(unorderedGroups, complements, complementsOrdering);
   return {
     props: {
       business,
       categories,
+      orderedGroups
     },
     revalidate: 10,
   };
@@ -61,30 +85,28 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 interface RestaurantPageProps {
   business: WithId<Business>;
   categories: WithId<Category>[];
+  orderedGroups: WithId<ComplementGroup>[];
 }
 
-export default function RestaurantPage({ business, categories }: RestaurantPageProps) {
-  // router
+export default function RestaurantPage({ business, categories, orderedGroups }: RestaurantPageProps) {
+  // context
   const { query } = useRouter();
   // state
   const [isMenu, setIsMenu] = React.useState(true);
   const [logoUrl, setLogoUrl] = React.useState<string>();
   const [coverUrl, setCoverUrl] = React.useState<string>();
   const [sharingMsg, setSharingMsg] = React.useState("");
-  const [product, setProduct] = React.useState<WithId<Product> | null>();
-  const [isLoading, setIsLoading] = React.useState(false);
   // handlers
-  /*const getProductById = React.useCallback(() => {
-    const productId = query.slug[2];
-    let data = null;
+  const getProductById = React.useCallback((productId: string) => {
+    let product = null;
     for(let category of categories) {
       if(category.items.map(item => item.id).includes(productId)) {
-        data = category.items.find(item => item.id === productId);
+        product = category.items.find(item => item.id === productId);
         break;
       }
     };
-    return data;
-  }, [query.slug]);*/
+    return product;
+  }, [categories]);
   // side effects
   React.useEffect(() => {
     if(!business?.id) return;
@@ -103,40 +125,42 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
     const message = encodeURIComponent(`Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e o entregador. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`);
     setSharingMsg(message);
   }, [business?.slug]);
-  React.useEffect(() => {
-    if(!query?.slug) return;
-    if(!categories) return;
-    if(query.slug.length > 1) {
-      const productId = query.slug[2];
-      let data = null;
-      for(let category of categories) {
-        if(category.items.map(item => item.id).includes(productId)) {
-          data = category.items.find(item => item.id === productId);
-          break;
-        }
-      };
-      setProduct(data);
-      setIsLoading(false);
-    } else setProduct(null);
-  }, [query.slug, categories]);
+  // React.useEffect(() => {
+  //   if(!query?.slug) return;
+  //   if(!categories) return;
+  //   if(query.slug.length > 1) {
+  //     const productId = query.slug[2];
+  //     let data = null;
+  //     for(let category of categories) {
+  //       if(category.items.map(item => item.id).includes(productId)) {
+  //         data = category.items.find(item => item.id === productId);
+  //         break;
+  //       }
+  //     };
+  //     setProduct(data);
+  //     setIsLoading(false);
+  //   } else setProduct(null);
+  // }, [query.slug, categories]);
   // UI
-  if(product) {
-    const fallback  = {
-      '/product': product
-    };
-    return (
-      <MenuPageLayout
-        businessName={business?.name}
-        businessDescription={business?.description}
-        businessPhone={business?.phone}
-        isAppBox={false}
-        isMenu={isMenu}
-      >
-        <SWRConfig value={{ fallback }}>
-          <ProductDetail businessId={business.id} businessName={business.name} back={() => setProduct(null)}/>
-        </SWRConfig>
-      </MenuPageLayout>
-    )
+  if(query.slug.length > 1) {
+    if(query.slug.length === 3 && query.slug[1] === 'p') {
+      return (
+        <MenuPageLayout
+          businessName={business?.name}
+          businessDescription={business?.description}
+          businessPhone={business?.phone}
+          isAppBox={false}
+          isMenu={isMenu}
+        >
+          <ProductDetail
+            businessId={business.id}
+            businessName={business.name}
+            getProductById={getProductById}
+            orderedGroups={orderedGroups}
+          />
+        </MenuPageLayout>
+      )
+    }
   }
   return (
     <MenuPageLayout
@@ -145,13 +169,6 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
       businessPhone={business?.phone}
       isMenu={isMenu}
     >
-      {
-        isLoading && (
-          <Center position="fixed" w={{base: '90%', lg: '656px'}} h="100vh" top="0">
-            <Spinner color="#697667" size="xl" />
-          </Center>
-        )
-      }
       <Box
         position="relative"
         w="100%"
@@ -278,7 +295,6 @@ export default function RestaurantPage({ business, categories }: RestaurantPageP
                   key={category.id}
                   businessId={business?.id}
                   category={category}
-                  setIsLoading={() => setIsLoading(true)}
                 />
               )
             }

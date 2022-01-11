@@ -5,10 +5,9 @@ import { ProductItem } from "./ProductItem"
 interface CategoryItemProps {
   businessId: string;
   category: WithId<Category>;
-  setIsLoading(): void;
 }
 
-export const CategoryItem = ({ businessId, category, setIsLoading }: CategoryItemProps) => {
+export const CategoryItem = ({ businessId, category }: CategoryItemProps) => {
   return (
     <Box mt="6">
       <HStack ml="-16px" spacing={3} pb="4">
@@ -23,7 +22,6 @@ export const CategoryItem = ({ businessId, category, setIsLoading }: CategoryIte
             key={product.id}
             businessId={businessId}
             product={product}
-            setIsLoading={setIsLoading}
           />
         )
       }
