@@ -16,7 +16,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   console.log('>>> businessSlugs.length', businessSlugs.length);
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
   const baseUrl = `https://${env !== 'live' ? `${env}.` : ''}appjusto.com.br`;
-
   const paths = businessSlugs.map(slug => {
     return {
       loc: `${baseUrl}/r/${slug}`, // Absolute url
@@ -24,18 +23,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       changefreq: 'monthly',
       priority: 0.9,
     }
-  });
-  const pathsWithMain = [
-    {
-      loc: baseUrl, // Absolute url
-      lastmod: new Date().toISOString(),
-      changefreq: 'monthly',
-      priority: 1.0,
-    },
-    ...paths
-  ] as ISitemapField[];
-
-  return getServerSideSitemap(ctx, pathsWithMain)
+  }) as ISitemapField[];
+  return getServerSideSitemap(ctx, paths);
 };
 // Default export to prevent next.js errors
 export default () => {};

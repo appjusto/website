@@ -10,17 +10,6 @@ module.exports = {
   exclude: ['/server-sitemap.xml'],
   alternateRefs: [],
   sourceDir: 'nextjs',
-  // Default transformation function
-  // transform: async (config, path) => {
-  //   return {
-  //     loc: path,
-  //     changefreq: config.changefreq,
-  //     priority: config.priority,
-  //     lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
-  //     alternateRefs: config.alternateRefs ?? [],
-  //   }
-  // },
-  //additionalPaths: async () => [],
   robotsTxtOptions: {
     policies: [
       {
