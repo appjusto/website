@@ -220,7 +220,7 @@ export default function RestaurantPage({ business, categories, orderedGroups }: 
       <Flex mt="6" justifyContent="space-between" alignItems="center">
         <Box>
           <HStack spacing={4}>
-            <Text fontSize="24px" lineHeight="26px" fontWeight="700">
+            <Text as="h1" fontSize="24px" lineHeight="26px" fontWeight="700">
               {business?.name ?? 'N/E'}
             </Text>
             <Text
@@ -240,7 +240,7 @@ export default function RestaurantPage({ business, categories, orderedGroups }: 
               {isMenu ? "Saber mais" : "Ver cardápio"}
             </Text>
           </HStack>
-          <Text mt="1" fontSize="16px" lineHeight="22px" fontWeight="500" color="#4EA031">
+          <Text as="h2" mt="1" fontSize="16px" lineHeight="22px" fontWeight="500" color="#4EA031">
             {business?.cuisine ?? 'N/E'}
           </Text>
         </Box>
@@ -302,6 +302,7 @@ export default function RestaurantPage({ business, categories, orderedGroups }: 
         ) : (
           <>
             <Text
+              as="h3"
               mt="6"
               fontSize="16px"
               lineHeight="22px"
