@@ -25,6 +25,25 @@ export const getBusinessObject = (docs: firebase.firestore.QueryDocumentSnapshot
   else return null;
 };
 
+export const getBusinessesObject = (docs: firebase.firestore.QueryDocumentSnapshot<firebase.firestore.DocumentData>[]) => {
+  const businesses = docs.map(doc => {
+    const docData = doc.data() as Business;
+    return {
+      id: doc.id,
+      cnpj: docData.cnpj,
+      name: docData.name,
+      cuisine: docData.cuisine,
+      description: docData.description,
+      phone: docData.phone,
+      slug: docData.slug,
+      businessAddress: docData.businessAddress,
+      schedules: docData.schedules,
+    }
+  });
+  if(businesses) return businesses;
+  else return null;
+};
+
 export const documentAs = <T extends object>(doc: FirebaseDocument): WithId<T> => ({
   ...(doc.data() as T),
   id: doc.id,
