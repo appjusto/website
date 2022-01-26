@@ -16,7 +16,6 @@ export default function Links() {
           metaDescription="Mais do que um app de entregas. Um movimento por relações mais justas e transparentes para restaurantes, entregadores e clientes. Faça parte desse movimento!"
           title="AppJusto"
           author="@appjusto"
-          canonical_url="https://appjusto.com.br/"
         />
         <title>AppJusto | Links</title>
       </Head>

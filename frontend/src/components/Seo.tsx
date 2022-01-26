@@ -1,13 +1,15 @@
 interface SeoProps {
-  canonical_url: string
   metaDescription: string;
   title: string;
   author: string;
   keywords?: string[];
 }
 
+const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
+const baseUrl = `https://${env !== 'live' ? `${env}.` : ''}appjusto.com.br`;
+
 const Seo: React.FC<SeoProps> = ({
-  canonical_url, metaDescription, title, author, keywords
+  metaDescription, title, author, keywords
 }) => {
   const keywordsArray = []
   const siteKeywords = [...keywordsArray, keywords].join(", ")
@@ -18,7 +20,7 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       name: `image`,
-      content: `${canonical_url}/share-social.png`,
+      content: `${baseUrl}/share-social.png`,
     },
     {
       property: `og:title`,
@@ -34,11 +36,11 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `og:image`,
-      content: `${canonical_url}/share-social.png`,
+      content: `${baseUrl}/share-social.png`,
     },
     {
       property: `og:image:secure_url`,
-      content: `${canonical_url}/share-social.png`,
+      content: `${baseUrl}/share-social.png`,
     },
     {
       property: `og:image:type`,
@@ -74,11 +76,11 @@ const Seo: React.FC<SeoProps> = ({
     },
     {
       property: `twitter:image`,
-      content: `${canonical_url}/share-social.png`,
+      content: `${baseUrl}/share-social.png`,
     },
     {
       property: `twitter:image:src`,
-      content: `${canonical_url}/share-social.png`,
+      content: `${baseUrl}/share-social.png`,
     },
     {
       property: `twitter:image:width`,
@@ -92,15 +94,11 @@ const Seo: React.FC<SeoProps> = ({
       property: `twitter:image:alt`,
       content: `Ilustração de uma motocicleta de entregas com o fundo verde.`,
     },
-    {
-      name: "keywords",
-      content: siteKeywords,
-    },
   ]
   return (
     <>
       <link rel="icon" href="/favicon.ico" />
-      <link rel="canonical" href={canonical_url} />
+      <link rel="canonical" href={baseUrl} />
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       <link rel="manifest" href="/manifest.webmanifest" />
       {
