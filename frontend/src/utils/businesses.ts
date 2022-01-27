@@ -1,5 +1,5 @@
 import { Business, Category, Complement, ComplementGroup, Fleet, Ordering, Product, WithId } from "../types";
-import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot, query, getDocs, collection, doc, getDoc, where, onSnapshot, orderBy } from 'firebase/firestore';
+import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot, query, getDocs, collection, doc, getDoc, where, orderBy } from 'firebase/firestore';
 import { getFirebaseProjectsClient } from "../../firebaseProjects";
 import { getDownloadURL, ref } from 'firebase/storage'
 

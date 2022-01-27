@@ -1,8 +1,6 @@
-import firebase from 'firebase/app';
+import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot } from 'firebase/firestore';
 
-export type FirebaseDocument =
-  | firebase.firestore.QueryDocumentSnapshot<firebase.firestore.DocumentData>
-  | firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData>;
+export type FirebaseDocument = QueryDocumentSnapshot<DocumentData> | DocumentSnapshot<DocumentData>;
 
 export type WithId<T extends object> = T & {
   id: string;
