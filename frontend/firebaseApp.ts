@@ -1,3 +1,5 @@
+import { initializeApp, FirebaseApp } from "firebase/app"
+
 const clientCredentials = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -10,21 +12,11 @@ const clientCredentials = {
 };
 
 interface FirebaseClientResult {
-  firebase: any;
+  firebase: FirebaseApp;
 };
 
-const getFirebaseClient = async (): Promise<FirebaseClientResult> => {
-  const firebase = await import('firebase/app')
-    .then((res) => {
-      const fire = res.default
-      if (!fire.apps.length) {
-        fire.initializeApp(clientCredentials);
-      }
-      return fire
-    })
-    .catch((error) => {
-      console.log(error)
-    });
+const getFirebaseClient = (): FirebaseClientResult => {
+  const firebase = initializeApp(clientCredentials);
   return { firebase };
 };
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import firebase from 'firebase/app';
+import { Analytics } from 'firebase/app/dist/analytics';
 import getFirebaseClient from '../../firebaseApp';
 import * as fbq from '../utils/fpixel';
 
@@ -13,7 +13,7 @@ interface PageContextProps {
   setShowAppsModal(value: boolean): void;
   videoModalConfig: VideoModalConfig;
   setVideoModalConfig(config: VideoModalConfig): void;
-  analytics?: firebase.analytics.Analytics;
+  analytics?: Analytics;
   userConsent: undefined | boolean;
   handleUserConsent(response: ConsentResponse): void;
   storeLink: string;
@@ -31,7 +31,7 @@ export const PageContextProvider = (props: Props) => {
   const [showSharingModal, setShowSharingModal] = React.useState(false);
   const [showAppsModal, setShowAppsModal] = React.useState(false);
   const [videoModalConfig, setVideoModalConfig] = React.useState<VideoModalConfig>({ isOpen: false });
-  const [analytics, setAnalytics] = React.useState<firebase.analytics.Analytics>();
+  const [analytics, setAnalytics] = React.useState<Analytics>();
   const [userConsent, setUserConsent] = React.useState<boolean>();
   // handlers
   const handleUserConsent = React.useCallback((response: ConsentResponse) => {
@@ -67,9 +67,9 @@ export const PageContextProvider = (props: Props) => {
     if(!userConsent) return;
     //console.log('enable consent');
     (async () => {
-      const { firebase } = await getFirebaseClient();
+      const { firebase } = getFirebaseClient();
       const analytics  = await import('firebase/analytics').then(
-        () => firebase.analytics()
+        ({getAnalytics}) => getAnalytics(firebase)
       );
       setAnalytics(analytics);
     })();

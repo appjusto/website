@@ -3,8 +3,7 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 import { formatCurrency } from "../../utils/index";
 import { ComplementGroup, Product, WithId } from "../../types";
 import React from 'react';
-import { getDownloadURL } from "../../utils/businesses";
-import { getFirebaseProjectsClient } from "../../../firebaseProjects";
+import { getDownloadURLByPath } from "../../utils/businesses";
 import { useRouter } from "next/router";
 import { ComplementsGroupItem } from "./ComplementsGroupItem";
 
@@ -41,14 +40,7 @@ export const ProductDetail = ({ businessId, businessName, getProductById, ordere
   }, [product?.complementsGroupsIds, orderedGroups]);
   React.useEffect(() => {
     if(!businessId || !productId) return;
-    (async () => {
-      const { storage } = await getFirebaseProjectsClient();
-      const imageRef = storage.ref().child(`businesses/${businessId}/products/${productId}_1008x720.jpg`);
-      getDownloadURL(imageRef).then(uri => {
-        if(!uri || uri === 'not_found') setImageUrl(null);
-        else setImageUrl(uri);
-      });
-    })();
+    getDownloadURLByPath(`businesses/${businessId}/products/${productId}_1008x720.jpg`, setImageUrl);
   }, [businessId, productId]);
   // UI
   if(product === undefined) {

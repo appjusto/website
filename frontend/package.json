@@ -37,7 +37,7 @@
     "@rooks/use-visibility-sensor": "^4.5.0",
     "@typeform/embed": "^0.29.1",
     "downshift": "^6.0.7",
-    "firebase": "^8.2.6",
+    "firebase": "9.6.4",
     "firebase-admin": "^9.5.0",
     "firebase-functions": "^3.15.4",
     "framer-motion": "4",

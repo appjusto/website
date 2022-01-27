@@ -1,12 +1,125 @@
-import { Business, Category, Complement, ComplementGroup, Ordering, Product, WithId } from "../types";
-import firebase from 'firebase/app';
+import { Business, Category, Complement, ComplementGroup, Fleet, Ordering, Product, WithId } from "../types";
+import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot, query, getDocs, collection, doc, getDoc, where, onSnapshot, orderBy } from 'firebase/firestore';
 import { getFirebaseProjectsClient } from "../../firebaseProjects";
+import { getDownloadURL, ref } from 'firebase/storage'
 
-export type FirebaseDocument =
-  | firebase.firestore.QueryDocumentSnapshot<firebase.firestore.DocumentData>
-  | firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData>;
+// firebase utils
+const { storage, db } = getFirebaseProjectsClient();
 
-export const getBusinessObject = (docs: firebase.firestore.QueryDocumentSnapshot<firebase.firestore.DocumentData>[]) => {
+// fleets
+export const getFleet = async (fleetId: string) => {
+  const fleetRef = doc(db, 'fleets', fleetId);
+  return getDoc(fleetRef).then((snapshot) => {
+    if(snapshot.exists) {
+      const fleet = snapshot.data() as Fleet;
+      return {
+        name: fleet.name,
+        minimumFee: fleet.minimumFee,
+        distanceThreshold: fleet.distanceThreshold,
+        additionalPerKmAfterThreshold: fleet.additionalPerKmAfterThreshold,
+        maxDistance: fleet.maxDistance,
+        maxDistanceToOrigin: fleet.maxDistanceToOrigin,
+      };
+    } else return null;
+  });
+};
+
+// business
+export const getBusinessBySlug = async (slug: string) => {
+  const q = query(collection(db, 'businesses'), where('slug', '==', slug));
+  return getDocs(q).then((snapshot) => {
+    if(!snapshot.empty) return getBusinessObject(snapshot.docs);
+    else return null;
+  })
+}
+
+export const getBusinessByCode = async (code: string) => {
+  const q = query(collection(db, 'businesses'), where('code', '==', code));
+  return getDocs(q).then((snapshot) => {
+    if(!snapshot.empty) return getBusinessObject(snapshot.docs);
+    else return null;
+  })
+}
+
+export const getBusinessesSlugs = async () => {
+  const q = query(collection(db, 'businesses'), orderBy('slug'));
+  return await getDocs(q).then((res) => {
+    if(!res.empty) {
+      const slugs = getBusinessesObject(res.docs).map((business) => business.slug);
+      return slugs;
+    }
+    return [];
+  })
+}
+
+// products
+export const getBusinessProduct = async (businessId: string, productId: string) => {
+const productRef = doc(db, "businesses", businessId, 'products', productId);
+  return getDoc(productRef).then((snapshot) => {
+    if(snapshot.exists) return getProductObject(snapshot.id, snapshot.data());
+    else return null;
+  })
+}
+
+export const getDownloadURLByPath = (path: string, resultHandler: (url: string | null) => void) => {
+  const imageRef = ref(storage, path);
+  getDownloadURL(imageRef).then(uri => {
+    if(!uri || uri === 'not_found') resultHandler(null);
+    else resultHandler(uri);
+  });
+};
+
+
+export const getBusinessCategories = async (businessId: string) => {
+  const subcollectionRef = collection(db, "businesses", businessId, 'categories');
+  return getDocs(subcollectionRef).then((snapshot) => {
+    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+      return getCategoriesObjects(snapshot.docs);
+    }
+  });
+};
+
+export const getBusinessProducts = async (businessId: string) => {
+  const subcollectionRef = collection(db, "businesses", businessId, 'products');
+  return getDocs(subcollectionRef).then((snapshot) => {
+    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+      return getProductsObjects(snapshot.docs);
+    }
+  });
+};
+
+export const getBusinessMenuOrdering = async (businessId: string) => {
+  const docRef = doc(db, 'businesses', businessId, 'menu', 'default');
+  return getDoc(docRef).then((data) => data.data());
+};
+
+export const getBusinessComplementsGroups = async (businessId: string) => {
+  const subcollectionRef = collection(db, "businesses", businessId, 'complementsgroups');
+  return getDocs(subcollectionRef).then((snapshot) => {
+    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+      return getGroupsObjects(snapshot.docs);
+    }
+  });
+};
+
+export const getBusinessComplements = async (businessId: string) => {
+  const subcollectionRef = collection(db, "businesses", businessId, 'complements');
+  return getDocs(subcollectionRef).then((snapshot) => {
+    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+      return getComplementsObjects(snapshot.docs);
+    }
+  });
+};
+
+export const getBusinessComplementsOrdering = async (businessId: string) => {
+  const docRef = doc(db, 'businesses', businessId, 'menu', 'complements');
+  return getDoc(docRef).then((data) => data.data());
+};
+
+// formatters
+export type FirebaseDocument = QueryDocumentSnapshot<DocumentData> | DocumentSnapshot<DocumentData>;
+
+export const getBusinessObject = (docs: QueryDocumentSnapshot<DocumentData>[]) => {
   const businesses = docs.map(doc => {
     const docData = doc.data() as Business;
     return {
@@ -25,7 +138,7 @@ export const getBusinessObject = (docs: firebase.firestore.QueryDocumentSnapshot
   else return null;
 };
 
-export const getBusinessesObject = (docs: firebase.firestore.QueryDocumentSnapshot<firebase.firestore.DocumentData>[]) => {
+export const getBusinessesObject = (docs: QueryDocumentSnapshot<DocumentData>[]) => {
   const businesses = docs.map(doc => {
     const docData = doc.data() as Business;
     return {
@@ -102,7 +215,6 @@ export const getComplementsObjects = (docs: FirebaseDocument[]): WithId<Compleme
 };
 
 export const getProductObject = (id: string, data: any): WithId<Product> => {
-  console.log('Snapshot.data', data);
   const { name, description, imageExists, price, enabled, complementsGroupsIds } = data;
   return { id, name, description, imageExists, price, enabled, complementsGroupsIds: complementsGroupsIds ?? [] };
 };
@@ -127,21 +239,3 @@ export const getOrderedCategories = <T extends object, T2 extends object>(
     };
   });
 };
-
-export const getDownloadURL = async (ref: any) => {
-  const uri = await ref
-    .getDownloadURL()
-    .then((res: string | null) => res)
-    .catch(() => 'not_found');
-  return uri;
-};
-
-export const productFetcher = async (businessId: string, productId: string) => {
-  const { db } = await getFirebaseProjectsClient();
-  const dbQuery = db.collection('businesses').doc(businessId).collection('products').doc(productId);
-  const result = await dbQuery.get().then(snapshot => {
-    if(snapshot.exists) return getProductObject(snapshot.id, snapshot.data());
-    else return null;
-  });
-  return result;
-}

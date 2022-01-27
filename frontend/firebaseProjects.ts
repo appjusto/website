@@ -1,5 +1,7 @@
 //import * as admin from 'firebase-admin';
-import firebase from 'firebase/app';
+import { initializeApp, FirebaseApp } from "firebase/app";
+import { getFirestore, Firestore } from 'firebase/firestore'
+import { getStorage, FirebaseStorage } from 'firebase/storage'
 
 const clientCredentials = {
   apiKey: process.env.EXTERNAL_FIREBASE_API_KEY,
@@ -13,55 +15,14 @@ const clientCredentials = {
 };
 
 interface FirebaseClientResult {
-  firebase: any;
-  db: firebase.firestore.Firestore;
-  storage: firebase.storage.Storage;
+  firebase: FirebaseApp;
+  db: Firestore;
+  storage: FirebaseStorage;
 }
 
-export const getFirebaseProjectsClient = async (): Promise<FirebaseClientResult> => {
-  const firebase = await import('firebase/app')
-    .then((res) => {
-      const fire = res.default
-      if (!fire.apps.length) {
-        fire.initializeApp(clientCredentials);
-      }
-      return fire
-    })
-    .catch((error) => {
-      console.log(error)
-    });
-  const db = await import('firebase/firestore')
-    .then(() => {
-      if(firebase)
-        return firebase.firestore()
-    });
-  const storage = await import('firebase/storage')
-    .then(() => {
-      if(firebase)
-        return firebase.storage()
-    });
+export const getFirebaseProjectsClient = (): FirebaseClientResult => {
+  const firebase = initializeApp(clientCredentials, 'projects');
+  const db = getFirestore(firebase);
+  const storage = getStorage(firebase);
   return { firebase, db, storage };
 };
-
-//export default getFirebaseProjectsClient;
-
-/*export const getFirebaseProjectsAdmin = async () => {
-  // path to service account key json file
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
-      storageBucket: `app-justo-dev.appspot.com`,
-      //storageBucket: `${process.env.EXTERNAL_FIREBASE_PROJECT_ID}.appspot.com`,
-    });
-    /*const serviceAccount = require('../../app-justo-dev-a0e08f4a58db.json');
-    const _secondary = admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-      storageBucket: `${process.env.EXTERNAL_FIREBASE_PROJECT_ID}.appspot.com`,
-    }, 'secondary');
-    return _secondary.storage().bucket();
-  } else {
-    //const secondary = admin.apps.find(app => app.name === 'secondary');
-    //return secondary.storage().bucket();
-  }
-  return admin.storage().bucket();
-};*/

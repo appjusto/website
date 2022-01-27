@@ -1,13 +1,22 @@
 import { Box, Center, Flex, HStack, Icon, Image, Link, Spinner, Text } from "@chakra-ui/react";
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
-//import { Business, WithId } from '@appjusto/types';
 import { Business, Category, Complement, ComplementGroup, Ordering, PartialBusiness, WithId } from "../../types";
 import { MdQueryBuilder, MdInfoOutline } from 'react-icons/md';
 import { formatCEP, formatHour } from "../../utils";
 import * as cnpjutils from '@fnando/cnpj';
-import { getFirebaseProjectsClient } from "../../../firebaseProjects";
-import { getBusinessObject, getCategoriesObjects, getComplementsObjects, getDownloadURL, getGroupsObjects, getOrderedCategories, getProductsObjects } from "../../utils/businesses";
+import {
+  getBusinessByCode,
+  getBusinessBySlug,
+  getBusinessCategories,
+  getBusinessComplements,
+  getBusinessComplementsGroups,
+  getBusinessComplementsOrdering,
+  getBusinessMenuOrdering,
+  getBusinessProducts,
+  getDownloadURLByPath,
+  getOrderedCategories,
+} from "../../utils/businesses";
 import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 import MenuPageLayout from "../../components/Restaurant/MenuPageLayout";
 import { useRouter } from "next/router";
@@ -22,22 +31,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = params.slug[0];
-  const { db } = await getFirebaseProjectsClient();
   // queries
   let business = {} as PartialBusiness;
-  const queryBySlug = await db.collection('businesses')
-  .where('slug', '==', slug)
-  .get()
-  if(queryBySlug.docs.length > 0) {
-    business = getBusinessObject(queryBySlug.docs);
+  const queryBySlug = await getBusinessBySlug(slug);
+  if(queryBySlug?.id) {
+    business = queryBySlug;
   } else {
-    business = await db.collection('businesses')
-    .where('code', '==', slug)
-    .get()
-    .then((data) => {
-      if(!data.empty) return getBusinessObject(data.docs);
-      else return null
-    });
+    business = await getBusinessByCode(slug);
   }
   if (!business) {
     return {
@@ -45,32 +45,14 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     }
   };
   // category and products
-  const unorderedCategories = await db.collection('businesses').doc(business.id)
-    .collection('categories').get().then(
-    (data) => getCategoriesObjects(data.docs)
-  );
-  const products = await db.collection('businesses').doc(business.id)
-    .collection('products')
-    .get().then((data) => getProductsObjects(data.docs));
-  const ordering = await db.collection('businesses').doc(business.id)
-    .collection('menu')
-    .doc('default')
-    .get().then((data) => data.data()) as Ordering;
+  const unorderedCategories = await getBusinessCategories(business.id)
+  const products = await getBusinessProducts(business.id);
+  const ordering = await getBusinessMenuOrdering(business.id) as Ordering;
   const categories = getOrderedCategories(unorderedCategories, products, ordering);
   // groups and complements
-  const unorderedGroups = await db.collection('businesses').doc(business.id)
-    .collection('complementsgroups')
-    .get()
-    .then(data => getGroupsObjects(data.docs));
-  const complements = await db.collection('businesses').doc(business.id)
-    .collection('complements')
-    .get()
-    .then(data => getComplementsObjects(data.docs));
-  const complementsOrdering = await db.collection('businesses').doc(business.id)
-    .collection('menu')
-    .doc('complements')
-    .get()
-    .then(data => data.data()) as Ordering;
+  const unorderedGroups = await getBusinessComplementsGroups(business.id);
+  const complements = await getBusinessComplements(business.id);
+  const complementsOrdering = await getBusinessComplementsOrdering(business.id) as Ordering;
   const orderedGroups = getOrderedCategories<ComplementGroup, Complement>(unorderedGroups, complements, complementsOrdering);
   return {
     props: {
@@ -110,13 +92,8 @@ export default function RestaurantPage({ business, categories, orderedGroups }: 
   // side effects
   React.useEffect(() => {
     if(!business?.id) return;
-    (async () => {
-      const { storage } = await getFirebaseProjectsClient();
-      const logoRef = storage.ref().child(`businesses/${business.id}/logo_240x240.jpg`);
-      const coverRef = storage.ref().child(`businesses/${business.id}/cover_1008x360.jpg`);
-      getDownloadURL(logoRef).then(uri => setLogoUrl(uri));
-      getDownloadURL(coverRef).then(uri => setCoverUrl(uri));
-    })();
+    getDownloadURLByPath(`businesses/${business.id}/logo_240x240.jpg`, setLogoUrl);
+    getDownloadURLByPath(`businesses/${business.id}/cover_1008x360.jpg`, setCoverUrl);
   }, [business?.id]);
   React.useEffect(() => {
     if(!business?.slug) return;
@@ -125,22 +102,6 @@ export default function RestaurantPage({ business, categories, orderedGroups }: 
     const message = encodeURIComponent(`Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e o entregador. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`);
     setSharingMsg(message);
   }, [business?.slug]);
-  // React.useEffect(() => {
-  //   if(!query?.slug) return;
-  //   if(!categories) return;
-  //   if(query.slug.length > 1) {
-  //     const productId = query.slug[2];
-  //     let data = null;
-  //     for(let category of categories) {
-  //       if(category.items.map(item => item.id).includes(productId)) {
-  //         data = category.items.find(item => item.id === productId);
-  //         break;
-  //       }
-  //     };
-  //     setProduct(data);
-  //     setIsLoading(false);
-  //   } else setProduct(null);
-  // }, [query.slug, categories]);
   // UI
   if(query.slug.length > 1) {
     if(query.slug.length === 3 && query.slug[1] === 'p') {

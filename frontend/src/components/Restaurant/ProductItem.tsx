@@ -3,8 +3,7 @@ import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
 import React from 'react';
 import Image from "../Image";
-import { getDownloadURL } from "../../utils/businesses";
-import { getFirebaseProjectsClient } from "../../../firebaseProjects";
+import { getDownloadURLByPath } from "../../utils/businesses";
 import { useRouter } from "next/router";
 import NextLink from 'next/link';
 
@@ -28,14 +27,7 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
   React.useEffect(() => {
     if(!product?.id) return;
     if(!product.imageExists) return;
-    (async () => {
-      const { storage } = await getFirebaseProjectsClient();
-      const imageRef = storage.ref().child(`businesses/${businessId}/products/${product.id}_288x288.jpg`);
-      getDownloadURL(imageRef).then(uri => {
-        if(!uri || uri === 'not_found') setImageUrl(null);
-        else setImageUrl(uri);
-      });
-    })();
+    getDownloadURLByPath(`businesses/${businessId}/products/${product.id}_288x288.jpg`, setImageUrl);
   }, [businessId, product?.id]);
   // UI
   return (

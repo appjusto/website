@@ -8,12 +8,10 @@ import { FleetFeature } from "../../components/Fleet/FleetFeature";
 import Footer from "../../components/Footer";
 import Topic from "../../components/home/better/Topic";
 import React from 'react';
-//import { Fleet } from '@appjusto/types';
 import { formatCurrency } from "../../utils";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Fleet } from "../../types";
-import { getFirebaseProjectsClient } from "../../../firebaseProjects";
 import Seo from "../../components/Seo";
+import { getFleet } from "../../utils/businesses";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -24,21 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const id = params.id as string;
-  const { db } = await getFirebaseProjectsClient();
-  const fleet = await db.collection('fleets').doc(id).get()
-    .then((data) => {
-      if(data.exists) {
-        const fleet = data.data() as Fleet;
-        return {
-          name: fleet.name,
-          minimumFee: fleet.minimumFee,
-          distanceThreshold: fleet.distanceThreshold,
-          additionalPerKmAfterThreshold: fleet.additionalPerKmAfterThreshold,
-          maxDistance: fleet.maxDistance,
-          maxDistanceToOrigin: fleet.maxDistanceToOrigin,
-        };
-      };
-    });
+  const fleet = await getFleet(id);
   if (!fleet) {
     return {
       notFound: true,
