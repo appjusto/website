@@ -1,5 +1,5 @@
-import { Business, Category, Complement, ComplementGroup, Fleet, Ordering, Product, WithId } from "../types";
-import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot, query, getDocs, collection, doc, getDoc, where, orderBy } from 'firebase/firestore';
+import { Business, Category, Complement, ComplementGroup, FirebaseDocument, Fleet, Ordering, Product, WithId } from "../types";
+import { DocumentData, QueryDocumentSnapshot, query, getDocs, collection, doc, getDoc, where, orderBy } from 'firebase/firestore';
 import { getFirebaseProjectsClient } from "../../firebaseProjects";
 import { getDownloadURL, ref } from 'firebase/storage'
 
@@ -117,8 +117,6 @@ export const getBusinessComplementsOrdering = async (businessId: string) => {
 };
 
 // formatters
-export type FirebaseDocument = QueryDocumentSnapshot<DocumentData> | DocumentSnapshot<DocumentData>;
-
 export const getBusinessObject = (docs: QueryDocumentSnapshot<DocumentData>[]) => {
   const businesses = docs.map(doc => {
     const docData = doc.data() as Business;
