@@ -26,6 +26,9 @@ frontend/next.config*.js
 
 # production
 **/build
+frontend/public/robots.txt
+frontend/public/sitemap.xml
+frontend/public/sitemap-0.xml
 
 # misc
 **/.DS_Store
