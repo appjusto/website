@@ -5,7 +5,7 @@ import * as fbq from '../utils/fpixel';
 
 type VideoModalConfig = { isOpen: boolean, videoId?: string, title?: string };
 
-type ConsentResponse = 'accept' | 'refuse';
+type ConsentResponse = 'accepted' | 'refused' | 'pending';
 interface PageContextProps {
   showSharingModal: boolean;
   setShowSharingModal(value: boolean): void;
@@ -14,7 +14,7 @@ interface PageContextProps {
   videoModalConfig: VideoModalConfig;
   setVideoModalConfig(config: VideoModalConfig): void;
   analytics?: Analytics;
-  userConsent: undefined | boolean;
+  userConsent?: ConsentResponse;
   handleUserConsent(response: ConsentResponse): void;
   storeLink: string;
   kriaLink: string;
@@ -32,16 +32,11 @@ export const PageContextProvider = (props: Props) => {
   const [showAppsModal, setShowAppsModal] = React.useState(false);
   const [videoModalConfig, setVideoModalConfig] = React.useState<VideoModalConfig>({ isOpen: false });
   const [analytics, setAnalytics] = React.useState<Analytics>();
-  const [userConsent, setUserConsent] = React.useState<boolean>();
+  const [userConsent, setUserConsent] = React.useState<ConsentResponse>();
   // handlers
   const handleUserConsent = React.useCallback((response: ConsentResponse) => {
-    if(response === 'refuse') {
-      localStorage.setItem('appjusto-consent', 'false');
-      setUserConsent(false);
-      return;
-    }
-    localStorage.setItem('appjusto-consent', 'true');
-    setUserConsent(true);
+    localStorage.setItem('appjusto-consent', response);
+    setUserConsent(response);
   }, []);
   // helpers
   const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
@@ -49,19 +44,13 @@ export const PageContextProvider = (props: Props) => {
     'https://login.appjusto.com.br/consumer/store' : `https://${env}.login.appjusto.com.br/consumer/store`;
   const kriaLink = 'https://app.kria.vc/agents/users/offers/277?locale=pt-BR&utm_source=appjusto&utm_medium=landing&utm_campaign=crowd';
   // side effects
-  /*React.useEffect(() => {
-    (async () => {
-      const { analytics } = await getFirebaseClient();
-      //analytics.setAnalyticsCollectionEnabled(false);
-      setAnalytics(analytics);
-    })();
-  }, [])*/
   React.useEffect(() => {
     const consent = localStorage.getItem('appjusto-consent');
-    if(consent === 'true') setUserConsent(true);
-    else if(consent === 'false') setUserConsent(false);
+    if(consent === 'true' || consent === 'accepted') setUserConsent('accepted');
+    else if(consent === 'false' || consent === 'refused') setUserConsent('refused');
+    else setUserConsent('pending');
   }, []);
-  //console.log('userConsent', userConsent);
+  console.log('userConsent', userConsent);
   React.useEffect(() => {
     //if(!analytics) return;
     if(!userConsent) return;
