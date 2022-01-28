@@ -50,11 +50,8 @@ export const PageContextProvider = (props: Props) => {
     else if(consent === 'false' || consent === 'refused') setUserConsent('refused');
     else setUserConsent('pending');
   }, []);
-  console.log('userConsent', userConsent);
   React.useEffect(() => {
-    //if(!analytics) return;
     if(!userConsent) return;
-    //console.log('enable consent');
     (async () => {
       const { firebase } = getFirebaseClient();
       const analytics  = await import('firebase/analytics').then(
@@ -62,7 +59,6 @@ export const PageContextProvider = (props: Props) => {
       );
       setAnalytics(analytics);
     })();
-    //analytics.setAnalyticsCollectionEnabled(true);
     fbq.grantConsent();
   }, [userConsent]);
   // provider
