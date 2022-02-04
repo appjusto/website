@@ -73,18 +73,18 @@ export const getDownloadURLByPath = (path: string, resultHandler: (url: string |
 export const getBusinessCategories = async (businessId: string) => {
   const subcollectionRef = collection(db, "businesses", businessId, 'categories');
   return getDocs(subcollectionRef).then((snapshot) => {
-    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+    if(!snapshot.empty) {
       return getCategoriesObjects(snapshot.docs);
-    }
+    } else return [];
   });
 };
 
 export const getBusinessProducts = async (businessId: string) => {
   const subcollectionRef = collection(db, "businesses", businessId, 'products');
   return getDocs(subcollectionRef).then((snapshot) => {
-    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+    if(!snapshot.empty) {
       return getProductsObjects(snapshot.docs);
-    }
+    } else return [];
   });
 };
 
@@ -96,18 +96,18 @@ export const getBusinessMenuOrdering = async (businessId: string) => {
 export const getBusinessComplementsGroups = async (businessId: string) => {
   const subcollectionRef = collection(db, "businesses", businessId, 'complementsgroups');
   return getDocs(subcollectionRef).then((snapshot) => {
-    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+    if(!snapshot.empty) {
       return getGroupsObjects(snapshot.docs);
-    }
+    } else return [];
   });
 };
 
 export const getBusinessComplements = async (businessId: string) => {
   const subcollectionRef = collection(db, "businesses", businessId, 'complements');
   return getDocs(subcollectionRef).then((snapshot) => {
-    if(!snapshot.empty && !snapshot.metadata.hasPendingWrites) {
+    if(!snapshot.empty) {
       return getComplementsObjects(snapshot.docs);
-    }
+    } else return [];
   });
 };
 
@@ -222,6 +222,7 @@ export const getOrderedCategories = <T extends object, T2 extends object>(
   secondLevels: WithId<T2>[],
   config: Ordering | undefined
 ) => {
+  console.log('firstLevels', firstLevels)
   if (firstLevels.length === 0 || !config) return [];
   const { firstLevelIds, secondLevelIdsByFirstLevelId } = config;
   return ordered(firstLevels, firstLevelIds).map((parent) => {
