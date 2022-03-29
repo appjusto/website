@@ -62,13 +62,13 @@ const Media: React.FC = () => {
           />
           <MediaBox
             text="E se o entregador pudesse definir o valor do seu serviço? Saiba como o AppJusto quer tornar o delivery bom para todo mundo"
-            link=""
+            link="https://www.projetodraft.com/e-se-o-entregador-pudesse-definir-o-valor-do-seu-servico-saiba-como-o-appjusto-quer-tornar-o-delivery-bom-para-todo-mundo/"
             image="/logo-draft.png"
             altImg="logo Draft"
           />
           <MediaBox
             text="APP de delivery quer fazer da entrega um serviço mais justo"
-            link=""
+            link="https://fastcompanybrasil.com/news/app-de-delivery-quer-fazer-da-entrega-um-servico-mais-justo/"
             image="/logo-fast-company.png"
             altImg="logo FastCompany"
           />
