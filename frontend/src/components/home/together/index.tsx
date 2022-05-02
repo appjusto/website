@@ -5,7 +5,7 @@ import React from 'react';
 
 const walk = keyframes`
     from {transform: translateX(0px);}
-    to {transform: translateX(-1920px)}
+    to {transform: translateX(-1680px)}
   `;
 
 const Together: React.FC = () => {
@@ -41,14 +41,14 @@ const Together: React.FC = () => {
           zIndex="999"
           animation={walkAnimation}
         >
-          <Box minW="1920px" h="300px">
-            <Image src="/photos-social.jpeg" w="100%" alt="parceiros appjusto" />
+          <Box minW="1680px" h="300px">
+            <Image src="/photos-social.jpg" w="100%" alt="parceiros appjusto" />
           </Box>
-          <Box minW="1920px" h="300px">
-            <Image src="/photos-social.jpeg" w="100%" alt="parceiros appjusto" />
+          <Box minW="1680px" h="300px">
+            <Image src="/photos-social.jpg" w="100%" alt="parceiros appjusto" />
           </Box>
-          <Box minW="1920px" h="300px">
-            <Image src="/photos-social.jpeg" w="100%" alt="parceiros appjusto" />
+          <Box minW="1680px" h="300px">
+            <Image src="/photos-social.jpg" w="100%" alt="parceiros appjusto" />
           </Box>
         </Flex>
       </Box>
