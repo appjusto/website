@@ -83,18 +83,12 @@ const Header = () => {
                 variant="primary"
                 onClick={() => setShowAppsModal(true)}
               >
-                Baixar App
+                Faça parte
               </Button>
               <CustomLink
                 name="admin-landing"
                 link="https://admin.appjusto.com.br"
                 linkLabel="Cadastrar restaurante"
-                isExternal
-              />
-              <CustomLink
-                name="invest-page"
-                link={kriaLink}
-                linkLabel="Investimento coletivo"
                 isExternal
               />
               <CustomLink
@@ -120,7 +114,7 @@ const Header = () => {
             variant="primary"
             onClick={() => setShowAppsModal(true)}
           >
-            Baixar App
+            Faça parte
           </Button>
         </Flex>
       </Container>
@@ -140,12 +134,6 @@ const Header = () => {
               name="admin-landing"
               link="https://admin.appjusto.com.br"
               linkLabel="Cadastrar restaurante"
-              isExternal
-            />
-            <CustomLink
-              name="invest-page"
-              link={kriaLink}
-              linkLabel="Sobre o investimento coletivo"
               isExternal
             />
             <CustomLink

@@ -1,13 +1,12 @@
-import { Flex, Heading, Image, Text } from '@chakra-ui/react'
+import { Flex, Heading, Image, Text, Button } from '@chakra-ui/react'
 //import Image from '../../Image';
 import Section from "../../Section";
 import Container from '../../Container';
-import CustomLinkButton from '../../CustomLinkButton';
 import { usePageContext } from '../../../context';
 
 const Hero: React.FC = () => {
   // context
-  const { kriaLink } = usePageContext();
+  const { setShowAppsModal } = usePageContext();
   // UI
   return (
     <Section id="hero" mt={{base: '44px', lg: '-24px'}} h={{ lg: '100vh' }} maxH={{ lg: '900px'}}>
@@ -21,7 +20,7 @@ const Hero: React.FC = () => {
                 fontWeight="700"
                 lineHeight={{ base: '30px', md: '56px', lg: "76px" }}
               >
-                Já pensou em ser dono do App? Agora você pode!
+                Um movimento por relações mais justas no delivery
               </Heading>
             <Heading
               mt="8"
@@ -31,11 +30,10 @@ const Hero: React.FC = () => {
               fontWeight="500"
               lineHeight="26px"
             >
-              Participe do{' '}
-              <Text as="mark" bgColor="#FFE493">investimento coletivo</Text>
-              {' '}a partir de R$100 e seja parte desse movimento por relações mais justas e transparentes no delivery.
+              No AppJusto, <Text as="span" fontWeight="700">entregadores</Text> ganham mais e podem definir o valor do próprio trabalho, <Text as="span" fontWeight="700">restaurantes</Text> pagam taxas menores e são mais valorizados,
+              e <Text as="span" fontWeight="700">consumidores</Text> participam de uma economia justa de verdade, pagando até 20% a menos nos pratos.
             </Heading>
-            <CustomLinkButton
+            <Button
               mt="8"
               maxW="328px"
               variant="primary"
@@ -43,10 +41,10 @@ const Hero: React.FC = () => {
               fontSize="20px"
               lineHeight="24px"
               fontWeight="700"
-              linkLabel="Quero investir a partir de R$ 100"
-              link={kriaLink}
-              isExternal
-            />
+              onClick={() => setShowAppsModal(true)}
+            >
+              Baixe o app e faça parte
+            </Button>
           </Flex>
           <Flex mt={{base: '8', md: '0'}} flexDir="column" justifyContent="center" alignItems="flex-end" w="100%">
             <Image src="/crowd-hero@2x.jpeg" w="100%" maxW="648px" alt="entregador de delivery"/>
