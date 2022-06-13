@@ -1,12 +1,12 @@
 {
   "name": "landingpage",
-  "version": "4.3.1",
+  "version": "5.0.0",
   "private": true,
   "author": "@appjusto",
   "license": "MIT",
   "main": "./server.js",
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "scripts": {
     "dev": "next dev",
