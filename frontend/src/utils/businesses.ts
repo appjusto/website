@@ -222,7 +222,6 @@ export const getOrderedCategories = <T extends object, T2 extends object>(
   secondLevels: WithId<T2>[],
   config: Ordering | undefined
 ) => {
-  console.log('firstLevels', firstLevels)
   if (firstLevels.length === 0 || !config) return [];
   const { firstLevelIds, secondLevelIdsByFirstLevelId } = config;
   return ordered(firstLevels, firstLevelIds).map((parent) => {
