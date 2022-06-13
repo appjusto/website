@@ -8,7 +8,6 @@ import MainVideo from '../components/home/main-video';
 import Commitment from '../components/home/commitment';
 import Better from '../components/home/better';
 import Testimonials from '../components/home/testimonials';
-import Invest from '../components/home/invest';
 import Media from '../components/home/media';
 import Support from '../components/home/support';
 import Un from '../components/home/un';
@@ -33,11 +32,10 @@ export default function Home() {
         <Commitment />
         <Better />
         <Testimonials />
-        <Invest />
+        <Crowdfunding />
         <Media />
         <Support />
         <Un />
-        <Crowdfunding />
         <Together />
         <CookieBar />
         <AppsModal />

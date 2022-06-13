@@ -1,10 +1,8 @@
-import { Box, Button, Flex, Image, Link, Stack } from '@chakra-ui/react'
+import { Box, Button, Flex, Image, Text, Stack } from '@chakra-ui/react'
 import Section from "../../Section";
 import Container from '../../Container';
 import SectionHeading from '../../SectionHeading';
-import NextLink from 'next/link';
 import CustomLinkButton from '../../CustomLinkButton';
-import CustomLink from '../../CustomLink';
 import { usePageContext } from '../../../context';
 
 const Crowdfunding: React.FC = () => {
@@ -15,30 +13,26 @@ const Crowdfunding: React.FC = () => {
     <Section mt="4" id="crowdfunding" h="auto">
       <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '2'}} >
         <Stack direction={{base: 'column', md: 'row'}} spacing={8} h="100%">
-          <Flex flexDir="column" alignItems="center" maxW={{lg: '648px'}}>
-            <SectionHeading mt="8" textAlign="center">
-              Preparado para participar do financiamento coletivo no futuro do delivery?
+          <Flex flexDir="column" w="full" maxW={{lg: '648px'}}>
+          <Box>
+                <Image src="/icon-spark-yellow.svg" w="48px" h="48px" alt="ilustração spark amarela"/>
+              </Box>
+            <SectionHeading mt="8" fontSize="48">
+              O maior equity crowdfunding do Brasil
             </SectionHeading>
+            <Text mt="10" textStyle="p">
+              Com mais de 1000 investidores que decidiram apoiar esse movimento, o AppJusto superou em 130% a meta de financiamento estabelecida, possibilitando que nossa proposta alcance ainda mais pessoas no futuro. Muito obrigado a todos os que participaram dessa conquista conosco ❤️
+            </Text>
             <CustomLinkButton
                 mt="8"
+                w={{base: '100%', md:'328px'}}
                 variant="primary"
                 h="60px"
                 px="6"
                 fontSize="20px"
                 link={kriaLink}
-                linkLabel="Quero investir a partir de R$ 100"
+                linkLabel="Ver página do financiamento"
                 isExternal
-            />
-            <CustomLink
-              mt="10"
-              name="invest-page-link"
-              textDecor="underline"
-              fontSize="20px"
-              lineHeight="26px"
-              textAlign="center"
-              link={kriaLink}
-              linkLabel="Saiba mais do financiamento coletivo"
-              isExternal
             />
           </Flex>
           <Box w="100%" pl={{lg: '8'}}>
