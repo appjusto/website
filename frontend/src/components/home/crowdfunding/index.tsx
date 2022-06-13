@@ -17,7 +17,7 @@ const Crowdfunding: React.FC = () => {
           <Box>
                 <Image src="/icon-spark-yellow.svg" w="48px" h="48px" alt="ilustração spark amarela"/>
               </Box>
-            <SectionHeading mt="8" fontSize="48">
+            <SectionHeading mt="8" fontSize="48" lineHeight="56px">
               O maior equity crowdfunding do Brasil
             </SectionHeading>
             <Text mt="10" textStyle="p">
