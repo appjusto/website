@@ -50,7 +50,7 @@ export default function AdminDesktopDownloadPage() {
           textAlign="center"
           lineHeight="22px"
         >
-          Você foi convidado para nos ajudar a testar nosso novo recurso, o aplicativo de desktop do Admin - o portal do restaurante. 🚀
+          Você foi convidado para nos ajudar a testar nosso novo recurso, o aplicativo de desktop do AppJusto Admin - o portal do seu restaurante. 🚀
         </Text>
         {downloadLink === undefined && <Text>Carregando...</Text>}
         {downloadLink === null && (
