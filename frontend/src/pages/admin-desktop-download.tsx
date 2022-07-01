@@ -64,7 +64,7 @@ export default function AdminDesktopDownloadPage() {
             size="lg"
             minW={{lg: "250px"}}
             link={downloadLink}
-            linkLabel="Baixar a aplicação"
+            linkLabel="Baixar aplicação para Windows"
             isDownload
           />
         )}
