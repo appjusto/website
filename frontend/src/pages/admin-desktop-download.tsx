@@ -76,7 +76,7 @@ export default function AdminDesktopDownloadPage() {
           lineHeight="22px"
           maxW="350px"
         >
-          Após o download, basta descompactar o arquivo, para a pasta desejada, e executar-lo.
+          Após o download, basta descompactar o arquivo, para a pasta desejada, e executar-lo. Não requer instalação.
         </Text>
         <NextLink href="/" passHref>
           <Link
