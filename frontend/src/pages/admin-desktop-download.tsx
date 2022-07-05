@@ -1,16 +1,22 @@
-import { Box, Button, Center, Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Image, Link, Text, Icon, HStack } from "@chakra-ui/react";
 import Head from "next/head";
 import NextLink from "next/link";
 import Seo from "../components/Seo";
 import CustomLinkButton from "../components/CustomLinkButton";
 import React from "react";
 import { getDownloadURLByPath } from "../utils/businesses";
+import { MdInfoOutline } from 'react-icons/md'
 
 // https://firebasestorage.googleapis.com/v0/b/app-justo-staging.appspot.com/o/admin-desktop%2FAppJusto%20Admin%20Desktop%209.2.4.exe.zip?alt=media&token=81258f94-c5a6-4154-9271-6ecbcc5c9086
 
 export default function AdminDesktopDownloadPage() {
   // state
   const [downloadLink, setDownloadLink] = React.useState<string>();
+  const [isDownloading, setIsDownloading] = React.useState(false);
+  // handlers
+  const handleDownloadInfo = () => {
+    setTimeout(() => setIsDownloading(true), 2000);
+  }
   // side effects
   React.useEffect(() => {
     getDownloadURLByPath('admin-desktop/AdminDesktop.zip', setDownloadLink)
@@ -65,6 +71,7 @@ export default function AdminDesktopDownloadPage() {
             minW={{lg: "250px"}}
             link={downloadLink}
             linkLabel="Baixar aplicação para Windows"
+            onClick={handleDownloadInfo}
             isDownload
           />
         )}
@@ -75,9 +82,34 @@ export default function AdminDesktopDownloadPage() {
           textAlign="center"
           lineHeight="22px"
           maxW="350px"
+          onClick={handleDownloadInfo}
         >
           Após o download, basta descompactar o arquivo, para a pasta desejada, e executar-lo. Não requer instalação.
         </Text>
+        {
+          isDownloading && (
+            <HStack
+              mt="6"
+              p="4"
+              spacing={6}
+              border="1px solid grey"
+              borderRadius="8px"
+            >
+              <Center w="24px">
+                <Icon as={MdInfoOutline} w="24px" h="24px"/>
+              </Center>
+              <Box w="100%">
+                <Text fontWeight="500" lineHeight="22px">
+                  Por se tratar de um software em desenvolvimento, é esperado que o windows bloqueie a execução do mesmo. Basta clicar em
+                  <Text as="span" mx="4px" fontWeight="700">"mais informações"</Text>
+                  e depois em
+                  <Text as="span" ml="4px" fontWeight="700">"executar mesmo assim"</Text>
+                  .
+                </Text>
+              </Box>
+            </HStack>
+          )
+        }
         <NextLink href="/" passHref>
           <Link
             mt="12"
