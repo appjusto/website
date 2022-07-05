@@ -82,7 +82,6 @@ export default function AdminDesktopDownloadPage() {
           textAlign="center"
           lineHeight="22px"
           maxW="350px"
-          onClick={handleDownloadInfo}
         >
           Após o download, basta descompactar o arquivo, para a pasta desejada, e executar-lo. Não requer instalação.
         </Text>
