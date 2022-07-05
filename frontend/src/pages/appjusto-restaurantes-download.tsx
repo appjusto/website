@@ -30,7 +30,7 @@ export default function AdminDesktopDownloadPage() {
         title="AppJusto"
         author="@appjusto"
       />
-      <title>AppJusto Admin Desktop Download</title>
+      <title>AppJusto | Restaurantes Download</title>
     </Head>
     <Center w="100vw" h="100vh">
       <Flex flexDir="column" alignItems="center" maxW="600px">
@@ -47,7 +47,7 @@ export default function AdminDesktopDownloadPage() {
         <Text mt="6" fontSize="24px" fontWeight="700" textAlign="center" lineHeight="26px">
           Download da versão{' '}
           <Text as="mark" bgColor="#FFE493">beta</Text>{' '}
-          do Admin Desktop
+          do AppJusto Restaurantes
         </Text>
         <Text
           mt="6"
@@ -56,7 +56,7 @@ export default function AdminDesktopDownloadPage() {
           textAlign="center"
           lineHeight="22px"
         >
-          Você foi convidado para nos ajudar a testar nosso novo recurso, o aplicativo de desktop do AppJusto Admin - o portal do seu restaurante. 🚀
+          Você foi convidado para nos ajudar a testar nosso novo recurso, o aplicativo de desktop do AppJusto Restaurantes. 🚀
         </Text>
         {downloadLink === undefined && <Text>Carregando...</Text>}
         {downloadLink === null && (
