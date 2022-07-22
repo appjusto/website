@@ -89,7 +89,7 @@ const RestaurantCalculator: React.FC = () => {
   }
 
   useEffect(() => {
-    const appjustoFee = 0.0721;
+    const appjustoFee = 0.0742;
     const feeValue = parseFloat(fee.replace(',', '.')) / 100;
     const revenuesValue = revenues;
     const ordersValue = parseInt(orders);
@@ -219,10 +219,10 @@ const RestaurantCalculator: React.FC = () => {
                 • Gateway de pagamento:
               </Text>
               <Text ml="2" textStyle="p" fontSize="15px">
-                - Cartão de crédito:  2,21% + R$ 0,09
+                - Cartão de crédito:  2,42% + R$ 0,09
               </Text>
               <Text ml="2" textStyle="p" fontSize="15px">
-                - Pix: 0,99% (compensa no mesmo dia)
+                - Pix: 0,99% (compensa em 24h)
               </Text>
             </Box>
             <Box mt={{base: '30px', md: '60px'}} bg="#F6F6F6" borderRadius="lg" p="24px" minW={{ xl: "464px"}}>
