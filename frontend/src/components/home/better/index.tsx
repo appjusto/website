@@ -47,7 +47,7 @@ const Better: React.FC = () => {
             title="Restaurantes"
           >
             <Box>
-              <Topic label="Comissão de 5% no modelo com operação logística + 2,21% da operadora financeira.">
+              <Topic label="Comissão de 5% no modelo com operação logística + 2,42% da operadora financeira.">
                 <NextLink href="/calculadoras/restaurantes" passHref>
                   <Link
                     textDecor="underline"

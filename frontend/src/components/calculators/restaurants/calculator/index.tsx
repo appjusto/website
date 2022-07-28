@@ -297,10 +297,10 @@ const RestaurantCalculator: React.FC = () => {
             • Gateway de pagamento:
           </Text>
           <Text ml="2" textStyle="p" fontSize="15px">
-            - Cartão de crédito:  2,21% + 0,09%
+            - Cartão de crédito:  2,42% + 0,09%
           </Text>
           <Text ml="2" textStyle="p" fontSize="15px">
-            - Pix: 0,99% + R$0,09 (compensa no mesmo dia)
+            - Pix: 0,99% + R$0,09 (compensa em 24h)
           </Text>
         </Box>
       </Container>
