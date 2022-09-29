@@ -7,18 +7,12 @@ import { CustomToast } from "../CustomToast";
 
 const initialState = ['status', 'general', 'marketing'] as NotificationPreferences;
 
-interface APIResult {
-  status: number;
-  error?: {
-    code: string;
-    message: {
-      title: string;
-      description?: string;
-    };
-  }
-}
-
 const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
+
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Content-Type': 'application/json',
+}
 
 export const NotificationsPage = () => {
   // router
@@ -32,7 +26,16 @@ export const NotificationsPage = () => {
     const { flavor, id, notificationPreferencesToken } = query;
     const project = `app-justo-${env}`
     if(!flavor || !id || !notificationPreferencesToken) {
-      return console.log("Missing parameters");
+      toast({
+        duration: 6000,
+        render: () => (
+          <CustomToast
+            type="error"
+            message={{ title: 'Parâmetros não encontrados'}}
+          />
+        ),
+      });
+      return;
     };
     setIsLoading(true);
     const baseUrl = `https://southamerica-east1-${project}.cloudfunctions.net/updateNotificationPreferences`
@@ -45,28 +48,24 @@ export const NotificationsPage = () => {
     console.log("baseUrl", baseUrl);
     console.log("data", data);
     try {
-      const result = await axios.post(baseUrl, data);
-      const { status, error } = result as APIResult;
-      const type = status === 200 ? 'success' : 'error';
-      const message = status === 200 ? {
+      const response = await axios.post(baseUrl, data, { headers });
+      const message = {
         title: "Informações salvas com sucesso"
-      } : error.message;
+      };
       setIsLoading(false);
       toast({
-        id: 'request',
-        duration: 6000,
+        duration: 4000,
         render: () => (
           <CustomToast
-          type={type}
-          message={message}
+            type="success"
+            message={message}
           />
           ),
         });
-      } catch (error) {
+    } catch (error) {
       setIsLoading(false);
       console.error(error);
       toast({
-        id: 'request',
         duration: 6000,
         render: () => (
           <CustomToast
