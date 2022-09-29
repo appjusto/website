@@ -18,6 +18,7 @@ interface APIResult {
   }
 }
 
+const env = process.env.NEXT_PUBLIC_EXTERNAL_ENV;
 
 export const NotificationsPage = () => {
   // router
@@ -28,8 +29,8 @@ export const NotificationsPage = () => {
   // handlers
   const toast = useToast();
   const handlePreferencesUpdate = async () => {
-    const { flavor, id, notificationPreferencesToken, env } = query;
-    const project = `app-justo-${env ?? 'live'}`
+    const { flavor, id, notificationPreferencesToken } = query;
+    const project = `app-justo-${env}`
     if(!flavor || !id || !notificationPreferencesToken) {
       return console.log("Missing parameters");
     };
@@ -43,33 +44,6 @@ export const NotificationsPage = () => {
     }
     console.log("baseUrl", baseUrl);
     console.log("data", data);
-    // setTimeout(() => {
-    //   const result = {
-    //     status: 500,
-    //     error: {
-    //       code: 'X',
-    //       message: {
-    //         title: 'Não deu'
-    //       }
-    //     }
-    //   } as APIResult;
-    //   const { status, error } = result;
-    //   const type = status === 200 ? 'success' : 'error';
-    //   const message = status === 200 ? {
-    //     title: "Informações salvas com sucesso"
-    //   } : error.message;
-    //   setIsLoading(false);
-    //   toast({
-    //     id: 'request',
-    //     duration: 6000,
-    //     render: () => (
-    //       <CustomToast
-    //         type={type}
-    //         message={message}
-    //       />
-    //     ),
-    //   });
-    // }, 2000)
     try {
       const result = await axios.post(baseUrl, data);
       const { status, error } = result as APIResult;
