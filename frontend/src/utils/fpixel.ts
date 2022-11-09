@@ -15,3 +15,8 @@ export const grantConsent = () => {
   // @ts-ignore
   window.fbq("consent", "grant");
 };
+
+export const revokeConsent = () => {
+  // @ts-ignore
+  window.fbq("consent", "revoke");
+};
