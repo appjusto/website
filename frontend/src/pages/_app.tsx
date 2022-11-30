@@ -13,7 +13,6 @@ function MyApp({ Component, pageProps }) {
   useFreshDesk();
   // side effects
   React.useEffect(() => {
-    // This pageview only triggers the first time (it's important for Pixel to have real information)
     fbq.pageview();
     const handleRouteChange = () => {
       fbq.pageview();
