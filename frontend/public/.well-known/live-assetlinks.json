@@ -13,9 +13,29 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
+      "package_name": "br.com.appjusto.consumer.live",
+      "sha256_cert_fingerprints": [
+        "B6:59:92:F8:C5:8F:EE:C0:39:A8:38:E9:62:87:36:EB:38:57:8D:FA:EC:D1:B2:B4:F0:B9:DD:0E:64:E4:06:20"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
       "package_name": "br.com.appjusto.courier.live",
       "sha256_cert_fingerprints": [
         "BC:C0:FD:7D:1D:B8:B1:88:D2:53:8A:73:B7:09:C4:62:8C:60:92:5E:4E:AB:83:F6:C7:79:FE:17:3C:97:97:4F"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.com.appjusto.courier.live",
+      "sha256_cert_fingerprints": [
+        "F1:64:0D:CC:44:A1:AB:7C:1D:F7:71:17:19:6B:80:A1:13:F5:E2:69:B0:0C:13:97:60:3C:B0:C4:D1:35:E5:4E"
       ]
     }
   }
