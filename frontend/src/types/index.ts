@@ -1,12 +1,18 @@
-import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot } from 'firebase/firestore';
+import {
+  DocumentData,
+  DocumentSnapshot,
+  QueryDocumentSnapshot,
+} from "firebase/firestore";
 
-export type FirebaseDocument = QueryDocumentSnapshot<DocumentData> | DocumentSnapshot<DocumentData>;
+export type FirebaseDocument =
+  | QueryDocumentSnapshot<DocumentData>
+  | DocumentSnapshot<DocumentData>;
 
 export type WithId<T extends object> = T & {
   id: string;
 };
 
-export type FleetSituation = 'pending' | 'approved' | 'rejected' | 'blocked';
+export type FleetSituation = "pending" | "approved" | "rejected" | "blocked";
 
 export interface FleetFareParams {
   minimumFee: number; // (in cents) minimum fee charged by couriers
@@ -35,14 +41,14 @@ export interface LatLng {
 }
 
 export type ProfileSituation =
-  | 'pending'
-  | 'submitted'
-  | 'verified'
-  | 'invalid'
-  | 'approved'
-  | 'rejected'
-  | 'blocked'
-  | 'deleted';
+  | "pending"
+  | "submitted"
+  | "verified"
+  | "invalid"
+  | "approved"
+  | "rejected"
+  | "blocked"
+  | "deleted";
 
 export interface Cuisine {
   name: string;
@@ -67,8 +73,8 @@ export interface BusinessStatistics {
   averageWaitingTime: number;
 }
 
-export type BusinessType = 'restaurant';
-export type BusinessStatus = 'open' | 'closed';
+export type BusinessType = "restaurant";
+export type BusinessStatus = "open" | "closed";
 
 export type ScheduleObject = {
   day: string;
@@ -77,13 +83,20 @@ export type ScheduleObject = {
 };
 export type BusinessSchedule = ScheduleObject[];
 
+export type BusinessPhone = {
+  type: "owner" | "manager" | "desk";
+  number: string;
+  calls: boolean;
+  whatsapp: boolean;
+};
+
 export interface Business {
   type: BusinessType;
   code?: string;
   name?: string;
   companyName?: string;
   cnpj?: string;
-  phone?: string;
+  phones?: BusinessPhone[];
   managers?: string[]; // emails
   businessAddress?: BusinessAddress;
   status: BusinessStatus;
@@ -106,12 +119,14 @@ export interface Business {
   slug?: string;
 }
 
-export interface PartialBusiness {
+export interface DomainBusiness {
   id: string;
   cnpj: string;
   name: string;
+  slug?: string;
   cuisine: string;
   description: string;
+  phone?: string;
   businessAddress: BusinessAddress;
   schedules: BusinessSchedule;
   logoUrl?: string;
@@ -167,4 +182,3 @@ export interface Complement {
   enabled?: boolean;
   externalId?: string;
 }
-
