@@ -10,7 +10,14 @@ import Checkbox from "./checkbox";
 const barlow = Barlow({
   weight: ["500", "700"],
   subsets: ["latin"],
+  display: "swap",
 });
+
+const fonts = {
+  body: barlow.style.fontFamily,
+  heading: barlow.style.fontFamily,
+  mono: barlow.style.fontFamily,
+};
 
 const breakpoints = {
   sm: "30em",
@@ -22,11 +29,7 @@ const breakpoints = {
 
 const customTheme = extendTheme({
   breakpoints,
-  fonts: {
-    body: barlow.style.fontFamily + " system-ui, sans-serif",
-    heading: barlow.style.fontFamily + " system-ui, sans-serif",
-    mono: barlow.style.fontFamily + " system-ui, sans-serif",
-  },
+  fonts,
   colors,
   components: {
     Select,
@@ -37,7 +40,7 @@ const customTheme = extendTheme({
   },
   textStyles: {
     p: {
-      fontFamily: "Barlow, system-ui, sans-serif",
+      fontFamily: barlow.style.fontFamily,
       fontSize: { base: "18px", lg: "20px" },
       lineHeight: { base: "20px", lg: "26px" },
       fontWeight: "400",

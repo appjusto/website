@@ -1,15 +1,20 @@
-import { Box, Flex, Image, Link, Text } from '@chakra-ui/react'
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 
-interface MediaBoxProps{
-  image: string
-  altImg: string
-  link?: string
-  text: string
+interface MediaBoxProps {
+  image: string;
+  altImg: string;
+  link?: string;
+  text: string;
 }
 
 const MediaBox: React.FC<MediaBoxProps> = ({ image, altImg, link, text }) => {
   return (
-    <Link href={link} _hover={{ textDecor: "none" }} _focus={{ outline: "none" }} isExternal>
+    <Link
+      href={link}
+      _hover={{ textDecor: "none" }}
+      _focus={{ outline: "none" }}
+      isExternal
+    >
       <Flex
         position="relative"
         bgColor="#F6F6F6"
@@ -26,7 +31,12 @@ const MediaBox: React.FC<MediaBoxProps> = ({ image, altImg, link, text }) => {
             <Image src="/icon-quote.svg" alt="áspas verdes" />
           </Box>
           <Box mt="4" h="180px">
-            <Text fontFamily="Barlow" fontSize="24px" fontWeight="500" fontStyle="italic" lineHeight="30px">
+            <Text
+              fontSize="24px"
+              fontWeight="500"
+              fontStyle="italic"
+              lineHeight="30px"
+            >
               {text}
             </Text>
           </Box>
@@ -37,6 +47,6 @@ const MediaBox: React.FC<MediaBoxProps> = ({ image, altImg, link, text }) => {
       </Flex>
     </Link>
   );
-}
+};
 
 export default MediaBox;

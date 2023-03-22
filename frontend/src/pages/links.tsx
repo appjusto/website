@@ -1,9 +1,16 @@
 import Head from "next/head";
-import Seo from '../components/Seo';
-import { Box, Button, Center, Container, Image, Link, VStack } from "@chakra-ui/react";
+import Seo from "../components/Seo";
+import {
+  Box,
+  Button,
+  Center,
+  Container,
+  Image,
+  Link,
+  VStack,
+} from "@chakra-ui/react";
 import HeaderLinks from "../components/HeaderLinks";
 import { usePageContext } from "../context";
-
 
 export default function Links() {
   // context
@@ -20,17 +27,13 @@ export default function Links() {
         <title>AppJusto | Links</title>
       </Head>
       <HeaderLinks />
-      <Center mt={{base: '8', md: '10'}} w="100vw" h="100vh" >
-        <Container
-          maxW="414px"
-          fontFamily="barlow"
-          fontWeight="700"
-        >
+      <Center mt={{ base: "8", md: "10" }} w="100vw" h="100vh">
+        <Container maxW="414px" fontWeight="700">
           <VStack spacing={6} w="100%">
             <Link
               w="100%"
-              _focus={{ outline: 'none'}}
-              _hover={{textDecor: 'none'}}
+              _focus={{ outline: "none" }}
+              _hover={{ textDecor: "none" }}
               href="https://admin.appjusto.com.br/"
               isExternal
             >
@@ -40,13 +43,13 @@ export default function Links() {
                 fontSize="16px"
                 borderColor="black"
               >
-                  Quero cadastrar meu restaurante
+                Quero cadastrar meu restaurante
               </Button>
             </Link>
             <Link
               w="100%"
-              _focus={{ outline: 'none'}}
-              _hover={{textDecor: 'none'}}
+              _focus={{ outline: "none" }}
+              _hover={{ textDecor: "none" }}
               href="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
               isExternal
             >
@@ -56,13 +59,13 @@ export default function Links() {
                 fontSize="16px"
                 borderColor="black"
               >
-                  Quero me cadastrar como entregador
+                Quero me cadastrar como entregador
               </Button>
             </Link>
             <Link
               w="100%"
-              _focus={{ outline: 'none'}}
-              _hover={{textDecor: 'none'}}
+              _focus={{ outline: "none" }}
+              _hover={{ textDecor: "none" }}
               href={storeLink}
               isExternal
             >
@@ -72,7 +75,7 @@ export default function Links() {
                 fontSize="16px"
                 borderColor="black"
               >
-                  Sou consumidor e quero baixar o App
+                Sou consumidor e quero baixar o App
               </Button>
             </Link>
             <Box>
@@ -82,5 +85,5 @@ export default function Links() {
         </Container>
       </Center>
     </>
-  )
+  );
 }

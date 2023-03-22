@@ -82,7 +82,6 @@ const Header = () => {
             maxH="64px"
             justifyContent={{ md: "flex-end", lg: "space-between" }}
             alignItems="center"
-            fontFamily="barlow"
             fontSize="16px"
             lineHeight="22px"
             fontWeight="700"

@@ -24,7 +24,6 @@ export default function LinkConfirmation() {
             </Flex>
             <Text
               mt="8"
-              fontFamily="barlow"
               fontSize="24px"
               fontWeight="700"
               lineHeight="26px"
@@ -34,7 +33,6 @@ export default function LinkConfirmation() {
             </Text>
             <Text
               mt="8"
-              fontFamily="barlow"
               fontSize="16px"
               fontWeight="500"
               lineHeight="22px"
@@ -46,7 +44,6 @@ export default function LinkConfirmation() {
             </Text>
             <Text
               mt="6"
-              fontFamily="barlow"
               fontSize="16px"
               fontWeight="500"
               lineHeight="22px"

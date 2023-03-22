@@ -1,9 +1,9 @@
-import { Box, Flex, HStack, Text, Icon } from '@chakra-ui/react'
-import { BiUpArrowAlt  } from 'react-icons/bi'
+import { Box, Flex, HStack, Text, Icon } from "@chakra-ui/react";
+import { BiUpArrowAlt } from "react-icons/bi";
 import { Link as ScrollLink } from "react-scroll";
-import Container from './Container'
-import ShareButton from './ShareButton';
-import { useState, useEffect } from 'react';
+import Container from "./Container";
+import ShareButton from "./ShareButton";
+import { useState, useEffect } from "react";
 
 const ShareFooter = () => {
   // state
@@ -11,7 +11,9 @@ const ShareFooter = () => {
   // handlers
   const handleScroll = () => {
     const width =
-      window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
     if (width > 1000) {
       if (document.documentElement.scrollTop > 600) {
         setisTop(false);
@@ -22,8 +24,8 @@ const ShareFooter = () => {
   };
   // side effects
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, true);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, true);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   // UI
   return (
@@ -34,7 +36,6 @@ const ShareFooter = () => {
       bg="black"
       justifyContent="center"
       alignItems="center"
-      fontFamily="Barlow"
       zIndex="999"
     >
       <Container
@@ -46,72 +47,67 @@ const ShareFooter = () => {
         alignItems="center"
         color="primary"
       >
-        <HStack
-          w="100%"
-          spacing={4}
-          align="center"
-        >
+        <HStack w="100%" spacing={4} align="center">
           <ShareButton variant="primary" h="48px" />
           <Text
             fontSize="15px"
             fontWeight="500"
             display={["none", null, null, "inherit"]}
           >
-            Espalhe essa notícia e faça mais gente conhecer esse movimento por uma economia mais justa!
+            Espalhe essa notícia e faça mais gente conhecer esse movimento por
+            uma economia mais justa!
           </Text>
         </HStack>
-        {
-          !isTop && (
-            <Box w="150px">
-              <ScrollLink
-                activeClass="active"
-                to="hero"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                name="scroll to top"
-                href="/"
+        {!isTop && (
+          <Box w="150px">
+            <ScrollLink
+              activeClass="active"
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              name="scroll to top"
+              href="/"
+            >
+              <Flex
+                direction="row"
+                w="100%"
+                justifyContent="flex-end"
+                alignItems="center"
+                cursor="pointer"
               >
-                <Flex
-                  direction="row"
-                  w="100%"
-                  justifyContent="flex-end"
-                  alignItems="center"
-                  cursor="pointer"
+                <Text
+                  display={["none", null, null, "inherit"]}
+                  _focus={{ outline: "none" }}
+                  minW="130px"
+                  fontSize="15px"
+                  fontWeight="500"
                 >
-                  <Text
-                    display={["none", null, null, "inherit"]}
-                    _focus={{outline: "none"}}
-                    minW="130px"
-                    fontSize="15px"
-                    fontWeight="500"
-                  >
-                    Voltar para o topo
-                  </Text>
-                  <Text
-                    display={["inherit", null, null, "none"]}
-                    _focus={{outline: "none"}}
-                    fontSize="15px"
-                    fontWeight="500"
-                    mr="4px"
-                  >
-                    Topo
-                  </Text>
-                  <Icon
-                    as={BiUpArrowAlt}
-                    fontWeight="700"
-                    width={{base: "32px", md: "16px"}}
-                    height={{base: "32px", md: "16px"}}
-                  />
-                </Flex>
-              </ScrollLink>
-            </Box>
-          )
-        }
+                  Voltar para o topo
+                </Text>
+                <Text
+                  display={["inherit", null, null, "none"]}
+                  _focus={{ outline: "none" }}
+                  fontSize="15px"
+                  fontWeight="500"
+                  mr="4px"
+                >
+                  Topo
+                </Text>
+                <Icon
+                  as={BiUpArrowAlt}
+                  fontWeight="700"
+                  width={{ base: "32px", md: "16px" }}
+                  height={{ base: "32px", md: "16px" }}
+                />
+              </Flex>
+            </ScrollLink>
+          </Box>
+        )}
       </Container>
     </Flex>
   );
-}
+};
 
 export default ShareFooter;
