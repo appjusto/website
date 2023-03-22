@@ -1,5 +1,5 @@
-import NextLink from 'next/link'
-import { Link, LinkProps } from '@chakra-ui/react'
+import { Link, LinkProps } from "@chakra-ui/react";
+import { NextLink } from "src/components/NextLink";
 
 interface CustomLinkProps extends LinkProps {
   name: string;
@@ -9,35 +9,37 @@ interface CustomLinkProps extends LinkProps {
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
-  name, link, linkLabel, isUnderline, isExternal, children, ...props
+  name,
+  link,
+  linkLabel,
+  isUnderline,
+  isExternal,
+  children,
+  ...props
 }) => {
-
-  if(!isExternal) {
+  if (!isExternal) {
     return (
-      <NextLink href={link} passHref>
-        <Link
-          textDecoration={isUnderline ? "underline" : 'none'}
-          _focus={{outline: "none"}}
-          {...props}
-        >
-          {linkLabel}
-        </Link>
+      <NextLink
+        href={link}
+        textDecoration={isUnderline ? "underline" : "none"}
+        _focus={{ outline: "none" }}
+        {...props}
+      >
+        {linkLabel}
       </NextLink>
-    )
+    );
   }
   return (
     <Link
       href={link}
-      textDecoration={isUnderline ? "underline" : 'none'}
-      _focus={{outline: "none"}}
+      textDecoration={isUnderline ? "underline" : "none"}
+      _focus={{ outline: "none" }}
       {...props}
       isExternal
     >
-      {
-        linkLabel ? linkLabel : children
-      }
+      {linkLabel ? linkLabel : children}
     </Link>
   );
-}
+};
 
 export default CustomLink;

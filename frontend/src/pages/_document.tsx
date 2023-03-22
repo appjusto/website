@@ -7,11 +7,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&display=swap"
-            rel="stylesheet"
-          />
           <meta
             name="facebook-domain-verification"
             content="09j3j6jh7mwpa0fu7vuiv4vyj3zesq"

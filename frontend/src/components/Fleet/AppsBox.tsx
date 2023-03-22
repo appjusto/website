@@ -1,14 +1,14 @@
 import { Flex, Image, Link, HStack, Text } from "@chakra-ui/react";
-import NextLink from 'next/link';
 import Container from "../../components/Container";
 import CustomLinkButton from "../../components/CustomLinkButton";
 import Section from "../../components/Section";
+import { NextLink } from "src/components/NextLink";
 
 export const AppsBox = () => {
   return (
     <Section
-      display={{base: 'none', md: 'flex'}}
-      position={{ base: 'relative', md: 'fixed' }}
+      display={{ base: "none", md: "flex" }}
+      position={{ base: "relative", md: "fixed" }}
       top="10"
       zIndex="800"
     >
@@ -22,14 +22,8 @@ export const AppsBox = () => {
           p="8"
           color="black"
         >
-          <NextLink href="/" passHref>
-            <Link _focus={{ outline: 'none'}} w='94px'>
-              <Image
-                src="/logo-pages.svg"
-                alt="Logo AppJusto"
-                width="120px"
-              />
-            </Link>
+          <NextLink href="/" _focus={{ outline: "none" }} w="94px">
+            <Image src="/logo-pages.svg" alt="Logo AppJusto" width="120px" />
           </NextLink>
           <Text mt="8" fontSize="24px" lineHeight="26px" fontWeight="700">
             Baixe o app e comece a fazer suas entregas!
@@ -59,18 +53,17 @@ export const AppsBox = () => {
               isDisabled
             />
           </HStack>
-          <NextLink href="/" passHref>
-            <Link
-              mt="6"
-              textDecor="underline"
-              fontWeight="500"
-              _focus={{ outline: 'none'}}
-            >
-              Saiba mais sobre o AppJusto
-            </Link>
+          <NextLink
+            mt="6"
+            href="/"
+            textDecor="underline"
+            fontWeight="500"
+            _focus={{ outline: "none" }}
+          >
+            Saiba mais sobre o AppJusto
           </NextLink>
-      </Flex>
-    </Container>
-  </Section>
+        </Flex>
+      </Container>
+    </Section>
   );
 };

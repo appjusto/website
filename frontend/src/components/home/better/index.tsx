@@ -1,12 +1,12 @@
-import { Box, Link, Stack, Text } from '@chakra-ui/react'
+import { Box, Stack, Text } from "@chakra-ui/react";
 import Section from "../../Section";
-import Container from '../../Container';
-import SectionHeading from '../../SectionHeading';
-import StackholderBox from './StackholderBox';
-import Topic from './Topic';
-import { usePageContext } from '../../../context';
-import CustomLinkButton from '../../CustomLinkButton';
-import NextLink from 'next/link';
+import Container from "../../Container";
+import SectionHeading from "../../SectionHeading";
+import StackholderBox from "./StackholderBox";
+import Topic from "./Topic";
+import { usePageContext } from "../../../context";
+import CustomLinkButton from "../../CustomLinkButton";
+import { NextLink } from "src/components/NextLink";
 
 const Better: React.FC = () => {
   // context
@@ -14,11 +14,16 @@ const Better: React.FC = () => {
   // UI
   return (
     <Section mt="4" id="better" h="auto">
-      <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '8'}} >
-        <SectionHeading w="100%" textAlign={{ md: 'center'}}>
+      <Container pt={{ base: "8", lg: "16" }} pb={{ base: "10", lg: "8" }}>
+        <SectionHeading w="100%" textAlign={{ md: "center" }}>
           O AppJusto é melhor para todos
         </SectionHeading>
-        <Stack mt="10" direction={{base: 'column', lg: 'row'}} spacing={4} h="100%">
+        <Stack
+          mt="10"
+          direction={{ base: "column", lg: "row" }}
+          spacing={4}
+          h="100%"
+        >
           <StackholderBox
             flex={1}
             image="/stakeholder-courier.png"
@@ -30,7 +35,7 @@ const Better: React.FC = () => {
               <Topic label="Sem suspensões automáticas: o processo sempre passa por um atendente" />
             </Box>
             <CustomLinkButton
-              mt={{base: '6', lg: '0'}}
+              mt={{ base: "6", lg: "0" }}
               w="auto"
               px="6"
               fontSize="16px"
@@ -48,21 +53,22 @@ const Better: React.FC = () => {
           >
             <Box>
               <Topic label="Comissão de 5% no modelo com operação logística + 2,42% da operadora financeira.">
-                <NextLink href="/calculadoras/restaurantes" passHref>
-                  <Link
-                    textDecor="underline"
-                    fontWeight="700"
-                    _focus={{outline: "none"}}
-                  >
-                    <Text as="mark" bgColor="#FFE493">Calcule seus ganhos agora mesmo!</Text>
-                  </Link>
+                <NextLink
+                  href="/calculadoras/restaurantes"
+                  textDecor="underline"
+                  fontWeight="700"
+                  _focus={{ outline: "none" }}
+                >
+                  <Text as="mark" bgColor="#FFE493">
+                    Calcule seus ganhos agora mesmo!
+                  </Text>
                 </NextLink>
               </Topic>
               <Topic label="Exibição igualitária do seu restaurante por ordem de distância do cliente" />
               <Topic label="Transparência em todas as regras" />
             </Box>
             <CustomLinkButton
-              mt={{base: '6', lg: '0'}}
+              mt={{ base: "6", lg: "0" }}
               w="auto"
               px="6"
               fontSize="16px"
@@ -84,7 +90,7 @@ const Better: React.FC = () => {
               <Topic label="Consumir delivery de maneira socialmente responsável e mais sustentável " />
             </Box>
             <CustomLinkButton
-              mt={{base: '6', lg: '0'}}
+              mt={{ base: "6", lg: "0" }}
               w="auto"
               px="6"
               fontSize="16px"
@@ -99,6 +105,6 @@ const Better: React.FC = () => {
       </Container>
     </Section>
   );
-}
+};
 
 export default Better;

@@ -1,10 +1,10 @@
-import NextLink from 'next/link'
-import { Button, ButtonProps, Link, Image } from '@chakra-ui/react'
+import { Button, ButtonProps, Link, Image } from "@chakra-ui/react";
+import { NextLink } from "src/components/NextLink";
 
 interface CustomLinkButtonProps extends ButtonProps {
-  link: string
-  linkLabel: string
-  variant?: string
+  link: string;
+  linkLabel: string;
+  variant?: string;
   icon?: string;
   iconAlt?: string;
   isExternal?: boolean;
@@ -12,35 +12,55 @@ interface CustomLinkButtonProps extends ButtonProps {
 }
 
 const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
-  link, linkLabel, variant = 'basic', icon, iconAlt, isExternal, isDownload, w = 'auto', ...props
+  link,
+  linkLabel,
+  variant = "basic",
+  icon,
+  iconAlt,
+  isExternal,
+  isDownload,
+  w = "auto",
+  ...props
 }) => {
   // UI
-  if(isExternal) {
+  if (isExternal) {
     return (
       <Link
         w={w}
-        _focus={{ outline: 'none'}}
-        _hover={{ textDecor: 'none'}}
+        _focus={{ outline: "none" }}
+        _hover={{ textDecor: "none" }}
         href={link}
         aria-label={linkLabel}
         isExternal
         download={isDownload}
       >
         <Button variant={variant} w="100%" {...props}>
-          {icon && <Image src={icon} alt={iconAlt ?? 'ícone'} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
+          {icon && (
+            <Image
+              src={icon}
+              alt={iconAlt ?? "ícone"}
+              w="20px"
+              h="22px"
+              ml="-4"
+              mr="2"
+              ignoreFallback
+            />
+          )}
           {linkLabel}
         </Button>
       </Link>
-    )
+    );
   }
   return (
-    <NextLink  href={link} passHref>
+    <NextLink href={link}>
       <Button variant={variant} {...props}>
-        {icon && <Image src={icon} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />}
+        {icon && (
+          <Image src={icon} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />
+        )}
         {linkLabel}
       </Button>
     </NextLink>
   );
-}
+};
 
 export default CustomLinkButton;

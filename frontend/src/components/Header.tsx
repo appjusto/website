@@ -1,15 +1,26 @@
-import NextLink from 'next/link'
-import { Flex, Box, Link, Icon, Image, HStack, Button, CloseButton, useDisclosure, Collapse, VStack  } from "@chakra-ui/react";
-import Container from './Container';
-import { FaFacebookSquare, FaInstagram, FaLinkedin  } from 'react-icons/fa'
-import CustomLink from './CustomLink'
-import { usePageContext } from '../context';
-import CustomLinkButton from './CustomLinkButton';
+import {
+  Flex,
+  Box,
+  Icon,
+  Image,
+  HStack,
+  Button,
+  CloseButton,
+  useDisclosure,
+  Collapse,
+  VStack,
+} from "@chakra-ui/react";
+import Container from "./Container";
+import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
+import CustomLink from "./CustomLink";
+import { usePageContext } from "../context";
+import CustomLinkButton from "./CustomLinkButton";
+import { NextLink } from "src/components/NextLink";
 
 const Header = () => {
   // context
-  const { setShowAppsModal, kriaLink  } = usePageContext()
-  const { isOpen, onToggle } = useDisclosure()
+  const { setShowAppsModal, kriaLink } = usePageContext();
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <Flex
       as="header"
@@ -25,45 +36,51 @@ const Header = () => {
       <Container py="2">
         <Flex
           flexDir="row"
-          w='100%'
+          w="100%"
           maxH="64px"
           justifyContent="space-between"
           alignItems="center"
         >
           <HStack spacing={2}>
-            <Box display={{base: 'block', lg: 'none'}}>
-              {
-                isOpen ? <CloseButton onClick={onToggle} /> : (
-                  <Button border="none" px="1" bg="white" onClick={onToggle} aria-label="Menu">
-                    <VStack spacing={1}>
-                      <Box bg="black" h="2px" w="20px"/>
-                      <Box bg="black" h="2px" w="20px"/>
-                      <Box bg="black" h="2px" w="20px"/>
-                    </VStack>
-                  </Button>
-                )
-              }
+            <Box display={{ base: "block", lg: "none" }}>
+              {isOpen ? (
+                <CloseButton onClick={onToggle} />
+              ) : (
+                <Button
+                  border="none"
+                  px="1"
+                  bg="white"
+                  onClick={onToggle}
+                  aria-label="Menu"
+                >
+                  <VStack spacing={1}>
+                    <Box bg="black" h="2px" w="20px" />
+                    <Box bg="black" h="2px" w="20px" />
+                    <Box bg="black" h="2px" w="20px" />
+                  </VStack>
+                </Button>
+              )}
             </Box>
-            {
-              !isOpen && (
-                <NextLink href="/" passHref>
-                  <Link _focus={{ outline: 'none'}} w={{ base: '96px', lg: "96px" }}>
-                    <Image
-                      src="/logo-pages.svg"
-                      alt="Logo AppJusto"
-                      width="100%"
-                      ignoreFallback
-                    />
-                  </Link>
-                </NextLink>
-              )
-            }
+            {!isOpen && (
+              <NextLink
+                href="/"
+                _focus={{ outline: "none" }}
+                w={{ base: "96px", lg: "96px" }}
+              >
+                <Image
+                  src="/logo-pages.svg"
+                  alt="Logo AppJusto"
+                  width="100%"
+                  ignoreFallback
+                />
+              </NextLink>
+            )}
           </HStack>
           <Flex
             flexDir="row"
-            w={{base: '0', md: '100%'}}
+            w={{ base: "0", md: "100%" }}
             maxH="64px"
-            justifyContent={{md: 'flex-end', lg: 'space-between'}}
+            justifyContent={{ md: "flex-end", lg: "space-between" }}
             alignItems="center"
             fontFamily="barlow"
             fontSize="16px"
@@ -73,7 +90,7 @@ const Header = () => {
             <HStack
               ml="8"
               spacing={8}
-              display={{base: 'none', lg: 'block'}}
+              display={{ base: "none", lg: "block" }}
               align="center"
             >
               <Button
@@ -99,7 +116,7 @@ const Header = () => {
               />
             </HStack>
             <CustomLinkButton
-              display={{base: 'none', md: 'block'}}
+              display={{ base: "none", md: "block" }}
               w="260px"
               size="lg"
               fontSize="16px"
@@ -109,7 +126,7 @@ const Header = () => {
             />
           </Flex>
           <Button
-            display={{base: 'block', md: 'none'}}
+            display={{ base: "block", md: "none" }}
             maxW="130px"
             variant="primary"
             onClick={() => setShowAppsModal(true)}
@@ -157,10 +174,7 @@ const Header = () => {
                 isExternal
                 aria-label="Link para a página do Linkedin do Appjusto"
               >
-                <Icon as={FaLinkedin}
-                  w="20px"
-                  h="20px"
-                />
+                <Icon as={FaLinkedin} w="20px" h="20px" />
               </CustomLink>
               <CustomLink
                 name="go_to_facebook_header"
@@ -168,10 +182,7 @@ const Header = () => {
                 isExternal
                 aria-label="Link para a página do Facebook do Appjusto"
               >
-                <Icon as={FaFacebookSquare}
-                  w="20px"
-                  h="20px"
-                />
+                <Icon as={FaFacebookSquare} w="20px" h="20px" />
               </CustomLink>
               <CustomLink
                 name="go_to_instagram_header"
@@ -179,10 +190,7 @@ const Header = () => {
                 isExternal
                 aria-label="Link para a página do Instagram do Appjusto"
               >
-                <Icon as={FaInstagram}
-                  w="20px"
-                  h="20px"
-                />
+                <Icon as={FaInstagram} w="20px" h="20px" />
               </CustomLink>
             </HStack>
           </VStack>
@@ -190,6 +198,6 @@ const Header = () => {
       </Collapse>
     </Flex>
   );
-}
+};
 
 export default Header;

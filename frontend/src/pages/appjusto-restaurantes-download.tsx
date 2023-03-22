@@ -3,22 +3,20 @@ import {
   Center,
   Flex,
   Image,
-  Link,
   Text,
   Icon,
   HStack,
-  UnorderedList,
   ListItem,
   ListIcon,
   List,
 } from "@chakra-ui/react";
 import Head from "next/head";
-import NextLink from "next/link";
 import Seo from "../components/Seo";
 import CustomLinkButton from "../components/CustomLinkButton";
 import React from "react";
 import { getDownloadURLByPath } from "../utils/businesses";
 import { MdCheck, MdInfoOutline } from "react-icons/md";
+import { NextLink } from "src/components/NextLink";
 
 export default function AdminDesktopDownloadPage() {
   // state
@@ -151,17 +149,16 @@ export default function AdminDesktopDownloadPage() {
               </Box>
             </HStack>
           )}
-          <NextLink href="/" passHref>
-            <Link
-              mt="12"
-              fontSize="16px"
-              fontWeight="500"
-              lineHeight="21px"
-              textDecor="underline"
-              _focus={{ outline: "none" }}
-            >
-              Voltar para página inicial
-            </Link>
+          <NextLink
+            mt="12"
+            href="/"
+            fontSize="16px"
+            fontWeight="500"
+            lineHeight="21px"
+            textDecor="underline"
+            _focus={{ outline: "none" }}
+          >
+            Voltar para página inicial
           </NextLink>
         </Flex>
       </Center>
