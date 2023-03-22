@@ -88,7 +88,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       categories,
       orderedGroups,
     },
-    revalidate: 180,
+    revalidate: 60,
   };
 };
 

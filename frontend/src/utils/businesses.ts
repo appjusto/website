@@ -105,7 +105,8 @@ export const getBusinessCategories = async (businessId: string) => {
     businessId,
     "categories"
   );
-  return getDocs(subcollectionRef).then((snapshot) => {
+  const q = query(subcollectionRef, where("enabled", "==", true));
+  return getDocs(q).then((snapshot) => {
     if (!snapshot.empty) {
       return getCategoriesObjects(snapshot.docs);
     } else return [];
@@ -114,7 +115,8 @@ export const getBusinessCategories = async (businessId: string) => {
 
 export const getBusinessProducts = async (businessId: string) => {
   const subcollectionRef = collection(db, "businesses", businessId, "products");
-  return getDocs(subcollectionRef).then((snapshot) => {
+  const q = query(subcollectionRef, where("enabled", "==", true));
+  return getDocs(q).then((snapshot) => {
     if (!snapshot.empty) {
       return getProductsObjects(snapshot.docs);
     } else return [];
@@ -133,7 +135,8 @@ export const getBusinessComplementsGroups = async (businessId: string) => {
     businessId,
     "complementsgroups"
   );
-  return getDocs(subcollectionRef).then((snapshot) => {
+  const q = query(subcollectionRef, where("enabled", "==", true));
+  return getDocs(q).then((snapshot) => {
     if (!snapshot.empty) {
       return getGroupsObjects(snapshot.docs);
     } else return [];
@@ -147,7 +150,8 @@ export const getBusinessComplements = async (businessId: string) => {
     businessId,
     "complements"
   );
-  return getDocs(subcollectionRef).then((snapshot) => {
+  const q = query(subcollectionRef, where("enabled", "==", true));
+  return getDocs(q).then((snapshot) => {
     if (!snapshot.empty) {
       return getComplementsObjects(snapshot.docs);
     } else return [];
