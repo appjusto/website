@@ -7,10 +7,12 @@ import Topic from "./Topic";
 import { usePageContext } from "../../../context";
 import CustomLinkButton from "../../CustomLinkButton";
 import { NextLink } from "src/components/NextLink";
+import { getAdminLink } from "src/utils";
 
 const Better: React.FC = () => {
   // context
   const { storeLink } = usePageContext();
+  const adminLink = getAdminLink();
   // UI
   return (
     <Section mt="4" id="better" h="auto">
@@ -74,7 +76,7 @@ const Better: React.FC = () => {
               fontSize="16px"
               size="lg"
               variant="tertiary"
-              link="https://admin.appjusto.com.br/"
+              link={adminLink}
               linkLabel="Cadastre seu restaurante"
               isExternal
             />

@@ -11,10 +11,12 @@ import {
 } from "@chakra-ui/react";
 import HeaderLinks from "../components/HeaderLinks";
 import { usePageContext } from "../context";
+import { getAdminLink } from "src/utils";
 
 export default function Links() {
   // context
   const { storeLink } = usePageContext();
+  const adminLink = getAdminLink();
   // UI
   return (
     <>
@@ -34,7 +36,7 @@ export default function Links() {
               w="100%"
               _focus={{ outline: "none" }}
               _hover={{ textDecor: "none" }}
-              href="https://admin.appjusto.com.br/"
+              href={adminLink}
               isExternal
             >
               <Button

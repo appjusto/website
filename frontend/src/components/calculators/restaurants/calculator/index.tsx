@@ -12,7 +12,7 @@ import Section from "src/components/Section";
 import Input from "src/components/CustomNumberInput";
 import { useState, useEffect } from "react";
 import { CurrencyInput } from "src/components/CurrencyInput";
-import { formattedRawValue } from "src/components/../utils";
+import { formattedRawValue, getAdminLink } from "src/components/../utils";
 import CustomLinkButton from "src/components/CustomLinkButton";
 
 const BlockHeading = ({ children }: TextProps) => {
@@ -48,6 +48,7 @@ const RestaurantCalculator: React.FC = () => {
   const [competitorValue, setCompetitorValue] = useState(0);
 
   // helpers
+  const adminLink = getAdminLink();
   const stopCalc =
     revenues === 0 ||
     isNaN(parseInt(orders)) ||
@@ -336,7 +337,7 @@ const RestaurantCalculator: React.FC = () => {
             name="admin"
             linkLabel="Cadastrar restaurante"
             variant="secondary"
-            link="https://admin.appjusto.com.br"
+            link={adminLink}
             isExternal
           />
           <HStack mt="8">

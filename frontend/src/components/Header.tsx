@@ -16,11 +16,13 @@ import CustomLink from "./CustomLink";
 import { usePageContext } from "../context";
 import CustomLinkButton from "./CustomLinkButton";
 import { NextLink } from "src/components/NextLink";
+import { getAdminLink } from "src/utils";
 
 const Header = () => {
   // context
   const { setShowAppsModal, kriaLink } = usePageContext();
   const { isOpen, onToggle } = useDisclosure();
+  const adminLink = getAdminLink();
   return (
     <Flex
       as="header"
@@ -103,7 +105,7 @@ const Header = () => {
               </Button>
               <CustomLink
                 name="admin-landing"
-                link="https://admin.appjusto.com.br"
+                link={adminLink}
                 linkLabel="Cadastrar restaurante"
                 isExternal
               />
@@ -120,7 +122,7 @@ const Header = () => {
               size="lg"
               fontSize="16px"
               linkLabel="Acessar portal do restaurante"
-              link="https://admin.appjusto.com.br/app"
+              link={`${adminLink}app`}
               isExternal
             />
           </Flex>
@@ -148,7 +150,7 @@ const Header = () => {
           <VStack spacing={10} alignItems="flex-start">
             <CustomLink
               name="admin-landing"
-              link="https://admin.appjusto.com.br"
+              link={adminLink}
               linkLabel="Cadastrar restaurante"
               isExternal
             />
@@ -163,7 +165,7 @@ const Header = () => {
               variant="basic"
               fontSize="16px"
               linkLabel="Acessar portal do restaurante"
-              link="https://admin.appjusto.com.br/app"
+              link={`${adminLink}app`}
               isExternal
             />
             <HStack spacing={4}>
