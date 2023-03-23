@@ -1,6 +1,12 @@
-import { FormControl, FormLabel, Input, InputProps, useMultiStyleConfig } from '@chakra-ui/react';
-import React from 'react';
-import { numbersDotCommaOnlyParser } from '../utils';
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  InputProps,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+import React from "react";
+import { numbersDotCommaOnlyParser } from "../utils";
 
 interface Props extends InputProps {
   id: string;
@@ -10,10 +16,24 @@ interface Props extends InputProps {
 }
 
 const CustomNumberInput = React.forwardRef<HTMLInputElement, Props>(
-  ({ id, label, value, maxLength, mt = '16px', mb, ml, mr, flex, ...props }: Props, ref) => {
-    const [state, setState] = React.useState('');
+  (
+    {
+      id,
+      label,
+      value,
+      maxLength,
+      mt = "16px",
+      mb,
+      ml,
+      mr,
+      flex,
+      ...props
+    }: Props,
+    ref
+  ) => {
+    const [state, setState] = React.useState("");
     const controlProps = { mt, mb, ml, mr, flex };
-    const styles = useMultiStyleConfig('Input', {});
+    const styles = useMultiStyleConfig("Input", {});
     React.useEffect(() => {
       const newState = numbersDotCommaOnlyParser(value);
       setState((prevState) => {
