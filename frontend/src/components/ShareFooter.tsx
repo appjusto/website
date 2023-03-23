@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Text, Icon } from "@chakra-ui/react";
+import { Box, Flex, HStack, Text, Icon, Center } from "@chakra-ui/react";
 import { BiUpArrowAlt } from "react-icons/bi";
 import { Link as ScrollLink } from "react-scroll";
 import Container from "./Container";
@@ -59,7 +59,7 @@ const ShareFooter = () => {
           </Text>
         </HStack>
         {!isTop && (
-          <Box w="150px">
+          <Box w="154px" mr={{ md: "90px", lg: "70px" }}>
             <ScrollLink
               activeClass="active"
               to="hero"
@@ -70,15 +70,16 @@ const ShareFooter = () => {
               name="scroll to top"
               href="/"
             >
-              <Flex
+              <HStack
+                display={{ base: "none", md: "flex" }}
                 direction="row"
                 w="100%"
                 justifyContent="flex-end"
                 alignItems="center"
                 cursor="pointer"
+                spacing={0}
               >
                 <Text
-                  display={["none", null, null, "inherit"]}
                   _focus={{ outline: "none" }}
                   minW="130px"
                   fontSize="15px"
@@ -86,22 +87,13 @@ const ShareFooter = () => {
                 >
                   Voltar para o topo
                 </Text>
-                <Text
-                  display={["inherit", null, null, "none"]}
-                  _focus={{ outline: "none" }}
-                  fontSize="15px"
-                  fontWeight="500"
-                  mr="4px"
-                >
-                  Topo
-                </Text>
                 <Icon
                   as={BiUpArrowAlt}
                   fontWeight="700"
                   width={{ base: "32px", md: "16px" }}
                   height={{ base: "32px", md: "16px" }}
                 />
-              </Flex>
+              </HStack>
             </ScrollLink>
           </Box>
         )}

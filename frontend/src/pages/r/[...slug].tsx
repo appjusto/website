@@ -42,7 +42,20 @@ import { ProductDetail } from "../../components/Restaurant/ProductDetail";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [],
+    paths: [
+      { params: { slug: "sushiisao" } },
+      { params: { slug: "crack-chicken" } },
+      { params: { slug: "delicias-arcoiris" } },
+      { params: { slug: "halal" } },
+      { params: { slug: "ooey-cookie" } },
+      { params: { slug: "alquimia-homebaker" } },
+      { params: { slug: "la-gustare" } },
+      { params: { slug: "animalchef-belavista" } },
+      { params: { slug: "landsburgerartesanal" } },
+      { params: { slug: "pizza-bari-tatuape" } },
+      { params: { slug: "cangotesorvetes" } },
+      { params: { slug: "meats" } },
+    ],
     fallback: "blocking",
   };
 };
@@ -88,7 +101,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       categories,
       orderedGroups,
     },
-    revalidate: 60,
+    revalidate: 30,
   };
 };
 
