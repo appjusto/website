@@ -12,6 +12,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Seo from "../../components/Seo";
 import { getFleet } from "../../utils/businesses";
 import { NextLink } from "src/components/NextLink";
+import { Fleet } from "src/types";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -36,7 +37,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default function FleetPage({ fleet }) {
+interface FleetPageProps {
+  fleet: Fleet;
+}
+
+export default function FleetPage({ fleet }: FleetPageProps) {
   // UI
   return (
     <Box>
@@ -58,7 +63,7 @@ export default function FleetPage({ fleet }) {
         <Stack direction={{ base: "column", lg: "row" }} spacing={12}>
           <Box maxW={{ md: "300px", lg: "320px" }}>
             <Text fontSize="24px" lineHeight="26px" fontWeight="700">
-              Você foi convidado a fazer parte da frota "{fleet?.name ?? "N/E"}"
+              Você foi convidado a fazer parte da frota {fleet.name ?? "N/E"}
               no AppJusto! Bora lá?
             </Text>
             <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500">

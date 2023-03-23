@@ -12,7 +12,6 @@ import {
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import {
-  Business,
   Category,
   Complement,
   ComplementGroup,
@@ -42,19 +41,20 @@ import { ProductDetail } from "../../components/Restaurant/ProductDetail";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
+    // Restaurants with the most pageviews in the last month
     paths: [
-      { params: { slug: "sushiisao" } },
-      { params: { slug: "crack-chicken" } },
-      { params: { slug: "delicias-arcoiris" } },
-      { params: { slug: "halal" } },
-      { params: { slug: "ooey-cookie" } },
-      { params: { slug: "alquimia-homebaker" } },
-      { params: { slug: "la-gustare" } },
-      { params: { slug: "animalchef-belavista" } },
-      { params: { slug: "landsburgerartesanal" } },
-      { params: { slug: "pizza-bari-tatuape" } },
-      { params: { slug: "cangotesorvetes" } },
-      { params: { slug: "meats" } },
+      { params: { slug: ["sushiisao"] } },
+      { params: { slug: ["crack-chicken"] } },
+      { params: { slug: ["delicias-arcoiris"] } },
+      { params: { slug: ["halal"] } },
+      { params: { slug: ["ooey-cookie"] } },
+      { params: { slug: ["alquimia-homebaker"] } },
+      { params: { slug: ["la-gustare"] } },
+      { params: { slug: ["animalchef-belavista"] } },
+      { params: { slug: ["landsburgerartesanal"] } },
+      { params: { slug: ["pizza-bari-tatuape"] } },
+      { params: { slug: ["cangotesorvetes"] } },
+      { params: { slug: ["meats"] } },
     ],
     fallback: "blocking",
   };
