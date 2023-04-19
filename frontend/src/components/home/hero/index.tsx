@@ -22,9 +22,9 @@ const Hero: React.FC = () => {
             <Heading
               as="h1"
               maxW={{ base: "311px", lg: "648px" }}
-              fontSize={{ base: "28px", md: "48px", lg: "64px" }}
+              fontSize={{ base: "2.4rem", md: "3rem", lg: "4rem" }}
               fontWeight="700"
-              lineHeight={{ base: "30px", md: "56px", lg: "76px" }}
+              lineHeight={{ base: "2.6rem", md: "3.5rem", lg: "4.75rem" }}
             >
               Um movimento por relações mais justas no delivery
             </Heading>
@@ -32,9 +32,9 @@ const Hero: React.FC = () => {
               mt="8"
               as="h2"
               maxW="648px"
-              fontSize="20px"
+              fontSize="1.25rem"
+              lineHeight="1.62rem"
               fontWeight="500"
-              lineHeight="26px"
             >
               No AppJusto,{" "}
               <Text as="span" fontWeight="700">
@@ -52,12 +52,11 @@ const Hero: React.FC = () => {
               menos nos pratos.
             </Heading>
             <Button
-              mt="8"
+              mt="10"
               maxW="328px"
               variant="primary"
               h="64px"
-              fontSize="20px"
-              lineHeight="24px"
+              fontSize="1.25rem"
               fontWeight="700"
               onClick={() => {
                 setShowAppsModal(true);

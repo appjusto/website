@@ -41,8 +41,8 @@ const customTheme = extendTheme({
   textStyles: {
     p: {
       fontFamily: barlow.style.fontFamily,
-      fontSize: { base: "18px", lg: "20px" },
-      lineHeight: { base: "20px", lg: "26px" },
+      fontSize: "1.25rem",
+      lineHeight: "1.62rem",
       fontWeight: "400",
     },
   },

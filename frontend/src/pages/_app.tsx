@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
   // providers
   return (
     <PageContextProvider>
-      <ChakraProvider theme={theme} resetCSS>
+      <ChakraProvider theme={theme}>
         <Script
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{

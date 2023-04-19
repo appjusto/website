@@ -7,7 +7,7 @@ export default {
     },
     label: {
       position: "absolute",
-      fontSize: "16px",
+      fontSize: "0.875rem",
       color: "#2F855A",
       top: "8px",
       left: "16px",
@@ -15,7 +15,7 @@ export default {
     },
     select: {
       width: "100%",
-      fontSize: "16px",
+      fontSize: "1rem",
       height: "60px",
       color: "#697667",
       border: "1px solid",

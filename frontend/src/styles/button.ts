@@ -1,7 +1,6 @@
 export default {
   baseStyle: {
-    fontSize: "16px",
-    lineHeight: "22px",
+    fontSize: "1rem",
     fontWeight: "700",
     borderRadius: "8px",
     w: { base: "100%", md: "auto" },
