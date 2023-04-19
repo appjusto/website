@@ -1,9 +1,9 @@
-import { Box, Button, Center, Image, HStack } from '@chakra-ui/react'
+import { Box, Button, Center, Image, HStack } from "@chakra-ui/react";
 import Section from "../../Section";
-import Container from '../../Container';
-import SectionHeading from '../../SectionHeading';
-import MediaBox from './MediaBox';
-import React from 'react';
+import Container from "../../Container";
+import SectionHeading from "../../SectionHeading";
+import MediaBox from "./MediaBox";
+import React from "react";
 
 const Media: React.FC = () => {
   // state
@@ -12,40 +12,47 @@ const Media: React.FC = () => {
   // refs
   const sliderRef = React.createRef<HTMLDivElement>();
   // handlers
-  const handleSlider = (direction: 'left' | 'right') => {
-    const boxPerPage =  Math.trunc(sliderWidth / 312);
-    if(direction === 'left') setSliderMl(prev => {
-      if(prev < 0) return prev + 312;
-      else return prev;
-    });
-    else setSliderMl(prev => {
-      if(prev > (6 - boxPerPage) * -312) return prev - 312;
-      return prev;
-    });
-  }
+  const handleSlider = (direction: "left" | "right") => {
+    const boxPerPage = Math.trunc(sliderWidth / 312);
+    if (direction === "left")
+      setSliderMl((prev) => {
+        if (prev < 0) return prev + 312;
+        else return prev;
+      });
+    else
+      setSliderMl((prev) => {
+        if (prev > (6 - boxPerPage) * -312) return prev - 312;
+        return prev;
+      });
+  };
   // side effects
   React.useEffect(() => {
-    if(!sliderRef.current) return;
+    if (!sliderRef.current) return;
     const getSliderWidth = () => {
-      setSliderWidth(sliderRef.current.clientWidth)
-    }
+      setSliderWidth(sliderRef.current.clientWidth);
+    };
     getSliderWidth();
-    window.addEventListener('resize', () => getSliderWidth)
-    return () => window.removeEventListener('resize', getSliderWidth)
+    window.addEventListener("resize", () => getSliderWidth);
+    return () => window.removeEventListener("resize", getSliderWidth);
   }, [sliderRef.current]);
   // UI
   return (
     <Section mt="4" id="media" h="auto">
-      <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '8'}} overflow="hidden">
-        <SectionHeading w="100%" textAlign={{ md: 'center'}}>
+      <Container
+        pt={{ base: "8", lg: "16" }}
+        pb={{ base: "10", lg: "8" }}
+        overflow="hidden"
+      >
+        <SectionHeading w="100%" textAlign={{ md: "center" }}>
           O que andam falando do AppJusto por aí
         </SectionHeading>
         <HStack
           ref={sliderRef}
           mt="10"
           ml={`${sliderMl}px`}
-          spacing={4} h="100%"
-          overflow={{base: 'scroll', lg: 'hidden'}}
+          spacing={4}
+          h="100%"
+          overflow={{ base: "scroll", lg: "hidden" }}
           transition="margin 1s"
         >
           <MediaBox
@@ -85,14 +92,15 @@ const Media: React.FC = () => {
             altImg="logo Timeout"
           />
         </HStack>
-        <Center mt="8" display={{base: 'none', lg: 'flex'}}>
+        <Center mt="8" display={{ base: "none", lg: "flex" }}>
           <HStack spacing={4}>
             <Button
               bgColor="#C8D7CB"
               w="60px"
               h="60px"
-              borderRadius="30px" onClick={() => handleSlider('left')}
-              _hover={{ bgColor: '#F2FFE8'}}
+              borderRadius="30px"
+              onClick={() => handleSlider("left")}
+              _hover={{ bgColor: "#F2FFE8" }}
               aria-label="seta para a esquerda"
             >
               <Image src="/icon-arrow-left.svg" alt="seta para a esquerda" />
@@ -101,10 +109,11 @@ const Media: React.FC = () => {
               bgColor="#C8D7CB"
               w="60px"
               h="60px"
-              borderRadius="30px" onClick={() => handleSlider('right')}
-               _hover={{ bgColor: '#F2FFE8'}}
-               aria-label="seta para a direita"
-              >
+              borderRadius="30px"
+              onClick={() => handleSlider("right")}
+              _hover={{ bgColor: "#F2FFE8" }}
+              aria-label="seta para a direita"
+            >
               <Image src="/icon-arrow-right.svg" alt="seta para a direita" />
             </Button>
           </HStack>
@@ -112,6 +121,6 @@ const Media: React.FC = () => {
       </Container>
     </Section>
   );
-}
+};
 
 export default Media;

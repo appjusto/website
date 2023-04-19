@@ -1,10 +1,15 @@
 export default {
   baseStyle: {
-    fontSize: "1rem",
+    fontSize: "md",
     fontWeight: "700",
     borderRadius: "8px",
     w: { base: "100%", md: "auto" },
     _focus: { boxShadow: "none" },
+  },
+  sizes: {
+    lg: {
+      fontSize: "md",
+    },
   },
   variants: {
     basic: {

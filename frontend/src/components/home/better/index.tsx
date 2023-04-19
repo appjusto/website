@@ -40,7 +40,6 @@ const Better: React.FC = () => {
               mt={{ base: "6", lg: "0" }}
               w="auto"
               px="6"
-              fontSize="16px"
               size="lg"
               variant="secondary"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
@@ -73,7 +72,6 @@ const Better: React.FC = () => {
               mt={{ base: "6", lg: "0" }}
               w="auto"
               px="6"
-              fontSize="16px"
               size="lg"
               variant="tertiary"
               link={adminLink}
@@ -95,7 +93,6 @@ const Better: React.FC = () => {
               mt={{ base: "6", lg: "0" }}
               w="auto"
               px="6"
-              fontSize="16px"
               size="lg"
               variant="primary"
               link={storeLink}

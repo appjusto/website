@@ -41,9 +41,6 @@ const Support: React.FC = () => {
         <Text
           display={{ base: "none", md: "block" }}
           mt="6"
-          fontSize="18px"
-          lineHeight="26px"
-          fontWeight="500"
           textAlign={{ md: "center" }}
         >
           Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas,

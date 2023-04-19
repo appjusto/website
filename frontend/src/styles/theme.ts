@@ -4,10 +4,11 @@ import { colors } from "./colors";
 import Select from "./select";
 import Input from "./input";
 import Button from "./button";
+import Text from "./text";
 import Carousel from "./carousel";
 import Checkbox from "./checkbox";
 
-const barlow = Barlow({
+export const barlow = Barlow({
   weight: ["500", "700"],
   subsets: ["latin"],
   display: "swap",
@@ -37,11 +38,12 @@ const customTheme = extendTheme({
     Button,
     Carousel,
     Checkbox,
+    Text,
   },
   textStyles: {
     p: {
       fontFamily: barlow.style.fontFamily,
-      fontSize: "1.25rem",
+      fontSize: "xl",
       lineHeight: "1.62rem",
       fontWeight: "400",
     },

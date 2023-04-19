@@ -17,12 +17,12 @@ const Hero: React.FC = () => {
       maxH={{ lg: "900px" }}
     >
       <Container>
-        <Flex direction={{ base: "column", md: "row" }} h="100%">
+        <Flex direction={{ base: "column", lg: "row" }} h="100%">
           <Flex flexDir="column" justifyContent="center" w="100%">
             <Heading
               as="h1"
-              maxW={{ base: "311px", lg: "648px" }}
-              fontSize={{ base: "2.4rem", md: "3rem", lg: "4rem" }}
+              maxW={{ base: "311px", md: "480px", lg: "648px" }}
+              fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
               fontWeight="700"
               lineHeight={{ base: "2.6rem", md: "3.5rem", lg: "4.75rem" }}
             >
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
               mt="8"
               as="h2"
               maxW="648px"
-              fontSize="1.25rem"
+              fontSize="xl"
               lineHeight="1.62rem"
               fontWeight="500"
             >
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
             </Button>
           </Flex>
           <Flex
-            mt={{ base: "8", md: "0" }}
+            mt={{ base: "8", lg: "0" }}
             flexDir="column"
             justifyContent="center"
             alignItems="flex-end"

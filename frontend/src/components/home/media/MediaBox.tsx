@@ -31,12 +31,7 @@ const MediaBox: React.FC<MediaBoxProps> = ({ image, altImg, link, text }) => {
             <Image src="/icon-quote.svg" alt="áspas verdes" />
           </Box>
           <Box mt="4" h="180px">
-            <Text
-              fontSize="24px"
-              fontWeight="500"
-              fontStyle="italic"
-              lineHeight="30px"
-            >
+            <Text fontSize="2xl" fontStyle="italic" lineHeight="1.875rem">
               {text}
             </Text>
           </Box>

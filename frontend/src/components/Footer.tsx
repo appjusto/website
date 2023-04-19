@@ -107,6 +107,7 @@ const Footer: React.FC<FooterProps> = ({
                   link="mailto:contato@appjusto.com.br"
                   linkLabel="contato@appjusto.com.br"
                   isExternal
+                  fontSize="md"
                   _hover={{ color: "#055AFF" }}
                 />
               </Flex>
@@ -167,7 +168,7 @@ const Footer: React.FC<FooterProps> = ({
                 link="https://appjusto.freshdesk.com/"
                 linkLabel="Perguntas frequentes"
                 mb={{ base: "12px", lg: "0" }}
-                fontSize="15px"
+                fontSize="1rem"
                 _hover={{ color: "#055AFF" }}
               />
               <Link
@@ -176,13 +177,13 @@ const Footer: React.FC<FooterProps> = ({
                 linkLabel="Política de Privacidade"
                 ml={{ base: "0", lg: "6" }}
                 mb={{ base: "12px", lg: "0" }}
-                fontSize="15px"
+                fontSize="1rem"
                 _hover={{ color: "#055AFF" }}
               />
             </Flex>
           </Flex>
           <Box w="100%" mt="1" textAlign={{ base: "start", lg: "end" }}>
-            <Text color="white" fontSize="13px" lineHeight="18px">
+            <Text color="white" fontSize="sm" lineHeight="1.125rem">
               JUSTO TECNOLOGIA E INOVAÇÃO SOCIAL LTDA - CNPJ:38.447.139/0001-50
             </Text>
           </Box>
