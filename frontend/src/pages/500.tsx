@@ -18,15 +18,12 @@ export default function ServerError() {
           <Box w="140px">
             <Image src="/logo-pages.svg" alt="Logo AppJusto" ignoreFallback />
           </Box>
-          <Text mt="6" fontSize="24px" fontWeight="700" lineHeight="26px">
+          <Text mt="6" fontSize="2xl" fontWeight="700" lineHeight="1.5rem">
             Ocorreu um erro em nosso servidor =/
           </Text>
           <NextLink
             mt="6"
             href="/"
-            fontSize="16px"
-            fontWeight="500"
-            lineHeight="21px"
             textDecor="underline"
             _focus={{ outline: "none" }}
           >

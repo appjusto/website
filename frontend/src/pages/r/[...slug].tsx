@@ -38,6 +38,7 @@ import { CategoryItem } from "../../components/Restaurant/CategoryItem";
 import MenuPageLayout from "../../components/Restaurant/MenuPageLayout";
 import { useRouter } from "next/router";
 import { ProductDetail } from "../../components/Restaurant/ProductDetail";
+import { Span } from "src/components/Span";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -247,10 +248,9 @@ export default function RestaurantPage({
             <Text as="h1" fontSize="24px" lineHeight="26px" fontWeight="700">
               {business?.name ?? "N/E"}
             </Text>
-            <Text
+            <Span
               ml="2"
               display={{ base: "none", md: "block" }}
-              as="span"
               border="1px solid black"
               borderRadius="24px"
               py="1"
@@ -262,7 +262,7 @@ export default function RestaurantPage({
               onClick={() => setIsMenu(!isMenu)}
             >
               {isMenu ? "Saber mais" : "Ver cardápio"}
-            </Text>
+            </Span>
           </HStack>
           <Text
             as="h2"

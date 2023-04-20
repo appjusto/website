@@ -4,6 +4,7 @@ import Section from "../../Section";
 import Container from "../../Container";
 import { usePageContext } from "../../../context";
 import * as fbq from "../../../utils/fpixel";
+import { Span } from "src/components/Span";
 
 const Hero: React.FC = () => {
   // context
@@ -36,20 +37,11 @@ const Hero: React.FC = () => {
               lineHeight="1.62rem"
               fontWeight="500"
             >
-              No AppJusto,{" "}
-              <Text as="span" fontWeight="700">
-                entregadores
-              </Text>{" "}
-              ganham mais e podem definir o valor do próprio trabalho,{" "}
-              <Text as="span" fontWeight="700">
-                restaurantes
-              </Text>{" "}
-              pagam taxas menores e são mais valorizados, e{" "}
-              <Text as="span" fontWeight="700">
-                consumidores
-              </Text>{" "}
-              participam de uma economia justa de verdade, pagando até 20% a
-              menos nos pratos.
+              No AppJusto, <Span bold>entregadores</Span> ganham mais e podem
+              definir o valor do próprio trabalho,{" "}
+              <Span bold>restaurantes</Span> pagam taxas menores e são mais
+              valorizados, e <Span bold>consumidores</Span> participam de uma
+              economia justa de verdade, pagando até 20% a menos nos pratos.
             </Heading>
             <Button
               mt="10"

@@ -1,21 +1,15 @@
-import { Text, TextProps } from '@chakra-ui/react'
+import { Text, TextProps } from "@chakra-ui/react";
 
 interface NetworkNamesProps extends TextProps {
-  text: string
+  text: string;
 }
 
-const NetworkNames: React.FC<NetworkNamesProps> = ({text, ...props}) => {
+const NetworkNames: React.FC<NetworkNamesProps> = ({ text, ...props }) => {
   return (
-    <Text
-      as="h3"
-      textStyle="p"
-      fontSize="16px"
-      lineHeight="22px"
-      {...props}
-    >
+    <Text as="h3" fontSize="md" {...props}>
       {text}
     </Text>
   );
-}
+};
 
-export default NetworkNames
+export default NetworkNames;

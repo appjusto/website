@@ -1,19 +1,15 @@
-import { Heading } from '@chakra-ui/react'
+import { Heading } from "@chakra-ui/react";
 
 interface TextProps {
-  text: string
+  text: string;
 }
 
-const RoleTitle: React.FC<TextProps> = ({text}) => {
+const RoleTitle: React.FC<TextProps> = ({ text }) => {
   return (
-    <Heading 
-      as="h3"
-      fontSize="16px"
-      lineHeight="22px"
-    >
+    <Heading as="h3" fontSize="lg" lineHeight="1.5rem">
       {text}
-    </Heading> 
+    </Heading>
   );
-}
+};
 
-export default RoleTitle
+export default RoleTitle;

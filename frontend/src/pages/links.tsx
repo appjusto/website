@@ -39,12 +39,7 @@ export default function Links() {
               href={adminLink}
               isExternal
             >
-              <Button
-                w="100%"
-                variant="tertiary"
-                fontSize="16px"
-                borderColor="black"
-              >
+              <Button w="100%" variant="tertiary" borderColor="black">
                 Quero cadastrar meu restaurante
               </Button>
             </Link>
@@ -55,12 +50,7 @@ export default function Links() {
               href="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
               isExternal
             >
-              <Button
-                w="100%"
-                variant="secondary"
-                fontSize="16px"
-                borderColor="black"
-              >
+              <Button w="100%" variant="secondary" borderColor="black">
                 Quero me cadastrar como entregador
               </Button>
             </Link>
@@ -71,12 +61,7 @@ export default function Links() {
               href={storeLink}
               isExternal
             >
-              <Button
-                w="100%"
-                variant="primary"
-                fontSize="16px"
-                borderColor="black"
-              >
+              <Button w="100%" variant="primary" borderColor="black">
                 Sou consumidor e quero baixar o App
               </Button>
             </Link>

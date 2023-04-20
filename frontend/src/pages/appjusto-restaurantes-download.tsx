@@ -17,6 +17,7 @@ import React from "react";
 import { getDownloadURLByPath } from "../utils/businesses";
 import { MdCheck, MdInfoOutline } from "react-icons/md";
 import { NextLink } from "src/components/NextLink";
+import { Span } from "src/components/Span";
 
 export default function AdminDesktopDownloadPage() {
   // state
@@ -55,10 +56,10 @@ export default function AdminDesktopDownloadPage() {
           </Center>
           <Text
             mt="6"
-            fontSize="24px"
+            fontSize="2xl"
             fontWeight="700"
+            lineHeight="1.5rem"
             textAlign="center"
-            lineHeight="26px"
           >
             Download da versão{" "}
             <Text as="mark" bgColor="#FFE493">
@@ -68,10 +69,10 @@ export default function AdminDesktopDownloadPage() {
           </Text>
           <Text
             mt="6"
-            fontSize="16px"
+            fontSize="md"
             fontWeight="500"
+            lineHeight="1.5rem"
             textAlign="center"
-            lineHeight="22px"
           >
             Tenha uma melhor experiência na gestão dos seus pedidos:
           </Text>
@@ -112,10 +113,9 @@ export default function AdminDesktopDownloadPage() {
           )}
           <Text
             mt="6"
-            fontSize="14px"
-            fontWeight="500"
+            fontSize="sm"
             textAlign="center"
-            lineHeight="22px"
+            lineHeight="1.5rem"
             maxW="350px"
           >
             Após o download, basta descompactar o arquivo, para a pasta
@@ -133,17 +133,17 @@ export default function AdminDesktopDownloadPage() {
                 <Icon as={MdInfoOutline} w="24px" h="24px" />
               </Center>
               <Box w="100%">
-                <Text fontWeight="500" lineHeight="22px">
+                <Text fontSize="md" lineHeight="1.5rem">
                   Por se tratar de uma versão beta, o windows pode exibir um
                   alerta de software não reconhecido e pausar a execução do
                   mesmo. Basta clicar em
-                  <Text as="span" mx="4px" fontWeight="700">
+                  <Span mx="4px" bold>
                     "mais informações"
-                  </Text>
+                  </Span>
                   e depois em
-                  <Text as="span" ml="4px" fontWeight="700">
+                  <Span mx="4px" bold>
                     "executar mesmo assim"
-                  </Text>
+                  </Span>
                   .
                 </Text>
               </Box>

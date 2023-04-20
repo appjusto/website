@@ -24,31 +24,19 @@ export default function LinkConfirmation() {
             </Flex>
             <Text
               mt="8"
-              fontSize="24px"
+              fontSize="2xl"
               fontWeight="700"
-              lineHeight="26px"
+              lineHeight="1.5rem"
               textAlign="center"
             >
               Você precisa acessar o link usando o seu celular.
             </Text>
-            <Text
-              mt="8"
-              fontSize="16px"
-              fontWeight="500"
-              lineHeight="22px"
-              textAlign="center"
-            >
+            <Text mt="8" fontSize="1rem" lineHeight="1.5rem" textAlign="center">
               Dessa forma, o AppJusto consegue identificar automaticamente o seu
               cadastro no aplicativo instalado. Acesse seu e-mail usando o seu
               celular, e clique novamente no link para continuar o acesso.
             </Text>
-            <Text
-              mt="6"
-              fontSize="16px"
-              fontWeight="500"
-              lineHeight="22px"
-              textAlign="center"
-            >
+            <Text mt="6" fontSize="1rem" lineHeight="1.5rem" textAlign="center">
               Obrigado por fazer parte desse movimento por uma economia mais
               justa para todos!
             </Text>
