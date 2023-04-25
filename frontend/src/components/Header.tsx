@@ -121,7 +121,7 @@ const Header = () => {
               w="260px"
               size="lg"
               fontSize="16px"
-              linkLabel="Acessar portal do restaurante"
+              linkLabel="Acessar painel do restaurante"
               link={`${adminLink}app`}
               isExternal
             />
@@ -164,7 +164,7 @@ const Header = () => {
               size="lg"
               variant="basic"
               fontSize="16px"
-              linkLabel="Acessar portal do restaurante"
+              linkLabel="Acessar painel do restaurante"
               link={`${adminLink}app`}
               isExternal
             />
