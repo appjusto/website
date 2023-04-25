@@ -40,7 +40,7 @@ export const RestaurantAppsBox = (props: FlexProps) => {
               name="app-consumer"
               linkLabel="Baixe o app"
               variant="primary"
-              fontSize="16px"
+              fontSize="md"
               link={storeLink}
               isExternal
             />
@@ -48,9 +48,8 @@ export const RestaurantAppsBox = (props: FlexProps) => {
           <Text
             display={{ base: "none", lg: "block" }}
             mt="6"
-            fontSize="15px"
-            lineHeight="21px"
-            fontWeight="500"
+            fontSize="md"
+            lineHeight="1.25rem"
           >
             Ao usar o AppJusto, você paga menos, e colabora com uma economia
             mais justa para entregadores e restaurantes. Faça parte desse

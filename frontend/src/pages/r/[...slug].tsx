@@ -8,6 +8,7 @@ import {
   Link,
   Spinner,
   Text,
+  Heading,
 } from "@chakra-ui/react";
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -232,9 +233,8 @@ export default function RestaurantPage({
           borderRadius="24px"
           py="1"
           px="2"
-          fontSize="13px"
+          fontSize="sm"
           lineHeight="18px"
-          fontWeight="500"
           cursor="pointer"
           onClick={() => setIsMenu(!isMenu)}
           zIndex="900"
@@ -245,7 +245,7 @@ export default function RestaurantPage({
       <Flex mt="6" justifyContent="space-between" alignItems="center">
         <Box>
           <HStack spacing={4}>
-            <Text as="h1" fontSize="24px" lineHeight="26px" fontWeight="700">
+            <Text as="h1" fontSize="2xl" lineHeight="26px" fontWeight="700">
               {business?.name ?? "N/E"}
             </Text>
             <Span
@@ -255,25 +255,24 @@ export default function RestaurantPage({
               borderRadius="24px"
               py="1"
               px="2"
-              fontSize="13px"
+              fontSize="sm"
               lineHeight="18px"
-              fontWeight="500"
               cursor="pointer"
               onClick={() => setIsMenu(!isMenu)}
             >
               {isMenu ? "Saber mais" : "Ver cardápio"}
             </Span>
           </HStack>
-          <Text
+          <Heading
             as="h2"
             mt="1"
-            fontSize="16px"
+            fontSize="md"
             lineHeight="22px"
             fontWeight="500"
             color="#4EA031"
           >
             {business?.cuisine ?? "N/E"}
-          </Text>
+          </Heading>
         </Box>
         <Box
           position="relative"
@@ -319,7 +318,7 @@ export default function RestaurantPage({
           display="inline-flex"
           justifyContent="center"
           alignItems="center"
-          fontSize="13px"
+          fontSize="sm"
           lineHeight="18px"
           fontWeight="500"
           isExternal
@@ -347,13 +346,7 @@ export default function RestaurantPage({
         </Box>
       ) : (
         <>
-          <Text
-            as="h3"
-            mt="6"
-            fontSize="16px"
-            lineHeight="22px"
-            fontWeight="500"
-          >
+          <Text as="h3" mt="6" fontSize="md" lineHeight="22px">
             {business?.description ?? "N/E"}
           </Text>
           <Flex
@@ -365,7 +358,7 @@ export default function RestaurantPage({
             <Box>
               <HStack spacing={2}>
                 <Icon as={MdQueryBuilder} />
-                <Text fontSize="16px" lineHeight="21px" fontWeight="500">
+                <Text fontSize="md" lineHeight="1.25rem">
                   Horário de entrega
                 </Text>
               </HStack>
@@ -374,9 +367,8 @@ export default function RestaurantPage({
                   {business?.schedules.map((item) => (
                     <Text
                       key={item.day}
-                      fontSize="15px"
+                      fontSize="sm"
                       lineHeight="21px"
-                      fontWeight="500"
                       color="#697667"
                     >
                       {item.day}
@@ -388,9 +380,8 @@ export default function RestaurantPage({
                     return !item.checked ? (
                       <Text
                         key={item.day}
-                        fontSize="15px"
+                        fontSize="sm"
                         lineHeight="21px"
-                        fontWeight="500"
                         color="#697667"
                       >
                         Fechado
@@ -418,48 +409,26 @@ export default function RestaurantPage({
             <Box mt={{ base: "8", lg: "0" }}>
               <HStack spacing={2}>
                 <Icon as={MdInfoOutline} />
-                <Text fontSize="16px" lineHeight="21px" fontWeight="500">
+                <Text fontSize="md" lineHeight="1.25rem">
                   Outras informações
                 </Text>
               </HStack>
-              <Text
-                mt="4"
-                fontSize="15px"
-                lineHeight="21px"
-                fontWeight="500"
-                color="#697667"
-              >
+              <Text mt="4" fontSize="sm" lineHeight="1.25rem" color="#697667">
                 {`${business?.businessAddress?.address ?? "N/E"}, ${
                   business?.businessAddress?.number
                 }`}
               </Text>
-              <Text
-                fontSize="15px"
-                lineHeight="21px"
-                fontWeight="500"
-                color="#697667"
-              >
+              <Text fontSize="sm" lineHeight="1.25rem" color="#697667">
                 {`${business?.businessAddress?.city}, ${business?.businessAddress?.state}`}
               </Text>
-              <Text
-                fontSize="15px"
-                lineHeight="21px"
-                fontWeight="500"
-                color="#697667"
-              >
+              <Text fontSize="sm" lineHeight="1.25rem" color="#697667">
                 {`CEP: ${
                   business?.businessAddress?.cep
                     ? formatCEP(business.businessAddress?.cep)
                     : "N/E"
                 }`}
               </Text>
-              <Text
-                mt="4"
-                fontSize="15px"
-                lineHeight="21px"
-                fontWeight="500"
-                color="#697667"
-              >
+              <Text fontSize="sm" lineHeight="1.25rem" color="#697667">
                 {`CNPJ: ${
                   business?.cnpj ? cnpjutils.format(business.cnpj) : "N/E"
                 }`}

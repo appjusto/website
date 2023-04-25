@@ -43,19 +43,13 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
         cursor="pointer"
       >
         <Box maxW={{ base: "228px", lg: "400px" }}>
-          <Text fontSize="15px" lineHeight="21px" fontWeight="500">
+          <Text fontSize="md" lineHeight="1.25rem">
             {product.name}
           </Text>
-          <Text
-            mt="1"
-            color="#697667"
-            fontSize="13px"
-            lineHeight="18px"
-            fontWeight="500"
-          >
+          <Text color="#697667" fontSize="sm" lineHeight="1.5rem">
             {product.description}
           </Text>
-          <Text mt="1" fontSize="15px" lineHeight="21px" fontWeight="500">
+          <Text fontSize="md" lineHeight="1.25rem">
             {formatCurrency(product.price)}
           </Text>
         </Box>
