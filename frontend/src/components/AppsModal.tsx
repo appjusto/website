@@ -58,19 +58,6 @@ const AppsModal: React.FC = () => {
               <Text fontSize="36px" lineHeight="43.2px" fontWeight="700">
                 Faça parte
               </Text>
-              <Badge
-                bg="#FFBE00"
-                color="black"
-                borderRadius="22px"
-                px="3"
-                py="1"
-                h="23px"
-                fontSize="11px"
-                lineHeight="lg"
-                fontWeight="700"
-              >
-                BETA
-              </Badge>
             </Stack>
             <Topic
               mt="6"
