@@ -23,10 +23,12 @@ export default {
     },
     secondary: {
       bg: "secondary",
+      color: "black",
       _hover: { bg: "secondaryLight" },
     },
     tertiary: {
       bg: "tertiary",
+      color: "black",
       _hover: { bg: "tertiaryLight" },
     },
     outlineWhite: {
