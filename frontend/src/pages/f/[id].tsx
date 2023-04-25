@@ -62,11 +62,11 @@ export default function FleetPage({ fleet }: FleetPageProps) {
         </Box>
         <Stack direction={{ base: "column", lg: "row" }} spacing={12}>
           <Box maxW={{ md: "300px", lg: "320px" }}>
-            <Text fontSize="24px" lineHeight="26px" fontWeight="700">
-              Você foi convidado a fazer parte da frota {fleet.name ?? "N/E"}
-              no AppJusto! Bora lá?
+            <Text fontSize="2xl" lineHeight="1.8rem" fontWeight="700">
+              Você foi convidado a fazer parte da frota {fleet.name ?? "N/E"} no
+              AppJusto! Bora lá?
             </Text>
-            <Text mt="4" fontSize="15px" lineHeight="21px" fontWeight="500">
+            <Text mt="4" fontSize="md" lineHeight="1.25rem">
               Para entrar, é só baixar o AppJusto e fazer o cadastro usando o
               seu celular. Rapidinho você vai ser aprovado e poderá fazer suas
               entregas!
@@ -86,7 +86,7 @@ export default function FleetPage({ fleet }: FleetPageProps) {
                 name="app-courier-android"
                 linkLabel="Android"
                 variant="primary"
-                fontSize="16px"
+                fontSize="md"
                 icon="/icon-play-store.png"
                 iconAlt="ícone play store"
                 link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
@@ -97,7 +97,7 @@ export default function FleetPage({ fleet }: FleetPageProps) {
                 name="app-courier-ios"
                 linkLabel="Em breve"
                 variant="disabled"
-                fontSize="16px"
+                fontSize="md"
                 icon="/icon-apple.png"
                 iconAlt="ícone apple store"
                 link="/"
@@ -107,7 +107,7 @@ export default function FleetPage({ fleet }: FleetPageProps) {
             </Stack>
           </Box>
           <Box minW="272px" maxW={{ md: "300px", lg: "320px" }}>
-            <Text fontSize="18px" lineHeight="26px" fontWeight="500">
+            <Text fontSize="lg" lineHeight="1.6rem">
               {fleet?.name ?? "N/E"}
             </Text>
             <FleetFeature
@@ -154,31 +154,31 @@ export default function FleetPage({ fleet }: FleetPageProps) {
           </Box>
         </Stack>
         <Box>
-          <Text mt="6" fontSize="24px" lineHeight="26px" fontWeight="700">
+          <Text mt="6" fontSize="2xl" lineHeight="1.6rem" fontWeight="700">
             As vantagens do AppJusto para entregadores
           </Text>
           <Topic
-            size="sm"
+            size="md"
             label="Autonomia para definir o preço das corridas e outras condições pelo nosso sistema de frotas"
             check
           />
           <Topic
-            size="sm"
+            size="md"
             label="Remuneração na frota AppJusto: R$ 10 até 5km e mais R$ 2 por km adicional"
             check
           />
           <Topic
-            size="sm"
+            size="md"
             label="Recebem valor integral pago pela entrega (subtraindo a taxa da operadora financeira)"
             check
           />
           <Topic
-            size="sm"
+            size="md"
             label="Sem suspensões automáticas: o processo sempre passa por um atendente"
             check
           />
           <Topic
-            size="sm"
+            size="md"
             label="Transparência em todas as regras e preços da plataforma"
             check
           />

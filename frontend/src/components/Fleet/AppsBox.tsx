@@ -25,7 +25,7 @@ export const AppsBox = () => {
           <NextLink href="/" _focus={{ outline: "none" }} w="94px">
             <Image src="/logo-pages.svg" alt="Logo AppJusto" width="120px" />
           </NextLink>
-          <Text mt="8" fontSize="24px" lineHeight="26px" fontWeight="700">
+          <Text mt="8" fontSize="2xl" lineHeight="1.6rem" fontWeight="700">
             Baixe o app e comece a fazer suas entregas!
           </Text>
           <HStack mt="8" spacing={4}>
@@ -34,7 +34,7 @@ export const AppsBox = () => {
               name="app-courier-android"
               linkLabel="Android"
               variant="primary"
-              fontSize="16px"
+              fontSize="md"
               icon="/icon-play-store.png"
               iconAlt="ícone play store"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
@@ -45,7 +45,7 @@ export const AppsBox = () => {
               name="app-courier-ios"
               linkLabel="Em breve"
               variant="disabled"
-              fontSize="16px"
+              fontSize="md"
               icon="/icon-apple.png"
               iconAlt="ícone apple store"
               link="/"
@@ -57,6 +57,7 @@ export const AppsBox = () => {
             mt="6"
             href="/"
             textDecor="underline"
+            fontSize="md"
             fontWeight="500"
             _focus={{ outline: "none" }}
           >
