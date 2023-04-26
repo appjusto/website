@@ -7,6 +7,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import Section from "./Section";
 import { NextLink } from "src/components/NextLink";
+import React from "react";
 
 interface PageProps {
   pageName?: string;
@@ -15,11 +16,15 @@ interface PageProps {
 const PageLayout: React.FC<PageProps> = ({ pageName, children }) => {
   // helpers
   const HeroShare = pageName && ["Home", "Restaurantes"].includes(pageName);
+  const titleToDisplay = React.useMemo(
+    () => `AppJusto | ${pageName}`,
+    [pageName]
+  );
   // UI
   return (
     <>
       <Head>
-        <title>AppJusto | {pageName}</title>
+        <title>{titleToDisplay}</title>
       </Head>
       <Header />
       <Main>

@@ -42,14 +42,19 @@ interface FleetPageProps {
 }
 
 export default function FleetPage({ fleet }: FleetPageProps) {
+  // helpers
+  const titleToDisplay = React.useMemo(
+    () => `AppJusto | ${fleet?.name ?? "Frotas"}`,
+    [fleet?.name]
+  );
   // UI
   return (
     <Box>
       <Head>
-        <title>AppJusto | {fleet?.name ?? "Frotas"}</title>
+        <title>{titleToDisplay}</title>
         <Seo
           metaDescription="Mais do que um app de entregas. Um movimento por relações mais justas e transparentes para restaurantes, entregadores e clientes. Faça parte desse movimento!"
-          title={`AppJusto | ${fleet?.name ?? "Frotas"}`}
+          title={titleToDisplay}
           author="@appjusto"
         />
       </Head>
