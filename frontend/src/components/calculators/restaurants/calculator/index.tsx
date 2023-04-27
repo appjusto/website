@@ -25,14 +25,7 @@ const BlockHeading = ({ children }: TextProps) => {
 
 const InputQuestion = ({ children, ...props }: TextProps) => {
   return (
-    <Text
-      mt="4"
-      fontSize="16px"
-      lineHeight="22px"
-      color="#697667"
-      textStyle="p"
-      {...props}
-    >
+    <Text fontSize="md" lineHeight="0.2rem" color="#697667" {...props}>
       {children}
     </Text>
   );
@@ -144,7 +137,7 @@ const RestaurantCalculator: React.FC = () => {
                 if (parseFloat(fee.replace(",", ".")) > 100) setFee("100");
               }}
             />
-            <InputQuestion mt="4">
+            <InputQuestion mt="6">
               Qual o seu faturamento mensal em delivery (média)?
             </InputQuestion>
             <CurrencyInput
@@ -153,7 +146,7 @@ const RestaurantCalculator: React.FC = () => {
               value={revenues}
               onChangeValue={(value) => setRevenues(value)}
             />
-            <InputQuestion mt="4">
+            <InputQuestion mt="6">
               Quantidade de pedidos mensais (média)?
             </InputQuestion>
             <Input
@@ -163,7 +156,7 @@ const RestaurantCalculator: React.FC = () => {
               value={orders}
               onChange={(ev) => setOrders(ev.target.value)}
             />
-            {/*<InputQuestion mt="4">
+            {/*<InputQuestion mt="6">
               Qual a quantidade de lojas do seu restaurante?
             </InputQuestion>
             <Input
