@@ -110,6 +110,11 @@ const Header = () => {
                 isExternal
               />
               <CustomLink
+                name="trabalho-decente"
+                link="/trabalho-decente"
+                linkLabel="Trabalho decente"
+              />
+              <CustomLink
                 name="freshdesk"
                 link="https://appjusto.freshdesk.com/support/home"
                 linkLabel="Tirar dúvidas"
@@ -153,6 +158,11 @@ const Header = () => {
               link={adminLink}
               linkLabel="Cadastrar restaurante"
               isExternal
+            />
+            <CustomLink
+              name="trabalho-decente"
+              link="/trabalho-decente"
+              linkLabel="Trabalho decente"
             />
             <CustomLink
               name="freshdesk"
