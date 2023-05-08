@@ -68,7 +68,8 @@ const MainVideo: React.FC = () => {
               lineHeight="1.38rem"
               fontWeight="500"
               textAlign="center"
-              onClick={() => setIsVideoActive(false)}
+              color="white"
+              // onClick={() => setIsVideoActive(false)}
             >
               Assista ao vídeo e entenda a nossa proposta
             </Text>
