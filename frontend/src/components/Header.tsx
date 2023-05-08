@@ -20,7 +20,7 @@ import { getAdminLink } from "src/utils";
 
 const Header = () => {
   // context
-  const { setShowAppsModal, kriaLink } = usePageContext();
+  const { setShowAppsModal } = usePageContext();
   const { isOpen, onToggle } = useDisclosure();
   const adminLink = getAdminLink();
   return (
@@ -94,25 +94,10 @@ const Header = () => {
               display={{ base: "none", lg: "block" }}
               align="center"
             >
-              <Button
-                w="124px"
-                size="lg"
-                fontSize="16px"
-                variant="primary"
-                onClick={() => setShowAppsModal(true)}
-              >
-                Faça parte
-              </Button>
               <CustomLink
-                name="admin-landing"
-                link={adminLink}
-                linkLabel="Cadastrar restaurante"
-                isExternal
-              />
-              <CustomLink
-                name="trabalho-decente"
-                link="/trabalho-decente"
-                linkLabel="Trabalho decente"
+                name="calculadora"
+                link="/calculadoras/restaurantes"
+                linkLabel="Calculadora para restaurantes"
               />
               <CustomLink
                 name="freshdesk"
@@ -121,15 +106,26 @@ const Header = () => {
                 isExternal
               />
             </HStack>
-            <CustomLinkButton
-              display={{ base: "none", md: "block" }}
-              w="260px"
-              size="lg"
-              fontSize="16px"
-              linkLabel="Acessar painel do restaurante"
-              link={`${adminLink}app`}
-              isExternal
-            />
+            <HStack>
+              <CustomLinkButton
+                display={{ base: "none", lg: "block" }}
+                w="260px"
+                size="lg"
+                fontSize="16px"
+                linkLabel="Acessar painel do restaurante"
+                link={`${adminLink}app`}
+                isExternal
+              />
+              <Button
+                display={{ base: "none", md: "block" }}
+                size="lg"
+                fontSize="16px"
+                variant="primary"
+                onClick={() => setShowAppsModal(true)}
+              >
+                Faça seu cadastro
+              </Button>
+            </HStack>
           </Flex>
           <Button
             display={{ base: "block", md: "none" }}
@@ -160,9 +156,9 @@ const Header = () => {
               isExternal
             />
             <CustomLink
-              name="trabalho-decente"
-              link="/trabalho-decente"
-              linkLabel="Trabalho decente"
+              name="calculadora-restaurantes-mob"
+              link="/calculadoras/restaurantes"
+              linkLabel="Calculadora para restaurantes"
             />
             <CustomLink
               name="freshdesk"
