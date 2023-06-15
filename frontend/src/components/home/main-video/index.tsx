@@ -9,9 +9,13 @@ const MainVideo: React.FC = () => {
   const [isVideoActive, setIsVideoActive] = React.useState(false);
   // UI
   return (
-    <Section mt={{ base: "8", lg: "4" }} id="main-video" h="auto">
+    <Section
+      mt={{ base: "8", lg: "4" }}
+      id="main-video"
+      h="auto"
+      bgColor="#2F422C"
+    >
       <Container
-        bgColor="#2F422C"
         pt={{ base: "8", lg: "16" }}
         px={{ base: "4", md: "6", lg: "100px" }}
         pb={{ base: "10", lg: "4" }}
