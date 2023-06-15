@@ -1,8 +1,7 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Image } from "@chakra-ui/react";
 import { formatCurrency } from "../../utils/index";
 import { Product, WithId } from "../../types";
 import React from "react";
-import Image from "../Image";
 import { getDownloadURLByPath } from "../../utils/businesses";
 import { useRouter } from "next/router";
 import { NextLink } from "src/components/NextLink";

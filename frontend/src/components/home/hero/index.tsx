@@ -1,5 +1,4 @@
-import { Flex, Heading, Image, Text, Button } from "@chakra-ui/react";
-//import Image from '../../Image';
+import { Flex, Heading, Image, Button } from "@chakra-ui/react";
 import Section from "../../Section";
 import Container from "../../Container";
 import { usePageContext } from "../../../context";

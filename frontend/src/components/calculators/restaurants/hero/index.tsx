@@ -42,7 +42,18 @@ const RestaurantsHero: React.FC = () => {
         </Flex>
       </Container>
       <Box position="absolute" top="0" left="0" w="full" zIndex="0">
-        <Image src="/hero-restaurants.jpg" w="full" />
+        <picture>
+          <source
+            srcSet="/hero-restaurants-mobile.jpg"
+            media="(max-width: 1024px)"
+          />
+          <source srcSet="/hero-restaurants.jpg" media="(min-width: 1024px)" />
+          <img
+            src="/hero-restaurants.jpg"
+            alt="pratos sendo servidos"
+            width="100%"
+          />
+        </picture>
       </Box>
     </Section>
   );
