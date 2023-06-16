@@ -119,6 +119,53 @@ const Section1: React.FC = () => {
             </HStack>
           </Flex>
         </Box>
+        <Box mt={{ base: "6", md: "10" }} fontSize="md" fontWeight="400">
+          <Text>
+            * 2,39km de deslocamento até a coleta + 3,9km da coleta até a
+            entrega
+          </Text>
+          <Text>
+            ** Combustível, manutenção e plano móvel, considerando 390 corridas
+            / mês
+          </Text>
+        </Box>
+        <Flex
+          mt={{ base: "24", md: "6", lg: "32" }}
+          flexDir={{ base: "column", md: "row" }}
+        >
+          <Box ml={{ md: "-12" }} display={{ base: "none", md: "initial" }}>
+            <Image
+              src="/dw/section1-img1.png"
+              alt="tela de frotas no app de entregador"
+            />
+          </Box>
+          <Box mt={{ md: "0", lg: "44" }} maxW={{ md: "360px", lg: "620px" }}>
+            <SectionTopic
+              section="REMUNERAÇÃO"
+              topic="O AppJusto é a única plataforma que os entregadores podem definir o valor do próprio trabalho"
+            />
+            <Text mt="6">
+              O AppJusto é a única plataforma de entregas onde os entregadores
+              podem formar grupos (frotas) para definir o valor do próprio
+              trabalho. No nosso entendimento, é fundamental que trabalhadores
+              autônomos possam definir o valor do próprio trabalho ao invés de
+              aceitarem valores impostos pelas plataformas.
+            </Text>
+            <Text mt="6">
+              A remuneração é o maior motivo das paralisações da categoria.{" "}
+              <strong>
+                A frota padrão do AppJusto paga exatamente o que os entregadores
+                consideram ser o justo nessas manifestações.
+              </strong>
+            </Text>
+          </Box>
+          <Box mt="6" ml="-12" display={{ base: "initial", md: "none" }}>
+            <Image
+              src="/dw/section1-img1.png"
+              alt="tela de frotas no app de entregador"
+            />
+          </Box>
+        </Flex>
       </Container>
     </Section>
   );
