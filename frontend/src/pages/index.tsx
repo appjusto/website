@@ -32,8 +32,8 @@ export default function Home() {
         <MainVideo />
         <Commitment />
         <Better />
-        <DecentWork />
         <Testimonials />
+        <DecentWork />
         <Crowdfunding />
         <Media />
         <Support />

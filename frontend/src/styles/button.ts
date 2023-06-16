@@ -31,6 +31,13 @@ export default {
       color: "black",
       _hover: { bg: "tertiaryLight" },
     },
+    white: {
+      border: "1px solid #2F422C",
+      color: "#2F422C",
+      bg: "white",
+      h: "48px",
+      _hover: { opacity: 0.8 },
+    },
     outlineWhite: {
       border: "1px solid white",
       color: "white",
