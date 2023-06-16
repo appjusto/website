@@ -16,18 +16,23 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     <Flex
       w="full"
       py="12"
-      flexDir="row"
+      flexDir={{ base: "column", md: "row" }}
       justifyContent="center"
       alignItems="center"
     >
       <Box maxW="552">
         <Image
-          src={`/dw/dw-section${1}.png`}
+          ml={{ base: "-6", lg: "0" }}
+          src={`/dw/section${1}.png`}
           alt={`section ${sectionNumber}`}
         />
       </Box>
-      <Box ml="6" maxW="420">
-        <Heading as="h3" fontSize="5xl" lineHeight="5.4rem">
+      <Box maxW="420" ml={{ base: "0", lg: "6" }}>
+        <Heading
+          as="h3"
+          fontSize={{ base: "3xl", lg: "5xl" }}
+          lineHeight="5.4rem"
+        >
           {title}
         </Heading>
         {description}

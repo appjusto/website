@@ -86,7 +86,7 @@ const DWHero: React.FC = () => {
               minW={{ base: "480px", md: "0" }}
             >
               <Image
-                src="/dw/dw-hero.png"
+                src="/dw/hero.png"
                 alt="mão erguida com punho fechado"
                 objectFit="cover"
               />
