@@ -1,19 +1,18 @@
+import { usePageContext } from "@/context";
+import { getAdminLink } from "@/utils";
 import {
-  Badge,
   Flex,
   Heading,
   Image,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay,
   Stack,
   StackProps,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalCloseButton,
-  ModalBody,
   Text,
 } from "@chakra-ui/react";
-import { getAdminLink } from "src/utils";
-import { usePageContext } from "../context";
 import CustomLinkButton from "./CustomLinkButton";
 
 interface TopicProps extends StackProps {

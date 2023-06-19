@@ -1,9 +1,9 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react";
 
-import Column from './Column'
-import NamesBox from './NamesBox'
-import RoleTitle from './RoleTitle'
-import NetworkNames from './NetworkNames'
+import Column from "./Column";
+import NamesBox from "./NamesBox";
+import NetworkNames from "./NetworkNames";
+import RoleTitle from "./RoleTitle";
 
 const founders = [
   "Pedro Saulo de Andrade",
@@ -11,8 +11,8 @@ const founders = [
   "Italo Monteiro",
   "Eduardo Araújo Jr.",
   "Daniel Lima",
-  "Fernando Fuzii"
-]
+  "Fernando Fuzii",
+];
 
 const angelInvestors = [
   "Ana Júlia Kiss",
@@ -25,18 +25,14 @@ const angelInvestors = [
   "Marcelo Romcy",
 ];
 
-const partnerCompanies = [
-  "IUGU",
-  "NoRisk",
-  "99jobs"
-]
+const partnerCompanies = ["IUGU", "NoRisk", "99jobs"];
 
 const partnerAssociations = [
   "Abrasel - Associação Brasileira de Bares e Restaurantes",
   "Coletivo Pinheiros",
   "ANR - Associação Nacional de Restaurantes",
   //"ABF - Associação Brasileira de Franchising"
-]
+];
 
 const volunteers = [
   "Kellen Ribas",
@@ -51,8 +47,8 @@ const volunteers = [
   "Tiago Barra",
   "Arthur (Malungo)",
   "Ian Guedes",
-  "Rubens Dutra"
-]
+  "Rubens Dutra",
+];
 
 const team = [
   "Ahlan Dias",
@@ -61,69 +57,55 @@ const team = [
   "Renan Costa",
   "Vitoria Ottero",
   "Welington Paulo",
-]
+];
 
 const Network: React.FC = () => {
   return (
-    <Flex
-      w="100%"
-      flexDir={["column", null,"row"]}
-      mb="64px"
-    >
+    <Flex w="100%" flexDir={["column", null, "row"]} mb="64px">
       <Column>
         <NamesBox>
           <RoleTitle text="Sócios fundadores" />
-          {
-            founders.map( name => <NetworkNames key={name} text={name} />)
-          }
+          {founders.map((name) => (
+            <NetworkNames key={name} text={name} />
+          ))}
         </NamesBox>
         <NamesBox>
           <RoleTitle text="Equipe" />
-          {
-            team.map(
-              name => <NetworkNames key={name} text={name} />
-            )
-          }
+          {team.map((name) => (
+            <NetworkNames key={name} text={name} />
+          ))}
         </NamesBox>
       </Column>
-      <Column minW={{lg: '450px'}}>
+      <Column minW={{ lg: "450px" }}>
         <NamesBox>
           <RoleTitle text="Investidores anjos" />
-          {
-            angelInvestors.map(
-              name => <NetworkNames key={name} text={name} />
-            )
-          }
+          {angelInvestors.map((name) => (
+            <NetworkNames key={name} text={name} />
+          ))}
         </NamesBox>
         <NamesBox>
           <RoleTitle text="Empresas parceiras" />
-          {
-            partnerCompanies.map(
-              name => <NetworkNames key={name} text={name} />
-            )
-          }
+          {partnerCompanies.map((name) => (
+            <NetworkNames key={name} text={name} />
+          ))}
         </NamesBox>
         <NamesBox>
           <RoleTitle text="Associações parceiras" />
-          {
-            partnerAssociations.map(
-              name => <NetworkNames key={name} text={name} />
-            )
-          }
+          {partnerAssociations.map((name) => (
+            <NetworkNames key={name} text={name} />
+          ))}
         </NamesBox>
       </Column>
       <Column>
         <NamesBox>
           <RoleTitle text="Voluntários ativos" />
-          {
-            volunteers.map(
-              name => <NetworkNames key={name} text={name} />
-            )
-          }
+          {volunteers.map((name) => (
+            <NetworkNames key={name} text={name} />
+          ))}
         </NamesBox>
       </Column>
     </Flex>
   );
-}
+};
 
 export default Network;

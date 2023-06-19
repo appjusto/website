@@ -19,9 +19,9 @@ import {
   Ordering,
   DomainBusiness,
   WithId,
-} from "../../types";
+} from "@/types";
 import { MdQueryBuilder, MdInfoOutline } from "react-icons/md";
-import { formatCEP, formatHour } from "../../utils";
+import { formatCEP, formatHour } from "@/utils";
 import * as cnpjutils from "@fnando/cnpj";
 import {
   getBusinessByCode,
@@ -34,12 +34,12 @@ import {
   getBusinessProducts,
   getDownloadURLByPath,
   getOrderedCategories,
-} from "../../utils/businesses";
-import { CategoryItem } from "../../components/Restaurant/CategoryItem";
-import MenuPageLayout from "../../components/Restaurant/MenuPageLayout";
+} from "@/utils/businesses";
+import { CategoryItem } from "@/components/Restaurant/CategoryItem";
+import MenuPageLayout from "@/components/Restaurant/MenuPageLayout";
 import { useRouter } from "next/router";
-import { ProductDetail } from "../../components/Restaurant/ProductDetail";
-import { Span } from "src/components/Span";
+import { ProductDetail } from "@/components/Restaurant/ProductDetail";
+import { Span } from "@/components/Span";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -161,7 +161,7 @@ export default function RestaurantPage({
       `Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e o entregador. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`
     );
     setSharingMsg(message);
-  }, [business?.slug]);
+  }, [business?.slug, business.name]);
   // UI
   if (query.slug.length > 1) {
     if (query.slug.length === 3 && query.slug[1] === "p") {

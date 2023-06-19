@@ -1,6 +1,6 @@
+import Container from "@/components/Container";
+import Section from "@/components/Section";
 import { Box, Flex, Image, Link, Text, keyframes } from "@chakra-ui/react";
-import Section from "../../Section";
-import Container from "../../Container";
 import React from "react";
 
 const walk = keyframes`

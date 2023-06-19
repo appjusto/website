@@ -1,13 +1,13 @@
+import { NextLink } from "@/components/NextLink";
+import { Heading, Icon, Stack, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import { Stack, Heading, Text, Link, Icon } from "@chakra-ui/react";
+import React from "react";
 import { MdFiberManualRecord as Dot } from "react-icons/md";
 import Container from "./Container";
+import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
-import Footer from "./Footer";
 import Section from "./Section";
-import { NextLink } from "src/components/NextLink";
-import React from "react";
 
 interface PageProps {
   pageName?: string;

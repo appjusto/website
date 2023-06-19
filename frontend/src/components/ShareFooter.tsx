@@ -1,9 +1,9 @@
-import { Box, Flex, HStack, Text, Icon, Center } from "@chakra-ui/react";
+import { Box, Flex, HStack, Icon, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { BiUpArrowAlt } from "react-icons/bi";
 import { Link as ScrollLink } from "react-scroll";
 import Container from "./Container";
 import ShareButton from "./ShareButton";
-import { useState, useEffect } from "react";
 
 const ShareFooter = () => {
   // state

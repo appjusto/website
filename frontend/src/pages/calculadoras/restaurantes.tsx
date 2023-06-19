@@ -1,10 +1,10 @@
-import PageLayout from "src/components/PageLayout";
-import RestaurantsHero from "src/components/calculators/restaurants/hero";
-import SharingModal from "src/components/SharingModal";
-import RestaurantCalculator from "src/components/calculators/restaurants/calculator";
+import PageLayout from "@/components/PageLayout";
+import RestaurantsHero from "@/components/calculators/restaurants/hero";
+import SharingModal from "@/components/SharingModal";
+import RestaurantCalculator from "@/components/calculators/restaurants/calculator";
 import Head from "next/head";
-import Seo from "src/components/Seo";
-import AppsModal from "src/components/AppsModal";
+import Seo from "@/components/Seo";
+import AppsModal from "@/components/AppsModal";
 
 export default function Restaurants() {
   return (

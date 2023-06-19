@@ -1,7 +1,7 @@
 import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import Seo from "../components/Seo";
-import { NextLink } from "src/components/NextLink";
+import Seo from "@/components/Seo";
+import { NextLink } from "@/components/NextLink";
 
 export default function ServerError() {
   return (

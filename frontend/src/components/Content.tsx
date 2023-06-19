@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from '@chakra-ui/react';
+import { Flex, FlexProps } from "@chakra-ui/react";
 
 const Content: React.FC<FlexProps> = (props) => {
   return (
@@ -7,7 +7,7 @@ const Content: React.FC<FlexProps> = (props) => {
       flexDir="column"
       alignItems="flex-start"
       position="relative"
-      maxW={{ md: '312px', lg: '480px', xl: '656px' }}
+      maxW={{ md: "312px", lg: "480px", xl: "656px" }}
       {...props}
     >
       {props.children}

@@ -1,5 +1,5 @@
+import { Icon, Link, LinkProps } from "@chakra-ui/react";
 import { ElementType } from "react";
-import { Link, Icon, LinkProps } from "@chakra-ui/react";
 
 interface ShareLinkProps extends LinkProps {
   link: string;

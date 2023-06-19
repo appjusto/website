@@ -5,7 +5,7 @@ export default {
       position: "relative",
       w: "100%",
       h: "600px",
-      overflow: "hidden"
+      overflow: "hidden",
     },
     imgBox: {
       as: "div",
@@ -13,7 +13,7 @@ export default {
       top: "0",
       left: "0",
       width: "100%",
-      transition: "opacity ease 1s"
-    }
-  }
-}
+      transition: "opacity ease 1s",
+    },
+  },
+};

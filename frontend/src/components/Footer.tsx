@@ -1,6 +1,6 @@
 import { Box, Flex, Icon, LayoutProps, Text } from "@chakra-ui/react";
-import { MdMailOutline } from "react-icons/md";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { MdMailOutline } from "react-icons/md";
 import Container from "./Container";
 import Link from "./CustomLink";
 import ShareFooter from "./ShareFooter";

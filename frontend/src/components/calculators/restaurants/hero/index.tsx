@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
-import Section from "src/components/Section";
-import Container from "src/components/Container";
+import Container from "@/components/Container";
+import Section from "@/components/Section";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 const RestaurantsHero: React.FC = () => {
   return (

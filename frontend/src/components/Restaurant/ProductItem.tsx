@@ -1,10 +1,10 @@
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
-import { formatCurrency } from "../../utils/index";
-import { Product, WithId } from "../../types";
-import React from "react";
-import { getDownloadURLByPath } from "../../utils/businesses";
+import { NextLink } from "@/components/NextLink";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { NextLink } from "src/components/NextLink";
+import React from "react";
+import { Product, WithId } from "../../types";
+import { getDownloadURLByPath } from "../../utils/businesses";
+import { formatCurrency } from "../../utils/index";
 
 interface ProductItemProps {
   businessId: string;
@@ -30,7 +30,7 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
       `businesses/${businessId}/products/${product.id}_288x288.jpg`,
       setImageUrl
     );
-  }, [businessId, product?.id]);
+  }, [businessId, product?.id, product?.imageExists]);
   // UI
   return (
     <NextLink href={productLink}>

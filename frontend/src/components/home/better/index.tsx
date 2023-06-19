@@ -1,13 +1,13 @@
+import { NextLink } from "@/components/NextLink";
 import { Box, Stack, Text } from "@chakra-ui/react";
-import Section from "../../Section";
+import { getAdminLink } from "src/utils";
+import { usePageContext } from "../../../context";
 import Container from "../../Container";
+import CustomLinkButton from "../../CustomLinkButton";
+import Section from "../../Section";
 import SectionHeading from "../../SectionHeading";
 import StackholderBox from "./StackholderBox";
 import Topic from "./Topic";
-import { usePageContext } from "../../../context";
-import CustomLinkButton from "../../CustomLinkButton";
-import { NextLink } from "src/components/NextLink";
-import { getAdminLink } from "src/utils";
 
 const Better: React.FC = () => {
   // context

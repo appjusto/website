@@ -1,9 +1,9 @@
-import { Box, Image, Stack, Text } from '@chakra-ui/react'
-import Section from "../../Section";
-import Container from '../../Container';
-import SectionHeading from '../../SectionHeading';
-import CustomLinkButton from '../../CustomLinkButton';
-import { usePageContext } from '../../../context';
+import Container from "@/components/Container";
+import CustomLinkButton from "@/components/CustomLinkButton";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import { usePageContext } from "@/context";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 
 const Invest: React.FC = () => {
   // context
@@ -11,23 +11,30 @@ const Invest: React.FC = () => {
   // UI
   return (
     <Section mt="4" id="invest" h="auto">
-      <Container pt={{base: '8', lg: '16'}} pb={{base: '10', lg: '2'}} >
-        <Stack direction={{base: 'column', md: 'row'}} spacing={8} h="100%">
-          <Box mt={{base: '8' , lg: '0'}} w="100%">
-            <Box maxW={{lg: '648px'}}>
+      <Container pt={{ base: "8", lg: "16" }} pb={{ base: "10", lg: "2" }}>
+        <Stack direction={{ base: "column", md: "row" }} spacing={8} h="100%">
+          <Box mt={{ base: "8", lg: "0" }} w="100%">
+            <Box maxW={{ lg: "648px" }}>
               <Box>
-                <Image src="/icon-spark-yellow.svg" w="48px" h="48px" alt="ilustração spark amarela"/>
+                <Image
+                  src="/icon-spark-yellow.svg"
+                  w="48px"
+                  h="48px"
+                  alt="ilustração spark amarela"
+                />
               </Box>
               <SectionHeading mt="8" highlighted>
                 100% do investimento será reinvestido na empresa
               </SectionHeading>
               <Text mt="10" textStyle="p">
-                Nosso objetivo com o investimento será destinado ao fortalecimento da rede, cadastro de 3.000 restaurantes,
-                5.000 entregadores, e alcançar 800.000 transações mensais nos próximos 14 meses.
+                Nosso objetivo com o investimento será destinado ao
+                fortalecimento da rede, cadastro de 3.000 restaurantes, 5.000
+                entregadores, e alcançar 800.000 transações mensais nos próximos
+                14 meses.
               </Text>
               <CustomLinkButton
                 mt="10"
-                maxW={{ lg: '328px'}}
+                maxW={{ lg: "328px" }}
                 px="6"
                 h="64px"
                 fontSize="20px"
@@ -38,15 +45,20 @@ const Invest: React.FC = () => {
               />
             </Box>
           </Box>
-          <Box w="100%" pl={{lg: '8'}}>
+          <Box w="100%" pl={{ lg: "8" }}>
             <Box>
-              <Image src="/invest-graphic@2x.jpeg" w="100%" maxW="674px" alt="gráfico de distribuição do investimento" />
+              <Image
+                src="/invest-graphic@2x.jpeg"
+                w="100%"
+                maxW="674px"
+                alt="gráfico de distribuição do investimento"
+              />
             </Box>
           </Box>
         </Stack>
       </Container>
     </Section>
   );
-}
+};
 
 export default Invest;

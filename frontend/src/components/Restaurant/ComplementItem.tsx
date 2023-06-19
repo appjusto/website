@@ -1,7 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { formatCurrency } from "../../utils/index";
 import { Complement, WithId } from "../../types";
-import React from "react";
+import { formatCurrency } from "../../utils/index";
 
 interface ComplementItemProps {
   complement: WithId<Complement>;

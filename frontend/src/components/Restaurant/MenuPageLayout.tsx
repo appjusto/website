@@ -1,12 +1,12 @@
 import { Box } from "@chakra-ui/react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import React from "react";
 import Container from "../Container";
 import Footer from "../Footer";
-import React from "react";
 import Seo from "../Seo";
-import { RestaurantAppsBox } from "./RestaurantAppsBox";
 import { Mode, OrderButton } from "./OrderButton";
-import { useRouter } from "next/router";
+import { RestaurantAppsBox } from "./RestaurantAppsBox";
 
 interface MenuPageLayoutProps {
   businessName?: string;

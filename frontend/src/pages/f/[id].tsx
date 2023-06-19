@@ -1,17 +1,17 @@
 import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import Container from "../../components/Container";
-import CustomLinkButton from "../../components/CustomLinkButton";
-import { AppsBox } from "../../components/Fleet/AppsBox";
-import { FleetFeature } from "../../components/Fleet/FleetFeature";
-import Footer from "../../components/Footer";
-import Topic from "../../components/home/better/Topic";
+import Container from "@/components/Container";
+import CustomLinkButton from "@/components/CustomLinkButton";
+import { AppsBox } from "@/components/Fleet/AppsBox";
+import { FleetFeature } from "@/components/Fleet/FleetFeature";
+import Footer from "@/components/Footer";
+import Topic from "@/components/home/better/Topic";
 import React from "react";
-import { formatCurrency } from "../../utils";
+import { formatCurrency } from "@/utils";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Seo from "../../components/Seo";
-import { getFleet } from "../../utils/businesses";
-import { NextLink } from "src/components/NextLink";
+import Seo from "@/components/Seo";
+import { getFleet } from "@/utils/businesses";
+import { NextLink } from "@/components/NextLink";
 import { Fleet } from "src/types";
 
 export const getStaticPaths: GetStaticPaths = async () => {

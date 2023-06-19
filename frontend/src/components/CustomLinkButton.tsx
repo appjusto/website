@@ -1,5 +1,5 @@
-import { Button, ButtonProps, Link, Image } from "@chakra-ui/react";
-import { NextLink } from "src/components/NextLink";
+import { NextLink } from "@/components/NextLink";
+import { Button, ButtonProps, Image, Link } from "@chakra-ui/react";
 
 interface CustomLinkButtonProps extends ButtonProps {
   link: string;

@@ -1,3 +1,7 @@
+import { ComplementGroup, Product, WithId } from "@/types";
+import { getDownloadURLByPath } from "@/utils/businesses";
+import { formatCurrency } from "@/utils/index";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -8,12 +12,8 @@ import {
   Spinner,
   Text,
 } from "@chakra-ui/react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
-import { formatCurrency } from "../../utils/index";
-import { ComplementGroup, Product, WithId } from "../../types";
-import React from "react";
-import { getDownloadURLByPath } from "../../utils/businesses";
 import { useRouter } from "next/router";
+import React from "react";
 import { ComplementsGroupItem } from "./ComplementsGroupItem";
 
 interface ProductDetailProps {
@@ -47,7 +47,7 @@ export const ProductDetail = ({
     if (!productId) return;
     const data = getProductById(productId);
     setProduct(data);
-  }, [productId]);
+  }, [productId, getProductById]);
   React.useEffect(() => {
     if (!product?.complementsGroupsIds || !orderedGroups) return;
     setGroups(

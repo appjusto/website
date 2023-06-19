@@ -1,9 +1,9 @@
-import { SmallCloseIcon, WarningIcon } from '@chakra-ui/icons';
-import { Box, HStack, Text, useToast } from '@chakra-ui/react';
+import { SmallCloseIcon, WarningIcon } from "@chakra-ui/icons";
+import { Box, HStack, Text, useToast } from "@chakra-ui/react";
 
 type Message = { title: string; description?: string };
 interface CustomToastProps {
-  type: 'success' | 'warning' | 'error';
+  type: "success" | "warning" | "error";
   message?: Message;
 }
 
@@ -11,9 +11,9 @@ export const CustomToast = ({ type, message }: CustomToastProps) => {
   // contex
   const toast = useToast();
   // helpers
-  let bg = '#48BB78';
-  if (type === 'warning') bg = '#ED8936';
-  if (type === 'error') bg = '#E53E3E';
+  let bg = "#48BB78";
+  if (type === "warning") bg = "#ED8936";
+  if (type === "error") bg = "#E53E3E";
   // UI
   return (
     <Box
@@ -22,8 +22,8 @@ export const CustomToast = ({ type, message }: CustomToastProps) => {
       p="4"
       bg={bg}
       borderRadius="lg"
-      w={{ base: '100%', md: 'auto' }}
-      maxW={{ base: '100vw', md: 'auto' }}
+      w={{ base: "100%", md: "auto" }}
+      maxW={{ base: "100vw", md: "auto" }}
     >
       <SmallCloseIcon
         pos="absolute"
@@ -35,8 +35,10 @@ export const CustomToast = ({ type, message }: CustomToastProps) => {
       <HStack spacing={4} pr="6">
         <WarningIcon />
         <Box>
-          <Text>{message?.title ?? 'Não foi possível acessar o servidor'}</Text>
-          {message?.description && <Text fontSize="xs">{message.description}</Text>}
+          <Text>{message?.title ?? "Não foi possível acessar o servidor"}</Text>
+          {message?.description && (
+            <Text fontSize="xs">{message.description}</Text>
+          )}
         </Box>
       </HStack>
     </Box>

@@ -1,6 +1,6 @@
-import { Flex, FlexProps } from '@chakra-ui/react'
+import { Flex, FlexProps } from "@chakra-ui/react";
 
-const Column: React.FC<FlexProps> = ({children, ...props}) => {
+const Column: React.FC<FlexProps> = ({ children, ...props }) => {
   return (
     <Flex
       w="100%"
@@ -12,6 +12,6 @@ const Column: React.FC<FlexProps> = ({children, ...props}) => {
       {children}
     </Flex>
   );
-}
+};
 
-export default Column
+export default Column;

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Seo from "../components/Seo";
+import Seo from "@/components/Seo";
 import {
   Box,
   Button,
@@ -9,7 +9,7 @@ import {
   Link,
   VStack,
 } from "@chakra-ui/react";
-import HeaderLinks from "../components/HeaderLinks";
+import HeaderLinks from "@/components/HeaderLinks";
 import { usePageContext } from "../context";
 import { getAdminLink } from "src/utils";
 

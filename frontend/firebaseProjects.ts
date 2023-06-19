@@ -1,7 +1,7 @@
 //import * as admin from 'firebase-admin';
 import { initializeApp, FirebaseApp } from "firebase/app";
-import { getFirestore, Firestore } from 'firebase/firestore'
-import { getStorage, FirebaseStorage } from 'firebase/storage'
+import { getFirestore, Firestore } from "firebase/firestore";
+import { getStorage, FirebaseStorage } from "firebase/storage";
 
 const clientCredentials = {
   apiKey: process.env.EXTERNAL_FIREBASE_API_KEY,
@@ -21,7 +21,7 @@ interface FirebaseClientResult {
 }
 
 export const getFirebaseProjectsClient = (): FirebaseClientResult => {
-  const firebase = initializeApp(clientCredentials, 'projects');
+  const firebase = initializeApp(clientCredentials, "projects");
   const db = getFirestore(firebase);
   const storage = getStorage(firebase);
   return { firebase, db, storage };

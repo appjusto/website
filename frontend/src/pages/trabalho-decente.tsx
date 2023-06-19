@@ -1,21 +1,8 @@
-import PageLayout from "../components/PageLayout";
+import PageLayout from "@/components/PageLayout";
 import Head from "next/head";
-import Seo from "../components/Seo";
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Image,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
-import { Link as ScrollLink } from "react-scroll";
-import Section from "src/components/Section";
-import Container from "src/components/Container";
-import { t } from "src/utils/i18n";
-import DWHero from "src/components/decentwork/hero";
-import Section1 from "src/components/decentwork/section1";
+import Seo from "@/components/Seo";
+import DWHero from "@/components/decentwork/hero";
+import Section1 from "@/components/decentwork/section1";
 
 export default function DecentWorkPage() {
   return (

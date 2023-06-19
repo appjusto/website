@@ -1,9 +1,9 @@
-import { Flex, Heading, Image, Button } from "@chakra-ui/react";
-import Section from "../../Section";
-import Container from "../../Container";
-import { usePageContext } from "../../../context";
-import * as fbq from "../../../utils/fpixel";
-import { Span } from "src/components/Span";
+import Container from "@/components/Container";
+import Section from "@/components/Section";
+import { Span } from "@/components/Span";
+import { usePageContext } from "@/context";
+import * as fbq from "@/utils/fpixel";
+import { Button, Flex, Heading, Image } from "@chakra-ui/react";
 
 const Hero: React.FC = () => {
   // context

@@ -1,6 +1,6 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react";
 
-const NamesBox: React.FC = ({children}) => {
+const NamesBox: React.FC = ({ children }) => {
   return (
     <Flex
       w="100%"
@@ -10,8 +10,8 @@ const NamesBox: React.FC = ({children}) => {
       mb="16px"
     >
       {children}
-    </Flex> 
+    </Flex>
   );
-}
+};
 
-export default NamesBox
+export default NamesBox;

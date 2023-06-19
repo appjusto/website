@@ -1,8 +1,8 @@
-import { Flex, Image, Link, HStack, Text } from "@chakra-ui/react";
-import Container from "../../components/Container";
-import CustomLinkButton from "../../components/CustomLinkButton";
-import Section from "../../components/Section";
-import { NextLink } from "src/components/NextLink";
+import Container from "@/components/Container";
+import CustomLinkButton from "@/components/CustomLinkButton";
+import { NextLink } from "@/components/NextLink";
+import Section from "@/components/Section";
+import { Flex, HStack, Image, Text } from "@chakra-ui/react";
 
 export const AppsBox = () => {
   return (

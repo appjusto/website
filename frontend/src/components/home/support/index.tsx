@@ -1,3 +1,7 @@
+import Container from "@/components/Container";
+import { NextLink } from "@/components/NextLink";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
 import {
   Center,
   CenterProps,
@@ -6,11 +10,7 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import Section from "../../Section";
-import Container from "../../Container";
-import SectionHeading from "../../SectionHeading";
 import React from "react";
-import { NextLink } from "src/components/NextLink";
 
 const CustomCenter: React.FC<CenterProps> = (props) => {
   return (

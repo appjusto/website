@@ -1,9 +1,8 @@
+import { NextLink } from "@/components/NextLink";
 import { Box, Flex, FlexProps, Image, Text } from "@chakra-ui/react";
 import Container from "../Container";
 import CustomLinkButton from "../CustomLinkButton";
 import Section from "../Section";
-import React from "react";
-import { NextLink } from "src/components/NextLink";
 
 export const RestaurantAppsBox = (props: FlexProps) => {
   // helpers

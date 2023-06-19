@@ -1,3 +1,4 @@
+import { NotificationPreferences } from "@appjusto/types";
 import {
   Box,
   Button,
@@ -11,10 +12,9 @@ import {
   useToast,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
-import { NotificationPreferences } from "@appjusto/types";
-import { useRouter } from "next/router";
 import axios from "axios";
+import { useRouter } from "next/router";
+import React from "react";
 import { CustomToast } from "../CustomToast";
 
 const initialState = [

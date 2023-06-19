@@ -1,7 +1,7 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+import React from "react";
+import { useRouter } from "next/router";
 
-const disabedPaths = ['/f/[id]', '/r/[...slug]'];
+const disabedPaths = ["/f/[id]", "/r/[...slug]"];
 
 export const useFreshDesk = () => {
   // context
@@ -10,23 +10,29 @@ export const useFreshDesk = () => {
   const initWidget = React.useCallback(() => {
     try {
       //@ts-ignore
-      window.fwSettings={
-        'widget_id': 67000002819
-        };
+      window.fwSettings = {
+        widget_id: 67000002819,
+      };
       //@ts-ignore
-      if("function" != typeof window.FreshworksWidget){
-        var n = function() {
+      if ("function" != typeof window.FreshworksWidget) {
+        var n = function () {
           //@ts-ignore
-          n.q.push(arguments)
+          n.q.push(arguments);
         };
         //@ts-ignore
-        n.q = [],
+        (n.q = []),
+          //@ts-ignore
+          (window.FreshworksWidget = n);
         //@ts-ignore
-        window.FreshworksWidget = n
+        window.FreshworksWidget("prefill", "ticketForm", {
+          subject: "Landing page",
+        });
         //@ts-ignore
-        window.FreshworksWidget('prefill', 'ticketForm', { subject: 'Landing page' });
-        //@ts-ignore
-        window.FreshworksWidget('hide', 'ticketForm', ['subject','product_id','']);
+        window.FreshworksWidget("hide", "ticketForm", [
+          "subject",
+          "product_id",
+          "",
+        ]);
       }
     } catch (error) {
       console.error(error);
@@ -35,11 +41,11 @@ export const useFreshDesk = () => {
   // side effects
   React.useEffect(() => {
     if (disabedPaths.includes(pathname)) return;
-    const script = document.createElement('script');
-    script.src = 'https://widget.freshworks.com/widgets/67000002819.js';
-    script.type = 'text/javascript';
+    const script = document.createElement("script");
+    script.src = "https://widget.freshworks.com/widgets/67000002819.js";
+    script.type = "text/javascript";
     document.body.appendChild(script);
-  }, [pathname])
+  }, [pathname]);
   React.useEffect(() => {
     if (disabedPaths.includes(pathname)) return;
     initWidget();

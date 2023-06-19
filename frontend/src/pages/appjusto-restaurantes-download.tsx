@@ -11,13 +11,13 @@ import {
   List,
 } from "@chakra-ui/react";
 import Head from "next/head";
-import Seo from "../components/Seo";
-import CustomLinkButton from "../components/CustomLinkButton";
+import Seo from "@/components/Seo";
+import CustomLinkButton from "@/components/CustomLinkButton";
 import React from "react";
-import { getDownloadURLByPath } from "../utils/businesses";
 import { MdCheck, MdInfoOutline } from "react-icons/md";
-import { NextLink } from "src/components/NextLink";
-import { Span } from "src/components/Span";
+import { getDownloadURLByPath } from "@/utils/businesses";
+import { NextLink } from "@/components/NextLink";
+import { Span } from "@/components/Span";
 
 export default function AdminDesktopDownloadPage() {
   // state

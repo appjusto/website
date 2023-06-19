@@ -1,6 +1,6 @@
 import { Box, Icon, Link } from "@chakra-ui/react";
-import { FaWhatsapp } from "react-icons/fa";
 import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export type Mode = "whatsapp" | "in-store";
 

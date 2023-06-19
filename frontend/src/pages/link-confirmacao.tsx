@@ -1,8 +1,8 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import Footer from "../components/Footer";
-import Seo from "../components/Seo";
-import { NextLink } from "src/components/NextLink";
+import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
+import { NextLink } from "@/components/NextLink";
 
 export default function LinkConfirmation() {
   return (

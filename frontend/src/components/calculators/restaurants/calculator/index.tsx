@@ -1,19 +1,19 @@
+import Container from "@/components/Container";
+import { CurrencyInput } from "@/components/CurrencyInput";
+import CustomLinkButton from "@/components/CustomLinkButton";
+import Input from "@/components/CustomNumberInput";
+import Section from "@/components/Section";
+import { formattedRawValue, getAdminLink } from "@/utils";
 import {
   Box,
   Flex,
+  HStack,
   Image,
+  Link,
   Text,
   TextProps,
-  HStack,
-  Link,
 } from "@chakra-ui/react";
-import Container from "src/components/Container";
-import Section from "src/components/Section";
-import Input from "src/components/CustomNumberInput";
-import { useState, useEffect } from "react";
-import { CurrencyInput } from "src/components/CurrencyInput";
-import { formattedRawValue, getAdminLink } from "src/components/../utils";
-import CustomLinkButton from "src/components/CustomLinkButton";
+import { useEffect, useState } from "react";
 
 const BlockHeading = ({ children }: TextProps) => {
   return (

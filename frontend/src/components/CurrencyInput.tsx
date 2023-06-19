@@ -1,6 +1,12 @@
-import { FormControl, FormLabel, Input, InputProps, useMultiStyleConfig } from '@chakra-ui/react';
-import React from 'react';
-import { formattedRawValue, getRawValue } from '../utils';
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  InputProps,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+import React from "react";
+import { formattedRawValue, getRawValue } from "../utils";
 
 interface CurrencyInputProps extends InputProps {
   id: string;
@@ -10,11 +16,14 @@ interface CurrencyInputProps extends InputProps {
   maxLength?: number;
 }
 
-export const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputProps>(
+export const CurrencyInput = React.forwardRef<
+  HTMLInputElement,
+  CurrencyInputProps
+>(
   (
     {
       id,
-      mt = '16px',
+      mt = "16px",
       mb,
       mr,
       ml,
@@ -30,7 +39,7 @@ export const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputPro
     //props
     const controlProps = { mt, mb, mr, ml, flex };
     // state
-    const [priceText, setPriceText] = React.useState('');
+    const [priceText, setPriceText] = React.useState("");
     // side effects
     React.useEffect(() => {
       // keep internal state in sync with value received
@@ -50,7 +59,7 @@ export const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputPro
       onValueChange(intValue);
     };
     // UI
-    const styles = useMultiStyleConfig('Input', {});
+    const styles = useMultiStyleConfig("Input", {});
     return (
       <FormControl id={id} sx={styles.control} {...controlProps}>
         {label && <FormLabel sx={styles.label}>{label}</FormLabel>}

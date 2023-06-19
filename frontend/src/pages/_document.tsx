@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import * as fbq from "../utils/fpixel";
+import * as fbq from "@/utils/fpixel";
 
 export default class MyDocument extends Document {
   // Para aplicações globais no header

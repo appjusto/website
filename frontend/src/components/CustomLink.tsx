@@ -1,5 +1,5 @@
+import { NextLink } from "@/components/NextLink";
 import { Link, LinkProps } from "@chakra-ui/react";
-import { NextLink } from "src/components/NextLink";
 
 interface CustomLinkProps extends LinkProps {
   name: string;

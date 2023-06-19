@@ -14,7 +14,7 @@ import {
 import Container from "./Container";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 import CustomLink from "./CustomLink";
-import { NextLink } from "src/components/NextLink";
+import { NextLink } from "@/components/NextLink";
 
 const HeaderLinks = () => {
   const { isOpen, onToggle } = useDisclosure();

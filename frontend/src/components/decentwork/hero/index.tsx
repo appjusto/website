@@ -1,17 +1,8 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Heading,
-  Image,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
-import Section from "src/components/Section";
-import Container from "src/components/Container";
-import { t } from "src/utils/i18n";
+import Container from "@/components/Container";
+import Section from "@/components/Section";
+import { Box, Center, Flex, Heading, Image, Wrap } from "@chakra-ui/react";
 import React from "react";
+import { t } from "src/utils/i18n";
 import { SectionButton } from "./SectionButton";
 
 const DWHero: React.FC = () => {

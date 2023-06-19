@@ -9,8 +9,8 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import Section from "src/components/Section";
-import Container from "src/components/Container";
+import Section from "@/components/Section";
+import Container from "@/components/Container";
 import React from "react";
 import { SectionHeader } from "../SectionHeader";
 import { SectionTopic } from "../SectionTopic";

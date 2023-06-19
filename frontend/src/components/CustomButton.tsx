@@ -1,5 +1,5 @@
-import { Button, ButtonProps } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
+import { Button, ButtonProps } from "@chakra-ui/react";
 
 import { useStyleConfig } from "@chakra-ui/react";
 

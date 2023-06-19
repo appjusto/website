@@ -1,9 +1,9 @@
-import { Box, Button, Center, Image, HStack } from "@chakra-ui/react";
-import Section from "../../Section";
-import Container from "../../Container";
-import SectionHeading from "../../SectionHeading";
-import MediaBox from "./MediaBox";
+import Container from "@/components/Container";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import { Button, Center, HStack, Image } from "@chakra-ui/react";
 import React from "react";
+import MediaBox from "./MediaBox";
 
 const Media: React.FC = () => {
   // state
@@ -34,7 +34,7 @@ const Media: React.FC = () => {
     getSliderWidth();
     window.addEventListener("resize", () => getSliderWidth);
     return () => window.removeEventListener("resize", getSliderWidth);
-  }, [sliderRef.current]);
+  }, [sliderRef]);
   // UI
   return (
     <Section mt="4" id="media" h="auto">

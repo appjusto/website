@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Image, Text, Stack } from "@chakra-ui/react";
-import Section from "../../Section";
-import Container from "../../Container";
-import SectionHeading from "../../SectionHeading";
-import CustomLinkButton from "../../CustomLinkButton";
+import Container from "@/components/Container";
+import CustomLinkButton from "@/components/CustomLinkButton";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 
 const DecentWork: React.FC = () => {
   // UI

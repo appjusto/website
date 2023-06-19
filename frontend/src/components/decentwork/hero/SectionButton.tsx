@@ -1,6 +1,6 @@
 import { Button, WrapItem } from "@chakra-ui/react";
-import { Link as ScrollLink } from "react-scroll";
 import React from "react";
+import { Link as ScrollLink } from "react-scroll";
 
 interface SectionButtonProps {
   to: string;

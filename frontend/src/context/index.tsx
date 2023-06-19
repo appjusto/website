@@ -1,7 +1,7 @@
 import React from "react";
 import { Analytics } from "firebase/app/dist/analytics";
 import getFirebaseClient from "../../firebaseApp";
-import * as fbq from "../utils/fpixel";
+import * as fbq from "@/utils/fpixel";
 
 type VideoModalConfig = { isOpen: boolean; videoId?: string; title?: string };
 

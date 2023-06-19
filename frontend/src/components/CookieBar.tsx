@@ -1,7 +1,6 @@
+import { usePageContext } from "@/context";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import { usePageContext } from "../context";
 import Container from "./Container";
-import React from "react";
 import { Span } from "./Span";
 
 export const CookieBar = () => {
@@ -15,7 +14,7 @@ export const CookieBar = () => {
       bottom="0"
       left="0"
       w="100%"
-      pr={{ md: "140px", "2xl": "0" }}
+      pr={{ "md": "140px", "2xl": "0" }}
       bgColor="#FFE493"
       zIndex="9999"
     >

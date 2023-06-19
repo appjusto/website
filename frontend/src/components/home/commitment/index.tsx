@@ -1,7 +1,7 @@
-import { Box, Stack, Text, Image } from "@chakra-ui/react";
-import Section from "../../Section";
-import Container from "../../Container";
-import SectionHeading from "../../SectionHeading";
+import Container from "@/components/Container";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import Item from "./Item";
 
 const Commitment: React.FC = () => {

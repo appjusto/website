@@ -1,8 +1,8 @@
 import Head from "next/head";
-import AppsModal from "../components/AppsModal";
-import Network from '../components/network';
-import PageLayout from '../components/PageLayout';
-import Seo from '../components/Seo';
+import AppsModal from "@/components/AppsModal";
+import Network from "@/components/network";
+import PageLayout from "@/components/PageLayout";
+import Seo from "@/components/Seo";
 
 export default function Net() {
   return (
@@ -19,5 +19,5 @@ export default function Net() {
         <AppsModal />
       </PageLayout>
     </>
-  )
+  );
 }
