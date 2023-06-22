@@ -1,12 +1,12 @@
 import { extendTheme } from "@chakra-ui/react";
 import { Barlow } from "next/font/google";
-import { colors } from "./colors";
-import Select from "./select";
-import Input from "./input";
 import Button from "./button";
-import Text from "./text";
 import Carousel from "./carousel";
 import Checkbox from "./checkbox";
+import { colors } from "./colors";
+import Input from "./input";
+import Select from "./select";
+import Text from "./text";
 
 export const barlow = Barlow({
   weight: ["500", "700"],
