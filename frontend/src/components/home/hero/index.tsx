@@ -84,7 +84,8 @@ const Hero: React.FC = () => {
       >
         <Image
           src="/decorative-lines-yellow.svg"
-          w={{ md: "360px", lg: "560px" }}
+          w="100%"
+          maxW="560px"
           alt="ilustração de linha amarela"
         />
       </Flex>
