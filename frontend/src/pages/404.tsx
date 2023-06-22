@@ -1,7 +1,7 @@
+import Seo from "@/components/Seo";
+import { Link } from "@chakra-ui/next-js";
 import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import Seo from "@/components/Seo";
-import { NextLink } from "@/components/NextLink";
 
 export default function PageNotFound() {
   return (
@@ -21,14 +21,14 @@ export default function PageNotFound() {
           <Text mt="6" fontSize="2xl" fontWeight="700" lineHeight="1.5rem">
             Página não encontrada =/
           </Text>
-          <NextLink
+          <Link
             mt="6"
             href="/"
             textDecor="underline"
             _focus={{ outline: "none" }}
           >
             Voltar para página inicial
-          </NextLink>
+          </Link>
         </Flex>
       </Center>
     </>

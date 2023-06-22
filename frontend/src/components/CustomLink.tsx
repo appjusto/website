@@ -1,16 +1,15 @@
-import { NextLink } from "@/components/NextLink";
-import { Link, LinkProps } from "@chakra-ui/react";
+// import { Link, LinkProps } from "@chakra-ui/react";
+import { Link, LinkProps } from "@chakra-ui/next-js";
 
 interface CustomLinkProps extends LinkProps {
   name: string;
-  link: string;
   linkLabel?: string;
   isUnderline?: boolean;
+  isExternal?: boolean;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
   name,
-  link,
   linkLabel,
   isUnderline,
   isExternal,
@@ -19,23 +18,22 @@ const CustomLink: React.FC<CustomLinkProps> = ({
 }) => {
   if (!isExternal) {
     return (
-      <NextLink
-        href={link}
+      <Link
         textDecoration={isUnderline ? "underline" : "none"}
         _focus={{ outline: "none" }}
         {...props}
       >
         {linkLabel}
-      </NextLink>
+      </Link>
     );
   }
   return (
     <Link
-      href={link}
       textDecoration={isUnderline ? "underline" : "none"}
       _focus={{ outline: "none" }}
       {...props}
-      isExternal
+      target="_blank"
+      // isExternal
     >
       {linkLabel ? linkLabel : children}
     </Link>

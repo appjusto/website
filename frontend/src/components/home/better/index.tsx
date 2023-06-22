@@ -1,4 +1,4 @@
-import { NextLink } from "@/components/NextLink";
+import { Link } from "@chakra-ui/next-js";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { getAdminLink } from "src/utils";
 import { usePageContext } from "../../../context";
@@ -54,7 +54,7 @@ const Better: React.FC = () => {
           >
             <Box>
               <Topic label="Comissão de 5% no modelo com operação logística + 2,42% da operadora financeira.">
-                <NextLink
+                <Link
                   href="/calculadoras/restaurantes"
                   textDecor="underline"
                   fontWeight="700"
@@ -63,7 +63,7 @@ const Better: React.FC = () => {
                   <Text as="mark" bgColor="#FFE493">
                     Calcule seus ganhos agora mesmo!
                   </Text>
-                </NextLink>
+                </Link>
               </Topic>
               <Topic label="Exibição igualitária do seu restaurante por ordem de distância do cliente" />
               <Topic label="Transparência em todas as regras" />

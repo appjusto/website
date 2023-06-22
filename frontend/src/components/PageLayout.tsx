@@ -1,4 +1,4 @@
-import { NextLink } from "@/components/NextLink";
+import { Link } from "@chakra-ui/next-js";
 import { Heading, Icon, Stack, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import React from "react";
@@ -47,13 +47,13 @@ const PageLayout: React.FC<PageProps> = ({ pageName, children }) => {
                 fontSize="16px"
                 lineHeight="22px"
               >
-                <NextLink
+                <Link
                   href="/"
                   _hover={{ textDecoration: "underline" }}
                   _focus={{ outline: "none " }}
                 >
                   Home
-                </NextLink>
+                </Link>
                 <Text>
                   <Icon as={Dot} w="6px" h="6px" />
                 </Text>

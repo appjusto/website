@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import CustomLinkButton from "@/components/CustomLinkButton";
-import { NextLink } from "@/components/NextLink";
 import Section from "@/components/Section";
+import { Link } from "@chakra-ui/next-js";
 import { Flex, HStack, Image, Text } from "@chakra-ui/react";
 
 export const AppsBox = () => {
@@ -22,9 +22,9 @@ export const AppsBox = () => {
           p="8"
           color="black"
         >
-          <NextLink href="/" _focus={{ outline: "none" }} w="94px">
+          <Link href="/" _focus={{ outline: "none" }} w="94px">
             <Image src="/logo-pages.svg" alt="Logo AppJusto" width="120px" />
-          </NextLink>
+          </Link>
           <Text mt="8" fontSize="2xl" lineHeight="1.6rem" fontWeight="700">
             Baixe o app e comece a fazer suas entregas!
           </Text>
@@ -53,7 +53,7 @@ export const AppsBox = () => {
               isDisabled
             />
           </HStack>
-          <NextLink
+          <Link
             mt="6"
             href="/"
             textDecor="underline"
@@ -62,7 +62,7 @@ export const AppsBox = () => {
             _focus={{ outline: "none" }}
           >
             Saiba mais sobre o AppJusto
-          </NextLink>
+          </Link>
         </Flex>
       </Container>
     </Section>

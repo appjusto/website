@@ -55,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({
               >
                 <Link
                   name="go_to_linkedin_footer"
-                  link="https://www.linkedin.com/company/appjusto/"
+                  href="https://www.linkedin.com/company/appjusto/"
                   isExternal
                   mr="28px"
                   color="primary"
@@ -66,7 +66,7 @@ const Footer: React.FC<FooterProps> = ({
                 </Link>
                 <Link
                   name="go_to_facebook_footer"
-                  link="https://www.facebook.com/appjusto"
+                  href="https://www.facebook.com/appjusto"
                   isExternal
                   mr="28px"
                   color="primary"
@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({
                 </Link>
                 <Link
                   name="go_to_instagram_footer"
-                  link="https://www.instagram.com/appjusto/"
+                  href="https://www.instagram.com/appjusto/"
                   isExternal
                   mr="28px"
                   color="primary"
@@ -104,7 +104,7 @@ const Footer: React.FC<FooterProps> = ({
                 />
                 <Link
                   name="contact_footer"
-                  link="mailto:contato@appjusto.com.br"
+                  href="mailto:contato@appjusto.com.br"
                   linkLabel="contato@appjusto.com.br"
                   isExternal
                   fontSize="md"
@@ -121,7 +121,7 @@ const Footer: React.FC<FooterProps> = ({
               >
                 <Link
                   name="go_to_linkedin_footer"
-                  link="https://www.linkedin.com/company/appjusto/"
+                  href="https://www.linkedin.com/company/appjusto/"
                   isExternal
                   mr="28px"
                   color="primary"
@@ -132,7 +132,7 @@ const Footer: React.FC<FooterProps> = ({
                 </Link>
                 <Link
                   name="go_to_facebook_footer"
-                  link="https://www.facebook.com/appjusto"
+                  href="https://www.facebook.com/appjusto"
                   isExternal
                   mr="28px"
                   color="primary"
@@ -143,7 +143,7 @@ const Footer: React.FC<FooterProps> = ({
                 </Link>
                 <Link
                   name="go_to_instagram_footer"
-                  link="https://www.instagram.com/appjusto/"
+                  href="https://www.instagram.com/appjusto/"
                   isExternal
                   mr="28px"
                   color="primary"
@@ -165,7 +165,7 @@ const Footer: React.FC<FooterProps> = ({
             >
               <Link
                 name="freshdesk_footer"
-                link="https://appjusto.freshdesk.com/"
+                href="https://appjusto.freshdesk.com/"
                 linkLabel="Perguntas frequentes"
                 mb={{ base: "12px", lg: "0" }}
                 fontSize="1rem"
@@ -173,7 +173,7 @@ const Footer: React.FC<FooterProps> = ({
               />
               <Link
                 name="terms_footer"
-                link="https://github.com/appjusto/docs/blob/main/legal/politica-de-privacidade.md"
+                href="https://github.com/appjusto/docs/blob/main/legal/politica-de-privacidade.md"
                 linkLabel="Política de Privacidade"
                 ml={{ base: "0", lg: "6" }}
                 mb={{ base: "12px", lg: "0" }}

@@ -1,17 +1,17 @@
-import { Box, Image, Stack, Text } from "@chakra-ui/react";
-import Head from "next/head";
 import Container from "@/components/Container";
 import CustomLinkButton from "@/components/CustomLinkButton";
 import { AppsBox } from "@/components/Fleet/AppsBox";
 import { FleetFeature } from "@/components/Fleet/FleetFeature";
 import Footer from "@/components/Footer";
-import Topic from "@/components/home/better/Topic";
-import React from "react";
-import { formatCurrency } from "@/utils";
-import { GetStaticPaths, GetStaticProps } from "next";
 import Seo from "@/components/Seo";
+import Topic from "@/components/home/better/Topic";
+import { formatCurrency } from "@/utils";
 import { getFleet } from "@/utils/businesses";
-import { NextLink } from "@/components/NextLink";
+import { Link } from "@chakra-ui/next-js";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import React from "react";
 import { Fleet } from "src/types";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -61,9 +61,9 @@ export default function FleetPage({ fleet }: FleetPageProps) {
       <AppsBox />
       <Container maxW="1120px" h={{ base: "auto", lg: "100vh" }} pb="16">
         <Box display={{ base: "block", md: "none" }} mb="4">
-          <NextLink href="/" _focus={{ outline: "none" }} w="94px">
+          <Link href="/" _focus={{ outline: "none" }} w="94px">
             <Image src="/logo-pages.svg" alt="Logo AppJusto" width="94px" />
-          </NextLink>
+          </Link>
         </Box>
         <Stack direction={{ base: "column", lg: "row" }} spacing={12}>
           <Box maxW={{ md: "300px", lg: "320px" }}>

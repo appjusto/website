@@ -1,4 +1,4 @@
-import { NextLink } from "@/components/NextLink";
+import { Link } from "@chakra-ui/next-js";
 import {
   Box,
   Button,
@@ -64,7 +64,7 @@ const Header = () => {
               )}
             </Box>
             {!isOpen && (
-              <NextLink
+              <Link
                 href="/"
                 _focus={{ outline: "none" }}
                 w={{ base: "96px", lg: "96px" }}
@@ -75,7 +75,7 @@ const Header = () => {
                   width="100%"
                   ignoreFallback
                 />
-              </NextLink>
+              </Link>
             )}
           </HStack>
           <Flex
@@ -96,12 +96,12 @@ const Header = () => {
             >
               <CustomLink
                 name="calculadora"
-                link="/calculadoras/restaurantes"
+                href="/calculadoras/restaurantes"
                 linkLabel="Calculadora para restaurantes"
               />
               <CustomLink
                 name="freshdesk"
-                link="https://appjusto.freshdesk.com/support/home"
+                href="https://appjusto.freshdesk.com/support/home"
                 linkLabel="Tirar dúvidas"
                 isExternal
               />
@@ -151,18 +151,18 @@ const Header = () => {
           <VStack spacing={10} alignItems="flex-start">
             <CustomLink
               name="admin-landing"
-              link={adminLink}
+              href={adminLink}
               linkLabel="Cadastrar restaurante"
               isExternal
             />
             <CustomLink
               name="calculadora-restaurantes-mob"
-              link="/calculadoras/restaurantes"
+              href="/calculadoras/restaurantes"
               linkLabel="Calculadora para restaurantes"
             />
             <CustomLink
               name="freshdesk"
-              link="https://appjusto.freshdesk.com/support/home"
+              href="https://appjusto.freshdesk.com/support/home"
               linkLabel="Tirar dúvidas"
               isExternal
             />
@@ -177,7 +177,7 @@ const Header = () => {
             <HStack spacing={4}>
               <CustomLink
                 name="go_to_linkedin_header"
-                link="https://www.linkedin.com/company/appjusto/"
+                href="https://www.linkedin.com/company/appjusto/"
                 isExternal
                 aria-label="Link para a página do Linkedin do Appjusto"
               >
@@ -185,7 +185,7 @@ const Header = () => {
               </CustomLink>
               <CustomLink
                 name="go_to_facebook_header"
-                link="https://www.facebook.com/appjusto"
+                href="https://www.facebook.com/appjusto"
                 isExternal
                 aria-label="Link para a página do Facebook do Appjusto"
               >
@@ -193,7 +193,7 @@ const Header = () => {
               </CustomLink>
               <CustomLink
                 name="go_to_instagram_header"
-                link="https://www.instagram.com/appjusto/"
+                href="https://www.instagram.com/appjusto/"
                 isExternal
                 aria-label="Link para a página do Instagram do Appjusto"
               >

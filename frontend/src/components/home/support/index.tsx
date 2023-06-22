@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
-import { NextLink } from "@/components/NextLink";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
+import { Link } from "@chakra-ui/next-js";
 import {
   Center,
   CenterProps,
@@ -45,11 +45,11 @@ const Support: React.FC = () => {
         >
           Além dessas empresas, o AppJusto surgiu do esforço de várias pessoas,
           entre sócios, colaboradores e voluntários.{" "}
-          <NextLink href="/conheca-a-rede" textDecor="underline">
+          <Link href="/conheca-a-rede" textDecor="underline">
             Conheça toda a nossa rede
-          </NextLink>
+          </Link>
         </Text>
-        <NextLink
+        <Link
           mt="8"
           href="/conheca-a-rede"
           display={{ base: "block", md: "none" }}
@@ -60,7 +60,7 @@ const Support: React.FC = () => {
           textAlign="center"
         >
           Conheça toda a nossa rede
-        </NextLink>
+        </Link>
         <Center>
           <Wrap
             mt="10"

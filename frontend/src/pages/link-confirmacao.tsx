@@ -1,8 +1,8 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import Head from "next/head";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-import { NextLink } from "@/components/NextLink";
+import { Link } from "@chakra-ui/next-js";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import Head from "next/head";
 
 export default function LinkConfirmation() {
   return (
@@ -18,9 +18,9 @@ export default function LinkConfirmation() {
         <Flex w="100vw" h="100vh" justifyContent="center" alignItems="center">
           <Box maxW="752px">
             <Flex justifyContent="center">
-              <NextLink href="/" _focus={{ outline: "none" }} w="120px">
+              <Link href="/" _focus={{ outline: "none" }} w="120px">
                 <Image src="/logo-pages.svg" alt="Logo AppJusto" width="100%" />
-              </NextLink>
+              </Link>
             </Flex>
             <Text
               mt="8"

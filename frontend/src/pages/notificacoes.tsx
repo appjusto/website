@@ -1,7 +1,7 @@
-import Head from "next/head";
+import PageLayout from "@/components/PageLayout";
+import Seo from "@/components/Seo";
 import { NotificationsPage } from "@/components/notifications";
-import PageLayout from '@/components/PageLayout';
-import Seo from '@/components/Seo';
+import Head from "next/head";
 
 export default function Net() {
   return (
@@ -17,5 +17,5 @@ export default function Net() {
         <NotificationsPage />
       </PageLayout>
     </>
-  )
+  );
 }

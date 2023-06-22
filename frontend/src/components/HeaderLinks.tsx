@@ -1,20 +1,19 @@
+import { Link } from "@chakra-ui/next-js";
 import {
-  Flex,
   Box,
-  Link,
-  Icon,
-  Image,
-  HStack,
   Button,
   CloseButton,
-  useDisclosure,
   Collapse,
+  Flex,
+  HStack,
+  Icon,
+  Image,
   VStack,
+  useDisclosure,
 } from "@chakra-ui/react";
-import Container from "./Container";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Container from "./Container";
 import CustomLink from "./CustomLink";
-import { NextLink } from "@/components/NextLink";
 
 const HeaderLinks = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -59,7 +58,7 @@ const HeaderLinks = () => {
               )}
             </Box>
             {!isOpen && (
-              <NextLink
+              <Link
                 href="/"
                 _focus={{ outline: "none" }}
                 w={{ base: "100px", lg: "100px" }}
@@ -70,24 +69,24 @@ const HeaderLinks = () => {
                   width="100%"
                   ignoreFallback
                 />
-              </NextLink>
+              </Link>
             )}
           </HStack>
           {/*desktop*/}
-          <NextLink
+          <Link
             href="/"
             display={{ base: "none", md: "block" }}
             _focus={{ outline: "none" }}
             fontWeight="700"
           >
             Saber mais sobre o AppJusto
-          </NextLink>
+          </Link>
         </Flex>
       </Container>
       <Collapse in={isOpen} animateOpacity>
         <Box bg="#F6F6F6" w="100%" p="6">
           <VStack spacing={6} alignItems="flex-start">
-            <NextLink
+            <Link
               href="/"
               fontSize="16px"
               lineHeight="22px"
@@ -95,11 +94,11 @@ const HeaderLinks = () => {
               _focus={{ outline: "none" }}
             >
               Saber mais sobre o AppJusto
-            </NextLink>
+            </Link>
             <HStack spacing={4}>
               <CustomLink
                 name="go_to_linkedin_header"
-                link="https://www.linkedin.com/company/appjusto/"
+                href="https://www.linkedin.com/company/appjusto/"
                 isExternal
                 mr="28px"
                 color="black"
@@ -109,7 +108,7 @@ const HeaderLinks = () => {
               </CustomLink>
               <CustomLink
                 name="go_to_facebook_header"
-                link="https://www.facebook.com/appjusto"
+                href="https://www.facebook.com/appjusto"
                 isExternal
                 mr="28px"
                 color="black"
@@ -119,7 +118,7 @@ const HeaderLinks = () => {
               </CustomLink>
               <CustomLink
                 name="go_to_instagram_header"
-                link="https://www.instagram.com/appjusto/"
+                href="https://www.instagram.com/appjusto/"
                 isExternal
                 mr="28px"
                 color="black"

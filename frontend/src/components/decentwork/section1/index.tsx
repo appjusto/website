@@ -1,16 +1,6 @@
-import {
-  Box,
-  Button,
-  Flex,
-  HStack,
-  Heading,
-  Image,
-  Text,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
-import Section from "@/components/Section";
 import Container from "@/components/Container";
+import Section from "@/components/Section";
+import { Box, Flex, HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { SectionHeader } from "../SectionHeader";
 import { SectionTopic } from "../SectionTopic";

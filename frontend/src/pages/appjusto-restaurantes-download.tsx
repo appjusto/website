@@ -1,23 +1,23 @@
+import CustomLinkButton from "@/components/CustomLinkButton";
+import Seo from "@/components/Seo";
+import { Span } from "@/components/Span";
+import { getDownloadURLByPath } from "@/utils/businesses";
+import { Link } from "@chakra-ui/next-js";
 import {
   Box,
   Center,
   Flex,
-  Image,
-  Text,
-  Icon,
   HStack,
-  ListItem,
-  ListIcon,
+  Icon,
+  Image,
   List,
+  ListIcon,
+  ListItem,
+  Text,
 } from "@chakra-ui/react";
 import Head from "next/head";
-import Seo from "@/components/Seo";
-import CustomLinkButton from "@/components/CustomLinkButton";
 import React from "react";
 import { MdCheck, MdInfoOutline } from "react-icons/md";
-import { getDownloadURLByPath } from "@/utils/businesses";
-import { NextLink } from "@/components/NextLink";
-import { Span } from "@/components/Span";
 
 export default function AdminDesktopDownloadPage() {
   // state
@@ -149,7 +149,7 @@ export default function AdminDesktopDownloadPage() {
               </Box>
             </HStack>
           )}
-          <NextLink
+          <Link
             mt="12"
             href="/"
             fontSize="16px"
@@ -159,7 +159,7 @@ export default function AdminDesktopDownloadPage() {
             _focus={{ outline: "none" }}
           >
             Voltar para página inicial
-          </NextLink>
+          </Link>
         </Flex>
       </Center>
     </>

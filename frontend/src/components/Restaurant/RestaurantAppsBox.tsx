@@ -1,4 +1,4 @@
-import { NextLink } from "@/components/NextLink";
+import { Link } from "@chakra-ui/next-js";
 import { Box, Flex, FlexProps, Image, Text } from "@chakra-ui/react";
 import Container from "../Container";
 import CustomLinkButton from "../CustomLinkButton";
@@ -31,9 +31,9 @@ export const RestaurantAppsBox = (props: FlexProps) => {
           color="black"
         >
           <Flex justifyContent="space-between">
-            <NextLink href="/" _focus={{ outline: "none" }} w="120px">
+            <Link href="/" _focus={{ outline: "none" }} w="120px">
               <Image src="/logo-pages.svg" alt="Logo AppJusto" w="100%" />
-            </NextLink>
+            </Link>
             <CustomLinkButton
               maxW="114px"
               name="app-consumer"

@@ -1,6 +1,5 @@
-import { NextLink } from "@/components/NextLink";
-import { Button, ButtonProps, Image, Link } from "@chakra-ui/react";
-
+import { Link } from "@chakra-ui/next-js";
+import { Button, ButtonProps, Image } from "@chakra-ui/react";
 interface CustomLinkButtonProps extends ButtonProps {
   link: string;
   linkLabel: string;
@@ -31,7 +30,7 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
         _hover={{ textDecor: "none" }}
         href={link}
         aria-label={linkLabel}
-        isExternal
+        target="_blank"
         download={isDownload}
       >
         <Button variant={variant} w="100%" {...props}>
@@ -52,14 +51,14 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
     );
   }
   return (
-    <NextLink href={link}>
+    <Link href={link}>
       <Button variant={variant} {...props}>
         {icon && (
           <Image src={icon} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />
         )}
         {linkLabel}
       </Button>
-    </NextLink>
+    </Link>
   );
 };
 

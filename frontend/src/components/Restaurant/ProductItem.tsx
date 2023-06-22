@@ -1,4 +1,4 @@
-import { NextLink } from "@/components/NextLink";
+import { Link } from "@chakra-ui/next-js";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
@@ -33,7 +33,7 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
   }, [businessId, product?.id, product?.imageExists]);
   // UI
   return (
-    <NextLink href={productLink}>
+    <Link href={productLink}>
       <Flex
         w="100%"
         py="3"
@@ -65,6 +65,6 @@ export const ProductItem = ({ businessId, product }: ProductItemProps) => {
           </Box>
         )}
       </Flex>
-    </NextLink>
+    </Link>
   );
 };
