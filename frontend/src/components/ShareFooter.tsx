@@ -59,7 +59,7 @@ const ShareFooter = () => {
           </Text>
         </HStack>
         {!isTop && (
-          <Box w="154px" mr={{ md: "90px", lg: "70px" }}>
+          <Box w="154px" mr="100px">
             <ScrollLink
               activeClass="active"
               to="hero"
@@ -80,10 +80,11 @@ const ShareFooter = () => {
                 spacing={0}
               >
                 <Text
-                  _focus={{ outline: "none" }}
                   minW="130px"
                   fontSize="15px"
                   fontWeight="500"
+                  color="primary"
+                  _focus={{ outline: "none" }}
                 >
                   Voltar para o topo
                 </Text>

@@ -33,16 +33,21 @@ const DecentWork: React.FC = () => {
               linkLabel="Saiba mais sobre nossa iniciativa"
             />
           </Box>
+          <Box
+            display={{ base: "none", lg: "block" }}
+            position="absolute"
+            top="8"
+            right="0"
+          >
+            <Image
+              src="/landing-decent-work.png"
+              w="640px"
+              // h="48px"
+              alt="ilustração spark amarela"
+            />
+          </Box>
         </Flex>
       </Container>
-      <Box position="absolute" top="8" right="0">
-        <Image
-          src="/landing-decent-work.png"
-          w="640px"
-          // h="48px"
-          alt="ilustração spark amarela"
-        />
-      </Box>
     </Section>
   );
 };

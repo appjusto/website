@@ -91,7 +91,7 @@ const Header = () => {
             <HStack
               ml="8"
               spacing={8}
-              display={{ base: "none", lg: "block" }}
+              display={{ base: "none", lg: "flex" }}
               align="center"
             >
               <CustomLink
