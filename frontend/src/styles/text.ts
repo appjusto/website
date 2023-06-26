@@ -1,11 +1,11 @@
-import { barlow } from "./theme";
+import { barlow } from "./typography";
 
 export default {
   baseStyle: {
     fontFamily: barlow.style.fontFamily,
     fontSize: "xl",
-    lineHeight: "1.62rem",
-    fontWeight: "500",
+    lineHeight: "normal",
+    fontWeight: "medium",
     color: "black",
   },
 };

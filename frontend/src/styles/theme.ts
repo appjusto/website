@@ -1,5 +1,4 @@
 import { extendTheme } from "@chakra-ui/react";
-import { Barlow } from "next/font/google";
 import Button from "./button";
 import Carousel from "./carousel";
 import Checkbox from "./checkbox";
@@ -7,18 +6,7 @@ import { colors } from "./colors";
 import Input from "./input";
 import Select from "./select";
 import Text from "./text";
-
-export const barlow = Barlow({
-  weight: ["500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fonts = {
-  body: barlow.style.fontFamily,
-  heading: barlow.style.fontFamily,
-  mono: barlow.style.fontFamily,
-};
+import { barlow, fonts, fontSize } from "./typography";
 
 const breakpoints = {
   "sm": "30em",
@@ -31,6 +19,7 @@ const breakpoints = {
 const customTheme = extendTheme({
   breakpoints,
   fonts,
+  fontSize,
   colors,
   components: {
     Select,
