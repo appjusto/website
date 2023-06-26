@@ -26,7 +26,7 @@ export const CookieBar = () => {
         >
           <Box>
             <Text fontSize="sm" lineHeight="1.5rem">
-              <strong>Política de cookies:</strong> nós usamos cookies e outras
+              <Span bold>Política de cookies:</Span> nós usamos cookies e outras
               tecnologias semelhantes para melhorar a sua experiência. Ao
               utilizar nossos serviços, você concorda com tal monitoramento. Se
               preferir, você pode

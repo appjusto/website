@@ -21,7 +21,7 @@ export const IndicatorBox: React.FC<IndicatorBoxProps> = ({
       borderColor="green.400"
       borderRadius="lg"
     >
-      <Text fontSize="4xl" fontWeight="700" lineHeight="3rem" color="body">
+      <Text fontSize="4xl" fontWeight="semibold">
         {title}
       </Text>
       <Text textAlign="center">{description}</Text>

@@ -10,7 +10,7 @@ export const Span = ({ bold, children, ...props }: SpanProps) => {
       as="span"
       mx="4px"
       fontSize="inherit"
-      fontWeight={bold ? "700" : "500"}
+      fontWeight={bold ? "semibold" : "medium"}
       {...props}
     >
       {children}

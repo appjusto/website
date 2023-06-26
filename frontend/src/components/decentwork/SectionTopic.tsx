@@ -14,16 +14,9 @@ export const SectionTopic: React.FC<SectionTopicProps> = ({
     <Box>
       <Flex flexDir="row">
         <Box w="4px" h="17px" bgColor="primary" borderRadius="lg" mr="2" />
-        <Text fontSize="sm" lineHeight="1rem">
-          {section}
-        </Text>
+        <Text fontSize="sm">{section}</Text>
       </Flex>
-      <Text
-        mt="2"
-        fontSize={{ base: "2xl", md: "3xl" }}
-        fontWeight="700"
-        lineHeight={{ base: "2rem", md: "2.4rem" }}
-      >
+      <Text mt="2" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="semibold">
         {topic}
       </Text>
     </Box>

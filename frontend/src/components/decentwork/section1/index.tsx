@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Section from "@/components/Section";
+import { Span } from "@/components/Span";
 import { Box, Flex, HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { SectionHeader } from "../SectionHeader";
@@ -28,7 +29,7 @@ const Section1: React.FC = () => {
           alignItems={{ base: "flex-start", md: "flex-end" }}
         >
           <SectionTopic section="REMUNERAÇÃO" topic="Principais indicadores " />
-          <Text mt={{ base: "4", md: "0" }} fontSize="lg" fontWeight="500">
+          <Text mt={{ base: "4", md: "0" }} fontSize="lg" fontWeight="normal">
             Atualizado: 16/06/2023
           </Text>
         </Flex>
@@ -43,31 +44,26 @@ const Section1: React.FC = () => {
           borderRadius="lg"
         >
           <Box maxW="452px">
-            <Text
-              fontSize={{ base: "4xl", md: "5xl" }}
-              fontWeight="700"
-              lineHeight="4rem"
-              color="body"
-            >
+            <Text fontSize={{ base: "4xl", md: "5xl" }} fontWeight="bold">
               R$18,10 por hora
             </Text>
             <Text>
               É o que os entregadores ganham em média,{" "}
-              <strong>sem considerar as gorjetas.</strong>
+              <Span bold>sem considerar as gorjetas.</Span>
             </Text>
           </Box>
           <Box
             mt={{ base: "4", md: "0" }}
             p="4"
-            maxW="440px"
+            maxW="444px"
             border="1px solid"
             borderColor="green.300"
             borderRadius="lg"
             bgColor="green.50"
           >
             <Text fontSize="lg">
-              O valor é cerca de 3,3x <strong>maior</strong> que o mínimo local
-              e cerca de <strong>65% do valor ideal</strong> calculado pelo
+              O valor é cerca de 3,3x <Span bold>maior</Span> que o mínimo local
+              e cerca de <Span bold>65% do valor ideal</Span> calculado pelo
               DIEESE.
             </Text>
           </Box>
@@ -109,12 +105,12 @@ const Section1: React.FC = () => {
             </HStack>
           </Flex>
         </Box>
-        <Box mt={{ base: "6", md: "10" }} fontSize="md" fontWeight="400">
-          <Text>
+        <Box mt={{ base: "6", md: "10" }}>
+          <Text fontSize="md" color="gray.600">
             * 2,39km de deslocamento até a coleta + 3,9km da coleta até a
             entrega
           </Text>
-          <Text>
+          <Text fontSize="md" color="gray.600">
             ** Combustível, manutenção e plano móvel, considerando 390 corridas
             / mês
           </Text>
@@ -143,10 +139,10 @@ const Section1: React.FC = () => {
             </Text>
             <Text mt="6">
               A remuneração é o maior motivo das paralisações da categoria.{" "}
-              <strong>
+              <Span bold>
                 A frota padrão do AppJusto paga exatamente o que os entregadores
                 consideram ser o justo nessas manifestações.
-              </strong>
+              </Span>
             </Text>
           </Box>
           <Box mt="6" ml="-12" display={{ base: "initial", md: "none" }}>

@@ -22,25 +22,24 @@ const DWHero: React.FC = () => {
             flexDir="column"
             minH={{ base: "84vh", lg: "auto" }}
             justifyContent={{ base: "space-between", lg: "flex-start" }}
-            color="white"
             px={{ base: "4", lg: "0" }}
             zIndex="100"
           >
             <Box>
               <Heading
                 as="h1"
-                fontSize={{ base: "4xl", md: "6xl", lg: "6xl" }}
-                fontWeight="700"
+                fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}
+                color="white"
               >
                 AppJusto na luta pelo trabalho decente
               </Heading>
               <Heading
-                mt={{ base: "4", lg: "8" }}
+                mt={{ base: "4", lg: "6" }}
                 as="h2"
                 maxW="648px"
                 fontSize="xl"
-                lineHeight="1.62rem"
-                fontWeight="500"
+                fontWeight="medium"
+                color="white"
               >
                 O AppJusto, como forma de aprimorar seu combate à precarização
                 do trabalho pelas plataformas, está trabalhando na luta pelo

@@ -28,11 +28,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         />
       </Box>
       <Box maxW="420" ml={{ base: "0", lg: "6" }}>
-        <Heading
-          as="h3"
-          fontSize={{ base: "3xl", lg: "5xl" }}
-          lineHeight="5.4rem"
-        >
+        <Heading as="h3" fontSize={{ base: "3xl", lg: "5xl" }} mb="4">
           {title}
         </Heading>
         {description}

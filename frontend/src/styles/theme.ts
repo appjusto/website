@@ -3,10 +3,11 @@ import Button from "./button";
 import Carousel from "./carousel";
 import Checkbox from "./checkbox";
 import { colors } from "./colors";
+import Heading from "./heading";
 import Input from "./input";
 import Select from "./select";
 import Text from "./text";
-import { barlow, fonts, fontSize } from "./typography";
+import { fonts, fontSize } from "./typography";
 
 const breakpoints = {
   "sm": "30em",
@@ -27,15 +28,8 @@ const customTheme = extendTheme({
     Button,
     Carousel,
     Checkbox,
+    Heading,
     Text,
-  },
-  textStyles: {
-    p: {
-      fontFamily: barlow.style.fontFamily,
-      fontSize: "xl",
-      lineHeight: "1.62rem",
-      fontWeight: "400",
-    },
   },
 });
 
