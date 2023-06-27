@@ -1,5 +1,4 @@
 import { Box, Text } from "@chakra-ui/react";
-import React from "react";
 
 interface StepProps {
   step: number;
@@ -7,7 +6,7 @@ interface StepProps {
   attached?: boolean;
 }
 
-export const Step: React.FC<StepProps> = ({ step, body, attached = true }) => {
+export const Step = ({ step, body, attached = true }: StepProps) => {
   return (
     <Box
       position="relative"

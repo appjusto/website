@@ -7,11 +7,11 @@ interface SectionHeaderProps {
   description: React.ReactNode;
 }
 
-export const SectionHeader: React.FC<SectionHeaderProps> = ({
+export const SectionHeader = ({
   sectionNumber,
   title,
   description,
-}) => {
+}: SectionHeaderProps) => {
   return (
     <Flex
       w="full"

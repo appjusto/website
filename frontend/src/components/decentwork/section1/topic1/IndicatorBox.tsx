@@ -1,15 +1,11 @@
 import { Center, Text } from "@chakra-ui/react";
-import React from "react";
 
 interface IndicatorBoxProps {
   title: string;
   description: string;
 }
 
-export const IndicatorBox: React.FC<IndicatorBoxProps> = ({
-  title,
-  description,
-}) => {
+export const IndicatorBox = ({ title, description }: IndicatorBoxProps) => {
   return (
     <Center
       h="164px"

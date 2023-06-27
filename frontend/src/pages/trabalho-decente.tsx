@@ -1,8 +1,8 @@
 import PageLayout from "@/components/PageLayout";
-import Head from "next/head";
 import Seo from "@/components/Seo";
-import DWHero from "@/components/decentwork/hero";
-import Section1 from "@/components/decentwork/section1";
+import { DWHero } from "@/components/decentwork/hero";
+import { Section1 } from "@/components/decentwork/section1";
+import Head from "next/head";
 
 export default function DecentWorkPage() {
   return (

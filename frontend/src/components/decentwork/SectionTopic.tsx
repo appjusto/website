@@ -1,15 +1,11 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import React from "react";
 
 interface SectionTopicProps {
   section: string;
   topic: string;
 }
 
-export const SectionTopic: React.FC<SectionTopicProps> = ({
-  section,
-  topic,
-}) => {
+export const SectionTopic = ({ section, topic }: SectionTopicProps) => {
   return (
     <Box>
       <Flex flexDir="row">

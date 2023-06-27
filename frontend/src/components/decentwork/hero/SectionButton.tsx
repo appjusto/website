@@ -1,5 +1,4 @@
 import { Button, WrapItem } from "@chakra-ui/react";
-import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 
 interface SectionButtonProps {
@@ -7,7 +6,7 @@ interface SectionButtonProps {
   label: string;
 }
 
-export const SectionButton: React.FC<SectionButtonProps> = ({ to, label }) => {
+export const SectionButton = ({ to, label }: SectionButtonProps) => {
   return (
     <WrapItem>
       <ScrollLink

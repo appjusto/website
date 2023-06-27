@@ -1,11 +1,10 @@
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { Box, Center, Flex, Heading, Image, Wrap } from "@chakra-ui/react";
-import React from "react";
 import { t } from "src/utils/i18n";
 import { SectionButton } from "./SectionButton";
 
-const DWHero: React.FC = () => {
+export const DWHero = () => {
   return (
     <Section id="dw-hero" minH="100vh" bgColor="gray.700" overflow="hidden">
       <Container minH="100vh" px={{ base: "0", lg: "inital" }}>
@@ -87,5 +86,3 @@ const DWHero: React.FC = () => {
     </Section>
   );
 };
-
-export default DWHero;
