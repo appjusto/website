@@ -18,6 +18,7 @@ export const CommitmentBox = ({ header, body }: CommitmentBoxProps) => {
         borderRadius="lg"
         bgColor="white"
         mb="-120px"
+        zIndex="100"
       >
         <Text fontSize="3xl" fontWeight="semibold">
           {header}

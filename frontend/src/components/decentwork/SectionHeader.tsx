@@ -23,7 +23,7 @@ export const SectionHeader = ({
       <Box maxW="552">
         <Image
           ml={{ base: "-6", lg: "0" }}
-          src={`/dw/section${1}.png`}
+          src={`/dw/section${sectionNumber}.png`}
           alt={`section ${sectionNumber}`}
         />
       </Box>

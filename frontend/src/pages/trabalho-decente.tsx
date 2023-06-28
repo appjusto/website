@@ -3,6 +3,7 @@ import Seo from "@/components/Seo";
 import { Footer } from "@/components/decentwork/Footer";
 import { DWHero } from "@/components/decentwork/hero";
 import { Section1 } from "@/components/decentwork/section1";
+import { Section2 } from "@/components/decentwork/section2";
 import Head from "next/head";
 
 export default function DecentWorkPage() {
@@ -18,6 +19,7 @@ export default function DecentWorkPage() {
       <PageLayout pageName="Trabalho decente">
         <DWHero />
         <Section1 />
+        <Section2 />
         <Footer />
       </PageLayout>
     </>

@@ -23,6 +23,9 @@ export const colors = {
     800: "#505A4F",
     900: "#394138",
   },
+  // new
+  lightGray: "#F6F6F6",
+  // old
   primary: "#78E08F",
   primaryDark: "#22543D",
   primaryLight: "#B8E994",
