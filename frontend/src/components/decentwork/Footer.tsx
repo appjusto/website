@@ -27,9 +27,9 @@ export const Footer = () => {
         zIndex="20"
       >
         <Text
-          fontSize={{ base: "xl", lg: "2xl" }}
+          fontSize={{ base: "2xl", lg: "3xl" }}
           fontWeight="bold"
-          lineHeight={{ base: "normal", lg: "tall" }}
+          // lineHeight={{ base: "normal", lg: "tall" }}
           color="white"
           textAlign="center"
         >
@@ -38,7 +38,7 @@ export const Footer = () => {
         </Text>
         <Text
           mt={{ base: "4", md: "4", lg: "6" }}
-          fontSize="md"
+          fontSize="lg"
           fontWeight="normal"
           color="white"
           textAlign="center"

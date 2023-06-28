@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { Text } from "@chakra-ui/react";
+import { CommitmentBox } from "../CommitmentBox";
 import { SectionHeader } from "../SectionHeader";
 import { S1Topic1 } from "./topic1";
 import { S1Topic2 } from "./topic2";
@@ -30,6 +31,17 @@ export const Section1 = () => {
         <S1Topic4 />
         <S1Topic5 />
         <S1Topic6 />
+        <CommitmentBox
+          header="🧭 Compromisso até Junho de 2023"
+          body={[
+            {
+              title:
+                "Contribuir com a conscientização sobre o custo do trabalho",
+              description:
+                "Publicar os dados coletados e disponibilizar uma ferramenta para ajudar os entregadores a calcularem seus próprios custos.",
+            },
+          ]}
+        />
       </Container>
     </Section>
   );
