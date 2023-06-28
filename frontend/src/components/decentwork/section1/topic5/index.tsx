@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
@@ -6,17 +6,31 @@ export const S1Topic5 = () => {
   return (
     <BaseTopic>
       <Flex
+        position="relative"
         justifyContent="center"
         alignItems="center"
         minH={{ md: "500px", lg: "600px" }}
+        pt={{ base: "24", lg: "0" }}
       >
         <Box
+          w="100vw"
           position="absolute"
-          w="100%"
           display={{ base: "none", lg: "initial" }}
         >
           <Image src="/dw/section1-bg.png" alt="tela de aceite de pedidos" />
         </Box>
+        <Center
+          w="100vw"
+          position="absolute"
+          top="-90px"
+          display={{ base: "flex", md: "none" }}
+          zIndex="-10"
+        >
+          <Image
+            src="/dw/section1-bg-mob.png"
+            alt="tela de aceite de pedidos"
+          />
+        </Center>
         <Box w="100%" maxW="545px">
           <SectionTopic
             section="REMUNERAÇÃO"
