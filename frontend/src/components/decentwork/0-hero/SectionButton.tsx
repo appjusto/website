@@ -14,10 +14,10 @@ export const SectionButton = ({ to, label }: SectionButtonProps) => {
         to={to}
         spy={true}
         smooth={true}
-        offset={-70}
+        offset={-64}
         duration={500}
         name="scroll to top"
-        href="/"
+        // href="/"
       >
         <Button variant="white" fontWeight="500" minW="135px">
           {label}

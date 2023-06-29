@@ -7,6 +7,7 @@ import { Contracts } from "@/components/decentwork/3-contracts";
 import { Management } from "@/components/decentwork/4-management";
 import { Representations } from "@/components/decentwork/5-representations";
 import { Footer } from "@/components/decentwork/Footer";
+import { Nav } from "@/components/decentwork/Nav";
 import Head from "next/head";
 
 export default function DecentWorkPage() {
@@ -21,6 +22,7 @@ export default function DecentWorkPage() {
       </Head>
       <PageLayout pageName="Trabalho decente">
         <DWHero />
+        <Nav />
         <Remuneration />
         <Conditions />
         <Contracts />
