@@ -13,6 +13,7 @@ export const CommitmentBox = ({ header, body }: CommitmentBoxProps) => {
     <Center w="100%">
       <Box
         maxW="884px"
+        minW={{ lg: "884px" }}
         p="10"
         boxShadow="2px 8px 16px 2px rgba(105, 118, 103, 0.2)"
         borderRadius="lg"
