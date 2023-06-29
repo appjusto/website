@@ -5,12 +5,14 @@ interface SectionHeaderProps {
   sectionNumber: number;
   title: string;
   description: React.ReactNode;
+  color?: string;
 }
 
 export const SectionHeader = ({
   sectionNumber,
   title,
   description,
+  color,
 }: SectionHeaderProps) => {
   return (
     <Flex
@@ -28,7 +30,12 @@ export const SectionHeader = ({
         />
       </Box>
       <Box maxW="420" ml={{ base: "0", lg: "6" }}>
-        <Heading as="h3" fontSize={{ base: "3xl", lg: "5xl" }} mb="4">
+        <Heading
+          as="h3"
+          fontSize={{ base: "3xl", lg: "5xl" }}
+          mb="4"
+          color={color ?? "body"}
+        >
           {title}
         </Heading>
         {description}

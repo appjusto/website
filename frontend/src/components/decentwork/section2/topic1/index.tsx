@@ -15,7 +15,7 @@ export const S2Topic1 = () => {
             Como forma de mitigar alguns dos riscos específicos da atividade dos
             entregadores, como por exemplo, risco de acidentes e lesões, o
             AppJusto exige que os entregadores sejam inscritos como MEI, o que
-            confere aos entregadores os diversos benefícios.
+            confere aos entregadores diversos benefícios.
           </Text>
           <Text mt="6">Entregador, aproveite e crie o seu MEI!</Text>
         </Box>
