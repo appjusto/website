@@ -52,6 +52,7 @@ const ShareFooter = () => {
           <Text
             fontSize="15px"
             fontWeight="500"
+            color="primary"
             display={["none", null, null, "inherit"]}
           >
             Espalhe essa notícia e faça mais gente conhecer esse movimento por
