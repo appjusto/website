@@ -7,6 +7,7 @@ export const Footer = () => {
       minH={{ base: "540px", md: "340px", lg: "618px" }}
       bgColor="gray.700"
       overflow="hidden"
+      zIndex="2"
     >
       <Box
         display={{ base: "none", lg: "initial" }}

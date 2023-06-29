@@ -22,6 +22,7 @@ export const S4Topic1 = () => {
         </Box>
         <Flex
           w="100vw"
+          ml={{ md: "-10", lg: "0" }}
           position="absolute"
           top={{ md: "-60px", lg: "-160px" }}
           display={{ base: "none", md: "flex" }}
