@@ -20,7 +20,7 @@ export const Nav = () => {
       if (!navRef.current) {
         return;
       }
-
+      if (!activeOffset) return;
       const shouldBeSticky = window.scrollY > activeOffset - 64;
       setIsActive(shouldBeSticky);
     };
