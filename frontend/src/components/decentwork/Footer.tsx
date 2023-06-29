@@ -4,6 +4,7 @@ export const Footer = () => {
   return (
     <Center
       w="100vw"
+      position="relative"
       minH={{ base: "540px", md: "340px", lg: "618px" }}
       bgColor="gray.700"
       overflow="hidden"
