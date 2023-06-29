@@ -51,12 +51,12 @@ export const DWHero = () => {
               spacing="12px"
               justify={{ base: "center", lg: "start" }}
             >
-              <SectionButton to="dw-section1" label={t("Remuneração")} />
-              <SectionButton to="dw-section2" label={t("Condições")} />
-              <SectionButton to="dw-section3" label={t("Contratos")} />
-              <SectionButton to="dw-section4" label={t("Gestão")} />
+              <SectionButton to="dw-1-remuneration" label={t("Remuneração")} />
+              <SectionButton to="dw-2-conditions" label={t("Condições")} />
+              <SectionButton to="dw-3-contracts" label={t("Contratos")} />
+              <SectionButton to="dw-4-management" label={t("Gestão")} />
               <SectionButton
-                to="dw-section5"
+                to="dw-5-representations"
                 label={t("Representações justas")}
               />
             </Wrap>

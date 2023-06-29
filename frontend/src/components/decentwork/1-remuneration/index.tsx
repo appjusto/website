@@ -10,9 +10,9 @@ import { S1Topic4 } from "./topic4";
 import { S1Topic5 } from "./topic5";
 import { S1Topic6 } from "./topic6";
 
-export const Section1 = () => {
+export const Remuneration = () => {
   return (
-    <Section id="dw-section1" minH="100vh">
+    <Section id="dw-1-remuneration" minH="100vh">
       <Container minH="100vh">
         <SectionHeader
           sectionNumber={1}

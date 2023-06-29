@@ -1,12 +1,12 @@
 import PageLayout from "@/components/PageLayout";
 import Seo from "@/components/Seo";
+import { DWHero } from "@/components/decentwork/0-hero";
+import { Remuneration } from "@/components/decentwork/1-remuneration";
+import { Conditions } from "@/components/decentwork/2-conditions";
+import { Contracts } from "@/components/decentwork/3-contracts";
+import { Management } from "@/components/decentwork/4-management";
+import { Representations } from "@/components/decentwork/5-representations";
 import { Footer } from "@/components/decentwork/Footer";
-import { DWHero } from "@/components/decentwork/hero";
-import { Section1 } from "@/components/decentwork/section1";
-import { Section2 } from "@/components/decentwork/section2";
-import { Section3 } from "@/components/decentwork/section3";
-import { Section4 } from "@/components/decentwork/section4";
-import { Section5 } from "@/components/decentwork/section5";
 import Head from "next/head";
 
 export default function DecentWorkPage() {
@@ -21,11 +21,11 @@ export default function DecentWorkPage() {
       </Head>
       <PageLayout pageName="Trabalho decente">
         <DWHero />
-        <Section1 />
-        <Section2 />
-        <Section3 />
-        <Section4 />
-        <Section5 />
+        <Remuneration />
+        <Conditions />
+        <Contracts />
+        <Management />
+        <Representations />
         <Footer />
       </PageLayout>
     </>

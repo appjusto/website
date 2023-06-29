@@ -5,9 +5,9 @@ import { CommitmentBox } from "../CommitmentBox";
 import { SectionHeader } from "../SectionHeader";
 import { S5Topic1 } from "./topic1";
 
-export const Section5 = () => {
+export const Representations = () => {
   return (
-    <Section id="dw-section5" minH="100vh" bgColor="lightGray">
+    <Section id="dw-5-representations" minH="100vh" bgColor="lightGray">
       <Container minH="100vh" pt="40">
         <SectionHeader
           sectionNumber={5}

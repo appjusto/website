@@ -8,9 +8,9 @@ import { S4Topic2 } from "./topic2";
 import { S4Topic3 } from "./topic3";
 import { S4Topic4 } from "./topic4";
 
-export const Section4 = () => {
+export const Management = () => {
   return (
-    <Section id="dw-section4" minH="100vh">
+    <Section id="dw-4-management" minH="100vh">
       <Container minH="100vh" pt="32">
         <SectionHeader
           sectionNumber={4}

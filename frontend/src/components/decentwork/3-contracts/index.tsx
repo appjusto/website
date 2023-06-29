@@ -6,9 +6,9 @@ import { SectionHeader } from "../SectionHeader";
 import { S3Topic1 } from "./topic1";
 import { S3Topic2 } from "./topic2";
 
-export const Section3 = () => {
+export const Contracts = () => {
   return (
-    <Section id="dw-section3" minH="100vh" bgColor="gray.700">
+    <Section id="dw-3-contracts" minH="100vh" bgColor="gray.700">
       <Container minH="100vh" pt="32">
         <SectionHeader
           sectionNumber={3}

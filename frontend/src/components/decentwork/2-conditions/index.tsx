@@ -8,9 +8,9 @@ import { S2Topic2 } from "./topic2";
 import { S2Topic3 } from "./topic3";
 import { S2Topic4 } from "./topic4";
 
-export const Section2 = () => {
+export const Conditions = () => {
   return (
-    <Section id="dw-section2" minH="100vh" bgColor="lightGray">
+    <Section id="dw-2-conditions" minH="100vh" bgColor="lightGray">
       <Container minH="100vh" pt="32">
         <SectionHeader
           sectionNumber={2}
