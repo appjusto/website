@@ -7,7 +7,7 @@ import { Contracts } from "@/components/decentwork/3-contracts";
 import { Management } from "@/components/decentwork/4-management";
 import { Representations } from "@/components/decentwork/5-representations";
 import { Footer } from "@/components/decentwork/Footer";
-import { Nav } from "@/components/decentwork/Nav";
+import { Nav } from "@/components/decentwork/nav";
 import Head from "next/head";
 
 export default function DecentWorkPage() {
