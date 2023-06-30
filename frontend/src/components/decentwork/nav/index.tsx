@@ -18,8 +18,8 @@ export const Nav = () => {
         return;
       }
       if (!activeOffset) return;
-      const shouldBeSticky = window.scrollY > activeOffset - 64;
-      setIsActive(shouldBeSticky);
+      const shouldBeActive = window.scrollY > activeOffset - 80;
+      setIsActive(shouldBeActive);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -40,26 +40,31 @@ export const Nav = () => {
         name="scroll-to-remuneration"
         to="dw-1-remuneration"
         label="Remuneração"
+        emoji="🫰"
       />
       <NavItem
         name="scroll-to-conditions"
         to="dw-2-conditions"
         label="Condições"
+        emoji="🛵"
       />
       <NavItem
         name="scroll-to-contracts"
         to="dw-3-contracts"
         label="Contratos"
+        emoji="📃"
       />
       <NavItem
         name="scroll-to-management"
         to="dw-4-management"
         label="Gestão"
+        emoji="💬"
       />
       <NavItem
         name="scroll-to-representations"
         to="dw-5-representations"
         label="Representações"
+        emoji="✊"
       />
     </Flex>
   );

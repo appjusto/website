@@ -6,9 +6,10 @@ interface NavItemProps {
   name: string;
   to: string;
   label: string;
+  emoji: string;
 }
 
-export const NavItem = ({ name, to, label }: NavItemProps) => {
+export const NavItem = ({ name, to, label, emoji }: NavItemProps) => {
   const [progress, setProgress] = React.useState(0);
   const onScroll = React.useCallback(() => {
     const section = document.getElementById(to);
@@ -39,8 +40,19 @@ export const NavItem = ({ name, to, label }: NavItemProps) => {
         width="100%"
         // href="/"
       >
-        <Text color="white" cursor="pointer">
-          {label}
+        <Text
+          display={{ base: "none", md: "initial" }}
+          color="white"
+          cursor="pointer"
+        >
+          {`${label} ${emoji}`}
+        </Text>
+        <Text
+          display={{ base: "initial", md: "none" }}
+          color="white"
+          cursor="pointer"
+        >
+          {emoji}
         </Text>
       </ScrollLink>
       <Box w="100%">

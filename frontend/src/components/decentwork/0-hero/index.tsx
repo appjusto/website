@@ -51,13 +51,16 @@ export const DWHero = () => {
               spacing="12px"
               justify={{ base: "center", lg: "start" }}
             >
-              <SectionButton to="dw-1-remuneration" label={t("Remuneração")} />
-              <SectionButton to="dw-2-conditions" label={t("Condições")} />
-              <SectionButton to="dw-3-contracts" label={t("Contratos")} />
-              <SectionButton to="dw-4-management" label={t("Gestão")} />
+              <SectionButton
+                to="dw-1-remuneration"
+                label={t("Remuneração 🫰")}
+              />
+              <SectionButton to="dw-2-conditions" label={t("Condições 🛵")} />
+              <SectionButton to="dw-3-contracts" label={t("Contratos  📃")} />
+              <SectionButton to="dw-4-management" label={t("Gestão 💬")} />
               <SectionButton
                 to="dw-5-representations"
-                label={t("Representações justas")}
+                label={t("Representações justas ✊")}
               />
             </Wrap>
           </Flex>
