@@ -1,4 +1,4 @@
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Center, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 
@@ -28,8 +28,14 @@ export const NavItem = ({ name, to, label, emoji }: NavItemProps) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [onScroll]);
   return (
-    <Center w="100%" flexDir="column">
-      <ScrollLink
+    <Center
+      position="relative"
+      w="100%"
+      flexDir="column"
+      _hover={{ bgColor: "green.100" }}
+    >
+      <Link
+        as={ScrollLink}
         activeClass="active"
         to={to}
         spy={true}
@@ -37,25 +43,29 @@ export const NavItem = ({ name, to, label, emoji }: NavItemProps) => {
         offset={-64}
         duration={500}
         name={name}
-        width="100%"
+        width="full"
+        h="60px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
         // href="/"
       >
         <Text
-          display={{ base: "none", md: "initial" }}
-          color="white"
-          cursor="pointer"
+          as="span"
+          fontSize="md"
+          display={{ base: "none", lg: "inline-block" }}
         >
           {`${label} ${emoji}`}
         </Text>
         <Text
-          display={{ base: "initial", md: "none" }}
-          color="white"
-          cursor="pointer"
+          as="span"
+          fontSize="md"
+          display={{ base: "inline-block", lg: "none" }}
         >
           {emoji}
         </Text>
-      </ScrollLink>
-      <Box w="100%">
+      </Link>
+      <Box w="100%" position="absolute" bottom="-4px">
         <Box w={`${progress}%`} h="4px" bgColor="primary" />
       </Box>
     </Center>

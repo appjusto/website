@@ -28,8 +28,11 @@ export const Nav = () => {
     <Flex
       ref={navRef}
       w="100vw"
+      h="60px"
       color="white"
-      bgColor="gray.700"
+      bgColor="green.50"
+      borderTop="1px solid"
+      borderColor="gray.50"
       top={isActive ? "64px" : "unset"}
       position={isActive ? "fixed" : "relative"}
       opacity={isActive ? 1 : 0}

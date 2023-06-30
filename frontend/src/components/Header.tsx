@@ -27,6 +27,7 @@ const Header = () => {
     <Flex
       as="header"
       w="100%"
+      h="64px"
       bg="white"
       flexDir="column"
       justifyContent="center"
@@ -39,7 +40,7 @@ const Header = () => {
         <Flex
           flexDir="row"
           w="100%"
-          maxH="64px"
+          h="100%"
           justifyContent="space-between"
           alignItems="center"
         >
