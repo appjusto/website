@@ -7,7 +7,7 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 const DecentWork: React.FC = () => {
   // UI
   return (
-    <Section mt="4" id="decent-work" position="relative" bgColor="gray.400">
+    <Section id="decent-work" position="relative" bgColor="gray.400">
       <Container pt={{ base: "8", lg: "32" }} pb={{ base: "8", lg: "36" }}>
         <Flex>
           <Box maxW="512px">

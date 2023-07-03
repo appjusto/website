@@ -1,21 +1,21 @@
-import PageLayout from "@/components/PageLayout";
-import Hero from "@/components/home/hero";
-import SharingModal from "@/components/SharingModal";
-import Head from "next/head";
-import Seo from "@/components/Seo";
 import AppsModal from "@/components/AppsModal";
-import MainVideo from "@/components/home/main-video";
-import Commitment from "@/components/home/commitment";
+import { CookieBar } from "@/components/CookieBar";
+import PageLayout from "@/components/PageLayout";
+import Seo from "@/components/Seo";
+import SharingModal from "@/components/SharingModal";
+import VideoModal from "@/components/VideoModal";
 import Better from "@/components/home/better";
-import Testimonials from "@/components/home/testimonials";
+import Commitment from "@/components/home/commitment";
+import Crowdfunding from "@/components/home/crowdfunding";
+import DecentWork from "@/components/home/decent-work";
+import Hero from "@/components/home/hero";
+import MainVideo from "@/components/home/main-video";
 import Media from "@/components/home/media";
 import Support from "@/components/home/support";
-import Un from "@/components/home/un";
-import Crowdfunding from "@/components/home/crowdfunding";
+import Testimonials from "@/components/home/testimonials";
 import Together from "@/components/home/together";
-import VideoModal from "@/components/VideoModal";
-import { CookieBar } from "@/components/CookieBar";
-import DecentWork from "@/components/home/decent-work";
+import Un from "@/components/home/un";
+import Head from "next/head";
 
 export default function Home() {
   return (
@@ -30,10 +30,10 @@ export default function Home() {
       <PageLayout pageName="Home">
         <Hero />
         <MainVideo />
+        <DecentWork />
         <Commitment />
         <Better />
         <Testimonials />
-        <DecentWork />
         <Crowdfunding />
         <Media />
         <Support />
