@@ -11,17 +11,22 @@ export const S1Topic1 = () => {
         mt={{ base: "24", md: "16", lg: "24" }}
         flexDir={{ base: "column", md: "row" }}
         justifyContent="space-between"
-        alignItems={{ base: "flex-start", md: "flex-end" }}
+        alignItems={{ base: "flex-start", md: "center" }}
       >
         <SectionTopic section="REMUNERAÇÃO" topic="Principais indicadores " />
-        <Text mt={{ base: "4", md: "0" }} fontSize="lg" fontWeight="normal">
+        <Text
+          mt={{ base: "4", md: "0" }}
+          fontSize="md"
+          fontWeight="normal"
+          maxW={{ lg: "320px" }}
+        >
           Dados referentes ao período entre 1 de julho de 2022 e 31 de junho de
           2023.
         </Text>
       </Flex>
       <Flex
         mt={{ base: "6", md: "14" }}
-        flexDir={{ base: "column", md: "row" }}
+        flexDir={{ base: "column", lg: "row" }}
         justifyContent="space-between"
         alignItems={{ md: "center" }}
         py={{ base: "6", md: "12" }}
@@ -33,16 +38,16 @@ export const S1Topic1 = () => {
           <Text fontSize={{ base: "4xl", md: "5xl" }} fontWeight="bold">
             R$18,81 por hora
           </Text>
-          <Text>
+          <Text mt={{ base: "4", lg: "0" }}>
             É o valor ganho, em média,
             <Span bold>
               {" "}
-              sem considerar as gorjetas e já descontado os principais custos *
+              sem considerar as gorjetas e já descontado os principais custos
             </Span>
           </Text>
         </Box>
         <Box
-          mt={{ base: "4", md: "0" }}
+          mt={{ base: "4", lg: "0" }}
           p="4"
           maxW="444px"
           border="1px solid"
@@ -87,7 +92,7 @@ export const S1Topic1 = () => {
               description="Tempo médio entre aceite e entrega"
             />
             <IndicatorBox
-              title="6,34 km*"
+              title="6,34 km**"
               description="Distância média percorrida"
             />
             <IndicatorBox
@@ -103,8 +108,8 @@ export const S1Topic1 = () => {
           mês
         </Text>
         <Text fontSize="md" color="gray.600">
-          * 2,35km de deslocamento até o local da coleta + 3,92km até o local de
-          entrega
+          ** 2,35km de deslocamento até o local da coleta + 3,92km até o local
+          de entrega
         </Text>
       </Box>
     </BaseTopic>

@@ -1,3 +1,4 @@
+import { Span } from "@/components/Span";
 import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
@@ -37,9 +38,12 @@ export const S1Topic5 = () => {
             topic="O AppJusto é a plataforma que paga os entregadores mais rapidamente"
           />
           <Text mt="6">
-            O dinheiro é disponibilizado para os entregadores um dia após a
-            realização da entrega, mesmo nos pedidos que foram pagos com cartão
-            de crédito (que demoramos um mês para receber).
+            <Span bold mx="0">
+              O dinheiro é disponibilizado para os entregadores um dia após a
+              realização da entrega
+            </Span>
+            , mesmo nos pedidos que foram pagos com cartão de crédito (que
+            demoramos um mês para receber).
           </Text>
           <Text mt="6">
             O entregador pode sacar o valor pago a qualquer momento (em horário

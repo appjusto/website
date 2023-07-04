@@ -2,13 +2,14 @@ import { Text, TextProps } from "@chakra-ui/react";
 
 interface SpanProps extends TextProps {
   bold?: boolean;
+  mx?: string;
 }
 
-export const Span = ({ bold, children, ...props }: SpanProps) => {
+export const Span = ({ bold, mx, children, ...props }: SpanProps) => {
   return (
     <Text
       as="span"
-      mx="4px"
+      mx={mx}
       fontSize="inherit"
       fontWeight={bold ? "semibold" : "medium"}
       {...props}

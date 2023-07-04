@@ -1,3 +1,4 @@
+import { Span } from "@/components/Span";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
@@ -15,9 +16,12 @@ export const S1Topic4 = () => {
             topic="AppJusto é a única plataforma onde os entregadores sabem quanto o cliente pagou pela entrega e recebem o valor pago integralmente"
           />
           <Text mt="6">
-            Em todas as entregas, desde o lançamento, o entregador sempre soube
-            exatamente quanto o consumidor estava pagando pela entrega,
-            inclusive o valor das taxas cobradas pelo nosso operador financeiro.
+            Em todas as entregas, desde o lançamento, o entregador sempre soube{" "}
+            <Span bold>
+              exatamente quanto o consumidor estava pagando pela entrega
+            </Span>
+            , inclusive o valor das taxas cobradas pelo nosso operador
+            financeiro.
           </Text>
           <Text mt="6">
             Desde de janeiro deste ano, as taxas financeiras (R$ 0,24,

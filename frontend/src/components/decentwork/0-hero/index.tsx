@@ -17,7 +17,7 @@ export const DWHero = () => {
           py={{ base: "12", lg: "0" }}
         >
           <Flex
-            maxW={{ base: "100%", lg: "640px" }}
+            maxW={{ base: "100%", lg: "590px" }}
             flexDir="column"
             minH={{ base: "84vh", lg: "auto" }}
             justifyContent={{ base: "space-between", lg: "flex-start" }}
@@ -27,8 +27,9 @@ export const DWHero = () => {
             <Box>
               <Heading
                 as="h1"
-                fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}
+                fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
                 color="white"
+                maxW={{ lg: "540px" }}
               >
                 Na luta pelo trabalho decente
               </Heading>
@@ -42,8 +43,8 @@ export const DWHero = () => {
               >
                 O AppJusto nasceu em resposta às paralisações promovidas por
                 entregadores e entregadoras em 2020. Aqui reunimos as principais
-                ações da plataforma na luta contra a precarização do trabalho
-                baseada nos seguintes critérios:{" "}
+                ações da plataforma na luta contra a precarização do trabalho,
+                baseada nos seguintes critérios:
               </Heading>
             </Box>
             <Wrap
