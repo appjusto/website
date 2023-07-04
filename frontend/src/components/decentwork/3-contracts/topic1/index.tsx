@@ -17,13 +17,14 @@ export const S3Topic1 = () => {
           />
           <Text mt="6" color="white">
             Nossos termos estão sempre acessíveis pelo menu no App e também na
-            web. O histórico de alterações dos termos de uso está{" "}
+            web. O histórico de alterações dos termos de uso está público no{" "}
             <Link
+              href="https://github.com/appjusto/docs/commits/main/legal/termos-de-uso-entregadores.md"
+              fontWeight="semibold"
               textDecoration="underline"
               isExternal
-              href="https://github.com/appjusto/docs/commits/main/legal/termos-de-uso-entregadores.md"
             >
-              público no Github
+              Github
             </Link>{" "}
             do AppJusto.
           </Text>

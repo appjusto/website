@@ -31,7 +31,7 @@ export const Conditions = () => {
           body={[
             {
               title:
-                "Disparo de alertas entregas rápidas ou número excessivo de entregas por dia",
+                "Disparo de alertas sobre entregas rápidas ou número excessivo de entregas por dia",
               description:
                 "Enviaremos notificação para ajudar a conscientizar quando a entrega for feita antes do tempo estimado e quando o entregador chegar ao número de 15 corridas no dia.",
             },

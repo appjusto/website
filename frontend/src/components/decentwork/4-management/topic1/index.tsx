@@ -1,3 +1,4 @@
+import { Span } from "@/components/Span";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
@@ -13,11 +14,11 @@ export const S4Topic1 = () => {
           />
           <Text mt="6">
             A aprovação de pessoas para realizar entregas é feita pelo nosso
-            time, sem a utilização de algoritmos. Os critérios para liberação
-            são: estar numa cidade atendida (atualmente só São Paulo), possuir
-            MEI ou CNPJ para prestação do serviço, conta bancária e ter mais de
-            18 anos. Após o preenchimento do cadastro, a validação é feita no
-            máximo em 7 dias.
+            time, <Span bold>sem a utilização de algoritmos</Span>. Os critérios
+            para liberação são: estar numa cidade atendida (atualmente só São
+            Paulo), possuir MEI ou CNPJ para prestação do serviço, conta
+            bancária e ter mais de 18 anos. Após o preenchimento do cadastro, a
+            validação é feita no máximo em 7 dias.
           </Text>
         </Box>
         <Flex

@@ -1,3 +1,4 @@
+import { Span } from "@/components/Span";
 import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
@@ -25,10 +26,11 @@ export const S4Topic4 = () => {
           />
           <Text mt="6">
             O principal objetivo das frotas é permitir que as pessoas possam se
-            juntar e definir as condições do próprio trabalho, como distâncias
-            máximas e o valor por quilômetro. Além disso, frotas podem ser
-            utilizadas para criar serviços específicos (frotas com veículos
-            verdes) e para juntar pessoas desfavorecidas.
+            juntar e <Span bold>definir as condições do próprio trabalho</Span>,
+            como distâncias máximas e o valor por quilômetro. Além disso, frotas
+            podem ser utilizadas para criar serviços específicos (frotas com
+            veículos verdes) e para{" "}
+            <Span bold>juntar pessoas desfavorecidas</Span>.
           </Text>
         </Box>
       </Flex>

@@ -1,3 +1,4 @@
+import { Span } from "@/components/Span";
 import { Box, Button, Center, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
@@ -16,10 +17,11 @@ export const S2Topic4 = () => {
           w="100vw"
           position="absolute"
           display={{ base: "none", lg: "initial" }}
+          zIndex="1"
         >
           <Image src="/dw/section2-bg2.png" alt="seção 2 background" />
         </Box>
-        <Box w="100%" maxW="545px">
+        <Box w="100%" maxW="545px" zIndex="10">
           <SectionTopic
             section="CONDIÇÕES"
             topic="Corridas seguradas contra acidentes pela Iza"
@@ -54,26 +56,35 @@ export const S2Topic4 = () => {
             alt="seção 2 background mobile"
           />
         </Center>
-        <Box mt={{ base: "8", md: "24", lg: "32" }} w="100%" maxW="545px">
+        <Box
+          mt={{ base: "8", md: "24", lg: "32" }}
+          w="100%"
+          maxW="545px"
+          zIndex="10"
+        >
           <SectionTopic
             section="CONDIÇÕES"
-            topic="Apoio à criação de uma legislação para regulamentar o trabalhador por plataforma"
+            topic="Apoio à criação de uma legislação para regulamentar o trabalho por plataforma"
           />
           <Text mt="6">
             Acreditamos que grande parte dos problemas que os trabalhadores e
-            trabalhadoras de plataforma enfrentam só será resolvida através de
-            políticas públicas que criem obrigações proporcionais a todas as
-            plataformas. Questões como valor mínimo, jornadas dignas,
-            seguridade, espaços de descanso, etc, podem e devem ser resolvidas
-            através de legislação garantida pelo estado.
+            trabalhadoras de plataforma enfrentam só será resolvida por meio de{" "}
+            <Span bold>
+              políticas públicas que criem obrigações proporcionais a todas as
+              plataformas
+            </Span>
+            . Questões como valor mínimo, jornadas dignas, seguridade, espaços
+            de descanso, etc, podem e devem ser resolvidas por meio de
+            legislação garantida pelo estado.
           </Text>
           <Text mt="6">
             Um possível primeiro passo seria a criação de um cadastro único de
             trabalhadores de plataforma. O esboço desta ideia está{" "}
             <Link
+              href="https://github.com/appjusto/docs/blob/main/legal/cadastro-unico.md"
+              fontWeight="semibold"
               textDecor="underline"
               isExternal
-              href="https://github.com/appjusto/docs/blob/main/legal/cadastro-unico.md"
             >
               disponível aqui
             </Link>

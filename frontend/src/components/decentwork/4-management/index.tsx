@@ -1,7 +1,6 @@
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { Text } from "@chakra-ui/react";
-import { CommitmentBox } from "../CommitmentBox";
 import { SectionHeader } from "../SectionHeader";
 import { S4Topic1 } from "./topic1";
 import { S4Topic2 } from "./topic2";
@@ -28,20 +27,6 @@ export const Management = () => {
         <S4Topic2 />
         <S4Topic3 />
         <S4Topic4 />
-        <CommitmentBox
-          header="🧭 Compromisso até Junho de 2023"
-          body={[
-            {
-              title: "Incluir contato do WhatsApp nos termos de uso",
-            },
-            {
-              title: "Incluir contato do WhatsApp nos termos de uso",
-            },
-            {
-              title: "Criar um formulário de denúncia anti-discriminação",
-            },
-          ]}
-        />
       </Container>
     </Section>
   );

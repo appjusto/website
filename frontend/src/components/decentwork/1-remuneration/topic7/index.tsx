@@ -1,7 +1,6 @@
 import { Box, Button, Center, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
-import { Span } from "@/components/Span";
 
 export const S1Topic7 = () => {
   return (
@@ -28,6 +27,8 @@ export const S1Topic7 = () => {
             ganhos por corrida e por hora. Também publicamos o{" "}
             <Link
               href="https://docs.google.com/spreadsheets/d/1aFRRIYwyBWkVYntWCnRzOvCOp6KatkhzK-JYMJ5EYFA/edit#gid=1213288831"
+              fontWeight="semibold"
+              textDecor="underline"
               isExternal
             >
               resultado de uma pesquisa
