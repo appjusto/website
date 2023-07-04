@@ -1,4 +1,4 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Box, Link, Stack, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
@@ -17,8 +17,15 @@ export const S3Topic1 = () => {
           />
           <Text mt="6" color="white">
             Nossos termos estão sempre acessíveis pelo menu no App e também na
-            web. O histórico de alterações dos termos de uso está público no
-            Github do AppJusto.
+            web. O histórico de alterações dos termos de uso está{" "}
+            <Link
+              textDecoration="underline"
+              isExternal
+              href="https://github.com/appjusto/docs/commits/main/legal/termos-de-uso-entregadores.md"
+            >
+              público no Github
+            </Link>{" "}
+            do AppJusto.
           </Text>
         </Box>
         <Box>

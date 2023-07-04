@@ -15,7 +15,8 @@ export const S1Topic1 = () => {
       >
         <SectionTopic section="REMUNERAÇÃO" topic="Principais indicadores " />
         <Text mt={{ base: "4", md: "0" }} fontSize="lg" fontWeight="normal">
-          Atualizado: 16/06/2023
+          Dados referentes ao período entre 1 de julho de 2022 e 31 de junho de
+          2023.
         </Text>
       </Flex>
       <Flex
@@ -30,11 +31,14 @@ export const S1Topic1 = () => {
       >
         <Box maxW="452px">
           <Text fontSize={{ base: "4xl", md: "5xl" }} fontWeight="bold">
-            R$18,10 por hora
+            R$18,81 por hora
           </Text>
           <Text>
-            É o que os entregadores ganham em média,{" "}
-            <Span bold>sem considerar as gorjetas.</Span>
+            É o valor ganho, em média,
+            <Span bold>
+              {" "}
+              sem considerar as gorjetas e já descontado os principais custos *
+            </Span>
           </Text>
         </Box>
         <Box
@@ -47,8 +51,9 @@ export const S1Topic1 = () => {
           bgColor="green.50"
         >
           <Text fontSize="lg">
-            O valor é cerca de 3,3x <Span bold>maior</Span> que o mínimo local e
-            cerca de <Span bold>65% do valor ideal</Span> calculado pelo DIEESE.
+            O valor é cerca de 3,4x <Span bold>maior</Span> que o salário mínimo
+            brasileiro e cerca de <Span bold>68% do valor ideal</Span> calculado
+            pelo DIEESE.
           </Text>
         </Box>
       </Flex>
@@ -64,26 +69,29 @@ export const S1Topic1 = () => {
         >
           <HStack spacing={6}>
             <IndicatorBox
-              title="31,38 min"
-              description="Tempo média  de entrega"
+              title="R$11,86"
+              description="Ganho médio por corrida"
             />
             <IndicatorBox
-              title="6,29 km*"
-              description="Distância média percorrida"
+              title="R$1,64*"
+              description="Gasto médio por corrida"
             />
-            <IndicatorBox title="R$1,56**" description="Gasto por corrida" />
+            <IndicatorBox
+              title="R$10,29"
+              description="Ganho líquido médio por corrida"
+            />
           </HStack>
           <HStack mt={{ md: "6" }} ml={{ base: "6", md: "0" }} spacing={6}>
             <IndicatorBox
-              title="R$11,21"
-              description="Ganho bruto por corrida"
+              title="32,59 min"
+              description="Tempo médio entre aceite e entrega"
             />
             <IndicatorBox
-              title="R$9,65"
-              description="Ganho líquido por corrida"
+              title="6,34 km*"
+              description="Distância média percorrida"
             />
             <IndicatorBox
-              title="R$18,26"
+              title="R$18,81"
               description="Ganho líquido médio por hora"
             />
           </HStack>
@@ -91,11 +99,12 @@ export const S1Topic1 = () => {
       </Box>
       <Box mt={{ base: "6", md: "10" }}>
         <Text fontSize="md" color="gray.600">
-          * 2,39km de deslocamento até a coleta + 3,9km da coleta até a entrega
+          * Combustível, manutenção e plano móvel, considerando 386 corridas /
+          mês
         </Text>
         <Text fontSize="md" color="gray.600">
-          ** Combustível, manutenção e plano móvel, considerando 390 corridas /
-          mês
+          * 2,35km de deslocamento até o local da coleta + 3,92km até o local de
+          entrega
         </Text>
       </Box>
     </BaseTopic>

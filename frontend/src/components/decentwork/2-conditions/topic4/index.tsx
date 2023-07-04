@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
@@ -22,15 +22,31 @@ export const S2Topic4 = () => {
         <Box w="100%" maxW="545px">
           <SectionTopic
             section="CONDIÇÕES"
-            topic="Todas as corridas estão seguradas contra acidentes pelo seguro Iza"
+            topic="Corridas seguradas contra acidentes pela Iza"
           />
           <Text mt="6">
-            Já iniciamos a integração com o seguro contra acidentes da empresa
-            Iza, especializada nesse tipo de cobertura. Desde "X de mês" todos
-            as corridas feitas por entregadores dentro da rede AppJusto estão
-            cobertos contra acidentes pela empresa Iza, seguradora especializada
-            nesse tipo de cobertura. Veja os valores da cobertura aqui.
+            Desde o dia 15 de fevereiro, todas as corridas feitas por
+            entregadores ou entregadoras da rede AppJusto estão cobertas contra
+            acidentes pelo seguro da empresa Iza, especializada nesse tipo de
+            cobertura.
           </Text>
+          <Link
+            w="100%"
+            _focus={{ outline: "none" }}
+            _hover={{ textDecor: "none" }}
+            href="https://seguro.iza.com.vc/plano_appjusto"
+            isExternal
+          >
+            <Button
+              mt="6"
+              w="fit-content"
+              variant="primary"
+              px="10"
+              fontSize="sm"
+            >
+              Veja os valores da cobertura
+            </Button>
+          </Link>
         </Box>
         <Center mt="8" w="100vw" display={{ base: "flex", md: "none" }}>
           <Image
@@ -44,18 +60,24 @@ export const S2Topic4 = () => {
             topic="Apoio à criação de uma legislação para regulamentar o trabalhador por plataforma"
           />
           <Text mt="6">
-            Acreditamos que grande parte dos problemas que os trabalhadores de
-            plataforma enfrentam só será resolvida através de políticas públicas
-            que criem obrigações proporcionais a todas as plataformas. Questões
-            como valor mínimo, jornadas exaustivas, seguridade, espaços de
-            descanso, etc, podem e devem ser resolvidas através de legislação
-            garantida pelo estado.
+            Acreditamos que grande parte dos problemas que os trabalhadores e
+            trabalhadoras de plataforma enfrentam só será resolvida através de
+            políticas públicas que criem obrigações proporcionais a todas as
+            plataformas. Questões como valor mínimo, jornadas dignas,
+            seguridade, espaços de descanso, etc, podem e devem ser resolvidas
+            através de legislação garantida pelo estado.
           </Text>
           <Text mt="6">
             Um possível primeiro passo seria a criação de um cadastro único de
-            trabalhadores de plataforma. O esboço desta ideia está disponível
-            aqui. Lançaremos uma página com mais detalhes e tentaremos iniciar
-            um debate com os interessados.
+            trabalhadores de plataforma. O esboço desta ideia está{" "}
+            <Link
+              textDecor="underline"
+              isExternal
+              href="https://github.com/appjusto/docs/blob/main/legal/cadastro-unico.md"
+            >
+              disponível aqui
+            </Link>
+            .
           </Text>
         </Box>
       </Flex>

@@ -18,8 +18,8 @@ export const S4Topic3 = () => {
           />
           <Text mt="6">
             Sempre que há problemas na validação do cadastro ou durante pedidos,
-            os entregadores podem se comunicar com nosso time de atendimento de
-            forma direta, sem intermediação de bots.
+            o entregador ou entregadora pode se comunicar com nosso time de
+            atendimento de forma direta, sem intermediação de bots.
           </Text>
         </Box>
         <Flex display={{ base: "none", lg: "flex" }} mr={{ lg: "32" }}>

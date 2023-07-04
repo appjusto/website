@@ -14,8 +14,9 @@ export const Representations = () => {
           title="Representação"
           description={
             <Text>
-              Os trabalhadores devem poder se organizar em entidades coletivas e
-              as plataformas devem estar aptas a negociar com elas.
+              Os trabalhadores e trabalhadoras devem poder se organizar em
+              entidades coletivas e as plataformas devem estar aptas a negociar
+              com elas.
             </Text>
           }
         />

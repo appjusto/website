@@ -39,20 +39,11 @@ export const S3Topic2 = () => {
           />
           <Text mt="6" color="white">
             O AppJusto não contrata nenhum OL com objetivo de exigir o
-            cumprimento de horário, posicionamento ou nada do tipo. Caso não
-            haja entregadores disponíveis no AppJusto para fazer a corrida,
-            contratamos uma empresa para realizar aquela entrega específica. O
-            AppJusto nunca fica com nada que o consumidor paga pela entrega e
-            repassa o valor integralmente para a empresa contratada. Caso sobre
-            alguma quantia, nós repassamos aos entregadores que se cadastram na
-            plataforma.
-          </Text>
-          <Text mt="6" color="white">
-            Não há acesso ao microfone. O envio da localização só acontece
-            quando o entregador está disponível para corridas. A câmera é
-            utilizada para tirar fotos dos documentos na hora do cadastro e caso
-            o entregador precise confirmar uma entrega onde não recebeu o código
-            de confirmação do consumidor.
+            cumprimento de horário, localização ou nada do tipo. Caso não haja
+            entregadores disponíveis no AppJusto para fazer a corrida,
+            contratamos uma empresa para realizar aquela entrega específica. Se
+            houver sobra de valor, nós repassaremos aos entregadores que se
+            cadastram na plataforma.
           </Text>
         </Box>
         <Box

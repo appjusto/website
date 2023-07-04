@@ -9,6 +9,7 @@ import { S1Topic3 } from "./topic3";
 import { S1Topic4 } from "./topic4";
 import { S1Topic5 } from "./topic5";
 import { S1Topic6 } from "./topic6";
+import { S1Topic7 } from "./topic7";
 
 export const Remuneration = () => {
   return (
@@ -19,9 +20,9 @@ export const Remuneration = () => {
           title="Remuneração"
           description={
             <Text>
-              Garantia que o trabalhador tenha pelo menos{" "}
-              <strong>um salário digno</strong> (salário mínimo com base na
-              região) descontados os custos/gastos para trabalhar.
+              Garantia que o entregador ou entregadora receba pelo menos um{" "}
+              <strong>salário mínimo</strong> já descontados seus custos/gastos
+              para trabalhar.
             </Text>
           }
         />
@@ -31,17 +32,7 @@ export const Remuneration = () => {
         <S1Topic4 />
         <S1Topic5 />
         <S1Topic6 />
-        <CommitmentBox
-          header="🧭 Compromisso até Junho de 2023"
-          body={[
-            {
-              title:
-                "Contribuir com a conscientização sobre o custo do trabalho",
-              description:
-                "Publicar os dados coletados e disponibilizar uma ferramenta para ajudar os entregadores a calcularem seus próprios custos.",
-            },
-          ]}
-        />
+        <S1Topic7 />
       </Container>
     </Section>
   );

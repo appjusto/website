@@ -35,8 +35,8 @@ export const S2Topic2 = () => {
             Acreditamos que as entregas ultra rápidas e os baixos valores pagos
             pelas outras plataformas estão na raiz do grande aumento de
             acidentes de trânsito envolvendo pessoas que fazem entregas. O
-            pedido deve chegar rápido sem que o/a entregador/a tenha que se
-            arriscar. O que fazemos para isso acontecer:
+            pedido deve chegar rápido sem que o entregador ou entregadora tenha
+            que se arriscar. O que fazemos para isso acontecer:
           </Text>
           <UnorderedList
             mt="6"

@@ -1,4 +1,12 @@
-import { Box, Flex, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Link,
+  Text,
+  Wrap,
+  WrapItem,
+} from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
@@ -15,9 +23,29 @@ export const S2Topic1 = () => {
             Como forma de mitigar alguns dos riscos específicos da atividade dos
             entregadores, como por exemplo, risco de acidentes e lesões, o
             AppJusto exige que os entregadores sejam inscritos como MEI, o que
-            confere aos entregadores diversos benefícios.
+            confere aos entregadores diversos direitos.
           </Text>
-          <Text mt="6">Entregador, aproveite e crie o seu MEI!</Text>
+          <Text mt="6" fontWeight="semibold">
+            Atenção: os direitos básicos do MEI só podem ser garantidos para
+            profissionais que têm todas as mensalidades do MEI pagas.
+          </Text>
+          <Link
+            w="100%"
+            _focus={{ outline: "none" }}
+            _hover={{ textDecor: "none" }}
+            href="https://appjusto.freshdesk.com/support/solutions/articles/67000681987"
+            isExternal
+          >
+            <Button
+              mt="6"
+              w="fit-content"
+              variant="primary"
+              px="10"
+              fontSize="sm"
+            >
+              Saiba mais
+            </Button>
+          </Link>
         </Box>
         <Box ml={{ base: "0", md: "6" }} p="6">
           <Wrap spacing={6} justify="center">

@@ -24,7 +24,7 @@ export const S1Topic3 = () => {
           />
           <Text mt="6">
             O algoritmo de precificação do AppJusto é muito simples e sempre
-            segue três passos.
+            segue apenas três passos.
           </Text>
         </Box>
         <Flex

@@ -18,14 +18,14 @@ export const S2Topic3 = () => {
           />
           <Text mt="6">
             A confirmação de corrida por código é uma reivindicação sempre
-            presente nas manifestações dos entregadores.{" "}
+            presente nas manifestações.{" "}
             <Span bold>
               Ela evita a fraude cometida por consumidores que relatam às
-              plataformas que não receberam o produto
+              plataformas que não receberam o produto,
             </Span>
-            , o que normalmente implica no bloqueio automático do entregador. O
+            o que normalmente implica no bloqueio automático do entregador. O
             AppJusto exige o código de confirmação em todas as corridas feitas
-            por entregadores dentro da rede desde o lançamento.
+            dentro da rede desde o lançamento.
           </Text>
         </Box>
         <Center w="100%" mt={{ base: "10", md: "0" }}>

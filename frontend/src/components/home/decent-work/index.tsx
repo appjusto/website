@@ -12,15 +12,13 @@ const DecentWork: React.FC = () => {
         <Flex>
           <Box maxW="512px">
             <SectionHeading fontSize="48" lineHeight="56px">
-              Estamos na luta por um trabalho decente
+              Na luta pelo trabalho decente
             </SectionHeading>
             <Text mt="10" textStyle="p">
-              O AppJusto, como forma de aprimorar seu combate à precarização do
-              trabalho pelas plataformas, está trabalhando na luta pelo trabalho
-              decente.{" "}
-              <strong>
-                Elencamos as ações que estamos fazendo e que ainda iremos fazer.
-              </strong>
+              O AppJusto nasceu em resposta às paralisações promovidas por
+              entregadores e entregadoras em 2020. Criamos uma página para
+              reunir as principais ações da plataforma na luta contra a
+              precarização do trabalho.{" "}
             </Text>
             <CustomLinkButton
               mt="8"

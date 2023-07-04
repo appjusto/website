@@ -9,7 +9,7 @@ export const S4Topic2 = () => {
         <Box ml={{ lg: "32" }} maxW="545px" zIndex="10" mr={{ lg: "32" }}>
           <SectionTopic
             section="GESTÃO"
-            topic="O AppJusto só bloqueia contas de trabalhadores após análise humana"
+            topic="O AppJusto só bloqueia contas após análise humana"
           />
           <Text mt="6">
             Em caso de suspeita de quebra de termos de uso, nosso time tenta

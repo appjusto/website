@@ -30,7 +30,7 @@ export const DWHero = () => {
                 fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}
                 color="white"
               >
-                AppJusto na luta pelo trabalho decente
+                Na luta pelo trabalho decente
               </Heading>
               <Heading
                 mt={{ base: "4", lg: "6" }}
@@ -40,10 +40,10 @@ export const DWHero = () => {
                 fontWeight="medium"
                 color="white"
               >
-                O AppJusto, como forma de aprimorar seu combate à precarização
-                do trabalho pelas plataformas, está trabalhando na luta pelo
-                trabalho decente. Elencamos as ações que estamos fazendo e que
-                ainda iremos fazer baseada nos seguintes critérios:
+                O AppJusto nasceu em resposta às paralisações promovidas por
+                entregadores e entregadoras em 2020. Aqui reunimos as principais
+                ações da plataforma na luta contra a precarização do trabalho
+                baseada nos seguintes critérios:{" "}
               </Heading>
             </Box>
             <Wrap
