@@ -22,7 +22,6 @@ export const NavItem = ({ name, to, label, emoji }: NavItemProps) => {
       pro = (100 * (window.scrollY - offsetTop)) / height;
       if (100 - pro < 4) pro = 100;
     }
-    console.log(to, pro);
     setProgress(pro);
   }, [to]);
   React.useEffect(() => {
