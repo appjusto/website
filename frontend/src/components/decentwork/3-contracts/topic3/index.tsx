@@ -18,7 +18,7 @@ export const S3Topic3 = () => {
           position="absolute"
           display={{ base: "none", lg: "initial" }}
         >
-          <Image src="/dw/section3-bg.png" alt="seção 3 background" />
+          <Image src="/dw/section3-bg.png" alt="background" />
         </Box>
         <Center
           mt={{ base: "-10", md: "none" }}
@@ -29,7 +29,7 @@ export const S3Topic3 = () => {
           <Image
             w={{ base: "40px", md: "60px" }}
             src="/dw/section3-img-mob.png"
-            alt="seção 3 background"
+            alt="background mobile"
           />
         </Center>
         <Box w="100%" maxW="545px" zIndex="10">
@@ -54,10 +54,7 @@ export const S3Topic3 = () => {
           display={{ base: "flex", md: "none" }}
           zIndex="1"
         >
-          <Image
-            src="/dw/section3-bg-mob.png"
-            alt="seção 3 background mobile"
-          />
+          <Image src="/dw/section3-bg-mob.png" alt="background mobile" />
         </Box>
       </Flex>
     </BaseTopic>

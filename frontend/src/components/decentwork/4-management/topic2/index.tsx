@@ -37,7 +37,7 @@ export const S4Topic2 = () => {
           <Image
             w={{ md: "260px", lg: "380px" }}
             src="/dw/section4-bg2.png"
-            alt="seção 4 background"
+            alt="background"
           />
         </Flex>
         <Flex
@@ -49,11 +49,7 @@ export const S4Topic2 = () => {
           justifyContent="flex-start"
           zIndex="1"
         >
-          <Image
-            w="380px"
-            src="/dw/section4-bg2.png"
-            alt="seção 4 background"
-          />
+          <Image w="380px" src="/dw/section4-bg2.png" alt="background 2" />
         </Flex>
       </Center>
     </BaseTopic>

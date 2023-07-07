@@ -9,7 +9,7 @@ export const S1Topic6 = () => {
         <Center w="100%" display={{ base: "none", md: "flex" }}>
           <Image
             src="/dw/section1-img4.png"
-            alt="tela de aceite de pedidos"
+            alt="frota appjusto - alta demanda"
             maxW={{ md: "280px", lg: "364px" }}
           />
         </Center>
@@ -33,7 +33,7 @@ export const S1Topic6 = () => {
         <Center mt="10" w="100%" display={{ base: "flex", md: "none" }}>
           <Image
             src="/dw/section1-img4.png"
-            alt="tela de aceite de pedidos"
+            alt="frota appjusto - alta demanda"
             maxW="320px"
           />
         </Center>

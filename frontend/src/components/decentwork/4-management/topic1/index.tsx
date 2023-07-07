@@ -30,7 +30,7 @@ export const S4Topic1 = () => {
         >
           <Image
             src="/dw/section4-img1.png"
-            alt="código de confirmação de entrega"
+            alt="etapas do cadastro no AppJusto"
             w="100%"
             maxW={{ md: "380px", lg: "440px" }}
           />
@@ -46,7 +46,7 @@ export const S4Topic1 = () => {
           <Image
             w={{ md: "200px", lg: "360px" }}
             src="/dw/section4-bg.png"
-            alt="seção 4 background"
+            alt="background"
           />
         </Flex>
       </Flex>

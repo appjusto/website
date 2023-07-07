@@ -19,7 +19,7 @@ export const S2Topic4 = () => {
           display={{ base: "none", lg: "initial" }}
           zIndex="1"
         >
-          <Image src="/dw/section2-bg2.png" alt="seção 2 background" />
+          <Image src="/dw/section2-bg2.png" alt="background" />
         </Box>
         <Box w="100%" maxW="545px" zIndex="10">
           <SectionTopic
@@ -51,10 +51,7 @@ export const S2Topic4 = () => {
           </Link>
         </Box>
         <Center mt="8" w="100vw" display={{ base: "flex", md: "none" }}>
-          <Image
-            src="/dw/section2-bg3-mob.png"
-            alt="seção 2 background mobile"
-          />
+          <Image src="/dw/section2-bg3-mob.png" alt="background mobile" />
         </Center>
         <Box
           mt={{ base: "8", md: "24", lg: "32" }}

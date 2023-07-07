@@ -18,7 +18,7 @@ export const S1Topic5 = () => {
           position="absolute"
           display={{ base: "none", lg: "initial" }}
         >
-          <Image src="/dw/section1-bg.png" alt="tela de aceite de pedidos" />
+          <Image src="/dw/section1-bg.png" alt="background" />
         </Box>
         <Center
           w="100vw"
@@ -27,10 +27,7 @@ export const S1Topic5 = () => {
           display={{ base: "flex", md: "none" }}
           zIndex="-10"
         >
-          <Image
-            src="/dw/section1-bg-mob.png"
-            alt="tela de aceite de pedidos"
-          />
+          <Image src="/dw/section1-bg-mob.png" alt="background" />
         </Center>
         <Box w="100%" maxW="545px">
           <SectionTopic

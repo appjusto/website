@@ -53,7 +53,7 @@ export const Header = ({
         <Image
           ml={{ base: "-6", lg: "0" }}
           src={`/dw/section${sectionNumber}.png`}
-          alt={`section ${sectionNumber}`}
+          alt={`seção ${sectionNumber}`}
         />
       </Box>
       <Box maxW="420" ml={{ base: "0", lg: "6" }} mt={{ base: "4", md: "0" }}>

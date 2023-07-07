@@ -49,7 +49,7 @@ export const S1Topic7 = () => {
         <Center w="100%" display={{ base: "none", md: "flex" }}>
           <Image
             src="/dw/section1-img5.png"
-            alt="tela de aceite de pedidos"
+            alt="formulário de denúncia"
             maxW={{ md: "280px", lg: "420px" }}
           />
         </Center>

@@ -17,7 +17,7 @@ export const S4Topic4 = () => {
           position="absolute"
           display={{ base: "none", lg: "initial" }}
         >
-          <Image src="/dw/section4-bg3.png" alt="seção 4 background" />
+          <Image src="/dw/section4-bg3.png" alt="background" />
         </Box>
         <Box ml={{ lg: "6" }} maxW="545px" zIndex="10">
           <SectionTopic
@@ -42,7 +42,7 @@ export const S4Topic4 = () => {
           mt="8"
           w="120px"
           src="/dw/section4-img2.png"
-          alt="seção 4 background"
+          alt="pequeno rabisco amarelo"
         />
       </Center>
     </BaseTopic>

@@ -16,7 +16,7 @@ export const S5Topic1 = () => {
           position="absolute"
           display={{ base: "none", lg: "initial" }}
         >
-          <Image src="/dw/section5-bg.png" alt="seção 5 background" />
+          <Image src="/dw/section5-bg.png" alt="background" />
         </Box>
         <Box ml={{ lg: "6" }} maxW="545px" zIndex="10">
           <SectionTopic
@@ -53,10 +53,7 @@ export const S5Topic1 = () => {
           display={{ base: "flex", md: "none" }}
           zIndex="1"
         >
-          <Image
-            src="/dw/section5-bg-mob.png"
-            alt="seção 5 background mobile"
-          />
+          <Image src="/dw/section5-bg-mob.png" alt="background mobile" />
         </Box>
       </Flex>
     </BaseTopic>

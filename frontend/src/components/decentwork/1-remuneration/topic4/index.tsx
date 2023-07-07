@@ -8,7 +8,7 @@ export const S1Topic4 = () => {
     <BaseTopic pb={{ base: "4", lg: "0" }}>
       <Flex flexDir={{ base: "column", md: "row" }}>
         <Box w="100%" display={{ base: "none", md: "initial" }}>
-          <Image src="/dw/section1-img3.png" alt="tela de aceite de pedidos" />
+          <Image src="/dw/section1-img3.png" alt="tela de detalhes do pedido" />
         </Box>
         <Box w="100%">
           <SectionTopic
@@ -30,7 +30,7 @@ export const S1Topic4 = () => {
           </Text>
         </Box>
         <Box mt="10" w="100%" display={{ base: "initial", md: "none" }}>
-          <Image src="/dw/section1-img3.png" alt="tela de aceite de pedidos" />
+          <Image src="/dw/section1-img3.png" alt="tela de detalhes do pedido" />
         </Box>
       </Flex>
     </BaseTopic>
