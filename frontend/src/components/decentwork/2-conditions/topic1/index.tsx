@@ -39,7 +39,7 @@ export const S2Topic1 = () => {
             <Button
               mt="6"
               w="fit-content"
-              variant="primary"
+              variant="outlineDark"
               px="10"
               fontSize="sm"
             >

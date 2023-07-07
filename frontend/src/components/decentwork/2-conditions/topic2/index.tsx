@@ -54,6 +54,10 @@ export const S2Topic2 = () => {
             <ListItem>
               Não punição automática em caso de demora acima do esperado;
             </ListItem>
+            <ListItem>
+              Envio de lembretes sobre aimportância do descanso a cada 5
+              corridas finalizadas no dia.
+            </ListItem>
           </UnorderedList>
           <Text mt="6">
             <Span bold>Mas pera lá:</Span> conforme esclarecido nos termos de

@@ -1,7 +1,5 @@
-import Container from "@/components/Container";
-import Section from "@/components/Section";
 import { Text } from "@chakra-ui/react";
-import { CommitmentBox } from "../CommitmentBox";
+import { BaseSection } from "../BaseSection";
 import { SectionHeader } from "../SectionHeader";
 import { S1Topic1 } from "./topic1";
 import { S1Topic2 } from "./topic2";
@@ -13,27 +11,25 @@ import { S1Topic7 } from "./topic7";
 
 export const Remuneration = () => {
   return (
-    <Section id="dw-1-remuneration" minH="100vh">
-      <Container minH="100vh">
-        <SectionHeader
-          sectionNumber={1}
-          title="Remuneração"
-          description={
-            <Text>
-              Garantia que o entregador ou entregadora receba pelo menos um{" "}
-              <strong>salário mínimo</strong> já descontados seus custos/gastos
-              para trabalhar.
-            </Text>
-          }
-        />
-        <S1Topic1 />
-        <S1Topic2 />
-        <S1Topic3 />
-        <S1Topic4 />
-        <S1Topic5 />
-        <S1Topic6 />
-        <S1Topic7 />
-      </Container>
-    </Section>
+    <BaseSection id="dw-1-remuneration">
+      <SectionHeader
+        sectionNumber={1}
+        title="Remuneração"
+        description={
+          <Text>
+            Garantia que o entregador ou entregadora receba pelo menos um{" "}
+            <strong>salário mínimo</strong> já descontados seus custos/gastos
+            para trabalhar.
+          </Text>
+        }
+      />
+      <S1Topic1 />
+      <S1Topic2 />
+      <S1Topic3 />
+      <S1Topic4 />
+      <S1Topic5 />
+      <S1Topic6 />
+      <S1Topic7 />
+    </BaseSection>
   );
 };

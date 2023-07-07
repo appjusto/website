@@ -44,9 +44,10 @@ export default {
       _hover: { bg: "#697667" },
     },
     outlineDark: {
-      bg: "#C8D7CB",
+      bg: "gray.700",
+      color: "white",
       fontSize: "xs",
-      _hover: { bg: "#697667" },
+      _hover: { bg: "gray.600" },
     },
     disabled: {
       bg: "#F6F6F6",

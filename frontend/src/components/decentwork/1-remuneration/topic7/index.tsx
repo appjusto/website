@@ -6,13 +6,6 @@ export const S1Topic7 = () => {
   return (
     <BaseTopic>
       <Flex flexDir={{ base: "column", md: "row" }}>
-        <Center w="100%" display={{ base: "none", md: "flex" }}>
-          <Image
-            src="/dw/section1-img4.png"
-            alt="tela de aceite de pedidos"
-            maxW={{ md: "280px", lg: "364px" }}
-          />
-        </Center>
         <Box w="100%">
           <SectionTopic
             section="REMUNERAÇÃO"
@@ -45,7 +38,7 @@ export const S1Topic7 = () => {
             <Button
               mt="6"
               w="fit-content"
-              variant="primary"
+              variant="outlineDark"
               px="10"
               fontSize="sm"
             >
@@ -53,11 +46,11 @@ export const S1Topic7 = () => {
             </Button>
           </Link>
         </Box>
-        <Center mt="10" w="100%" display={{ base: "flex", md: "none" }}>
+        <Center w="100%" display={{ base: "none", md: "flex" }}>
           <Image
-            src="/dw/section1-img4.png"
+            src="/dw/section1-img5.png"
             alt="tela de aceite de pedidos"
-            maxW="320px"
+            maxW={{ md: "280px", lg: "364px" }}
           />
         </Center>
       </Flex>
