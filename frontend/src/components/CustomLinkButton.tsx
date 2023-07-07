@@ -51,7 +51,12 @@ const CustomLinkButton: React.FC<CustomLinkButtonProps> = ({
     );
   }
   return (
-    <Link href={link}>
+    <Link
+      href={link}
+      aria-label={linkLabel}
+      _focus={{ outline: "none" }}
+      _hover={{ textDecor: "none" }}
+    >
       <Button variant={variant} {...props}>
         {icon && (
           <Image src={icon} w="20px" h="22px" ml="-4" mr="2" ignoreFallback />
