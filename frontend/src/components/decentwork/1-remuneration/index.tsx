@@ -1,6 +1,5 @@
 import { Text } from "@chakra-ui/react";
 import { BaseSection } from "../BaseSection";
-import { SectionHeader } from "../SectionHeader";
 import { S1Topic1 } from "./topic1";
 import { S1Topic2 } from "./topic2";
 import { S1Topic3 } from "./topic3";
@@ -11,8 +10,8 @@ import { S1Topic7 } from "./topic7";
 
 export const Remuneration = () => {
   return (
-    <BaseSection id="dw-1-remuneration">
-      <SectionHeader
+    <BaseSection.Root id="dw-1-remuneration">
+      <BaseSection.Header
         sectionNumber={1}
         title="Remuneração"
         description={
@@ -23,13 +22,15 @@ export const Remuneration = () => {
           </Text>
         }
       />
-      <S1Topic1 />
-      <S1Topic2 />
-      <S1Topic3 />
-      <S1Topic4 />
-      <S1Topic5 />
-      <S1Topic6 />
-      <S1Topic7 />
-    </BaseSection>
+      <BaseSection.Body>
+        <S1Topic1 />
+        <S1Topic2 />
+        <S1Topic3 />
+        <S1Topic4 />
+        <S1Topic5 />
+        <S1Topic6 />
+        <S1Topic7 />
+      </BaseSection.Body>
+    </BaseSection.Root>
   );
 };

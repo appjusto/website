@@ -1,12 +1,12 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
 export const S4Topic2 = () => {
   return (
     <BaseTopic>
-      <Flex mt={{ lg: "12" }} position="relative" justifyContent="flex-end">
-        <Box ml={{ lg: "32" }} maxW="545px" zIndex="10" mr={{ lg: "32" }}>
+      <Center mt={{ lg: "12" }} position="relative">
+        <Box maxW="545px" zIndex="10" ml={{ lg: "32" }}>
           <SectionTopic
             section="GESTÃO"
             topic="O AppJusto só bloqueia contas após análise humana"
@@ -55,7 +55,7 @@ export const S4Topic2 = () => {
             alt="seção 4 background"
           />
         </Flex>
-      </Flex>
+      </Center>
     </BaseTopic>
   );
 };

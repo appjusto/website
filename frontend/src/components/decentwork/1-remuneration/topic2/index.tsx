@@ -5,7 +5,7 @@ import { SectionTopic } from "../../SectionTopic";
 
 export const S1Topic2 = () => {
   return (
-    <BaseTopic>
+    <BaseTopic pb={{ base: "4", md: "20", lg: "0" }}>
       <Flex flexDir={{ base: "column", md: "row" }}>
         <Box ml={{ md: "-12" }} display={{ base: "none", md: "initial" }}>
           <Image

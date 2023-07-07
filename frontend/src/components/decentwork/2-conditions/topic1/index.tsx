@@ -47,14 +47,14 @@ export const S2Topic1 = () => {
             </Button>
           </Link>
         </Box>
-        <Box ml={{ base: "0", md: "6" }} p="6">
+        <Box ml={{ base: "0", md: "6" }} mt={{ base: "6", md: "0" }} p="6">
           <Wrap spacing={6} justify="center">
             <WrapItem
               py="4"
               px="6"
               bgColor="white"
               borderRadius="lg"
-              fontSize="xl"
+              fontSize={{ base: "md", lg: "xl" }}
               fontWeight="semibold"
             >
               Aposentadoria por idade
@@ -64,7 +64,7 @@ export const S2Topic1 = () => {
               px="6"
               bgColor="white"
               borderRadius="lg"
-              fontSize="xl"
+              fontSize={{ base: "md", lg: "xl" }}
               fontWeight="semibold"
             >
               Salário-maternidade
@@ -74,7 +74,7 @@ export const S2Topic1 = () => {
               px="6"
               bgColor="white"
               borderRadius="lg"
-              fontSize="xl"
+              fontSize={{ base: "md", lg: "xl" }}
               fontWeight="semibold"
             >
               Auxílio-doença
@@ -84,7 +84,7 @@ export const S2Topic1 = () => {
               px="6"
               bgColor="white"
               borderRadius="lg"
-              fontSize="xl"
+              fontSize={{ base: "md", lg: "xl" }}
               fontWeight="semibold"
             >
               Aposentadoria por invalidez
@@ -94,7 +94,7 @@ export const S2Topic1 = () => {
               px="6"
               bgColor="white"
               borderRadius="lg"
-              fontSize="xl"
+              fontSize={{ base: "md", lg: "xl" }}
               fontWeight="semibold"
             >
               Auxílio-reclusão
@@ -104,7 +104,7 @@ export const S2Topic1 = () => {
               px="6"
               bgColor="white"
               borderRadius="lg"
-              fontSize="xl"
+              fontSize={{ base: "md", lg: "xl" }}
               fontWeight="semibold"
             >
               Pensão por morte

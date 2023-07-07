@@ -41,7 +41,7 @@ export const S4Topic4 = () => {
         <Image
           mt="8"
           w="120px"
-          src="/dw/section4-img1.png"
+          src="/dw/section4-img2.png"
           alt="seção 4 background"
         />
       </Center>

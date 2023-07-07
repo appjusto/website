@@ -1,13 +1,13 @@
 import { Span } from "@/components/Span";
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
 export const S4Topic1 = () => {
   return (
     <BaseTopic>
-      <Flex position="relative">
-        <Box ml={{ lg: "32" }} maxW="545px">
+      <Flex position="relative" flexDir={{ base: "column", md: "row" }}>
+        <Box maxW={{ md: "380px", lg: "645px" }}>
           <SectionTopic
             section="GESTÃO"
             topic="As aprovações de cadastros acontecem todas às sextas sem nenhum tipo de distinção"
@@ -21,16 +21,30 @@ export const S4Topic1 = () => {
             validação é feita no máximo em 7 dias.
           </Text>
         </Box>
+        <Center
+          w="100%"
+          // maxW="400px"
+          mt={{ base: "10", md: "0" }}
+          ml={{ md: "6", lg: "0" }}
+          zIndex="10"
+        >
+          <Image
+            src="/dw/section4-img1.png"
+            alt="código de confirmação de entrega"
+            w="100%"
+            maxW={{ md: "380px", lg: "440px" }}
+          />
+        </Center>
         <Flex
           w="100vw"
           ml={{ md: "-10", lg: "0" }}
           position="absolute"
-          top={{ md: "-60px", lg: "-160px" }}
+          top={{ md: "-60px", lg: "-280px" }}
           display={{ base: "none", md: "flex" }}
           justifyContent="flex-end"
         >
           <Image
-            w={{ md: "200px", lg: "380px" }}
+            w={{ md: "200px", lg: "360px" }}
             src="/dw/section4-bg.png"
             alt="seção 4 background"
           />

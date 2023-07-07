@@ -50,7 +50,7 @@ export const S1Topic7 = () => {
           <Image
             src="/dw/section1-img5.png"
             alt="tela de aceite de pedidos"
-            maxW={{ md: "280px", lg: "364px" }}
+            maxW={{ md: "280px", lg: "420px" }}
           />
         </Center>
       </Flex>

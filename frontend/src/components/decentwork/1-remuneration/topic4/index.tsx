@@ -5,7 +5,7 @@ import { SectionTopic } from "../../SectionTopic";
 
 export const S1Topic4 = () => {
   return (
-    <BaseTopic>
+    <BaseTopic pb={{ base: "4", lg: "0" }}>
       <Flex flexDir={{ base: "column", md: "row" }}>
         <Box w="100%" display={{ base: "none", md: "initial" }}>
           <Image src="/dw/section1-img3.png" alt="tela de aceite de pedidos" />

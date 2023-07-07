@@ -8,7 +8,6 @@ export const S1Topic1 = () => {
   return (
     <BaseTopic>
       <Flex
-        mt={{ base: "24", md: "16", lg: "24" }}
         flexDir={{ base: "column", md: "row" }}
         justifyContent="space-between"
         alignItems={{ base: "flex-start", md: "center" }}
@@ -18,7 +17,7 @@ export const S1Topic1 = () => {
           mt={{ base: "4", md: "0" }}
           fontSize="md"
           fontWeight="normal"
-          maxW={{ lg: "320px" }}
+          maxW={{ md: "320px" }}
         >
           Dados referentes ao período entre 1 de julho de 2022 e 31 de junho de
           2023.

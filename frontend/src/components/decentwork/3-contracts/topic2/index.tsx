@@ -1,64 +1,47 @@
-import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Link, Stack, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
 export const S3Topic2 = () => {
   return (
     <BaseTopic>
-      <Flex
-        position="relative"
-        flexDir="column"
-        justifyContent="center"
-        alignItems="center"
-        minH={{ md: "500px", lg: "600px" }}
+      <Stack
+        spacing={{ base: 24, md: 6 }}
+        direction={{ base: "column", md: "row" }}
       >
-        <Box
-          w="100vw"
-          position="absolute"
-          display={{ base: "none", lg: "initial" }}
-        >
-          <Image src="/dw/section3-bg.png" alt="seção 3 background" />
-        </Box>
-        <Center
-          mt={{ base: "-10", md: "none" }}
-          w="100%"
-          display={{ base: "flex", lg: "none" }}
-          pb="10"
-        >
-          <Image
-            w={{ base: "40px", md: "60px" }}
-            src="/dw/section3-img-mob.png"
-            alt="seção 3 background"
-          />
-        </Center>
-        <Box w="100%" maxW="545px" zIndex="10">
+        <Box>
           <SectionTopic
             section="CONTRATOS"
-            topic="Não há contratação de operadores logísticos (OL), mas há a contratação de empresas caso não haja disponibilidade de entregadores na rede"
+            topic="Termos de uso sempre acessíveis"
             color="white"
           />
           <Text mt="6" color="white">
-            O AppJusto não contrata nenhum OL com objetivo de exigir o
-            cumprimento de horário, localização ou nada do tipo. Caso não haja
-            entregadores disponíveis no AppJusto para fazer a corrida,
-            contratamos uma empresa para realizar aquela entrega específica. Se
-            houver sobra de valor, nós repassaremos aos entregadores que se
-            cadastram na plataforma.
+            Nossos termos estão sempre acessíveis pelo menu no App e também na
+            web. O histórico de alterações dos termos de uso está público no{" "}
+            <Link
+              href="https://github.com/appjusto/docs/commits/main/legal/termos-de-uso-entregadores.md"
+              fontWeight="semibold"
+              textDecoration="underline"
+              isExternal
+            >
+              Github
+            </Link>{" "}
+            do AppJusto.
           </Text>
         </Box>
-        <Box
-          w="100vw"
-          position="absolute"
-          bottom="-520px"
-          display={{ base: "flex", md: "none" }}
-          zIndex="1"
-        >
-          <Image
-            src="/dw/section3-bg-mob.png"
-            alt="seção 3 background mobile"
+        <Box>
+          <SectionTopic
+            section="CONTRATOS"
+            topic="Entregadores podem excluir seus dados a qualquer momento"
+            color="white"
           />
+          <Text mt="6" color="white">
+            Entregadores podem excluir seu cadastro a qualquer momento. Para
+            evitar fraudes, os dados são movidos para uma quarentena por 30 dias
+            e depois excluídos em definitivo.
+          </Text>
         </Box>
-      </Flex>
+      </Stack>
     </BaseTopic>
   );
 };
