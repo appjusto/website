@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 
 export const Footer = () => {
   return (
@@ -20,7 +20,7 @@ export const Footer = () => {
       </Box>
       <Flex
         position="relative"
-        mt={{ base: "12", md: "12", lg: "24" }}
+        mt={{ base: "12", md: "12", lg: "8" }}
         px={{ base: "4", md: "0" }}
         maxW={{ base: "100%", md: "600px", lg: "1090px" }}
         flexDir="column"
@@ -31,12 +31,11 @@ export const Footer = () => {
         <Text
           fontSize={{ base: "2xl", lg: "3xl" }}
           fontWeight="bold"
-          // lineHeight={{ base: "normal", lg: "tall" }}
           color="white"
           textAlign="center"
         >
-          Nós do AppJusto vamos participar ativamente das discussões que
-          envolvem a regulamentação do trabalho em plataformas e aplicativos.
+          Nós do AppJusto participamos ativamente das discussões que envolvem a
+          regulamentação do trabalho em plataformas e aplicativos.
         </Text>
         <Text
           mt={{ base: "4", md: "4", lg: "6" }}
@@ -45,11 +44,11 @@ export const Footer = () => {
           color="white"
           textAlign="center"
         >
-          Vamos juntos por um delivery mais justo. Apoie a nossa proposta.
+          Vamos juntos por um delivery mais justo. ✊
         </Text>
-        <Button mt="8" w="fit-content" variant="primary" px="10" fontSize="sm">
+        {/* <Button mt="8" w="fit-content" variant="primary" px="10" fontSize="sm">
           Ajude nossa causa
-        </Button>
+        </Button> */}
         <Box
           w="90px"
           h="90px"

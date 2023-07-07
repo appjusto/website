@@ -41,9 +41,9 @@ export const S2Topic4 = () => {
           >
             <Button
               mt="6"
+              px="10"
               w="fit-content"
               variant="outlineDark"
-              px="10"
               fontSize="sm"
             >
               Veja os valores da cobertura
