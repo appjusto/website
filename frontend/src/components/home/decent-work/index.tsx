@@ -13,9 +13,12 @@ const DecentWork: React.FC = () => {
       bgColor="gray.400"
       overflow="hidden"
     >
-      <Container pt={{ base: "8", lg: "32" }} pb={{ base: "8", lg: "36" }}>
-        <Flex>
-          <Box maxW={{ md: "400px", lg: "512px" }}>
+      <Container py={{ bse: "8", md: "24" }}>
+        <Flex mt={{ lg: "8" }} justifyContent="space-between">
+          <Box
+            maxW={{ md: "400px", lg: "512px" }}
+            pb={{ base: "12", lg: "12" }}
+          >
             <SectionHeading fontSize={{ base: "3xl", lg: "5xl" }} highlighted>
               Na luta pelo trabalho decente
             </SectionHeading>
@@ -33,7 +36,7 @@ const DecentWork: React.FC = () => {
             >
               <Image
                 src="/landing-decent-work.png"
-                alt="ilustração spark amarela"
+                alt="página de trabalho decente"
               />
             </Center>
             <CustomLinkButton
@@ -61,11 +64,8 @@ const DecentWork: React.FC = () => {
           </Box>
           <Center
             display={{ base: "none", md: "block" }}
-            position="absolute"
-            top={{ md: "12", lg: "4" }}
-            right="0"
-            p={{ md: "6", lg: "12" }}
-            w={{ md: "320px", lg: "720px" }}
+            pb={{ md: "6", lg: "16" }}
+            w={{ md: "320px", lg: "680px" }}
           >
             <Image
               src="/landing-decent-work.png"
