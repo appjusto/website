@@ -80,7 +80,7 @@ export const DWHero = () => {
               minW={{ base: "480px", md: "0" }}
             >
               <Image
-                src="/dw/hero.png"
+                src="/dw/hero-mob.png"
                 alt="mão erguida com punho fechado"
                 objectFit="cover"
               />
@@ -93,11 +93,14 @@ export const DWHero = () => {
         position="absolute"
         top="60px"
         right="0"
-        maxW="728px"
+        // maxW="732px"
+        // minH={{ lg: "100vh" }}
+        zIndex="1"
       >
         <Image
-          src="/dw/hero-v2.png"
+          src="/dw/hero.png"
           alt="mão erguida com punho fechado"
+          height="calc(100vh)"
           objectFit="cover"
         />
       </Box>
