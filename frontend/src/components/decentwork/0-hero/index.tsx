@@ -86,24 +86,20 @@ export const DWHero = () => {
               />
             </Box>
           </Center>
+          <Box
+            display={{ base: "none", lg: "block" }}
+            mr={{ lg: "-10", xl: "-16" }}
+            zIndex="1"
+          >
+            <Image
+              src="/dw/hero.png"
+              alt="mão erguida com punho fechado"
+              height="calc(100vh)"
+              objectFit="cover"
+            />
+          </Box>
         </Flex>
       </Container>
-      <Box
-        display={{ base: "none", lg: "block" }}
-        position="absolute"
-        top="60px"
-        right="0"
-        // maxW="732px"
-        // minH={{ lg: "100vh" }}
-        zIndex="1"
-      >
-        <Image
-          src="/dw/hero.png"
-          alt="mão erguida com punho fechado"
-          height="calc(100vh)"
-          objectFit="cover"
-        />
-      </Box>
     </Section>
   );
 };
