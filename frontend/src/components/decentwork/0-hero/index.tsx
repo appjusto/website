@@ -66,8 +66,9 @@ export const DWHero = () => {
             </Wrap>
           </Flex>
           <Center
-            position={{ base: "absolute", lg: "initial" }}
-            top={{ base: "38%", md: "30%" }}
+            display={{ base: "flex", lg: "none" }}
+            position="absolute"
+            top={{ base: "38%", md: "24%" }}
             w="100%"
             maxW={{ lg: "580px" }}
             overflow="hidden"
@@ -87,6 +88,19 @@ export const DWHero = () => {
           </Center>
         </Flex>
       </Container>
+      <Box
+        display={{ base: "none", lg: "block" }}
+        position="absolute"
+        top="60px"
+        right="0"
+        maxW="728px"
+      >
+        <Image
+          src="/dw/hero-v2.png"
+          alt="mão erguida com punho fechado"
+          objectFit="cover"
+        />
+      </Box>
     </Section>
   );
 };

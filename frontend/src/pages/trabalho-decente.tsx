@@ -1,3 +1,4 @@
+import AppsModal from "@/components/AppsModal";
 import PageLayout from "@/components/PageLayout";
 import Seo from "@/components/Seo";
 import { DWHero } from "@/components/decentwork/0-hero";
@@ -29,6 +30,7 @@ export default function DecentWorkPage() {
         <Management />
         <Representations />
         <Footer />
+        <AppsModal />
       </PageLayout>
     </>
   );
