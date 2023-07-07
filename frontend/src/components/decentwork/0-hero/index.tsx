@@ -10,8 +10,8 @@ export const DWHero = () => {
       <Container minH="100vh" px={{ base: "0", lg: "inital" }}>
         <Flex
           position="relative"
-          minH="100vh"
           w="100%"
+          minH="100vh"
           justifyContent="space-between"
           alignItems="center"
           py={{ base: "12", lg: "0" }}
@@ -22,7 +22,7 @@ export const DWHero = () => {
             minH={{ base: "84vh", lg: "auto" }}
             justifyContent={{ base: "space-between", lg: "flex-start" }}
             px={{ base: "4", lg: "0" }}
-            zIndex="100"
+            zIndex="2"
           >
             <Box>
               <Heading
@@ -88,14 +88,14 @@ export const DWHero = () => {
           </Center>
           <Box
             display={{ base: "none", lg: "block" }}
-            mr={{ lg: "-10", xl: "-16" }}
+            // eslint-disable-next-line prettier/prettier
+            mr={{ lg: "-200px", "2xl": "-260px" }}
             zIndex="1"
           >
             <Image
               src="/dw/hero.png"
               alt="mão erguida com punho fechado"
               height="calc(100vh)"
-              objectFit="cover"
             />
           </Box>
         </Flex>

@@ -19,6 +19,7 @@ const Root = ({ id, children, ...props }: RootProps) => {
       id={id}
       minH="100vh"
       pb={{ base: "", md: "", lg: "12" }}
+      overflow="hidden"
       {...props}
     >
       <Container minH="100vh" pt={{ base: "0", md: "16", lg: "24" }}>

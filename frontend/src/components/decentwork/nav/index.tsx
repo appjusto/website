@@ -27,7 +27,7 @@ export const Nav = () => {
   return (
     <Flex
       ref={navRef}
-      w="100vw"
+      w="100%"
       h="60px"
       color="white"
       bgColor="green.50"
