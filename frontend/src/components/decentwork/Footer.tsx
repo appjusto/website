@@ -13,14 +13,14 @@ export const Footer = () => {
         zIndex="2"
       >
         <Box
-          display={{ base: "none", lg: "none" }}
+          display={{ base: "none", md: "block" }}
           position="absolute"
-          left="0"
-          right="0"
+          w="100vw"
           zIndex="10"
         >
           <Image src="/dw/footer-bg.png" alt="arte do footer" />
         </Box>
+
         <Flex
           position="relative"
           mt={{ base: "12", md: "12", lg: "8" }}
@@ -55,9 +55,9 @@ export const Footer = () => {
           <Box
             w="90px"
             h="90px"
-            display={{ base: "initial", md: "none" }}
+            display={{ base: "block", md: "none" }}
             position="absolute"
-            bottom="-20"
+            bottom="-28"
             right="4"
             zIndex="10"
           >
