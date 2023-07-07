@@ -39,7 +39,7 @@ export const S4Topic3 = () => {
             href="https://docs.google.com/forms/d/e/1FAIpQLSdno6pL4SfxBysVONVROn6xslvITLaC-0aWc_LBpn4sYt0OYQ/viewform"
             isExternal
           >
-            <Button mt="8" variant="outlineDark">
+            <Button mt="8" px="10" w="fit-content" variant="outlineDark">
               Acessar formulário
             </Button>
           </Link>

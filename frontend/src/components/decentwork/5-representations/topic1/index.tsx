@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Link, Stack, Text } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
 
@@ -21,15 +21,30 @@ export const S5Topic1 = () => {
         <Box ml={{ lg: "6" }} maxW="545px" zIndex="10">
           <SectionTopic
             section="REPRESENTAÇÃO"
-            topic="AppJusto é a única plataforma de entregas que criou mecanismos de participação coletiva"
+            topic="AppJusto mantém diálogo constante com as pessoas que fazem entregas"
           />
           <Text mt="6">
-            Temos mantido o diálogo com associações e coletivos que demonstraram
-            interesse em criar suas próprias frotas para entregas de
-            mercadorias. Estamos tentando firmar contratos com empresas para
-            impulsionar a criação de frotas que representam cooperativas e
-            coletivos.
+            O AppJusto nasceu em resposta às paralisações promovidas por
+            entregadores e entregadoras em 2020. Todas as principais
+            reivindicações (mínimo de R$ 10 por corrida, fim de bloqueios sem
+            direito de defesa e código de confirmação em todas as corridas) já
+            foram incorporadas à plataforma desde o começo.
           </Text>
+          <Text mt="6">
+            Para que o diálogo com a categoria seja constante, nós mantemos
+            grupos de WhatsApp (“Centrais de discussão”) e contato associações e
+            coletivos que representam a categoria.
+          </Text>
+          <Box mt="16">
+            <Text>Associações e coletivos</Text>
+            <Stack mt="6">
+              <Box maxW="210px">
+                <Link href="https://www.amabr.net/" isExternal>
+                  <Image src="/dw/logo-amabr.png" alt="Logo AMABR" />
+                </Link>
+              </Box>
+            </Stack>
+          </Box>
         </Box>
         <Box
           w="100vw"

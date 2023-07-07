@@ -44,7 +44,7 @@ export const Header = ({
   return (
     <Flex
       w="full"
-      // py="8"
+      pt={{ base: "8", md: "0" }}
       flexDir={{ base: "column", md: "row" }}
       justifyContent="center"
       alignItems="center"

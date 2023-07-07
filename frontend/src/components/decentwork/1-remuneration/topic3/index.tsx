@@ -26,39 +26,7 @@ export const S1Topic3 = () => {
             O algoritmo de precificação do AppJusto é muito simples e sempre
             segue apenas três passos.
           </Text>
-        </Box>
-        <Flex
-          w={{ base: "100%", md: "55%" }}
-          flexDir={{ base: "column", lg: "row" }}
-          ml={{ base: "0", md: "10" }}
-        >
-          <Box
-            display={{ base: "none", lg: "initial" }}
-            w="100%"
-            p="40px 40px 20px 50px"
-            boxShadow="0px 8px 16px -4px #6976671A"
-            borderRadius="lg"
-          >
-            <Step
-              step={1}
-              body="Calcula-se a distância entre local de coleta e local de
-                entrega utilizando a API de geolocalização do Google Maps;"
-            />
-            <Step
-              step={2}
-              body='Verifica se essa distância é menor do que a "Distância Inicial Mínima" definida pela frota escolhida pelo consumidor. Se for igual ou menor, o valor pago pela entrega será o que está definido como "Pagamento mínimo" na frota;'
-            />
-            <Step
-              step={3}
-              body='Se a distância for maior, o valor da corrida será o "Pagamento mínimo" + o Valor Adicional por Km Rodado x a diferença entre as distâncias.'
-              attached={false}
-            />
-          </Box>
-          <Box
-            mt={{ base: "10", md: "0" }}
-            display={{ base: "initial", lg: "none" }}
-            w="100%"
-          >
+          <Box mt="10" display={{ base: "block", lg: "none" }} w="100%">
             <Accordion defaultIndex={[0]} allowMultiple>
               <AccordionItem>
                 <p>
@@ -122,10 +90,48 @@ export const S1Topic3 = () => {
               </AccordionItem>
             </Accordion>
           </Box>
-          <Box w="100%" ml={{ base: "0", lg: "-8" }}>
+        </Box>
+        <Flex
+          w={{ base: "100%", md: "55%" }}
+          flexDir={{ base: "column", lg: "row" }}
+          ml={{ base: "0", md: "10" }}
+        >
+          <Box
+            display={{ base: "none", lg: "initial" }}
+            w="100%"
+            p="40px 40px 20px 50px"
+            boxShadow="0px 8px 16px -4px #6976671A"
+            borderRadius="lg"
+          >
+            <Step
+              step={1}
+              body="Calcula-se a distância entre local de coleta e local de
+                entrega utilizando a API de geolocalização do Google Maps;"
+            />
+            <Step
+              step={2}
+              body='Verifica se essa distância é menor do que a "Distância Inicial Mínima" definida pela frota escolhida pelo consumidor. Se for igual ou menor, o valor pago pela entrega será o que está definido como "Pagamento mínimo" na frota;'
+            />
+            <Step
+              step={3}
+              body='Se a distância for maior, o valor da corrida será o "Pagamento mínimo" + o Valor Adicional por Km Rodado x a diferença entre as distâncias.'
+              attached={false}
+            />
+          </Box>
+          <Box
+            w="100%"
+            ml={{ lg: "-8" }}
+            display={{ base: "none", lg: "block" }}
+          >
             <Image
-              mt={{ base: "8", md: "20" }}
               src="/dw/section1-img2.png"
+              alt="tela de aceite de pedidos"
+            />
+          </Box>
+          <Box w="100%" display={{ base: "block", lg: "none" }}>
+            <Image
+              mt={{ base: "8", md: "0" }}
+              src="/dw/section1-img2-mob.png"
               alt="tela de aceite de pedidos"
             />
           </Box>
