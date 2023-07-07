@@ -44,7 +44,12 @@ const Crowdfunding: React.FC = () => {
               isExternal
             />
           </Flex>
-          <Box w="100%" pl={{ lg: "8" }}>
+          <Flex
+            w="100%"
+            pl={{ lg: "8" }}
+            minH={{ md: "700px", lg: "unset" }}
+            alignItems="center"
+          >
             <Box mt={{ base: "6", md: "0" }}>
               <Image
                 src="/crowd-green-ending.jpeg"
@@ -52,7 +57,7 @@ const Crowdfunding: React.FC = () => {
                 alt="entregador de delivery de perfil"
               />
             </Box>
-          </Box>
+          </Flex>
         </Stack>
       </Container>
     </Section>
