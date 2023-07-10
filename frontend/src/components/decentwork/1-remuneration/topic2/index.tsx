@@ -10,7 +10,7 @@ export const S1Topic2 = () => {
         <Box ml={{ md: "-12" }} display={{ base: "none", md: "initial" }}>
           <Image
             src="/dw/section1-img1.png"
-            alt="tela de frotas no app de entregador"
+            alt="tela de frotas no app de entregador/a"
           />
         </Box>
         <Box mt={{ md: "0", lg: "44" }} maxW={{ md: "360px", lg: "620px" }}>
@@ -38,7 +38,7 @@ export const S1Topic2 = () => {
         <Box mt="6" ml="-12" display={{ base: "initial", md: "none" }}>
           <Image
             src="/dw/section1-img1.png"
-            alt="tela de frotas no app de entregador"
+            alt="tela de frotas no app de entregador/a"
           />
         </Box>
       </Flex>
