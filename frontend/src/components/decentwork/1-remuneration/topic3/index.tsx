@@ -20,11 +20,22 @@ export const S1Topic3 = () => {
         <Box w={{ base: "100%", md: "45%" }}>
           <SectionTopic
             section="REMUNERAÇÃO"
-            topic="O AppJusto é a única plataforma onde o entregador sabe quanto ganhará de acordo com o que percorrer"
+            topic="No AppJusto os alogritmos são simples e transparentes"
           />
           <Text mt="6">
             O algoritmo de precificação do AppJusto é muito simples e sempre
-            segue apenas três passos.
+            segue apenas três passos, como explicado ao lado. Na nossa
+            platarorma, o entregador ou entregadora sempre sabe exatamente
+            quanto ganhará pela corrida.
+          </Text>
+          <Text mt="6">
+            Para achar a pessoa, o processo também é muito simples. A corrida é
+            enviada sempre para a pessoa mais próxima do local de coleta. A cada
+            15 segundos, a próxima pessoa mais próxima receberá o pedido, até
+            que alguém aceite. As únicas condições para receber a corrida são:
+            estar disponível na plataforma; ter enviado a localização há menos
+            de 20 minutos; e estar numa frota que pode realizar corrida nas
+            distâncias do pedido em questão.
           </Text>
           <Box mt="10" display={{ base: "block", lg: "none" }} w="100%">
             <Accordion defaultIndex={[0]} allowMultiple>
