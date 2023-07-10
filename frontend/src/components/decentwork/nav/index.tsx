@@ -37,7 +37,7 @@ export const Nav = () => {
       position={isActive ? "fixed" : "relative"}
       opacity={isActive ? 1 : 0}
       transition="opacity 0.2s, transform 0.3s"
-      zIndex="modal"
+      zIndex="900"
     >
       <NavItem
         name="scroll-to-remuneration"

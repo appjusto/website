@@ -2,6 +2,7 @@ import { Link } from "@chakra-ui/next-js";
 import {
   Box,
   Button,
+  Center,
   CloseButton,
   Collapse,
   Flex,
@@ -30,7 +31,6 @@ const Header = ({ isForCouriers }: HeaderProps) => {
   return (
     <Flex
       as="header"
-      minH="64px"
       bg="white"
       flexDir="column"
       justifyContent="center"
@@ -40,16 +40,16 @@ const Header = ({ isForCouriers }: HeaderProps) => {
       right="0"
       zIndex="990"
     >
-      <Container py="2">
+      <Container py="2" minH="64px" justifyContent="center" alignItems="center">
         <Flex
           flexDir="row"
           w="100%"
-          h="100%"
+          h="48px"
           justifyContent="space-between"
           alignItems="center"
         >
           <HStack spacing={2}>
-            <Box display={{ base: "block", lg: "none" }}>
+            <Center display={{ base: "flex", lg: "none" }} minH="42px">
               {isOpen ? (
                 <CloseButton onClick={onToggle} />
               ) : (
@@ -67,21 +67,19 @@ const Header = ({ isForCouriers }: HeaderProps) => {
                   </VStack>
                 </Button>
               )}
+            </Center>
+            <Box w={{ base: "96px", lg: "96px" }} minH="42px">
+              {!isOpen && (
+                <Link href="/" _focus={{ outline: "none" }} w="full">
+                  <Image
+                    src="/logo-pages.svg"
+                    alt="Logo AppJusto"
+                    width="100%"
+                    ignoreFallback
+                  />
+                </Link>
+              )}
             </Box>
-            {!isOpen && (
-              <Link
-                href="/"
-                _focus={{ outline: "none" }}
-                w={{ base: "96px", lg: "96px" }}
-              >
-                <Image
-                  src="/logo-pages.svg"
-                  alt="Logo AppJusto"
-                  width="100%"
-                  ignoreFallback
-                />
-              </Link>
-            )}
           </HStack>
           <Flex
             flexDir="row"
