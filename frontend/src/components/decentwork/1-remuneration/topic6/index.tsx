@@ -21,13 +21,13 @@ export const S1Topic6 = () => {
             demanda é muito alta.
           </Text>
           <Text mt="6">
-            Para evitar que os entregadores deixem de fazer entregas no AppJusto
-            nos momentos de alta demanda, começamos a cobrar (14 de fevereiro)
-            uma taxa extra do consumidor, se na hora do pedido o valor que
-            estiver sendo pago em outras plataformas for maior do que o
-            entregador receberia pelas configurações da frota. Importante
-            ressaltar aqui que o valor mínimo continuará respeitando o que foi
-            definido na frota.
+            Para evitar que as pessoas deixem de fazer entregas no AppJusto nos
+            momentos de alta demanda, começamos a cobrar (14 de fevereiro) uma
+            taxa extra do consumidor ou consumidora, se na hora do pedido o
+            valor que estiver sendo pago em outras plataformas for maior do que
+            o entregador ou entregadora receberia pelas configurações da frota.
+            Importante ressaltar aqui que o valor mínimo continuará respeitando
+            o que foi definido na frota.
           </Text>
         </Box>
         <Center mt="10" w="100%" display={{ base: "flex", md: "none" }}>

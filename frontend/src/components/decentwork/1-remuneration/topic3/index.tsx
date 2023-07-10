@@ -25,7 +25,7 @@ export const S1Topic3 = () => {
           <Text mt="6">
             O algoritmo de precificação do AppJusto é muito simples e sempre
             segue apenas três passos, como explicado ao lado. Na nossa
-            platarorma, o entregador ou entregadora sempre sabe exatamente
+            plataforma, o entregador ou entregadora sempre sabe exatamente
             quanto ganhará pela corrida.
           </Text>
           <Text mt="6">
