@@ -86,7 +86,7 @@ const AppsModal: React.FC = () => {
             <CustomLinkButton
               size="lg"
               w="100%"
-              linkLabel="Cadastre-se como entregador"
+              linkLabel="Cadastre-se como entregador/a"
               variant="secondary"
               fontSize="16px"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"

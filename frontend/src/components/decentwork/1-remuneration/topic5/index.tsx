@@ -43,9 +43,10 @@ export const S1Topic5 = () => {
             demoramos um mês para receber).
           </Text>
           <Text mt="6">
-            O entregador pode sacar o valor pago a qualquer momento (em horário
-            comercial). A operadora financeira cobra a taxa de R$ 1 para fazer a
-            transferência dos valores para a conta corrente do entregador.
+            O entregador ou entregadora pode sacar o valor pago a qualquer
+            momento (em horário comercial). A operadora financeira cobra a taxa
+            de R$ 1 para fazer a transferência dos valores para a conta corrente
+            da pessoa.
           </Text>
         </Box>
       </Flex>

@@ -43,7 +43,7 @@ const Better: React.FC = () => {
               size="lg"
               variant="secondary"
               link="https://play.google.com/store/apps/details?id=br.com.appjusto.courier.live"
-              linkLabel="Cadastre-se como entregador"
+              linkLabel="Cadastre-se como entregador/a"
               isExternal
             />
           </StackholderBox>

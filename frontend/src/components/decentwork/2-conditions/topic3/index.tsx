@@ -23,9 +23,9 @@ export const S2Topic3 = () => {
               Ela evita a fraude cometida por consumidores que relatam às
               plataformas que não receberam o produto,
             </Span>
-            o que normalmente implica no bloqueio automático do entregador. O
-            AppJusto exige o código de confirmação em todas as corridas feitas
-            dentro da rede desde o lançamento.
+            o que normalmente implica no bloqueio automático do entregador ou
+            entregadora. O AppJusto exige o código de confirmação em todas as
+            corridas feitas dentro da rede desde o lançamento.
           </Text>
         </Box>
         <Center w="100%" mt={{ base: "10", md: "0" }}>

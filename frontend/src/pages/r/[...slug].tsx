@@ -158,7 +158,7 @@ export default function RestaurantPage({
       business.slug
     }`;
     const message = encodeURIComponent(
-      `Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e o entregador. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`
+      `Olá, queria indicar o ${business.name}! Pedindo pelo AppJusto os preços dos pratos são menores, e você valoriza mais ainda o restaurante e a pessoa que faz a entrega. Um delivery mais justo de verdade. Experimente ;)\n\n${url}`
     );
     setSharingMsg(message);
   }, [business?.slug, business.name]);

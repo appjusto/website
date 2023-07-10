@@ -51,7 +51,7 @@ export default function Links() {
               isExternal
             >
               <Button w="100%" variant="secondary" borderColor="black">
-                Quero me cadastrar como entregador
+                Quero me cadastrar como entregador/a
               </Button>
             </Link>
             <Link
