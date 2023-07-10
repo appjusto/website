@@ -27,7 +27,7 @@ const PageLayout: React.FC<PageProps> = ({ pageName, children }) => {
       <Head>
         <title>{titleToDisplay}</title>
       </Head>
-      <Header />
+      <Header isForCouriers={pageName === "Trabalho decente"} />
       <Main>
         {HeroShare ? (
           children

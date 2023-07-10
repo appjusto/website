@@ -18,7 +18,11 @@ import Container from "./Container";
 import CustomLink from "./CustomLink";
 import CustomLinkButton from "./CustomLinkButton";
 
-const Header = () => {
+interface HeaderProps {
+  isForCouriers?: boolean;
+}
+
+const Header = ({ isForCouriers }: HeaderProps) => {
   // context
   const { setShowAppsModal } = usePageContext();
   const { isOpen, onToggle } = useDisclosure();
@@ -26,15 +30,15 @@ const Header = () => {
   return (
     <Flex
       as="header"
-      w="100%"
-      h="64px"
+      minH="64px"
       bg="white"
       flexDir="column"
       justifyContent="center"
       position="fixed"
       top="0"
       left="0"
-      zIndex="999"
+      right="0"
+      zIndex="990"
     >
       <Container py="2">
         <Flex
@@ -95,11 +99,16 @@ const Header = () => {
               display={{ base: "none", lg: "flex" }}
               align="center"
             >
-              <CustomLink
-                name="calculadora"
-                href="/calculadoras/restaurantes"
-                linkLabel="Calculadora para restaurantes"
-              />
+              {isForCouriers && (
+                <CustomLink name="home" href="/" linkLabel="Home" />
+              )}
+              {!isForCouriers && (
+                <CustomLink
+                  name="calculadora"
+                  href="/calculadoras/restaurantes"
+                  linkLabel="Calculadora para restaurantes"
+                />
+              )}
               <CustomLink
                 name="freshdesk"
                 href="https://appjusto.freshdesk.com/support/home"
@@ -108,15 +117,17 @@ const Header = () => {
               />
             </HStack>
             <HStack>
-              <CustomLinkButton
-                display={{ base: "none", lg: "block" }}
-                w="260px"
-                size="lg"
-                fontSize="16px"
-                linkLabel="Acessar painel do restaurante"
-                link={`${adminLink}app`}
-                isExternal
-              />
+              {!isForCouriers && (
+                <CustomLinkButton
+                  display={{ base: "none", lg: "block" }}
+                  w="260px"
+                  size="lg"
+                  fontSize="16px"
+                  linkLabel="Acessar painel do restaurante"
+                  link={`${adminLink}app`}
+                  isExternal
+                />
+              )}
               <Button
                 display={{ base: "none", md: "block" }}
                 size="lg"
@@ -138,7 +149,7 @@ const Header = () => {
           </Button>
         </Flex>
       </Container>
-      <Collapse in={isOpen} animateOpacity>
+      <Collapse in={isOpen}>
         <Box
           bg="white"
           w="100%"
@@ -150,31 +161,38 @@ const Header = () => {
           fontWeight="700"
         >
           <VStack spacing={10} alignItems="flex-start">
-            <CustomLink
-              name="admin-landing"
-              href={adminLink}
-              linkLabel="Cadastrar restaurante"
-              isExternal
-            />
-            <CustomLink
-              name="calculadora-restaurantes-mob"
-              href="/calculadoras/restaurantes"
-              linkLabel="Calculadora para restaurantes"
-            />
+            <CustomLink name="home-link" href="/" linkLabel="Home" />
+            {!isForCouriers && (
+              <>
+                <CustomLink
+                  name="admin-landing"
+                  href={adminLink}
+                  linkLabel="Cadastrar restaurante"
+                  isExternal
+                />
+                <CustomLink
+                  name="calculadora-restaurantes-mob"
+                  href="/calculadoras/restaurantes"
+                  linkLabel="Calculadora para restaurantes"
+                />
+              </>
+            )}
             <CustomLink
               name="freshdesk"
               href="https://appjusto.freshdesk.com/support/home"
               linkLabel="Tirar dúvidas"
               isExternal
             />
-            <CustomLinkButton
-              size="lg"
-              variant="basic"
-              fontSize="16px"
-              linkLabel="Acessar painel do restaurante"
-              link={`${adminLink}app`}
-              isExternal
-            />
+            {!isForCouriers && (
+              <CustomLinkButton
+                size="lg"
+                variant="basic"
+                fontSize="16px"
+                linkLabel="Acessar painel do restaurante"
+                link={`${adminLink}app`}
+                isExternal
+              />
+            )}
             <HStack spacing={4}>
               <CustomLink
                 name="go_to_linkedin_header"
