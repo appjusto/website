@@ -16,9 +16,8 @@ export const Remuneration = () => {
         title="Remuneração"
         description={
           <Text>
-            Garantia que o entregador ou entregadora receba pelo menos um{" "}
-            <strong>salário mínimo</strong> já descontados seus custos/gastos
-            para trabalhar.
+            Garantia que o entregador ou entregadora receba um valor justo já
+            descontados seus custos/gastos para trabalhar.
           </Text>
         }
       />
