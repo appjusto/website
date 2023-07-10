@@ -31,9 +31,16 @@ export const S5Topic1 = () => {
             foram incorporadas à plataforma desde o começo.
           </Text>
           <Text mt="6">
-            Para que o diálogo com a categoria seja constante, nós mantemos
-            grupos de WhatsApp (“Centrais de discussão”) e contato associações e
-            coletivos que representam a categoria.
+            Para que o diálogo seja constante, nós mantemos grupos de WhatsApp
+            (“Centrais de discussão”) com os entregadores e entregadoras que
+            fazem entregas na plataforma. É nesses grupos que as questões do
+            mercado e da plataforma são discutidas coletivamente.
+          </Text>
+          <Text mt="6">
+            O AppJusto também mantém contato com associações e coletivos que
+            representam a categoria e estará sempre aberto ao diálogo para
+            discutir e negociar com todas e todos que lutam por um trabalho
+            decente no delivery.
           </Text>
           <Box mt="16">
             <Text>Associações e coletivos</Text>
