@@ -3,7 +3,6 @@ import { BaseSection } from "../BaseSection";
 import { S4Topic1 } from "./topic1";
 import { S4Topic2 } from "./topic2";
 import { S4Topic3 } from "./topic3";
-import { S4Topic4 } from "./topic4";
 
 export const Management = () => {
   return (
@@ -29,7 +28,6 @@ export const Management = () => {
         <S4Topic1 />
         <S4Topic2 />
         <S4Topic3 />
-        <S4Topic4 />
       </BaseSection.Body>
     </BaseSection.Root>
   );

@@ -62,6 +62,17 @@ export const S4Topic3 = () => {
           </Text>
         </Box>
       </Flex>
+      <Center
+        display={{ base: "flex", lg: "none" }}
+        mb={{ base: "-16", lg: "0" }}
+      >
+        <Image
+          mt="8"
+          w="120px"
+          src="/dw/section4-img2.png"
+          alt="pequeno rabisco amarelo"
+        />
+      </Center>
     </BaseTopic>
   );
 };

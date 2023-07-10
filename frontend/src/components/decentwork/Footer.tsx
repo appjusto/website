@@ -23,7 +23,7 @@ export const Footer = () => {
 
         <Flex
           position="relative"
-          mt={{ base: "12", md: "12", lg: "8" }}
+          mt={{ base: "0", md: "12", lg: "8" }}
           px={{ base: "4", md: "0" }}
           maxW={{ base: "100%", md: "600px", lg: "1090px" }}
           flexDir="column"

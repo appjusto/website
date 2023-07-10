@@ -1,6 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import { BaseSection } from "../BaseSection";
 import { S5Topic1 } from "./topic1";
+import { S5Topic2 } from "./topic2";
 
 export const Representations = () => {
   return (
@@ -18,6 +19,7 @@ export const Representations = () => {
       />
       <BaseSection.Body>
         <S5Topic1 />
+        <S5Topic2 />
       </BaseSection.Body>
     </BaseSection.Root>
   );
