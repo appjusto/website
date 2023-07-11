@@ -55,9 +55,10 @@ export const S1Topic1 = () => {
           bgColor="green.50"
         >
           <Text fontSize="lg">
-            O valor é cerca de 3,4x <Span bold>maior</Span> que o salário mínimo
-            brasileiro e cerca de <Span bold>68% do valor ideal</Span> calculado
-            pelo DIEESE.
+            O valor é cerca de 3,18x <Span bold>maior</Span> que o salário
+            mínimo brasileiro e cerca de <Span bold>62% do valor ideal</Span>{" "}
+            calculado pelo DIEESE, considerando uma jornada de 220 horas por
+            mês.
           </Text>
         </Box>
       </Flex>
