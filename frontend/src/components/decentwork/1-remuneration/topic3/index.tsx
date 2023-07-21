@@ -20,7 +20,7 @@ export const S1Topic3 = () => {
         <Box w={{ base: "100%", md: "45%" }}>
           <SectionTopic
             section="REMUNERAÇÃO"
-            topic="No AppJusto os alogritmos são simples e transparentes"
+            topic="No AppJusto os algoritmos são simples e transparentes"
           />
           <Text mt="6">
             O algoritmo de precificação do AppJusto é muito simples e sempre
