@@ -8,6 +8,7 @@ import {
   Flex,
   Image,
   Text,
+  Link,
 } from "@chakra-ui/react";
 import { BaseTopic } from "../../BaseTopic";
 import { SectionTopic } from "../../SectionTopic";
@@ -36,6 +37,20 @@ export const S1Topic3 = () => {
             estar disponível na plataforma; ter enviado a localização há menos
             de 20 minutos; e estar numa frota que pode realizar corrida nas
             distâncias do pedido em questão.
+          </Text>
+          <Text mt="6">
+            Nossos algoritmos não usam score nem outros mecanismos que possam
+            gerar viéses contra qualquer grupo de pessoas historicamente
+            discriminadas.{" "}
+            <Link
+              href="https://drive.google.com/file/d/1hkrB2aPzdtKJAjkwagR-uKXFNS0BjHmt/view?usp=sharing"
+              fontWeight="semibold"
+              textDecor="underline"
+              isExternal
+            >
+              Leia a auditoria
+            </Link>{" "}
+            que o consultor Heitor Gouvêa fez sobre nossos algoritmos.
           </Text>
           <Box mt="10" display={{ base: "block", lg: "none" }} w="100%">
             <Accordion defaultIndex={[0]} allowMultiple>
