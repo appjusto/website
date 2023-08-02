@@ -3,6 +3,8 @@ import Seo from "@/components/Seo";
 import DecentWork from "@/components/home/decent-work";
 import { SupportFooter } from "@/components/support/Footer";
 import { SupportHero } from "@/components/support/hero";
+import { Section1 } from "@/components/support/section1";
+import { Section2 } from "@/components/support/section2";
 import Head from "next/head";
 
 export default function SupportPage() {
@@ -17,6 +19,8 @@ export default function SupportPage() {
       </Head>
       <PageLayout pageName="Apoie">
         <SupportHero />
+        <Section1 />
+        <Section2 />
         <DecentWork />
         <SupportFooter />
       </PageLayout>

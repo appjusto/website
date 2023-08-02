@@ -57,7 +57,7 @@ export const SupportHero = () => {
               spacing="12px"
               justify={{ base: "center", md: "start" }}
             >
-              <WrapItem maxW={{ base: "170px" }}>
+              <WrapItem maxW={{ base: "170px", lg: "100%" }}>
                 <Center
                   flexDir="column"
                   justifyContent="space-between"
@@ -70,10 +70,7 @@ export const SupportHero = () => {
                 >
                   <Center flexDir="column">
                     <Box maxW="90px">
-                      <Image
-                        src="/support/logo-fairwork.png"
-                        alt="logo fairwork"
-                      />
+                      <Image src="/support/logo-fairwork.png" alt="fairwork" />
                     </Box>
                     <Text
                       mt="1"
@@ -87,7 +84,7 @@ export const SupportHero = () => {
                   <Text fontSize="4xl">#1</Text>
                 </Center>
               </WrapItem>
-              <WrapItem maxW={{ base: "170px" }}>
+              <WrapItem maxW={{ base: "170px", lg: "100%" }}>
                 <Center
                   flexDir="column"
                   justifyContent="space-between"
@@ -102,7 +99,7 @@ export const SupportHero = () => {
                     <Box maxW="96px">
                       <Image
                         src="/support/logo-inovativa.png"
-                        alt="logo fairwork"
+                        alt="inovativa"
                       />
                     </Box>
                     <Text
@@ -117,7 +114,7 @@ export const SupportHero = () => {
                   <Text fontSize="4xl">#2</Text>
                 </Center>
               </WrapItem>
-              <WrapItem maxW={{ base: "170px" }}>
+              <WrapItem maxW={{ base: "170px", lg: "100%" }}>
                 <Center
                   flexDir="column"
                   justifyContent="space-between"
@@ -129,7 +126,10 @@ export const SupportHero = () => {
                   p="4"
                 >
                   <Box maxW="80px">
-                    <Image src="/support/logo-impact.png" alt="logo fairwork" />
+                    <Image
+                      src="/support/logo-impact.png"
+                      alt="Latam positive impact startup"
+                    />
                   </Box>
                   <Text fontSize="4xl">#3</Text>
                 </Center>
