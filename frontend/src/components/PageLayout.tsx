@@ -16,7 +16,8 @@ interface PageProps {
 const PageLayout: React.FC<PageProps> = ({ pageName, children }) => {
   // helpers
   const HeroShare =
-    pageName && ["Home", "Restaurantes", "Trabalho decente"].includes(pageName);
+    pageName &&
+    ["Home", "Restaurantes", "Trabalho decente", "Apoie"].includes(pageName);
   const titleToDisplay = React.useMemo(
     () => `AppJusto | ${pageName}`,
     [pageName]

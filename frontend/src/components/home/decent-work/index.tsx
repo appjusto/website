@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import CustomLinkButton from "@/components/CustomLinkButton";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
+import { Span } from "@/components/Span";
 import { Box, Center, Flex, Image, Text } from "@chakra-ui/react";
 
 const DecentWork: React.FC = () => {
@@ -20,13 +21,16 @@ const DecentWork: React.FC = () => {
             pb={{ base: "12", lg: "12" }}
           >
             <SectionHeading fontSize={{ base: "3xl", lg: "5xl" }} highlighted>
-              Na luta pelo trabalho decente
+              Estamos na luta por um trabalho decente
             </SectionHeading>
             <Text mt="10" textStyle="p">
               O AppJusto nasceu em resposta às paralisações promovidas por
               entregadores e entregadoras em 2020. Criamos uma página para
-              reunir as principais ações da plataforma na luta contra a
-              precarização do trabalho.{" "}
+              reunir{" "}
+              <Span bold>
+                as principais ações da plataforma na luta contra a precarização
+                do trabalho.
+              </Span>{" "}
             </Text>
             <Center
               mt="8"
