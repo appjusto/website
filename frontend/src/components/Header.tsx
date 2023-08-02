@@ -108,6 +108,12 @@ const Header = ({ isForCouriers }: HeaderProps) => {
                 />
               )}
               <CustomLink
+                name="decent-work"
+                href="/trabalho-decente"
+                linkLabel="Trabalho decente"
+              />
+              <CustomLink name="support" href="/apoie" linkLabel="Apoie" />
+              <CustomLink
                 name="freshdesk"
                 href="https://appjusto.freshdesk.com/support/home"
                 linkLabel="Tirar dúvidas"
@@ -175,6 +181,12 @@ const Header = ({ isForCouriers }: HeaderProps) => {
                 />
               </>
             )}
+            <CustomLink
+              name="decent-work"
+              href="/trabalho-decente"
+              linkLabel="Trabalho decente"
+            />
+            <CustomLink name="support" href="/apoie" linkLabel="Apoie" />
             <CustomLink
               name="freshdesk"
               href="https://appjusto.freshdesk.com/support/home"
