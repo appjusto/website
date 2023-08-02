@@ -15,10 +15,9 @@ import {
 
 interface DataItemProps extends CenterProps {
   data: string;
-  description: string[];
 }
 
-const DataItem = ({ data, description, ...props }: DataItemProps) => {
+const DataItem = ({ data, children, ...props }: DataItemProps) => {
   return (
     <GridItem>
       <Center
@@ -39,11 +38,7 @@ const DataItem = ({ data, description, ...props }: DataItemProps) => {
         <Text fontSize="4xl" fontWeight="semibold">
           {data}
         </Text>
-        {description.map((text) => (
-          <Text key={text} mt="4" textAlign="center" fontSize="md">
-            {description}
-          </Text>
-        ))}
+        {children}
       </Center>
     </GridItem>
   );
@@ -117,37 +112,40 @@ export const Section2 = () => {
           </Flex>
         </Flex>
         <Grid mt="6" templateColumns={{ lg: "repeat(3, 1fr)" }} gap={6}>
-          <DataItem
-            data="41.806"
-            description={[
-              "pedidos entregues: delivery comida + entregas rápidas",
-            ]}
-          />
-          <DataItem
-            data="R$500.000"
-            description={[
-              "diferença estimada em economia feita pelos restaurantes que estão conosco considerando valores regulares de outras plataformas",
-            ]}
-          />
-          <DataItem
-            data="R$4.443.603"
-            description={["movimentados em pedidos de comida"]}
-          />
+          <DataItem data="41.806">
+            <Text mt="4" textAlign="center" fontSize="md">
+              pedidos entregues: delivery comida + entregas rápidas
+            </Text>
+          </DataItem>
+          <DataItem data="R$500.000">
+            <Text mt="4" textAlign="center" fontSize="md">
+              diferença estimada em economia feita pelos restaurantes que estão
+              conosco considerando valores regulares de outras plataformas
+            </Text>
+          </DataItem>
+          <DataItem data="R$4.443.603">
+            <Text mt="4" textAlign="center" fontSize="md">
+              movimentados em pedidos de comida
+            </Text>
+          </DataItem>
         </Grid>
         <Grid mt="6" templateColumns={{ lg: "repeat(3, 1fr)" }} gap={6}>
-          <DataItem
-            data="R$147.000"
-            description={[
-              "a mais no bolso dos entregadores: estimativa do total incremental pago aos entregadores comparando o valor pago pelo AppJusto vs outras plataformas",
-              "Considera média de R$ 6,50 como valor mínimo pago por corrida por outras plataformas vs R$ 10,00 pago pelo AppJusto",
-            ]}
-            minH={{ lg: "402px" }}
-          />
-          <DataItem
-            data="R$4.443.603"
-            description={["movimentados em pedidos de comida"]}
-            minH={{ lg: "402px" }}
-          />
+          <DataItem data="R$147.000" minH={{ lg: "306px" }}>
+            <Text mt="4" textAlign="center" fontSize="md">
+              a mais no bolso dos entregadores: estimativa do total incremental
+              pago aos entregadores comparando o valor pago pelo AppJusto vs
+              outras plataformas
+            </Text>
+            <Text mt="4" textAlign="center" fontSize="md">
+              Considera média de R$ 6,50 como valor mínimo pago por corrida por
+              outras plataformas vs R$ 10,00 pago pelo AppJusto
+            </Text>
+          </DataItem>
+          <DataItem data="R$4.443.603" minH={{ lg: "306px" }}>
+            <Text mt="4" textAlign="center" fontSize="md">
+              movimentados em pedidos de comida
+            </Text>
+          </DataItem>
         </Grid>
       </Container>
     </Section>

@@ -5,6 +5,8 @@ import { SupportFooter } from "@/components/support/Footer";
 import { SupportHero } from "@/components/support/hero";
 import { Section1 } from "@/components/support/section1";
 import { Section2 } from "@/components/support/section2";
+import { Section3 } from "@/components/support/section3";
+import { Section4 } from "@/components/support/section4";
 import Head from "next/head";
 
 export default function SupportPage() {
@@ -21,6 +23,8 @@ export default function SupportPage() {
         <SupportHero />
         <Section1 />
         <Section2 />
+        <Section3 />
+        <Section4 />
         <DecentWork />
         <SupportFooter />
       </PageLayout>
