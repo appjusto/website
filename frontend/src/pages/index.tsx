@@ -5,6 +5,7 @@ import Seo from "@/components/Seo";
 import SharingModal from "@/components/SharingModal";
 import VideoModal from "@/components/VideoModal";
 import Better from "@/components/home/better";
+import Bndes from "@/components/home/bndes";
 import Commitment from "@/components/home/commitment";
 import Crowdfunding from "@/components/home/crowdfunding";
 import DecentWork from "@/components/home/decent-work";
@@ -38,6 +39,7 @@ export default function Home() {
         <Media />
         <Support />
         <Un />
+        <Bndes />
         <Together />
         <CookieBar />
         <AppsModal />
