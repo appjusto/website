@@ -21,6 +21,7 @@ const RestaurantsHero: React.FC = () => {
           </Text>
           <Heading
             as="h1"
+            color="white"
             fontSize={{ base: "32px", md: "56px" }}
             fontWeight="700"
             lineHeight={{ base: "38.4px", md: "64px" }}
