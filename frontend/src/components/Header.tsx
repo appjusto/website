@@ -100,13 +100,13 @@ const Header = ({ isForCouriers }: HeaderProps) => {
               {isForCouriers && (
                 <CustomLink name="home" href="/" linkLabel="Home" />
               )}
-              {!isForCouriers && (
+              {/* {!isForCouriers && (
                 <CustomLink
                   name="calculadora"
                   href="/calculadoras/restaurantes"
                   linkLabel="Calculadora para restaurantes"
                 />
-              )}
+              )} */}
               <CustomLink
                 name="decent-work"
                 href="/trabalho-decente"
@@ -174,11 +174,11 @@ const Header = ({ isForCouriers }: HeaderProps) => {
                   linkLabel="Cadastrar restaurante"
                   isExternal
                 />
-                <CustomLink
+                {/* <CustomLink
                   name="calculadora-restaurantes-mob"
                   href="/calculadoras/restaurantes"
                   linkLabel="Calculadora para restaurantes"
-                />
+                /> */}
               </>
             )}
             <CustomLink

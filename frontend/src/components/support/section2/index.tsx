@@ -61,7 +61,7 @@ export const Section2 = () => {
             <Text fontSize="6xl" fontWeight="semibold">
               <Span bgColor="green.500" fontSize="3xl" px="2">
                 <Span fontSize="6xl" bold>
-                  +XX0.000
+                  +18.368
                 </Span>
               </Span>{" "}
             </Text>
@@ -83,19 +83,19 @@ export const Section2 = () => {
             >
               <Center flexDir="column">
                 <Text fontSize="4xl" fontWeight="semibold">
-                  100
+                  1.658
                 </Text>
                 <Text mt="2">Entregadores</Text>
               </Center>
               <Center flexDir="column">
                 <Text fontSize="4xl" fontWeight="semibold">
-                  300
+                  11.556
                 </Text>
                 <Text mt="2">Consumidores</Text>
               </Center>
               <Center flexDir="column">
                 <Text fontSize="4xl" fontWeight="semibold">
-                  1000
+                  693
                 </Text>
                 <Text mt="2">Restaurantes</Text>
               </Center>
@@ -112,12 +112,12 @@ export const Section2 = () => {
           </Flex>
         </Flex>
         <Grid mt="6" templateColumns={{ lg: "repeat(3, 1fr)" }} gap={6}>
-          <DataItem data="41.806">
+          <DataItem data="45.360">
             <Text mt="4" textAlign="center" fontSize="md">
               pedidos entregues: delivery comida + entregas rápidas
             </Text>
           </DataItem>
-          <DataItem data="R$500.000">
+          <DataItem data="R$305.457">
             <Text mt="4" textAlign="center" fontSize="md">
               diferença estimada em economia feita pelos restaurantes que estão
               conosco considerando valores regulares de outras plataformas
@@ -136,14 +136,20 @@ export const Section2 = () => {
               pago aos entregadores comparando o valor pago pelo AppJusto vs
               outras plataformas
             </Text>
-            <Text mt="4" textAlign="center" fontSize="md">
+            <Text mt="4" textAlign="center" fontSize="sm">
               Considera média de R$ 6,50 como valor mínimo pago por corrida por
               outras plataformas vs R$ 10,00 pago pelo AppJusto
             </Text>
           </DataItem>
-          <DataItem data="R$4.443.603" minH={{ lg: "306px" }}>
+          <DataItem data="R$10,29" minH={{ lg: "306px" }}>
             <Text mt="4" textAlign="center" fontSize="md">
-              movimentados em pedidos de comida
+              ganho líquido médio por corrida = 3x maior que o proporcional do
+              salário mínimo 2023
+            </Text>
+            <Text mt="4" textAlign="center" fontSize="sm">
+              Considera média de 1,8 corridas por hora de trabalho, já
+              descontados combustível, manutenção e plano móvel, considerando
+              386 corridas/mês
             </Text>
           </DataItem>
         </Grid>
